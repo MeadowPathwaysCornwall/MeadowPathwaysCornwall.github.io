@@ -1,17 +1,16 @@
-/* Default background with image */
+/* Backgrounds */
 body.home,
 body.safeguarding,
 body.staff,
 body.team {
-  background-image: url('hand meadow.jpg');
+  background-image: url('BG.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: #e6f2f8; /* fallback pale blue */
+  background-color: #e6f2f8;
 }
 
-/* Contact page background */
 body.contact {
   background-image: url('contact1.png');
   background-size: cover;
@@ -21,14 +20,13 @@ body.contact {
   background-color: #e6f2f8;
 }
 
-/* EOTAS and About page — pale blue only */
 body.eotas,
 body.about {
   background-color: #e6f2f8;
   background-image: none;
 }
 
-/* Optional: soft overlay behind main content */
+/* Main content overlay */
 .main-content-box {
   background-color: rgba(255, 255, 255, 0.85);
   padding: 30px;
@@ -36,4 +34,110 @@ body.about {
   max-width: 900px;
   margin: 40px auto;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Navigation */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #005a87;
+}
+
+.nav-tabs li {
+  margin: 0;
+}
+
+.nav-tabs a {
+  display: block;
+  padding: 15px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-tabs a.active,
+.nav-tabs a:hover {
+  background-color: #007bb5;
+}
+
+/* Carousel */
+.carousel-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-slide {
+  display: flex;
+  position: relative;
+}
+
+.carousel-image {
+  min-width: 100%;
+  height: auto;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-image.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Team bios */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.team-member {
+  background-color: #fff;
+  padding: 20px;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.team-member img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Back to top button */
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #005a87;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  display: none;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+#backToTop:hover {
+  background-color: #007bb5;
 }
