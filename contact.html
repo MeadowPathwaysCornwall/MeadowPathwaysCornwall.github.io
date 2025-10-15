@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact Us - Meadow Pathways</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us | Meadow Pathways Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="contact">
-  <div class="logo-container">
-    <img src="Logo (2).png" alt="Meadow Pathways Logo" class="logo">
-  </div>
+  <header>
+    <div class="logo-container">
+      <img src="Logo (2).png" alt="Meadow Pathways Cornwall Logo" class="logo" />
+    </div>
+    <nav>
+      <ul class="nav-tabs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="eotas.html">EOTAS Info</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html">Staff Only</a></li>
+        <li><a href="contact.html" class="active">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <ul class="nav-tabs">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="eotas.html">EOTAS</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="safeguarding.html">Safeguarding</a></li>
-    <li><a href="staff.html">Staff Only</a></li>
-    <li><a href="contact.html" class="active">Contact</a></li>
-  </ul>
-
-  <div class="main-content-box">
+  <main class="main-content-box">
     <h1 style="text-align: center;">Contact Us</h1>
 
-   <div class="phone-tooltip-tab">
-  <strong>Zoe (Director):</strong><br>
-  📞 07775733587<br>
-  ✉️ meadowpathwayscornwall@outlook.com<br>
-  ✉️ ZoeWaitz@MeadowPathwayscornwall.com<br><br>
+    <div class="phone-tooltip-tab">
+      <strong>Zoe (Director):</strong><br>
+      📞 07775733587<br>
+      ✉️ meadowpathwayscornwall@outlook.com<br>
+      ✉️ ZoeWaitz@MeadowPathwayscornwall.com<br><br>
 
-  <strong>Michelle (Director):</strong><br>
-  📞 07932243358<br>
-  ✉️ Michelle.Pascoe@meadowpathwayscornwall.com<br><br>
+      <strong>Michelle (Director):</strong><br>
+      📞 07932243358<br>
+      ✉️ Michelle.Pascoe@meadowpathwayscornwall.com<br><br>
 
-  <strong>Location:</strong> Cornwall, UK
-</div>
+      <strong>Location:</strong> Cornwall, UK
     </div>
 
-    <!-- Contact Form -->
     <div class="contact-form">
       <form action="https://formspree.io/f/movnvzqp" method="POST">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://meadowpathwayscornwall.github.io/Website/thankyou.html">
 
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" required aria-label="Your name">
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required aria-label="Your email address">
 
         <label for="message">Message</label>
-        <textarea id="message" name="message" required oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
+        <textarea id="message" name="message" required aria-label="Your message"
+          oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
 
         <button type="submit">Send Message</button>
       </form>
@@ -58,7 +61,7 @@
     <p style="text-align: center; margin-top: 20px;">
       <strong>Opening Hours:</strong> Monday–Friday, 9:00 AM – 3:30 PM (UK School Term Time)
     </p>
-  </div>
+  </main>
 
   <footer>
     © 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd. All rights reserved.
