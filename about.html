@@ -1,14 +1,80 @@
-<div class="team-grid">
-  <div class="team-member">
-    <img src="Zoe.jpeg" alt="Zoe Waitz">
-    <h3>Zoe Waitz</h3>
-    <p>Director of Education. Zoe is a qualified teacher with over 10 years’ experience working in special education. She has supported children and young people who find mainstream settings challenging, including those with anxiety, school avoidance (EBSNA), neurodiversity, and trauma-related needs. Zoe is all about a child-centred approach—meeting each young person where they are and helping them grow in confidence, re-engage with learning, and find their own path. She’s passionate about using the outdoors and nature-based learning to build resilience, emotional wellbeing, and a genuine love of learning. Outside of work, Zoe can usually be found knee-deep in the veg patch, chatting to her chickens, or off exploring Cornwall’s wild corners with her family—ideally ending up at a good café.</p>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | Meadow Pathways Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="about">
+  <header>
+    <div class="logo-container">
+      <img src="Logo (2).png" alt="Meadow Pathways Cornwall Logo" class="logo" />
+    </div>
+    <nav>
+      <ul class="nav-tabs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="eotas.html">EOTAS Info</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="staff.html">Staff Only</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="team-member">
-    <img src="MP.jpeg" alt="Michelle Pascoe">
-    <h3>Michelle Pascoe</h3>
-    <p>Director of Therapies. Michelle has worked in SEN settings for over 20 years. She is a person-centred counsellor, play therapist, and senior mental health worker, trained in PACE, SPACE, and emotion coaching. Michelle has supported children and young people with SEMH needs, neurodiversity, trauma-related experiences, and behaviours that may challenge mainstream settings. Her approach is deeply compassionate and tailored, giving each individual and their family the time and support they need to navigate their unique path.</p>
-    <p>Michelle is also an experienced safeguarding lead, with a deep understanding of the complexities surrounding child protection and emotional wellbeing. She works closely with families, schools, and professionals to ensure that every child feels safe, heard, and supported. Her safeguarding work is rooted in empathy, respect, and a belief that every child deserves to thrive in a secure and nurturing environment. Outside of work, Michelle enjoys spending time with her family and walking her two dogs along the beautiful Cornish coast.</p>
-  </div>
-</div>
+  <main class="main-content-box">
+    <h1>About Us</h1>
+    <p>At Meadow Pathways Wellbeing and Education Cornwall (MPWEC), we are passionate about providing nurturing, personalised education and support for children with SEMH and neurodiverse needs. Our leadership team brings together a wealth of experience, specialist training, and a shared commitment to helping every child — guiding individual journeys with care and purpose.</p>
+
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <img src="cook.jpg" class="carousel-image active" alt="Cooking activity" />
+        <img src="den.jpg" class="carousel-image" alt="Outdoor den building" />
+        <img src="arrow.png" class="carousel-image" alt="Nature-based learning" />
+      </div>
+    </div>
+
+    <h2>Meet the Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="Zoe.jpeg" alt="Zoe Waitz">
+        <h3>Zoe Waitz</h3>
+        <p>Director of Education. Zoe is a qualified teacher with over 10 years’ experience working in special education. She supports children and young people with anxiety, school avoidance (EBSNA), neurodiversity, and trauma-related needs. Zoe’s child-centred approach helps learners grow in confidence and re-engage with learning. She’s passionate about nature-based education and can often be found in the veg patch or exploring Cornwall’s wild corners with her family.</p>
+      </div>
+
+      <div class="team-member">
+        <img src="MP.jpeg" alt="Michelle Pascoe">
+        <h3>Michelle Pascoe</h3>
+        <p>Director of Therapies. Michelle has worked in SEN settings for over 20 years. She is a person-centred counsellor, play therapist, and senior mental health worker, trained in PACE, SPACE, and emotion coaching. Michelle supports children with SEMH, neurodiversity, and trauma-related experiences. Her safeguarding work is rooted in empathy and early intervention. Outside of work, she enjoys coastal walks with her dogs and time with her family.</p>
+      </div>
+    </div>
+  </main>
+
+  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</button>
+
+  <footer>
+    © 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd. All rights reserved.
+  </footer>
+
+  <script>
+    // Carousel fade effect
+    const images = document.querySelectorAll('.carousel-image');
+    let current = 0;
+
+    function showNextImage() {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }
+
+    setInterval(showNextImage, 3000);
+
+    // Back to top button
+    window.addEventListener('scroll', function () {
+      const btn = document.getElementById('backToTop');
+      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
