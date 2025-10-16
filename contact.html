@@ -5,6 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Us | Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body.contact {
+      background: url('contact1.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .contact-box {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 700px;
+      margin: 40px auto;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .phone-icon {
+      font-size: 2rem;
+      color: red;
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .phone-tooltip-tab {
+      display: none;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 280px;
+      z-index: 100;
+      font-size: 0.95rem;
+    }
+
+    .phone-icon:hover .phone-tooltip-tab {
+      display: block;
+    }
+
+    form.contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    form.contact-form input,
+    form.contact-form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    form.contact-form button {
+      background-color: #005a87;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    form.contact-form button:hover {
+      background-color: #007bb5;
+    }
+  </style>
 </head>
 <body class="contact">
   <header>
@@ -19,16 +91,61 @@
         <li><a href="safeguarding.html">Safeguarding</a></li>
         <li><a href="contact.html" class="active">Contact Us</a></li>
         <li><a href="staff.html">Staff Only</a></li>
+
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-content">
+            <li><a href="MPWEC Safeguarding and Child Protection Policy September 2025.docx">Safeguarding & Child Protection Policy</a></li>
+            <li><a href="MPWEC Staff Conduct Policy.docx">Staff Conduct Policy</a></li>
+            <li><a href="MPWEC Complaints Policy.docx">Complaints Policy</a></li>
+            <li><a href="MPWEC Behaviour Policy.docx">Behaviour Policy</a></li>
+            <li><a href="MPWEC - H&S Policy Sep 25.docx">Health & Safety Policy</a></li>
+            <li><a href="Values.png">Our Values</a></li>
+            <li><a href="RSHE 2025.pdf">RSHE 2025</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">EOTAS & EBSNA Info</a>
+          <ul class="dropdown-content">
+            <li><a href="EBSNA.docx">Info on EBSNA</a></li>
+            <li><a href="eotas.html">EOTAS Guidance</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>
 
-  <main class="main-content-box">
+  <main class="contact-box">
     <h1>Contact Us</h1>
-    <p>If you’d like to learn more about Meadow Pathways or speak to a member of our team, please reach out using the details below.</p>
-    <p>Email: <a href="mailto:info@meadowpathwayscornwall.org.uk">info@meadowpathwayscornwall.org.uk</a></p>
-    <p>Phone: 01234 567890</p>
-    <p>We aim to respond within 2 working days.</p>
+
+    <div class="phone-icon">☎
+      <div class="phone-tooltip-tab">
+        <strong>Zoe (Director):</strong><br>
+        📞 07775733587<br>
+        ✉️ meadowpathwayscornwall@outlook.com<br>
+        ✉️ ZoeWaitz@MeadowPathwayscornwall.com<br><br>
+
+        <strong>Michelle (Director):</strong><br>
+        📞 07932243358<br>
+        ✉️ Michelle.Pascoe@meadowpathwayscornwall.com<br><br>
+
+        <strong>Location:</strong> Cornwall, UK
+      </div>
+    </div>
+
+    <form class="contact-form" action="mailto:meadowpathwayscornwall@outlook.com" method="post" enctype="text/plain">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
   </main>
 
   <footer>
