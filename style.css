@@ -1,230 +1,100 @@
-/* Backgrounds */
-body.home,
-body.safeguarding,
-body.staff,
-body.team {
-  background-image: url('BG.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: #e6f2f8;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home | Meadow Pathways Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="home">
+  <header>
+    <div class="logo-container">
+      <img src="Logo (2).png" alt="Meadow Pathways Cornwall Logo" class="logo" />
+    </div>
+    <nav>
+      <ul class="nav-tabs">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="eotas.html">EOTAS Info</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="staff.html">Staff Only</a></li>
 
-body.contact {
-  background-image: url('contact1.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: #e6f2f8;
-}
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-content">
+            <li><a href="MPCE_EOTAS_Safeguarding_Policy.docx">Safeguarding Policy</a></li>
+            <li><a href="Meadow_Pathways_Staff_Conduct_Policy.docx">Staff Conduct Policy</a></li>
+            <li><a href="Meadow_Pathways_Complaints_Policy.docx">Complaints Policy</a></li>
+            <li><a href="MPCE Behaviour Policy.docx">Behaviour Policy</a></li>
+            <li><a href="Values.png">Our Values</a></li>
+            <li><a href="RSHE 2025.pdf">RSHE 2025</a></li>
+          </ul>
+        </li>
 
-body.eotas,
-body.about {
-  background-color: #e6f2f8;
-  background-image: none;
-}
+        <li class="dropdown">
+          <a href="#">EOTAS & EBSNA Info</a>
+          <ul class="dropdown-content">
+            <li><a href="EBSNA.docx">Info on EBSNA</a></li>
+            <li><a href="eotas.html">EOTAS Guidance</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-/* Logo */
-.logo {
-  max-width: 180px;
-  height: auto;
-  margin: 20px auto;
-  display: block;
-}
+  <main class="main-content-box">
+    <h1>Welcome to Meadow Pathways</h1>
+    <p>
+      Guiding individual journeys with care &amp; purpose.  
+      Reconnecting children with learning and life.  
+      Supporting individual growth through nurturing and understanding practices.  
+      We help children thrive through tailored, trauma-informed educational approaches.
+    </p>
 
-/* Main content overlay */
-.main-content-box {
-  background-color: rgba(255, 255, 255, 0.88);
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 900px;
-  margin: 40px auto;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
-}
+    <h2>Our Vision</h2>
+    <p>
+      Meadow Pathways Wellbeing and Education Cornwall ethos is rooted with care and collaboration. We focus on nurturing growth, building confidence, and preparing young individuals for a brighter, more connected future. MPWEC provide bespoke therapeutic and educational support for children with SEMH and neurodiverse needs. We believe every child deserves a nurturing environment where they can grow, learn, and thrive.
+    </p>
 
-/* Navigation */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <img src="cook.jpg" class="carousel-image active" alt="Cooking activity" />
+        <img src="den.jpg" class="carousel-image" alt="Outdoor den building" />
+        <img src="arrow.png" class="carousel-image" alt="Nature-based learning" />
+      </div>
+    </div>
 
-.nav-tabs {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  background-color: #005a87;
-  flex-wrap: wrap;
-}
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>🌱 Trauma-informed and child-centred approach</li>
+      <li>🎓 Flexible learning pathways tailored to each child</li>
+      <li>🤝 Collaborative work with families and professionals</li>
+      <li>🌿 Nature-based and therapeutic activities</li>
+      <li>📜 ASDAN and AQA accredited qualifications</li>
+    </ul>
+  </main>
 
-.nav-tabs li {
-  position: relative;
-}
+  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</button>
 
-.nav-tabs a {
-  display: block;
-  padding: 14px 18px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-}
+  <footer>
+    © 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd. All rights reserved.
+  </footer>
 
-.nav-tabs a.active,
-.nav-tabs a:hover {
-  background-color: #007bb5;
-}
+  <script>
+    const images = document.querySelectorAll('.carousel-image');
+    let current = 0;
+    function showNextImage() {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }
+    setInterval(showNextImage, 3000);
 
-/* Dropdown styling */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #ffffff;
-  min-width: 220px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  border-radius: 6px;
-  padding: 8px 0;
-  top: 100%;
-  left: 0;
-}
-
-.dropdown-content li {
-  padding: 8px 16px;
-}
-
-.dropdown-content li a {
-  color: #005a87;
-  text-decoration: none;
-  display: block;
-  font-weight: 500;
-}
-
-.dropdown-content li a:hover {
-  background-color: #e6f2f8;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Carousel */
-.carousel-container {
-  position: relative;
-  max-width: 900px;
-  margin: 0 auto 30px;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.carousel-slide {
-  position: relative;
-  height: 400px;
-}
-
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.9s ease-in-out;
-}
-
-.carousel-image.active {
-  opacity: 1;
-}
-
-/* Offer list styling */
-.offer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.offer-list li {
-  display: grid;
-  grid-template-columns: 2rem auto;
-  gap: 12px;
-  align-items: start;
-  margin-bottom: 14px;
-}
-
-.offer-icon {
-  font-size: 1.25rem;
-  line-height: 1.6rem;
-}
-
-/* Team bios */
-.team-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-  margin-top: 24px;
-}
-
-.team-member {
-  background-color: #fff;
-  padding: 18px;
-  max-width: 300px;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
-}
-
-.team-member img {
-  width: 100%;
-  height: 210px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
-
-/* General image sizing */
-.main-content-box img,
-.safeguarding-asset {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-  border-radius: 8px;
-}
-
-/* Back to top button */
-#backToTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #005a87;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 14px;
-  display: none;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-}
-
-#backToTop:hover {
-  background-color: #007bb5;
-}
-
-/* Responsive */
-@media (max-width: 640px) {
-  .carousel-slide {
-    height: 260px;
-  }
-  .logo {
-    max-width: 150px;
-  }
-  .main-content-box {
-    padding: 22px;
-    margin: 24px auto;
-  }
-}
+    window.addEventListener('scroll', function () {
+      const btn = document.getElementById('backToTop');
+      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
