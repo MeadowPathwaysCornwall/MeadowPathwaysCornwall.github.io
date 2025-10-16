@@ -47,9 +47,9 @@
   <main class="main-content-box">
     <h1>Welcome to Meadow Pathways</h1>
     <p>
-      Guiding individual journeys with care &amp; purpose.  
-      Reconnecting children with learning and life.  
-      Supporting individual growth through nurturing and understanding practices.  
+      Guiding individual journeys with care &amp; purpose.<br />
+      Reconnecting children with learning and life.<br />
+      Supporting individual growth through nurturing and understanding practices.<br />
       We help children thrive through tailored, trauma-informed educational approaches.
     </p>
 
@@ -87,14 +87,16 @@
     </ul>
   </main>
 
+  <!-- Back to top button -->
   <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</button>
 
   <footer>
     © 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd. All rights reserved.
   </footer>
 
-  <!-- ✅ Carousel Script -->
+  <!-- ✅ JavaScript -->
   <script>
+    // Carousel rotation
     const images = document.querySelectorAll('.carousel-image');
     let current = 0;
 
@@ -104,8 +106,9 @@
       images[current].classList.add('active');
     }
 
-    setInterval(showNextImage, 3000);
+    setInterval(showNextImage, 3000); // rotate every 3 seconds
 
+    // Back to top button
     window.addEventListener('scroll', function () {
       const btn = document.getElementById('backToTop');
       btn.style.display = window.scrollY > 300 ? 'block' : 'none';
