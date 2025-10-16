@@ -1,4 +1,4 @@
-/* ===== Global Styles ===== */
+/* ===== Global styles ===== */
 * {
   box-sizing: border-box;
 }
@@ -69,7 +69,7 @@ p {
   background-color: #007bb5;
 }
 
-/* ===== Dropdown Menus ===== */
+/* ===== Dropdown menus ===== */
 .dropdown > a::after {
   content: " ▼";
   font-size: 0.9em;
@@ -109,37 +109,47 @@ p {
   display: block;
 }
 
-/* ===== Carousel (Option 2: cropped, reduced height) ===== */
+/* ===== Home background image ===== */
+body.home {
+  background: url('BG.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* ===== Carousel (contain, centered) ===== */
 .carousel-container {
   position: relative;
   max-width: 900px;
   margin: 0 auto 30px;
   overflow: hidden;
   border-radius: 12px;
-  background: #000;
+  background: #000; /* backdrop to avoid visual gaps */
 }
+
 .carousel-slide {
   position: relative;
   height: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000; /* optional background */
 }
+
 .carousel-image {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
-  position: relative;
+  object-fit: contain;        /* show entire image without cropping */
+  object-position: center;    /* center the image */
+  position: absolute;
+  inset: 0;
+  margin: auto;
   opacity: 0;
   transition: opacity 0.9s ease-in-out;
 }
+
 .carousel-image.active {
   opacity: 1;
 }
-}
 
-/* ===== Offer List (EOTAS page) ===== */
+/* ===== Offer list (EOTAS page) ===== */
 .offer-list {
   list-style: none;
   padding: 0;
@@ -159,7 +169,7 @@ p {
   line-height: 1.6rem;
 }
 
-/* ===== Staff Tabs ===== */
+/* ===== Staff tabs ===== */
 .staff-tabs-container {
   display: flex;
   flex-wrap: wrap;
@@ -203,7 +213,7 @@ p {
   text-decoration: underline;
 }
 
-/* ===== Back to Top Button ===== */
+/* ===== Back to top button ===== */
 #backToTop {
   position: fixed;
   bottom: 20px;
@@ -223,7 +233,7 @@ p {
   background-color: #007bb5;
 }
 
-/* ===== Tooltip for Contact Page ===== */
+/* ===== Tooltip (contact page) ===== */
 .phone-icon {
   font-size: 2rem;
   color: red;
@@ -297,8 +307,4 @@ button:focus {
   .staff-tab {
     flex: 1 1 100%;
   }
-  body.home {
-  background: url('BG.png') no-repeat center center fixed;
-  background-size: cover;
-}
 }
