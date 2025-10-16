@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home | Meadow Pathways Cornwall</title>
+  <title>EOTAS Info | Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="home">
+<body class="eotas">
   <header>
     <div class="logo-container">
       <img src="Logo (2).png" alt="Meadow Pathways Cornwall Logo" class="logo" />
     </div>
     <nav>
       <ul class="nav-tabs">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="eotas.html">EOTAS Info</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="eotas.html" class="active">EOTAS Info</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="safeguarding.html">Safeguarding</a></li>
         <li><a href="contact.html">Contact Us</a></li>
@@ -24,38 +24,77 @@
   </header>
 
   <main class="main-content-box">
-    <h1>Welcome to Meadow Pathways</h1>
-    <p>Guiding individual journeys with care and purpose. We support children with SEMH and neurodiverse needs through nurturing, personalised education and therapeutic provision.</p>
+    <!-- Introductory Hero Text -->
+    <p>
+      Guiding individual journeys with care &amp; purpose.  
+      Reconnecting children with learning and life.  
+      Supporting individual growth through nurturing  
+      and understanding practices.  
+      We help children thrive through tailored,  
+      trauma-informed educational approaches. 🌿
+    </p>
 
-    <div class="carousel-container">
-      <div class="carousel-slide">
-        <img src="cook.jpg" class="carousel-image active" alt="Cooking activity" />
-        <img src="den.jpg" class="carousel-image" alt="Outdoor den building" />
-        <img src="arrow.png" class="carousel-image" alt="Nature-based learning" />
-      </div>
-    </div>
+    <h2>Our Commitment</h2>
+    <p>
+      At Meadow Pathways we recognise that every young person is unique. We are committed to working collaboratively with families, schools, and partner organisations to find the most meaningful and sustainable route to success for each learner.
+    </p>
+
+    <p>
+      Whether a child is facing barriers to education due to emotional barriers, past trauma, or unmet needs, our role is to meet them where they are and help them move forward with confidence.
+    </p>
+
+    <!-- EOTAS Provision Section -->
+    <h1>EOTAS Provision</h1>
+    <p>
+      We offer bespoke education packages for children and young people who are unable to attend mainstream school. Our EOTAS provision is built around each learner’s strengths, interests, and therapeutic needs.
+    </p>
+
+    <!-- What We Offer Section -->
+    <h2>What We Offer</h2>
+    <p>
+      To support this journey we provide a fully bespoke package of care and education that includes:
+    </p>
+    <ul class="offer-list">
+      <li>
+        <span class="offer-icon">🧑‍🤝‍🧑</span>
+        <strong>Mentoring and Advocacy:</strong> Building trust and self-belief through consistent, relational support and alternative provisions.
+      </li>
+      <li>
+        <span class="offer-icon">📚</span>
+        <strong>Tailored Learning Packages:</strong> Flexible academic pathways matched to each learner’s pace and interests.
+      </li>
+      <li>
+        <span class="offer-icon">🛠</span>
+        <strong>Life Skills and Independence Training:</strong> Practical preparation for adulthood, including functional skills and community engagement.
+      </li>
+      <li>
+        <span class="offer-icon">🧮</span>
+        <strong>Diagnostic Assessments:</strong> Literacy and numeracy profiling to inform targeted intervention.
+      </li>
+      <li>
+        <span class="offer-icon">💛</span>
+        <strong>SEMH Interventions:</strong> Trauma-informed strategies to support emotional regulation and resilience.
+      </li>
+      <li>
+        <span class="offer-icon">🎨</span>
+        <strong>Wellbeing and PSHE Packages:</strong> Creative, therapeutic sessions that promote self-awareness, relationships, and personal growth.
+      </li>
+      <li>
+        <span class="offer-icon">🔄</span>
+        <strong>Transitional Services:</strong> Carefully planned reintegration or onward pathways, supported by multi-agency collaboration.
+      </li>
+      <li>
+        <span class="offer-icon">🧠</span>
+        <strong>Therapeutic and Curriculum-Linked Activities:</strong> Whether a child is facing barriers to accessing education or simply needs a different kind of support, we offer engaging therapeutic activities tailored to their interests. These include nature-based bushcraft, walking, fitness, water-based activities, fun activities, therapeutic support, fishing, climbing, cooking, play, biking, and more.
+      </li>
+    </ul>
+    <p>
+      We offer a bespoke provision that reflects your child’s individual interests. Activities are linked to the curriculum and supported by ASDAN qualifications and AQA Unit Awards.
+    </p>
   </main>
-
-  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</button>
 
   <footer>
     © 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd. All rights reserved.
   </footer>
-
-  <script>
-    const images = document.querySelectorAll('.carousel-image');
-    let current = 0;
-    function showNextImage() {
-      images[current].classList.remove('active');
-      current = (current + 1) % images.length;
-      images[current].classList.add('active');
-    }
-    setInterval(showNextImage, 3000);
-
-    window.addEventListener('scroll', function () {
-      const btn = document.getElementById('backToTop');
-      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-  </script>
 </body>
 </html>
