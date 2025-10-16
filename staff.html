@@ -16,37 +16,62 @@
   </script>
 </head>
 <body class="staff">
-  <div class="logo-container">
-    <img src="Logo (2).png" alt="Meadow Pathways Cornwall Logo" class="logo" />
-  </div>
+  <header>
+    <div class="logo-container">
+      <img src="Logo (2).png" alt="Meadow Pathways Cornwall Logo" class="logo" />
+    </div>
+    <nav>
+      <ul class="nav-tabs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="eotas.html">EOTAS Info</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="staff.html" class="active">Staff Only</a></li>
 
-  <ul class="nav-tabs">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="eotas.html">EOTAS Info</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="safeguarding.html">Safeguarding</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-    <li><a href="staff.html" class="active">Staff Only</a></li>
-  </ul>
+        <li class="dropdown">
+          <a href="#">Resources</a>
+          <ul class="dropdown-content">
+            <li><a href="MPWEC Safeguarding and Child Protection Policy September 2025.docx">Safeguarding & Child Protection Policy</a></li>
+            <li><a href="MPWEC Staff Conduct Policy.docx">Staff Conduct Policy</a></li>
+            <li><a href="MPWEC Complaints Policy.docx">Complaints Policy</a></li>
+            <li><a href="MPWEC Behaviour Policy.docx">Behaviour Policy</a></li>
+            <li><a href="MPWEC - H&S Policy Sep 25.docx">Health & Safety Policy</a></li>
+            <li><a href="Values.png">Our Values</a></li>
+            <li><a href="RSHE 2025.pdf">RSHE 2025</a></li>
+          </ul>
+        </li>
 
-  <section>
+        <li class="dropdown">
+          <a href="#">EOTAS & EBSNA Info</a>
+          <ul class="dropdown-content">
+            <li><a href="EBSNA.docx">Info on EBSNA</a></li>
+            <li><a href="eotas.html">EOTAS Guidance</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content-box">
     <h1>Staff Only Area</h1>
+
     <div class="staff-tabs-container">
       <div class="staff-tab">
-        <img src="Book.jpg" alt="KCSIE 2025" class="book-img">
+        <img src="Book.jpg" alt="KCSIE 2025" class="book-img" />
         <div class="staff-tab-title">KCSIE 2025</div>
         <a class="staff-tab-link" href="KCSIE 2025.pdf" target="_blank">View / Download PDF</a>
       </div>
 
       <div class="staff-tab">
-        <img src="Book.jpg" alt="RSHE 2025" class="book-img">
+        <img src="Book.jpg" alt="RSHE 2025" class="book-img" />
         <div class="staff-tab-title">RSHE 2025</div>
         <a class="staff-tab-link" href="RSHE 2025.pdf" target="_blank">View / Download PDF</a>
       </div>
     </div>
 
     <ul>
-      <li><strong>Training Dates and information:</strong>
+      <li><strong>Training Dates and Information:</strong>
         <a href="https://www.pookyknightsmith.com/" target="_blank" rel="noopener noreferrer">
           Dr Pooky Knightsmith – Practical ideas to enable every child to thrive
         </a>
@@ -73,10 +98,19 @@
         </ul>
       </li>
     </ul>
-  </section>
+  </main>
+
+  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</button>
 
   <footer>
     © 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd. All rights reserved.
   </footer>
+
+  <script>
+    window.addEventListener('scroll', function () {
+      const btn = document.getElementById('backToTop');
+      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+  </script>
 </body>
 </html>
