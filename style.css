@@ -26,23 +26,11 @@ body.about {
   background-image: none;
 }
 
-/* Optional overlay to soften background for readability */
-body.home::before,
-body.safeguarding::before,
-body.staff::before,
-body.team::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.6);
-  z-index: -1;
-}
-
 /* Logo */
 .logo {
   max-width: 180px;
   height: auto;
-  margin: 16px auto;
+  margin: 20px auto;
   display: block;
 }
 
@@ -70,10 +58,11 @@ nav {
   padding: 0;
   margin: 0;
   background-color: #005a87;
+  flex-wrap: wrap;
 }
 
 .nav-tabs li {
-  margin: 0;
+  position: relative;
 }
 
 .nav-tabs a {
@@ -89,6 +78,39 @@ nav {
   background-color: #007bb5;
 }
 
+/* Dropdown styling */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 220px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  border-radius: 6px;
+  padding: 8px 0;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-content li {
+  padding: 8px 16px;
+}
+
+.dropdown-content li a {
+  color: #005a87;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+}
+
+.dropdown-content li a:hover {
+  background-color: #e6f2f8;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 /* Carousel */
 .carousel-container {
   position: relative;
@@ -100,13 +122,13 @@ nav {
 
 .carousel-slide {
   position: relative;
-  height: 400px; /* controls overall carousel height */
+  height: 400px;
 }
 
 .carousel-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;        /* prevents distortion, fills area neatly */
+  object-fit: cover;
   position: absolute;
   inset: 0;
   opacity: 0;
@@ -117,7 +139,7 @@ nav {
   opacity: 1;
 }
 
-/* Offer list (EOTAS page) */
+/* Offer list styling */
 .offer-list {
   list-style: none;
   padding: 0;
@@ -157,28 +179,19 @@ nav {
 
 .team-member img {
   width: 100%;
-  height: 210px;           /* consistent card height */
+  height: 210px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 12px;
 }
 
-/* General image sizing inside content */
-.main-content-box img {
+/* General image sizing */
+.main-content-box img,
+.safeguarding-asset {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 16px auto;
-  border-radius: 8px;
-}
-
-/* Safeguarding images (if used inline) */
-.safeguarding-asset {
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  display: block;
-  margin: 16px auto;
+  margin: 20px auto;
   border-radius: 8px;
 }
 
@@ -202,10 +215,10 @@ nav {
   background-color: #007bb5;
 }
 
-/* Small screens */
+/* Responsive */
 @media (max-width: 640px) {
   .carousel-slide {
-    height: 260px; /* smaller carousel on mobile */
+    height: 260px;
   }
   .logo {
     max-width: 150px;
