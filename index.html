@@ -58,7 +58,7 @@
       Meadow Pathways Wellbeing and Education Cornwall ethos is rooted with care and collaboration. We focus on nurturing growth, building confidence, and preparing young individuals for a brighter, more connected future. MPWEC provide bespoke therapeutic and educational support for children with SEMH and neurodiverse needs. We believe every child deserves a nurturing environment where they can grow, learn, and thrive.
     </p>
 
-    <!-- ✅ Carousel -->
+    <!-- Carousel -->
     <div class="carousel-container">
       <div class="carousel-slide">
         <img src="Bake.jpg" class="carousel-image active" alt="Baking activity" />
@@ -70,6 +70,7 @@
         <img src="Paint.jpg" class="carousel-image" alt="Creative painting" />
         <img src="cook.jpg" class="carousel-image" alt="Cooking activity" />
         <img src="den.jpg" class="carousel-image" alt="Outdoor den building" />
+        <img src="map.gif" class="carousel-image" alt="Exploring maps" />
         <img src="paths.jpg" class="carousel-image" alt="Nature paths" />
         <img src="plant.jpg" class="carousel-image" alt="Planting and growth" />
         <img src="wood.jpg" class="carousel-image" alt="Woodland learning" />
@@ -93,9 +94,8 @@
     © 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd. All rights reserved.
   </footer>
 
-  <!-- ✅ JavaScript -->
+  <!-- Carousel Script -->
   <script>
-    // Carousel rotation
     const images = document.querySelectorAll('.carousel-image');
     let current = 0;
 
@@ -105,7 +105,7 @@
       images[current].classList.add('active');
     }
 
-    setInterval(showNextImage, 3000); // rotate every 3 seconds
+    setInterval(showNextImage, 3000);
 
     // Back to top button
     window.addEventListener('scroll', function () {
@@ -113,22 +113,5 @@
       btn.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
   </script>
-  <script>
-  const images = document.querySelectorAll('.carousel-image');
-  let current = 0;
-
-  function showNextImage() {
-    images[current].classList.remove('active');
-    current = (current + 1) % images.length;
-    images[current].classList.add('active');
-  }
-
-  setInterval(showNextImage, 3000);
-
-  window.addEventListener('scroll', function () {
-    const btn = document.getElementById('backToTop');
-    btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-  });
-</script>
 </body>
 </html>
