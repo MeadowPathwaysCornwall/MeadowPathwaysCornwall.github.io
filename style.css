@@ -212,7 +212,24 @@ body.home {
 .staff-tab-link:hover {
   text-decoration: underline;
 }
+.staff-photos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  text-align: center;
+}
 
+.staff-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ccc;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
 /* ===== Back to top button ===== */
 #backToTop {
   position: fixed;
