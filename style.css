@@ -147,14 +147,14 @@ p {
 
 .offer-list li {
   display: grid;
-  grid-template-columns: 2rem auto;
+  grid-template-columns: 2rem 1fr;
   gap: 12px;
   align-items: start;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .offer-icon {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 1.6rem;
 }
 
