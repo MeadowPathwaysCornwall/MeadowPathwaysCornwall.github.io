@@ -58,6 +58,7 @@
       Meadow Pathways Wellbeing and Education Cornwall ethos is rooted with care and collaboration. We focus on nurturing growth, building confidence, and preparing young individuals for a brighter, more connected future. MPWEC provide bespoke therapeutic and educational support for children with SEMH and neurodiverse needs. We believe every child deserves a nurturing environment where they can grow, learn, and thrive.
     </p>
 
+    <!-- ✅ Carousel -->
     <div class="carousel-container">
       <div class="carousel-slide">
         <img src="Bake.png" class="carousel-image active" alt="Baking activity" />
@@ -92,14 +93,17 @@
     © 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd. All rights reserved.
   </footer>
 
+  <!-- ✅ Carousel Script -->
   <script>
     const images = document.querySelectorAll('.carousel-image');
     let current = 0;
+
     function showNextImage() {
       images[current].classList.remove('active');
       current = (current + 1) % images.length;
       images[current].classList.add('active');
     }
+
     setInterval(showNextImage, 3000);
 
     window.addEventListener('scroll', function () {
