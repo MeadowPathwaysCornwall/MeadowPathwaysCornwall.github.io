@@ -5,16 +5,15 @@
   overflow: hidden;
   border-radius: 12px;
 }
-
 .carousel-slide {
   position: relative;
-  height: 280px; /* reduced height so more of each image is visible */
+  height: 280px;
 }
 
 .carousel-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* fills the box neatly */
+  object-fit: cover;
   position: absolute;
   inset: 0;
   opacity: 0;
@@ -24,6 +23,7 @@
 .carousel-image.active {
   opacity: 1;
 }
+
 
 /* Responsive adjustment */
 @media (max-width: 640px) {
