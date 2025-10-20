@@ -16,7 +16,8 @@ body.home {
 
 /* ===== Logo ===== */
 .logo {
-  max-width: 180px;
+  max-width:220px; /* was 180px */
+
   margin: 20px auto;
   display: block;
   opacity: 0;
@@ -108,13 +109,19 @@ nav {
   transform: translateY(20px);
   animation: slideUp 1.2s ease forwards;
 }
+.hero-banner {
+  background-color: #dfe9e3;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
 
 /* ===== Main content box ===== */
 .main-content-box {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #ffffff;
+  background-color:#eef6f0; /* soft nature-inspired green */
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
