@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Page Title</title>
+  <title>Meadow Pathways Cornwall | Home</title>
   <link rel="stylesheet" href="style.css" />
-<script src="script.js" defer></script> 
+  <script src="script.js" defer></script>
 </head>
 <body class="home">
   <!-- Header -->
@@ -58,9 +58,9 @@
   <!-- Carousel -->
   <div class="carousel-container">
     <div class="carousel-slide">
-      <img src="carousel1.jpg" alt="Learning outdoors" class="carousel-image active" />
-      <img src="carousel2.jpg" alt="Creative play therapy" class="carousel-image" />
-      <img src="carousel3.jpg" alt="Supportive group work" class="carousel-image" />
+      <img src="Bake.jpg" alt="Learning through cooking" class="carousel-image active" />
+      <img src="Plant.jpg" alt="Nature-based learning" class="carousel-image" />
+      <img src="MM.jpg" alt="Creative play therapy" class="carousel-image" />
     </div>
   </div>
 
@@ -79,7 +79,7 @@
     <p>
       We believe every child deserves to feel safe, seen, and supported.  
       Our work is guided by the SPACE ethos, combining therapeutic practice with inclusive education.  
-      Whether rebuilding confidence, easing anxieties, or supporting re-engagement with learning,  
+      Whether rebuilding confidence, easing anxieties, or supporting re‑engagement with learning,  
       we meet each child at their own pace.
     </p>
 
@@ -95,24 +95,5 @@
   <footer>
     © 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd. All rights reserved.
   </footer>
-
-  <!-- Script for carousel -->
-  <script>
-    const images = document.querySelectorAll('.carousel-image');
-    let index = 0;
-    setInterval(() => {
-      images[index].classList.remove('active');
-      index = (index + 1) % images.length;
-      images[index].classList.add('active');
-    }, 5000);
-  </script>
-
-  <!-- Script for back to top -->
-  <script>
-    window.addEventListener('scroll', function () {
-      const btn = document.getElementById('backToTop');
-      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-  </script>
 </body>
 </html>
