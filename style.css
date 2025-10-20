@@ -7,13 +7,11 @@ body {
   color: #333;
   line-height: 1.6;
 }
-
-/* ===== Home background image ===== */
 body.home {
   background: url('BG.png') no-repeat center center fixed;
   background-size: contain;
-  background-color: rgba(255, 255, 255, 0.85);
-  background-blend-mode: lighten;
+  background-color: rgba(255, 255, 255, 0.6); /* soft white overlay */
+  background-blend-mode: overlay;
 }
 
 /* ===== Logo ===== */
