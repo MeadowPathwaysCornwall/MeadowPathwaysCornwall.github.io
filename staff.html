@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Page Title</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
   <title>Staff Only - Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       var password = prompt("Please enter the staff password:");
@@ -21,7 +19,9 @@
 <body class="staff">
   <header>
     <div class="logo-container">
-    <img src="Logo.png" alt="Meadow Pathways Cornwall Logo" class="logo" />  
+      <a href="index.html">
+        <img src="Logo.png" alt="Meadow Pathways Cornwall Logo" class="logo" />
+      </a>
     </div>
     <nav>
       <ul class="nav-tabs">
@@ -31,7 +31,7 @@
         <li><a href="safeguarding.html">Safeguarding</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="staff.html" class="active">Staff Only</a></li>
-         <li><a href="referral.html">Referral Form</a></li>
+        <li><a href="referral.html">Referral Form</a></li>
 
         <li class="dropdown">
           <a href="#">Resources</a>
@@ -109,12 +109,5 @@
   <footer>
     © 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd. All rights reserved.
   </footer>
-
-  <script>
-    window.addEventListener('scroll', function () {
-      const btn = document.getElementById('backToTop');
-      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-  </script>
 </body>
 </html>
