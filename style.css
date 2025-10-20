@@ -7,17 +7,18 @@ body {
   color: #333;
   line-height: 1.6;
 }
+
+/* ===== Home background image ===== */
 body.home {
   background: url('BG.png') no-repeat center center fixed;
-  background-size: contain;
-  background-color: rgba(255, 255, 255, 0.6); /* soft white overlay */
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.6);
   background-blend-mode: overlay;
 }
 
 /* ===== Logo ===== */
 .logo {
-  max-width:220px; /* was 180px */
-
+  max-width: 220px; /* slightly larger */
   margin: 20px auto;
   display: block;
   opacity: 0;
@@ -109,19 +110,13 @@ nav {
   transform: translateY(20px);
   animation: slideUp 1.2s ease forwards;
 }
-.hero-banner {
-  background-color: #dfe9e3;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
 
 /* ===== Main content box ===== */
 .main-content-box {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
-  background-color:#eef6f0; /* soft nature-inspired green */
+  background-color: #eef6f0; /* soft green background */
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
