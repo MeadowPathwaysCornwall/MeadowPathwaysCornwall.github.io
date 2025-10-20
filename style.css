@@ -1,4 +1,4 @@
-/* ===== Colour Palette from Uploaded Image ===== */
+/* ===== Colour Palette ===== */
 :root {
   --dark-teal: #264653;
   --teal: #2a9d8f;
@@ -22,7 +22,7 @@ body {
   line-height: 1.6;
 }
 
-/* ===== Subtle BG.png watermark ===== */
+/* ===== Watermark (only on homepage) ===== */
 body.home::before {
   content: "";
   position: fixed;
@@ -59,9 +59,7 @@ nav {
   margin: 0;
   padding: 0;
 }
-.nav-tabs li {
-  position: relative;
-}
+.nav-tabs li { position: relative; }
 .nav-tabs a {
   display: block;
   padding: 12px 16px;
@@ -77,7 +75,7 @@ nav {
   color: var(--dark-teal);
 }
 
-/* Dropdowns */
+/* ===== Dropdowns ===== */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -198,15 +196,6 @@ input, textarea, select {
 textarea {
   resize: vertical;
   min-height: 110px;
-}
-.confirmation-message {
-  background-color: #eaf3f0;
-  color: var(--teal);
-  padding: 14px;
-  border-radius: 10px;
-  margin-top: 18px;
-  text-align: center;
-  display: none;
 }
 
 /* ===== Pills ===== */
