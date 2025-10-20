@@ -1,37 +1,37 @@
-/* ===== Design tokens ===== */
+/* ===== Colour Palette from Uploaded Image ===== */
 :root {
-  --primary: #245E3A;      /* deep meadow green */
-  --secondary: #0B6E99;    /* calm teal */
-  --accent: #C86B32;       /* warm copper */
-  --text: #1F2A2E;         /* strong body text */
-  --bg: #F6FAF7;           /* light background */
-  --card: #FFFFFF;         /* content boxes */
-  --border: #D7E3DA;       /* soft separators */
+  --dark-teal: #264653;
+  --teal: #2a9d8f;
+  --mustard: #e9c46a;
+  --orange: #f4a261;
+  --coral: #e76f51;
+  --text: #1F2A2E;
+  --bg: #fdfaf6;
+  --card: #ffffff;
+  --border: #dcdcd2;
   --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 /* ===== Base ===== */
-html, body {
+body {
   margin: 0;
   padding: 0;
-}
-body {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   color: var(--text);
   background-color: var(--bg);
   line-height: 1.6;
 }
 
-/* ===== Subtle background image (watermark) ===== */
+/* ===== Subtle BG.png watermark ===== */
 body.home::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image: url('BG.png');
   background-repeat: no-repeat;
-  background-position: right 40px top 60px;
-  background-size: 28%; /* smaller, subtle */
-  opacity: 0.08;
+  background-position: bottom right;
+  background-size: 25%;
+  opacity: 0.06;
   pointer-events: none;
   z-index: -1;
 }
@@ -41,8 +41,8 @@ body.home::before {
   max-width: 220px;
   display: block;
   margin: 20px auto;
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
 }
 
 /* ===== Navigation ===== */
@@ -66,15 +66,15 @@ nav {
   display: block;
   padding: 12px 16px;
   text-decoration: none;
-  color: var(--primary);
+  color: var(--dark-teal);
   font-weight: 600;
   border-radius: 8px;
   transition: background 0.25s ease, color 0.25s ease;
 }
 .nav-tabs a:hover,
 .nav-tabs a.active {
-  background: #EAF3EE;
-  color: var(--primary);
+  background: #eaf3f0;
+  color: var(--teal);
 }
 
 /* Dropdowns */
@@ -98,12 +98,12 @@ nav {
   color: var(--text);
 }
 .dropdown-content li a:hover {
-  background-color: #F1F7F3;
+  background-color: #f1f7f3;
 }
 
 /* ===== Headings ===== */
 h1, h2, h3 {
-  color: var(--primary);
+  color: var(--dark-teal);
   margin: 0 0 12px;
 }
 h1 {
@@ -113,7 +113,7 @@ h2 {
   font-size: 1.6rem;
 }
 
-/* ===== Content cards ===== */
+/* ===== Content Cards ===== */
 .main-content-box {
   max-width: 980px;
   margin: 28px auto;
@@ -139,7 +139,7 @@ h2 {
 }
 .carousel-image {
   width: 100%;
-  height: 320px; /* reduced height */
+  height: 320px;
   object-fit: cover;
   display: none;
 }
@@ -150,7 +150,7 @@ h2 {
 /* ===== Buttons ===== */
 button,
 a.button {
-  background-color: var(--primary);
+  background-color: var(--teal);
   color: #fff;
   padding: 12px 18px;
   border: none;
@@ -162,16 +162,16 @@ a.button {
 }
 button:hover,
 a.button:hover {
-  background-color: #1F5131;
+  background-color: #21867a;
   transform: translateY(-1px);
 }
 
-/* Back to top */
+/* ===== Back to top ===== */
 #backToTop {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: var(--secondary);
+  background-color: var(--coral);
   color: #fff;
   border: none;
   padding: 10px 14px;
@@ -179,33 +179,33 @@ a.button:hover {
   cursor: pointer;
   display: none;
   font-size: 0.95rem;
-  box-shadow: 0 4px 10px rgba(11, 110, 153, 0.25);
+  box-shadow: 0 4px 10px rgba(231, 111, 81, 0.25);
 }
 #backToTop:hover {
-  background-color: #095E7D;
+  background-color: #d85f45;
 }
 
 /* ===== Forms ===== */
 form label {
   font-weight: 600;
-  color: var(--primary);
+  color: var(--dark-teal);
 }
 input, textarea, select {
-  border: 1px solid #C9D8CE;
+  border: 1px solid #ccc;
   border-radius: 10px;
   padding: 10px;
   font-size: 1rem;
   margin-bottom: 14px;
   width: 100%;
-  background: #FBFDFC;
+  background: #fdfdfc;
 }
 textarea {
   resize: vertical;
   min-height: 110px;
 }
 .confirmation-message {
-  background-color: #EAF3EE;
-  color: var(--primary);
+  background-color: #eaf3f0;
+  color: var(--teal);
   padding: 14px;
   border-radius: 10px;
   margin-top: 18px;
@@ -213,11 +213,11 @@ textarea {
   display: none;
 }
 
-/* ===== Pills / tags ===== */
+/* ===== Pills ===== */
 .pill {
   display: inline-block;
-  background-color: #EAF3EE;
-  color: var(--primary);
+  background-color: #eaf3f0;
+  color: var(--dark-teal);
   padding: 6px 12px;
   margin: 6px 6px 0 0;
   border-radius: 20px;
