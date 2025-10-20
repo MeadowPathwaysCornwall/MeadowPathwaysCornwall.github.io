@@ -110,6 +110,71 @@ nav {
   transform: translateY(20px);
   animation: slideUp 1.2s ease forwards;
 }
+/* ===== Pill badges (used on About page expertise) ===== */
+.pill {
+  display: inline-block;
+  background-color: #e6f2ec;
+  color: #2a5d3d;
+  padding: 6px 14px;
+  margin: 6px 6px 0 0;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pill:hover {
+  background-color: #d0e6da;
+  transform: translateY(-2px);
+}
+
+/* ===== Safeguarding cards ===== */
+.safeguarding-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.safeguarding-card {
+  flex: 1 1 280px;
+  max-width: 320px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.safeguarding-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.safeguarding-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.safeguarding-card h3 {
+  color: #2a5d3d;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.safeguarding-card p a {
+  color: #3b7a57;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.safeguarding-card p a:hover {
+  text-decoration: underline;
+}
 
 /* ===== Main content box ===== */
 .main-content-box {
