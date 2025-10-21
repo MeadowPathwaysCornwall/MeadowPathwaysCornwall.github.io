@@ -62,6 +62,7 @@ body {
 nav {
   background-color: var(--card);
   border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 .nav-tabs {
   list-style: none;
@@ -112,7 +113,24 @@ nav {
   background-color: #eaf3f0;
 }
 
-/* ===== Hero Heading ===== */
+/* ===== Hero Section ===== */
+.hero {
+  position: relative;
+  background: url('images/BG.png') no-repeat center center/cover;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+.hero-overlay {
+  background: rgba(27, 58, 75, 0.55);
+  padding: 40px;
+  border-radius: 12px;
+}
+
+/* ===== Hero Heading (legacy) ===== */
 .hero-heading {
   text-align: center;
   padding: 40px 20px;
@@ -163,7 +181,8 @@ nav {
 
 /* ===== Buttons ===== */
 button,
-a.button {
+a.button,
+.staff-tab-link {
   background-color: var(--teal);
   color: #fff;
   padding: 12px 18px;
@@ -172,10 +191,12 @@ a.button {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
   transition: background 0.25s ease, transform 0.15s ease;
 }
 button:hover,
-a.button:hover {
+a.button:hover,
+.staff-tab-link:hover {
   background-color: #1f5a5a;
   transform: translateY(-1px);
 }
@@ -217,11 +238,12 @@ textarea {
   resize: vertical;
   min-height: 110px;
 }
+
 /* ===== Pills ===== */
 .pill {
   display: inline-block;
-  background-color: var(--dark-teal); /* changed from #eaf3f0 */
-  color: #fff;                        /* changed from var(--dark-teal) */
+  background-color: var(--dark-teal);
+  color: #fff;
   padding: 6px 12px;
   margin: 6px 6px 0 0;
   border-radius: 20px;
@@ -269,7 +291,20 @@ footer {
   color: var(--dark-teal);
   background-color: var(--card);
   border-top: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 /* ===== Animations ===== */
-@keyframes fadeIn { to { opacity: 1; } }
+.main-content-box,
+.carousel-container,
+.safeguarding-images img,
+button,
+a.button,
+.staff-tab-link {
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
