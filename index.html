@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="home">
-  <!-- Header -->
   <header>
     <div class="logo-container">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways Cornwall Logo" class="logo" />
-      </a>
+      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" /></a>
     </div>
+
     <nav>
       <ul class="nav-tabs">
         <li><a href="index.html" class="active">Home</a></li>
@@ -23,7 +21,6 @@
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="staff.html">Staff Only</a></li>
         <li><a href="referral.html">Referral Form</a></li>
-
         <li class="dropdown">
           <a href="#">Resources</a>
           <ul class="dropdown-content">
@@ -37,47 +34,12 @@
             <li><a href="RSHE 2025.pdf">RSHE 2025</a></li>
           </ul>
         </li>
-
-        <li class="dropdown">
-          <a href="#">EOTAS & EBSNA Info</a>
-          <ul class="dropdown-content">
-            <li><a href="EBSNA.docx">Info on EBSNA</a></li>
-            <li><a href="eotas.html">EOTAS Guidance</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">Our Values</a>
-          <ul class="dropdown-content">
-            <li><a href="Values.png">Our Values Image</a></li>
-            <li><a href="about.html#values">Values Section</a></li>
-          </ul>
-        </li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero (solid background) -->
-  <section class="hero hero-solid">
-    <div class="hero-overlay">
-      <h1>Welcome to Meadow Pathways Cornwall</h1>
-      <p>Guiding individual journeys with care and purpose</p>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <main class="main-content-box">
-    <p>
-      Meadow Pathways Wellbeing and Education Cornwall offers flexible, trauma-informed support for children and young people navigating emotionally based school non-attendance, educational trauma, bereavement, and SEN/SEMH needs.
-    </p>
-    <p>
-      We work relationally, creatively, and collaboratively to build trust and tailor every journey to the child’s unique needs. Our team includes qualified therapists, educators, and mentors who deliver therapeutic curriculum-linked activities, life skills, and emotional support in safe, nurturing environments — from woodland walks to beach sessions, bushcraft, and beyond.
-    </p>
-    <p>
-      We welcome referrals from families, schools, and professionals. Explore our site to learn more about our ethos, services, and how we can support your child’s journey.
-    </p>
-
-    <!-- Carousel with your images -->
+  <main>
+    <!-- Carousel (top of page) -->
     <div class="carousel-container" aria-label="Activity carousel">
       <div class="carousel-slide">
         <img src="images/Bake.jpg"   class="carousel-image active" alt="Baking activity" />
@@ -95,41 +57,45 @@
       <button class="prev" aria-label="Previous slide" onclick="moveSlide(-1)">❮</button>
       <button class="next" aria-label="Next slide" onclick="moveSlide(1)">❯</button>
     </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-overlay">
+          <h1>Meadow Pathways Wellbeing and Education Cornwall.</h1>
+          <p>Guiding Individual Journeys with Care and Purpose</p>
+        </div>
+      </div>
+      <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,30 C300,100 900,0 1200,30 L1200,100 L0,100 Z" fill="#f7f9f8" />
+      </svg>
+    </section>
+
+    <!-- Main content -->
+    <section class="main-content-box container">
+      <h2 class="intro-heading">About our work</h2>
+
+      <p>
+        Meadow Pathways Wellbeing and Education Cornwall offers flexible, trauma-informed support for children and young people navigating emotionally based school non-attendance, educational trauma, bereavement, and SEN/SEMH needs.
+      </p>
+
+      <p>
+        We work relationally, creatively, and collaboratively to build trust and tailor every journey to the child’s unique needs. Our team includes qualified therapists, educators, and mentors who deliver therapeutic curriculum-linked activities, life skills, and emotional support in safe, nurturing environments — from woodland walks to beach sessions, bushcraft, and beyond.
+      </p>
+
+      <p>
+        We welcome referrals from families, schools, and professionals. Explore our site to learn more about our ethos, services, and how we can support your child’s journey.
+      </p>
+    </section>
   </main>
 
-  <!-- Back to top -->
-  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</button>
+  <button id="backToTop" aria-label="Back to top">↑</button>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd.</p>
     <p>Directors: Zoe Waitz & Michelle Pascoe</p>
   </footer>
 
-  <!-- Inline script so it runs after DOM elements exist -->
-  <script>
-    (function () {
-      const slides = document.querySelectorAll('.carousel-image');
-      if (!slides.length) return;
-      let currentSlide = 0;
-      function showSlide(index) {
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('active', i === index);
-        });
-      }
-      window.moveSlide = function (step) {
-        currentSlide = (currentSlide + step + slides.length) % slides.length;
-        showSlide(currentSlide);
-      };
-      // Auto-advance every 5 seconds
-      setInterval(() => window.moveSlide(1), 5000);
-
-      // Back to top visibility
-      window.addEventListener('scroll', function () {
-        const btn = document.getElementById('backToTop');
-        btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-      });
-    })();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
