@@ -1,30 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Staff Only | Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var password = prompt("Please enter the staff password:");
-      if (password !== "MPWEC!") {
-        alert("Incorrect password. Access denied.");
-        window.location.href = "index.html";
-      }
-    });
-  </script>
 </head>
 <body class="staff">
-  <!-- Header -->
   <header>
-    <div class="logo-container">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways Cornwall Logo" class="logo" />
-      </a>
-    </div>
-    <!-- Navigation -->
+    <div class="logo-container"><a href="index.html"><img src="Logo.png" alt="Logo" class="logo" /></a></div>
     <nav>
       <ul class="nav-tabs">
         <li><a href="index.html">Home</a></li>
@@ -34,95 +18,31 @@
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="staff.html" class="active">Staff Only</a></li>
         <li><a href="referral.html">Referral Form</a></li>
-
-        <li class="dropdown">
-          <a href="#">Resources</a>
-          <ul class="dropdown-content">
-            <li><a href="MPWEC Safeguarding and Child Protection Policy September 2025.docx">Safeguarding & Child Protection Policy</a></li>
-            <li><a href="MPWEC Staff Conduct Policy.docx">Staff Conduct Policy</a></li>
-            <li><a href="MPWEC Complaints Policy.docx">Complaints Policy</a></li>
-            <li><a href="MPWEC Behaviour Policy.docx">Behaviour Policy</a></li>
-            <li><a href="MPWEC - H&S Policy Sep 25.docx">Health & Safety Policy</a></li>
-            <li><a href="Values.png">Our Values Image</a></li>
-            <li><a href="about.html#values">Values Section</a></li>
-            <li><a href="RSHE 2025.pdf">RSHE 2025</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">EOTAS & EBSNA Info</a>
-          <ul class="dropdown-content">
-            <li><a href="EBSNA.docx">Info on EBSNA</a></li>
-            <li><a href="eotas.html">EOTAS Guidance</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">Our Values</a>
-          <ul class="dropdown-content">
-            <li><a href="Values.png">Our Values Image</a></li>
-            <li><a href="about.html#values">Values Section</a></li>
-          </ul>
-        </li>
       </ul>
     </nav>
   </header>
 
-  <!-- Main Content -->
-  <main class="main-content-box">
+  <main class="main-content-box container">
     <h1>Staff Only Area</h1>
 
-    <div class="staff-tabs-container">
-      <div class="staff-tab">
-        <img src="Book.jpg" alt="KCSIE 2025" class="book-img" />
-        <div class="staff-tab-title">KCSIE 2025</div>
-        <a class="staff-tab-link" href="KCSIE 2025.pdf" target="_blank">View / Download PDF</a>
+    <div id="staffContent" style="display:none;">
+      <div class="staff-tabs-container">
+        <div class="staff-tab">
+          <img src="Book.jpg" alt="KCSIE 2025" class="book-img" />
+          <div class="staff-tab-title">KCSIE 2025</div>
+          <a class="staff-tab-link" href="KCSIE 2025.pdf" target="_blank" rel="noopener">View / Download PDF</a>
+        </div>
+
+        <div class="staff-tab">
+          <img src="Book.jpg" alt="RSHE 2025" class="book-img" />
+          <div class="staff-tab-title">RSHE 2025</div>
+          <a class="staff-tab-link" href="RSHE 2025.pdf" target="_blank" rel="noopener">View / Download PDF</a>
+        </div>
       </div>
 
-      <div class="staff-tab">
-        <img src="Book.jpg" alt="RSHE 2025" class="book-img" />
-        <div class="staff-tab-title">RSHE 2025</div>
-        <a class="staff-tab-link" href="RSHE 2025.pdf" target="_blank">View / Download PDF</a>
-      </div>
-    </div>
-
-    <ul>
-      <li><strong>Training Dates and Information:</strong>
-        <a href="https://www.pookyknightsmith.com/" target="_blank" rel="noopener noreferrer">
-          Dr Pooky Knightsmith – Practical ideas to enable every child to thrive
-        </a>
-      </li>
-
-      <li><strong>Safeguarding Updates:</strong>
-        <a href="https://assets.publishing.service.gov.uk/media/686b94eefe1a249e937cbd2d/Keeping_children_safe_in_education_2025.pdf" target="_blank" rel="noopener noreferrer">
-          Gov Updates – KCSIE 2025
-        </a>
-      </li>
-
-      <li><strong>Documents:</strong>
-        <ul>
-          <li>
-            <a href="https://www.nspcc.org.uk/keeping-children-safe/" target="_blank" rel="noopener noreferrer">
-              NSPCC: Keeping Children Safe
-            </a>
-          </li>
-          <li>
-            <a href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener noreferrer">
-              Cornwall & Isles of Scilly Safeguarding Children Partnership
-            </a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </main>
-
-  <!-- Back to top button -->
-  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</button>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd.</p>
-    <p>Directors: Zoe Waitz & Michelle Pascoe</p>
-  </footer>
-</body>
-</html>
+      <ul>
+        <li><strong>Training Dates and Information:</strong> <a href="https://www.pookyknightsmith.com/" target="_blank" rel="noopener">Dr Pooky Knightsmith</a></li>
+        <li><strong>Safeguarding Updates:</strong> <a href="https://assets.publishing.service.gov.uk/media/686b94eefe1a249e937cbd2d/Keeping_children_safe_in_education_2025.pdf" target="_blank" rel="noopener">KCSIE 2025</a></li>
+        <li><strong>Useful links:</strong>
+          <ul>
+            <li><a href="https://
