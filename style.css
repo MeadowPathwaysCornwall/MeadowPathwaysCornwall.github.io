@@ -17,7 +17,7 @@ body.home::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url('BG.png');
+  background-image: url('images/BG.png');
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 22%;
@@ -30,7 +30,7 @@ body.contact::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url('contact1.png');
+  background-image: url('images/contact1.png');
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 22%;
@@ -217,12 +217,11 @@ textarea {
   resize: vertical;
   min-height: 110px;
 }
-
 /* ===== Pills ===== */
 .pill {
   display: inline-block;
-  background-color: #eaf3f0;
-  color: var(--dark-teal);
+  background-color: var(--dark-teal); /* changed from #eaf3f0 */
+  color: #fff;                        /* changed from var(--dark-teal) */
   padding: 6px 12px;
   margin: 6px 6px 0 0;
   border-radius: 20px;
