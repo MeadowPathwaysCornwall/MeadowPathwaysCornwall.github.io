@@ -12,17 +12,7 @@
   --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-/* ===== Base ===== */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  color: var(--text);
-  background-color: var(--bg);
-  line-height: 1.6;
-}
-
-/* ===== Watermark (only on homepage) ===== */
+/* ===== Page Backgrounds ===== */
 body.home::before {
   content: "";
   position: fixed;
@@ -31,9 +21,32 @@ body.home::before {
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 22%;
-  opacity: 0.1;
+  opacity: 0.06;
   pointer-events: none;
   z-index: -1;
+}
+
+body.contact::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('contact1.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 22%;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===== Base ===== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
 }
 
 /* ===== Logo ===== */
@@ -74,19 +87,6 @@ nav {
   background: #6ba7a1; /* soft green-blue */
   color: var(--dark-teal);
 }
-/* ===== Hero Heading ===== */
-.hero-heading {
-  text-align: center;
-  padding: 40px 20px;
-}
-.hero-heading h1 {
-  font-size: 2.4rem;
-  margin-bottom: 12px;
-}
-.hero-heading p {
-  font-size: 1.2rem;
-  color: var(--text);
-}
 
 /* ===== Dropdowns ===== */
 .dropdown-content {
@@ -112,13 +112,19 @@ nav {
   background-color: #eaf3f0;
 }
 
-/* ===== Headings ===== */
-h1, h2, h3 {
-  color: var(--dark-teal);
-  margin: 0 0 12px;
+/* ===== Hero Heading ===== */
+.hero-heading {
+  text-align: center;
+  padding: 40px 20px;
 }
-h1 { font-size: 2.1rem; }
-h2 { font-size: 1.6rem; }
+.hero-heading h1 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+.hero-heading p {
+  font-size: 1.2rem;
+  color: var(--text);
+}
 
 /* ===== Content Cards ===== */
 .main-content-box {
@@ -148,7 +154,8 @@ h2 { font-size: 1.6rem; }
   width: 100%;
   max-height: 320px;
   object-fit: contain;
-  background-color: var(--card); /* optional: adds padding around smaller images */
+  background-color: var(--card);
+  display: none;
 }
 .carousel-image.active {
   display: block;
@@ -239,6 +246,7 @@ textarea {
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
 }
+
 /* ===== Contact Details ===== */
 .contact-details {
   text-align: center;
@@ -254,10 +262,6 @@ textarea {
   text-decoration: underline;
 }
 
-/* ===== Footer ===== */
-footer {
-  ...
-}
 /* ===== Footer ===== */
 footer {
   text-align: center;
