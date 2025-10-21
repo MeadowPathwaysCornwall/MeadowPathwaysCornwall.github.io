@@ -1,14 +1,14 @@
 /* ===== Colour Palette ===== */
 :root {
-  --dark-teal: #264653;
-  --teal: #2a9d8f;
-  --mustard: #e9c46a;
-  --orange: #f4a261;
-  --coral: #e76f51;
-  --text: #1F2A2E;
-  --bg: #fdfaf6;
-  --card: #ffffff;
-  --border: #dcdcd2;
+  --dark-teal: #1b3a4b;     /* deep ocean blue */
+  --teal: #2a6f6f;          /* rich teal */
+  --mustard: #c9a227;       /* earthy mustard */
+  --orange: #d9772b;        /* warm orange */
+  --coral: #b94e3b;         /* grounding red/coral */
+  --text: #1F2A2E;          /* deep charcoal */
+  --bg: #e3e7e4;            /* soft sage green background */
+  --card: #f7f9f8;          /* light card background */
+  --border: #c2c9c6;        /* muted grey-green border */
   --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
@@ -30,8 +30,8 @@ body.home::before {
   background-image: url('BG.png');
   background-repeat: no-repeat;
   background-position: bottom right;
-  background-size: 18%;
-  opacity: 0.04;
+  background-size: 22%;
+  opacity: 0.06;
   pointer-events: none;
   z-index: -1;
 }
@@ -96,7 +96,7 @@ nav {
   color: var(--text);
 }
 .dropdown-content li a:hover {
-  background-color: #f1f7f3;
+  background-color: #eaf3f0;
 }
 
 /* ===== Headings ===== */
@@ -156,7 +156,7 @@ a.button {
 }
 button:hover,
 a.button:hover {
-  background-color: #21867a;
+  background-color: #1f5a5a;
   transform: translateY(-1px);
 }
 
@@ -173,10 +173,10 @@ a.button:hover {
   cursor: pointer;
   display: none;
   font-size: 0.95rem;
-  box-shadow: 0 4px 10px rgba(231, 111, 81, 0.25);
+  box-shadow: 0 4px 10px rgba(185, 78, 59, 0.25);
 }
 #backToTop:hover {
-  background-color: #d85f45;
+  background-color: #a94436;
 }
 
 /* ===== Forms ===== */
