@@ -74,6 +74,19 @@ nav {
   background: var(--mustard);
   color: var(--dark-teal);
 }
+/* ===== Hero Heading ===== */
+.hero-heading {
+  text-align: center;
+  padding: 40px 20px;
+}
+.hero-heading h1 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+.hero-heading p {
+  font-size: 1.2rem;
+  color: var(--text);
+}
 
 /* ===== Dropdowns ===== */
 .dropdown-content {
@@ -133,9 +146,9 @@ h2 { font-size: 1.6rem; }
 }
 .carousel-image {
   width: 100%;
-  height: 320px;
-  object-fit: cover;
-  display: none;
+  max-height: 320px;
+  object-fit: contain;
+  background-color: var(--card); /* optional: adds padding around smaller images */
 }
 .carousel-image.active {
   display: block;
