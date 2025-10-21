@@ -31,7 +31,7 @@ body.home::before {
   background-repeat: no-repeat;
   background-position: bottom right;
   background-size: 22%;
-  opacity: 0.06;
+  opacity: 0.1;
   pointer-events: none;
   z-index: -1;
 }
@@ -71,7 +71,7 @@ nav {
 }
 .nav-tabs a:hover,
 .nav-tabs a.active {
-  background: var(--mustard);
+  background: #6ba7a1; /* soft green-blue */
   color: var(--dark-teal);
 }
 /* ===== Hero Heading ===== */
@@ -239,7 +239,25 @@ textarea {
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
 }
+/* ===== Contact Details ===== */
+.contact-details {
+  text-align: center;
+  margin: 40px auto;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+.contact-details a {
+  color: var(--teal);
+  text-decoration: none;
+}
+.contact-details a:hover {
+  text-decoration: underline;
+}
 
+/* ===== Footer ===== */
+footer {
+  ...
+}
 /* ===== Footer ===== */
 footer {
   text-align: center;
