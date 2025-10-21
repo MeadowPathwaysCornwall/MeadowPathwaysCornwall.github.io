@@ -1,14 +1,14 @@
 /* ===== Colour Palette ===== */
 :root {
-  --dark-teal: #1b3a4b;     /* deep ocean blue */
-  --teal: #2a6f6f;          /* rich teal */
-  --mustard: #c9a227;       /* earthy mustard */
-  --orange: #d9772b;        /* warm orange */
-  --coral: #b94e3b;         /* grounding red/coral */
-  --text: #1F2A2E;          /* deep charcoal */
-  --bg: #e3e7e4;            /* soft sage green background */
-  --card: #f7f9f8;          /* light card background */
-  --border: #c2c9c6;        /* muted grey-green border */
+  --dark-teal: #1b3a4b;
+  --teal: #2a6f6f;
+  --mustard: #c9a227;
+  --orange: #d9772b;
+  --coral: #b94e3b;
+  --text: #1F2A2E;
+  --bg: #e3e7e4;
+  --card: #f7f9f8;
+  --border: #c2c9c6;
   --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
@@ -85,7 +85,7 @@ nav {
 }
 .nav-tabs a:hover,
 .nav-tabs a.active {
-  background: #6ba7a1; /* soft green-blue */
+  background: #6ba7a1;
   color: var(--dark-teal);
 }
 
@@ -130,20 +130,6 @@ nav {
   border-radius: 12px;
 }
 
-/* ===== Hero Heading (legacy) ===== */
-.hero-heading {
-  text-align: center;
-  padding: 40px 20px;
-}
-.hero-heading h1 {
-  font-size: 2.4rem;
-  margin-bottom: 12px;
-}
-.hero-heading p {
-  font-size: 1.2rem;
-  color: var(--text);
-}
-
 /* ===== Content Cards ===== */
 .main-content-box {
   max-width: 980px;
@@ -170,141 +156,4 @@ nav {
 }
 .carousel-image {
   width: 100%;
-  max-height: 320px;
-  object-fit: contain;
-  background-color: var(--card);
-  display: none;
-}
-.carousel-image.active {
-  display: block;
-}
-
-/* ===== Buttons ===== */
-button,
-a.button,
-.staff-tab-link {
-  background-color: var(--teal);
-  color: #fff;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.25s ease, transform 0.15s ease;
-}
-button:hover,
-a.button:hover,
-.staff-tab-link:hover {
-  background-color: #1f5a5a;
-  transform: translateY(-1px);
-}
-
-/* ===== Back to top ===== */
-#backToTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--coral);
-  color: #fff;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: none;
-  font-size: 0.95rem;
-  box-shadow: 0 4px 10px rgba(185, 78, 59, 0.25);
-}
-#backToTop:hover {
-  background-color: #a94436;
-}
-
-/* ===== Forms ===== */
-form label {
-  font-weight: 600;
-  color: var(--dark-teal);
-}
-input, textarea, select {
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 1rem;
-  margin-bottom: 14px;
-  width: 100%;
-  background: #fdfdfc;
-}
-textarea {
-  resize: vertical;
-  min-height: 110px;
-}
-
-/* ===== Pills ===== */
-.pill {
-  display: inline-block;
-  background-color: var(--dark-teal);
-  color: #fff;
-  padding: 6px 12px;
-  margin: 6px 6px 0 0;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-/* ===== Safeguarding images ===== */
-.safeguarding-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  justify-content: center;
-  margin-top: 16px;
-}
-.safeguarding-images img {
-  max-width: 420px;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-
-/* ===== Contact Details ===== */
-.contact-details {
-  text-align: center;
-  margin: 40px auto;
-  font-size: 1.1rem;
-  color: var(--text);
-}
-.contact-details a {
-  color: var(--teal);
-  text-decoration: none;
-}
-.contact-details a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Footer ===== */
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.95rem;
-  color: var(--dark-teal);
-  background-color: var(--card);
-  border-top: 1px solid var(--border);
-  box-shadow: var(--shadow);
-}
-
-/* ===== Animations ===== */
-.main-content-box,
-.carousel-container,
-.safeguarding-images img,
-button,
-a.button,
-.staff-tab-link {
-  animation: fadeIn 1s ease forwards;
-  opacity: 0;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+  max-height:
