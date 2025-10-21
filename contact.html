@@ -1,98 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact Us | Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .contact-intro {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .contact-details {
-      background-color: #eef6f0;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      font-size: 1rem;
-      color: #2a5d3d;
-      text-align: center;
-    }
-    .contact-details a {
-      color: #2a6f6f;
-      text-decoration: none;
-    }
-    .contact-details a:hover {
-      text-decoration: underline;
-    }
-    .contact-form {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .contact-form label {
-      font-weight: 600;
-      color: #2a5d3d;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 10px;
-      font-size: 1rem;
-      margin-bottom: 15px;
-      width: 100%;
-    }
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    .contact-form button {
-      background-color: #3a663a;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .contact-form button:hover {
-      background-color: #2f512f;
-    }
-    .confirmation-message {
-      background-color: #e6f2ec;
-      color: #2a5d3d;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 20px;
-      text-align: center;
-      display: none;
-    }
-    .map-container {
-      margin: 40px auto;
-      max-width: 700px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-    }
-  </style>
 </head>
 <body class="contact">
-  <!-- Header -->
   <header>
     <div class="logo-container">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways Cornwall Logo" class="logo" />
-      </a>
+      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" /></a>
     </div>
-    <!-- Navigation -->
+
     <nav>
       <ul class="nav-tabs">
         <li><a href="index.html">Home</a></li>
@@ -102,97 +21,86 @@
         <li><a href="contact.html" class="active">Contact Us</a></li>
         <li><a href="staff.html">Staff Only</a></li>
         <li><a href="referral.html">Referral Form</a></li>
-
-        <li class="dropdown">
-          <a href="#">Resources</a>
-          <ul class="dropdown-content">
-            <li><a href="MPWEC Safeguarding and Child Protection Policy September 2025.docx">Safeguarding & Child Protection Policy</a></li>
-            <li><a href="MPWEC Staff Conduct Policy.docx">Staff Conduct Policy</a></li>
-            <li><a href="MPWEC Complaints Policy.docx">Complaints Policy</a></li>
-            <li><a href="MPWEC Behaviour Policy.docx">Behaviour Policy</a></li>
-            <li><a href="MPWEC - H&S Policy Sep 25.docx">Health & Safety Policy</a></li>
-            <li><a href="Values.png">Our Values Image</a></li>
-            <li><a href="about.html#values">Values Section</a></li>
-            <li><a href="RSHE 2025.pdf">RSHE 2025</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">EOTAS & EBSNA Info</a>
-          <ul class="dropdown-content">
-            <li><a href="EBSNA.docx">Info on EBSNA</a></li>
-            <li><a href="eotas.html">EOTAS Guidance</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">Our Values</a>
-          <ul class="dropdown-content">
-            <li><a href="Values.png">Our Values Image</a></li>
-            <li><a href="about.html#values">Values Section</a></li>
-          </ul>
-        </li>
       </ul>
     </nav>
   </header>
 
-  <!-- Main Content -->
-  <main class="main-content-box">
+  <main class="main-content-box container" role="main">
     <h1>Contact Us</h1>
-    <div class="contact-intro">
-      <p>
-        We welcome contact from families, professionals, and anyone interested in our work.  
-        Whether you have a question, a referral, or just want to connect, we’re here to listen.  
-        All messages are treated with care and confidentiality.
-      </p>
-    </div>
 
-    <!-- Contact Details -->
-    <div class="contact-details">
-      <p><strong>Michelle:</strong> <a href="mailto:michelle.pascoe@meadowpathwayscornwall.com">michelle.pascoe@meadowpathwayscornwall.com</a> | 07932243358</p>
-      <p><strong>Zoe:</strong> <a href="mailto:zoe.waitz@meadowpathwayscornwall.com">zoe.waitz@meadowpathwayscornwall.com</a> | 07775733587</p>
-    </div>
+    <p>
+      We’re here to help. Use the form below to send a message or use the direct contact details for Michelle and Zoe.
+      We aim to respond to enquiries as soon as we can.
+    </p>
 
-    <!-- Contact Form -->
-    <div class="contact-form">
-      <form id="contactForm" action="https://formspree.io/f/movnvzqp" method="POST">
-        <label for="name">Your Name:</label>
-        <input type="text" name="name" required />
+    <section aria-labelledby="contact-form-heading">
+      <h2 id="contact-form-heading">Send a message</h2>
 
-        <label for="email">Your Email:</label>
-        <input type="email" name="email" required />
+      <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" required />
 
-        <label for="message">Your Message:</label>
-        <textarea name="message" required></textarea>
+        <label for="email">Your email</label>
+        <input id="email" name="email" type="email" required />
 
-        <button type="submit">Send Message</button>
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" type="text" />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Send message</button>
       </form>
-      <div class="confirmation-message" id="confirmationMessage">
-        Thank you for your message. We'll be in touch soon.
-      </div>
-    </div>
+    </section>
 
-    <!-- Google Map -->
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11478.46293271105!2d-5.0837!3d50.1536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486b0f4e2b3c4b3b%3A0x9f3c6c3b3b3b3b3b!2sCornwall!5e0!3m2!1sen!2suk!4v1699999999999"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
+    <hr style="margin:28px 0;border:none;border-top:1px solid var(--border);" />
+
+    <section aria-labelledby="direct-contacts">
+      <h2 id="direct-contacts">Direct contacts</h2>
+
+      <div style="display:flex;flex-wrap:wrap;gap:18px;justify-content:center;">
+        <div style="max-width:420px;background:var(--card);border:1px solid var(--border);padding:16px;border-radius:12px;box-shadow:var(--shadow);text-align:left;">
+          <h3 style="margin-top:0;">Michelle Pascoe</h3>
+          <p style="margin:6px 0;"><strong>Role</strong>: Founding director & lead therapist</p>
+          <p style="margin:6px 0;"><strong>Email</strong>: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></p>
+          <p style="margin:6px 0;"><strong>Phone</strong>: <a href="tel:+447932243358">07932 243358</a></p>
+        </div>
+
+        <div style="max-width:420px;background:var(--card);border:1px solid var(--border);padding:16px;border-radius:12px;box-shadow:var(--shadow);text-align:left;">
+          <h3 style="margin-top:0;">Zoe Waitz</h3>
+          <p style="margin:6px 0;"><strong>Role</strong>: Director & SEN lead</p>
+          <p style="margin:6px 0;"><strong>Email</strong>: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
+          <p style="margin:6px 0;"><strong>Phone</strong>: <a href="tel:+447775733587">07775 733587</a></p>
+        </div>
+
+        <div style="max-width:420px;background:var(--card);border:1px solid var(--border);padding:16px;border-radius:12px;box-shadow:var(--shadow);text-align:left;">
+          <h3 style="margin-top:0;">General enquiries</h3>
+          <p style="margin:6px 0;"><strong>Email</strong>: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <hr style="margin:28px 0;border:none;border-top:1px solid var(--border);" />
+
+    <section aria-labelledby="location">
+      <h2 id="location">Location</h2>
+      <p style="text-align:center;margin-bottom:8px;">
+        Meadow Pathways Wellbeing and Education Cornwall operates across community settings in Cornwall. If you need to arrange an in-person meeting or referral discussion, please contact us using the form or direct emails above.
+      </p>
+
+      <div style="text-align:center;">
+        <p style="margin:6px 0;"><strong>Opening hours</strong>: Mon–Fri 9:00–17:00</p>
+      </div>
+    </section>
   </main>
 
-  <!-- Back to top button -->
-  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</button>
+  <button id="backToTop" aria-label="Back to top">↑</button>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd.</p>
     <p>Directors: Zoe Waitz & Michelle Pascoe</p>
   </footer>
 
-  <!-- Script -->
-  <script>
-    window.addEventListener('scroll', function () {
-      const btn = document.get
+  <script src="script.js"></script>
+</body>
+</html>
