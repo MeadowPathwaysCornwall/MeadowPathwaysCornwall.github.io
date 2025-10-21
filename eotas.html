@@ -14,6 +14,7 @@
         <img src="Logo.png" alt="Meadow Pathways Cornwall Logo" class="logo" />
       </a>
     </div>
+
     <!-- Navigation -->
     <nav>
       <ul class="nav-tabs">
@@ -59,7 +60,7 @@
   </header>
 
   <!-- Main content -->
-  <main class="main-content-box">
+  <main class="main-content-box container" role="main">
     <h1>EOTAS (Education Other Than At School)</h1>
 
     <p>
@@ -103,7 +104,7 @@
   </main>
 
   <!-- Back to top -->
-  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</button>
+  <button id="backToTop" aria-label="Back to top">↑</button>
 
   <!-- Footer -->
   <footer>
@@ -111,12 +112,6 @@
     <p>Directors: Zoe Waitz & Michelle Pascoe</p>
   </footer>
 
-  <!-- Back to top script -->
-  <script>
-    window.addEventListener('scroll', function () {
-      const btn = document.getElementById('backToTop');
-      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
