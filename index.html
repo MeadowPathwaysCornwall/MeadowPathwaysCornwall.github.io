@@ -65,17 +65,6 @@
       <p>Guiding individual journeys with care and purpose</p>
     </div>
   </section>
-  <!-- Carousel -->
-<div class="carousel-container">
-  <div class="carousel-slide">
-    <img src="images/activity1.jpg" class="carousel-image active" alt="Activity 1">
-    <img src="images/activity2.jpg" class="carousel-image" alt="Activity 2">
-    <img src="images/activity3.jpg" class="carousel-image" alt="Activity 3">
-    <img src="images/activity4.jpg" class="carousel-image" alt="Activity 4">
-  </div>
-  <button class="prev" onclick="moveSlide(-1)">❮</button>
-  <button class="next" onclick="moveSlide(1)">❯</button>
-</div>
 
   <!-- Main Content -->
   <main class="main-content-box">
@@ -90,6 +79,18 @@
     <p>
       We welcome referrals from families, schools, and professionals. Explore our site to learn more about our ethos, services, and how we can support your child’s journey.
     </p>
+
+    <!-- Carousel -->
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <img src="images/activity1.jpg" class="carousel-image active" alt="Activity 1">
+        <img src="images/activity2.jpg" class="carousel-image" alt="Activity 2">
+        <img src="images/activity3.jpg" class="carousel-image" alt="Activity 3">
+        <img src="images/activity4.jpg" class="carousel-image" alt="Activity 4">
+      </div>
+      <button class="prev" onclick="moveSlide(-1)">❮</button>
+      <button class="next" onclick="moveSlide(1)">❯</button>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -97,5 +98,26 @@
     <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd.</p>
     <p>Directors: Zoe Waitz & Michelle Pascoe</p>
   </footer>
+
+  <!-- Carousel Script -->
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-image');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    function moveSlide(step) {
+      currentSlide = (currentSlide + step + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Auto-advance every 5 seconds
+    setInterval(() => moveSlide(1), 5000);
+  </script>
 </body>
 </html>
