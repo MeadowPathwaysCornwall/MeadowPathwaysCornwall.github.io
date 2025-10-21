@@ -14,7 +14,6 @@
         <img src="Logo.png" alt="Meadow Pathways Cornwall Logo" class="logo" />
       </a>
     </div>
-    <!-- Navigation -->
     <nav>
       <ul class="nav-tabs">
         <li><a href="index.html" class="active">Home</a></li>
@@ -58,8 +57,8 @@
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
+  <!-- Hero (solid background) -->
+  <section class="hero hero-solid">
     <div class="hero-overlay">
       <h1>Welcome to Meadow Pathways Cornwall</h1>
       <p>Guiding individual journeys with care and purpose</p>
@@ -71,27 +70,35 @@
     <p>
       Meadow Pathways Wellbeing and Education Cornwall offers flexible, trauma-informed support for children and young people navigating emotionally based school non-attendance, educational trauma, bereavement, and SEN/SEMH needs.
     </p>
-
     <p>
       We work relationally, creatively, and collaboratively to build trust and tailor every journey to the child’s unique needs. Our team includes qualified therapists, educators, and mentors who deliver therapeutic curriculum-linked activities, life skills, and emotional support in safe, nurturing environments — from woodland walks to beach sessions, bushcraft, and beyond.
     </p>
-
     <p>
       We welcome referrals from families, schools, and professionals. Explore our site to learn more about our ethos, services, and how we can support your child’s journey.
     </p>
 
-    <!-- Carousel -->
-    <div class="carousel-container">
+    <!-- Carousel with your images -->
+    <div class="carousel-container" aria-label="Activity carousel">
       <div class="carousel-slide">
-        <img src="images/activity1.jpg" class="carousel-image active" alt="Activity 1">
-        <img src="images/activity2.jpg" class="carousel-image" alt="Activity 2">
-        <img src="images/activity3.jpg" class="carousel-image" alt="Activity 3">
-        <img src="images/activity4.jpg" class="carousel-image" alt="Activity 4">
+        <img src="images/Bake.jpg"   class="carousel-image active" alt="Baking activity" />
+        <img src="images/Cooking.jpg" class="carousel-image"       alt="Cooking activity" />
+        <img src="images/IT.png"      class="carousel-image"       alt="IT and digital skills" />
+        <img src="images/MM.jpg"      class="carousel-image"       alt="Mindfulness and meditation" />
+        <img src="images/PE.png"      class="carousel-image"       alt="Physical education and fitness" />
+        <img src="images/PT.jpg"      class="carousel-image"       alt="Play therapy session" />
+        <img src="images/Paint.jpg"   class="carousel-image"       alt="Painting and creative arts" />
+        <img src="images/cook.jpg"    class="carousel-image"       alt="Cooking session" />
+        <img src="images/den.jpg"     class="carousel-image"       alt="Den building and bushcraft" />
+        <img src="images/paths.jpg"   class="carousel-image"       alt="Walking on woodland paths" />
+        <img src="images/wood.jpg"    class="carousel-image"       alt="Woodland activities" />
       </div>
-      <button class="prev" onclick="moveSlide(-1)">❮</button>
-      <button class="next" onclick="moveSlide(1)">❯</button>
+      <button class="prev" aria-label="Previous slide" onclick="moveSlide(-1)">❮</button>
+      <button class="next" aria-label="Next slide" onclick="moveSlide(1)">❯</button>
     </div>
   </main>
+
+  <!-- Back to top -->
+  <button id="backToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">↑ Top</button>
 
   <!-- Footer -->
   <footer>
@@ -99,25 +106,14 @@
     <p>Directors: Zoe Waitz & Michelle Pascoe</p>
   </footer>
 
-  <!-- Carousel Script -->
+  <!-- Scripts -->
+  <script src="script.js"></script>
   <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-image');
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) slide.classList.add('active');
-      });
-    }
-
-    function moveSlide(step) {
-      currentSlide = (currentSlide + step + slides.length) % slides.length;
-      showSlide(currentSlide);
-    }
-
-    // Auto-advance every 5 seconds
-    setInterval(() => moveSlide(1), 5000);
+    // Back to top visibility
+    window.addEventListener('scroll', function () {
+      const btn = document.getElementById('backToTop');
+      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
   </script>
 </body>
 </html>
