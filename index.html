@@ -106,14 +106,30 @@
     <p>Directors: Zoe Waitz & Michelle Pascoe</p>
   </footer>
 
-  <!-- Scripts -->
-  <script src="script.js"></script>
+  <!-- Inline script so it runs after DOM elements exist -->
   <script>
-    // Back to top visibility
-    window.addEventListener('scroll', function () {
-      const btn = document.getElementById('backToTop');
-      btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
+    (function () {
+      const slides = document.querySelectorAll('.carousel-image');
+      if (!slides.length) return;
+      let currentSlide = 0;
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+      }
+      window.moveSlide = function (step) {
+        currentSlide = (currentSlide + step + slides.length) % slides.length;
+        showSlide(currentSlide);
+      };
+      // Auto-advance every 5 seconds
+      setInterval(() => window.moveSlide(1), 5000);
+
+      // Back to top visibility
+      window.addEventListener('scroll', function () {
+        const btn = document.getElementById('backToTop');
+        btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+      });
+    })();
   </script>
 </body>
 </html>
