@@ -25,12 +25,22 @@
     </nav>
   </header>
 
-  <main class="main-content-box container" role="main">
-    <h1>Contact Us</h1>
+  <!-- Hero banner -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-overlay">
+        <h1>Contact Us</h1>
+        <p>We’re here to help — reach out any time</p>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 C300,100 900,0 1200,30 L1200,100 L0,100 Z" fill="#f7f9f8" />
+    </svg>
+  </section>
 
+  <main class="main-content-box container" role="main">
     <p>
-      We’re here to help. Use the form below to send a message or use the direct contact details for Michelle and Zoe.
-      We aim to respond to enquiries as soon as we can.
+      Use the form below to send a message, or contact Michelle and Zoe directly. We aim to respond to all enquiries as soon as we can.
     </p>
 
     <section aria-labelledby="contact-form-heading">
@@ -49,6 +59,7 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" required></textarea>
 
+        <p class="privacy-note">This form sends securely to meadowpathwayscornwall@outlook.com</p>
         <button type="submit">Send message</button>
       </form>
     </section>
@@ -59,23 +70,23 @@
       <h2 id="direct-contacts">Direct contacts</h2>
 
       <div style="display:flex;flex-wrap:wrap;gap:18px;justify-content:center;">
-        <div style="max-width:420px;background:var(--card);border:1px solid var(--border);padding:16px;border-radius:12px;box-shadow:var(--shadow);text-align:left;">
-          <h3 style="margin-top:0;">Michelle Pascoe</h3>
-          <p style="margin:6px 0;"><strong>Role</strong>: Founding director & lead therapist</p>
-          <p style="margin:6px 0;"><strong>Email</strong>: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></p>
-          <p style="margin:6px 0;"><strong>Phone</strong>: <a href="tel:+447932243358">07932 243358</a></p>
+        <div class="contact-card">
+          <h3>Michelle Pascoe</h3>
+          <p><strong>Role:</strong> Founding director & lead therapist</p>
+          <p><strong>Email:</strong> <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+447932243358">07932 243358</a></p>
         </div>
 
-        <div style="max-width:420px;background:var(--card);border:1px solid var(--border);padding:16px;border-radius:12px;box-shadow:var(--shadow);text-align:left;">
-          <h3 style="margin-top:0;">Zoe Waitz</h3>
-          <p style="margin:6px 0;"><strong>Role</strong>: Director & SEN lead</p>
-          <p style="margin:6px 0;"><strong>Email</strong>: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
-          <p style="margin:6px 0;"><strong>Phone</strong>: <a href="tel:+447775733587">07775 733587</a></p>
+        <div class="contact-card">
+          <h3>Zoe Waitz</h3>
+          <p><strong>Role:</strong> Director & SEN lead</p>
+          <p><strong>Email:</strong> <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+447775733587">07775 733587</a></p>
         </div>
 
-        <div style="max-width:420px;background:var(--card);border:1px solid var(--border);padding:16px;border-radius:12px;box-shadow:var(--shadow);text-align:left;">
-          <h3 style="margin-top:0;">General enquiries</h3>
-          <p style="margin:6px 0;"><strong>Email</strong>: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
+        <div class="contact-card">
+          <h3>General enquiries</h3>
+          <p><strong>Email:</strong> <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
         </div>
       </div>
     </section>
@@ -85,11 +96,12 @@
     <section aria-labelledby="location">
       <h2 id="location">Location</h2>
       <p style="text-align:center;margin-bottom:8px;">
-        Meadow Pathways Wellbeing and Education Cornwall operates across community settings in Cornwall. If you need to arrange an in-person meeting or referral discussion, please contact us using the form or direct emails above.
+        Meadow Pathways operates across community settings in Cornwall. If you need to arrange an in-person meeting or referral discussion, please contact us using the form or direct emails above.
       </p>
 
       <div style="text-align:center;">
-        <p style="margin:6px 0;"><strong>Opening hours</strong>: Mon–Fri 9:00–17:00</p>
+        <p><strong>Office:</strong> Falmouth, Cornwall</p>
+        <p><strong>Opening hours:</strong> Mon–Fri 9:00–17:00</p>
       </div>
     </section>
   </main>
