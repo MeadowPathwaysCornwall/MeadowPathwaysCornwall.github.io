@@ -25,46 +25,48 @@
     </nav>
   </header>
 
+  <!-- Hero banner -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-overlay">
+        <h1>Referral Form</h1>
+        <p>Securely refer a child or young person to Meadow Pathways</p>
+      </div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 C300,100 900,0 1200,30 L1200,100 L0,100 Z" fill="#f7f9f8" />
+    </svg>
+  </section>
+
   <main class="main-content-box container">
-    <h1>Referral Form</h1>
-    <p>Please complete the form below; we will be in touch to discuss next steps.</p>
+    <p>
+      Please complete the form below to refer a child or young person to Meadow Pathways. Ensure you have consent from the parent or carer before submitting. We will review the information and contact you to discuss next steps.
+    </p>
 
     <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-      <label for="childName">Child’s Name</label>
-      <input id="childName" name="childName" type="text" required />
-
-      <label for="dob">Date of Birth</label>
-      <input id="dob" name="dob" type="date" required />
-
-      <label for="referrerName">Referrer Name</label>
+      <label for="referrerName">Your name</label>
       <input id="referrerName" name="referrerName" type="text" required />
 
-      <label for="referrerRole">Referrer Role</label>
-      <input id="referrerRole" name="referrerRole" type="text" />
+      <label for="referrerEmail">Your email</label>
+      <input id="referrerEmail" name="referrerEmail" type="email" required />
 
-      <label for="email">Referrer Email</label>
-      <input id="email" name="email" type="email" required />
+      <label for="childName">Child’s name</label>
+      <input id="childName" name="childName" type="text" required />
 
-      <label for="phone">Referrer Phone</label>
-      <input id="phone" name="phone" type="tel" />
+      <label for="dob">Date of birth</label>
+      <input id="dob" name="dob" type="date" required />
 
-      <label for="school">School / Setting</label>
-      <input id="school" name="school" type="text" />
-
-      <label for="needs">Summary of needs and context</label>
+      <label for="needs">Summary of needs</label>
       <textarea id="needs" name="needs" required></textarea>
 
-      <label for="consent">Consent</label>
+      <label for="consent">Consent from parent/carer</label>
       <select id="consent" name="consent" required>
         <option value="">Please select</option>
-        <option value="parental-consent">Parental consent given</option>
-        <option value="young-person-consent">Young person’s consent given</option>
-        <option value="consent-pending">Consent pending</option>
+        <option value="yes">Yes, consent is in place</option>
+        <option value="no">No, consent not yet obtained</option>
       </select>
 
-      <label for="additional">Other useful information (optional)</label>
-      <textarea id="additional" name="additional"></textarea>
-
+      <p class="privacy-note">This form sends securely to meadowpathwayscornwall@outlook.com</p>
       <button type="submit">Submit referral</button>
     </form>
   </main>
