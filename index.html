@@ -1,90 +1,75 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meadow Pathways Cornwall – Holistic Education & Wellbeing</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meadow Pathways Cornwall | Home</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <header class="main-header">
-    <img src="Logo.png" alt="Meadow Pathways Cornwall Logo" class="site-logo">
+<body class="home">
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" />
+      </a>
+    </div>
     <nav>
-      <ul>
+      <ul class="nav-tabs">
         <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="eotas.html">EOTAS Info</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
         <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="staff.html">Staff</a></li>
         <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="referral.html">Referral</a></li>
+        <li><a href="staff.html">Staff Only</a></li>
+        <li><a href="referral.html">Referral Form</a></li>
       </ul>
     </nav>
   </header>
-  <main>
-    <section class="hero-carousel" aria-label="Main image carousel">
-      <div class="carousel" id="homepage-carousel">
-        <div class="carousel-slide active" data-img="banner.png" style="background-image:url('banner.png');" aria-hidden="false">
-          <div class="carousel-caption">Holistic, trauma-informed support in the heart of Cornwall</div>
-        </div>
-        <div class="carousel-slide" data-img="paths.jpg" style="background-image:url('paths.jpg');" aria-hidden="true">
-          <div class="carousel-caption">Empowering every child and young person to flourish</div>
-        </div>
-        <div class="carousel-slide" data-img="den.jpg" style="background-image:url('den.jpg');" aria-hidden="true">
-          <div class="carousel-caption">Nurturing, individualised pathways for education and wellbeing</div>
-        </div>
+
+  <!-- Hero banner -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-overlay">
+        <h1>Welcome to Meadow Pathways</h1>
+        <p>Therapeutic education and wellbeing support across Cornwall</p>
       </div>
-      <div class="carousel-controls">
-        <button class="carousel-btn prev" id="carousel-prev" aria-label="Previous slide">&#8592;</button>
-        <button class="carousel-btn next" id="carousel-next" aria-label="Next slide">&#8594;</button>
-      </div>
-      <div class="carousel-indicators" id="carousel-indicators"></div>
-    </section>
-    <section class="homepage-intro">
-      <h1>Welcome to Meadow Pathways Cornwall</h1>
-      <p>
-        Meadow Pathways Cornwall is dedicated to supporting children and young people through a holistic, trauma-informed approach to education and wellbeing. Based in the heart of Cornwall, we specialise in providing nurturing, individualised support for those who may not thrive in mainstream school environments, including learners with neurodivergent profiles, trauma experiences, Emotionally Based School Non-Attendance (EBSNA), bereavement, and those with Education, Health and Care Plans (EHCPs).
-      </p>
-      <p>
-        Our team is passionate about creating a safe, inclusive, and supportive environment where every child and young person is empowered to flourish. We work closely with families, local authorities, schools, and a wide range of specialist services to ensure a truly collaborative approach to wellbeing and education.
-      </p>
-      <p>
-        We offer a range of bespoke packages, including Education Otherwise Than At School (EOTAS) provisions, therapeutic education, and outreach into the community. Our flexible, creative programmes are designed to ignite curiosity, build confidence, and enable every learner to develop their strengths and interests.
-      </p>
-    </section>
-    <section class="values-section">
-      <h2>Our Values</h2>
-      <ul class="site-values">
-        <li><strong>Child-centred:</strong> Every learner’s journey is unique. We place children and young people at the heart of everything we do.</li>
-        <li><strong>Trauma-informed:</strong> Our staff are trained in trauma-sensitive approaches, ensuring safety and trust for all.</li>
-        <li><strong>Collaboration:</strong> We work in partnership with families, professionals, and the wider community.</li>
-        <li><strong>Inclusion:</strong> We celebrate diversity and champion the rights of all learners to be heard and respected.</li>
-        <li><strong>Wellbeing:</strong> Emotional, social, and mental wellbeing are central to our practice.</li>
-      </ul>
-    </section>
-    <section class="what-we-offer">
-      <h2>What We Offer</h2>
-      <ul>
-        <li>Bespoke EOTAS packages for children and young people unable to access mainstream education</li>
-        <li>Therapeutic education and wellbeing sessions</li>
-        <li>Outreach and community-based learning</li>
-        <li>Support for families and carers</li>
-        <li>Multi-agency working with local authorities, schools, and specialist services</li>
-      </ul>
-      <p>
-        If you would like to learn more about how Meadow Pathways Cornwall can help your child or your family, please explore our site or get in touch for a confidential conversation.
-      </p>
-    </section>
-  </main>
-  <footer>
-    <div>
-      &copy; 2025 Meadow Pathways Cornwall | Registered company in England and Wales (#16430906)
-      <br>
-    
-      <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
     </div>
+    <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 C300,100 900,0 1200,30 L1200,100 L0,100 Z" fill="#f7f9f8" />
+    </svg>
+  </section>
+
+  <!-- Carousel -->
+  <section class="carousel-container">
+    <div class="carousel-slide">
+      <img src="carousel1.jpg" alt="Child exploring nature" class="carousel-image active" />
+      <img src="carousel2.jpg" alt="Creative play therapy session" class="carousel-image" />
+      <img src="carousel3.jpg" alt="Outdoor learning in Cornwall" class="carousel-image" />
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">‹</button>
+    <button class="next" onclick="moveSlide(1)">›</button>
+  </section>
+
+  <main class="main-content-box container">
+    <h2>Relational, creative, and rooted in emotional safety</h2>
+    <p>
+      Meadow Pathways Wellbeing and Education Cornwall offers bespoke therapeutic education for children and young people who are unable to attend school due to emotional needs, trauma, SEN, or other barriers. We meet each child where they are, building trust, safety, and connection through flexible, person-centred support.
+    </p>
+    <p>
+      Our work is guided by the SPACE ethos — Safety, Presence, Attunement, Connection, and Empowerment — and shaped by the unique needs of every learner and family. Whether we’re working on the beach, in the woods, or rebuilding school skills, we create nurturing environments where children can thrive.
+    </p>
+    <p>
+      We collaborate closely with families, schools, and professionals to ensure joined-up support and meaningful progress. Every journey is different — and we walk alongside each child with care, creativity, and compassion.
+    </p>
+  </main>
+
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+  <footer>
+    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd.</p>
+    <p>Directors: Zoe Waitz & Michelle Pascoe</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
