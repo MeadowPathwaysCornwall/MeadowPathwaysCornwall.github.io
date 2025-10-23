@@ -29,7 +29,6 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo-hero" />
     <div class="container">
       <div class="hero-overlay">
         <h1>Staff Area</h1>
@@ -37,31 +36,28 @@
       </div>
     </div>
     <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,30 C300,100 900,0 1200,30 L1200,100 L0,100 Z" fill="#f7f9f8" />
+      <path d="M0,30 C300,100 900,0 1200,30 L1200,100 L0,100 Z" fill="var(--freeze-purple)" />
     </svg>
   </section>
 
   <!-- Main Content -->
-  <main class="main-content-box container">
-    <div class="staff-note">
-      <p>
-        This area is reserved for Meadow Pathways staff. For secure access to staff resources, please use our private share and sign in with your staff credentials.
-      </p>
-      <p>
-        If you need help accessing staff materials, please contact:
-      </p>
-      <ul>
-        <li><strong>Michelle Pascoe</strong><br>
-          Email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
-          Phone: 07932243358
-        </li>
-        <li><strong>Zoe Waitz</strong><br>
-          Email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
-          Phone: 07775733587
-        </li>
-      </ul>
-    </div>
+  <main class="main-content-box container" id="staffContent" style="display:none;">
+    <h2>Staff Resources</h2>
+    <p>Welcome to the staff area. Here you can access internal resources and updates.</p>
+    <ul>
+      <li><a href="staff-policies.pdf" target="_blank">Staff Policies</a></li>
+      <li><a href="training.pdf" target="_blank">Training Materials</a></li>
+    </ul>
   </main>
+
+  <div id="deniedMessage" class="main-content-box container" style="display:none;">
+    <h2>Access Denied</h2>
+    <p>Please contact Michelle or Zoe for access:</p>
+    <ul>
+      <li><strong>Michelle Pascoe</strong> – Michelle.Pascoe@meadowpathwayscornwall.com – 07932243358</li>
+      <li><strong>Zoe Waitz</strong> – Zoe.Waitz@meadowpathwayscornwall.com – 07775733587</li>
+    </ul>
+  </div>
 
   <button id="backToTop" aria-label="Back to top">↑</button>
 
@@ -70,6 +66,14 @@
     <p>Directors: Zoe Waitz & Michelle Pascoe</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const password = "Meadow2025"; // change this
+    const entered = prompt("Enter staff password:");
+    if (entered === password) {
+      document.getElementById("staffContent").style.display = "block";
+    } else {
+      document.getElementById("deniedMessage").style.display = "block";
+    }
+  </script>
 </body>
 </html>
