@@ -1,26 +1,20 @@
-// ===== Back to Top Button =====
+// Back to Top
 const backToTopBtn = document.getElementById("backToTop");
+if (backToTopBtn) {
+  window.addEventListener("scroll", () => {
+    backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  });
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    backToTopBtn.style.display = "block";
-  } else {
-    backToTopBtn.style.display = "none";
-  }
-});
-
-backToTopBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-// ===== Carousel =====
-// If you have multiple images inside .carousel, this will auto-cycle them
+// Basic Carousel fade
 const carousel = document.querySelector(".carousel");
 if (carousel) {
   const slides = carousel.querySelectorAll("img");
   let currentIndex = 0;
 
-  // Hide all slides except the first
   slides.forEach((slide, index) => {
     slide.style.opacity = index === 0 ? "1" : "0";
     slide.style.position = "absolute";
@@ -32,10 +26,9 @@ if (carousel) {
     slide.style.transition = "opacity 1s ease-in-out";
   });
 
-  // Cycle through slides
   setInterval(() => {
     slides[currentIndex].style.opacity = "0";
     currentIndex = (currentIndex + 1) % slides.length;
     slides[currentIndex].style.opacity = "1";
-  }, 5000); // change every 5 seconds
+  }, 5000);
 }
