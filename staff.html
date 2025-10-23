@@ -34,9 +34,6 @@
         <p>Secure resources for Meadow Pathways staff</p>
       </div>
     </div>
-    <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,30 C300,100 900,0 1200,30 L1200,100 L0,100 Z" fill="#D1F8EF" />
-    </svg>
   </section>
 
   <!-- Staff-only content (hidden until password entered) -->
@@ -50,6 +47,33 @@
       <a href="policies/MPWEC H&S Policy Sep 25.docx" class="pill pill--coral" target="_blank" rel="noopener">Health & Safety Policy</a>
       <a href="policies/MPWEC Lone Working Policy Sep25.docx" class="pill pill--coral" target="_blank" rel="noopener">Lone Working Policy</a>
     </div>
+
+    <h3>External Guidance & Resources</h3>
+    <p>These external resources support our safeguarding and wellbeing practice:</p>
+    <div class="expertise-box">
+      <a href="https://www.pookyknightsmith.com/" class="pill pill--teal" target="_blank" rel="noopener">Dr Pooky Knightsmith</a>
+      <a href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" class="pill pill--teal" target="_blank" rel="noopener">KCSIE 2025 (Full PDF)</a>
+      <a href="https://learning.nspcc.org.uk/safeguarding-child-protection/writing-a-safeguarding-policy-statement" class="pill pill--teal" target="_blank" rel="noopener">NSPCC: Safeguarding Policy</a>
+      <a href="https://learning.nspcc.org.uk/research-resources/schools/keeping-children-safe-in-education-caspar-briefing" class="pill pill--teal" target="_blank" rel="noopener">NSPCC CASPAR Briefing</a>
+    </div>
+
+    <h3>Work Logged Form</h3>
+    <p>Please complete this form to record your work sessions. Submissions are sent securely to Meadow Pathways.</p>
+    <form action="https://formspree.io/f/movnvzqp" method="POST" class="main-content-box">
+      <label for="staffName">Your Name:</label>
+      <input type="text" id="staffName" name="staffName" required>
+
+      <label for="date">Date of Work:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="hours">Hours Worked:</label>
+      <input type="number" id="hours" name="hours" min="0" step="0.5" required>
+
+      <label for="details">Details of Work:</label>
+      <textarea id="details" name="details" rows="4" required></textarea>
+
+      <button type="submit" class="pill pill--teal">Submit Work Log</button>
+    </form>
   </main>
 
   <!-- Access denied message -->
