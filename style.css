@@ -1,3 +1,197 @@
+/* ================================
+   Meadow Pathways Global Styles
+   ================================ */
+
+/* Base palette (cool, welcoming)
+   Ice Cold: #D1F8EF
+   Freeze Purple: #C5C2FF
+   Medium Purple: #9B8FFF
+   Purple Pain: #7A6BFF
+   Heavy Purple: #4E47B8
+   Deep Text Blue: #1c2e4a
+*/
+:root {
+  --ice-cold: #D1F8EF;
+  --freeze-purple: #C5C2FF;
+  --medium-purple: #9B8FFF;
+  --purple-pain: #7A6BFF;
+  --heavy-purple: #4E47B8;
+  --text-deep: #1c2e4a;
+  --text-soft: #2b3e5f;
+  --bg-soft: #f7fbfc;
+  --white: #ffffff;
+  --shadow-1: rgba(0, 0, 0, 0.06);
+  --shadow-2: rgba(0, 0, 0, 0.12);
+}
+
+/* Typography & base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--text-deep);
+  background: var(--bg-soft);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: var(--text-deep);
+  margin: 0 0 10px;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+/* Utility containers */
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ================================
+   Header, Logo, Navigation
+   ================================ */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--white);
+  box-shadow: 0 2px 10px var(--shadow-1);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  max-height: 80px;   /* Keeps header stable across pages */
+  width: auto;        /* Maintains aspect ratio */
+  display: block;
+}
+
+/* Navigation tabs */
+.nav-tabs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-tabs li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-tabs a {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: var(--text-deep);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-tabs a:hover {
+  background: var(--ice-cold);
+}
+
+.nav-tabs a.active {
+  background: var(--ice-cold);
+  border-color: var(--freeze-purple);
+}
+
+/* Responsive header */
+@media (max-width: 800px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* ================================
+   Hero Section
+   ================================ */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--ice-cold), var(--freeze-purple));
+  padding: 40px 0 0;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 16px;
+  padding: 20px 22px;
+  box-shadow: 0 4px 12px var(--shadow-1);
+}
+
+.hero h1 {
+  font-size: 1.9rem;
+}
+
+.hero p {
+  color: var(--text-soft);
+}
+
+.hero-wave {
+  display: block;
+  width: 100%;
+  height: 100px;
+}
+
+/* ================================
+   Main content box
+   ================================ */
+.main-content-box {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin: 20px auto 30px;
+  box-shadow: 0 6px 18px var(--shadow-1);
+}
+
+/* ================================
+   Carousel (simple static strip)
+   ================================ */
+.carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  margin: 8px 0 18px;
+}
+
+.carousel img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow-1);
+}
+
+/* ================================
+   Pill buttons for staff & policy links
+   ================================ */
+
 /* Pill container */
 .expertise-box {
   display: flex;
@@ -11,18 +205,175 @@
 .pill {
   display: inline-block;
   padding: 8px 14px;
-  background-color: #D1F8EF; /* Soft aqua from your palette */
-  color: #1c2e4a; /* Deep blue text for contrast */
+  background-color: var(--ice-cold); /* Soft aqua from palette */
+  color: var(--text-deep);           /* Deep blue text for contrast */
   border-radius: 20px;
   font-size: 0.95rem;
   font-weight: 500;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px var(--shadow-1);
   white-space: nowrap;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.08s ease;
+  text-decoration: none;
+  border: 1px solid transparent;
 }
 
-/* Optional hover effect */
 .pill:hover {
   background-color: #bceee2;
-  cursor: default;
+  cursor: pointer;
+}
+
+.pill:active {
+  transform: scale(0.98);
+}
+
+/* ================================
+   Back to top button
+   ================================ */
+#backToTop {
+  position: fixed;
+  right: 16px;
+  bottom: 18px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: none;
+  background: var(--heavy-purple);
+  color: var(--white);
+  font-weight: 600;
+  box-shadow: 0 6px 14px var(--shadow-2);
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+#backToTop:hover {
+  transform: translateY(-2px);
+  background: var(--purple-pain);
+}
+
+/* ================================
+   Footer
+   ================================ */
+footer {
+  text-align: center;
+  color: var(--text-soft);
+  padding: 20px 10px 40px;
+}
+
+/* ================================
+   Forms (contact / referral consistency)
+   ================================ */
+form {
+  display: grid;
+  gap: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #dde6ee;
+  font: inherit;
+  color: var(--text-deep);
+  background: var(--white);
+  box-shadow: 0 2px 8px var(--shadow-1);
+}
+
+textarea {
+  min-height: 120px;
+}
+
+button,
+input[type="submit"] {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: var(--heavy-purple);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 14px var(--shadow-2);
+  transition: background-color 0.2s ease, transform 0.08s ease;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background: var(--purple-pain);
+}
+
+button:active,
+input[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+/* ================================
+   Accessibility & small tweaks
+   ================================ */
+a {
+  color: var(--heavy-purple);
+}
+
+a:hover {
+  color: var(--purple-pain);
+}
+
+ul {
+  padding-left: 18px;
+}
+
+strong {
+  color: var(--text-deep);
+}
+
+/* ================================
+   Page-specific helpers
+   ================================ */
+
+/* Staff page: ensure gated boxes align */
+body.staff .main-content-box {
+  margin-top: 18px;
+}
+
+/* Policies pages: subtle emphasis */
+body.policies .main-content-box {
+  border: 1px solid var(--freeze-purple);
+}
+
+/* Hero spacing per page (gentle adjustments) */
+body.home .hero-overlay,
+body.staff .hero-overlay,
+body.policies .hero-overlay {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+/* ================================
+   Responsive adjustments
+   ================================ */
+@media (max-width: 600px) {
+  .logo {
+    max-height: 64px;
+  }
+
+  .nav-tabs a {
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+
+  .carousel img {
+    height: 100px;
+  }
+
+  .main-content-box {
+    padding: 16px;
+  }
+
+  .pill {
+    font-size: 0.9rem;
+    padding: 7px 12px;
+  }
 }
