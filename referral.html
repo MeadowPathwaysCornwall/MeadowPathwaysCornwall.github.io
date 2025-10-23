@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="referral">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <header>
     <div class="logo-container">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" />
-      </a>
+      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" /></a>
     </div>
     <nav>
       <ul class="nav-tabs">
@@ -27,12 +27,11 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <div class="container">
       <div class="hero-overlay">
         <h1>Referral Form</h1>
-        <p>Supporting children and families with care, clarity, and compassion</p>
+        <p>Refer a child or young person to Meadow Pathways</p>
       </div>
     </div>
     <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
@@ -40,84 +39,36 @@
     </svg>
   </section>
 
-  <!-- Main Content -->
-  <main class="main-content-box container">
-    <h2>Making a Referral</h2>
-    <p>
-      We welcome referrals from families, schools, and professionals. Please complete the form below with as much detail as you feel comfortable sharing. All information will be treated with respect and confidentiality.
-    </p>
+  <main id="main-content" class="main-content-box container">
+    <h2>Referral Form</h2>
+    <p>Please complete the form below to refer a child or young person to Meadow Pathways. We will respond as soon as possible.</p>
 
     <form action="https://formspree.io/f/movnvzqp" method="POST">
-      <h3>Your Details</h3>
-      <label for="referrer_name">Your Name</label>
-      <input type="text" id="referrer_name" name="referrer_name" required>
+      <input type="hidden" name="_redirect" value="thankyou.html">
 
-      <label for="referrer_role">Your Role / Relationship to Child</label>
-      <input type="text" id="referrer_role" name="referrer_role" required>
+      <label for="referrerName">Your Name:</label>
+      <input type="text" id="referrerName" name="referrerName" required>
 
-      <label for="referrer_email">Your Email</label>
-      <input type="email" id="referrer_email" name="referrer_email" required>
+      <label for="referrerEmail">Your Email:</label>
+      <input type="email" id="referrerEmail" name="referrerEmail" required>
 
-      <label for="referrer_phone">Your Phone Number</label>
-      <input type="tel" id="referrer_phone" name="referrer_phone">
+      <label for="childName">Child's Name:</label>
+      <input type="text" id="childName" name="childName" required>
 
-      <h3>Child / Young Person</h3>
-      <label for="child_name">Name</label>
-      <input type="text" id="child_name" name="child_name" required>
+      <label for="childDOB">Child's Date of Birth:</label>
+      <input type="date" id="childDOB" name="childDOB" required>
 
-      <label for="child_age">Age</label>
-      <input type="number" id="child_age" name="child_age" min="3" max="25" required>
+      <label for="referralReason">Reason for Referral:</label>
+      <textarea id="referralReason" name="referralReason" rows="5" required></textarea>
 
-      <label for="school">Current School / Setting</label>
-      <input type="text" id="school" name="school">
+      <label for="additionalInfo">Additional Information:</label>
+      <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
 
-      <label for="ehcp">EHCP (Education, Health and Care Plan)</label>
-      <select id="ehcp" name="ehcp">
-        <option value="">-- Please Select --</option>
-        <option value="Yes">Yes</option>
-        <option value="In progress">In progress</option>
-        <option value="No">No</option>
-      </select>
-
-      <label for="needs">Summary of Needs / Concerns</label>
-      <textarea id="needs" name="needs" rows="5" required></textarea>
-
-      <label for="support">Support Already in Place</label>
-      <textarea id="support" name="support" rows="4"></textarea>
-
-      <label for="la_involvement">Local Authority Involvement</label>
-      <textarea id="la_involvement" name="la_involvement" rows="3"></textarea>
-
-      <label for="risks">Known Risks / Safeguarding Information (if any)</label>
-      <textarea id="risks" name="risks" rows="4"></textarea>
-
-      <label for="consent">Consent obtained from parent/carer?</label>
-      <select id="consent" name="consent" required>
-        <option value="">-- Please Select --</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
-
-      <button type="submit">Submit Referral</button>
+      <button type="submit" class="pill pill--teal">Submit Referral</button>
     </form>
-
-    <h2>Contact for Queries</h2>
-    <ul>
-      <li><strong>Michelle Pascoe</strong><br>
-        Email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
-        Phone: 07932243358
-      </li>
-      <li><strong>Zoe Waitz</strong><br>
-        Email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
-        Phone: 07775733587
-      </li>
-      <li><strong>General Enquiries</strong><br>
-        Email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
-      </li>
-    </ul>
   </main>
 
-  <button id="backToTop" aria-label="Back to top">↑</button>
+  <button id="backToTop" aria-label="Back to top" hidden>↑</button>
 
   <footer>
     <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd.</p>
