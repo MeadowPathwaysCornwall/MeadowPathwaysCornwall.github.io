@@ -1,41 +1,41 @@
-// Carousel controls with fade effect and manual buttons
-(function () {
-  const slides = document.querySelectorAll('.carousel-image');
-  if (!slides.length) return;
+// ===== Back to Top Button =====
+const backToTopBtn = document.getElementById("backToTop");
 
-  let currentSlide = 0;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active');
-      slide.style.opacity = i === index ? '1' : '0';
-      slide.style.transition = 'opacity 0.8s ease';
-    });
-    slides[index].classList.add('active');
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTopBtn.style.display = "block";
+  } else {
+    backToTopBtn.style.display = "none";
   }
+});
 
-  window.moveSlide = function (step) {
-    currentSlide = (currentSlide + step + slides.length) % slides.length;
-    showSlide(currentSlide);
-  };
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
-  // Auto-advance every 5 seconds
-  setInterval(() => window.moveSlide(1), 5000);
+// ===== Carousel =====
+// If you have multiple images inside .carousel, this will auto-cycle them
+const carousel = document.querySelector(".carousel");
+if (carousel) {
+  const slides = carousel.querySelectorAll("img");
+  let currentIndex = 0;
 
-  // Ensure first image is visible
-  showSlide(currentSlide);
-})();
-
-// Back to top button toggle and smooth scroll
-(function () {
-  const btn = document.getElementById('backToTop');
-  if (!btn) return;
-
-  window.addEventListener('scroll', function () {
-    btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  // Hide all slides except the first
+  slides.forEach((slide, index) => {
+    slide.style.opacity = index === 0 ? "1" : "0";
+    slide.style.position = "absolute";
+    slide.style.top = "0";
+    slide.style.left = "0";
+    slide.style.width = "100%";
+    slide.style.height = "100%";
+    slide.style.objectFit = "cover";
+    slide.style.transition = "opacity 1s ease-in-out";
   });
 
-  btn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-})();
+  // Cycle through slides
+  setInterval(() => {
+    slides[currentIndex].style.opacity = "0";
+    currentIndex = (currentIndex + 1) % slides.length;
+    slides[currentIndex].style.opacity = "1";
+  }, 5000); // change every 5 seconds
+}
