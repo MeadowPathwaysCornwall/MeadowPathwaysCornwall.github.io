@@ -137,27 +137,29 @@ header {
   box-shadow: 0 10px 28px var(--shadow-1);
 }
 
-/* 🎠 Carousel */
 .carousel {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 6px 16px var(--shadow-1);
-  height: 220px;
-  margin: 8px 0 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  height: auto; /* Let it size naturally */
+  max-height: 360px; /* Prevent it from taking over the page */
+  margin: 20px 0;
   background: #f0f6f7;
 }
+
 .carousel .slides {
   display: flex;
-  width: 100%;
-  height: 100%;
   transition: transform 0.7s ease;
 }
+
 .carousel .slides img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto; /* Show full image */
+  object-fit: contain; /* Prevent cropping */
   flex-shrink: 0;
+  border-radius: 12px;
+}
 }
 .carousel .dots {
   position: absolute;
