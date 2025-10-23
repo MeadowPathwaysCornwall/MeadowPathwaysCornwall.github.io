@@ -8,15 +8,13 @@
   --text-soft: #2b3e5f;
   --bg-soft: #f7fbfc;
   --white: #ffffff;
-  --red: #CB0404
+  --red: #CB0404; /* ✅ added missing semicolon */
   --shadow-1: rgba(0,0,0,0.06);
   --shadow-2: rgba(0,0,0,0.12);
-
   --teal-accent: #309898;
   --peach-bg: #E3F2FD;
   --coral-soft: #B39DDB;
   --orange-bold: #5C6BC0;
-
   --pill-bg: #E3F2FD;
   --pill-bg-hover: #D0E6FA;
 }
@@ -30,7 +28,7 @@ body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   color: var(--text-deep);
-  background: var(--bg-soft);
+  background: linear-gradient(135deg, var(--ice-cold), var(--freeze-purple)); /* ✅ site-wide colour enhancement */
   line-height: 1.6;
 }
 
@@ -64,7 +62,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  background: linear-gradient(90deg, rgba(227,242,253,0.3), rgba(197,194,255,0.1));
+  background: linear-gradient(90deg, var(--peach-bg), var(--freeze-purple)); /* ✅ softer gradient */
   box-shadow: 0 2px 12px var(--shadow-1);
   position: sticky;
   top: 0;
@@ -76,7 +74,7 @@ header {
   gap: 14px;
 }
 .logo {
-  max-height: 220px;
+  max-height: 260px; /* ✅ slightly larger */
   width: auto;
   display: block;
   border-radius: 14px;
@@ -85,8 +83,6 @@ header {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
   border: 2px solid var(--freeze-purple);
 }
-
-/* Navigation */
 .nav-tabs {
   list-style: none;
   display: flex;
@@ -94,6 +90,8 @@ header {
   gap: 10px;
   margin: 0;
   padding: 0;
+  flex-grow: 1; /* ✅ allows independent sizing */
+  justify-content: flex-end;
 }
 .nav-tabs a {
   text-decoration: none;
@@ -114,7 +112,7 @@ header {
 /* Hero */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, var(--ice-cold), var(--freeze-purple));
+  background: linear-gradient(135deg, var(--ice-cold), var(--medium-purple)); /* ✅ added colour variety */
   padding: 40px 0 10px;
   overflow: hidden;
 }
@@ -125,12 +123,11 @@ header {
   box-shadow: 0 6px 20px var(--shadow-1);
   margin: 0 auto;
   max-width: 980px;
-  text-align: center;   /* ✅ centres all text inside */
+  text-align: center;
 }
-
 .hero-overlay h1,
 .hero-overlay p {
-  text-align: center;   /* ✅ ensures headings and subtext are centred */
+  text-align: center;
 }
 .hero h1 { font-size: 2.1rem; margin: 0 0 8px; }
 .hero p { color: var(--text-soft); margin: 0; }
@@ -144,28 +141,28 @@ header {
   box-shadow: 0 10px 28px var(--shadow-1);
 }
 
+/* Carousel */
 .carousel {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-  max-height: 400px; /* adjust this to control how tall it gets */
+  max-height: 400px;
   margin: 20px 0;
-  background: #f0f6f7;
+  background: linear-gradient(135deg, var(--ice-cold), var(--coral-soft)); /* ✅ added colour variety */
 }
-
 .carousel .slides {
   display: flex;
   transition: transform 0.7s ease;
 }
-
 .carousel .slides img {
   width: 100%;
-  height: 100%;
-  object-fit: contain; /* ✅ show the whole image */
-  background: #fff;    /* optional: adds a clean background behind smaller images */
+  max-height: 380px; /* ✅ fixed image sizing */
+  object-fit: contain;
+  background: var(--white);
   flex-shrink: 0;
-}
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
 .carousel .dots {
   position: absolute;
@@ -177,16 +174,27 @@ header {
   z-index: 10;
 }
 .carousel .dot {
-  width: 10px; height: 10px; border-radius: 999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
   background: rgba(255,255,255,0.75);
   border: 2px solid rgba(0,0,0,0.06);
   cursor: pointer;
   transition: transform .15s ease;
 }
-.carousel .dot.active { background: var(--heavy-purple); transform: scale(1.05); }
+.carousel .dot.active {
+  background: var(--heavy-purple);
+  transform: scale(1.05);
+}
 
 /* Pill buttons */
-.expertise-box { display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0 30px; padding: 10px 0; }
+.expertise-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0 30px;
+  padding: 10px 0;
+}
 .pill {
   display: inline-block;
   padding: 10px 16px;
@@ -200,18 +208,26 @@ header {
   box-shadow: 0 6px 18px rgba(20,20,40,0.04);
   transition: background .18s ease, transform .06s ease;
 }
-.pill:hover { background: var(--pill-bg-hover); transform: translateY(-2px); cursor: pointer; }
+.pill:hover {
+  background: var(--pill-bg-hover);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
 .pill--teal { background: var(--teal-accent); color: #fff; }
 .pill--teal:hover { background: var(--heavy-purple); }
 .pill--coral { background: var(--coral-soft); color: var(--white); }
 .pill--coral:hover { background: var(--orange-bold); }
 
 /* Values */
-.values { display: grid; gap: 12px; margin-top: 8px; }
+.values {
+  display: grid;
+  gap: 12px;
+  margin-top: 8px;
+}
 .value {
   padding: 14px;
   border-radius: 12px;
-  background: linear-gradient(90deg, rgba(227,242,253,0.4), rgba(179,157,219,0.08));
+  background: linear-gradient(90deg, var(--peach-bg), rgba(179,157,219,0.08)); /* ✅ softened gradient */
   border: 1px solid rgba(179,157,219,0.12);
 }
 
@@ -226,26 +242,4 @@ header {
   background: var(--heavy-purple);
   color: var(--white);
   font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 6px 14px var(--shadow-2);
-  z-index: 70;
-  transition: transform .12s ease;
-}
-#backToTop:hover { transform: translateY(-3px); background: var(--purple-pain); }
-#backToTop[hidden] { display: none; }
 
-/* Footer */
-footer { text-align: center; color: var(--text-soft); padding: 22px 10px 40px; }
-
-/* Form styling */
-form label {
-  display: block;
-  margin-top: 12px;
-  font-weight: 600;
-}
-form input,
-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 4px;
-  border-radius: 8px
