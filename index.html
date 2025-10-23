@@ -1,25 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Meadow Pathways Cornwall</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Header -->
   <header>
     <div class="logo-container">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
     </div>
     <ul class="nav-tabs">
-      <li><a href="index.html" class="active">Home</a></li>
+      <li><a class="active" href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="referral.html">Referral</a></li>
+      <li><a href="eotas.html">EOTAS</a></li>
       <li><a href="safeguarding.html">Safeguarding</a></li>
       <li><a href="staff.html">Staff</a></li>
+      <li><a href="referral.html">Referral</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </header>
@@ -28,50 +29,54 @@
   <section class="hero">
     <div class="hero-overlay">
       <h1>Welcome to Meadow Pathways</h1>
-      <p>Supporting children, young people, and families in Cornwall</p>
+      <p>Guiding individual journeys with care and purpose across Cornwall</p>
     </div>
   </section>
 
-  <!-- Main Content -->
+  <!-- Main -->
   <main id="main" class="container">
     <div class="main-content-box">
 
       <!-- Carousel -->
       <div class="carousel">
         <div class="slides">
-          <img src="slide1.jpg" alt="Slide 1">
-          <img src="slide2.jpg" alt="Slide 2">
-          <img src="slide3.jpg" alt="Slide 3">
+          <img src="paths.jpg" alt="Coastal path and gentle meadow view" />
+          <img src="wood.jpg" alt="Light through the woods" />
+          <img src="hand meadow.jpg" alt="Hand reaching through meadow grass" />
         </div>
-        <div class="dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+        <div class="dots" aria-label="Slideshow controls">
+          <span class="dot active" aria-label="Slide 1"></span>
+          <span class="dot" aria-label="Slide 2"></span>
+          <span class="dot" aria-label="Slide 3"></span>
         </div>
       </div>
 
       <!-- Expertise Pills -->
-      <div class="expertise-box">
-        <span class="pill pill--teal">Trauma-Informed</span>
-        <span class="pill pill--coral">Play Therapy</span>
-        <span class="pill">EBSNA Support</span>
-        <span class="pill">Bereavement Care</span>
+      <div class="expertise-box" aria-label="Areas of support">
+        <span class="pill pill--teal">Trauma-informed</span>
+        <span class="pill pill--coral">Play therapy</span>
+        <span class="pill">EBSNA</span>
+        <span class="pill">Bereavement</span>
+        <span class="pill">Emotion coaching</span>
       </div>
 
       <!-- Values -->
       <div class="values">
-        <div class="value">Safe, nurturing environments for every child</div>
-        <div class="value">Building trust through empathy and connection</div>
-        <div class="value">Guided by the SPACE ethos</div>
+        <div class="value">Safe, nurturing environments where every child feels seen and heard.</div>
+        <div class="value">Trust, empathy, and connection guide our support.</div>
+        <div class="value">The SPACE ethos shapes our practice and relationships.</div>
       </div>
 
-      <!-- Example Form -->
+      <!-- Contact teaser -->
+      <p>Ready to talk? Visit our <a href="contact.html">Contact</a> page or send a message below.</p>
+
+      <!-- Gentle contact form -->
       <form action="https://formspree.io/f/movnvzqp" method="POST">
         <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" required>
+        <input id="name" name="name" type="text" required />
 
         <label for="email">Your Email</label>
-        <input type="email" id="email" name="_replyto" required>
+        <input id="email" name="_replyto" type="email" required />
 
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="5"></textarea>
@@ -82,15 +87,15 @@
     </div>
   </main>
 
-  <!-- Back to Top -->
-  <button id="backToTop" hidden>↑</button>
+  <!-- Back to top -->
+  <button id="backToTop" hidden aria-label="Back to top">↑</button>
 
   <!-- Footer -->
   <footer>
     <p>&copy; Meadow Pathways Cornwall</p>
   </footer>
 
-  <!-- Optional Script -->
+  <!-- Optional script -->
   <script src="script.js"></script>
 </body>
 </html>
