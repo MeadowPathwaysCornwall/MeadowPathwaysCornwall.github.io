@@ -242,4 +242,84 @@ header {
   background: var(--heavy-purple);
   color: var(--white);
   font-weight: 700;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: var(--text-soft);
+  padding: 22px 10px 40px;
+  background: linear-gradient(90deg, var(--freeze-purple), var(--ice-cold)); /* ✅ gentle footer colour */
+}
+
+/* Form styling */
+form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+}
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: var(--white);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text-deep);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--medium-purple);
+  box-shadow: 0 0 0 3px rgba(155,143,255,0.2);
+}
+form button {
+  margin-top: 16px;
+  padding: 10px 18px;
+  background: var(--heavy-purple);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+form button:hover {
+  background: var(--purple-pain);
+}
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: var(--white);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--text-deep);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--medium-purple);
+  box-shadow: 0 0 0 3px rgba(155,143,255,0.2);
+}
+
+form button {
+  margin-top: 16px;
+  padding: 10px 18px;
+  background: var(--heavy-purple);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+form button:hover {
+  background: var(--purple-pain);
+}
 
