@@ -8,6 +8,7 @@
   --text-soft: #2b3e5f;
   --bg-soft: #f7fbfc;
   --white: #ffffff;
+  --red: #CB0404
   --shadow-1: rgba(0,0,0,0.06);
   --shadow-2: rgba(0,0,0,0.12);
 
@@ -108,7 +109,7 @@ header {
   text-align: center;
 }
 .nav-tabs a:hover { background: rgba(48,152,152,0.08); color: var(--heavy-purple); }
-.nav-tabs a.active { background: var(--ice-cold); border-color: var(--freeze-purple); }
+.nav-tabs a.active { background: var(--red); border-color: var(--freeze-purple); }
 
 /* Hero */
 .hero {
@@ -124,6 +125,12 @@ header {
   box-shadow: 0 6px 20px var(--shadow-1);
   margin: 0 auto;
   max-width: 980px;
+  text-align: center;   /* ✅ centres all text inside */
+}
+
+.hero-overlay h1,
+.hero-overlay p {
+  text-align: center;   /* ✅ ensures headings and subtext are centred */
 }
 .hero h1 { font-size: 2.1rem; margin: 0 0 8px; }
 .hero p { color: var(--text-soft); margin: 0; }
@@ -142,8 +149,7 @@ header {
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-  height: auto; /* Let it size naturally */
-  max-height: 360px; /* Prevent it from taking over the page */
+  max-height: 400px; /* adjust this to control how tall it gets */
   margin: 20px 0;
   background: #f0f6f7;
 }
@@ -155,10 +161,10 @@ header {
 
 .carousel .slides img {
   width: 100%;
-  height: auto; /* Show full image */
-  object-fit: contain; /* Prevent cropping */
+  height: 100%;
+  object-fit: contain; /* ✅ show the whole image */
+  background: #fff;    /* optional: adds a clean background behind smaller images */
   flex-shrink: 0;
-  border-radius: 12px;
 }
 }
 .carousel .dots {
