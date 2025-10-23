@@ -1,123 +1,28 @@
-:root {
-  --deep-blue: #3674B5;
-  --mid-blue: #578FCA;
-  --light-aqua: #A1E3F9;
-  --soft-mint: #D1F8EF;
-  --text-dark: #0d2238;
-  --text-light: #ffffff;
-}
-
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background-color: var(--soft-mint);
-  color: var(--text-dark);
-  line-height: 1.6;
-}
-
-h1, h2, h3 { color: var(--deep-blue); }
-
-header {
-  background-color: var(--deep-blue);
-  padding: 14px 24px;
+/* Pill container */
+.expertise-box {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0 30px;
+  padding: 10px 0;
 }
 
-.logo {
-  height: 200px;
-  width: auto;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
-  transform: rotate(-2deg);
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-.logo:hover {
-  transform: rotate(0deg) scale(1.05);
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
-}
-
-.nav-tabs {
-  list-style: none;
-  display: flex;
-  gap: 16px;
-  margin: 0; padding: 0;
-}
-.nav-tabs li a {
-  color: var(--text-light);
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 6px;
-}
-.nav-tabs li a.active,
-.nav-tabs li a:hover {
-  background-color: var(--mid-blue);
-}
-
-.hero {
-  background: linear-gradient(135deg, var(--light-aqua), var(--mid-blue), var(--deep-blue));
-  text-align: center;
-  padding: 90px 20px 50px;
-  color: color: #1c2e4a; /* Deep navy */
-  position: relative;
-}
-.hero-overlay {
-  background: rgba(54, 116, 181, 0.25);
+/* Individual pill style */
+.pill {
   display: inline-block;
-  padding: 22px 32px;
-  border-radius: 16px;
-}
-.hero h1 { margin: 0; font-size: 2.4rem; }
-.hero p { margin-top: 10px; font-size: 1.1rem; color: #f7fbff; }
-.hero-wave { display: block; margin-top: -1px; }
-
-.main-content-box {
-  background: var(--soft-mint);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-.carousel {
-  position: relative;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto 30px;
-  height: 420px;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 8px 14px;
+  background-color: #D1F8EF; /* Soft aqua from your palette */
+  color: #1c2e4a; /* Deep blue text for contrast */
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
 }
 
-.carousel img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-.carousel img:first-child {
-  opacity: 1;
-}
-.
-
-#backToTop {
-  position: fixed;
-  bottom: 20px; right: 20px;
-  background: var(--mid-blue);
-  color: var(--text-light);
-  border: none; border-radius: 50%;
-  width: 44px; height: 44px; font-size: 1.2rem;
-  cursor: pointer; display: none;
-}
-#backToTop:hover { background: var(--deep-blue); }
-
-footer {
-  background-color: var(--deep-blue);
-  color: var(--text-light);
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
+/* Optional hover effect */
+.pill:hover {
+  background-color: #bceee2;
+  cursor: default;
 }
