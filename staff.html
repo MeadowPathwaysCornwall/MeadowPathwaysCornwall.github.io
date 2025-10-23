@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="staff">
+  <a href="#staffContent" class="skip-link">Skip to staff content</a>
+
   <header>
     <div class="logo-container">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" />
-      </a>
+      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" /></a>
     </div>
     <nav>
       <ul class="nav-tabs">
@@ -19,7 +19,6 @@
         <li><a href="eotas.html">EOTAS Info</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="safeguarding-policies.html">Safeguarding Policies</a></li>
         <li><a href="policies.html">Policies</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="staff.html" class="active">Staff Only</a></li>
@@ -37,26 +36,15 @@
     </div>
   </section>
 
-  <main class="main-content-box container" id="staffContent" style="display:none;">
+  <main id="staffContent" class="main-content-box container" style="display:none;">
     <h2>Staff Resources</h2>
-    <p>Welcome to the staff area. Use the links below to access internal documents and safeguarding guidance.</p>
+    <p>Welcome to the staff area. Use the links in Safeguarding for policy documents. This gated area provides staff-only materials and internal guidance.</p>
 
-    <h3>Internal Policies</h3>
+    <h3>Key staff-only resources</h3>
     <div class="expertise-box">
-      <a href="policies/MPWEC Staff Policies.pdf" class="pill pill--teal" target="_blank" rel="noopener">Staff Policies</a>
-      <a href="policies/MPWEC Training Materials.pdf" class="pill pill--teal" target="_blank" rel="noopener">Training Materials</a>
-      <a href="policies/MPWEC Curriculum Policy EOTAS September 2025.docx" class="pill pill--coral" target="_blank" rel="noopener">Curriculum Policy EOTAS</a>
-      <a href="policies/MPWEC H&S Policy Sep 25.docx" class="pill pill--coral" target="_blank" rel="noopener">Health & Safety Policy</a>
-      <a href="policies/MPWEC Lone Working Policy Sep25.docx" class="pill pill--coral" target="_blank" rel="noopener">Lone Working Policy</a>
-    </div>
-
-    <h3>Safeguarding Guidance and External Resources</h3>
-    <div class="expertise-box">
-      <a href="https://www.pookyknightsmith.com/" class="pill" target="_blank" rel="noopener">Dr Pooky Knightsmith</a>
-      <a href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" class="pill" target="_blank" rel="noopener">KCSIE 2025</a>
-      <a href="https://learning.nspcc.org.uk/safeguarding-child-protection/writing-a-safeguarding-policy-statement" class="pill" target="_blank" rel="noopener">NSPCC Safeguarding Policy</a>
-      <a href="https://learning.nspcc.org.uk/research-resources/schools/keeping-children-safe-in-education-caspar-briefing" class="pill" target="_blank" rel="noopener">NSPCC CASPAR Briefing</a>
-      <a href="https://www.sec-ed.co.uk/content/best-practice/how-to-be-a-safe-adult-for-vulnerable-students-five-cs" class="pill" target="_blank" rel="noopener">The 5 Cs of Safe Adults</a>
+      <a href="resources/Staff Meeting Notes.pdf" class="pill pill--teal" target="_blank" rel="noopener">Meeting Notes</a>
+      <a href="resources/Training Calendar.pdf" class="pill pill--teal" target="_blank" rel="noopener">Training Calendar</a>
+      <a href="resources/Forms & Templates.zip" class="pill pill--coral" target="_blank" rel="noopener">Forms & Templates</a>
     </div>
   </main>
 
@@ -64,8 +52,8 @@
     <h2>Access Denied</h2>
     <p>This page is for Meadow Pathways staff only. If you need access, please contact:</p>
     <ul>
-      <li><strong>Michelle Pascoe</strong> – <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> – 07932243358</li>
-      <li><strong>Zoe Waitz</strong> – <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a> – 07775733587</li>
+      <li><strong>Michelle Pascoe</strong> – <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
+      <li><strong>Zoe Waitz</strong> – <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
     </ul>
   </div>
 
@@ -77,10 +65,9 @@
   </footer>
 
   <script>
-    // Cosmetic password gate - update password here
     (function(){
       const password = "MPWEC!";
-      const entered = prompt("Enter staff password:");
+      const entered = prompt("MPWEC!:");
       if (entered === password) {
         document.getElementById("staffContent").style.display = "block";
       } else {
