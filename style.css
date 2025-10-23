@@ -11,7 +11,6 @@
   --shadow-1: rgba(0,0,0,0.06);
   --shadow-2: rgba(0,0,0,0.12);
 
-  /* Updated accent colours */
   --teal-accent: #309898;
   --peach-bg: #E3F2FD;
   --coral-soft: #B39DDB;
@@ -103,6 +102,10 @@ header {
   background: transparent;
   border: 1px solid transparent;
   transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .nav-tabs a:hover { background: rgba(48,152,152,0.08); color: var(--heavy-purple); }
 .nav-tabs a.active { background: var(--ice-cold); border-color: var(--freeze-purple); }
@@ -140,7 +143,7 @@ header {
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 16px var(--shadow-1);
-  height: 220px; /* slightly bigger */
+  height: 220px;
   margin: 8px 0 18px;
   background: #f0f6f7;
 }
@@ -226,5 +229,15 @@ header {
 /* Footer */
 footer { text-align: center; color: var(--text-soft); padding: 22px 10px 40px; }
 
-/* Accessibility */
-a
+/* Form styling */
+form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 600;
+}
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 8px
