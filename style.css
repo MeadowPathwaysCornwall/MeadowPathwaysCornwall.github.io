@@ -73,10 +73,7 @@ header {
 }
 .logo-container { display: flex; align-items: center; gap: 14px; }
 .logo {
-  max-height: 140px; /* try 120–160px for balance */
-  padding: 6px;
-}
-
+  max-height: 260px; /* ✅ larger */
   width: auto;
   display: block;
   border-radius: 14px;
@@ -212,23 +209,6 @@ header {
   background: linear-gradient(90deg, var(--peach-bg), rgba(179,157,219,0.08));
   border: 1px solid rgba(179,157,219,0.12);
 }
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .logo {
-    max-height: 100px;   /* ✅ shrinks logo on smaller screens */
-    padding: 6px;        /* ✅ reduces padding so it doesn’t look cramped */
-  }
-
-  .nav-tabs {
-    flex-direction: column;   /* ✅ stack tabs vertically if needed */
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  .nav-tabs a {
-    font-size: 0.95rem;
-    padding: 6px 10px;
-  }
 
 /* Back to top */
 #backToTop {
@@ -236,4 +216,14 @@ header {
   right: 16px;
   bottom: 18px;
   padding: 10px 12px;
-  border-radius:
+  border-radius: 999px;
+  border: none;
+  background: var(--heavy-purple);
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px var(--shadow-2);
+  z-index: 70;
+  transition: transform .12s ease;
+}
+#backToTop:hover { transform: translateY(-3px); background: var
