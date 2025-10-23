@@ -34,27 +34,25 @@
         <p>Secure resources for Meadow Pathways staff</p>
       </div>
     </div>
+    <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 C300,100 900,0 1200,30 L1200,100 L0,100 Z" fill="#D1F8EF" />
+    </svg>
   </section>
 
+  <!-- Staff-only content (hidden until password entered) -->
   <main id="staffContent" class="main-content-box container" style="display:none;">
     <h2>Staff Resources</h2>
-    <p>Welcome to the staff area. Use the links in Safeguarding for policy documents. This gated area provides staff-only materials and internal guidance.</p>
+    <p>Welcome to the staff area. These documents are for internal use only and relate to curriculum delivery and safe working practices.</p>
 
     <h3>Internal Policies</h3>
-<p>These documents are for staff use only and relate to internal procedures and curriculum delivery:</p>
-<div class="expertise-box">
-  <a href="policies/MPWEC Curriculum Policy EOTAS September 2025.docx" class="pill pill--coral" target="_blank" rel="noopener">Curriculum Policy (EOTAS)</a>
-  <a href="policies/MPWEC H&S Policy Sep 25.docx" class="pill pill--coral" target="_blank" rel="noopener">Health & Safety Policy</a>
-  <a href="policies/MPWEC Lone Working Policy Sep25.docx" class="pill pill--coral" target="_blank" rel="noopener">Lone Working Policy</a>
-</div>
-    <h3>Key staff-only resources</h3>
     <div class="expertise-box">
-      <a href="resources/Staff Meeting Notes.pdf" class="pill pill--teal" target="_blank" rel="noopener">Meeting Notes</a>
-      <a href="resources/Training Calendar.pdf" class="pill pill--teal" target="_blank" rel="noopener">Training Calendar</a>
-      <a href="resources/Forms & Templates.zip" class="pill pill--coral" target="_blank" rel="noopener">Forms & Templates</a>
+      <a href="policies/MPWEC Curriculum Policy EOTAS September 2025.docx" class="pill pill--coral" target="_blank" rel="noopener">Curriculum Policy (EOTAS)</a>
+      <a href="policies/MPWEC H&S Policy Sep 25.docx" class="pill pill--coral" target="_blank" rel="noopener">Health & Safety Policy</a>
+      <a href="policies/MPWEC Lone Working Policy Sep25.docx" class="pill pill--coral" target="_blank" rel="noopener">Lone Working Policy</a>
     </div>
   </main>
 
+  <!-- Access denied message -->
   <div id="deniedMessage" class="main-content-box container" style="display:none;">
     <h2>Access Denied</h2>
     <p>This page is for Meadow Pathways staff only. If you need access, please contact:</p>
@@ -71,10 +69,11 @@
     <p>Directors: Zoe Waitz & Michelle Pascoe</p>
   </footer>
 
+  <!-- Password gate using MPWEC! -->
   <script>
     (function(){
       const password = "MPWEC!";
-      const entered = prompt("MPWEC!:");
+      const entered = prompt("Enter staff password:");
       if (entered === password) {
         document.getElementById("staffContent").style.display = "block";
       } else {
