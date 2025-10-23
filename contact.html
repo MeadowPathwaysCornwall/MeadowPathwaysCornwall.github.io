@@ -3,62 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Referral Form | Meadow Pathways Cornwall</title>
+  <title>Contact Us | Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .referral-box {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 24px;
-      background-color: #f7f9f8;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .referral-box h2 {
-      color: #478559;
-      margin-top: 24px;
-    }
-    form {
-      margin-top: 20px;
-      background-color: #ffffff;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    label {
-      display: block;
-      margin-top: 16px;
-      font-weight: 600;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-    button {
-      margin-top: 24px;
-      background-color: #478559;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #356b45;
-    }
-  </style>
 </head>
-<body class="referral">
+<body class="contact">
   <header>
     <div class="logo-container">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" style="height:100px;" />
-      </a>
+      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" /></a>
     </div>
     <nav>
       <ul class="nav-tabs">
@@ -66,18 +17,20 @@
         <li><a href="eotas.html">EOTAS Info</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="policies.html">Policies</a></li>
+        <li><a href="contact.html" class="active">Contact Us</a></li>
         <li><a href="staff.html">Staff Only</a></li>
-        <li><a href="referral.html" class="active">Referral Form</a></li>
+        <li><a href="referral.html">Referral Form</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="hero">
+    <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo-hero" />
     <div class="container">
       <div class="hero-overlay">
-        <h1>Referral Form</h1>
-        <p>Supporting children and families with care, clarity, and compassion</p>
+        <h1>Contact Us</h1>
+        <p>We welcome enquiries from families, professionals, and partners</p>
       </div>
     </div>
     <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
@@ -86,62 +39,38 @@
   </section>
 
   <main class="main-content-box container">
-    <div class="referral-box">
-      <h2>Making a Referral</h2>
-      <p>
-        We welcome referrals from families, schools, and professionals. Please complete the form below with as much detail as you feel comfortable sharing. All information will be treated with respect and confidentiality.
-      </p>
+    <h2>Contact Details</h2>
+    <ul>
+      <li><strong>Michelle Pascoe</strong><br>
+        Email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
+        Phone: 07932243358
+      </li>
+      <li><strong>Zoe Waitz</strong><br>
+        Email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
+        Phone: 07775733587
+      </li>
+      <li><strong>General Enquiries</strong><br>
+        Email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
+      </li>
+    </ul>
 
-      <form action="https://formspree.io/f/movnvzqp" method="POST">
-        <label for="referrer_name">Your Name</label>
-        <input type="text" id="referrer_name" name="referrer_name" required>
+    <h2>General Enquiries</h2>
+    <form action="https://formspree.io/f/movnvzqp" method="POST">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
 
-        <label for="referrer_role">Your Role / Relationship to Child</label>
-        <input type="text" id="referrer_role" name="referrer_role" required>
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
 
-        <label for="referrer_email">Your Email</label>
-        <input type="email" id="referrer_email" name="referrer_email" required>
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
 
-        <label for="referrer_phone">Your Phone Number</label>
-        <input type="tel" id="referrer_phone" name="referrer_phone">
+      <button type="submit">Send Message</button>
+    </form>
 
-        <label for="child_name">Child / Young Person’s Name</label>
-        <input type="text" id="child_name" name="child_name" required>
-
-        <label for="child_age">Child / Young Person’s Age</label>
-        <input type="number" id="child_age" name="child_age" min="3" max="25" required>
-
-        <label for="needs">Summary of Needs / Concerns</label>
-        <textarea id="needs" name="needs" rows="5" required></textarea>
-
-        <label for="support">Support Already in Place</label>
-        <textarea id="support" name="support" rows="4"></textarea>
-
-        <label for="consent">Has consent been obtained from parent/carer?</label>
-        <select id="consent" name="consent" required>
-          <option value="">-- Please Select --</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-
-        <button type="submit">Submit Referral</button>
-      </form>
-
-      <h2>Contact for Queries</h2>
-      <ul>
-        <li><strong>Michelle Pascoe</strong><br>
-          Email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
-          Phone: 07932243358
-        </li>
-        <li><strong>Zoe Waitz</strong><br>
-          Email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
-          Phone: 07775733587
-        </li>
-        <li><strong>General Enquiries</strong><br>
-          Email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
-        </li>
-      </ul>
-    </div>
+    <p style="margin-top: 24px;">
+      We aim to respond within 2 working days. If your enquiry is urgent or relates to safeguarding, please contact Michelle or Zoe directly.
+    </p>
   </main>
 
   <button id="backToTop" aria-label="Back to top">↑</button>
