@@ -5,12 +5,35 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About Us | Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .pill-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .pill {
+      background-color: #f95d9b; /* Pink Highlight */
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: 500;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex: 1 1 auto;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .pill {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
 </head>
 <body class="about">
   <header>
     <div class="logo-container">
       <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" />
+        <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" style="height:100px;" />
       </a>
     </div>
     <nav>
@@ -45,26 +68,59 @@
     <section class="team-member">
       <h3>Zoe Waitz</h3>
       <p>
-        Zoe is a qualified teacher with extensive experience in inclusive education, pastoral leadership, and supporting children with diverse needs. She brings warmth, creativity, and clear structure to every learning journey, ensuring each child feels seen and supported.
+        Zoe Waitz is a founding director of Meadow Pathways Wellbeing and Education Cornwall, an organisation built on the belief that every child deserves to feel safe, seen, and supported. Meadow Pathways offers inclusive, therapeutic education for children and young people with SEND and SEMH needs, placing wellbeing at the centre of everything it does.
+      </p>
+      <p>
+        Zoe’s leadership is rooted in genuine care. She understands that meaningful change happens not just through policies and plans, but through everyday moments of connection with learners, families, and the dedicated staff who walk alongside them. Her approach weaves compassion into strategic decisions, ensuring that every layer of the organisation reflects the values it stands for.
+      </p>
+      <p>
+        Zoe began her career as a teaching assistant, driven by a passion for outdoor learning and physical education. She qualified as a PE teacher and quickly recognised the value of working closely with families and other specialists to support each young person. This led to pastoral and senior leadership in specialist education, deepening her commitment to inclusive, wellbeing-focused practice. She brings deep insight into the emotional and practical realities faced by vulnerable learners and the teams who support them. That lived understanding now shapes every aspect of Meadow Pathways — from curriculum to compliance, to the warmth of a morning welcome.
+      </p>
+      <p>
+        Nature is a constant thread in Zoe’s work. As a former outdoor education instructor, she sees the outdoors not just as a backdrop, but as a space that offers something different to everyone. Whether it’s a walk along the Cornish coast, a forest school session, or cooking with foraged ingredients, Zoe believes that nature offers regulation, joy, and connection for young people, staff, and the wider community. It’s this blend of care, creativity, and purpose that makes Meadow Pathways feel not just like a service but a place to belong.
       </p>
     </section>
 
-    <section class="team-member">
-      <h3>Michelle Pascoe</h3>
-      <p>
-        Michelle is a qualified counsellor and play therapist with over 20 years’ experience. She leads with a trauma‑informed, person‑centred ethos, building trusting relationships and safe environments where children can reconnect with learning and life.
-      </p>
-    </section>
+  <section class="team-member">
+  <h3>Michelle Pascoe</h3>
+  <p>
+    Michelle Pascoe is the founding director and lead therapist at Meadow Pathways Wellbeing and Education Cornwall. With over 20 years’ experience as a qualified counsellor and play therapist, Michelle brings a deeply relational, trauma-informed ethos to every aspect of her work. Her practice is rooted in emotional safety, trust, and authentic connection — creating spaces where children and young people feel truly seen and supported.
+  </p>
+  <p>
+    Michelle specialises in supporting children with SEN, SEMH, educational trauma, bereavement, and Emotionally Based School Non-Attendance (EBSNA). Her approach is flexible, creative, and always led by the child’s needs and readiness. Whether working through play, nature, or therapeutic conversation, Michelle builds relationships that ease anxiety and foster resilience.
+  </p>
+  <p>
+    Her leadership is shaped by the SPACE ethos — Safety, Presence, Attunement, Connection, and Empowerment — and by a deep understanding of the emotional landscapes families navigate. Michelle collaborates closely with schools, professionals, and parents to ensure joined-up support and meaningful progress. She believes that healing and learning go hand in hand, and that every child deserves a pathway that honours their story.
+  </p>
+  <p>
+    Michelle’s work is also reflected in the visual and emotional tone of Meadow Pathways. She is hands-on in shaping the website, branding, and communications to ensure that every detail feels welcoming, safe, and true to the ethos. Her warmth, clarity, and commitment to integrity shine through in everything she does — from the first referral to the final celebration of progress.
+  </p>
+  <p>
+    Outside of work, Michelle finds joy in walking Cornwall’s coastal paths and exploring its woodlands, often accompanied by her beloved dogs Pixie and Ivey — who adore muddy puddles and chasing squirrels. She also enjoys travelling to warmer places, where sunshine and sea offer a chance to recharge. Whether in drizzle or sunshine, Michelle brings the same care and presence to her work, grounded in nature, connection, and hope.
+  </p>
+</section>
 
-    <section>
-      <h2>Our Ethos</h2>
-      <p>
-        We believe that every child deserves to feel safe, understood, and empowered. Our work is guided by the SPACE approach — Safety, Presence, Attunement, Connection, and Empowerment — and shaped by the unique needs of each young person and family we support.
-      </p>
-      <p>
-        We work flexibly across community settings — from woodland walks to beach sessions, creative play to curriculum support — always led by the child’s needs and readiness. Our aim is to build confidence, resilience, and a renewed sense of possibility.
-      </p>
-    </section>
+    <h2>Our Ethos</h2>
+    <p>
+      We believe that every child deserves to feel safe, understood, and empowered. Our work is guided by the SPACE approach — Safety, Presence, Attunement, Connection, and Empowerment — and shaped by the unique needs of each young person and family we support.
+    </p>
+    <p>
+      We work flexibly across community settings — from woodland walks to beach sessions, creative play to curriculum support — always led by the child’s needs and readiness. Our aim is to build confidence, resilience, and a renewed sense of possibility.
+    </p>
+
+    <h2>Our Expertise</h2>
+    <div class="pill-boxes">
+      <div class="pill">Trauma-Informed Practice</div>
+      <div class="pill">Person-Centred Counselling</div>
+      <div class="pill">Play Therapy</div>
+      <div class="pill">Senior Mental Health Leadership</div>
+      <div class="pill">SPACE & EBSNA Support</div>
+      <div class="pill">Emotion Coaching</div>
+      <div class="pill">Creative Curriculum Design</div>
+      <div class="pill">Nature-Based Learning</div>
+      <div class="pill">Relationship Building</div>
+      <div class="pill">Flexible, Individualised Support</div>
+    </div>
   </main>
 
   <button id="backToTop" aria-label="Back to top">↑</button>
