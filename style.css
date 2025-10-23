@@ -76,7 +76,7 @@ header {
   gap: 14px;
 }
 .logo {
-  max-height: 260px;
+  max-height: 220px;
   width: auto;
   display: block;
   border-radius: 14px;
@@ -140,7 +140,7 @@ header {
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 16px var(--shadow-1);
-  height: 140px; /* Adjusted smaller height */
+  height: 220px; /* slightly bigger */
   margin: 8px 0 18px;
   background: #f0f6f7;
 }
@@ -227,5 +227,4 @@ header {
 footer { text-align: center; color: var(--text-soft); padding: 22px 10px 40px; }
 
 /* Accessibility */
-a:focus, button:focus, input:focus, textarea:focus {
-  outline: 3px solid rgba(48,152,152,0.
+a
