@@ -14,9 +14,14 @@ body {
 
 /* Logo */
 header img.logo {
-  height: 120px; /* larger logo */
+  height: 120px; /* large, prominent logo */
   display: block;
   margin: 1em auto;
+  border: 4px solid #2a9d8f; /* teal border to match palette */
+  border-radius: 8px;        /* soft corners */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* gentle shadow */
+  background: #fff;          /* ensures logo sits cleanly */
+  padding: 6px;              /* breathing space inside border */
 }
 
 /* Navigation */
