@@ -3,90 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff Only | Meadow Pathways Cornwall</title>
+  <title>Staff Area | Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .pill-box {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 24px;
-      background-color: #f7f9f8;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .pill-box h2 {
-      color: #478559;
-      margin-top: 24px;
-    }
-    .pill-box ul {
-      padding-left: 20px;
-    }
-    .pill-box li {
-      margin-bottom: 10px;
-    }
-    .staff-card {
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 24px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .staff-card h3 {
-      margin-top: 0;
-      color: #478559;
-    }
-    .staff-card p {
-      margin: 6px 0;
-    }
-    form {
-      margin-top: 40px;
-      background-color: #ffffff;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    label {
-      display: block;
-      margin-top: 16px;
-      font-weight: 600;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-    button {
-      margin-top: 24px;
-      background-color: #478559;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #356b45;
-    }
-    .confirmation {
-      background-color: #e6f4ea;
-      border-left: 6px solid #478559;
-      padding: 16px;
-      margin-top: 24px;
-      border-radius: 8px;
-      display: none;
-    }
-  </style>
 </head>
 <body class="staff">
   <header>
     <div class="logo-container">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" style="height:100px;" />
-      </a>
+      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" /></a>
     </div>
     <nav>
       <ul class="nav-tabs">
@@ -94,6 +17,7 @@
         <li><a href="eotas.html">EOTAS Info</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="policies.html">Policies</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="staff.html" class="active">Staff Only</a></li>
         <li><a href="referral.html">Referral Form</a></li>
@@ -102,10 +26,11 @@
   </header>
 
   <section class="hero">
+    <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo-hero" />
     <div class="container">
       <div class="hero-overlay">
-        <h1>Staff Portal</h1>
-        <p>Access for authorised team members only — password: <strong>MPWEC!</strong></p>
+        <h1>Staff Area</h1>
+        <p>Secure resources for Meadow Pathways staff</p>
       </div>
     </div>
     <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
@@ -114,63 +39,14 @@
   </section>
 
   <main class="main-content-box container">
-    <div class="pill-box">
-      <h2>Meet the Team</h2>
-
-      <div class="staff-card">
-        <h3>Michelle Pascoe</h3>
-        <p><strong>Role:</strong> Founding Director & Lead Therapist</p>
-        <p>
-          Michelle is a qualified counsellor and play therapist with over 20 years’ experience supporting children and young people with SEN, SEMH, trauma, bereavement, and EBSNA. She leads with warmth, creativity, and a deep commitment to emotional safety.
-        </p>
-      </div>
-
-      <div class="staff-card">
-        <h3>Zoe Waitz</h3>
-        <p><strong>Role:</strong> Founding Director & Education Lead</p>
-        <p>
-          Zoe brings a wealth of experience in inclusive education, curriculum design, and relational practice. She works closely with families and professionals to ensure every learner’s journey is guided with care and purpose.
-        </p>
-      </div>
-
-      <h2>Safeguarding Resources</h2>
-      <ul>
-        <li><a href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">KCSIE 2025 (Keeping Children Safe in Education)</a></li>
-        <li><a href="https://www.patreon.com/cw/pookyh" target="_blank">Pooky Knightsmith – Mental Health & Trauma Support</a></li>
-        <li><a href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House – Therapeutic Resources</a></li>
-        <li><a href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC Learning – Research & Guidance</a></li>
-        <li><a href="https://ciossafeguarding.org.uk/scp" target="_blank">Cornwall Safeguarding Children Partnership</a></li>
-      </ul>
-
-      <h2>Staff Resources</h2>
-      <ul>
-        <li><a href="https://meadowpathwayscornwall.sharepoint.com/sites/meadowpathways" target="_blank">Meadow Pathways SharePoint Portal</a></li>
-      </ul>
-
-      <h2>Staff Hours Log</h2>
-      <form action="https://formspree.io/f/movnvzqp" method="POST" onsubmit="document.getElementById('confirmation').style.display='block';">
-        <label for="staff_name">Your Name</label>
-        <input type="text" id="staff_name" name="staff_name" required>
-
-        <label for="week_ending">Week Ending</label>
-        <input type="date" id="week_ending" name="week_ending" required>
-
-        <label for="hours_worked">Total Hours Worked</label>
-        <input type="number" id="hours_worked" name="hours_worked" min="0" step="0.5" required>
-
-        <label for="notes">Optional Notes</label>
-        <textarea id="notes" name="notes" rows="4"></textarea>
-
-        <button type="submit">Submit Hours</button>
-      </form>
-
-      <div id="confirmation" class="confirmation">
-        <strong>Thank you!</strong> Your hours log has been submitted and will be reviewed by the team.
-      </div>
-
+    <div class="staff-note">
       <p>
-        This page is for internal use only. Please do not share access credentials externally. If you need support or updates, contact Michelle or Zoe directly.
+        This area is reserved for Meadow Pathways staff. For secure access to staff resources, please use our private share and sign in.
       </p>
+      <ul>
+        <li><strong>Michelle Pascoe:</strong> Michelle.Pascoe@meadowpathwayscornwall.com</li>
+        <li><strong>Zoe Waitz:</strong> Zoe.Waitz@meadowpathwayscornwall.com</li>
+      </ul>
     </div>
   </main>
 
