@@ -1,101 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meadow Pathways Cornwall</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Header -->
   <header>
-    <div class="logo-container">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-    </div>
-    <ul class="nav-tabs">
-      <li><a class="active" href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="eotas.html">EOTAS</a></li>
-      <li><a href="safeguarding.html">Safeguarding</a></li>
-      <li><a href="staff.html">Staff</a></li>
-      <li><a href="referral.html">Referral</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html">Staff</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-overlay">
-      <h1>Welcome to Meadow Pathways</h1>
-      <p>Guiding individual journeys with care and purpose across Cornwall</p>
+  <!-- Carousel -->
+  <section class="carousel">
+    <div class="slides">
+      <img src="images/Bake.jpg" alt="Baking activity">
+      <img src="images/Cooking.jpg" alt="Cooking together">
+      <img src="images/MM.jpg" alt="Mindful moments">
+      <img src="images/Paint.jpg" alt="Creative painting">
+      <img src="images/cook.jpg" alt="Cooking session">
+      <img src="images/den.jpg" alt="Den building">
+      <img src="images/hand meadow.jpg" alt="Hands in the meadow">
+      <img src="images/paths.jpg" alt="Cornish paths">
+      <img src="images/plant.jpg" alt="Planting and growth">
+      <img src="images/wood.jpg" alt="Exploring the woods">
     </div>
   </section>
 
-  <!-- Main -->
-  <main id="main" class="container">
-    <div class="main-content-box">
-
-      <!-- Carousel -->
-      <div class="carousel">
-        <div class="slides">
-          <img src="paths.jpg" alt="Coastal path and gentle meadow view" />
-          <img src="wood.jpg" alt="Light through the woods" />
-          <img src="hand meadow.jpg" alt="Hand reaching through meadow grass" />
-        </div>
-        <div class="dots" aria-label="Slideshow controls">
-          <span class="dot active" aria-label="Slide 1"></span>
-          <span class="dot" aria-label="Slide 2"></span>
-          <span class="dot" aria-label="Slide 3"></span>
-        </div>
-      </div>
-
-      <!-- Expertise Pills -->
-      <div class="expertise-box" aria-label="Areas of support">
-        <span class="pill pill--teal">Trauma-informed</span>
-        <span class="pill pill--coral">Play therapy</span>
-        <span class="pill">EBSNA</span>
-        <span class="pill">Bereavement</span>
-        <span class="pill">Emotion coaching</span>
-      </div>
-
-      <!-- Values -->
-      <div class="values">
-        <div class="value">Safe, nurturing environments where every child feels seen and heard.</div>
-        <div class="value">Trust, empathy, and connection guide our support.</div>
-        <div class="value">The SPACE ethos shapes our practice and relationships.</div>
-      </div>
-
-      <!-- Contact teaser -->
-      <p>Ready to talk? Visit our <a href="contact.html">Contact</a> page or send a message below.</p>
-
-      <!-- Gentle contact form -->
-      <form action="https://formspree.io/f/movnvzqp" method="POST">
-        <label for="name">Your Name</label>
-        <input id="name" name="name" type="text" required />
-
-        <label for="email">Your Email</label>
-        <input id="email" name="_replyto" type="email" required />
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5"></textarea>
-
-        <button type="submit">Send</button>
-      </form>
-
-    </div>
+  <!-- Welcome Text -->
+  <main class="welcome">
+    <h1>Welcome to Meadow PathwaysWellbeing and Education Cornwall
+    Guiding Individual Journeys with Care and Purpose</h1>
+    <p>
+      At Meadow Pathways, we walk alongside children, young people, and families across Cornwall, 
+      offering safe, nurturing spaces where every individual feels seen, heard, and supported.  
+    </p>
+    <p>
+      Our work is rooted in a trauma‑informed, person‑centred approach. We specialise in supporting 
+      children and young people with Social, Emotional and Mental Health (SEMH) needs, Special 
+      Educational Needs (SEN), Emotionally Based School Non‑Attendance (EBSNA), bereavement, and 
+      the impact of educational trauma.  
+    </p>
+    <p>
+      We believe in the power of Coonetions and using <strong>SPACE</strong> — Safety, Playfulness, Acceptance, Curiosity, and Empathy.  
+      These values guide everything we do, from play therapy and emotion coaching to creative, 
+      flexible learning opportunities in the community.  
+    </p>
+    <p>
+      Whether it’s through play, nature, creativity, or gentle re‑engagement with learning, 
+      our aim is to help children rebuild trust, confidence, and joy in themselves and the world around them.  
+    </p>
+    <p>
+      We work closely with families, schools, and professionals to ensure that support is collaborative, 
+      consistent, and tailored to each child’s unique journey.  
+    </p>
+    <p>
+      If you’d like to know more, please visit our <a href="contact.html">Contact page</a> to reach Michelle or Zoe directly.  
+    </p>
   </main>
 
-  <!-- Back to top -->
-  <button id="backToTop" hidden aria-label="Back to top">↑</button>
-
-  <!-- Footer -->
   <footer>
-    <p>&copy; Meadow Pathways Cornwall</p>
+    <p>© Meadow Pathways Cornwall</p>
   </footer>
-
-  <!-- Optional script -->
-  <script src="script.js"></script>
 </body>
 </html>
