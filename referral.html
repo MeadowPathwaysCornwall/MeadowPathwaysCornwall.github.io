@@ -5,15 +5,50 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Referral Form | Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    form {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 24px;
+      background-color: #f7f9f8;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 16px;
+      font-weight: 600;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 24px;
+      background-color: #478559;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #356b45;
+    }
+  </style>
 </head>
 <body class="referral">
   <header>
     <div class="logo-container">
       <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" />
+        <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" style="height:100px;" />
       </a>
     </div>
-
     <nav>
       <ul class="nav-tabs">
         <li><a href="index.html">Home</a></li>
@@ -27,12 +62,11 @@
     </nav>
   </header>
 
-  <!-- Hero banner -->
   <section class="hero">
     <div class="container">
       <div class="hero-overlay">
         <h1>Referral Form</h1>
-        <p>Securely refer a child or young person to Meadow Pathways</p>
+        <p>Begin your journey with Meadow Pathways</p>
       </div>
     </div>
     <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
@@ -41,35 +75,45 @@
   </section>
 
   <main class="main-content-box container">
+    <h2>Referral Form</h2>
     <p>
-      Please complete the form below to refer a child or young person to Meadow Pathways. Ensure you have consent from the parent or carer before submitting. We will review the information and contact you to discuss next steps.
+      Please complete this form to refer a child or young person. If you have documents to attach, email them to <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>.
     </p>
 
-    <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-      <label for="referrerName">Your name</label>
-      <input id="referrerName" name="referrerName" type="text" required />
+    <form class="contact-form" action="https://formspree.io/f/movnvzqp" method="POST">
+      <label for="referrer_name">Referrer Name</label>
+      <input type="text" id="referrer_name" name="referrer_name" required>
 
-      <label for="referrerEmail">Your email</label>
-      <input id="referrerEmail" name="referrerEmail" type="email" required />
+      <label for="referrer_role">Referrer Role / Relationship</label>
+      <input type="text" id="referrer_role" name="referrer_role" required>
 
-      <label for="childName">Child’s name</label>
-      <input id="childName" name="childName" type="text" required />
+      <label for="referrer_email">Referrer Email</label>
+      <input type="email" id="referrer_email" name="_replyto" required>
 
-      <label for="dob">Date of birth</label>
-      <input id="dob" name="dob" type="date" required />
+      <label for="referrer_phone">Referrer Phone</label>
+      <input type="tel" id="referrer_phone" name="referrer_phone">
 
-      <label for="needs">Summary of needs</label>
-      <textarea id="needs" name="needs" required></textarea>
+      <label for="child_name">Child/Young Person’s Name</label>
+      <input type="text" id="child_name" name="child_name" required>
 
-      <label for="consent">Consent from parent/carer</label>
-      <select id="consent" name="consent" required>
+      <label for="child_dob">Date of Birth</label>
+      <input type="date" id="child_dob" name="child_dob" required>
+
+      <label for="ehcp">Does the child have an EHCP?</label>
+      <select id="ehcp" name="ehcp" required>
         <option value="">Please select</option>
-        <option value="yes">Yes, consent is in place</option>
-        <option value="no">No, consent not yet obtained</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="In Progress">In Progress</option>
       </select>
 
-      <p class="privacy-note">This form sends securely to meadowpathwayscornwall@outlook.com</p>
-      <button type="submit">Submit referral</button>
+      <label for="needs">Summary of Needs</label>
+      <textarea id="needs" name="needs" rows="5" required></textarea>
+
+      <label for="support">Support Requested</label>
+      <textarea id="support" name="support" rows="5" required></textarea>
+
+      <button type="submit">Submit Referral</button>
     </form>
   </main>
 
