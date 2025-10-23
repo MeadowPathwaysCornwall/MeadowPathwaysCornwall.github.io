@@ -1,5 +1,4 @@
-/* Meadow Pathways full stylesheet updated with new colours and fixes */
-
+/* Meadow Pathways full stylesheet — logo focus, new colours, pills moved */
 :root{
   --ice-cold: #D1F8EF;
   --freeze-purple: #C5C2FF;
@@ -13,18 +12,18 @@
   --shadow-1: rgba(0,0,0,0.06);
   --shadow-2: rgba(0,0,0,0.12);
 
-  /* New accent additions requested */
+  /* New accent additions */
   --teal-accent: #03A6A1;
   --peach-bg: #FFE3BB;
   --coral-soft: #FFA673;
   --orange-bold: #FF4F0F;
 
-  /* Pill base (distinct from pale green) */
+  /* Pill base */
   --pill-bg: #E8D7FF;
   --pill-bg-hover: #DCC6FF;
 }
 
-/* Reset and base */
+/* Reset & base */
 *,
 *::before,
 *::after { box-sizing: border-box; }
@@ -37,35 +36,57 @@ body {
   line-height: 1.6;
 }
 
-/* Layout container */
-.container {
-  width: min(1100px, 92%);
-  margin: 0 auto;
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
+.skip-link:focus {
+  left: 8px;
+  top: 8px;
+  width: auto;
+  height: auto;
+  background: var(--white);
+  padding: 8px 10px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  z-index: 1000;
+}
+
+/* Layout container */
+.container { width: min(1100px, 92%); margin: 0 auto; }
 
 /* Header, logo, nav */
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
-  background: var(--white);
-  box-shadow: 0 2px 10px var(--shadow-1);
+  padding: 16px 20px;
+  background: linear-gradient(90deg, rgba(255,227,187,0.12), rgba(3,166,161,0.04));
+  box-shadow: 0 2px 12px var(--shadow-1);
   position: sticky;
   top: 0;
   z-index: 60;
 }
 
-/* Logo emphasis */
+/* Logo emphasis: larger, subtle border and drop shadow to focus */
 .logo-container {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 .logo {
-  max-height: 160px;   /* increased to make logo a real focus */
+  max-height: 180px;     /* larger focus */
   width: auto;
   display: block;
+  border-radius: 10px;
+  padding: 6px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.6));
+  box-shadow: 0 8px 26px rgba(30,30,60,0.08);
 }
 
 /* Navigation */
@@ -81,72 +102,63 @@ header {
 .nav-tabs a {
   text-decoration: none;
   padding: 8px 14px;
-  border-radius: 10px;
+  border-radius: 12px;
   color: var(--text-deep);
   background: transparent;
   border: 1px solid transparent;
   transition: background-color .18s ease, border-color .18s ease, color .18s ease;
 }
-.nav-tabs a:hover { background: var(--ice-cold); }
+.nav-tabs a:hover { background: rgba(3,166,161,0.06); color: var(--heavy-purple); }
 .nav-tabs a.active { background: var(--ice-cold); border-color: var(--freeze-purple); }
 
 /* Responsive header */
 @media (max-width:880px) {
-  header { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .logo { max-height: 120px; }
+  header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .logo { max-height: 140px; }
 }
 
 /* Hero */
 .hero {
   position: relative;
   background: linear-gradient(135deg, var(--ice-cold), var(--freeze-purple));
-  padding: 44px 0 10px;
+  padding: 40px 0 10px;
   overflow: hidden;
 }
 .hero-overlay {
-  background: var(--peach-bg); /* warmer hero overlay using new colour */
+  background: var(--peach-bg);
   border-radius: 16px;
-  padding: 20px 22px;
-  box-shadow: 0 6px 18px var(--shadow-1);
+  padding: 22px;
+  box-shadow: 0 6px 20px var(--shadow-1);
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 980px;
 }
-.hero h1 { font-size: 2rem; }
-.hero p { color: var(--text-soft); }
+.hero h1 { font-size: 2.1rem; margin: 0 0 8px; }
+.hero p { color: var(--text-soft); margin: 0; }
+.hero-wave { display: block; width: 100%; height: 100px; }
 
 /* Main content box */
 .main-content-box {
   background: var(--white);
   border-radius: 16px;
-  padding: 20px;
-  margin: 20px auto 32px;
-  box-shadow: 0 8px 22px var(--shadow-1);
+  padding: 22px;
+  margin: 20px auto 36px;
+  box-shadow: 0 10px 28px var(--shadow-1);
 }
 
-/* Carousel container and slides */
+/* Carousel */
 .carousel {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 4px 12px var(--shadow-1);
+  box-shadow: 0 6px 16px var(--shadow-1);
   height: 220px;
   margin: 8px 0 18px;
   background: #f0f6f7;
 }
-.carousel .slides {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.7s ease;
-}
-.carousel .slides img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
+.carousel .slides { display: flex; width: 100%; height: 100%; transition: transform 0.7s ease; }
+.carousel .slides img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
 
-/* Carousel dots */
+/* Dots */
 .carousel .dots {
   position: absolute;
   left: 50%;
@@ -157,118 +169,83 @@ header {
   z-index: 10;
 }
 .carousel .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.7);
-  border: 2px solid rgba(0,0,0,0.08);
-  cursor: pointer;
-  transition: transform .15s ease;
+  width: 10px; height: 10px; border-radius: 999px;
+  background: rgba(255,255,255,0.75); border: 2px solid rgba(0,0,0,0.06);
+  cursor: pointer; transition: transform .15s ease;
 }
-.carousel .dot.active { background: var(--heavy-purple); transform: scale(1.1); }
+.carousel .dot.active { background: var(--heavy-purple); transform: scale(1.05); }
 
-/* Pill buttons for staff and policy links */
+/* Pill buttons */
 .expertise-box { display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0 30px; padding: 10px 0; }
 .pill {
   display: inline-block;
-  padding: 9px 16px;
+  padding: 10px 16px;
   background: var(--pill-bg);
   color: var(--text-deep);
-  border-radius: 24px;
-  font-size: 0.98rem;
+  border-radius: 28px;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   border: 1px solid rgba(78,71,184,0.08);
-  box-shadow: 0 2px 8px var(--shadow-1);
-  transition: background .18s ease, transform .08s ease;
+  box-shadow: 0 6px 18px rgba(20,20,40,0.04);
+  transition: background .18s ease, transform .06s ease;
 }
-.pill:hover { background: var(--pill-bg-hover); cursor: pointer; }
-.pill:active { transform: scale(.99); }
+.pill:hover { background: var(--pill-bg-hover); transform: translateY(-2px); cursor: pointer; }
+.pill:active { transform: translateY(-1px); }
 
-/* Variant pills */
-.pill--teal { background: var(--teal-accent); color: var(--white); border: 1px solid rgba(3,166,161,0.12); }
-.pill--teal:hover { background: var(--heavy-purple); }
+/* Pill variants for clearer visual language */
+.pill--teal { background: var(--teal-accent); color: #fff; border: 1px solid rgba(3,166,161,0.12); }
+.pill--teal:hover { background: var(--heavy-purple); color: #fff; }
 
-.pill--coral { background: var(--coral-soft); color: var(--text-deep); border: 1px solid rgba(255,111,80,0.08); }
+.pill--coral { background: var(--coral-soft); color: var(--text-deep); border: 1px solid rgba(255,111,80,0.06); }
 .pill--coral:hover { background: var(--orange-bold); color: #fff; }
 
-/* Text, lists and headings */
-h2, h3 { margin: 0 0 10px; }
-p { margin: 0 0 12px; }
-ul { padding-left: 18px; margin: 0 0 12px; }
-
-/* Values section highlight using new colours */
-.values {
-  display: grid;
-  gap: 10px;
-}
-.values .value {
-  padding: 12px;
+/* Values */
+.values { display: grid; gap: 12px; margin-top: 8px; }
+.value {
+  padding: 14px;
   border-radius: 12px;
-  background: linear-gradient(90deg, rgba(255,227,187,0.6), rgba(255,166,115,0.06));
+  background: linear-gradient(90deg, rgba(255,227,187,0.25), rgba(255,166,115,0.06));
   border: 1px solid rgba(255,166,115,0.08);
 }
 
 /* Back to top */
 #backToTop {
-  position: fixed;
-  right: 16px;
-  bottom: 18px;
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: none;
-  background: var(--heavy-purple);
-  color: var(--white);
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 6px 14px var(--shadow-2);
-  z-index: 70;
-  transition: opacity .18s ease, transform .18s ease;
+  position: fixed; right: 16px; bottom: 18px; padding: 10px 12px; border-radius: 999px;
+  border: none; background: var(--heavy-purple); color: var(--white); font-weight: 700; cursor: pointer;
+  box-shadow: 0 6px 14px var(--shadow-2); z-index: 70; transition: transform .12s ease;
 }
 #backToTop:hover { transform: translateY(-3px); background: var(--purple-pain); }
 #backToTop[hidden] { display: none; }
 
-/* Footer */
-footer { text-align: center; color: var(--text-soft); padding: 22px 10px 40px; }
-
-/* Forms */
+/* Forms and general controls */
 form { display: grid; gap: 12px; }
 input, select, textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid #dde6ee;
-  background: var(--white);
-  box-shadow: 0 4px 12px var(--shadow-1);
-  font: inherit;
-  color: var(--text-deep);
+  width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid #dde6ee;
+  background: var(--white); box-shadow: 0 4px 12px var(--shadow-1); font: inherit; color: var(--text-deep);
 }
-textarea { min-height: 120px; }
 button, input[type="submit"] {
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: none;
-  background: var(--heavy-purple);
-  color: var(--white);
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 6px 14px var(--shadow-2);
+  padding: 10px 14px; border-radius: 10px; border: none; background: var(--teal-accent);
+  color: var(--white); font-weight: 700; cursor: pointer; box-shadow: 0 6px 14px var(--shadow-2);
 }
-button:hover, input[type="submit"]:hover { background: var(--purple-pain); }
+button:hover, input[type="submit"]:hover { background: var(--heavy-purple); }
+
+/* Focus outlines for accessibility */
+a:focus, button:focus, input:focus, textarea:focus { outline: 3px solid rgba(3,166,161,0.16); outline-offset: 3px; }
 
 /* Links */
 a { color: var(--heavy-purple); }
 a:hover { color: var(--purple-pain); }
 
-/* Page specific helpers */
+/* Page helpers */
 body.staff .main-content-box { margin-top: 18px; }
 body.policies .main-content-box { border: 1px solid var(--freeze-purple); }
-body.home .hero-overlay, body.staff .hero-overlay, body.policies .hero-overlay { margin: 0 auto; max-width: 900px; }
+body.home .hero-overlay, body.staff .hero-overlay, body.policies .hero-overlay { margin: 0 auto; max-width: 980px; }
 
 /* Responsive */
 @media (max-width:700px) {
   .logo { max-height: 120px; }
   .carousel { height: 160px; }
-  .pill { font-size: 0.92rem; padding: 8px 12px; }
-  .values .value { font-size: 0.95rem; }
+  .pill { font-size: 0.95rem; padding: 8px 12px; }
+  .value { font-size: 0.96rem; }
 }
