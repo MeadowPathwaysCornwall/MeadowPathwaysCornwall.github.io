@@ -1,57 +1,64 @@
-/* Meadow Pathways — consolidated safe visual stylesheet
-   Backup your existing style.css first. This file changes only presentation.
-*/
+/* ---------------------------
+   Meadow Pathways — style.css
+   Consolidated stylesheet: header, logo, nav, hero, carousel, backgrounds, accessibility
+   Replace your existing style.css with this (backup first).
+   Paths assume BG.png and bgr.jpg and Logo.png and carousel images are in the repo root.
+   --------------------------- */
 
-/* ===== Root variables ===== */
+/* ---------- Root variables ---------- */
 :root{
-  --brand-1: #5d8aa8;
-  --brand-2: #1f9d9a;
-  --accent-strong: linear-gradient(90deg, rgba(93,138,168,0.95), rgba(31,157,154,0.85));
-  --air_force_blue: #2b6f86;
-  --text-deep: #12202a;
-  --container-padding: 20px;
-  --header-height-desktop: 96px;
-  --header-height-mobile: 72px;
+  --accent-strong: #5d8aa8;
+  --air_force_blue: #5d8aa8;
+  --text-deep: #0b2340;
+  --bg-base: #eef9fb;
+  --header-height-desktop: 120px;
+  --header-height-mobile: 96px;
 }
 
-/* ===== Base and layout ===== */
+/* ---------- Global resets / layout helpers ---------- */
 *{box-sizing:border-box}
-html,body{height:100%; margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; color:var(--text-deep);}
-.container{max-width:1100px; margin:0 auto; padding:0 var(--container-padding);}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--text-deep);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  --header-height: var(--header-height-desktop);
+}
 
-/* Reserve space so content does not sit under fixed header */
-body{--header-height:var(--header-height-desktop)}
-.container{padding-top:var(--header-height)}
-@media (max-width:520px){ body{--header-height:var(--header-height-mobile)} .container{padding-top:var(--header-height)} }
+/* Ensure main content sits below fixed header (desktop and mobile) */
+@media (min-width:881px){
+  .site-header, header { height: var(--header-height-desktop); }
+  .container, main, .page-wrap { padding-top: var(--header-height-desktop); }
+}
+@media (max-width:880px){
+  .site-header, header { height: var(--header-height-mobile); }
+  .container, main, .page-wrap { padding-top: var(--header-height-mobile); }
+}
 
-/* ===== Homepage opt-out (apply class="home-page" to index.html <body> only) ===== */
+/* ---------- Homepage background (BG.png) ---------- */
 body.home-page {
-  /* keep homepage hero/background as your original BG.png */
   background-color: transparent;
-  background-image: url('BG.png'); /* homepage background file at repo root */
+  background-image: url('BG.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   color: var(--text-deep);
 }
-
-/* Ensure homepage hero elements sit above any page-level layers */
 body.home-page .hero,
 body.home-page .hero * {
   background: none !important;
   z-index: 10;
 }
 
-/* ===== Background for non-home pages (bgr.jpg placed in repo root) ===== */
+/* ---------- Non-home background (bgr.jpg in repo root) ---------- */
 body:not(.home-page){
-  --bg-base: #eef9fb;
   background-color: var(--bg-base);
-
-  /* Two-layer approach: image + darkening overlay for legibility */
   background-image:
     linear-gradient(rgba(6,16,28,0.42), rgba(6,16,28,0.42)),
-    url('bgr.jpg'); /* non-home background file at repo root */
+    url('bgr.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -59,102 +66,63 @@ body:not(.home-page){
   filter: saturate(0.94) contrast(0.98);
   color: var(--text-deep);
 }
-
-/* Soft blur/halo layer via pseudo-element to reduce busyness */
 body:not(.home-page)::before{
-  content: "";
-  position: fixed;
-  inset: 0;
+  content:"";
+  position:fixed;
+  inset:0;
   background: inherit;
   background-size: cover;
   background-position: center center;
   filter: blur(4px) brightness(0.86);
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.98;
+  z-index:0;
+  pointer-events:none;
+  opacity:0.98;
 }
-
-/* Ensure page content sits above pseudo-layer */
-body:not(.home-page) > *{
-  position: relative;
-  z-index: 5;
-}
-
-/* Reduce blur and avoid fixed background on small screens for performance */
+body:not(.home-page) > * { position: relative; z-index: 5; }
 @media (max-width:880px){
   body:not(.home-page)::before{ filter: blur(2px) brightness(0.88); }
   body:not(.home-page){ background-attachment: scroll; }
 }
-/* ===== Header and navigation ===== */
-.site-header, header{
-  position: fixed;
-  inset: 0 0 auto 0;
-  width:100%;
-  z-index:999;
-  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.90));
-  border-bottom: 1px solid rgba(20,20,40,0.06);
-  box-shadow: 0 6px 20px rgba(20,30,40,0.06);
-}
 
-/* Thin accent stripe under header */
-.site-header::after{
-  content:"";
-  display:block;
-  height:6px;
-  width:100%;
-  background: linear-gradient(90deg, rgba(93,138,168,0.9), rgba(31,157,154,0.85));
-  pointer-events:none;
-}
-
-/* Header inner layout */
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  padding:12px var(--container-padding);
-  box-sizing:border-box;
-}
-
-/* ===== Header / Logo / Nav — replacement block ===== */
-
-/* Header sizing variables */
-:root {
-  --header-height-desktop: 120px;
-  --header-height-mobile: 84px;
-}
-
-/* Header container assumed fixed; adjust if your header uses a different selector */
+/* ---------- Header / Logo / Nav ---------- */
 .site-header, header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: var(--header-height-desktop);
-  display: flex;
-  align-items: center;
   z-index: 1000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 0 18px;
   background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(255,255,255,0.92));
   border-bottom: 1px solid rgba(10,20,30,0.06);
   box-shadow: 0 8px 30px rgba(12,20,28,0.06);
 }
 
-/* Ensure page content sits below the fixed header */
-.container { padding-top: var(--header-height-desktop); }
+/* Header inner layout */
+.header-inner, .site-header .header-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  gap:18px;
+  box-sizing:border-box;
+}
 
-/* Logo wrapper: keeps alignment and spacing */
+/* Logo wrapper and prominent logo */
 .logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 12px 0;
-  box-sizing: border-box;
-  z-index: 1001;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:12px 0;
+  box-sizing:border-box;
+  z-index:1001;
 }
 
 /* Prominent logo: 200px desktop height, card border, rounded corners and shadow */
 .logo, .brand img, img.logo {
-  height: 200px;            /* desktop target height */
+  height: 200px;
   width: auto;
   max-height: 200px;
   display: block;
@@ -166,10 +134,10 @@ body:not(.home-page) > *{
   transition: transform .18s ease, height .18s ease;
   object-fit: contain;
 }
+.logo:focus { outline: 3px solid rgba(31,157,154,0.18); outline-offset: 4px; }
 
-/* Prevent logo from covering content on smaller screens */
-@media (max-width: 880px) {
-  :root { --header-height-desktop: 96px; }
+/* Responsive logo sizes */
+@media (max-width:880px){
   .logo, .brand img, img.logo {
     height: 96px;
     max-height: 96px;
@@ -177,26 +145,15 @@ body:not(.home-page) > *{
     padding: 4px;
   }
   .logo-wrap { padding: 8px 0; }
-  .container { padding-top: var(--header-height-desktop); }
+  .container { padding-top: var(--header-height-mobile); }
 }
-
-/* Handle short viewport heights on larger screens */
-@media (max-height: 700px) and (min-width: 881px) {
+@media (max-height:700px) and (min-width:881px){
   .logo, .brand img, img.logo { height: 140px; max-height: 140px; }
-  :root { --header-height-desktop: 140px; }
-  .container { padding-top: var(--header-height-desktop); }
+  .container { padding-top: 140px; }
 }
 
-/* Optional hover emphasis on desktop */
-@media (hover: hover) and (min-width: 520px) {
-  .logo:hover { transform: translateY(-4px) scale(1.01); }
-}
-
-/* Accessibility focus style */
-.logo:focus { outline: 3px solid rgba(31,157,154,0.18); outline-offset: 4px; }
-
-/* ===== Primary nav styles (keeps your existing behaviour) ===== */
-.primary-nav{ position:relative; }
+/* ---------- Primary nav styles ---------- */
+.primary-nav{ position: relative; z-index:1001; }
 .nav-tabs{
   display:flex;
   gap:10px;
@@ -226,7 +183,7 @@ body:not(.home-page) > *{
   box-shadow: 0 10px 28px rgba(93,138,168,0.16);
 }
 
-/* Hamburger toggle - hidden on desktop */
+/* Hamburger toggle */
 .nav-toggle, #navToggle {
   display:none;
   background:none;
@@ -238,14 +195,14 @@ body:not(.home-page) > *{
   border-radius:8px;
 }
 
-/* ===== Mobile behaviour: dropdown nav ===== */
+/* Mobile dropdown nav */
 @media (max-width:880px){
   .nav-toggle, #navToggle { display:block; position:relative; z-index:1001; }
   .nav-tabs{
     display:none;
     position:absolute;
     right:12px;
-    top: calc(var(--header-height-desktop) - 6px);
+    top: calc(var(--header-height-mobile) - 6px);
     width:92%;
     max-width:360px;
     flex-direction:column;
@@ -261,74 +218,93 @@ body:not(.home-page) > *{
   .nav-tabs.open{ display:flex; opacity:1; transform: scale(1) translateY(0); }
   .nav-tabs a{ padding:12px 10px; }
 }
-
-/* If resizing back to desktop ensure nav shows */
 @media (min-width:881px){
   .nav-tabs{ display:flex !important; opacity:1; transform:none; position:static; box-shadow:none; padding:0; background:transparent; }
 }
 
-/* ===== Content card/readability rules ===== */
-main, .content, section, .card{
-  background: rgba(255,255,255,0.96);
-  padding:18px;
-  border-radius:10px;
-  box-shadow: 0 8px 24px rgba(20,30,40,0.04);
+/* ---------- Hero / Carousel styling (boxed card) ---------- */
+.hero, .hero * { position: relative; z-index: 20; }
+
+/* Boxed carousel container */
+#carousel, .carousel, .hero .carousel {
+  max-width: 420px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 12px 0 0 0;
+  float: right;
+  clear: none;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(18,34,48,0.08);
+  z-index: 22;
 }
 
-/* Strong opaque backgrounds for forms to protect contrast and accessibility */
-form, .form-card{
-  background:#fff;
-  padding:20px;
-  border-radius:10px;
+/* Constrain slides */
+#carousel .slide, .carousel .slide {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
-/* Preserve hero sections' intended visuals */
-.hero, .hero *{ background: none !important; }
-
-/* ===== Footer, back-to-top & utilities ===== */
-footer{
-  padding:24px;
-  background:#f3f6f8;
-  border-top:1px solid rgba(20,20,40,0.03);
+/* Slide wrapper min-height to avoid collapse */
+#carousel .slides, .carousel .slides {
+  position: relative;
+  width: 100%;
+  min-height: 240px;
 }
-.back-to-top, #backToTop{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  z-index:120;
-  background:var(--brand-1);
-  color:#fff;
-  padding:10px 12px;
+
+/* Make carousel full-width only on small screens */
+@media (max-width:880px){
+  #carousel, .carousel { float: none; max-width: 100%; margin: 12px auto; }
+  #carousel .slides, .carousel .slides { min-height: 180px; }
+}
+
+/* Defensive override for inline style forcing full-bleed */
+#carousel[style], .carousel[style] {
+  width: auto !important;
+  max-width: 420px !important;
+}
+
+/* Carousel controls z-index */
+#carousel #dots, #carousel #next, #carousel #prev {
+  position: relative;
+  z-index: 25;
+}
+
+/* ---------- Back to top button ---------- */
+#backToTop, .back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 28px;
+  display: inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
   border-radius:8px;
-  box-shadow:0 8px 20px rgba(20,30,40,0.12);
+  background: rgba(11,35,60,0.94);
+  color:#fff;
   border:none;
   cursor:pointer;
+  box-shadow: 0 10px 28px rgba(8,20,36,0.12);
+  transform: translateY(6px);
+  opacity: 0;
+  transition: all .18s ease;
+  z-index: 2000;
+}
+#backToTop.show, .back-to-top.show { transform:none; opacity:1; }
+
+/* ---------- Utility and accessibility ---------- */
+.user-is-tabbing a:focus, .user-is-tabbing button:focus, .user-is-tabbing input:focus, .user-is-tabbing .logo:focus {
+  outline: 3px solid rgba(31,157,154,0.18);
+  outline-offset: 4px;
 }
 
-/* Skip link for keyboard users */
-.skip-link{
-  position:absolute;
-  left:-9999px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-}
-.skip-link:focus{
-  left:12px;
-  top:12px;
-  width:auto;
-  height:auto;
-  padding:8px 12px;
-  background:#000;
-  color:#fff;
-  z-index:2000;
-  border-radius:6px;
-}
+/* Small helpers */
+.container{ max-width:1100px; margin:0 auto; padding: 0 18px; box-sizing:border-box; }
+a{ color:var(--air_force_blue); }
+img{ max-width:100%; height:auto; display:block; }
 
-/* Minor responsive tweaks */
-@media (max-width:520px){
-  .header-inner{ padding:10px 14px; }
-  .nav-tabs a{ font-size:0.98rem; }
-  main, .content, section, .card{ padding:14px; }
-}
+/* ---------- End of stylesheet ---------- */
