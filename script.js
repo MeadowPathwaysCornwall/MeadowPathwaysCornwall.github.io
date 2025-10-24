@@ -66,16 +66,20 @@
     window.addEventListener('resize', restoreNavOnResize, { passive: true });
 
     // Set active nav item by URL (works for index.html and other pages)
-    const links = Array.from(primaryNav.querySelectorAll('a'));
-    const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-    links.forEach(a => {
-      const href = (a.getAttribute('href') || '').toLowerCase();
-      if (href === current || (current === '' && href === 'index.html')) {
-        a.classList.add('active');
-      } else {
-        a.classList.remove('active');
-      }
-    });
+    try {
+      const links = Array.from(primaryNav.querySelectorAll('a'));
+      const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      links.forEach(a => {
+        const href = (a.getAttribute('href') || '').toLowerCase();
+        if (href === current || (current === '' && href === 'index.html')) {
+          a.classList.add('active');
+        } else {
+          a.classList.remove('active');
+        }
+      });
+    } catch (err) {
+      // silently ignore if nav structure is unexpected
+    }
   })();
 
   // BACK TO TOP BUTTON (enhanced)
@@ -193,13 +197,17 @@
   (function logoReveal() {
     const brand = document.querySelector('.brand');
     if (!brand) return;
-    brand.style.opacity = 0;
-    brand.style.transform = 'translateY(6px) scale(.98)';
-    brand.style.transition = 'opacity .55s ease, transform .55s cubic-bezier(.2,.9,.2,1)';
-    requestAnimationFrame(() => {
-      brand.style.opacity = 1;
-      brand.style.transform = 'translateY(0) scale(1)';
-    });
+    try {
+      brand.style.opacity = 0;
+      brand.style.transform = 'translateY(6px) scale(.98)';
+      brand.style.transition = 'opacity .55s ease, transform .55s cubic-bezier(.2,.9,.2,1)';
+      requestAnimationFrame(() => {
+        brand.style.opacity = 1;
+        brand.style.transform = 'translateY(0) scale(1)';
+      });
+    } catch (err) {
+      // ignore if inline styles are not allowed
+    }
   })();
 
   // ACCESSIBLE LINK FOCUS RING POLISH
