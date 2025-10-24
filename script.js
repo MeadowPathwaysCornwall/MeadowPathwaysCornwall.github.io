@@ -54,7 +54,48 @@
       }
     });
   })();
+// NAV TOGGLE, outside-click dismiss, and active link logic
+(function(){
+  const navToggle = document.getElementById('navToggle');
+  const primaryNav = document.getElementById('primaryNav');
+  if(!navToggle || !primaryNav) return;
 
+  // toggle open/close
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!expanded));
+    primaryNav.classList.toggle('open');
+  });
+
+  // close when a link is clicked (mobile)
+  primaryNav.addEventListener('click', (e) => {
+    if(e.target.tagName === 'A') {
+      primaryNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // close on outside click when open
+  document.addEventListener('click', (e) => {
+    if(!primaryNav.classList.contains('open')) return;
+    if(e.target === navToggle || primaryNav.contains(e.target)) return;
+    primaryNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded','false');
+  });
+
+  // set active nav link by URL (works for index.html and other pages)
+  const links = primaryNav.querySelectorAll('a');
+  const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  links.forEach(a=>{
+    const href = a.getAttribute('href') ? a.getAttribute('href').toLowerCase() : '';
+    if(href === current || (current === '' && href === 'index.html')) {
+      a.classList.add('active');
+    } else {
+      a.classList.remove('active');
+    }
+  });
+})();
+  
   // CAROUSEL INIT (robust)
   (function initCarousel() {
     const carousel = document.getElementById('carousel');
