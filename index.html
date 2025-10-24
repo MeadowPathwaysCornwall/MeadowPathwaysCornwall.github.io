@@ -27,16 +27,17 @@
     .carousel-caption { margin-top:10px; font-size:0.95rem; color:var(--text-soft); }
   </style>
 </head>
- <script>
+<script>
   const navToggle = document.getElementById('navToggle');
   const primaryNav = document.getElementById('primaryNav');
-
-  navToggle.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', !expanded);
-    primaryNav.classList.toggle('open');
-  });
-</script> 
+  if (navToggle && primaryNav) {
+    navToggle.addEventListener('click', function () {
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      primaryNav.style.display = expanded ? '' : 'block';
+    });
+  }
+</script>
 <body class="home-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -227,86 +228,243 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+   <!-- Scripts (consolidated, safe: nav toggle, carousel, back-to-top) -->
+  <!-- Place this block where your original <!-- Scripts --> block was.
+       It replaces the inline nav/carousel/back-to-top snippets and must be
+       the only script block of this type in the page. -->
+  <!-- Back-to-top button (keep if you don't already have one elsewhere) -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button" style="display:none;">↑</button>
+
   <script>
-    (function () {
-      // Nav toggle for small screens
+  /* Meadow Pathways — consolidated page script
+     Includes:
+       - nav toggle (class-based, accessible)
+       - mobile outside-click + Escape close
+       - active nav item highlight
+       - carousel (dots, next/prev, auto-rotate, pause on hover/touch)
+       - back-to-top (show after scroll, smooth scroll)
+       - logo reveal and focus-ring polish
+     This script intentionally does NOT modify any protected content (images, text, form endpoints).
+  */
+  (function () {
+    "use strict";
+
+    /* Helper: find closest matching ancestor */
+    function closest(el, selector) {
+      while (el && el !== document) {
+        if (el.matches && el.matches(selector)) return el;
+        el = el.parentNode;
+      }
+      return null;
+    }
+
+    /* ---------- NAV TOGGLE & ACTIVE LINK ---------- */
+    (function navInit() {
       const navToggle = document.getElementById('navToggle');
       const primaryNav = document.getElementById('primaryNav');
-      navToggle.addEventListener('click', function () {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', String(!expanded));
-        primaryNav.style.display = expanded ? '' : 'block';
+      if (!primaryNav) return;
+
+      if (navToggle && !navToggle.hasAttribute('aria-expanded')) {
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+
+      if (navToggle) {
+        navToggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          primaryNav.classList.toggle('open');
+        });
+      }
+
+      // Close when a nav link is clicked (mobile)
+      primaryNav.addEventListener('click', function (e) {
+        const a = closest(e.target, 'a');
+        if (!a) return;
+        if (primaryNav.classList.contains('open')) {
+          primaryNav.classList.remove('open');
+          if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+        }
       });
 
-      // Simple carousel
-      const slides = Array.from(document.querySelectorAll('.slide'));
-      const dotsWrap = document.getElementById('dots');
-      let current = 0;
-      let interval;
+      // Close on outside click
+      document.addEventListener('click', function (e) {
+        if (!primaryNav.classList.contains('open')) return;
+        if (navToggle && (e.target === navToggle || navToggle.contains(e.target))) return;
+        if (primaryNav.contains(e.target)) return;
+        primaryNav.classList.remove('open');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+      });
 
-      function setActive(index) {
-        slides.forEach((s, i) => s.classList.toggle('active', i === index));
-        const dots = dotsWrap.querySelectorAll('button');
-        dots.forEach((d, i) => d.setAttribute('aria-selected', String(i === index)));
+      // Close on Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && primaryNav.classList.contains('open')) {
+          primaryNav.classList.remove('open');
+          if (navToggle) {
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.focus();
+          }
+        }
+      });
+
+      // Ensure nav state is reset on resize
+      function restoreNavOnResize() {
+        if (window.innerWidth > 880) {
+          primaryNav.classList.remove('open');
+          if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+      window.addEventListener('resize', restoreNavOnResize, { passive: true });
+
+      // Active nav link by pathname
+      try {
+        const links = Array.from(primaryNav.querySelectorAll('a'));
+        const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        links.forEach(a => {
+          const href = (a.getAttribute('href') || '').toLowerCase();
+          if (href === current || (current === '' && href === 'index.html')) {
+            a.classList.add('active');
+          } else {
+            a.classList.remove('active');
+          }
+        });
+      } catch (err) {
+        /* no-op if nav structure is unexpected */
+      }
+    })();
+
+    /* ---------- CAROUSEL (robust) ---------- */
+    (function carouselInit() {
+      const carousel = document.getElementById('carousel');
+      if (!carousel) return;
+
+      const slides = Array.from(carousel.querySelectorAll('.slide'));
+      const dotsWrap = carousel.querySelector('#dots');
+      const nextBtn = carousel.querySelector('#next');
+      const prevBtn = carousel.querySelector('#prev');
+      let current = 0;
+      let timer = null;
+      const autoDelay = 5000;
+
+      function show(index) {
+        if (!slides.length) return;
+        index = (index + slides.length) % slides.length;
+        slides.forEach((s, i) => {
+          s.classList.toggle('active', i === index);
+          s.style.zIndex = i === index ? 2 : 1;
+          s.setAttribute('aria-hidden', String(i !== index));
+        });
+        if (dotsWrap) {
+          Array.from(dotsWrap.children).forEach((d, i) => d.setAttribute('aria-selected', String(i === index)));
+        }
         current = index;
       }
 
       function buildDots() {
+        if (!dotsWrap) return;
+        dotsWrap.innerHTML = '';
         slides.forEach((_, i) => {
           const btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'dot';
           btn.setAttribute('aria-selected', String(i === 0));
-          btn.addEventListener('click', () => {
-            pauseAuto();
-            setActive(i);
+          btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          btn.addEventListener('click', function () { pauseAuto(); show(i); });
+          btn.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
           });
           dotsWrap.appendChild(btn);
         });
       }
 
-      function nextSlide() { setActive((current + 1) % slides.length); }
-      function prevSlide() { setActive((current - 1 + slides.length) % slides.length); }
+      function next() { if (slides.length) show((current + 1) % slides.length); }
+      function prev() { if (slides.length) show((current - 1 + slides.length) % slides.length); }
 
-      document.getElementById('next').addEventListener('click', () => { pauseAuto(); nextSlide(); });
-      document.getElementById('prev').addEventListener('click', () => { pauseAuto(); prevSlide(); });
+      if (nextBtn) nextBtn.addEventListener('click', () => { pauseAuto(); next(); });
+      if (prevBtn) prevBtn.addEventListener('click', () => { pauseAuto(); prev(); });
 
-      function startAuto() { interval = setInterval(nextSlide, 5000); }
-      function pauseAuto() { clearInterval(interval); }
+      function startAuto() { if (!timer) timer = setInterval(next, autoDelay); }
+      function pauseAuto() { clearInterval(timer); timer = null; }
 
-      buildDots();
-      startAuto();
+      carousel.addEventListener('mouseenter', pauseAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+      carousel.addEventListener('touchstart', pauseAuto, { passive: true });
+      carousel.addEventListener('touchend', startAuto, { passive: true });
 
-<!-- Back to top button — must be inside <body> -->
-<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
-
-<!-- Script — placed before </body> -->
-<script>
-  // Back to top visibility
-  (function () {
-    const back = document.getElementById('backToTop');
-    if (!back) return;
-
-    function checkBack() {
-      back.classList.toggle('show', window.scrollY > 240);
-    }
-
-    window.addEventListener('scroll', checkBack, { passive: true });
-    back.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      back.blur();
-    });
-
-    back.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        back.click();
+      if (slides.length) {
+        buildDots();
+        show(0);
+        startAuto();
+      } else {
+        console.warn('Carousel: no slides found');
       }
-    });
+    })();
 
-    checkBack(); // initial state
+    /* ---------- BACK TO TOP ---------- */
+    (function backToTopInit() {
+      const backBtn = document.getElementById('backToTop') || document.querySelector('.back-to-top');
+      if (!backBtn) return;
+      const revealClass = 'show';
+      const showAt = 240;
+
+      function update() {
+        const y = window.scrollY || window.pageYOffset;
+        backBtn.classList.toggle(revealClass, y > showAt);
+      }
+
+      // initial state
+      update();
+
+      // performant scroll listener
+      let ticking = false;
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            update();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      backBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        backBtn.blur();
+      });
+
+      backBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          backBtn.click();
+        }
+      });
+    })();
+
+    /* ---------- LOGO REVEAL ---------- */
+    (function logoReveal() {
+      const brand = document.querySelector('.brand');
+      if (!brand) return;
+      brand.style.opacity = 0;
+      brand.style.transform = 'translateY(6px) scale(.98)';
+      brand.style.transition = 'opacity .55s ease, transform .55s cubic-bezier(.2,.9,.2,1)';
+      requestAnimationFrame(() => {
+        brand.style.opacity = 1;
+        brand.style.transform = 'translateY(0) scale(1)';
+      });
+    })();
+
+    /* ---------- FOCUS RING POLISH (keyboard vs mouse) ---------- */
+    (function focusRingPolish() {
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Tab') document.body.classList.add('user-is-tabbing');
+      });
+      document.addEventListener('mousedown', function () {
+        document.body.classList.remove('user-is-tabbing');
+      });
+    })();
+
   })();
-</script>
-</body>
-</html>
+  </script>
+
+  </body>
+  </html>
