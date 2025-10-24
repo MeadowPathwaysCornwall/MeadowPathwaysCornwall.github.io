@@ -1,81 +1,94 @@
-@@ -12,30 +12,40 @@ body {
-  line-height: 1.6;
-}
+// Shared interactions for Meadow Pathways site
+// Handles: nav toggle, simple carousel, back to top visibility, and accessible focus management
 
-/* Logo */
-header img.logo {
-  height: 120px; /* larger logo */
-  display: block;
-  margin: 1em auto;
-}
+(function () {
+  // NAV TOGGLE (small screens)
+  const navToggle = document.getElementById('navToggle');
+  const primaryNav = document.getElementById('primaryNav');
+  if (navToggle && primaryNav) {
+    navToggle.addEventListener('click', function () {
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      primaryNav.style.display = expanded ? '' : 'block';
+    });
+  }
 
-/* Navigation */
-header nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  background: #4b2e83; /* Heavy Purple */
-  justify-content: center;
-  background: linear-gradient(90deg, #2a9d8f, #264653); /* teal/blue */
-  margin: 0;
-  padding: 0;
-}
+  // BACK TO TOP BUTTON
+  const backBtn = document.getElementById('backToTop');
+  if (backBtn) {
+    function checkBack() { backBtn.hidden = window.scrollY < 300; }
+    window.addEventListener('scroll', checkBack);
+    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    checkBack();
+  }
 
-header nav ul li {
-  flex: 1;
-  margin: 0;
-}
+  // SIMPLE CAROUSEL (uses structure with .slide, #dots, #next, #prev)
+  const carousel = document.querySelector('.carousel');
+  if (carousel) {
+    const slides = Array.from(carousel.querySelectorAll('.slide'));
+    const dotsWrap = carousel.querySelector('#dots');
+    const nextBtn = carousel.querySelector('#next');
+    const prevBtn = carousel.querySelector('#prev');
+    let current = 0;
+    let interval;
 
-header nav ul li a {
-  display: block;
-  padding: 1em;
-  text-align: center;
-  padding: 1.5em 2em; /* oversized tabs */
-  font-size: 1.2em;
-  color: #fff;
-  text-decoration: none;
-  transition: background 0.3s ease;
-  transition: background 0.3s ease, color 0.3s ease;
-}
+    function setActive(index) {
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      if (dotsWrap) {
+        const dots = Array.from(dotsWrap.querySelectorAll('button'));
+        dots.forEach((d, i) => d.setAttribute('aria-selected', String(i === index)));
+      }
+      current = index;
+    }
 
-header nav ul li a.active,
-header nav ul li a:hover {
-  background: #6a4fb3; /* Medium Purple */
-  background: #e63946; /* red accent */
-  color: #fff;
-}
+    function buildDots() {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = '';
+      slides.forEach((_, i) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'dot';
+        btn.setAttribute('aria-selected', String(i === 0));
+        btn.setAttribute('aria-label', 'Slide ' + (i + 1));
+        btn.addEventListener('click', () => {
+          pauseAuto();
+          setActive(i);
+        });
+        dotsWrap.appendChild(btn);
+      });
+    }
 
-/* Carousel */
-@@ -89,7 +99,7 @@ header nav ul li a:hover {
-}
+    function nextSlide() { setActive((current + 1) % slides.length); }
+    function prevSlide() { setActive((current - 1 + slides.length) % slides.length); }
 
-.carousel-dots span.active {
-  background: #4b2e83;
-  background: #e63946; /* red accent */
-}
+    if (nextBtn) nextBtn.addEventListener('click', () => { pauseAuto(); nextSlide(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { pauseAuto(); prevSlide(); });
 
-/* Welcome Section */
-@@ -103,7 +113,7 @@ main.welcome {
-}
+    function startAuto() { if (!interval) interval = setInterval(nextSlide, 5000); }
+    function pauseAuto() { clearInterval(interval); interval = null; }
 
-main.welcome h1 {
-  color: #4b2e83;
-  color: #264653; /* deep blue/green */
-  text-align: center;
-  margin-bottom: 1em;
-  font-size: 2em;
-@@ -116,12 +126,12 @@ main.welcome p {
+    if (slides.length) {
+      buildDots();
+      setActive(0);
+      startAuto();
+      carousel.addEventListener('mouseenter', pauseAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+      // pause on touch to avoid accidental changes
+      carousel.addEventListener('touchstart', pauseAuto);
+      carousel.addEventListener('touchend', startAuto);
+    }
+  }
 
-/* Links */
-a {
-  color: #4b2e83;
-  color: #2a9d8f;
-  text-decoration: underline;
-}
+  // SIMPLE FORM SUBMISSION HANDLER (graceful fallback)
+  // If pages include forms using the inline fetch approach, this helps prevent duplicate handlers.
+  // Individual pages already attach their own submit handlers; this is a no-op safeguard.
+  // No global form binding here to avoid interfering with page specific logic.
 
-a:hover {
-  color: #6a4fb3;
-  color: #e63946; /* red accent */
-}
-
-/* Footer */
+  // ACCESSIBLE LINK FOCUS RING POLISH
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Tab') document.body.classList.add('user-is-tabbing');
+  });
+  document.addEventListener('mousedown', function () {
+    document.body.classList.remove('user-is-tabbing');
+  });
+})();
