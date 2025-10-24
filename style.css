@@ -1,5 +1,5 @@
 :root{
-  --air_force_blue = "#5d8aa8";
+  --air_force_blue: #5d8aa8;
   --accent-teal:#1f9d9a;
   --pill-bg:#f3f4ff;
   --white:#ffffff;
@@ -17,7 +17,6 @@
   color:var(--text-deep);
   background:var(--bg);
 }
-
 /* Layout containers */
 .container{
   max-width:var(--max-width);
@@ -146,11 +145,37 @@ textarea{ resize:vertical; min-height:100px; }
 .carousel-controls{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:10px; }
 .carousel-btn{ background:rgba(255,255,255,0.9); border:none; padding:8px 12px; border-radius:8px; font-size:1.2rem; cursor:pointer; }
 .dot{ width:10px; height:10px; border-radius:999px; background:rgba(20,20,40,0.08); border:none; cursor:pointer; }
-.dot[aria-selected="true"]{ background:var(--heavy-purple); box-shadow:0 6px 18px rgba(78,71,184,0.12); }
+.dot[aria-selected="true"]{ 
+  background:var(--air_force_blue); 
+  box-shadow:0 6px 18px rgba(93,138,168,0.12); /* updated to match air force blue */
+}
+/* Offer section */
+.offer-section {
+  margin-top: 30px;
+}
 
-/* Offer list */
-.offer-list{ margin-top:12px; }
-.offer-item{ min-height:100px; display:flex; gap:10px; align-items:flex-start; }
+.offer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.offer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--card);
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.offer-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
 
 /* Footer */
 .site-footer{ margin-top:28px; padding:18px var(--container-padding); background:transparent; color:var(--text-soft); text-align:center; }
