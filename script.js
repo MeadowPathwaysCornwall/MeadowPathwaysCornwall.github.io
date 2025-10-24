@@ -22,27 +22,11 @@
     checkBack();
   }
 
-  // SIMPLE CAROUSEL (uses structure with .slide, #dots, #next, #prev)
-  const carousel = document.querySelector('.carousel');
-  if (carousel) {
-    const slides = Array.from(carousel.querySelectorAll('.slide'));
-    const dotsWrap = carousel.querySelector('#dots');
-    const nextBtn = carousel.querySelector('#next');
-    const prevBtn = carousel.querySelector('#prev');
-    let current = 0;
-    let interval;
-
-    function setActive(index) {
-      slides.forEach((s, i) => s.classList.toggle('active', i === index));
-      if (dotsWrap) {
-        const dots = Array.from(dotsWrap.querySelectorAll('button'));
-        dots.forEach((d, i) => d.setAttribute('aria-selected', String(i === index)));
-      }
-      current = index;
-    }
+ // CAROUSEL INIT (robust)
 (function initCarousel() {
   const carousel = document.getElementById('carousel');
   if (!carousel) return;
+
   const slides = Array.from(carousel.querySelectorAll('.slide'));
   const dotsWrap = carousel.querySelector('#dots');
   const nextBtn = carousel.querySelector('#next');
@@ -52,8 +36,13 @@
   const autoDelay = 5000;
 
   function show(index) {
-    slides.forEach((s, i) => s.classList.toggle('active', i === index));
-    if (dotsWrap) Array.from(dotsWrap.children).forEach((d, i) => d.setAttribute('aria-selected', String(i === index)));
+    slides.forEach((s, i) => {
+      s.classList.toggle('active', i === index);
+      s.style.zIndex = i === index ? 2 : 1;
+    });
+    if (dotsWrap) {
+      Array.from(dotsWrap.children).forEach((d, i) => d.setAttribute('aria-selected', String(i === index)));
+    }
     current = index;
   }
 
@@ -67,13 +56,15 @@
       btn.setAttribute('aria-selected', String(i === 0));
       btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
       btn.addEventListener('click', () => { pauseAuto(); show(i); });
-      btn.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); } });
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+      });
       dotsWrap.appendChild(btn);
     });
   }
 
-  function next() { show((current + 1) % slides.length); }
-  function prev() { show((current - 1 + slides.length) % slides.length); }
+  function next() { if (slides.length) show((current + 1) % slides.length); }
+  function prev() { if (slides.length) show((current - 1 + slides.length) % slides.length); }
 
   if (nextBtn) nextBtn.addEventListener('click', () => { pauseAuto(); next(); });
   if (prevBtn) prevBtn.addEventListener('click', () => { pauseAuto(); prev(); });
@@ -83,23 +74,17 @@
 
   carousel.addEventListener('mouseenter', pauseAuto);
   carousel.addEventListener('mouseleave', startAuto);
-  carousel.addEventListener('touchstart', pauseAuto, { passive: true });
-  carousel.addEventListener('touchend', startAuto, { passive: true });
+  carousel.addEventListener('touchstart', pauseAuto, {passive:true});
+  carousel.addEventListener('touchend', startAuto, {passive:true});
 
-  if (slides.length) { buildDots(); show(0); startAuto(); } else { console.warn('Carousel: no slides found'); }
+  if (slides.length) {
+    buildDots();
+    show(0);
+    startAuto();
+  } else {
+    console.warn('Carousel: no slides found');
+  }
 })();
-  // ensure dots respond to keyboard activation (Enter and Space)
-if (dotsWrap) {
-  dotsWrap.querySelectorAll('button').forEach(btn => {
-    btn.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        btn.click();
-      }
-    });
-  });
-}
-
   // SIMPLE FORM SUBMISSION HANDLER (graceful fallback)
   // If pages include forms using the inline fetch approach, this helps prevent duplicate handlers.
   // Individual pages already attach their own submit handlers; this is a no-op safeguard.
