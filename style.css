@@ -116,20 +116,86 @@ body:not(.home-page) > *{
   box-sizing:border-box;
 }
 
-/* Logo stable sizing (prevents layout jump/freeze) */
-.logo-wrap{ display:flex; align-items:center; gap:12px; padding:6px 0; }
-.logo{
-  height:70px;         /* consistent target height */
-  max-height: 84px;
-  width: auto;
-  display:block;
-  transition: transform .22s ease, height .18s ease;
-}
-@media (max-width:520px){
-  .logo{ height:52px; }
+/* ===== Header / Logo / Nav — replacement block ===== */
+
+/* Header sizing variables */
+:root {
+  --header-height-desktop: 120px;
+  --header-height-mobile: 84px;
 }
 
-/* Primary nav styles */
+/* Header container assumed fixed; adjust if your header uses a different selector */
+.site-header, header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height-desktop);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(255,255,255,0.92));
+  border-bottom: 1px solid rgba(10,20,30,0.06);
+  box-shadow: 0 8px 30px rgba(12,20,28,0.06);
+}
+
+/* Ensure page content sits below the fixed header */
+.container { padding-top: var(--header-height-desktop); }
+
+/* Logo wrapper: keeps alignment and spacing */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  box-sizing: border-box;
+  z-index: 1001;
+}
+
+/* Prominent logo: 200px desktop height, card border, rounded corners and shadow */
+.logo, .brand img, img.logo {
+  height: 200px;            /* desktop target height */
+  width: auto;
+  max-height: 200px;
+  display: block;
+  border-radius: 14px;
+  padding: 6px;
+  background: #ffffff;
+  border: 3px solid rgba(93,138,168,0.18);
+  box-shadow: 0 10px 30px rgba(31,57,70,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+  transition: transform .18s ease, height .18s ease;
+  object-fit: contain;
+}
+
+/* Prevent logo from covering content on smaller screens */
+@media (max-width: 880px) {
+  :root { --header-height-desktop: 96px; }
+  .logo, .brand img, img.logo {
+    height: 96px;
+    max-height: 96px;
+    border-radius: 10px;
+    padding: 4px;
+  }
+  .logo-wrap { padding: 8px 0; }
+  .container { padding-top: var(--header-height-desktop); }
+}
+
+/* Handle short viewport heights on larger screens */
+@media (max-height: 700px) and (min-width: 881px) {
+  .logo, .brand img, img.logo { height: 140px; max-height: 140px; }
+  :root { --header-height-desktop: 140px; }
+  .container { padding-top: var(--header-height-desktop); }
+}
+
+/* Optional hover emphasis on desktop */
+@media (hover: hover) and (min-width: 520px) {
+  .logo:hover { transform: translateY(-4px) scale(1.01); }
+}
+
+/* Accessibility focus style */
+.logo:focus { outline: 3px solid rgba(31,157,154,0.18); outline-offset: 4px; }
+
+/* ===== Primary nav styles (keeps your existing behaviour) ===== */
 .primary-nav{ position:relative; }
 .nav-tabs{
   display:flex;
@@ -161,7 +227,7 @@ body:not(.home-page) > *{
 }
 
 /* Hamburger toggle - hidden on desktop */
-.nav-toggle{
+.nav-toggle, #navToggle {
   display:none;
   background:none;
   border:none;
@@ -174,12 +240,12 @@ body:not(.home-page) > *{
 
 /* ===== Mobile behaviour: dropdown nav ===== */
 @media (max-width:880px){
-  .nav-toggle{ display:block; position:relative; z-index:1001 }
+  .nav-toggle, #navToggle { display:block; position:relative; z-index:1001; }
   .nav-tabs{
     display:none;
     position:absolute;
     right:12px;
-    top: calc(var(--header-height) - 6px);
+    top: calc(var(--header-height-desktop) - 6px);
     width:92%;
     max-width:360px;
     flex-direction:column;
