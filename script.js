@@ -77,7 +77,17 @@
       carousel.addEventListener('touchstart', pauseAuto);
       carousel.addEventListener('touchend', startAuto);
     }
-  }
+  // ensure dots respond to keyboard activation (Enter and Space)
+if (dotsWrap) {
+  dotsWrap.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        btn.click();
+      }
+    });
+  });
+}
 
   // SIMPLE FORM SUBMISSION HANDLER (graceful fallback)
   // If pages include forms using the inline fetch approach, this helps prevent duplicate handlers.
