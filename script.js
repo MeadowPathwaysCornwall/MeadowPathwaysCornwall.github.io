@@ -1,43 +1,49 @@
-// Carousel functionality
-let slideIndex = 0;
-const slides = document.querySelectorAll(".carousel .slides img");
-let dotsContainer = document.querySelector(".carousel-dots");
-let dots = [];
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".carousel .slides img");
+  const dotsContainer = document.querySelector(".carousel-dots");
+  const dots = [];
+  let index = 0;
+  let intervalId = null;
 
-// Create dots dynamically if container exists
-if (dotsContainer && slides.length > 0) {
-  slides.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.addEventListener("click", () => showSlide(i));
-    dotsContainer.appendChild(dot);
-    dots.push(dot);
-  });
-}
+  if (!slides.length) return;
 
-function showSlide(n) {
-  slides.forEach(slide => slide.classList.remove("active"));
-  if (dots.length > 0) {
-    dots.forEach(dot => dot.classList.remove("active"));
+  // create dots
+  if (dotsContainer) {
+    slides.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.setAttribute("role", "button");
+      dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+      dot.addEventListener("click", () => {
+        show(i);
+        restartInterval();
+      });
+      dotsContainer.appendChild(dot);
+      dots.push(dot);
+    });
   }
 
-  slideIndex = n;
-  if (slideIndex >= slides.length) slideIndex = 0;
-  if (slideIndex < 0) slideIndex = slides.length - 1;
-
-  slides[slideIndex].classList.add("active");
-  if (dots.length > 0) {
-    dots[slideIndex].classList.add("active");
+  function show(n) {
+    slides.forEach(s => s.classList.remove("active"));
+    dots.forEach(d => d.classList.remove("active"));
+    index = (n + slides.length) % slides.length;
+    slides[index].classList.add("active");
+    if (dots[index]) dots[index].classList.add("active");
   }
-}
 
-function nextSlide() {
-  showSlide(slideIndex + 1);
-}
+  function next() {
+    show(index + 1);
+  }
 
-function startCarousel() {
-  showSlide(slideIndex);
-  setInterval(nextSlide, 4000); // Change every 4 seconds
-}
+  function startInterval() {
+    intervalId = setInterval(next, 4200);
+  }
 
-// Start once DOM is ready
-document.addEventListener("DOMContentLoaded", startCarousel);
+  function restartInterval() {
+    if (intervalId) clearInterval(intervalId);
+    startInterval();
+  }
+
+  // initial show + start auto-slide
+  show(0);
+  startInterval();
+});
