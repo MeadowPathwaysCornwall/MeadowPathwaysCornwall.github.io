@@ -71,7 +71,7 @@
       <div class="commitment" aria-label="Our commitment">
         <h3 style="margin:0 0 8px 0">Our Commitment</h3>
         <p style="margin:0">
-          At Meadow Pathways we recognise that every young person is unique. We are committed to working collaboratively with families schools and partner organisations to find the most meaningful and sustainable route to success for each learner. Whether a child is facing barriers to education due to emotional barriers past trauma or unmet needs our role is to meet them where they are and help them move forward with confidence.
+         <p>At Meadow Pathways, we recognise that every young person is unique. We are committed to working collaboratively with families, schools, and partner organisations to find the most meaningful and sustainable route to success for each learner. Whether a child is facing barriers to education because of emotional difficulties, past trauma, or unmet needs, our role is to meet them where they are and help them move forward with confidence.</p>
         </p>
       </div>
     </div>
@@ -85,17 +85,16 @@
       <section class="welcome-card">
         <h2>Welcome</h2>
         <p>
-          Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning therapeutic practice and community based activities to build confidence skills and a sense of belonging.
-        </p>
-
+         <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community-based activities to build confidence, skills, and a sense of belonging.</p>
+        <p>
         <h3>Our approach</h3>
         <p>
-          We work relationally using trauma informed practice and creative curriculum linked activities. Our work is guided by Safety Playfulness Acceptance Curiosity and Empathy.
+        <p>We work relationally, using trauma-informed practice and creative, curriculum-linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.
         </p>
 
         <ul class="home-highlights">
-          <li><strong>Bespoke learning</strong> tailored packages and ASDAN and AQA Unit Awards</li>
-          <li><strong>Therapeutic integration</strong> play therapy emotion coaching and SEMH interventions</li>
+          <li><strong>Bespoke learning</strong> tailored packages, ASDAN, AQA Unit Awards and Functional Skills for curriculum subjects.</li>
+          <li><strong>Therapeutic interventions</strong> play therapy emotion coaching and SEMH interventions</li>
           <li><strong>Community activities</strong> nature based sessions walking bush craft and practical life skills</li>
         </ul>
  </section>
@@ -269,16 +268,35 @@
       buildDots();
       startAuto();
 
-      // Back to top visibility if present
-      const back = document.getElementById('backToTop');
-      if (back) {
-        function checkBack() { back.hidden = window.scrollY < 300; }
-        window.addEventListener('scroll', checkBack);
-        back.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-        checkBack();
+<!-- Back to top button — must be inside <body> -->
+<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
+
+<!-- Script — placed before </body> -->
+<script>
+  // Back to top visibility
+  (function () {
+    const back = document.getElementById('backToTop');
+    if (!back) return;
+
+    function checkBack() {
+      back.classList.toggle('show', window.scrollY > 240);
+    }
+
+    window.addEventListener('scroll', checkBack, { passive: true });
+    back.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      back.blur();
+    });
+
+    back.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        back.click();
       }
-    })();
-  </script>
+    });
+
+    checkBack(); // initial state
+  })();
+</script>
 </body>
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 </html>
