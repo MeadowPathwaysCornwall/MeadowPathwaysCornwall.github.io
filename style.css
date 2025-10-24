@@ -25,9 +25,19 @@
   margin: 0 auto;
   padding: 22px var(--container-padding);
 }
-
 /* Header */
 .site-header,
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 60;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.86));
+  border-bottom: 1px solid rgba(20,20,40,0.06);
+}
+
 /* Logo — unfix from header and give va-va-boom styling */
 .logo-wrap {
   display: flex;
@@ -36,6 +46,25 @@
   padding: 6px 0;
 }
 
+/* Ensure header-inner aligns neatly when fixed */
+.header-inner {
+  align-items: center;
+  gap: 14px;
+  padding: 10px var(--container-padding);
+  box-sizing: border-box;
+}
+
+/* Reserve space so page content doesn't sit under the fixed header */
+/* Adjust 92px if your header is taller or shorter */
+.container {
+  padding-top: 92px;
+}
+
+/* Small-screen adjustment */
+@media (max-width:520px) {
+  .container { padding-top: 72px; }
+  .header-inner { padding: 8px var(--container-padding); }
+}
 .brand {
   display: inline-flex;
   align-items: center;
@@ -105,7 +134,6 @@
   border:0;
 }
 
-/* Back-to-top button styling */
 .back-to-top,
 #backToTop {
   position: fixed;
@@ -127,14 +155,12 @@
   z-index: 120;
 }
 
-/* visible state */
 .back-to-top.show,
 #backToTop.show {
   display: inline-flex;
   opacity: 1;
   transform: translateY(0);
 }
-
 /* small hover interaction */
 .back-to-top:hover,
 #backToTop:hover {
