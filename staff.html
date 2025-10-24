@@ -1,111 +1,219 @@
-<!DOCTYPE html>
-<html lang="en-GB">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff Area | Meadow Pathways Cornwall</title>
+  <title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
   <link rel="stylesheet" href="style.css" />
+  <meta name="robots" content="noindex" />
+  <style>
+    .locked-overlay { display:flex;align-items:center;justify-content:center;padding:28px 12px; }
+    .staff-panel { display:none; }
+    .lock-box { max-width:760px;background:var(--white);border-radius:12px;padding:22px;box-shadow:0 8px 28px rgba(0,0,0,0.08);text-align:center }
+    .lock-box input[type="password"]{width:100%;padding:10px;margin-top:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08)}
+    .lock-box button{margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--heavy-purple);color:#fff;border:none;font-weight:700;cursor:pointer}
+    .staff-controls { margin-top:10px; display:flex;gap:8px;flex-wrap:wrap;justify-content:center }
+    .policy-pills { display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;justify-content:center }
+    .policy-pills a { text-decoration:none; display:inline-block; padding:8px 12px; border-radius:20px; background:var(--pill-bg); color:var(--text-deep); border:1px solid rgba(78,71,184,0.08); box-shadow:0 6px 18px rgba(20,20,40,0.04); }
+    .staff-meta { font-size:0.95rem;color:var(--text-soft);margin-top:8px }
+    .status-inline { margin-top:12px;color:var(--text-soft);font-weight:600 }
+    .external-links { display:flex;flex-direction:column;gap:8px; margin-top:12px; }
+    .external-links a { color:var(--heavy-purple); text-decoration:underline; }
+    @media (max-width:680px){ .lock-box{padding:16px} .policy-pills{justify-content:flex-start} }
+  </style>
 </head>
-<body class="staff">
-  <a href="#staffContent" class="skip-link">Skip to staff content</a>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header>
     <div class="logo-container">
-      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" /></a>
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
     </div>
-    <nav>
+
+    <nav aria-label="Primary">
       <ul class="nav-tabs">
         <li><a href="index.html">Home</a></li>
-        <li><a href="eotas.html">EOTAS Info</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
         <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="policies.html">Policies</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="staff.html" class="active">Staff Only</a></li>
-        <li><a href="referral.html">Referral Form</a></li>
+        <li><a class="active" href="staff.html">Staff</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero-overlay">
-        <h1>Staff Area</h1>
-        <p>Secure resources for Meadow Pathways staff</p>
-      </div>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-overlay">
+      <h1 id="hero-title">Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
+      <p>Guiding Individual Journeys with Care and Purpose</p>
     </div>
   </section>
 
-  <!-- Staff-only content (hidden until password entered) -->
-  <main id="staffContent" class="main-content-box container" style="display:none;">
-    <h2>Staff Resources</h2>
-    <p>Welcome to the staff area. These documents are for internal use only and relate to curriculum delivery and safe working practices.</p>
+  <main id="main" class="container">
+    <div class="main-content-box">
+      <h2>Staff Area</h2>
 
-    <h3>Internal Policies</h3>
-    <div class="expertise-box">
-      <a href="MPWEC Curriculum Policy EOTAS September 2025.docx" class="pill pill--coral" target="_blank" rel="noopener">Curriculum Policy (EOTAS)</a>
-      <a href="MPWEC H&S Policy Sep 25.docx" class="pill pill--coral" target="_blank" rel="noopener">Health & Safety Policy</a>
-      <a href="MPWEC Lone Working Policy Sep25.docx" class="pill pill--coral" target="_blank" rel="noopener">Lone Working Policy</a>
+      <div id="locked" class="locked-overlay" aria-hidden="false">
+        <div class="lock-box" role="dialog" aria-labelledby="lock-title">
+          <h3 id="lock-title">Staff access required</h3>
+          <p class="staff-meta">Enter the staff password to access hours logging, internal policies and safeguarding resources.</p>
+
+          <div class="staff-controls">
+            <input id="staffPassword" type="password" aria-label="Staff password" placeholder="Enter staff password" />
+            <button id="unlockBtn" type="button">Unlock</button>
+          </div>
+
+          <div style="margin-top:10px;font-size:0.95rem;color:var(--text-soft)">
+            If you have trouble accessing this area, contact Michelle or Zoe.
+          </div>
+        </div>
+      </div>
+
+      <div id="staffPanel" class="staff-panel" aria-hidden="true">
+        <p class="staff-meta">Welcome to the staff hub. Below are quick links to statutory guidance, partner resources, and the internal policy documents for staff. Use the Hours Logged form to record session time; submissions are emailed to the Meadow Pathways inbox.</p>
+
+        <h3>Statutory and partner resources</h3>
+        <div class="external-links" aria-label="External safeguarding resources">
+          <a href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025) - GOV.UK</a>
+          <a href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources on Patreon</a>
+          <a href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
+          <a href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research resources</a>
+          <a href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
+        </div>
+
+        <h3 style="margin-top:14px">Internal policy documents (staff area)</h3>
+        <div class="policy-pills" aria-label="Internal policies for staff">
+          <a href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>MPWEC Curriculum Policy EOTAS September 2025.docx</a>
+          <a href="MPWEC H&S Policy Sep 25.docx" download>MPWEC H&S Policy Sep 25.docx</a>
+          <a href="MPWEC Lone Working Policy Sep25.docx" download>MPWEC Lone Working Policy Sep25.docx</a>
+          <a href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>MPWEC Safeguarding and Child Protection Policy Sep 2025.docx</a>
+          <a href="MPWEC Staff Conduct Policy.docx" download>MPWEC Staff Conduct Policy.docx</a>
+          <a href="MPWEC Whistleblowing Policy.docx" download>MPWEC Whistleblowing Policy.docx</a>
+        </div>
+
+        <hr style="margin:18px 0" />
+
+        <h3>Hours Logged</h3>
+        <form id="hoursForm" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Hours logged - Meadow Pathways Staff" />
+          <label for="staff-name">Staff member name</label>
+          <input id="staff-name" name="staff_name" type="text" required />
+
+          <label for="date-worked">Date</label>
+          <input id="date-worked" name="date_worked" type="date" required />
+
+          <label for="duration">Duration (hours)</label>
+          <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required />
+
+          <label for="client">Client / session with</label>
+          <input id="client" name="client_name" type="text" />
+
+          <label for="notes">Brief notes</label>
+          <textarea id="notes" name="notes" rows="4"></textarea>
+
+          <label for="email-staff">Staff email</label>
+          <input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
+
+          <button type="submit">Submit hours</button>
+          <div id="hoursStatus" class="status-inline" role="status" aria-live="polite"></div>
+        </form>
+
+        <hr style="margin:18px 0" />
+
+        <h3>Staff Contacts</h3>
+        <p>
+          <strong>Michelle</strong> — <a href="tel:07932243358">07932 243358</a> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
+          <strong>Zoe</strong> — <a href="tel:07775733587">07775 733587</a> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
+          <strong>General</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
+        </p>
+
+        <p class="staff-meta">Remember to log hours promptly and ensure client notes comply with Meadow Pathways record-keeping guidance.</p>
+      </div>
+
     </div>
-
-    <h3>External Guidance & Resources</h3>
-    <p>These external resources support our safeguarding and wellbeing practice:</p>
-    <div class="expertise-box">
-      <a href="https://www.pookyknightsmith.com/" class="pill pill--teal" target="_blank" rel="noopener">Dr Pooky Knightsmith</a>
-      <a href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" class="pill pill--teal" target="_blank" rel="noopener">KCSIE 2025 (Full PDF)</a>
-      <a href="https://learning.nspcc.org.uk/safeguarding-child-protection/writing-a-safeguarding-policy-statement" class="pill pill--teal" target="_blank" rel="noopener">NSPCC: Safeguarding Policy</a>
-      <a href="https://learning.nspcc.org.uk/research-resources/schools/keeping-children-safe-in-education-caspar-briefing" class="pill pill--teal" target="_blank" rel="noopener">NSPCC CASPAR Briefing</a>
-    </div>
-
-    <h3>Work Logged Form</h3>
-    <p>Please complete this form to record your work sessions. Submissions are sent securely to Meadow Pathways.</p>
-    <form action="https://formspree.io/f/movnvzqp" method="POST" class="main-content-box">
-      <label for="staffName">Your Name:</label>
-      <input type="text" id="staffName" name="staffName" required>
-
-      <label for="date">Date of Work:</label>
-      <input type="date" id="date" name="date" required>
-
-      <label for="hours">Hours Worked:</label>
-      <input type="number" id="hours" name="hours" min="0" step="0.5" required>
-
-      <label for="details">Details of Work:</label>
-      <textarea id="details" name="details" rows="4" required></textarea>
-
-      <button type="submit" class="pill pill--teal">Submit Work Log</button>
-    </form>
   </main>
 
-  <!-- Access denied message -->
-  <div id="deniedMessage" class="main-content-box container" style="display:none;">
-    <h2>Access Denied</h2>
-    <p>This page is for Meadow Pathways staff only. If you need access, please contact:</p>
-    <ul>
-      <li><strong>Michelle Pascoe</strong> – <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-      <li><strong>Zoe Waitz</strong> – <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-    </ul>
-  </div>
-
-  <button id="backToTop" aria-label="Back to top" hidden>↑</button>
+  <button id="backToTop" aria-label="Back to top">↑</button>
 
   <footer>
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd.</p>
-    <p>Directors: Zoe Waitz & Michelle Pascoe</p>
+    <p>&copy; Meadow Pathways Cornwall</p>
   </footer>
 
-  <!-- Password gate using MPWEC! -->
   <script>
-    (function(){
-      const password = "MPWEC!";
-      const entered = prompt("Enter staff password:");
-      if (entered === password) {
-        document.getElementById("staffContent").style.display = "block";
-      } else {
-        document.getElementById("deniedMessage").style.display = "block";
+    (function () {
+      // Updated staff password as requested
+      const PASSWORD = 'MPWEC!';
+
+      const lockedEl = document.getElementById('locked');
+      const staffPanel = document.getElementById('staffPanel');
+      const unlockBtn = document.getElementById('unlockBtn');
+      const pwdInput = document.getElementById('staffPassword');
+
+      function unlock() {
+        const val = (pwdInput.value || '').trim();
+        if (val === PASSWORD) {
+          lockedEl.style.display = 'none';
+          staffPanel.style.display = 'block';
+          lockedEl.setAttribute('aria-hidden', 'true');
+          staffPanel.setAttribute('aria-hidden', 'false');
+          document.getElementById('staff-name').focus();
+        } else {
+          pwdInput.value = '';
+          pwdInput.focus();
+          alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+        }
       }
+
+      unlockBtn.addEventListener('click', unlock);
+      pwdInput.addEventListener('keyup', function (e) { if (e.key === 'Enter') unlock(); });
+
+      // Hours form submission to Formspree
+      const hoursForm = document.getElementById('hoursForm');
+      const hoursStatus = document.getElementById('hoursStatus');
+      const FORMSPREE = 'https://formspree.io/f/movnvzqp';
+
+      hoursForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        hoursStatus.textContent = 'Submitting...';
+
+        const data = new FormData(hoursForm);
+
+        try {
+          const res = await fetch(FORMSPREE, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: data
+          });
+
+          if (res.ok) {
+            hoursForm.reset();
+            hoursStatus.textContent = 'Hours submitted. Thank you.';
+            setTimeout(() => {
+              window.location.href = 'thankyou.html';
+            }, 900);
+          } else {
+            const result = await res.json();
+            if (result && result.errors) {
+              hoursStatus.textContent = result.errors.map(err => err.message).join('; ');
+            } else {
+              hoursStatus.textContent = 'Submission error — please try again later.';
+            }
+          }
+        } catch (err) {
+          hoursStatus.textContent = 'Network error — check connection and try again.';
+        }
+      });
+
+      // Back to top visibility
+      const back = document.getElementById('backToTop');
+      function checkBack() {
+        back.hidden = window.scrollY < 300;
+      }
+      window.addEventListener('scroll', checkBack);
+      back.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      checkBack();
     })();
   </script>
-
-  <script src="script.js"></script>
 </body>
 </html>
