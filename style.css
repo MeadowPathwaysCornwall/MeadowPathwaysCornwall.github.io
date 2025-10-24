@@ -1,150 +1,150 @@
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Reset & base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html,body { height: 100%; }
 
 body {
   font-family: Arial, sans-serif;
-  background: #fdfdfd;
-  color: #333;
+  color: #222;
   line-height: 1.6;
+  background: url('images/BG.png') center/cover no-repeat fixed;
 }
 
-/* Logo */
+/* Header: logo and navigation */
+header {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(4px);
+  padding: 0.6rem 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
 header img.logo {
-  height: 120px; /* large, prominent logo */
+  height: 120px;
   display: block;
-  margin: 1em auto;
-  border: 4px solid #2a9d8f; /* teal border to match palette */
-  border-radius: 8px;        /* soft corners */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* gentle shadow */
-  background: #fff;          /* ensures logo sits cleanly */
-  padding: 6px;              /* breathing space inside border */
+  margin: 0.6rem auto 0.4rem;
+  border: 4px solid #2a9d8f; /* teal border */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  background: #fff;
+  padding: 6px;
 }
 
 /* Navigation */
-header nav ul {
+nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  background: linear-gradient(90deg, #2a9d8f, #264653); /* teal/blue */
-  margin: 0;
-  padding: 0;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
 }
 
-header nav ul li {
-  margin: 0;
-}
+nav ul li { margin: 0; }
 
-header nav ul li a {
+nav ul li a {
   display: block;
-  padding: 1.5em 2em; /* oversized tabs */
-  font-size: 1.2em;
+  padding: 1.1rem 1.6rem; /* intentionally large baseline */
+  font-size: 1.05rem;
   color: #fff;
   text-decoration: none;
-  transition: background 0.3s ease, color 0.3s ease;
+  background: linear-gradient(90deg,#2a9d8f,#264653);
+  border-radius: 4px;
+  transition: transform 0.15s ease, background 0.15s ease;
 }
 
-header nav ul li a.active,
-header nav ul li a:hover {
-  background: #e63946; /* red accent */
-  color: #fff;
+nav ul li a:hover,
+nav ul li a.active {
+  background: linear-gradient(90deg,#e63946,#b2222f); /* red accent */
+  transform: translateY(-2px);
 }
 
 /* Carousel */
 .carousel {
   position: relative;
   width: 100%;
-  height: 400px;
+  max-height: 480px;
   overflow: hidden;
+  margin-top: 1rem;
 }
 
 .carousel .slides {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 480px;
 }
 
 .carousel .slides img {
   width: 100%;
-  height: 400px;
+  height: 480px;
   object-fit: cover;
   display: none;
 }
 
 .carousel .slides img.active {
   display: block;
-  animation: fade 1s ease-in-out;
+  animation: fade 900ms ease-in-out;
 }
 
 @keyframes fade {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
+  from { opacity: 0.2; transform: scale(1.02); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-/* Optional carousel dots */
+/* Dots */
 .carousel-dots {
   position: absolute;
-  bottom: 15px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 8px;
+  z-index: 5;
 }
 
 .carousel-dots span {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(0,0,0,0.08);
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 .carousel-dots span.active {
   background: #e63946; /* red accent */
+  box-shadow: 0 0 0 4px rgba(230,57,70,0.12);
 }
 
-/* Welcome Section */
+/* Welcome block */
 main.welcome {
-  padding: 2em;
-  max-width: 900px;
-  margin: 2em auto;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 920px;
+  margin: 1.6rem auto;
+  background: rgba(255,255,255,0.96);
+  padding: 1.8rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 main.welcome h1 {
-  color: #264653; /* deep blue/green */
+  color: #264653;
   text-align: center;
-  margin-bottom: 1em;
-  font-size: 2em;
+  margin-bottom: 0.9rem;
+  font-size: 1.9rem;
 }
 
 main.welcome p {
-  margin-bottom: 1em;
-  font-size: 1.05em;
+  color: #2b3b36;
+  margin-bottom: 0.9rem;
+  font-size: 1rem;
 }
 
 /* Links */
-a {
-  color: #2a9d8f;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #e63946; /* red accent */
-}
+a { color: #2a9d8f; text-decoration: underline; }
+a:hover { color: #e63946; }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 1em;
-  background: #eee;
-  margin-top: 2em;
-  font-size: 0.9em;
-  color: #555;
+  padding: 1rem 0;
+  color: #444;
+  margin: 1.2rem 0 2rem;
 }
