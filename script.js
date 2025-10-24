@@ -1,19 +1,86 @@
 // Meadow Pathways — shared interactions (nav toggle, carousel, back-to-top, accessible focus, logo reveal)
 (function () {
-  // NAV TOGGLE (small screens)
-  const navToggle = document.getElementById('navToggle');
-  const primaryNav = document.getElementById('primaryNav');
-  if (navToggle && primaryNav) {
-    navToggle.addEventListener('click', function () {
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!expanded));
-      primaryNav.style.display = expanded ? '' : 'block';
-    });
+  "use strict";
+
+  // Helper: closest matching parent
+  function closest(el, selector) {
+    while (el && el !== document) {
+      if (el.matches && el.matches(selector)) return el;
+      el = el.parentNode;
+    }
+    return null;
   }
+
+  // NAV TOGGLE (small screens) — robust, uses class toggling not inline styles
+  (function navToggleInit() {
+    const navToggle = document.getElementById('navToggle');
+    const primaryNav = document.getElementById('primaryNav');
+    if (!primaryNav) return;
+
+    // Ensure aria attributes exist
+    if (navToggle) {
+      if (!navToggle.hasAttribute('aria-expanded')) navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+        primaryNav.classList.toggle('open');
+      });
+    }
+
+    // Close when a nav link is clicked (mobile)
+    primaryNav.addEventListener('click', function (e) {
+      const a = closest(e.target, 'a');
+      if (!a) return;
+      if (primaryNav.classList.contains('open')) {
+        primaryNav.classList.remove('open');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on outside click when open
+    document.addEventListener('click', function (e) {
+      if (!primaryNav.classList.contains('open')) return;
+      if (navToggle && (e.target === navToggle || navToggle.contains(e.target))) return;
+      if (primaryNav.contains(e.target)) return;
+      primaryNav.classList.remove('open');
+      if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && primaryNav.classList.contains('open')) {
+        primaryNav.classList.remove('open');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+        if (navToggle) navToggle.focus();
+      }
+    });
+
+    // Ensure nav is visible on larger viewports if CSS left it hidden
+    function restoreNavOnResize() {
+      if (window.innerWidth > 880) {
+        primaryNav.classList.remove('open');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+    window.addEventListener('resize', restoreNavOnResize, { passive: true });
+
+    // Set active nav item by URL (works for index.html and other pages)
+    const links = Array.from(primaryNav.querySelectorAll('a'));
+    const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    links.forEach(a => {
+      const href = (a.getAttribute('href') || '').toLowerCase();
+      if (href === current || (current === '' && href === 'index.html')) {
+        a.classList.add('active');
+      } else {
+        a.classList.remove('active');
+      }
+    });
+  })();
 
   // BACK TO TOP BUTTON (enhanced)
   (function backToTopInit() {
-    const backBtn = document.getElementById('backToTop');
+    const backBtn = document.getElementById('backToTop') || document.querySelector('.back-to-top');
     if (!backBtn) return;
     const revealClass = 'show';
     const showAt = 240; // pixels scrolled before showing
@@ -54,48 +121,7 @@
       }
     });
   })();
-// NAV TOGGLE, outside-click dismiss, and active link logic
-(function(){
-  const navToggle = document.getElementById('navToggle');
-  const primaryNav = document.getElementById('primaryNav');
-  if(!navToggle || !primaryNav) return;
 
-  // toggle open/close
-  navToggle.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!expanded));
-    primaryNav.classList.toggle('open');
-  });
-
-  // close when a link is clicked (mobile)
-  primaryNav.addEventListener('click', (e) => {
-    if(e.target.tagName === 'A') {
-      primaryNav.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  // close on outside click when open
-  document.addEventListener('click', (e) => {
-    if(!primaryNav.classList.contains('open')) return;
-    if(e.target === navToggle || primaryNav.contains(e.target)) return;
-    primaryNav.classList.remove('open');
-    navToggle.setAttribute('aria-expanded','false');
-  });
-
-  // set active nav link by URL (works for index.html and other pages)
-  const links = primaryNav.querySelectorAll('a');
-  const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-  links.forEach(a=>{
-    const href = a.getAttribute('href') ? a.getAttribute('href').toLowerCase() : '';
-    if(href === current || (current === '' && href === 'index.html')) {
-      a.classList.add('active');
-    } else {
-      a.classList.remove('active');
-    }
-  });
-})();
-  
   // CAROUSEL INIT (robust)
   (function initCarousel() {
     const carousel = document.getElementById('carousel');
@@ -110,9 +136,12 @@
     const autoDelay = 5000;
 
     function show(index) {
+      if (!slides.length) return;
+      index = (index + slides.length) % slides.length;
       slides.forEach((s, i) => {
         s.classList.toggle('active', i === index);
         s.style.zIndex = i === index ? 2 : 1;
+        s.setAttribute('aria-hidden', String(i !== index));
       });
       if (dotsWrap) {
         Array.from(dotsWrap.children).forEach((d, i) => d.setAttribute('aria-selected', String(i === index)));
@@ -129,7 +158,7 @@
         btn.className = 'dot';
         btn.setAttribute('aria-selected', String(i === 0));
         btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        btn.addEventListener('click', () => { pauseAuto(); show(i); });
+        btn.addEventListener('click', function () { pauseAuto(); show(i); });
         btn.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
         });
@@ -174,11 +203,13 @@
   })();
 
   // ACCESSIBLE LINK FOCUS RING POLISH
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Tab') document.body.classList.add('user-is-tabbing');
-  });
-  document.addEventListener('mousedown', function () {
-    document.body.classList.remove('user-is-tabbing');
-  });
+  (function focusRingPolish() {
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Tab') document.body.classList.add('user-is-tabbing');
+    });
+    document.addEventListener('mousedown', function () {
+      document.body.classList.remove('user-is-tabbing');
+    });
+  })();
 
 })();
