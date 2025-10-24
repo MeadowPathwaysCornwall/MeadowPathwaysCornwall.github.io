@@ -27,9 +27,7 @@ body{--header-height:var(--header-height-desktop)}
 /* ===== Homepage opt-out (apply class="home-page" to index.html body only) ===== */
 body.home-page { background: none; }
 
-/* ===== Background for non-home pages (use your uploaded image path) =====
-   Put your file in repository, e.g. /images/bgr.jpg and update url() below.
-*/
+/* ===== Background for non-home pages (bgr.jpg placed in repo root) ===== */
 body:not(.home-page){
   --bg-base: #eef9fb;
   background-color: var(--bg-base);
@@ -37,7 +35,7 @@ body:not(.home-page){
   /* Two-layer approach: image + darkening overlay for legibility */
   background-image:
     linear-gradient(rgba(6,16,28,0.42), rgba(6,16,28,0.42)),
-    url('images/bgr.jpg'); /* <- update path/case if different */
+    url('bgr.jpg'); /* file at repo root */
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
