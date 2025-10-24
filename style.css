@@ -326,24 +326,72 @@ body.home-page main {
   outline-offset: 4px;
 }
 
-/* Small helpers */
-.container{ max-width:1100px; margin:0 auto; padding: 0 18px; box-sizing:border-box; }
-a{ color:var(--air_force_blue); }
-img{ max-width:100%; height:auto; display:block; }
-/* Improve contrast and readability for homepage content boxes */
+/* Theme-coloured boxed text using site variables (replace the white-card block) */
 .hero-text,
 .hero-sub,
 .commitment,
 .welcome-card,
 .carousel-caption,
 .offer-section,
-.offer-item {
-  background: rgba(255, 255, 255, 0.88);
-  color: #0b2340;
-  padding: 16px;
+.offer-item,
+.referral-box,
+.pill-box,
+.policy-card,
+.policy-section,
+.info-area,
+.content-block,
+.section-block,
+.main-grid > section,
+aside.carousel-card,
+.form-wrap,
+.form-section {
+  background: linear-gradient(180deg, rgba(93,138,168,0.08), rgba(93,138,168,0.04));
+  color: var(--text-deep);
+  padding: 18px 20px;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(2px);
+  box-shadow: 0 8px 28px rgba(6,16,28,0.06);
+  border: 1px solid rgba(93,138,168,0.12);
+  line-height: 1.45;
+  margin-bottom: 18px;
+}
+
+/* Stronger accent option for highlighted boxes */
+.theme-accent-box {
+  background: linear-gradient(180deg, rgba(93,138,168,0.14), rgba(93,138,168,0.06));
+  border: 1px solid rgba(93,138,168,0.18);
+  color: #052735;
+}
+
+/* Headings inside themed boxes */
+.hero-text h1,
+.welcome-card h2,
+.commitment h3,
+.offer-section h3 {
+  color: #042934;
+  margin-top: 0;
+}
+
+/* Mobile adjustments */
+@media (max-width:880px) {
+  .hero-text,
+  .welcome-card,
+  .commitment,
+  .offer-section,
+  aside.carousel-card {
+    padding: 14px;
+    border-radius: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
+
+/* Defensive overrides where inline styles force transparency */
+.hero-text[style],
+.welcome-card[style],
+.commitment[style],
+.offer-section[style] {
+  background-color: rgba(93,138,168,0.06) !important;
+  color: var(--text-deep) !important;
 }
 
 /* Optional: soften the background overlay further for better contrast */
