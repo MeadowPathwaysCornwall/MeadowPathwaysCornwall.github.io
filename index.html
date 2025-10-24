@@ -27,6 +27,16 @@
     .carousel-caption { margin-top:10px; font-size:0.95rem; color:var(--text-soft); }
   </style>
 </head>
+ <script>
+  const navToggle = document.getElementById('navToggle');
+  const primaryNav = document.getElementById('primaryNav');
+
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !expanded);
+    primaryNav.classList.toggle('open');
+  });
+</script> 
 <body class="home-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
