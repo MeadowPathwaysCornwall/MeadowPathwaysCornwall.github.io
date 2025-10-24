@@ -255,6 +255,18 @@ body:not(.home-page) {
   background-blend-mode: normal, normal, overlay, normal;
   color: var(--text-deep);
 }
+/* Footer styles */
+footer {
+  padding: 24px;
+  background: #eee;
+}
+
+/* Soft background for content blocks */
+.card, .content, main, section {
+  background: rgba(255,255,255,0.92);
+  padding: 18px;
+  border-radius: 8px;
+}
 
 .back-to-top,
 #backToTop {
