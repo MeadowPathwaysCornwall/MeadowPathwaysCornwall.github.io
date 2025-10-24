@@ -100,11 +100,27 @@
       <!-- Carousel kept as approach display -->
       <aside class="carousel-card" aria-label="Gallery and approach">
         <div id="carousel" class="carousel">
-          <div class="slides">
-            <img src="carousel1.jpg" alt="Outdoor learning session" class="slide active" />
-            <img src="carousel2.jpg" alt="Bush craft activity" class="slide" />
-            <img src="carousel3.jpg" alt="Wellbeing session" class="slide" />
-          </div>
+          <div id="carousel" class="carousel" aria-roledescription="carousel" aria-label="Gallery">
+  <div class="slides" role="list">
+    <img src="Bake.jpg" alt="Baking activity" class="slide active" role="listitem" />
+    <img src="Cooking.jpg" alt="Cooking session" class="slide" role="listitem" />
+    <img src="MM.jpg" alt="Multimedia activity" class="slide" role="listitem" />
+    <img src="Paint.jpg" alt="Painting session" class="slide" role="listitem" />
+    <img src="cook.jpg" alt="Cooking practical" class="slide" role="listitem" />
+    <img src="den.jpg" alt="Den building" class="slide" role="listitem" />
+    <img src="hand meadow.jpg" alt="Hands in meadow activity" class="slide" role="listitem" />
+    <img src="paths.jpg" alt="Exploring paths" class="slide" role="listitem" />
+    <img src="plant.jpg" alt="Planting activity" class="slide" role="listitem" />
+    <img src="style.css" alt="Style sheet preview (placeholder)" class="slide" role="listitem" />
+    <img src="wood.jpg" alt="Woodland activity" class="slide" role="listitem" />
+  </div>
+
+  <div class="carousel-controls" aria-hidden="false">
+    <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
+    <div class="dots" id="dots" role="tablist" aria-label="Carousel pagination"></div>
+    <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
+  </div>
+</div>
 
           <div class="carousel-controls" aria-hidden="false">
             <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
