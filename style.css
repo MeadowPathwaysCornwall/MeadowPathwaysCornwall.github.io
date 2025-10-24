@@ -1,5 +1,5 @@
 :root{
-  --heavy-purple:#4e47b8;
+  --air_force_blue = "#5d8aa8";
   --accent-teal:#1f9d9a;
   --pill-bg:#f3f4ff;
   --white:#ffffff;
@@ -45,8 +45,8 @@
 }
 
 /* Logo sizing and responsive */
-.logo{ height:48px; width:auto; }
-.header-inner .logo-wrap img.logo { height:96px; width:auto; }
+.logo{ height:200px; width:auto; }
+.header-inner .logo-wrap img.logo { height:200px; width:auto; }
 
 /* Navigation */
 .primary-nav { display:flex; align-items:center; gap:12px; }
@@ -64,11 +64,11 @@
 /* hover shows a gentle purple/teal gradient, active is solid purple */
 .nav-tabs a:hover{
   background: linear-gradient(90deg, rgba(78,71,184,0.06), rgba(31,157,154,0.03));
-  color:var(--heavy-purple);
+  color:var( --air_force_blue );
   transform:translateY(-1px);
 }
 .nav-tabs a.active{
-  background:var(--heavy-purple);
+  background:var( --air_force_blue );
   color:#fff;
   box-shadow: 0 10px 30px rgba(78,71,184,0.12);
 }
@@ -109,17 +109,17 @@
 /* hero actions inside overlay */
 .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:6px; }
 .btn{ cursor:pointer; border-radius:12px; padding:10px 14px; background:var(--pill-bg); border:1px solid rgba(20,20,40,0.04); color:var(--text-deep); font-weight:700; text-decoration:none; display:inline-block; }
-.btn-primary{ background:var(--heavy-purple); color:#fff; border:none; }
+.btn-primary{ background:var( --air_force_blue ); color:#fff; border:none; }
 
 /* Pill boxes, values and highlights (more visible colour) */
 .home-highlights li, .pill, .value {
   background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(243,244,255,0.9));
 }
-.pill, .value { color: var(--heavy-purple); font-weight:700; }
+.pill, .value { color: var( --air_force_blue ); font-weight:700; }
 
 /* Main content */
 .main-content-box{ background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); }
-h2{ margin-top:0; color:var(--heavy-purple); }
+h2{ margin-top:0; color:var( --air_force_blue ); }
 h3{ color:var(--text-deep); margin-top:18px; }
 
 /* Forms */
