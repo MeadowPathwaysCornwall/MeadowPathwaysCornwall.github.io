@@ -1,88 +1,151 @@
-<!DOCTYPE html>
-<html lang="en-GB">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact Us | Meadow Pathways Cornwall</title>
+  <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="contact">
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header -->
   <header>
     <div class="logo-container">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" />
-      </a>
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
     </div>
-    <nav>
+
+    <nav aria-label="Primary">
       <ul class="nav-tabs">
         <li><a href="index.html">Home</a></li>
-        <li><a href="eotas.html">EOTAS Info</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
         <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="policies.html">Policies</a></li>
-        <li><a href="contact.html" class="active">Contact Us</a></li>
-        <li><a href="staff.html">Staff Only</a></li>
-        <li><a href="referral.html">Referral Form</a></li>
+        <li><a href="staff.html">Staff</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-overlay">
-        <h1>Contact Us</h1>
-        <p>We welcome enquiries from families, professionals, and partners</p>
-      </div>
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-overlay">
+      <h1 id="hero-title">Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
+      <p>Guiding Individual Journeys with Care and Purpose</p>
     </div>
-    <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,30 C300,100 900,0 1200,30 L1200,100 L0,100 Z" fill="#D1F8EF" />
-    </svg>
   </section>
 
-  <!-- Main Content -->
-  <main class="main-content-box container">
-    <h2>Contact Details</h2>
-    <ul>
-      <li><strong>Michelle Pascoe</strong><br>
-        Email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
-        Phone: 07932243358
-      </li>
-      <li><strong>Zoe Waitz</strong><br>
-        Email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
-        Phone: 07775733587
-      </li>
-      <li><strong>General Enquiries</strong><br>
-        Email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
-      </li>
-    </ul>
+  <!-- Main -->
+  <main id="main" class="container">
+    <div class="main-content-box">
 
-    <h2>General Enquiries Form</h2>
-    <form action="https://formspree.io/f/movnvzqp" method="POST">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required>
+      <h2>Contact Us</h2>
 
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required>
+      <p>
+        We welcome enquiries from families, professionals and partner organisations. Use the form below for non-urgent messages or email/phone the team directly using the contact details provided.
+      </p>
 
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+      <section aria-label="Contact details" style="margin-top:12px">
+        <h3>Contact details</h3>
+        <p>
+          <strong>Michelle</strong> — <a href="tel:07932243358">07932 243358</a> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
+          <strong>Zoe</strong> — <a href="tel:07775733587">07775 733587</a> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
+          <strong>General</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
+        </p>
+      </section>
 
-      <button type="submit">Send Message</button>
-    </form>
+      <hr style="margin:18px 0" />
 
-    <p style="margin-top: 24px;">
-      We aim to respond within 2 working days. If your enquiry is urgent or relates to safeguarding, please contact Michelle or Zoe directly.
-    </p>
+      <h3>Message the team</h3>
+      <form id="contactForm" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Website contact form" />
+
+        <label for="c-name">Your name</label>
+        <input id="c-name" name="name" type="text" required />
+
+        <label for="c-email">Your email</label>
+        <input id="c-email" name="_replyto" type="email" required />
+
+        <label for="c-phone">Telephone (optional)</label>
+        <input id="c-phone" name="phone" type="tel" />
+
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="message" rows="6" required></textarea>
+
+        <p style="font-size:0.95rem;color:var(--text-soft);margin-top:8px">
+          By submitting this form you confirm you have appropriate consent to share information. For urgent safeguarding concerns contact statutory services first.
+        </p>
+
+        <button type="submit">Send message</button>
+        <div id="contactStatus" role="status" aria-live="polite" style="margin-top:12px;"></div>
+      </form>
+
+      <hr style="margin:18px 0" />
+
+      <h3 style="margin-top:8px">Our values</h3>
+      <div class="values" aria-label="Our values">
+        <div class="value">Resilience &amp; Independence</div>
+        <div class="value">Health &amp; Wellbeing</div>
+        <div class="value">Honesty &amp; Integrity</div>
+        <div class="value">Friendship &amp; Kindness</div>
+      </div>
+
+    </div>
   </main>
 
+  <!-- Back to top -->
   <button id="backToTop" aria-label="Back to top">↑</button>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd.</p>
-    <p>Directors: Zoe Waitz & Michelle Pascoe</p>
+    <p>&copy; Meadow Pathways Cornwall</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Contact form script -->
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      const statusEl = document.getElementById('contactStatus');
+      const FORMSPREE = 'https://formspree.io/f/movnvzqp';
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        statusEl.textContent = 'Sending...';
+
+        const data = new FormData(form);
+
+        try {
+          const res = await fetch(FORMSPREE, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: data
+          });
+
+          if (res.ok) {
+            form.reset();
+            statusEl.textContent = 'Thank you — your message has been sent.';
+            setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
+          } else {
+            const result = await res.json();
+            if (result && result.errors) {
+              statusEl.textContent = result.errors.map(err => err.message).join('; ');
+            } else {
+              statusEl.textContent = 'There was a problem sending your message. Please try again later.';
+            }
+          }
+        } catch (err) {
+          statusEl.textContent = 'Network error — please check your connection and try again.';
+        }
+      });
+
+      // Back to top visibility
+      const back = document.getElementById('backToTop');
+      function checkBack() { back.hidden = window.scrollY < 300; }
+      window.addEventListener('scroll', checkBack);
+      back.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      checkBack();
+    })();
+  </script>
 </body>
 </html>
