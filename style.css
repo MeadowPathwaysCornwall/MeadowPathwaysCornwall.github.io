@@ -53,7 +53,7 @@
 .hero h1{ margin:0; font-size:1.85rem; letter-spacing:0.2px; color:var(--text-deep); }
 .hero-sub{ margin-top:8px; color:var(--text-soft); }
 
-/* --- VISUAL & LAYOUT TWEAKS (paste near hero/header rules) --- */
+/* --- VISUAL & LAYOUT TWEAKS (overrides and refinements) --- */
 
 /* stronger hero backdrop while keeping your existing content and spacing */
 .hero {
@@ -66,7 +66,6 @@
   padding: 28px 0;
 }
 .hero-overlay {
-  /* subtle darkening so existing white or dark text remains readable without changing wording */
   background: linear-gradient(rgba(6,10,20,0.46), rgba(6,10,20,0.20));
   color: #ffffff;
   padding: 36px;
@@ -101,6 +100,12 @@
 }
 .nav-tabs a:hover { background: rgba(78,71,184,0.06); color:var(--heavy-purple); }
 .nav-tabs a.active { background: var(--heavy-purple); color:#fff; box-shadow: 0 8px 24px rgba(78,71,184,0.12); }
+
+/* Pill boxes and highlights with colour for visual hierarchy */
+.home-highlights li, .pill, .value {
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(243,244,255,0.6));
+}
+.pill, .value { color: var(--heavy-purple); }
 
 /* carousel sizing to keep slides consistent and avoid layout jump */
 .slides { position: relative; height: 300px; overflow: hidden; border-radius:8px; }
@@ -145,7 +150,6 @@ button[type="submit"], .btn-primary{ background:var(--heavy-purple); color:#fff;
 
 /* Carousel */
 .carousel{ background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4)); border-radius:12px; padding:12px; box-shadow:var(--shadow); }
-/* keep slides container rules for compatibility, overridden above */
 .slides{ position:relative; overflow:hidden; border-radius:8px; }
 .slide{ width:100%; display:block; opacity:0; transform:scale(1.02); transition:opacity .45s ease, transform .45s ease; }
 .slide.active{ opacity:1; transform:scale(1); }
