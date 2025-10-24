@@ -1,63 +1,50 @@
-<!DOCTYPE html>
-<html lang="en-GB">
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Thank You | Meadow Pathways Cornwall</title>
+  <title>Thank you — Meadow Pathways Wellbeing and Education Cornwall</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* small local styles to keep this page focused and warm */
+    body { display:flex; min-height:100vh; align-items:center; justify-content:center; background:#f7fbf6; color:var(--text-deep); }
+    .card { max-width:820px; margin:28px; background:#fff; padding:28px; border-radius:14px; box-shadow:0 10px 30px rgba(20,20,40,0.06); text-align:left; }
+    .card h1 { margin-top:0; font-size:1.6rem; }
+    .card p { line-height:1.5; color:var(--text-soft); }
+    .actions { margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; background:var(--pill-bg); color:var(--text-deep); border:1px solid rgba(0,0,0,0.04); }
+    .btn-primary { background:var(--heavy-purple); color:#fff; border:none; }
+    .small { font-size:0.92rem; color:var(--text-soft); margin-top:10px; }
+    @media (max-width:520px){ .card{padding:18px} .card h1{font-size:1.3rem} }
+  </style>
 </head>
-<body class="thankyou">
-  <header>
-    <div class="logo-container">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways Cornwall logo" class="logo" />
-      </a>
-    </div>
+<body>
+  <main class="card" role="main" aria-labelledby="thank-title">
+    <h1 id="thank-title">Thank you</h1>
 
-    <nav>
-  <ul class="nav-tabs">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="eotas.html">EOTAS Info</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="safeguarding.html">Safeguarding</a></li>
-    <li><a href="policies.html">Policies</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
-    <li><a href="staff.html">Staff Only</a></li>
-    <li><a href="referral.html">Referral Form</a></li>
-  </ul>
-</nav>
-  </header>
-
-  <!-- Hero banner -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-overlay">
-        <h1>Thank You</h1>
-        <p>Your message has been received</p>
-      </div>
-    </div>
-    <svg class="hero-wave" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,30 C300,100 900,0 1200,30 L1200,100 L0,100 Z" fill="#f7f9f8" />
-    </svg>
-  </section>
-
-  <main class="main-content-box container">
     <p>
-      Thank you for getting in touch with Meadow Pathways Wellbeing and Education Cornwall. We’ve received your message and will respond as soon as we can.
+      Thank you for contacting Meadow Pathways Wellbeing and Education Cornwall. We have received your message and will respond as soon as we can.
     </p>
 
     <p>
-      In the meantime, feel free to return to the <a href="index.html">homepage</a> or visit our <a href="contact.html">contact page</a> for more ways to reach us.
+      If your message was a referral or urgent safeguarding concern and you do not hear from us within a timely period please contact the team directly by phone.
+    </p>
+
+    <div class="small">
+      <strong>Contact</strong><br />
+      Michelle — 07932 243358 — Michelle.Pascoe@meadowpathwayscornwall.com<br />
+      Zoe — 07775 733587 — Zoe.Waitz@meadowpathwayscornwall.com
+    </div>
+
+    <div class="actions" aria-label="Next steps">
+      <a class="btn btn-primary" href="index.html">Return to home</a>
+      <a class="btn" href="referral.html">Submit another referral</a>
+      <a class="btn" href="contact.html">Contact page</a>
+    </div>
+
+    <p class="small" style="margin-top:14px">
+      Meadow Pathways is committed to protecting confidentiality and handling information sensitively. If you have questions about how we use information, contact us at the email above.
     </p>
   </main>
-
-  <button id="backToTop" aria-label="Back to top">↑</button>
-
-  <footer>
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd.</p>
-    <p>Directors: Zoe Waitz & Michelle Pascoe</p>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
