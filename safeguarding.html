@@ -3,101 +3,86 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Safeguarding — Meadow Pathways</title>
+  <title>Safeguarding – Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header container">
-    <div class="logo-wrap">
-      <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-      </a>
-    </div>
-    <nav class="primary-nav" aria-label="Primary navigation">
-      <ul class="nav-tabs">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html" class="active">Safeguarding</a></li>
-        <li><a href="staff.html">Staff</a></li>
-        <li><a href="referral.html">Referral</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="container">
-    <section class="welcome-card" aria-labelledby="sg-title">
-      <h1 id="sg-title" class="accent">Safeguarding and Child Protection</h1>
-      <p>Meadow Pathways is committed to safeguarding and protecting the welfare of children and young people. We work to the highest standards of practice and expect all staff and partners to follow our safeguarding procedures.</p>
-    </section>
-
-    <section class="policy-card" aria-labelledby="sg-text">
-      <h2 id="sg-text">Our approach</h2>
-      <p>We ensure all staff are DBS-checked, trained in safeguarding and know how to report concerns. We maintain clear records, follow data protection guidance when sharing information, and work closely with local safeguarding partners to keep children safe.</p>
-
-      <div class="policy-images" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
-        <img src="sg.jpg" alt="Safeguarding illustration 1" style="width:48%;border-radius:10px;box-shadow:0 8px 24px rgba(11,35,64,0.06)" />
-        <img src="sg1.png" alt="Safeguarding illustration 2" style="width:48%;border-radius:10px;box-shadow:0 8px 24px rgba(11,35,64,0.06)" />
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <div class="logo-wrap">
+        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+        </a>
       </div>
 
-      <h3 style="margin-top:14px">Reporting concerns</h3>
-      <p>If you have an immediate safeguarding concern contact your local authority safeguarding team or the police. For all concerns relating to children supported by Meadow Pathways, report to Michelle or Zoe as our designated leads and follow internal reporting procedures.</p>
+      <nav aria-label="Primary" class="primary-nav">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+        <ul id="primaryNav" class="nav-tabs" role="menubar">
+          <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+          <li role="none"><a role="menuitem" href="about.html">About</a></li>
+          <li role="none"><a role="menuitem" href="eotas.html">EOTAS</a></li>
+          <li role="none"><a role="menuitem" href="safeguarding.html" class="active">Safeguarding</a></li>
+          <li role="none"><a role="menuitem" href="staff.html">Staff</a></li>
+          <li role="none"><a role="menuitem" href="referral.html">Referral</a></li>
+          <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-      <h3 style="margin-top:14px">Key contacts</h3>
-      <p><strong>Designated Safeguarding Lead:</strong> Michelle Pascoe — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></p>
-      <p><strong>Deputy:</strong> Zoe Waitz — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
+  <!-- Main -->
+  <main id="main" class="container" role="main">
+    <section class="policy-card">
+      <h2>Safeguarding</h2>
+      <p>Meadow Pathways is committed to safeguarding and promoting the welfare of children and young people. We believe that every child has the right to feel safe, valued, and supported. Our safeguarding practices are embedded in everything we do, from therapeutic education to community engagement.</p>
 
-      <h3 style="margin-top:14px">Policy documents</h3>
-      <ul>
-        <li><a href="policies/safeguarding.pdf" target="_blank" rel="noopener">Full Safeguarding Policy (PDF)</a></li>
-        <li><a href="policies/child-protection.pdf" target="_blank" rel="noopener">Child Protection Guidance</a></li>
-        <li><a href="policies/reporting-flowchart.pdf" target="_blank" rel="noopener">Reporting flowchart</a></li>
+      <h3>Our Safeguarding Principles</h3>
+      <ul class="home-highlights">
+        <li><strong>Child-centred approach</strong> – We listen to children and take their views seriously.</li>
+        <li><strong>Early intervention</strong> – We identify concerns early and respond promptly.</li>
+        <li><strong>Multi-agency collaboration</strong> – We work closely with families, schools, and professionals.</li>
+        <li><strong>Safe environments</strong> – We create emotionally and physically safe spaces for learning and growth.</li>
+        <li><strong>Clear procedures</strong> – Our safeguarding policies are robust, transparent, and regularly reviewed.</li>
       </ul>
-    </section>
 
-    <section class="form-card" aria-labelledby="sg-query">
-      <h3 id="sg-query">Safeguarding query</h3>
-      <form id="sgForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="Safeguarding query - Meadow Pathways" />
-        <input type="hidden" name="_language" value="en" />
-        <input type="hidden" name="_captcha" value="false" />
+      <h3>Designated Safeguarding Leads</h3>
+      <p>Michelle Pascoe and Zoe Waitz are our Designated Safeguarding Leads. They are responsible for overseeing safeguarding practices and ensuring that concerns are addressed appropriately and sensitively.</p>
 
-        <label for="sg_name">Your name</label>
-        <input id="sg_name" name="sg_name" type="text" required />
+      <h3>Reporting a Concern</h3>
+      <p>If you have a safeguarding concern, please contact Michelle or Zoe directly:</p>
+      <ul>
+        <li>Email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
+        <li>Email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
+      </ul>
 
-        <label for="sg_email">Your email</label>
-        <input id="sg_email" name="sg_email" type="email" required />
+      <p>We take all concerns seriously and act in accordance with statutory guidance and best practice.</p>
 
-        <label for="sg_message">Message or question</label>
-        <textarea id="sg_message" name="sg_message" rows="6" required></textarea>
-
-        <div style="margin-top:12px;">
-          <button type="submit" class="btn btn-primary">Send query</button>
-          <span id="sgStatus" class="status-inline" role="status" aria-live="polite"></span>
+      <!-- Safeguarding Policies -->
+      <section class="pill-links">
+        <h3>Safeguarding Policies</h3>
+        <div class="pill-grid">
+          <a href="MPWEC%20Safeguarding%20and%20Child%20Protection%20Policy%20Sep%202025.docx" class="pill" download>Safeguarding & Child Protection Policy</a>
+          <a href="MPWEC%20Lone%20Working%20Policy%20Sep25.docx" class="pill" download>Lone Working Policy</a>
+          <a href="MPWEC%20Behaviour%20Policy.docx" class="pill" download>Behaviour Policy</a>
         </div>
-      </form>
+      </section>
     </section>
   </main>
 
-  <footer class="site-footer container">
-    <div class="footer-inner">
-      <p>Contact: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> | <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
-      <p class="small">© Meadow Pathways Cornwall</p>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; Meadow Pathways Cornwall</p>
+      <p class="small">Registered provider of therapeutic education and wellbeing services</p>
     </div>
   </footer>
 
-  <script>
-    (function(){
-      const form = document.getElementById('sgForm');
-      const status = document.getElementById('sgStatus');
-      if(!form) return;
-      form.addEventListener('submit', function(){
-        status.textContent = 'Sending…';
-        setTimeout(()=> status.textContent = 'If your browser redirects, your query has been sent. Check your email for confirmation.', 1200);
-      });
-    })();
-  </script>
+  <!-- Back to top -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button" style="display:none;">↑</button>
+  <script src="script.js"></script>
 </body>
 </html>
