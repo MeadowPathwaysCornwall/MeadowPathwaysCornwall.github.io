@@ -1,155 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <title>Contact — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header -->
-  <header>
- <!-- Logo block (replace existing logo markup in header on every page) -->
-<div class="logo-wrap">
-  <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+  <header class="container">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-    <span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
-  </a>
-</div>
-
-    <nav aria-label="Primary">
-      <ul class="nav-tabs">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="staff.html">Staff</a></li>
-        <li><a href="referral.html">Referral</a></li>
-        <li><a class="active" href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-overlay">
-      <h1 id="hero-title">Contact Meadow Pathways Wellbeing and Education Cornwall</h1>
-      <p>Guiding Individual Journeys with Care and Purpose</p>
-    </div>
-  </section>
+  <main class="container">
+    <section class="welcome-card" aria-labelledby="contact-title">
+      <h1 id="contact-title" class="accent">Contact Us</h1>
+      <p>If you would like to discuss a referral, ask about provision, or request more information, please use the contact details below or complete the short enquiry form.</p>
+    </section>
 
-  <!-- Main -->
-  <main id="main" class="container">
-    <div class="main-content-box">
+    <section class="content-block" aria-labelledby="details-title">
+      <h2 id="details-title">Contact Details</h2>
+      <p><strong>Lead:</strong> Michelle Pascoe</p>
+      <p><strong>Email:</strong> <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></p>
+      <p><strong>Co-ordinator:</strong> Zoe Waitz</p>
+      <p><strong>Email:</strong> <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
+    </section>
 
-      <h2>Contact Us</h2>
+    <section class="referral-box" aria-labelledby="enquiry-title">
+      <h2 id="enquiry-title" class="accent">Enquiry Form</h2>
 
-      <p>
-        We welcome enquiries from families, professionals and partner organisations. Use the form below for non-urgent messages or email/phone the team directly using the contact details provided.
-      </p>
+      <form action="https://formspree.io/f/movnvzqp" method="POST" class="form-wrap" novalidate>
+        <label for="enq_name">Your name</label>
+        <input id="enq_name" name="enq_name" type="text" required />
 
-      <section aria-label="Contact details" style="margin-top:12px">
-        <h3>Contact details</h3>
-        <p>
-          <strong>Michelle</strong> — <a href="tel:07932243358">07932 243358</a> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
-          <strong>Zoe</strong> — <a href="tel:07775733587">07775 733587</a> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
-          <strong>General</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
-        </p>
-      </section>
+        <label for="enq_email">Your email</label>
+        <input id="enq_email" name="enq_email" type="email" required />
 
-      <hr style="margin:18px 0" />
+        <label for="enq_phone">Phone (optional)</label>
+        <input id="enq_phone" name="enq_phone" type="tel" />
 
-      <h3>Message the team</h3>
-      <form id="contactForm" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="Website contact form" />
+        <label for="enq_message">Message</label>
+        <textarea id="enq_message" name="enq_message" rows="6" required></textarea>
 
-        <label for="c-name">Your name</label>
-        <input id="c-name" name="name" type="text" required />
+        <input type="hidden" name="_subject" value="Meadow Pathways enquiry" />
+        <input type="hidden" name="_language" value="en" />
+        <input type="hidden" name="_captcha" value="false" />
 
-        <label for="c-email">Your email</label>
-        <input id="c-email" name="_replyto" type="email" required />
+        <div class="form-section" style="margin-top:12px;">
+          <p><strong>Privacy note</strong> Information submitted will be used to respond to your enquiry and handled according to data protection practice.</p>
+        </div>
 
-        <label for="c-phone">Telephone (optional)</label>
-        <input id="c-phone" name="phone" type="tel" />
-
-        <label for="c-message">Message</label>
-        <textarea id="c-message" name="message" rows="6" required></textarea>
-
-        <p style="font-size:0.95rem;color:var(--text-soft);margin-top:8px">
-          By submitting this form you confirm you have appropriate consent to share information. For urgent safeguarding concerns contact statutory services first.
-        </p>
-
-        <button type="submit">Send message</button>
-        <div id="contactStatus" role="status" aria-live="polite" style="margin-top:12px;"></div>
+        <button type="submit" class="btn btn-primary">Send Enquiry</button>
       </form>
+    </section>
 
-      <hr style="margin:18px 0" />
-
-      <h3 style="margin-top:8px">Our values</h3>
-      <div class="values" aria-label="Our values">
-        <div class="value">Resilience &amp; Independence</div>
-        <div class="value">Health &amp; Wellbeing</div>
-        <div class="value">Honesty &amp; Integrity</div>
-        <div class="value">Friendship &amp; Kindness</div>
-      </div>
-
-    </div>
+    <aside class="pill-box" aria-labelledby="visit-title">
+      <h3 id="visit-title">Visiting and accessibility</h3>
+      <p>We work across community settings and can arrange meetings in accessible locations. Please include any access needs in your enquiry so we can plan appropriately.</p>
+    </aside>
   </main>
 
-  <!-- Back to top -->
-  <button id="backToTop" aria-label="Back to top">↑</button>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; Meadow Pathways Cornwall</p>
+  <footer class="container">
+    <p>Contact: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> | <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
   </footer>
 
-  <!-- Contact form script -->
-  <script>
-    (function () {
-      const form = document.getElementById('contactForm');
-      const statusEl = document.getElementById('contactStatus');
-      const FORMSPREE = 'https://formspree.io/f/movnvzqp';
-
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        statusEl.textContent = 'Sending...';
-
-        const data = new FormData(form);
-
-        try {
-          const res = await fetch(FORMSPREE, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: data
-          });
-
-          if (res.ok) {
-            form.reset();
-            statusEl.textContent = 'Thank you — your message has been sent.';
-            setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
-          } else {
-            const result = await res.json();
-            if (result && result.errors) {
-              statusEl.textContent = result.errors.map(err => err.message).join('; ');
-            } else {
-              statusEl.textContent = 'There was a problem sending your message. Please try again later.';
-            }
-          }
-        } catch (err) {
-          statusEl.textContent = 'Network error — please check your connection and try again.';
-        }
-      });
-
-      // Back to top visibility
-      const back = document.getElementById('backToTop');
-      function checkBack() { back.hidden = window.scrollY < 300; }
-      window.addEventListener('scroll', checkBack);
-      back.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-      checkBack();
-    })();
-  </script>
 </body>
 </html>
