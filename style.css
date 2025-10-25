@@ -25,7 +25,7 @@ body{--header-height:var(--header-height-desktop)}
 .container{padding-top:var(--header-height)}
 @media (max-width:520px){ body{--header-height:var(--header-height-mobile)} .container{padding-top:var(--header-height)} }
 
-/* ===== Homepage opt-out (apply class="home-page" to index.html <body> only) ===== */
+/* Homepage background ONLY */
 body.home-page {
   background-color: transparent;
   background-image: url('BG.png');
@@ -35,14 +35,8 @@ body.home-page {
   background-attachment: scroll;
   color: var(--text-deep);
 }
-/* Ensure homepage hero elements sit above any page-level layers */
-body.home-page .hero,
-body.home-page .hero * {
-  background: none !important;
-  z-index: 10;
-}
 
-/* ===== Background for non-home pages (bgr.jpg placed in repo root) ===== */
+/* Non-home pages use bgr.png */
 body:not(.home-page){
   --bg-base:#eef9fb;
   background-color:var(--bg-base);
@@ -56,7 +50,6 @@ body:not(.home-page){
   filter:saturate(0.94) contrast(0.98);
   color:var(--text-deep);
 }
-/* Soft blur/halo layer via pseudo-element to reduce busyness */
 body:not(.home-page)::before{
   content:"";
   position:fixed;
@@ -69,9 +62,7 @@ body:not(.home-page)::before{
   pointer-events:none;
   opacity:0.98;
 }
-/* Ensure page content sits above pseudo-layer */
 body:not(.home-page) > *{ position:relative; z-index:5; }
-/* Reduce blur and avoid fixed background on small screens */
 @media (max-width:880px){
   body:not(.home-page)::before{ filter: blur(2px) brightness(0.88); }
   body:not(.home-page){ background-attachment: scroll; }
@@ -87,7 +78,6 @@ body:not(.home-page) > *{ position:relative; z-index:5; }
   border-bottom: 1px solid rgba(20,20,40,0.06);
   box-shadow: 0 6px 20px rgba(20,30,40,0.06);
 }
-/* Thin accent stripe under header */
 .site-header::after{
   content:"";
   display:block;
@@ -96,7 +86,6 @@ body:not(.home-page) > *{ position:relative; z-index:5; }
   background: linear-gradient(90deg, rgba(93,138,168,0.9), rgba(31,157,154,0.85));
   pointer-events:none;
 }
-/* Header inner layout */
 .header-inner{
   display:flex;
   align-items:center;
@@ -106,7 +95,7 @@ body:not(.home-page) > *{ position:relative; z-index:5; }
   box-sizing:border-box;
 }
 
-/* ===== Header / Logo / Nav variables & sizing ===== */
+/* Header sizing */
 .site-header, header {
   position: fixed;
   top: 0;
@@ -120,10 +109,9 @@ body:not(.home-page) > *{ position:relative; z-index:5; }
   border-bottom: 1px solid rgba(10,20,30,0.06);
   box-shadow: 0 8px 30px rgba(12,20,28,0.06);
 }
-/* Ensure page content sits below the fixed header */
 .container { padding-top: var(--header-height-desktop); }
 
-/* Logo wrapper and logo styling */
+/* Logo */
 .logo-wrap{
   display:flex;
   align-items:center;
@@ -178,67 +166,43 @@ body:not(.home-page) > *{ position:relative; z-index:5; }
 .staff-meta{font-size:0.95rem;color:var(--text-soft);margin-top:8px}
 .status-inline{margin-top:12px;color:var(--text-soft);font-weight:600}
 
-/* ===== Carousel reel (box + track) ===== */
-.carousel-reel{margin:22px 0}
-.carousel-box{overflow:hidden;border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(250,250,252,0.98));padding:10px;border:1px solid rgba(11,35,64,0.04)}
-.carousel-track{display:flex;gap:10px;padding:8px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory}
-.carousel-track img{height:140px;border-radius:10px;object-fit:cover;flex:0 0 auto;box-shadow:0 6px 18px rgba(11,35,64,0.06);scroll-snap-align:start}
-.carousel-track::-webkit-scrollbar{height:8px}
-.carousel-track::-webkit-scrollbar-thumb{background:rgba(11,35,64,0.12);border-radius:8px}
-
-/* Optional small carousel nav */
-.carousel-nav{display:flex;gap:8px;justify-content:center;margin-top:8px}
-.carousel-btn{background:#fff;border:1px solid rgba(11,35,64,0.06);padding:6px 10px;border-radius:8px;cursor:pointer}
-/* Carousel slide wrapper (each .slide holds an image) */
-.carousel-track { display:flex; gap:10px; padding:8px; overflow-x:auto; scroll-behavior:smooth; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; }
-
-/* Each slide sizing and snap */
-.slide { flex:0 0 auto; width:240px; scroll-snap-align:start; border-radius:10px; overflow:hidden; position:relative; transition:transform .24s ease, box-shadow .24s ease; }
-.slide img { display:block; width:100%; height:160px; object-fit:cover; }
-
-/* Active slide visual emphasis */
-.slide.active { transform: translateY(-6px) scale(1.02); box-shadow: 0 18px 40px rgba(11,35,64,0.12); z-index:3; }
-/* Dots and nav */
-.carousel-nav { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:8px; }
+/* ===== Carousel (legacy compatible) ===== */
+.carousel .slides { display:flex; gap:10px; overflow:hidden; position:relative; -webkit-overflow-scrolling:touch; }
+.carousel .slide { flex:0 0 auto; width:240px; border-radius:10px; overflow:hidden; transition:transform .24s ease, box-shadow .24s ease; }
+.carousel .slide img { display:block; width:100%; height:160px; object-fit:cover; }
+.carousel .slide.active { transform: translateY(-6px) scale(1.02); box-shadow:0 18px 40px rgba(11,35,64,0.12); z-index:3; }
+.carousel-controls { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:8px; }
+.carousel-btn { background:#fff; border:1px solid rgba(11,35,64,0.06); padding:6px 10px; border-radius:8px; cursor:pointer; }
 #dots button.dot { width:10px; height:10px; border-radius:50%; background:rgba(11,35,64,0.12); border:none; padding:0; cursor:pointer; }
 #dots button.dot[aria-selected="true"] { background: linear-gradient(90deg,var(--accent),var(--accent-2)); box-shadow:0 6px 18px rgba(11,35,64,0.06); }
-.carousel-btn { background:#fff; border:1px solid rgba(11,35,64,0.06); padding:6px 10px; border-radius:8px; cursor:pointer; }
 
-/* Ensure track visible on top of layered backgrounds */
-.carousel-reel, .carousel-box, .carousel-track { position: relative; z-index: 6; }
-/* ===== Ages grid ===== */
+/* ===== Ages, offers, forms and utilities ===== */
 .age-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .age-card h3{margin-bottom:6px;color:var(--text-deep);font-size:1.05rem}
 @media(max-width:980px){ .age-grid{grid-template-columns:repeat(2,1fr)} }
 @media(max-width:620px){ .age-grid{grid-template-columns:1fr} }
 
-/* ===== Forms ===== */
 .form-wrap input[type="text"], .form-wrap input[type="email"], .form-wrap input[type="date"], .form-wrap input[type="number"], .form-wrap textarea, .form-wrap input[type="tel"]{
   width:100%;padding:10px;margin-top:6px;margin-bottom:12px;border-radius:8px;border:1px solid rgba(11,35,64,0.08);font-family:var(--font)
 }
 .form-wrap label{font-weight:700;color:var(--text-deep)}
 .form-wrap fieldset{border:1px dashed rgba(11,35,64,0.04);padding:12px;border-radius:10px;margin-bottom:12px}
 
-/* ===== Pills, policy boxes and protected files styling ===== */
 .policy-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;justify-content:center}
 .policy-pills a{display:inline-block;padding:8px 12px;border-radius:20px;background:var(--pill-bg);color:var(--text-deep);border:1px solid var(--pill-border)}
 
-/* ===== Footer & misc ===== */
 .site-footer{padding:18px 0;border-top:1px solid rgba(11,35,64,0.04);margin-top:28px}
 .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .small{color:var(--text-soft);font-size:0.9rem}
 @media(max-width:720px){ .footer-inner{flex-direction:column;align-items:flex-start} }
 
-/* ===== Back to top ===== */
 .back-to-top{position:fixed;right:18px;bottom:18px;width:48px;height:48px;border-radius:12px;border:none;background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;box-shadow:var(--shadow);display:inline-flex;align-items:center;justify-content:center;opacity:0;transform:translateY(8px);transition:opacity .22s ease, transform .22s ease;z-index:9999}
 .back-to-top.visible{opacity:1;transform:translateY(0)}
 .back-to-top:focus{outline:3px solid rgba(255,255,255,0.18);outline-offset:3px}
 
-/* ===== Accessibility & safety patches to prevent hidden content ===== */
+/* Accessibility & utilities */
 .nav-tabs{display:flex!important}
 .hero-overlay, .hero-bg, .hero-card{position:relative;z-index:1}
 .main-content-box, .welcome-card{overflow:visible;max-height:none}
 .welcome-card p, .hero-card p{color:var(--text-deep);line-height:1.5}
-
-/* ===== Utility ===== */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
