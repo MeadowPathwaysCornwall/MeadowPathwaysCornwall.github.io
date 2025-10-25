@@ -1,217 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <title>Referral Form — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header -->
-  <header>
-  <!-- Logo block (replace existing logo markup in header on every page) -->
-<div class="logo-wrap">
-  <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+  <header class="container">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-    <span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
-  </a>
-</div>
-
-    <nav aria-label="Primary">
-      <ul class="nav-tabs">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="staff.html">Staff</a></li>
-        <li><a class="active" href="referral.html">Referral</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-overlay">
-      <h1 id="hero-title">Referral Page at Meadow Pathways Wellbeing and Education Cornwall</h1>
-      <p>Guiding Individual Journeys with Care and Purpose</p>
-    </div>
-  </section>
+  <main class="container">
+    <section class="referral-box" aria-labelledby="referral-title">
+      <h1 id="referral-title" class="accent">Referral Form</h1>
+      <p>Please complete this form to refer a child or young person to Meadow Pathways Wellbeing and Education Cornwall. We keep information secure and only use it to consider support and make appropriate contact.</p>
 
-  <!-- Main -->
-  <main id="main" class="container">
-    <div class="main-content-box">
-
-      <h2>Referral Form</h2>
-      <p>
-        Use this form to refer a child or young person to Meadow Pathways. We will respond to referrals promptly and sensitively. If you need help completing this form, please contact Michelle or Zoe (details below).
-      </p>
-
-      <form id="referralForm" method="POST" novalidate>
-        <!-- Required to keep consistent with Formspree but submission handled by JS -->
-        <input type="hidden" name="_subject" value="New referral from website" />
-
+      <form action="https://formspree.io/f/movnvzqp" method="POST" class="form-wrap" novalidate>
+        <!-- Child / Young Person -->
         <fieldset>
-          <legend>Referrer details</legend>
+          <legend><strong>Child or Young Person Details</strong></legend>
 
-          <label for="referrer-name">Your name</label>
-          <input id="referrer-name" name="referrer_name" type="text" required />
-
-          <label for="referrer-email">Your email</label>
-          <input id="referrer-email" name="referrer_email" type="email" required />
-
-          <label for="referrer-phone">Your telephone</label>
-          <input id="referrer-phone" name="referrer_phone" type="tel" />
-          <label for="relationship">Your relationship to the child</label>
-          <input id="relationship" name="relationship" type="text" />
-        </fieldset>
-
-        <fieldset>
-          <legend>Child / Young person</legend>
-
-          <label for="child-name">Name</label>
-          <input id="child-name" name="child_name" type="text" required />
+          <label for="child_name">Full name</label>
+          <input id="child_name" name="child_name" type="text" required />
 
           <label for="dob">Date of birth</label>
-          <input id="dob" name="dob" type="date" />
+          <input id="dob" name="dob" type="date" required />
 
           <label for="gender">Gender</label>
-          <input id="gender" name="gender" type="text" />
-
-          <label for="school">School / setting</label>
-          <input id="school" name="school" type="text" />
-
-          <label for="ethnicity">Ethnicity (optional)</label>
-          <input id="ethnicity" name="ethnicity" type="text" />
-        </fieldset>
-
-        <fieldset>
-          <legend>Needs and background</legend>
-
-          <label for="presenting">Presenting concerns / reason for referral</label>
-          <textarea id="presenting" name="presenting_concerns" rows="5" required></textarea>
-
-          <label for="additional">Additional helpful information (SEN, health, family context)</label>
-          <textarea id="additional" name="additional_info" rows="4"></textarea>
-
-          <label for="risk">Is there any known risk (safeguarding, medical, behaviour)? Please describe</label>
-          <textarea id="risk" name="known_risk" rows="3"></textarea>
-
-          <label for="consent">Consent status</label>
-          <select id="consent" name="consent_status" required>
-            <option value="">Select</option>
-            <option value="consent_given">Consent given by parent/carer</option>
-            <option value="consent_not_given">Consent not given</option>
-            <option value="consent_pending">Consent pending</option>
+          <select id="gender" name="gender">
+            <option value="" selected>Prefer not to say / Not specified</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="nonbinary">Non-binary</option>
+            <option value="other">Other</option>
           </select>
+
+          <label for="address">Home address</label>
+          <input id="address" name="address" type="text" />
         </fieldset>
 
+        <!-- Referral / Referrer -->
         <fieldset>
-          <legend>Logistics</legend>
+          <legend><strong>Referrer Details</strong></legend>
 
-          <label for="preferred">Preferred contact method</label>
-          <select id="preferred" name="preferred_contact">
+          <label for="referrer_name">Referrer's name</label>
+          <input id="referrer_name" name="referrer_name" type="text" required />
+
+          <label for="referrer_role">Referrer's role / relationship</label>
+          <input id="referrer_role" name="referrer_role" type="text" />
+
+          <label for="referrer_email">Referrer's email</label>
+          <input id="referrer_email" name="referrer_email" type="email" required />
+
+          <label for="referrer_phone">Referrer's phone</label>
+          <input id="referrer_phone" name="referrer_phone" type="tel" />
+        </fieldset>
+
+        <!-- School / Agency -->
+        <fieldset>
+          <legend><strong>School / Agency (if applicable)</strong></legend>
+
+          <label for="school_name">School or agency name</label>
+          <input id="school_name" name="school_name" type="text" />
+
+          <label for="school_contact">School contact name</label>
+          <input id="school_contact" name="school_contact" type="text" />
+
+          <label for="school_phone">School contact phone</label>
+          <input id="school_phone" name="school_phone" type="tel" />
+        </fieldset>
+
+        <!-- Presenting needs -->
+        <fieldset>
+          <legend><strong>Presenting needs & background</strong></legend>
+
+          <label for="primary_concerns">Primary concerns / reason for referral</label>
+          <textarea id="primary_concerns" name="primary_concerns" rows="6" required></textarea>
+
+          <label for="additional_info">Additional relevant information (medical, safeguarding, SEN, recent changes)</label>
+          <textarea id="additional_info" name="additional_info" rows="5"></textarea>
+        </fieldset>
+
+        <!-- Consent and logistics -->
+        <fieldset>
+          <legend><strong>Consent and practicalities</strong></legend>
+
+          <label for="consent_parent">
+            <input id="consent_parent" name="consent_parent" type="checkbox" required />
+            I confirm that I have obtained parental/carer consent to share this information where required.
+          </label>
+
+          <label for="preferred_contact">Preferred contact method</label>
+          <select id="preferred_contact" name="preferred_contact">
             <option value="email">Email</option>
             <option value="phone">Phone</option>
+            <option value="either" selected>Either</option>
           </select>
 
-          <label for="urgent">Is this urgent?</label>
-          <select id="urgent" name="is_urgent">
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-          </select>
+          <label for="preferred_times">Preferred contact times / availability</label>
+          <input id="preferred_times" name="preferred_times" type="text" placeholder="e.g. mornings, after 3pm" />
         </fieldset>
 
-        <p>
-          By submitting this form you confirm you have appropriate consent to share information. Meadow Pathways will contact you regarding next steps.
-        </p>
+        <!-- Hidden fields and GDPR note -->
+        <input type="hidden" name="_subject" value="New referral submission" />
+        <input type="hidden" name="_language" value="en" />
+        <input type="hidden" name="_captcha" value="false" />
 
-        <button type="submit">Submit referral</button>
-        <div id="referralStatus" role="status" aria-live="polite" style="margin-top:12px;"></div>
+        <div class="form-section" style="margin-top:12px;">
+          <p><strong>Data handling</strong> We will store and use the information you provide to consider and respond to this referral. Meadow Pathways follows relevant data protection and confidentiality practice.</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Referral</button>
       </form>
+    </section>
 
-      <hr />
-
-      <section aria-label="Contact details">
-        <h3>Contact</h3>
-        <p>
-          <strong>Michelle</strong> — <a href="tel:07932243358">07932 243358</a> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
-          <strong>Zoe</strong> — <a href="tel:07775733587">07775 733587</a> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
-          <strong>General</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
-        </p>
-      </section>
-
-      <p style="font-size:0.95rem;color:var(--text-soft);margin-top:14px;">
-        If submission is successful you will be redirected to a thank you page. If you remain on this page and see an error message please try again or contact us directly by email.
-      </p>
-
-    </div>
+    <aside class="pill-box" aria-labelledby="values-title">
+      <h2 id="values-title">Our Core Values</h2>
+      <ul>
+        <li>Resilience & Independence</li>
+        <li>Health & Wellbeing</li>
+        <li>Honesty & Integrity</li>
+        <li>Friendship & Kindness</li>
+      </ul>
+    </aside>
   </main>
 
-  <!-- Back to top -->
-  <button id="backToTop" aria-label="Back to top">↑</button>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; Meadow Pathways Cornwall</p>
+  <footer class="container">
+    <p>Contact: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> | <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
   </footer>
 
-  <!-- Submission script -->
-  <script>
-    (function () {
-      const form = document.getElementById('referralForm');
-      const statusEl = document.getElementById('referralStatus');
-
-      // Replace with your Formspree endpoint
-      const FORMSPREE = 'https://formspree.io/f/movnvzqp';
-
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        statusEl.textContent = 'Submitting...';
-
-        const data = new FormData(form);
-
-        try {
-          const res = await fetch(FORMSPREE, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: data
-          });
-
-          if (res.ok) {
-            // clear the form fields
-            form.reset();
-
-            // show a brief inline thank-you message then redirect to thankyou.html
-            statusEl.textContent = 'Thank you — your referral has been sent.';
-            setTimeout(() => {
-              // navigate to your existing thankyou.html
-              window.location.href = 'thankyou.html';
-            }, 900);
-          } else {
-            const result = await res.json();
-            if (result && result.errors) {
-              statusEl.textContent = result.errors.map(err => err.message).join('; ');
-            } else {
-              statusEl.textContent = 'There was a problem submitting the form. Please try again later.';
-            }
-          }
-        } catch (err) {
-          statusEl.textContent = 'Network error — please check your connection and try again.';
-        }
-      });
-
-      // Back to top visibility
-      const back = document.getElementById('backToTop');
-      function checkBack() {
-        back.hidden = window.scrollY < 300;
-      }
-      window.addEventListener('scroll', checkBack);
-      back.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-      checkBack();
-    })();
-  </script>
 </body>
 </html>
