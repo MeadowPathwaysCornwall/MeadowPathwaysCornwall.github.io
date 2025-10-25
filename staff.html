@@ -6,39 +6,22 @@
   <title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
   <link rel="stylesheet" href="style.css" />
   <meta name="robots" content="noindex" />
-  <style>
-    /* Inline staff-specific styles (kept minimal to work with style.css) */
-    .locked-overlay { display:flex;align-items:center;justify-content:center;padding:28px 12px; }
-    .staff-panel { display:none; }
-    .lock-box { max-width:760px;background:var(--bg-overlay);border-radius:12px;padding:22px;box-shadow:0 8px 28px rgba(0,0,0,0.08);text-align:center }
-    .lock-box input[type="password"]{width:100%;padding:10px;margin-top:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08)}
-    .lock-box button{margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--air_force_blue);color:#fff;border:none;font-weight:700;cursor:pointer}
-    .staff-controls { margin-top:10px; display:flex;gap:8px;flex-wrap:wrap;justify-content:center }
-    .policy-pills { display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;justify-content:center }
-    .policy-pills a { text-decoration:none; display:inline-block; padding:8px 12px; border-radius:20px; background:rgba(245,246,248,0.9); color:var(--text-deep); border:1px solid rgba(78,71,184,0.08); box-shadow:0 6px 18px rgba(20,20,40,0.04); }
-    .staff-meta { font-size:0.95rem;color:rgba(11,35,64,0.6);margin-top:8px }
-    .status-inline { margin-top:12px;color:rgba(11,35,64,0.6);font-weight:600 }
-    .external-links { display:flex;flex-direction:column;gap:8px; margin-top:12px; }
-    .external-links a { color:var(--air_force_blue); text-decoration:underline; }
-    @media (max-width:680px){ .lock-box{padding:16px} .policy-pills{justify-content:flex-start} }
-  </style>
 </head>
 <body>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header>
-    <!-- Logo block -->
+  <header class="site-header container">
     <div class="logo-wrap">
       <a href="index.html" class="brand" aria-label="Meadow Pathways home">
         <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-        <span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
       </a>
     </div>
 
-    <nav aria-label="Primary">
+    <nav class="primary-nav" aria-label="Primary navigation">
       <ul class="nav-tabs">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html">About Us</a></li>
         <li><a href="eotas.html">EOTAS</a></li>
         <li><a href="safeguarding.html">Safeguarding</a></li>
         <li><a class="active" href="staff.html">Staff</a></li>
@@ -48,58 +31,51 @@
     </nav>
   </header>
 
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-overlay">
-      <h1 id="hero-title">Staff Only Page Meadow Pathways Wellbeing and Education Cornwall</h1>
-      <p>Guiding Individual Journeys with Care and Purpose</p>
-    </div>
-  </section>
-
   <main id="main" class="container">
-    <div class="main-content-box">
-      <h2>Staff Area</h2>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <h1 id="hero-title" class="accent">Staff Area — Meadow Pathways</h1>
+        <p class="lead">Enter the staff passcode to access rota documents, hours logging, policy downloads and internal resources.</p>
+      </div>
+    </section>
 
-      <div id="locked" class="locked-overlay" aria-hidden="false">
-        <div class="lock-box" role="dialog" aria-labelledby="lock-title">
-          <h3 id="lock-title">Staff access required</h3>
-          <p class="staff-meta">Enter the staff password to access hours logging, internal policies and safeguarding resources.</p>
+    <div id="locked" class="locked-overlay" aria-hidden="false">
+      <div class="lock-box" role="dialog" aria-labelledby="lock-title">
+        <h2 id="lock-title">Staff access required</h2>
+        <p class="staff-meta">This area contains protected operational documents. Enter the staff passcode to continue.</p>
 
-          <div class="staff-controls">
-            <input id="staffPassword" type="password" aria-label="Staff password" placeholder="Enter staff password" />
-            <button id="unlockBtn" type="button">Unlock</button>
-          </div>
+        <div class="staff-controls">
+          <input id="staffPassword" type="password" aria-label="Staff password" placeholder="Enter staff passcode" />
+          <button id="unlockBtn" type="button" class="btn btn-primary">Unlock</button>
+        </div>
 
-          <div style="margin-top:10px;font-size:0.95rem;color:rgba(11,35,64,0.6)">
-            If you have trouble accessing this area, contact Michelle or Zoe.
-          </div>
+        <div style="margin-top:10px;font-size:0.95rem;color:var(--text-soft)">
+          If you have trouble accessing this area, contact Michelle or Zoe.
         </div>
       </div>
+    </div>
 
-      <div id="staffPanel" class="staff-panel" aria-hidden="true">
-        <p class="staff-meta">Welcome to the staff hub. Below are quick links to statutory guidance, partner resources, and the internal policy documents for staff. Use the Hours Logged form to record session time; submissions are emailed to the Meadow Pathways inbox.</p>
+    <section id="staffPanel" class="staff-panel" aria-hidden="true">
+      <div class="welcome-card">
+        <h2 class="accent">Staff Hub</h2>
+        <p class="staff-meta">Welcome. Use the quick links below for rota, protected documents, and internal forms. Remember: this client-side gate is for convenience only. Store sensitive files in server-side protected folders or a private cloud with restricted access.</p>
+      </div>
 
-        <h3>Statutory and partner resources</h3>
-        <div class="external-links" aria-label="External safeguarding resources">
-          <a href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025) - GOV.UK</a>
-          <a href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources on Patreon</a>
-          <a href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
-          <a href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research resources</a>
-          <a href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
+      <section class="policy-card" aria-labelledby="quick-links">
+        <h3 id="quick-links">Quick links</h3>
+        <div class="policy-pills" aria-label="Staff quick links">
+          <a href="staff-rota.html" class="pill">Staff rota</a>
+          <a href="passwords.html" class="pill">Passwords index</a>
+          <a href="protected-resources.html" class="pill">Protected resources</a>
+          <a href="private/MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" class="pill" download>Safeguarding policy (DOCX)</a>
+          <a href="private/MPWEC Staff Conduct Policy.docx" class="pill" download>Staff conduct (DOCX)</a>
         </div>
+      </section>
 
-        <h3 style="margin-top:14px">Internal policy documents (staff area)</h3>
-        <div class="policy-pills" aria-label="Internal policies for staff">
-          <a href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>MPWEC Curriculum Policy EOTAS September 2025.docx</a>
-          <a href="MPWEC H&S Policy Sep 25.docx" download>MPWEC H&S Policy Sep 25.docx</a>
-          <a href="MPWEC Lone Working Policy Sep25.docx" download>MPWEC Lone Working Policy Sep25.docx</a>
-          <a href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>MPWEC Safeguarding and Child Protection Policy Sep 2025.docx</a>
-          <a href="MPWEC Staff Conduct Policy.docx" download>MPWEC Staff Conduct Policy.docx</a>
-          <a href="MPWEC Whistleblowing Policy.docx" download>MPWEC Whistleblowing Policy.docx</a>
-        </div>
+      <section class="policy-card" aria-labelledby="hours-title">
+        <h3 id="hours-title">Hours Logged</h3>
+        <p class="staff-meta">Use the form below to record session time. Submissions are sent to the Meadow Pathways inbox via Formspree.</p>
 
-        <hr style="margin:18px 0" />
-
-        <h3>Hours Logged</h3>
         <form id="hoursForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
           <input type="hidden" name="_subject" value="Hours logged - Meadow Pathways Staff" />
           <input type="hidden" name="_language" value="en" />
@@ -123,36 +99,34 @@
           <label for="email-staff">Staff email</label>
           <input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
 
-          <button type="submit" class="btn btn-primary">Submit hours</button>
-          <div id="hoursStatus" class="status-inline" role="status" aria-live="polite"></div>
+          <div style="margin-top:12px;">
+            <button type="submit" class="btn btn-primary">Submit hours</button>
+            <div id="hoursStatus" class="status-inline" role="status" aria-live="polite"></div>
+          </div>
         </form>
+      </section>
 
-        <hr style="margin:18px 0" />
-
-        <h3>Staff Contacts</h3>
-        <p>
-          <strong>Michelle</strong> — <a href="tel:07932243358">07932 243358</a> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
-          <strong>Zoe</strong> — <a href="tel:07775733587">07775 733587</a> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
-          <strong>General</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
-        </p>
-
-        <p class="staff-meta">Remember to log hours promptly and ensure client notes comply with Meadow Pathways record-keeping guidance.</p>
-      </div>
-
-    </div>
+      <section class="policy-card" aria-labelledby="contacts-title">
+        <h3 id="contacts-title">Staff Contacts</h3>
+        <p><strong>Michelle</strong> — <a href="tel:07932243358">07932 243358</a> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></p>
+        <p><strong>Zoe</strong> — <a href="tel:07775733587">07775 733587</a> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
+        <p><strong>General inbox</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
+      </section>
+    </section>
   </main>
 
-  <button id="backToTop" aria-label="Back to top">↑</button>
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
 
-  <footer>
-    <p>&copy; Meadow Pathways Cornwall</p>
+  <footer class="site-footer container">
+    <div class="footer-inner">
+      <p>© Meadow Pathways Cornwall</p>
+    </div>
   </footer>
 
   <script>
     (function () {
-      // CHANGE THIS PASSCODE to what you require before publishing
+      // Change this passcode before use
       const PASSWORD = 'MPWEC!';
-
       const lockedEl = document.getElementById('locked');
       const staffPanel = document.getElementById('staffPanel');
       const unlockBtn = document.getElementById('unlockBtn');
@@ -166,48 +140,42 @@
           lockedEl.setAttribute('aria-hidden', 'true');
           staffPanel.setAttribute('aria-hidden', 'false');
           document.getElementById('staff-name').focus();
+          sessionStorage.setItem('mp_staff_unlocked','1');
         } else {
           pwdInput.value = '';
           pwdInput.focus();
-          // gentle feedback without exposing details
           const orig = pwdInput.placeholder;
-          pwdInput.placeholder = 'Incorrect password';
+          pwdInput.placeholder = 'Incorrect passcode';
           setTimeout(()=> pwdInput.placeholder = orig, 1400);
         }
       }
 
       unlockBtn.addEventListener('click', unlock);
-      pwdInput.addEventListener('keydown', function(e){
-        if (e.key === 'Enter') unlock();
-      });
+      pwdInput.addEventListener('keydown', function(e){ if (e.key === 'Enter') unlock(); });
 
-      // Preserve temporary unlocked state per tab (optional)
       if (sessionStorage.getItem('mp_staff_unlocked') === '1') {
         lockedEl.style.display = 'none';
         staffPanel.style.display = 'block';
         lockedEl.setAttribute('aria-hidden', 'true');
         staffPanel.setAttribute('aria-hidden', 'false');
-      } else {
-        unlockBtn.addEventListener('click', function(){
-          if (pwdInput.value.trim() === PASSWORD) sessionStorage.setItem('mp_staff_unlocked','1');
-        });
       }
 
-      // Hours form submission feedback (Formspree)
+      // Hours form feedback
       const hoursForm = document.getElementById('hoursForm');
       const hoursStatus = document.getElementById('hoursStatus');
-
       if (hoursForm) {
-        hoursForm.addEventListener('submit', function(evt){
-          // Basic inline feedback and allow Formspree to handle submission
-          hoursStatus.textContent = 'Sending...';
-          // Let the form submit normally to Formspree; show success message after small delay
-          // For enhanced UX, you can implement AJAX submission later.
-          setTimeout(function(){
-            hoursStatus.textContent = 'If your browser redirects, your submission has been sent. Check your email for confirmation.';
-          }, 1200);
+        hoursForm.addEventListener('submit', function(){
+          hoursStatus.textContent = 'Sending…';
+          setTimeout(()=> hoursStatus.textContent = 'If your browser redirects, your submission has been sent. Check your email for confirmation.', 1200);
         });
       }
+
+      // Back to top
+      const backBtn = document.getElementById('backToTop');
+      function showHide(){ if(window.scrollY > 300) backBtn.classList.add('visible'); else backBtn.classList.remove('visible'); }
+      backBtn.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+      window.addEventListener('scroll', showHide);
+      document.addEventListener('DOMContentLoaded', showHide);
     })();
   </script>
 </body>
