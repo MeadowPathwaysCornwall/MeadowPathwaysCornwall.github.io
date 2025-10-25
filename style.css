@@ -1,332 +1,77 @@
-/* ---------------------------
-   Meadow Pathways — style.css
+/* Meadow Pathways — style.css
    Consolidated stylesheet: header, logo, nav, hero, carousel, backgrounds, accessibility
    Replace your existing style.css with this (backup first).
-   Paths assume BG.png and bgr.jpg and Logo.png and carousel images are in the repo root.
-   --------------------------- */
+   Paths assume BG.png, bgr.jpg, Logo.png, and carousel images are in the repo root.
+*/
 
-/* ---------- Root variables ---------- */
-:root{
-  --accent-strong: #5d8aa8;
+/* ========== Fonts ========== */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Barlow', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f7f9;
+  color: var(--text-deep);
+  line-height: 1.6;
+}
+
+/* ========== Root Theme Colours ========== */
+:root {
   --air_force_blue: #5d8aa8;
+  --accent-orange: #f28c38;
   --text-deep: #0b2340;
-  --bg-base: #eef9fb;
-  --header-height-desktop: 120px;
-  --header-height-mobile: 96px;
+  --bg-base: #f5f7f9;
+  --bg-overlay: rgba(255,255,255,0.92);
 }
 
-/* ---------- Global resets / layout helpers ---------- */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  color:var(--text-deep);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  --header-height: var(--header-height-desktop);
-}
-
-/* Ensure main content sits below fixed header (desktop and mobile) */
-@media (min-width:881px){
-  .site-header, header { height: var(--header-height-desktop); }
-  .container, main, .page-wrap { padding-top: var(--header-height-desktop); }
-}
-@media (max-width:880px){
-  .site-header, header { height: var(--header-height-mobile); }
-  .container, main, .page-wrap { padding-top: var(--header-height-mobile); }
-}
-
-/* ---------- Homepage background (BG.png) ---------- */
+/* ========== Backgrounds ========== */
 body.home-page {
-  background-color: transparent;
-  background-image: url('BG.png');
+  background: url('BG.png') no-repeat center center fixed;
   background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  color: var(--text-deep);
-}
-body.home-page .hero,
-body.home-page .hero * {
-  background: none !important;
-  z-index: 10;
+  background-blend-mode: overlay;
+  background-color: rgba(255,255,255,0.85);
 }
 
-/* ---------- Non-home background (bgr.jpg in repo root) ---------- */
-body:not(.home-page){
-  background-color: var(--bg-base);
-
-  /* Soften overlay for better text contrast */
-  background-image:
-    linear-gradient(rgba(6,16,28,0.28), rgba(6,16,28,0.28)), /* reduced opacity */
-    url('bgr.jpg'); /* make sure this matches your actual filename and path */
+body:not(.home-page) {
+  background: url('bgr.jpg') no-repeat center center fixed;
   background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-  /* Slightly reduced filter to brighten text */
-  filter: saturate(0.96) contrast(1.02);
-  color: var(--text-deep);
-}
-}
-body:not(.home-page)::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background: inherit;
-  background-size: cover;
-  background-position: center center;
-  filter: blur(4px) brightness(0.86);
-  z-index:0;
-  pointer-events:none;
-  opacity:0.98;
-}
-body:not(.home-page) > * { position: relative; z-index: 5; }
-@media (max-width:880px){
-  body:not(.home-page)::before{ filter: blur(2px) brightness(0.88); }
-  body:not(.home-page){ background-attachment: scroll; }
+  background-blend-mode: overlay;
+  background-color: rgba(255,255,255,0.9);
 }
 
-/* ---------- Header / Logo / Nav ---------- */
-.site-header, header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 0 18px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(255,255,255,0.92));
-  border-bottom: 1px solid rgba(10,20,30,0.06);
-  box-shadow: 0 8px 30px rgba(12,20,28,0.06);
-}
-/* Prevent content hiding under fixed header */
-body.home-page .container,
-body.home-page main {
-  padding-top: 120px; /* match header height */
-}
-/* Header inner layout */
-.header-inner, .site-header .header-inner {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  width:100%;
-  gap:18px;
-  box-sizing:border-box;
-}
-
-/* Logo wrapper and prominent logo */
-.logo-wrap {
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:12px 0;
-  box-sizing:border-box;
-  z-index:1001;
-}
-
-/* Prominent logo: 200px desktop height, card border, rounded corners and shadow */
-.logo, .brand img, img.logo {
- /* Logo prominence */
+/* ========== Logo ========== */
 .logo {
-  height: 200px;
-  width: auto;
-  max-height: 200px;
   display: block;
-  padding: 6px;
-  border-radius: 14px;
-  background: #fff;
-  border: 3px solid rgba(93,138,168,0.18);
-  box-shadow: 0 10px 30px rgba(31,57,70,0.08);
-  object-fit: contain;
-}
-}
-.logo:focus { outline: 3px solid rgba(31,157,154,0.18); outline-offset: 4px; }
-
-/* Responsive logo sizes */
-@media (max-width:880px){
-  .logo, .brand img, img.logo {
-    height: 96px;
-    max-height: 96px;
-    border-radius: 10px;
-    padding: 4px;
-  }
-  .logo-wrap { padding: 8px 0; }
-  .container { padding-top: var(--header-height-mobile); }
-}
-@media (max-height:700px) and (min-width:881px){
-  .logo, .brand img, img.logo { height: 140px; max-height: 140px; }
-  .container { padding-top: 140px; }
+  max-width: 180px;
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--bg-overlay);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-/* ---------- Primary nav styles ---------- */
-.primary-nav{ position: relative; z-index:1001; }
-.nav-tabs{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-.nav-tabs li{ margin:0; }
-.nav-tabs a{
-  display:inline-block;
-  padding:10px 14px;
+/* ========== Headings ========== */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: 0.4px;
   color: var(--text-deep);
-  border-radius:10px;
-  text-decoration:none;
-  transition: all .18s ease;
-  font-weight:600;
+  margin-top: 0;
 }
-.nav-tabs a:hover{
-  transform: translateY(-3px);
-  background: rgba(93,138,168,0.08);
+
+h1.accent, h2.accent, h3.accent {
+  color: var(--accent-orange);
+}
+
+.hero-text h1,
+.welcome-card h2,
+.commitment h3 {
+  font-size: 2.2rem;
   color: var(--air_force_blue);
-}
-.nav-tabs a.active{
-  background: var(--accent-strong);
-  color:#fff;
-  box-shadow: 0 10px 28px rgba(93,138,168,0.16);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.06);
 }
 
-/* Hamburger toggle */
-.nav-toggle, #navToggle {
-  display:none;
-  background:none;
-  border:none;
-  cursor:pointer;
-  font-size:1.6rem;
-  color:var(--air_force_blue);
-  padding:8px;
-  border-radius:8px;
-}
-
-/* Mobile dropdown nav */
-@media (max-width:880px){
-  .nav-toggle, #navToggle { display:block; position:relative; z-index:1001; }
-  .nav-tabs{
-    display:none;
-    position:absolute;
-    right:12px;
-    top: calc(var(--header-height-mobile) - 6px);
-    width:92%;
-    max-width:360px;
-    flex-direction:column;
-    background: linear-gradient(180deg,#ffffff, rgba(255,255,255,0.98));
-    border-radius:12px;
-    padding:14px;
-    box-shadow: 0 20px 40px rgba(18,34,48,0.12);
-    transform-origin: top right;
-    opacity:0;
-    transform: scale(0.98) translateY(-6px);
-    transition: all .22s cubic-bezier(.2,.9,.1,1);
-  }
-  .nav-tabs.open{ display:flex; opacity:1; transform: scale(1) translateY(0); }
-  .nav-tabs a{ padding:12px 10px; }
-}
-@media (min-width:881px){
-  .nav-tabs{ display:flex !important; opacity:1; transform:none; position:static; box-shadow:none; padding:0; background:transparent; }
-}
-
-/* ---------- Hero / Carousel styling (boxed card) ---------- */
-.hero, .hero * { position: relative; z-index: 20; }
-
-/* Boxed carousel container */
-#carousel, .carousel, .hero .carousel {
-  max-width: 420px;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 12px 0 0 0;
-  float: right;
-  clear: none;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 8px 22px rgba(18,34,48,0.08);
-  z-index: 22;
-}
-/* Carousel slide stacking fix */
-#carousel .slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  z-index: 1;
-}
-#carousel .slide.active {
-  opacity: 1;
-  z-index: 2;
-}
-#carousel .slides {
-  position: relative;
-  width: 100%;
-  min-height: 240px;
-  overflow: hidden;
-}
-
-/* Slide wrapper min-height to avoid collapse */
-#carousel .slides, .carousel .slides {
-  position: relative;
-  width: 100%;
-  min-height: 240px;
-}
-
-/* Make carousel full-width only on small screens */
-@media (max-width:880px){
-  #carousel, .carousel { float: none; max-width: 100%; margin: 12px auto; }
-  #carousel .slides, .carousel .slides { min-height: 180px; }
-}
-
-/* Defensive override for inline style forcing full-bleed */
-#carousel[style], .carousel[style] {
-  width: auto !important;
-  max-width: 420px !important;
-}
-
-/* Carousel controls z-index */
-#carousel #dots, #carousel #next, #carousel #prev {
-  position: relative;
-  z-index: 25;
-}
-
-/* ---------- Back to top button ---------- */
-#backToTop, .back-to-top {
-  position: fixed;
-  right: 20px;
-  bottom: 28px;
-  display: inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:44px;
-  height:44px;
-  border-radius:8px;
-  background: rgba(11,35,60,0.94);
-  color:#fff;
-  border:none;
-  cursor:pointer;
-  box-shadow: 0 10px 28px rgba(8,20,36,0.12);
-  transform: translateY(6px);
-  opacity: 0;
-  transition: all .18s ease;
-  z-index: 2000;
-}
-
-#backToTop.show, .back-to-top.show { transform:none; opacity:1; }
-
-/* ---------- Utility and accessibility ---------- */
-.user-is-tabbing a:focus, .user-is-tabbing button:focus, .user-is-tabbing input:focus, .user-is-tabbing .logo:focus {
-  outline: 3px solid rgba(31,157,154,0.18);
-  outline-offset: 4px;
-}
-
-/* Theme-coloured boxed text using site variables (replace the white-card block) */
+/* ========== Text Boxes ========== */
 .hero-text,
 .hero-sub,
 .commitment,
@@ -345,34 +90,78 @@ body.home-page main {
 aside.carousel-card,
 .form-wrap,
 .form-section {
-  background: linear-gradient(180deg, rgba(93,138,168,0.08), rgba(93,138,168,0.04));
+  background: var(--bg-overlay);
   color: var(--text-deep);
   padding: 18px 20px;
   border-radius: 12px;
   box-shadow: 0 8px 28px rgba(6,16,28,0.06);
   border: 1px solid rgba(93,138,168,0.12);
-  line-height: 1.45;
   margin-bottom: 18px;
 }
 
-/* Stronger accent option for highlighted boxes */
-.theme-accent-box {
-  background: linear-gradient(180deg, rgba(93,138,168,0.14), rgba(93,138,168,0.06));
-  border: 1px solid rgba(93,138,168,0.18);
-  color: #052735;
+/* ========== Buttons ========== */
+.btn {
+  background: var(--air_force_blue);
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin: 6px 8px 0 0;
+  transition: background 0.3s ease;
 }
 
-/* Headings inside themed boxes */
-.hero-text h1,
-.welcome-card h2,
-.commitment h3,
-.offer-section h3 {
-  color: #042934;
-  margin-top: 0;
+.btn:hover {
+  background: var(--accent-orange);
+  color: #fff;
 }
 
-/* Mobile adjustments */
-@media (max-width:880px) {
+.btn-primary {
+  background: var(--accent-orange);
+}
+
+.btn-primary:hover {
+  background: var(--air_force_blue);
+}
+
+/* ========== Utility and Accessibility ========== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 18px;
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--air_force_blue);
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.user-is-tabbing a:focus,
+.user-is-tabbing button:focus,
+.user-is-tabbing input:focus,
+.user-is-tabbing .logo:focus {
+  outline: 3px solid rgba(31,157,154,0.18);
+  outline-offset: 4px;
+}
+
+/* ========== Back to Top ========== */
+#backToTop.show,
+.back-to-top.show {
+  transform: none;
+  opacity: 1;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 880px) {
   .hero-text,
   .welcome-card,
   .commitment,
@@ -385,19 +174,12 @@ aside.carousel-card,
   }
 }
 
-/* Defensive overrides where inline styles force transparency */
-.hero-text[style],
-.welcome-card[style],
-.commitment[style],
-.offer-section[style] {
-  background-color: rgba(93,138,168,0.06) !important;
-  color: var(--text-deep) !important;
+@media (max-height: 560px) {
+  .hero-text,
+  .welcome-card,
+  .commitment {
+    box-shadow: 0 6px 14px rgba(6,16,28,0.05);
+  }
 }
 
-/* Optional: soften the background overlay further for better contrast */
-body:not(.home-page)::before {
-  filter: blur(3px) brightness(0.92);
-  opacity: 0.85;
-}
-
-/* ---------- End of stylesheet ---------- */
+/* ========== End of stylesheet ========== */
