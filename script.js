@@ -1,79 +1,50 @@
-/* script.js — Meadow Pathways
-   - Nav toggle (accessible, responsive, outside-click + Escape)
-   - Carousel controller (dots, next/prev, auto-rotate, pause on hover/touch, keyboard)
-   - Back-to-top button
-   Place in site root and include <script src="script.js"></script> at end of pages that need it.
-*/
-
 (function () {
   "use strict";
 
   /* NAV TOGGLE */
-  (function navToggleInit() {
-    const navToggle = document.getElementById('navToggle');
-    const primaryNav = document.getElementById('primaryNav');
-    if (!navToggle || !primaryNav) return;
-
-    function closeNav() {
-      navToggle.setAttribute('aria-expanded', 'false');
-      primaryNav.style.display = '';
-    }
-    function openNav() {
-      navToggle.setAttribute('aria-expanded', 'true');
-      primaryNav.style.display = 'block';
-    }
-
+  const navToggle = document.getElementById('navToggle');
+  const primaryNav = document.getElementById('primaryNav');
+  if (navToggle && primaryNav) {
     navToggle.addEventListener('click', function () {
       const expanded = this.getAttribute('aria-expanded') === 'true';
-      if (expanded) closeNav(); else openNav();
+      this.setAttribute('aria-expanded', String(!expanded));
+      primaryNav.style.display = expanded ? '' : 'block';
     });
 
-    // Close/open responsively on resize so desktop always shows nav
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 720) {
-        primaryNav.style.display = '';
-        navToggle.setAttribute('aria-expanded', 'false');
-      } else {
-        // keep mobile state as-is; if expanded show block
-        if (navToggle.getAttribute('aria-expanded') === 'true') primaryNav.style.display = 'block';
-      }
+      if (window.innerWidth > 720) primaryNav.style.display = '';
+      else if (navToggle.getAttribute('aria-expanded') === 'true') primaryNav.style.display = 'block';
     });
 
-    // Close when clicking outside (mobile)
     document.addEventListener('click', function (e) {
-      if (window.innerWidth > 720) return;
-      const isToggle = e.target === navToggle || navToggle.contains(e.target);
-      const insideNav = e.target.closest && e.target.closest('#primaryNav');
-      if (!isToggle && !insideNav && navToggle.getAttribute('aria-expanded') === 'true') {
-        closeNav();
+      if (window.innerWidth <= 720 && navToggle.getAttribute('aria-expanded') === 'true') {
+        const inside = e.target.closest && e.target.closest('#primaryNav');
+        const isToggle = e.target === navToggle || e.target.closest('#navToggle');
+        if (!inside && !isToggle) {
+          navToggle.setAttribute('aria-expanded','false');
+          primaryNav.style.display = '';
+        }
       }
     });
 
-    // Close on Escape
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
-        closeNav();
+        navToggle.setAttribute('aria-expanded','false');
+        primaryNav.style.display = '';
       }
     });
-  })();
+  }
 
-
-  /* CAROUSEL CONTROLLER */
-  (function carouselInit() {
-    const carousel = document.getElementById('carousel');
-    if (!carousel) return;
-
+  /* CAROUSEL */
+  const carousel = document.getElementById('carousel');
+  if (carousel) {
     const slides = Array.from(carousel.querySelectorAll('.slide'));
     const dotsWrap = carousel.querySelector('#dots');
-    const prevBtn = carousel.querySelector('#prev');
-    const nextBtn = carousel.querySelector('#next');
-
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
     let current = 0;
     let timer = null;
     const autoDelay = 5000;
-
-    // Ensure slides have sensible tabIndex for accessibility
-    slides.forEach((s, i) => s.tabIndex = i === 0 ? 0 : -1);
 
     function show(index) {
       if (!slides.length) return;
@@ -88,13 +59,6 @@
         Array.from(dotsWrap.children).forEach((d, i) => d.setAttribute('aria-selected', String(i === index)));
       }
       current = index;
-      // For small screens, ensure the active slide is visible by scrolling the slides container
-      const track = carousel.querySelector('.slides');
-      if (track && slides[index]) {
-        const slideEl = slides[index];
-        const left = slideEl.offsetLeft - 12;
-        if (typeof track.scrollTo === 'function') track.scrollTo({ left, behavior: 'smooth' });
-      }
     }
 
     function buildDots() {
@@ -133,7 +97,6 @@
       if (e.key === 'ArrowLeft') { pauseAuto(); prev(); }
     });
 
-    // Initialize
     if (slides.length) {
       buildDots();
       show(0);
@@ -141,15 +104,11 @@
     } else {
       console.warn('Carousel: no slides found');
     }
-  })();
-
+  }
 
   /* BACK TO TOP */
-  (function backToTopInit() {
-    // Expect button to exist in page with id="backToTop"
-    const btn = document.getElementById('backToTop');
-    if (!btn) return;
-
+  const btn = document.getElementById('backToTop');
+  if (btn) {
     function showHide() {
       if (window.scrollY > 300) {
         btn.style.display = 'inline-flex';
@@ -160,15 +119,10 @@
       }
     }
 
-    btn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      btn.blur();
-    });
-
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     window.addEventListener('scroll', showHide);
-    window.addEventListener('resize', showHide);
     document.addEventListener('DOMContentLoaded', showHide);
     showHide();
-  })();
+  }
 
 })();
