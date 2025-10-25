@@ -7,6 +7,89 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+  <script>
+/* Robust carousel controller (keeps your behavior: auto-rotate, dots, prev/next, pause on hover/touch) */
+(function carouselInit() {
+  const carousel = document.getElementById('carousel');
+  if (!carousel) return;
+
+  const slides = Array.from(carousel.querySelectorAll('.slide'));
+  const dotsWrap = carousel.querySelector('#dots');
+  const nextBtn = carousel.querySelector('#next');
+  const prevBtn = carousel.querySelector('#prev');
+  let current = 0;
+  let timer = null;
+  const autoDelay = 5000;
+
+  function show(index) {
+    if (!slides.length) return;
+    index = (index + slides.length) % slides.length;
+    slides.forEach((s, i) => {
+      s.classList.toggle('active', i === index);
+      s.style.zIndex = i === index ? 2 : 1;
+      s.setAttribute('aria-hidden', String(i !== index));
+      // Ensure visible slide is scrolled into view in the track for small-overflow UX
+      if (i === index) {
+        const track = carousel.querySelector('.carousel-track');
+        if (track && typeof track.scrollTo === 'function') {
+          const slideEl = s;
+          const left = slideEl.offsetLeft - 12; // small offset
+          track.scrollTo({ left, behavior: 'smooth' });
+        }
+      }
+    });
+    if (dotsWrap) {
+      Array.from(dotsWrap.children).forEach((d, i) => d.setAttribute('aria-selected', String(i === index)));
+    }
+    current = index;
+  }
+
+  function buildDots() {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    slides.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'dot';
+      btn.setAttribute('aria-selected', String(i === 0));
+      btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      btn.addEventListener('click', function () { pauseAuto(); show(i); });
+      btn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+      });
+      dotsWrap.appendChild(btn);
+    });
+  }
+
+  function next() { if (slides.length) show((current + 1) % slides.length); }
+  function prev() { if (slides.length) show((current - 1 + slides.length) % slides.length); }
+
+  if (nextBtn) nextBtn.addEventListener('click', () => { pauseAuto(); next(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { pauseAuto(); prev(); });
+
+  function startAuto() { if (!timer) timer = setInterval(next, autoDelay); }
+  function pauseAuto() { clearInterval(timer); timer = null; }
+
+  carousel.addEventListener('mouseenter', pauseAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+  carousel.addEventListener('touchstart', pauseAuto, { passive: true });
+  carousel.addEventListener('touchend', startAuto, { passive: true });
+
+  // Keyboard navigation
+  carousel.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { pauseAuto(); next(); }
+    if (e.key === 'ArrowLeft') { pauseAuto(); prev(); }
+  });
+
+  if (slides.length) {
+    buildDots();
+    show(0);
+    startAuto();
+  } else {
+    console.warn('Carousel: no slides found');
+  }
+})();
+</script>
 <body class="home-page">
 
   <header class="site-header container">
