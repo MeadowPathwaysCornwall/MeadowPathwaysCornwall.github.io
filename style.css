@@ -1,185 +1,30 @@
-/* Meadow Pathways — style.css
-   Consolidated stylesheet: header, logo, nav, hero, carousel, backgrounds, accessibility
-   Replace your existing style.css with this (backup first).
-   Paths assume BG.png, bgr.jpg, Logo.png, and carousel images are in the repo root.
-*/
-
-/* ========== Fonts ========== */
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap');
-
-body {
-  font-family: 'Barlow', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f5f7f9;
-  color: var(--text-deep);
-  line-height: 1.6;
-}
-
-/* ========== Root Theme Colours ========== */
 :root {
-  --air_force_blue: #5d8aa8;
-  --accent-orange: #f28c38;
-  --text-deep: #0b2340;
-  --bg-base: #f5f7f9;
-  --bg-overlay: rgba(255,255,255,0.92);
+  --accent: #ff7a2d;
+  --accent-2: #ffb58a;
+  --brand: #0b233f;
+  --muted: #f6f8fa;
+  --text-deep: #0b233f;
+  --text-soft: #475569;
+  --pill-bg: #fff7f0;
+  --pill-border: rgba(11,35,64,0.06);
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(11,35,64,0.06);
+  --font: "Barlow", system-ui, sans-serif;
 }
 
-/* ========== Backgrounds ========== */
-body.home-page {
-  background: url('BG.png') no-repeat center center fixed;
-  background-size: cover;
-  background-blend-mode: overlay;
-  background-color: rgba(255,255,255,0.85);
-}
+/* Base */
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);background:#fbfdff;color:var(--text-deep)}
+.container{max-width:1080px;margin:0 auto;padding:18px}
+a{color:var(--accent);text-decoration:none}
+h1,h2,h3{margin:0 0 10px;font-weight:700}
+p{margin:0 0 12px;line-height:1.45}
+.lead{font-size:1.05rem;color:var(--text-soft)}
 
-body:not(.home-page) {
-  background: url('bgr.jpg') no-repeat center center fixed;
-  background-size: cover;
-  background-blend-mode: overlay;
-  background-color: rgba(255,255,255,0.9);
-}
-
-/* ========== Logo ========== */
-.logo {
-  display: block;
-  max-width: 180px;
-  margin: 0 auto;
-  padding: 12px;
-  border-radius: 12px;
-  background: var(--bg-overlay);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* ========== Headings ========== */
-h1, h2, h3, h4 {
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  color: var(--text-deep);
-  margin-top: 0;
-}
-
-h1.accent, h2.accent, h3.accent {
-  color: var(--accent-orange);
-}
-
-.hero-text h1,
-.welcome-card h2,
-.commitment h3 {
-  font-size: 2.2rem;
-  color: var(--air_force_blue);
-  text-shadow: 0 1px 2px rgba(0,0,0,0.06);
-}
-
-/* ========== Text Boxes ========== */
-.hero-text,
-.hero-sub,
-.commitment,
-.welcome-card,
-.carousel-caption,
-.offer-section,
-.offer-item,
-.referral-box,
-.pill-box,
-.policy-card,
-.policy-section,
-.info-area,
-.content-block,
-.section-block,
-.main-grid > section,
-aside.carousel-card,
-.form-wrap,
-.form-section {
-  background: var(--bg-overlay);
-  color: var(--text-deep);
-  padding: 18px 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 28px rgba(6,16,28,0.06);
-  border: 1px solid rgba(93,138,168,0.12);
-  margin-bottom: 18px;
-}
-
-/* ========== Buttons ========== */
-.btn {
-  background: var(--air_force_blue);
-  color: white;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  margin: 6px 8px 0 0;
-  transition: background 0.3s ease;
-}
-
-.btn:hover {
-  background: var(--accent-orange);
-  color: #fff;
-}
-
-.btn-primary {
-  background: var(--accent-orange);
-}
-
-.btn-primary:hover {
-  background: var(--air_force_blue);
-}
-
-/* ========== Utility and Accessibility ========== */
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 18px;
-  box-sizing: border-box;
-}
-
-a {
-  color: var(--air_force_blue);
-  text-decoration: underline;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.user-is-tabbing a:focus,
-.user-is-tabbing button:focus,
-.user-is-tabbing input:focus,
-.user-is-tabbing .logo:focus {
-  outline: 3px solid rgba(31,157,154,0.18);
-  outline-offset: 4px;
-}
-
-/* ========== Back to Top ========== */
-#backToTop.show,
-.back-to-top.show {
-  transform: none;
-  opacity: 1;
-}
-
-/* ========== Responsive ========== */
-@media (max-width: 880px) {
-  .hero-text,
-  .welcome-card,
-  .commitment,
-  .offer-section,
-  aside.carousel-card {
-    padding: 14px;
-    border-radius: 10px;
-    margin-left: 8px;
-    margin-right: 8px;
-  }
-}
-
-@media (max-height: 560px) {
-  .hero-text,
-  .welcome-card,
-  .commitment {
-    box-shadow: 0 6px 14px rgba(6,16,28,0.05);
-  }
-}
-
-/* ========== End of stylesheet ========== */
+/* Header & nav */
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+.logo{height:64px}
+.nav-tabs{display:flex;gap:10px;list-style:none;padding:0;margin:0}
+.nav-tabs a{padding:8px 12px;border-radius:8px;color:var(--text-deep);background:transparent}
+.nav-tabs a.active, .nav-tabs a:hover{background:var(--accent);color:#fff}
+@media(max-width:720px){.site-header{flex-direction:column}.logo{height:56px}.nav-tabs{flex
