@@ -1,36 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Meadow Pathways Wellbeing and Education Cornwall</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="home-page">
 
-  <header class="container">
-    <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+  <header class="site-header container">
+    <div class="logo-wrap">
+      <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+      </a>
+    </div>
+
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <ul class="nav-tabs">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html">Staff</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="hero-overlay">
-        <div class="hero-text">
-          <h1 class="accent">Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
-          <p class="hero-sub">Guiding Individual Journeys with Care and Purpose</p>
-        </div>
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="hero-head">
+      <div class="hero-bg" role="img" aria-hidden="true"></div>
+      <div class="hero-card">
+        <h1 id="hero-head" class="accent">Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
+        <p class="lead">Guiding individual journeys with care and purpose. We support children and young people with SEN, SEMH, educational trauma, bereavement, and Emotionally Based School Non-Attendance (EBSNA).</p>
       </div>
     </section>
 
-    <section class="welcome-card">
-      <h2>Our Commitment</h2>
-      <p>We support children and young people in the community with SEN, SEMH, educational trauma, bereavement, and Emotionally Based School Non-Attendance (EBSNA). Our ethos is rooted in emotional safety, resilience, and connection.</p>
+    <section class="welcome-card" aria-labelledby="welcome-head">
+      <h2 id="welcome-head">Our Commitment</h2>
+      <p>We provide trauma-informed, person-centred support that prioritises emotional safety, relationship-building, and practical learning. Sessions are tailored, paced, and co-produced with families, schools and partner agencies to help each child feel seen, heard and supported.</p>
+      <p>We work across community settings, including outdoor learning spaces, local halls and in-school provision when needed. Our team includes qualified counsellors, play therapists and sessional practitioners who collaborate closely with families to plan safe, achievable goals.</p>
     </section>
 
-    <section class="carousel">
-      <div class="carousel-caption">
-        <h3 class="accent">Explore Our Spaces</h3>
-        <div class="carousel-images">
+    <section class="carousel-reel" aria-labelledby="carousel-head">
+      <h2 id="carousel-head" class="accent">Explore Our Spaces</h2>
+      <div class="carousel-box" role="region" aria-roledescription="carousel" aria-label="Activity images">
+        <div class="carousel-track">
           <img src="Bake.jpg" alt="Baking activity" />
           <img src="Cooking.jpg" alt="Cooking session" />
           <img src="MM.jpg" alt="Mindful moment" />
@@ -45,20 +62,60 @@
       </div>
     </section>
 
-    <section class="commitment">
-      <h3>Our Core Values</h3>
+    <section class="ages" aria-labelledby="ages-head">
+      <h2 id="ages-head">Provision by Age Group</h2>
+      <div class="age-grid">
+        <article class="age-card" aria-labelledby="age1">
+          <h3 id="age1">Ages 5–7</h3>
+          <p>Play-based intervention, building trust, simple routines, emotion regulation and early social skills in small group or 1:1 settings.</p>
+        </article>
+        <article class="age-card" aria-labelledby="age2">
+          <h3 id="age2">Ages 8–11</h3>
+          <p>Practical life skills, therapeutic play, and small-group learning to support wellbeing, attendance and re-engagement with learning.</p>
+        </article>
+        <article class="age-card" aria-labelledby="age3">
+          <h3 id="age3">Ages 11–16</h3>
+          <p>Trauma-informed counselling, bespoke EOTAS packages, transition planning and life-skills coaching to support resilience and independence.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="core-values" aria-labelledby="values-head">
+      <h2 id="values-head">Our Core Values</h2>
       <ul>
-        <li>Resilience & Independence</li>
-        <li>Health & Wellbeing</li>
-        <li>Honesty & Integrity</li>
-        <li>Friendship & Kindness</li>
+        <li class="pill accent">Resilience & Independence</li>
+        <li class="pill">Health & Wellbeing</li>
+        <li class="pill">Honesty & Integrity</li>
+        <li class="pill">Friendship & Kindness</li>
       </ul>
+    </section>
+
+    <section class="cta-row">
+      <a class="btn btn-primary" href="referral.html">Make a referral</a>
+      <a class="btn" href="contact.html">Contact us</a>
     </section>
   </main>
 
-  <footer class="container">
-    <p>Contact: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> | <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <footer class="site-footer container">
+    <div class="footer-inner">
+      <p>Contact: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> | <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
+      <p class="small">© Meadow Pathways Cornwall</p>
+    </div>
   </footer>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('backToTop');
+      function showHide(){
+        if(window.scrollY > 300) btn.classList.add('visible'); else btn.classList.remove('visible');
+      }
+      btn.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+      window.addEventListener('scroll', showHide);
+      document.addEventListener('DOMContentLoaded', showHide);
+    })();
+  </script>
 
 </body>
 </html>
