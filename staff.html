@@ -7,18 +7,19 @@
   <link rel="stylesheet" href="style.css" />
   <meta name="robots" content="noindex" />
   <style>
+    /* Inline staff-specific styles (kept minimal to work with style.css) */
     .locked-overlay { display:flex;align-items:center;justify-content:center;padding:28px 12px; }
     .staff-panel { display:none; }
-    .lock-box { max-width:760px;background:var(--white);border-radius:12px;padding:22px;box-shadow:0 8px 28px rgba(0,0,0,0.08);text-align:center }
+    .lock-box { max-width:760px;background:var(--bg-overlay);border-radius:12px;padding:22px;box-shadow:0 8px 28px rgba(0,0,0,0.08);text-align:center }
     .lock-box input[type="password"]{width:100%;padding:10px;margin-top:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08)}
-    .lock-box button{margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--heavy-purple);color:#fff;border:none;font-weight:700;cursor:pointer}
+    .lock-box button{margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--air_force_blue);color:#fff;border:none;font-weight:700;cursor:pointer}
     .staff-controls { margin-top:10px; display:flex;gap:8px;flex-wrap:wrap;justify-content:center }
     .policy-pills { display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;justify-content:center }
-    .policy-pills a { text-decoration:none; display:inline-block; padding:8px 12px; border-radius:20px; background:var(--pill-bg); color:var(--text-deep); border:1px solid rgba(78,71,184,0.08); box-shadow:0 6px 18px rgba(20,20,40,0.04); }
-    .staff-meta { font-size:0.95rem;color:var(--text-soft);margin-top:8px }
-    .status-inline { margin-top:12px;color:var(--text-soft);font-weight:600 }
+    .policy-pills a { text-decoration:none; display:inline-block; padding:8px 12px; border-radius:20px; background:rgba(245,246,248,0.9); color:var(--text-deep); border:1px solid rgba(78,71,184,0.08); box-shadow:0 6px 18px rgba(20,20,40,0.04); }
+    .staff-meta { font-size:0.95rem;color:rgba(11,35,64,0.6);margin-top:8px }
+    .status-inline { margin-top:12px;color:rgba(11,35,64,0.6);font-weight:600 }
     .external-links { display:flex;flex-direction:column;gap:8px; margin-top:12px; }
-    .external-links a { color:var(--heavy-purple); text-decoration:underline; }
+    .external-links a { color:var(--air_force_blue); text-decoration:underline; }
     @media (max-width:680px){ .lock-box{padding:16px} .policy-pills{justify-content:flex-start} }
   </style>
 </head>
@@ -26,13 +27,13 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header>
-<!-- Logo block (replace existing logo markup in header on every page) -->
-<div class="logo-wrap">
-  <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-    <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-    <span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
-  </a>
-</div>
+    <!-- Logo block -->
+    <div class="logo-wrap">
+      <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+        <span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
+      </a>
+    </div>
 
     <nav aria-label="Primary">
       <ul class="nav-tabs">
@@ -68,7 +69,7 @@
             <button id="unlockBtn" type="button">Unlock</button>
           </div>
 
-          <div style="margin-top:10px;font-size:0.95rem;color:var(--text-soft)">
+          <div style="margin-top:10px;font-size:0.95rem;color:rgba(11,35,64,0.6)">
             If you have trouble accessing this area, contact Michelle or Zoe.
           </div>
         </div>
@@ -99,8 +100,11 @@
         <hr style="margin:18px 0" />
 
         <h3>Hours Logged</h3>
-        <form id="hoursForm" method="POST" novalidate>
+        <form id="hoursForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
           <input type="hidden" name="_subject" value="Hours logged - Meadow Pathways Staff" />
+          <input type="hidden" name="_language" value="en" />
+          <input type="hidden" name="_captcha" value="false" />
+
           <label for="staff-name">Staff member name</label>
           <input id="staff-name" name="staff_name" type="text" required />
 
@@ -119,7 +123,7 @@
           <label for="email-staff">Staff email</label>
           <input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
 
-          <button type="submit">Submit hours</button>
+          <button type="submit" class="btn btn-primary">Submit hours</button>
           <div id="hoursStatus" class="status-inline" role="status" aria-live="polite"></div>
         </form>
 
@@ -146,7 +150,7 @@
 
   <script>
     (function () {
-      // Updated staff password as requested
+      // CHANGE THIS PASSCODE to what you require before publishing
       const PASSWORD = 'MPWEC!';
 
       const lockedEl = document.getElementById('locked');
@@ -165,58 +169,45 @@
         } else {
           pwdInput.value = '';
           pwdInput.focus();
-          alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+          // gentle feedback without exposing details
+          const orig = pwdInput.placeholder;
+          pwdInput.placeholder = 'Incorrect password';
+          setTimeout(()=> pwdInput.placeholder = orig, 1400);
         }
       }
 
       unlockBtn.addEventListener('click', unlock);
-      pwdInput.addEventListener('keyup', function (e) { if (e.key === 'Enter') unlock(); });
-
-      // Hours form submission to Formspree
-      const hoursForm = document.getElementById('hoursForm');
-      const hoursStatus = document.getElementById('hoursStatus');
-      const FORMSPREE = 'https://formspree.io/f/movnvzqp';
-
-      hoursForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        hoursStatus.textContent = 'Submitting...';
-
-        const data = new FormData(hoursForm);
-
-        try {
-          const res = await fetch(FORMSPREE, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: data
-          });
-
-          if (res.ok) {
-            hoursForm.reset();
-            hoursStatus.textContent = 'Hours submitted. Thank you.';
-            setTimeout(() => {
-              window.location.href = 'thankyou.html';
-            }, 900);
-          } else {
-            const result = await res.json();
-            if (result && result.errors) {
-              hoursStatus.textContent = result.errors.map(err => err.message).join('; ');
-            } else {
-              hoursStatus.textContent = 'Submission error — please try again later.';
-            }
-          }
-        } catch (err) {
-          hoursStatus.textContent = 'Network error — check connection and try again.';
-        }
+      pwdInput.addEventListener('keydown', function(e){
+        if (e.key === 'Enter') unlock();
       });
 
-      // Back to top visibility
-      const back = document.getElementById('backToTop');
-      function checkBack() {
-        back.hidden = window.scrollY < 300;
+      // Preserve temporary unlocked state per tab (optional)
+      if (sessionStorage.getItem('mp_staff_unlocked') === '1') {
+        lockedEl.style.display = 'none';
+        staffPanel.style.display = 'block';
+        lockedEl.setAttribute('aria-hidden', 'true');
+        staffPanel.setAttribute('aria-hidden', 'false');
+      } else {
+        unlockBtn.addEventListener('click', function(){
+          if (pwdInput.value.trim() === PASSWORD) sessionStorage.setItem('mp_staff_unlocked','1');
+        });
       }
-      window.addEventListener('scroll', checkBack);
-      back.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-      checkBack();
+
+      // Hours form submission feedback (Formspree)
+      const hoursForm = document.getElementById('hoursForm');
+      const hoursStatus = document.getElementById('hoursStatus');
+
+      if (hoursForm) {
+        hoursForm.addEventListener('submit', function(evt){
+          // Basic inline feedback and allow Formspree to handle submission
+          hoursStatus.textContent = 'Sending...';
+          // Let the form submit normally to Formspree; show success message after small delay
+          // For enhanced UX, you can implement AJAX submission later.
+          setTimeout(function(){
+            hoursStatus.textContent = 'If your browser redirects, your submission has been sent. Check your email for confirmation.';
+          }, 1200);
+        });
+      }
     })();
   </script>
 </body>
