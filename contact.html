@@ -1,76 +1,39 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact – Meadow Pathways Cornwall</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Contact – Meadow Pathways Cornwall</title><link rel="stylesheet" href="style.css"/></head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Header -->
-  <header class="site-header" role="banner">
-    <div class="header-inner container">
-      <div class="logo-wrap">
-        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-        </a>
-      </div>
-
-      <nav aria-label="Primary" class="primary-nav">
-        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-        <ul id="primaryNav" class="nav-tabs" role="menubar">
-          <li role="none"><a role="menuitem" href="index.html">Home</a></li>
-          <li role="none"><a role="menuitem" href="about.html">About</a></li>
-          <li role="none"><a role="menuitem" href="eotas.html">EOTAS</a></li>
-          <li role="none"><a role="menuitem" href="safeguarding.html">Safeguarding</a></li>
-          <li role="none"><a role="menuitem" href="staff.html">Staff</a></li>
-          <li role="none"><a role="menuitem" href="referral.html">Referral</a></li>
-          <li role="none"><a role="menuitem" href="contact.html" class="active">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header class="site-header" role="banner"><div class="header-inner container"><div class="logo-wrap"><a href="index.html" class="brand" aria-label="Meadow Pathways home"><img src="Logo.png" alt="Meadow Pathways logo" class="logo"/></a></div>
+  <nav class="primary-nav" aria-label="Primary"><button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+    <ul id="primaryNav" class="nav-tabs" role="menubar"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="eotas.html">EOTAS</a></li><li><a href="safeguarding.html">Safeguarding</a></li><li><a href="staff.html">Staff</a></li><li><a href="referral.html">Referral</a></li><li><a href="contact.html" class="active">Contact</a></li></ul>
+  </nav></div>
   </header>
 
-  <!-- Main -->
   <main id="main" class="container" role="main">
-    <section class="contact-card">
-      <h2>Contact Us</h2>
-      <p>We’re always happy to hear from families, professionals, and anyone interested in our work. Whether you have a question, a referral, or just want to connect, please don’t hesitate to get in touch.</p>
+    <section class="contact-card card" aria-labelledby="contact-heading">
+      <h1 id="contact-heading">Contact Us</h1>
+      <p>We’re happy to hear from families, professionals and partners. Please use the form below, email us or call the numbers listed.</p>
+      <div class="form-success" role="status" aria-live="polite"></div>
 
-      <h3>Email</h3>
+      <form action="https://formspree.io/f/movnvzqp" method="POST" data-formspree="true" aria-label="Contact form">
+        <label for="cname">Your name</label><input id="cname" name="name" type="text" required />
+        <label for="cemail">Your email</label><input id="cemail" name="email" type="email" required />
+        <label for="cphone">Phone (optional)</label><input id="cphone" name="phone" type="tel" />
+        <label for="cmessage">Message</label><textarea id="cmessage" name="message" rows="5" required></textarea>
+        <button type="submit" class="btn">Send message</button>
+      </form>
+
+      <h3 style="margin-top:12px;">Contact details</h3>
       <ul>
-        <li><strong>Michelle Pascoe:</strong> <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-        <li><strong>Zoe Waitz:</strong> <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-        <li><strong>General enquiries:</strong> <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
+        <li><strong>Michelle Pascoe</strong> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> | <a href="tel:+447932243358">07932 243358</a></li>
+        <li><strong>Zoe Waitz</strong> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a> | <a href="tel:+447775733587">07775 733587</a></li>
+        <li><strong>General</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
       </ul>
-
-      <h3>Phone</h3>
-      <ul>
-        <li><strong>Michelle:</strong> <a href="tel:+447932243358">07932 243358</a></li>
-        <li><strong>Zoe:</strong> <a href="tel:+447775733587">07775 733587</a></li>
-      </ul>
-
-      <h3>Referrals</h3>
-      <p>If you’d like to refer a child or young person, please visit our <a href="referral.html">Referral page</a>.</p>
-
-      <h3>Safeguarding</h3>
-      <p>If you have a safeguarding concern, please contact Michelle or Zoe directly. You can also visit our <a href="safeguarding.html">Safeguarding page</a> for more information.</p>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; Meadow Pathways Cornwall</p>
-      <p class="small">Registered provider of therapeutic education and wellbeing services</p>
-    </div>
-  </footer>
-
-  <!-- Back to top -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button" style="display:none;">↑</button>
+  <footer class="site-footer"><div class="container"><p class="org">Meadow Pathways Wellbeing and Education Cornwall ltd.</p></div></footer>
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
   <script src="script.js"></script>
 </body>
 </html>
