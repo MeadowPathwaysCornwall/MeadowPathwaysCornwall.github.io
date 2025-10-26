@@ -1,46 +1,134 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Referral – Meadow Pathways Cornwall</title><link rel="stylesheet" href="style.css"/></head>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" role="banner"><div class="header-inner container"><div class="logo-wrap"><a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="logo"/></a></div><nav class="primary-nav" aria-label="Primary"><button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button><ul id="primaryNav" class="nav-tabs" role="menubar"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="eotas.html">EOTAS</a></li><li><a href="safeguarding.html">Safeguarding</a></li><li><a href="staff.html">Staff</a></li><li><a href="referral.html" class="active">Referral</a></li><li><a href="contact.html">Contact</a></li></ul></nav></div></header>
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <main id="main" class="container" role="main">
-    <section class="form-card card" aria-labelledby="referral-heading">
-      <h1 id="referral-heading">Referral Form</h1>
-      <p>Please complete this referral form. All information is treated confidentially. You can also email referrals to Michelle or Zoe, or download the empty form below to complete offline.</p>
+<header class="site-header">
+  <div class="header-inner container">
+    <div class="logo-wrap">
+      <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+      </a>
+    </div>
+    <nav aria-label="Primary" class="primary-nav">
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+      <ul id="primaryNav" class="nav-tabs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html">Staff</a></li>
+        <li><a class="active" href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-      <div class="form-success" role="status" aria-live="polite"></div>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-overlay container">
+    <h1 id="hero-title">Referral Form</h1>
+    <p class="hero-sub">Start a gentle, informed conversation about support</p>
+  </div>
+</section>
 
-      <form action="https://formspree.io/f/movnvzqp" method="POST" data-formspree="true" aria-label="Referral form">
-        <label for="referrerName">Your name</label><input id="referrerName" name="name" type="text" required />
+<main id="main" class="container">
 
-        <label for="referrerEmail">Your email</label><input id="referrerEmail" name="email" type="email" required />
+  <section class="content card">
+    <h2>Referral details</h2>
+    <p>Please complete this form to make a referral to Meadow Pathways. We will review the information carefully and respond to arrange next steps. All information is treated confidentially and in line with our safeguarding and data protection policies.</p>
 
-        <label for="childName">Child / Young person</label><input id="childName" name="childName" type="text" required />
+    <form action="https://formspree.io/f/movnvzqp" method="POST" class="form-card">
+      <h3>Referrer details</h3>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Your name</label>
+          <input type="text" name="referrer_name" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Your role/relationship</label>
+          <input type="text" name="referrer_role" class="form-control" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Your email</label>
+          <input type="email" name="referrer_email" class="form-control" required />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Your phone</label>
+          <input type="tel" name="referrer_phone" class="form-control" />
+        </div>
+      </div>
 
-        <label for="dob">Date of birth</label><input id="dob" name="dob" type="date" required />
+      <h3 class="mt-4">Child/young person details</h3>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Name</label>
+          <input type="text" name="child_name" class="form-control" required />
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Age</label>
+          <input type="number" name="child_age" class="form-control" />
+        </div>
+        <div class="col-md-3">
+          <label class="form-label">Year group</label>
+          <input type="text" name="child_year" class="form-control" />
+        </div>
+        <div class="col-md-12">
+          <label class="form-label">School (if applicable)</label>
+          <input type="text" name="child_school" class="form-control" />
+        </div>
+      </div>
 
-        <label for="reason">Reason for referral</label><textarea id="reason" name="referralReason" rows="5" required></textarea>
+      <h3 class="mt-4">Needs and context</h3>
+      <div class="mb-3">
+        <label class="form-label">Summary of needs / SEN / SEMH / EBSNA</label>
+        <textarea name="needs_summary" class="form-control" rows="4" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">What support is hoped for?</label>
+        <textarea name="support_hoped" class="form-control" rows="4"></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Any urgent risks or safeguarding concerns?</label>
+        <textarea name="safeguarding_concerns" class="form-control" rows="3"></textarea>
+      </div>
 
-        <label for="needs">Known needs / diagnoses</label><textarea id="needs" name="supportNeeds" rows="4"></textarea>
+      <h3 class="mt-4">Logistics</h3>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Preferred start date</label>
+          <input type="date" name="start_date" class="form-control" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Preferred location/setting</label>
+          <input type="text" name="location" class="form-control" />
+        </div>
+      </div>
 
-        <label for="provision">Current provision / school status</label><textarea id="provision" name="currentProvision" rows="4"></textarea>
+      <input type="hidden" name="_subject" value="New Referral – Meadow Pathways" />
+      <input type="hidden" name="_next" value="Thankyou.html" />
 
-        <label for="consent">Do you consent to us contacting you?</label>
-        <select id="consent" name="contactConsent" required><option value="">Please select</option><option value="Yes">Yes</option><option value="No">No</option></select>
+      <div class="mt-4">
+        <button type="submit" class="btn btn-success">Submit referral</button>
+      </div>
+    </form>
+  </section>
 
-        <button type="submit">Submit referral</button>
-      </form>
+</main>
 
-      <p class="small" style="margin-top:12px;">Email referrals: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> | <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; Meadow Pathways Cornwall</p>
+  </div>
+</footer>
 
-      <p style="margin-top:12px;"><a class="pill" href="forms/empty-referral.pdf" download>Download empty referral form (PDF)</a></p>
-    </section>
-  </main>
-
-  <footer class="site-footer"><div class="container"><p class="org">Meadow Pathways Wellbeing and Education Cornwall ltd.</p></div></footer>
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
