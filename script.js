@@ -1,128 +1,143 @@
-(function () {
-  "use strict";
+// navigation, carousel reel, back-to-top, staff gate (MPWEC!), Formspree handlers
 
-  /* NAV TOGGLE */
+document.addEventListener('DOMContentLoaded', function () {
+  // Nav toggle for mobile
   const navToggle = document.getElementById('navToggle');
-  const primaryNav = document.getElementById('primaryNav');
+  const primaryNav = document.querySelector('.primary-nav');
   if (navToggle && primaryNav) {
-    navToggle.addEventListener('click', function () {
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', String(!expanded));
-      primaryNav.style.display = expanded ? '' : 'block';
-    });
-
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 720) primaryNav.style.display = '';
-      else if (navToggle.getAttribute('aria-expanded') === 'true') primaryNav.style.display = 'block';
-    });
-
-    document.addEventListener('click', function (e) {
-      if (window.innerWidth <= 720 && navToggle.getAttribute('aria-expanded') === 'true') {
-        const inside = e.target.closest && e.target.closest('#primaryNav');
-        const isToggle = e.target === navToggle || e.target.closest('#navToggle');
-        if (!inside && !isToggle) {
-          navToggle.setAttribute('aria-expanded','false');
-          primaryNav.style.display = '';
-        }
-      }
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
-        navToggle.setAttribute('aria-expanded','false');
-        primaryNav.style.display = '';
-      }
+    navToggle.addEventListener('click', () => {
+      primaryNav.classList.toggle('open');
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
     });
   }
 
-  /* CAROUSEL */
-  const carousel = document.getElementById('carousel');
-  if (carousel) {
-    const slides = Array.from(carousel.querySelectorAll('.slide'));
-    const dotsWrap = carousel.querySelector('#dots');
-    const prevBtn = document.getElementById('prev');
-    const nextBtn = document.getElementById('next');
-    let current = 0;
-    let timer = null;
-    const autoDelay = 5000;
-
-    function show(index) {
-      if (!slides.length) return;
-      index = (index + slides.length) % slides.length;
-      slides.forEach((s, i) => {
-        s.classList.toggle('active', i === index);
-        s.style.zIndex = i === index ? 2 : 1;
-        s.setAttribute('aria-hidden', String(i !== index));
-        s.tabIndex = i === index ? 0 : -1;
-      });
-      if (dotsWrap) {
-        Array.from(dotsWrap.children).forEach((d, i) => d.setAttribute('aria-selected', String(i === index)));
-      }
-      current = index;
-    }
-
-    function buildDots() {
-      if (!dotsWrap) return;
-      dotsWrap.innerHTML = '';
-      slides.forEach((_, i) => {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'dot';
-        btn.setAttribute('aria-selected', String(i === 0));
-        btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        btn.addEventListener('click', function () { pauseAuto(); show(i); });
-        btn.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
-        });
-        dotsWrap.appendChild(btn);
-      });
-    }
-
-    function next() { if (slides.length) show((current + 1) % slides.length); }
-    function prev() { if (slides.length) show((current - 1 + slides.length) % slides.length); }
-
-    if (nextBtn) nextBtn.addEventListener('click', () => { pauseAuto(); next(); });
-    if (prevBtn) prevBtn.addEventListener('click', () => { pauseAuto(); prev(); });
-
-    function startAuto() { if (!timer) timer = setInterval(next, autoDelay); }
-    function pauseAuto() { clearInterval(timer); timer = null; }
-
-    carousel.addEventListener('mouseenter', pauseAuto);
-    carousel.addEventListener('mouseleave', startAuto);
-    carousel.addEventListener('touchstart', pauseAuto, { passive: true });
-    carousel.addEventListener('touchend', startAuto, { passive: true });
-
-    carousel.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowRight') { pauseAuto(); next(); }
-      if (e.key === 'ArrowLeft') { pauseAuto(); prev(); }
+  // Carousel behaviour (contained reel)
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    let auto;
+    const start = () => {
+      stop();
+      auto = setInterval(() => {
+        try {
+          if (carousel.scrollWidth - carousel.scrollLeft - carousel.clientWidth <= 2) {
+            carousel.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            carousel.scrollBy({ left: carousel.clientWidth * 0.8, behavior: 'smooth' });
+          }
+        } catch (e) {}
+      }, 4500);
+    };
+    const stop = () => { if (auto) clearInterval(auto); };
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('focusin', stop);
+    carousel.addEventListener('focusout', start);
+    carousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') carousel.scrollBy({ left: 320, behavior: 'smooth' });
+      if (e.key === 'ArrowLeft') carousel.scrollBy({ left: -320, behavior: 'smooth' });
     });
+    start();
+  });
 
-    if (slides.length) {
-      buildDots();
-      show(0);
-      startAuto();
-    } else {
-      console.warn('Carousel: no slides found');
-    }
+  // Carousel controls
+  document.querySelectorAll('.carousel-prev').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const c = btn.closest('.carousel-card')?.querySelector('.carousel');
+      if (c) c.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+  });
+  document.querySelectorAll('.carousel-next').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const c = btn.closest('.carousel-card')?.querySelector('.carousel');
+      if (c) c.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+  });
+
+  // Back to top
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    const toggle = () => {
+      if (window.scrollY > 300) backToTop.classList.add('visible'); else backToTop.classList.remove('visible');
+    };
+    window.addEventListener('scroll', toggle);
+    toggle();
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
 
-  /* BACK TO TOP */
-  const btn = document.getElementById('backToTop');
-  if (btn) {
-    function showHide() {
-      if (window.scrollY > 300) {
-        btn.style.display = 'inline-flex';
-        btn.classList.add('visible');
+  // Staff gate - password is MPWEC!
+  const staffGate = document.getElementById('staffGate');
+  if (staffGate) {
+    staffGate.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const input = this.querySelector('input[name="staffPassword"]');
+      const pw = input ? input.value : '';
+      if (pw === 'MPWEC!') {
+        document.getElementById('staffContent')?.classList.remove('hidden');
+        document.getElementById('staffGateWrap')?.classList.add('hidden');
+        history.replaceState(null, '', '#staff');
       } else {
-        btn.classList.remove('visible');
-        btn.style.display = 'none';
+        let err = this.querySelector('.staff-error');
+        if (!err) {
+          err = document.createElement('div');
+          err.className = 'staff-error';
+          this.appendChild(err);
+        }
+        err.textContent = 'Incorrect password';
+        err.style.color = 'var(--danger)';
+        input && (input.value = '');
       }
-    }
-
-    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    window.addEventListener('scroll', showHide);
-    document.addEventListener('DOMContentLoaded', showHide);
-    showHide();
+    });
   }
 
-})();
+  // Formspree handlers: all forms marked with data-formspree="true"
+  document.querySelectorAll('form[data-formspree="true"]').forEach(form => {
+    const endpoint = form.getAttribute('action');
+    const successRegion = form.querySelector('.form-success');
+    const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!endpoint) return alert('Form endpoint not configured.');
+      submitBtn && (submitBtn.disabled = true);
+      const formData = new FormData(this);
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) return response.json().catch(()=>({ ok:true }));
+        return response.json().then(data => Promise.reject(data));
+      })
+      .then(() => {
+        if (successRegion) {
+          successRegion.textContent = 'Thank you — your form has been sent. We will be in touch shortly.';
+          successRegion.style.display = 'block';
+          successRegion.setAttribute('aria-hidden','false');
+        } else {
+          alert('Thank you — your form has been sent.');
+        }
+        form.reset();
+        submitBtn && (submitBtn.disabled = false);
+        setTimeout(() => { if (successRegion) successRegion.style.display = 'none'; }, 8000);
+      })
+      .catch(() => {
+        if (successRegion) {
+          successRegion.textContent = 'Sorry, there was a problem sending your form. Please try again or email us directly.';
+          successRegion.style.display = 'block';
+          successRegion.setAttribute('aria-hidden','false');
+        } else {
+          alert('Form error — please try again.');
+        }
+        submitBtn && (submitBtn.disabled = false);
+      });
+    });
+  });
+
+  // Make keyboard focus rings visible after first tab press
+  document.addEventListener('keydown', function onFirstTab(e) {
+    if (e.key === 'Tab') {
+      document.documentElement.classList.add('user-is-tabbing');
+      window.removeEventListener('keydown', onFirstTab);
+    }
+  });
+});
