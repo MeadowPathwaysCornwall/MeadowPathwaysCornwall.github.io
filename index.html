@@ -1,11 +1,18 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Meadow Pathways Cornwall</title><link rel="stylesheet" href="style.css"/></head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meadow Pathways Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner">
     <div class="header-inner container">
-      <div class="logo-wrap"><a href="index.html" class="brand" aria-label="Meadow Pathways home"><img src="Logo.png" alt="Meadow Pathways logo" class="logo"/></a></div>
+      <div class="logo-wrap">
+        <a href="index.html" class="brand" aria-label="Meadow Pathways home"><img src="Logo.png" alt="Meadow Pathways logo" class="logo" /></a>
+      </div>
       <nav class="primary-nav" aria-label="Primary">
         <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
         <ul id="primaryNav" class="nav-tabs" role="menubar">
@@ -21,44 +28,96 @@
     </div>
   </header>
 
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-logo"><img src="Logo.png" alt="Meadow Pathways logo" /></div>
+    <div class="hero-overlay" role="region" aria-label="Intro">
+      <div class="hero-content">
+        <h1 id="hero-title">Guiding individual journeys with care and purpose</h1>
+        <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="referral.html">Make a referral</a>
+        <a class="btn" href="about.html">Find out more</a>
+      </div>
+    </div>
+  </section>
+
   <main id="main" class="container" role="main">
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-logo"><img src="Logo.png" alt="Meadow Pathways logo"/></div>
-      <div class="hero-overlay">
-        <div class="hero-text">
-          <h1 id="hero-heading">Welcome to Meadow Pathways</h1>
-          <p>Meadow Pathways (MPWEC) is a progressive alternative education and wellbeing provider based in Cornwall, supporting children and young people with SEND, SEMH, educational trauma, bereavement and Emotionally Based School Non-Attendance (EBSNA) 🌻🦋.</p>
-          <p>We offer trauma-informed, person-centred therapeutic education and wellbeing. Our practice is guided by the SPACE ethos — Safety, Playfulness, Acceptance, Curiosity, Empathy. We design learning around each child’s strengths and needs and work in community settings, schools and homes.</p>
-          <p>We provide bespoke EOTAS packages, play therapy, counselling and practical learning to rebuild confidence and readiness for education and social connection.</p>
+    <section class="commitment card" aria-label="Our commitment">
+      <h3 style="margin:0 0 8px 0">Our Commitment</h3>
+      <p style="margin:0">At Meadow Pathways, we recognise that every young person is unique. We are committed to working collaboratively with families, schools, and partner organisations to find the most meaningful and sustainable route to success for each learner. Whether a child is facing barriers to education because of emotional difficulties, past trauma, or unmet needs, our role is to meet them where they are and help them move forward with confidence.</p>
+    </section>
+
+    <div class="main-grid">
+      <section class="welcome-card card" aria-labelledby="welcome-heading">
+        <h2 id="welcome-heading">Welcome</h2>
+        <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community-based activities to build confidence, skills, and a sense of belonging.</p>
+        <h3>Our approach</h3>
+        <p>We work relationally, using trauma-informed practice and creative, curriculum-linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.</p>
+
+        <ul class="home-highlights">
+          <li><strong>Bespoke learning</strong> — tailored packages, ASDAN, AQA Unit Awards and Functional Skills for curriculum subjects.</li>
+          <li><strong>Therapeutic interventions</strong> — targeted therapy interventions, emotion coaching and SEMH strategies.</li>
+          <li><strong>Community activities</strong> — nature-based sessions, mindful walks, bush craft and practical life skills.</li>
+        </ul>
+      </section>
+
+      <aside class="carousel-card card" aria-label="Gallery and approach">
+        <div class="carousel" aria-roledescription="carousel" aria-label="Gallery" tabindex="0">
+          <div class="slides">
+            <div class="slide"><div class="image-frame"><img src="images/Bake.jpg" alt="Baking activity" /></div></div>
+            <div class="slide"><div class="image-frame"><img src="images/Cooking.jpg" alt="Cooking session" /></div></div>
+            <div class="slide"><div class="image-frame"><img src="images/MM.jpg" alt="Multimedia activity" /></div></div>
+            <div class="slide"><div class="image-frame"><img src="images/Paint.jpg" alt="Painting session" /></div></div>
+            <div class="slide"><div class="image-frame"><img src="images/cook.jpg" alt="Cooking practical" /></div></div>
+            <div class="slide"><div class="image-frame"><img src="images/den.jpg" alt="Den building" /></div></div>
+            <div class="slide"><div class="image-frame"><img src="images/hand.jpg" alt="Hands in meadow activity" /></div></div>
+            <div class="slide"><div class="image-frame"><img src="images/paths.jpg" alt="Exploring paths" /></div></div>
+            <div class="slide"><div class="image-frame"><img src="images/plant.jpg" alt="Planting activity" /></div></div>
+            <div class="slide"><div class="image-frame"><img src="images/wood.jpg" alt="Woodland activity" /></div></div>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <section class="carousel-card" aria-label="Highlights">
-      <h2 style="margin-bottom:12px;">Highlights</h2>
-      <div class="carousel" role="list" aria-label="Carousel of highlights" tabindex="0">
-        <article class="slide" role="article" aria-label="Outdoor learning"><h3>Outdoor Learning</h3><p>Forest school, beach days and mindful walks to build confidence and curiosity.</p></article>
-        <article class="slide" role="article" aria-label="Therapeutic support"><h3>Therapeutic Play & Counselling</h3><p>Trauma-informed, relationship-based therapy tailored to each child.</p></article>
-        <article class="slide" role="article" aria-label="Bespoke EOTAS"><h3>Bespoke EOTAS Packages</h3><p>Individual packages designed to meet needs, pace learning and support re-engagement with school.</p></article>
-      </div>
-      <div class="carousel-controls"><button class="carousel-button carousel-prev" aria-label="Previous slide">◀</button><button class="carousel-button carousel-next" aria-label="Next slide">▶</button></div>
-    </section>
+        <div class="carousel-controls">
+          <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
+          <div class="dots" id="dots" role="tablist" aria-label="Carousel pagination"></div>
+          <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
+        </div>
 
-    <section class="welcome-card card" aria-labelledby="welcome-heading"><h2 id="welcome-heading">About our approach</h2>
-      <p>We create safe, nurturing learning spaces where children feel seen, heard and supported. Our work is person-centred, strength-based and informed by attachment and trauma research.</p>
-      <ul class="home-highlights"><li>Trauma-informed practice and emotion coaching</li><li>Playful, strength-based learning</li><li>Community-based provision and close family collaboration</li></ul>
+        <p class="carousel-caption small" style="margin-top:12px">Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities.</p>
+      </aside>
+
+    </div>
+
+    <section class="offer-section card" aria-labelledby="offer-heading">
+      <h3 id="offer-heading">What we offer 🎯</h3>
+      <p>To support this journey we provide a fully bespoke package of care and education that includes:</p>
+      <div class="offer-list">
+        <div class="offer-item"><div class="offer-icon">🧑‍🤝‍🧑</div><div><h4>Mentoring and Advocacy</h4><p>Building trust and self belief through consistent relational support and Alternative Provisions.</p></div></div>
+        <div class="offer-item"><div class="offer-icon">📚</div><div><h4>Tailored Learning Packages</h4><p>Flexible academic pathways matched to each learner’s pace and interests.</p></div></div>
+        <div class="offer-item"><div class="offer-icon">🛠</div><div><h4>Life Skills and Independence Training</h4><p>Practical preparation for adulthood including functional skills and community engagement.</p></div></div>
+        <div class="offer-item"><div class="offer-icon">🧮</div><div><h4>Diagnostic Assessments</h4><p>Literacy and numeracy profiling to inform targeted intervention.</p></div></div>
+        <div class="offer-item"><div class="offer-icon">💛</div><div><h4>SEMH Interventions</h4><p>Trauma informed strategies to support emotional regulation and resilience.</p></div></div>
+        <div class="offer-item"><div class="offer-icon">🎨</div><div><h4>Wellbeing and PSHE Packages</h4><p>Creative therapeutic sessions that promote self awareness, relationships and personal growth.</p></div></div>
+        <div class="offer-item"><div class="offer-icon">🔄</div><div><h4>Transitional Services</h4><p>Carefully planned reintegration or onward pathways supported by multi agency collaboration.</p></div></div>
+        <div class="offer-item"><div class="offer-icon">🧠</div><div><h4>Therapeutic and Curriculum Linked Activities</h4><p>Engaging activities tailored to each learner’s interests. These include nature-based bush craft, walking, fitness, water-based activities, fishing, climbing, cooking, play, biking and more. Activities are linked to the curriculum and supported by ASDAN qualifications and AQA Unit Awards.</p></div></div>
+      </div>
     </section>
 
     <section class="circles-row card" aria-label="Key themes">
-      <div class="circle" role="article" aria-labelledby="c1"><div class="circle-inner"><h3 id="c1">Outdoor Learning</h3><p>Forest school, beach days and mindful walks to build confidence and curiosity.</p></div></div>
-      <div class="circle" role="article" aria-labelledby="c2"><div class="circle-inner"><h3 id="c2">Therapeutic Play</h3><p>Play therapy and counselling to support emotional regulation and resilience.</p></div></div>
+      <div class="circle" role="article" aria-labelledby="c1"><div class="circle-inner"><h3 id="c1">Outdoor Learning</h3><p>Outdoor, community-based activities to support wellbeing and engagement.</p></div></div>
+      <div class="circle" role="article" aria-labelledby="c2"><div class="circle-inner"><h3 id="c2">Therapy Interventions</h3><p>Targeted therapy interventions and counselling to support emotional regulation.</p></div></div>
       <div class="circle" role="article" aria-labelledby="c3"><div class="circle-inner"><h3 id="c3">Bespoke EOTAS</h3><p>Individual education packages designed to meet needs and support re-engagement with school.</p></div></div>
     </section>
 
-    <section class="pill-links"><div class="pill-grid"><a class="pill" href="referral.html">Refer a child</a><a class="pill" href="safeguarding.html">Safeguarding</a><a class="pill" href="contact.html">Contact us</a><a class="pill" href="eotas.html">EOTAS</a></div></section>
+    <section class="pill-links" style="margin-top:12px"><div class="pill-grid"><a class="pill" href="referral.html">Refer a child</a><a class="pill" href="safeguarding.html">Safeguarding</a><a class="pill" href="contact.html">Contact us</a><a class="pill" href="eotas.html">EOTAS</a></div></section>
+
   </main>
 
-  <footer class="site-footer"><div class="container"><p class="org">Meadow Pathways Wellbeing and Education Cornwall ltd.</p><p class="small">Registered provider of therapeutic education and wellbeing services</p></div></footer>
+  <footer class="site-footer">
+    <div class="container"><p class="org">Meadow Pathways Wellbeing and Education Cornwall ltd.</p><p class="small">Registered provider of therapeutic education and wellbeing services</p></div>
+  </footer>
+
   <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
   <script src="script.js"></script>
 </body>
