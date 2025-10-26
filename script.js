@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Simple carousel implementation (works with .carousel elements)
+  // Carousel init (expects .carousel > .slides > .slide)
   document.querySelectorAll('.carousel').forEach(carousel => {
     const slidesWrap = carousel.querySelector('.slides');
     if (!slidesWrap) return;
@@ -19,59 +19,40 @@ document.addEventListener('DOMContentLoaded', function () {
     let index = 0;
     let interval = null;
 
-    // build controls if not present
-    const controls = carousel.nextElementSibling && carousel.nextElementSibling.classList.contains('carousel-controls') ? carousel.nextElementSibling : null;
-    if (controls) {
-      const prev = controls.querySelector('#prev') || controls.querySelector('.carousel-prev');
-      const next = controls.querySelector('#next') || controls.querySelector('.carousel-next');
-      const dotsContainer = controls.querySelector('#dots') || controls.querySelector('.dots');
+    // find controls adjacent to carousel
+    const controls = carousel.parentElement.querySelector('.carousel-controls');
+    const prevBtn = controls ? controls.querySelector('#prev') : null;
+    const nextBtn = controls ? controls.querySelector('#next') : null;
+    const dotsContainer = controls ? controls.querySelector('#dots') : null;
 
-      function renderDots() {
-        if (!dotsContainer) return;
-        dotsContainer.innerHTML = '';
-        slides.forEach((s, i) => {
-          const d = document.createElement('button');
-          d.className = 'dot' + (i === 0 ? ' active' : '');
-          d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-          d.addEventListener('click', () => goTo(i));
-          dotsContainer.appendChild(d);
-        });
-      }
-
-      function updateDots() {
-        if (!dotsContainer) return;
-        Array.from(dotsContainer.children).forEach((d, i) => d.classList.toggle('active', i === index));
-      }
-
-      function show() {
-        slidesWrap.style.transform = `translateX(-${index * 100}%)`;
-        updateDots();
-      }
-
-      function prevSlide() { index = (index - 1 + slides.length) % slides.length; show(); }
-      function nextSlide() { index = (index + 1) % slides.length; show(); }
-      function goTo(i) { index = i % slides.length; show(); }
-
-      if (prev) prev.addEventListener('click', prevSlide);
-      if (next) next.addEventListener('click', nextSlide);
-
-      renderDots();
-      // autoplay
-      interval = setInterval(nextSlide, 4500);
-      carousel.addEventListener('mouseenter', () => clearInterval(interval));
-      carousel.addEventListener('mouseleave', () => { interval = setInterval(nextSlide, 4500); });
-      carousel.addEventListener('focusin', () => clearInterval(interval));
-      carousel.addEventListener('focusout', () => { interval = setInterval(nextSlide, 4500); });
-
-      // keyboard
-      carousel.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') prevSlide();
-        if (e.key === 'ArrowRight') nextSlide();
+    function renderDots() {
+      if (!dotsContainer) return;
+      dotsContainer.innerHTML = '';
+      slides.forEach((s, i) => {
+        const d = document.createElement('button');
+        d.className = 'dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(d);
       });
-
-      // initial show
-      show();
     }
+    function updateDots() { if (!dotsContainer) return; Array.from(dotsContainer.children).forEach((d,i) => d.classList.toggle('active', i === index)); }
+    function show() { slidesWrap.style.transform = `translateX(-${index * 100}%)`; updateDots(); }
+    function prevSlide(){ index = (index - 1 + slides.length) % slides.length; show(); }
+    function nextSlide(){ index = (index + 1) % slides.length; show(); }
+    function goTo(i){ index = i % slides.length; show(); }
+
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+    renderDots();
+    interval = setInterval(nextSlide, 4500);
+    carousel.addEventListener('mouseenter', () => clearInterval(interval));
+    carousel.addEventListener('mouseleave', () => { interval = setInterval(nextSlide, 4500); });
+    carousel.addEventListener('focusin', () => clearInterval(interval));
+    carousel.addEventListener('focusout', () => { interval = setInterval(nextSlide, 4500); });
+    carousel.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') prevSlide(); if (e.key === 'ArrowRight') nextSlide(); });
+    show();
   });
 
   // Back to top
@@ -84,32 +65,44 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Staff gate - password MPWEC!
-  const staffGate = document.getElementById('staffGate');
-  if (staffGate) {
-    staffGate.addEventListener('submit', function (e) {
+  (function staffGateInit(){
+    const staffGateForm = document.getElementById('staffGate');
+    if (!staffGateForm) return;
+    const staffContent = document.getElementById('staffContent');
+    const gateWrap = document.getElementById('staffGateWrap');
+    const errorBox = staffGateForm.querySelector('.form-error');
+
+    staffGateForm.addEventListener('submit', function (e) {
       e.preventDefault();
       const input = this.querySelector('input[name="staffPassword"]');
       const pw = input ? input.value : '';
       if (pw === 'MPWEC!') {
-        document.getElementById('staffContent')?.classList.remove('hidden');
-        document.getElementById('staffContent')?.setAttribute('aria-hidden','false');
-        document.getElementById('staffGateWrap')?.classList.add('hidden');
+        if (staffContent) {
+          staffContent.classList.remove('hidden');
+          staffContent.style.display = '';
+          staffContent.setAttribute('aria-hidden', 'false');
+        }
+        if (gateWrap) gateWrap.style.display = 'none';
+        if (errorBox) { errorBox.style.display = 'none'; errorBox.textContent = ''; }
+        input.value = '';
+        input.blur();
         history.replaceState(null, '', '#staff');
       } else {
-        let err = this.querySelector('.staff-error');
-        if (!err) { err = document.createElement('div'); err.className = 'staff-error'; this.appendChild(err); }
-        err.textContent = 'Incorrect password';
-        err.style.color = 'var(--danger)';
-        input && (input.value = '');
-        input && input.focus();
+        if (errorBox) {
+          errorBox.textContent = 'Incorrect password';
+          errorBox.style.display = 'block';
+        } else {
+          alert('Incorrect password');
+        }
+        if (input) { input.value = ''; input.focus(); }
       }
     });
-  }
+  })();
 
   // Formspree handlers: forms with data-formspree="true"
   document.querySelectorAll('form[data-formspree="true"]').forEach(form => {
     const endpoint = form.getAttribute('action');
-    const successRegion = form.querySelector('.form-success');
+    const successRegion = form.closest('section') ? form.closest('section').querySelector('.form-success') : form.querySelector('.form-success');
     const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
