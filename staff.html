@@ -6,97 +6,53 @@
   <title>Staff Area – Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Header -->
   <header class="site-header" role="banner">
     <div class="header-inner container">
-      <div class="logo-wrap">
-        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-        </a>
-      </div>
-
-      <nav aria-label="Primary" class="primary-nav">
+      <div class="logo-wrap"><a href="index.html" class="brand" aria-label="Meadow Pathways home"><img src="Logo.png" alt="Meadow Pathways logo" class="logo" /></a></div>
+      <nav class="primary-nav" aria-label="Primary">
         <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
         <ul id="primaryNav" class="nav-tabs" role="menubar">
-          <li role="none"><a role="menuitem" href="index.html">Home</a></li>
-          <li role="none"><a role="menuitem" href="about.html">About</a></li>
-          <li role="none"><a role="menuitem" href="eotas.html">EOTAS</a></li>
-          <li role="none"><a role="menuitem" href="safeguarding.html">Safeguarding</a></li>
-          <li role="none"><a role="menuitem" href="staff.html" class="active">Staff</a></li>
-          <li role="none"><a role="menuitem" href="referral.html">Referral</a></li>
-          <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="staff.html" class="active">Staff</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Main -->
   <main id="main" class="container" role="main">
-    <section class="form-card">
-      <h2>Staff Area</h2>
-      <p>This page is password protected. Please enter the staff password to access internal documents and safeguarding policies.</p>
+    <section id="staffGateWrap" class="card" aria-labelledby="staff-heading">
+      <h1 id="staff-heading">Staff Area</h1>
+      <p>This area is for authorised staff. Enter the staff password (case-sensitive) to access internal policies and documents.</p>
 
-      <form id="staffAccessForm" onsubmit="return checkPassword();">
-        <label for="staffPassword">Password:</label>
-        <input type="password" id="staffPassword" name="staffPassword" required />
-        <button type="submit" class="btn btn-primary">Enter</button>
+      <form id="staffGate" aria-label="Staff password gate">
+        <label for="staffPassword">Password</label>
+        <input id="staffPassword" name="staffPassword" type="password" autocomplete="current-password" required />
+        <button type="submit" class="btn">Enter</button>
       </form>
+    </section>
 
-      <div id="staffContent" style="display:none; margin-top:24px;">
-        <h3>Staff Resources</h3>
-        <ul>
-          <li><a href="staff-rota.html">Staff Hours and Rota</a></li>
-        </ul>
-
-        <section class="pill-links">
-          <h3>Internal Safeguarding Policies</h3>
-          <div class="pill-grid">
-            <a href="MPWEC%20Safeguarding%20and%20Child%20Protection%20Policy%20Sep%202025.docx" class="pill" download>Safeguarding & Child Protection Policy</a>
-            <a href="MPWEC%20Lone%20Working%20Policy%20Sep25.docx" class="pill" download>Lone Working Policy</a>
-            <a href="MPWEC%20Behaviour%20Policy.docx" class="pill" download>Behaviour Policy</a>
-          </div>
-        </section>
-
-        <section class="pill-links">
-          <h3>Staff Safeguarding & CPD Resources</h3>
-          <div class="pill-grid">
-            <a href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" class="pill" target="_blank">KCSIE 2025 PDF</a>
-            <a href="https://www.patreon.com/cw/pookyh" class="pill" target="_blank">Pooky Knightsmith Patreon</a>
-            <a href="https://beaconhouse.org.uk/resources/" class="pill" target="_blank">Beacon House Resources</a>
-          </div>
-        </section>
-      </div>
+    <section id="staffContent" class="card hidden" aria-hidden="true">
+      <h2>Internal Policies (staff only)</h2>
+      <p>Downloadable policy documents (upload these DOCX files to your repo under policies/):</p>
+      <ul>
+        <li><a class="card-link" href="policies/MPWEC Behaviour Policy.docx" download>MPWEC Behaviour Policy.docx</a></li>
+        <li><a class="card-link" href="policies/MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>MPWEC Safeguarding and Child Protection Policy Sep 2025.docx</a></li>
+        <li><a class="card-link" href="policies/MPWEC Staff Conduct Policy.docx" download>MPWEC Staff Conduct Policy.docx</a></li>
+        <li><a class="card-link" href="policies/MPWEC Whistleblowing Policy.docx" download>MPWEC Whistleblowing Policy.docx</a></li>
+      </ul>
+      <p class="small">Note: This is a client-side gate for convenience. For stricter access control, store files behind authenticated storage.</p>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; Meadow Pathways Cornwall</p>
-      <p class="small">Registered provider of therapeutic education and wellbeing services</p>
-    </div>
-  </footer>
-
-  <!-- Back to top -->
-  <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button" style="display:none;">↑</button>
+  <footer class="site-footer"><div class="container"><p class="org">Meadow Pathways Wellbeing and Education Cornwall ltd.</p></div></footer>
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
   <script src="script.js"></script>
-  <script>
-    function checkPassword() {
-      const input = document.getElementById('staffPassword').value;
-      const content = document.getElementById('staffContent');
-      const correct = "yourPasswordHere"; // Replace with your actual password
-      if (input === correct) {
-        content.style.display = 'block';
-        document.getElementById('staffAccessForm').style.display = 'none';
-      } else {
-        alert("Incorrect password. Please try again.");
-      }
-      return false;
-    }
-  </script>
 </body>
 </html>
