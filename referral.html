@@ -3,33 +3,39 @@
 <head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Referral – Meadow Pathways Cornwall</title><link rel="stylesheet" href="style.css"/></head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" role="banner"><div class="header-inner container"><div class="logo-wrap"><a href="index.html" class="brand" aria-label="Meadow Pathways home"><img src="Logo.png" alt="Meadow Pathways logo" class="logo"/></a></div>
-  <nav class="primary-nav" aria-label="Primary"><button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-    <ul id="primaryNav" class="nav-tabs" role="menubar"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="eotas.html">EOTAS</a></li><li><a href="safeguarding.html">Safeguarding</a></li><li><a href="staff.html">Staff</a></li><li><a href="referral.html" class="active">Referral</a></li><li><a href="contact.html">Contact</a></li></ul>
-  </nav></div>
-  </header>
+  <header class="site-header" role="banner"><div class="header-inner container"><div class="logo-wrap"><a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="logo"/></a></div><nav class="primary-nav" aria-label="Primary"><button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button><ul id="primaryNav" class="nav-tabs" role="menubar"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="eotas.html">EOTAS</a></li><li><a href="safeguarding.html">Safeguarding</a></li><li><a href="staff.html">Staff</a></li><li><a href="referral.html" class="active">Referral</a></li><li><a href="contact.html">Contact</a></li></ul></nav></div></header>
 
   <main id="main" class="container" role="main">
     <section class="form-card card" aria-labelledby="referral-heading">
       <h1 id="referral-heading">Referral Form</h1>
       <p>Please complete this referral form. All information is treated confidentially. You can also email referrals to Michelle or Zoe, or download the empty form below to complete offline.</p>
+
       <div class="form-success" role="status" aria-live="polite"></div>
 
       <form action="https://formspree.io/f/movnvzqp" method="POST" data-formspree="true" aria-label="Referral form">
         <label for="referrerName">Your name</label><input id="referrerName" name="name" type="text" required />
+
         <label for="referrerEmail">Your email</label><input id="referrerEmail" name="email" type="email" required />
+
         <label for="childName">Child / Young person</label><input id="childName" name="childName" type="text" required />
+
         <label for="dob">Date of birth</label><input id="dob" name="dob" type="date" required />
+
         <label for="reason">Reason for referral</label><textarea id="reason" name="referralReason" rows="5" required></textarea>
+
         <label for="needs">Known needs / diagnoses</label><textarea id="needs" name="supportNeeds" rows="4"></textarea>
+
         <label for="provision">Current provision / school status</label><textarea id="provision" name="currentProvision" rows="4"></textarea>
+
         <label for="consent">Do you consent to us contacting you?</label>
         <select id="consent" name="contactConsent" required><option value="">Please select</option><option value="Yes">Yes</option><option value="No">No</option></select>
-        <button type="submit" class="btn">Submit referral</button>
+
+        <button type="submit">Submit referral</button>
       </form>
 
       <p class="small" style="margin-top:12px;">Email referrals: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> | <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
-      <p style="margin-top:12px;"><a class="card-link" href="forms/empty-referral.pdf" download data-download-empty-referral>Download empty referral form (PDF)</a></p>
+
+      <p style="margin-top:12px;"><a class="pill" href="forms/empty-referral.pdf" download>Download empty referral form (PDF)</a></p>
     </section>
   </main>
 
