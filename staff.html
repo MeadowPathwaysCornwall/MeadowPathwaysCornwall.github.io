@@ -10,14 +10,15 @@
       <h1 id="staff-heading">Staff Area</h1>
       <p>This area is for authorised staff. Enter the staff password (case-sensitive) to access internal policies and documents.</p>
 
-      <form id="staffGate" aria-label="Staff password gate">
+      <form id="staffGate" aria-label="Staff password gate" autocomplete="off">
         <label for="staffPassword">Password</label>
-        <input id="staffPassword" name="staffPassword" type="password" autocomplete="current-password" required />
+        <input id="staffPassword" name="staffPassword" type="password" required />
         <button type="submit" class="btn">Enter</button>
+        <div class="form-error" aria-live="polite" style="display:none;color:var(--danger);margin-top:8px"></div>
       </form>
     </section>
 
-    <section id="staffContent" class="card hidden" aria-hidden="true">
+    <section id="staffContent" class="card hidden" aria-hidden="true" style="display:none">
       <h2>Internal Policies (staff only)</h2>
       <p>Downloadable policy documents (upload these DOCX files to your repo under policies/):</p>
       <ul>
@@ -25,9 +26,9 @@
         <li><a class="pill" href="policies/MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>MPWEC Safeguarding and Child Protection Policy Sep 2025.docx</a></li>
         <li><a class="pill" href="policies/MPWEC Staff Conduct Policy.docx" download>MPWEC Staff Conduct Policy.docx</a></li>
         <li><a class="pill" href="policies/MPWEC Whistleblowing Policy.docx" download>MPWEC Whistleblowing Policy.docx</a></li>
-        <li><a class="pill" href="policies/MPWEC H&S Policy Sep 25 - 1.docx" download>MPWEC H&S Policy Sep 25.docx</a></li>
-        <li><a class="pill" href="policies/MPWEC H&S Policy Sep 25 - 2.docx" download>MPWEC H&S Policy Sep 25.docx</a></li>
-        <li><a class="pill" href="policies/MPWEC H&S Policy Sep 25 - 3.docx" download>MPWEC H&S Policy Sep 25.docx</a></li>
+        <li><a class="pill" href="policies/MPWEC H&S Policy Sep 25 - 1.docx" download>MPWEC H&S Policy Sep 25 - 1.docx</a></li>
+        <li><a class="pill" href="policies/MPWEC H&S Policy Sep 25 - 2.docx" download>MPWEC H&S Policy Sep 25 - 2.docx</a></li>
+        <li><a class="pill" href="policies/MPWEC H&S Policy Sep 25 - 3.docx" download>MPWEC H&S Policy Sep 25 - 3.docx</a></li>
       </ul>
 
       <p class="small">Note: This is a client-side gate for convenience only. For stricter access control, serve files behind authenticated storage.</p>
@@ -35,11 +36,10 @@
       <hr style="margin:18px 0;border:none;border-top:1px dashed rgba(0,0,0,0.06);" />
       <h3 style="margin-top:18px">Quick links to statutory guidance and partner resources</h3>
       <div class="pill-grid" style="margin-top:8px">
-        <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025) - GOV.UK</a>
-        <a class="pill" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources on Patreon</a>
+        <a class="pill" href="KCSIE 2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025) - PDF</a>
         <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
         <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research</a>
-        <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
+        <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">CIOS safeguarding partnership</a>
       </div>
     </section>
   </main>
