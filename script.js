@@ -1,7 +1,4 @@
-// navigation, carousel reel, back-to-top, staff gate (MPWEC!), Formspree handlers
-
 document.addEventListener('DOMContentLoaded', function () {
-  // Nav toggle for mobile
   const navToggle = document.getElementById('navToggle');
   const primaryNav = document.querySelector('.primary-nav');
   if (navToggle && primaryNav) {
@@ -12,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Carousel behaviour (contained reel)
+  // Carousel reels
   document.querySelectorAll('.carousel').forEach(carousel => {
     let auto;
     const start = () => {
@@ -39,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
     start();
   });
 
-  // Carousel controls
   document.querySelectorAll('.carousel-prev').forEach(btn => {
     btn.addEventListener('click', () => {
       const c = btn.closest('.carousel-card')?.querySelector('.carousel');
@@ -53,18 +49,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Back to top
   const backToTop = document.getElementById('backToTop');
   if (backToTop) {
-    const toggle = () => {
-      if (window.scrollY > 300) backToTop.classList.add('visible'); else backToTop.classList.remove('visible');
-    };
+    const toggle = () => { if (window.scrollY > 300) backToTop.classList.add('visible'); else backToTop.classList.remove('visible'); };
     window.addEventListener('scroll', toggle);
     toggle();
     backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
 
-  // Staff gate - password is MPWEC!
+  // Staff gate - password MPWEC!
   const staffGate = document.getElementById('staffGate');
   if (staffGate) {
     staffGate.addEventListener('submit', function (e) {
@@ -77,11 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         history.replaceState(null, '', '#staff');
       } else {
         let err = this.querySelector('.staff-error');
-        if (!err) {
-          err = document.createElement('div');
-          err.className = 'staff-error';
-          this.appendChild(err);
-        }
+        if (!err) { err = document.createElement('div'); err.className = 'staff-error'; this.appendChild(err); }
         err.textContent = 'Incorrect password';
         err.style.color = 'var(--danger)';
         input && (input.value = '');
@@ -89,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Formspree handlers: all forms marked with data-formspree="true"
+  // Formspree handlers
   document.querySelectorAll('form[data-formspree="true"]').forEach(form => {
     const endpoint = form.getAttribute('action');
     const successRegion = form.querySelector('.form-success');
@@ -99,11 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!endpoint) return alert('Form endpoint not configured.');
       submitBtn && (submitBtn.disabled = true);
       const formData = new FormData(this);
-      fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: formData
-      })
+      fetch(endpoint, { method: 'POST', headers: { 'Accept': 'application/json' }, body: formData })
       .then(response => {
         if (response.ok) return response.json().catch(()=>({ ok:true }));
         return response.json().then(data => Promise.reject(data));
@@ -133,11 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Make keyboard focus rings visible after first tab press
   document.addEventListener('keydown', function onFirstTab(e) {
-    if (e.key === 'Tab') {
-      document.documentElement.classList.add('user-is-tabbing');
-      window.removeEventListener('keydown', onFirstTab);
-    }
+    if (e.key === 'Tab') { document.documentElement.classList.add('user-is-tabbing'); window.removeEventListener('keydown', onFirstTab); }
   });
 });
