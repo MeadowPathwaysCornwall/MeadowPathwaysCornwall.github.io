@@ -8,43 +8,27 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Header -->
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="header-inner container">
-      <div class="logo-wrap">
-        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-          <span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
-        </a>
-      </div>
-      <nav aria-label="Primary" class="primary-nav">
-        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-        <ul id="primaryNav" class="nav-tabs" role="menubar">
-          <li role="none"><a role="menuitem" href="index.html">Home</a></li>
-          <li role="none"><a role="menuitem" href="about.html">About</a></li>
-          <li role="none"><a role="menuitem" href="eotas.html">EOTAS</a></li>
-          <li role="none"><a role="menuitem" href="safeguarding.html">Safeguarding</a></li>
-          <li role="none"><a role="menuitem" href="staff.html">Staff</a></li>
-          <li role="none"><a role="menuitem" href="referral.html" class="active">Referral</a></li>
-          <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
-        </ul>
+      <div class="logo-wrap"><a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo" /></a></div>
+      <nav aria-label="Primary" class="primary-nav"><button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
+        <ul id="primaryNav" class="nav-tabs"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="eotas.html">EOTAS</a></li><li><a href="safeguarding.html">Safeguarding</a></li><li><a href="staff.html">Staff</a></li><li><a href="referral.html" class="active">Referral</a></li><li><a href="contact.html">Contact</a></li></ul>
       </nav>
     </div>
   </header>
 
   <div class="page-wrap">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-labelledby="hero-title" style="background-image:url('BG.png');">
       <div class="hero-overlay container">
         <h1 id="hero-title">Referral</h1>
         <p class="hero-sub">Guiding Individual Journeys with Care and Purpose</p>
       </div>
     </section>
 
-    <main id="main" class="container" role="main">
-      <section class="form-card card">
+    <main id="main" class="container">
+      <section class="card">
         <h2>Referral form</h2>
-        <p>Use this form to refer a child or young person. We respond promptly and sensitively.</p>
+        <p>Use this form to refer a child or young person to Meadow Pathways. We will respond to referrals promptly and sensitively.</p>
 
         <form id="referralForm" method="POST" novalidate>
           <input type="hidden" name="_subject" value="New referral from website" />
@@ -80,7 +64,7 @@
             <textarea id="presenting" name="presenting_concerns" rows="5" required></textarea>
             <label for="additional">Additional helpful information (SEN, health, family context)</label>
             <textarea id="additional" name="additional_info" rows="4"></textarea>
-            <label for="risk">Known risk (safeguarding, medical, behaviour)</label>
+            <label for="risk">Is there any known risk (safeguarding, medical, behaviour)? Please describe</label>
             <textarea id="risk" name="known_risk" rows="3"></textarea>
             <label for="consent">Consent status</label>
             <select id="consent" name="consent_status" required>
@@ -94,35 +78,22 @@
           <fieldset>
             <legend>Logistics</legend>
             <label for="preferred">Preferred contact method</label>
-            <select id="preferred" name="preferred_contact">
-              <option value="email">Email</option>
-              <option value="phone">Phone</option>
-            </select>
+            <select id="preferred" name="preferred_contact"><option value="email">Email</option><option value="phone">Phone</option></select>
             <label for="urgent">Is this urgent?</label>
-            <select id="urgent" name="is_urgent">
-              <option value="no">No</option>
-              <option value="yes">Yes</option>
-            </select>
+            <select id="urgent" name="is_urgent"><option value="no">No</option><option value="yes">Yes</option></select>
           </fieldset>
 
-          <p>By submitting you confirm appropriate consent to share information.</p>
+          <p>By submitting this form you confirm you have appropriate consent to share information. Meadow Pathways will contact you regarding next steps.</p>
+
           <button type="submit">Submit referral</button>
           <div id="referralStatus" role="status" aria-live="polite" style="margin-top:12px;"></div>
         </form>
-      </section>
-
-      <section class="content card">
-        <h3>Contact</h3>
-        <p>
-          <strong>Michelle</strong> — <a href="tel:07932243358">07932 243358</a> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
-          <strong>Zoe</strong> — <a href="tel:07775733587">07775 733587</a> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
-          <strong>General</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
-        </p>
       </section>
     </main>
   </div>
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
+
   <footer class="site-footer"><div class="container"><p>&copy; Meadow Pathways Cornwall</p></div></footer>
 
   <script>
@@ -151,6 +122,7 @@
       });
     })();
   </script>
+
   <script src="script.js"></script>
 </body>
 </html>
