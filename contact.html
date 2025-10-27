@@ -1,87 +1,106 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header">
-  <div class="header-inner container">
-    <div class="logo-wrap">
-      <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-      </a>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <div class="logo-wrap">
+        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+          <span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
+        </a>
+      </div>
+      <nav aria-label="Primary" class="primary-nav">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+        <ul id="primaryNav" class="nav-tabs" role="menubar">
+          <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+          <li role="none"><a role="menuitem" href="about.html">About</a></li>
+          <li role="none"><a role="menuitem" href="eotas.html">EOTAS</a></li>
+          <li role="none"><a role="menuitem" href="safeguarding.html">Safeguarding</a></li>
+          <li role="none"><a role="menuitem" href="staff.html">Staff</a></li>
+          <li role="none"><a role="menuitem" href="referral.html">Referral</a></li>
+          <li role="none"><a role="menuitem" href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav aria-label="Primary" class="primary-nav">
-      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-      <ul id="primaryNav" class="nav-tabs">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="staff.html">Staff</a></li>
-        <li><a href="referral.html">Referral</a></li>
-        <li><a class="active" href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </header>
 
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero-overlay container">
-    <h1 id="hero-title">Contact Us</h1>
-    <p class="hero-sub">We’re happy to talk through options and next steps</p>
-  </div>
-</section>
-
-<main id="main" class="container">
-
-  <section class="content card">
-    <h2>Direct contact</h2>
-    <p>You can reach us directly by email:</p>
-    <ul>
-      <li><a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-      <li><a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-    </ul>
-    <p>We’ll respond and arrange a time to talk that feels comfortable.</p>
-  </section>
-
-  <section class="content card">
-    <h2>Contact form</h2>
-    <p>If you’d prefer, you can use the form below to send us a message. We’ll reply as soon as possible.</p>
-
-    <form action="https://formspree.io/f/movnvzqp" method="POST" class="form-card">
-      <div class="mb-3">
-        <label class="form-label">Your name</label>
-        <input type="text" name="name" class="form-control" required />
+  <div class="page-wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-overlay container">
+        <h1 id="hero-title">Contact Meadow Pathways</h1>
+        <p class="hero-sub">We welcome enquiries from families, professionals and partners.</p>
       </div>
-      <div class="mb-3">
-        <label class="form-label">Your email</label>
-        <input type="email" name="email" class="form-control" required />
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Message</label>
-        <textarea name="message" class="form-control" rows="4" required></textarea>
-      </div>
-      <input type="hidden" name="_subject" value="New Contact Message – Meadow Pathways" />
-      <input type="hidden" name="_next" value="Thankyou.html" />
-      <button type="submit" class="btn btn-success">Send message</button>
-    </form>
-  </section>
+    </section>
 
-</main>
+    <main id="main" class="container" role="main">
+      <section class="content card">
+        <h2>Message the team</h2>
+        <form id="contactForm" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Website contact form" />
+          <label for="c-name">Your name</label>
+          <input id="c-name" name="name" type="text" required />
+          <label for="c-email">Your email</label>
+          <input id="c-email" name="_replyto" type="email" required />
+          <label for="c-phone">Telephone (optional)</label>
+          <input id="c-phone" name="phone" type="tel" />
+          <label for="c-message">Message</label>
+          <textarea id="c-message" name="message" rows="6" required></textarea>
+          <p style="font-size:0.95rem;color:var(--text-soft);margin-top:8px">
+            By submitting you confirm appropriate consent to share information. For urgent safeguarding concerns contact statutory services first.
+          </p>
+          <button type="submit">Send message</button>
+          <div id="contactStatus" role="status" aria-live="polite" style="margin-top:12px;"></div>
+        </form>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>&copy; Meadow Pathways Cornwall</p>
+        <hr style="margin:18px 0" />
+        <h3>Contact details</h3>
+        <p>
+          <strong>Michelle</strong> — <a href="tel:07932243358">07932 243358</a> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
+          <strong>Zoe</strong> — <a href="tel:07775733587">07775 733587</a> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
+          <strong>General</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
+        </p>
+      </section>
+    </main>
   </div>
-</footer>
 
-<script src="script.js"></script>
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
+  <footer class="site-footer"><div class="container"><p>&copy; Meadow Pathways Cornwall</p></div></footer>
+
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      const statusEl = document.getElementById('contactStatus');
+      const FORMSPREE = 'https://formspree.io/f/movnvzqp';
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        statusEl.textContent = 'Sending...';
+        const data = new FormData(form);
+        try {
+          const res = await fetch(FORMSPREE, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
+          if (res.ok) {
+            form.reset();
+            statusEl.textContent = 'Thank you — your message has been sent.';
+            setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
+          } else {
+            const result = await res.json();
+            statusEl.textContent = (result && result.errors) ? result.errors.map(err => err.message).join('; ') : 'There was a problem sending your message. Please try again later.';
+          }
+        } catch (err) {
+          statusEl.textContent = 'Network error — please check your connection and try again.';
+        }
+      });
+    })();
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
