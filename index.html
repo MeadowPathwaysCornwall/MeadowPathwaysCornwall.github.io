@@ -6,6 +6,10 @@
   <title>Meadow Pathways Wellbeing and Education Cornwall</title>
   <meta name="description" content="Meadow Pathways reconnects children with learning through trauma informed, bespoke education and wellbeing support across Cornwall." />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .news-reel { display:inline-block; padding-right:40px; }
+  </style>
 </head>
 <body class="home-page">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -100,6 +104,7 @@
         <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community-based activities to build confidence, skills, and a sense of belonging. 🌱</p>
       </section>
 
+      <!-- Approach and three column block -->
       <section class="card" aria-labelledby="approach">
         <h2 id="approach">Our approach</h2>
         <p>We work relationally, using trauma-informed practice and creative, curriculum-linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.</p>
@@ -107,35 +112,37 @@
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px;">
           <div style="background:linear-gradient(180deg,#d9eef6,#f7fbfd);border-radius:12px;padding:12px;">
             <strong style="color:#23607b">Consectetur tortor 📅</strong>
-            <p style="margin-top:8px;color:var(--text-soft)"><p>At Meadow Pathways we recognise that every young person is unique. We are committed to working collaboratively with families, schools, and partner organisations to find the most meaningful and sustainable route to success for each learner. Whether a child is facing barriers to education due to emotional barriers, past trauma, or unmet needs, our role is to meet them <strong>where they are</strong> and help them <strong>move forward with confidence</strong>.</p>
+            <p style="margin-top:8px;color:var(--text-soft);">
+              At Meadow Pathways we recognise that every young person is unique. We are committed to working collaboratively with families, schools, and partner organisations to find the most meaningful and sustainable route to success for each learner. Whether a child is facing barriers to education due to emotional barriers, past trauma, or unmet needs, our role is to meet them <strong>where they are</strong> and help them <strong>move forward with confidence</strong>.
+            </p>
           </div>
 
           <div style="background:linear-gradient(180deg,#fde7e7,#fff6f6);border-radius:12px;padding:12px;">
             <strong style="color:#b34b4b">Nec suscipit 🚶</strong>
-            <p style="margin-top:8px;color:var(--text-soft)"><p>We meet each learner where they are and help them move forward with confidence. 🌿</p>
+            <p style="margin-top:8px;color:var(--text-soft);">We meet each learner where they are and help them move forward with confidence. 🌿</p>
           </div>
 
           <div style="background:linear-gradient(180deg,#e7fbe7,#f7fffa);border-radius:12px;padding:12px;">
             <strong style="color:#2f8f4a">Integer euismod 📅</strong>
-            <p style="margin-top:8px;color:var(--text-soft)<section class="card" aria-labelledby="values-title">
-  <h2 id="values-title">Our Values</h2>
-  <p>
-    At Meadow Pathways, our values shape everything we do — from the way we greet a child to the way we plan their learning journey. We believe that education and wellbeing go hand in hand, and that every child deserves to feel safe, supported, and inspired. 🌿
-  </p>
-  <ul>
-    <li><strong>Resilience & Independence</strong> — We nurture confidence, self-belief, and the ability to grow through challenge.</li>
-    <li><strong>Health & Wellbeing</strong> — We prioritise emotional safety, regulation, and holistic care in every setting.</li>
-    <li><strong>Honesty & Integrity</strong> — We build trust through transparency, consistency, and ethical practice.</li>
-    <li><strong>Friendship & Kindness</strong> — We foster connection, empathy, and belonging — because relationships are the heart of healing. 💛</li>
-  </ul>
-  <p>
-    These values guide our team, our decisions, and our relationships with families, schools, and professionals. They are not just words — they are the foundation of every journey we support.
-  </p>
-</section>
+            <p style="margin-top:8px;color:var(--text-soft);">We support practical, curriculum-linked activities that build skills, resilience and positive relationships in community settings.</p>
           </div>
         </div>
       </section>
 
+      <!-- Values section -->
+      <section class="card" aria-labelledby="values-title">
+        <h2 id="values-title">Our Values</h2>
+        <p>At Meadow Pathways, our values shape everything we do — from the way we greet a child to the way we plan their learning journey. We believe that education and wellbeing go hand in hand, and that every child deserves to feel safe, supported, and inspired. 🌿</p>
+        <ul>
+          <li><strong>Resilience &amp; Independence</strong> — We nurture confidence, self-belief, and the ability to grow through challenge.</li>
+          <li><strong>Health &amp; Wellbeing</strong> — We prioritise emotional safety, regulation, and holistic care in every setting.</li>
+          <li><strong>Honesty &amp; Integrity</strong> — We build trust through transparency, consistency, and ethical practice.</li>
+          <li><strong>Friendship &amp; Kindness</strong> — We foster connection, empathy, and belonging — because relationships are the heart of healing. 💛</li>
+        </ul>
+        <p>These values guide our team, our decisions, and our relationships with families, schools, and professionals. They are not just words — they are the foundation of every journey we support.</p>
+      </section>
+
+      <!-- Offers section -->
       <section class="card" aria-labelledby="offers">
         <h2 id="offers">What we offer 🎯</h2>
         <p>To support this journey we provide a fully bespoke package of care and education that includes:</p>
@@ -146,27 +153,33 @@
           <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Life Skills 🛠</h4><p>Practical preparation for adulthood including functional skills and community engagement.</p></div>
           <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Diagnostic Assessments 🧮</h4><p>Literacy and numeracy profiling to inform targeted intervention.</p></div>
           <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>SEMH Interventions 💛</h4><p>Trauma informed strategies to support emotional regulation and resilience.</p></div>
-          <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Wellbeing & PSHE 🎨</h4><p>Creative therapeutic sessions that promote self awareness, relationships and personal growth.</p></div>
+          <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Wellbeing &amp; PSHE 🎨</h4><p>Creative therapeutic sessions that promote self awareness, relationships and personal growth.</p></div>
           <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Transitional Services 🔄</h4><p>Carefully planned reintegration or onward pathways supported by multi agency collaboration.</p></div>
-          <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Therapeutic & Curriculum Activities 🧠</h4><p>Nature-based bush craft, walking, fitness, water-based activities, fishing, climbing, cooking, play, biking and more linked to ASDAN & AQA Unit Awards.</p></div>
+          <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Therapeutic &amp; Curriculum Activities 🧠</h4><p>Nature-based bush craft, walking, fitness, water-based activities, fishing, climbing, cooking, play, biking and more linked to ASDAN &amp; AQA Unit Awards.</p></div>
         </div>
       </section>
 
+      <!-- Next steps -->
       <section class="card" aria-labelledby="next">
         <h2 id="next">Next steps</h2>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a class="pill" href="referral.html">Referral form</a>
-          <a class="pill" href="about.html">About us</a>
-          <a class="pill" href="contact.html">Contact</a>
-          <a class="pill" href="eotas.html">EOTAS provision</a>
+        <p>If you’d like to explore Meadow Pathways for a child or young person, you can:</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+          <a class="pill" href="referral.html">Referral form 📝</a>
+          <a class="pill" href="about.html">About us ℹ️</a>
+          <a class="pill" href="contact.html">Contact ☎️</a>
+          <a class="pill" href="eotas.html">EOTAS provision 🔍</a>
         </div>
+        <p style="margin-top:12px;color:var(--text-soft);">If your enquiry is urgent or a safeguarding concern, please contact statutory services first and then call the Meadow Pathways team directly.</p>
       </section>
 
+      <!-- News ticker -->
       <section class="card" aria-labelledby="news">
         <h3 id="news">News</h3>
         <div style="white-space:nowrap;overflow:hidden;">
-          <div style="display:inline-block;padding-right:40px;animation: ticker 18s linear infinite;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean oma. Quisque euveniblin cusat ultrises eget velit. — Meadow Pathways updates coming soon 🌼
+          <div style="display:inline-block;padding-right:40px;animation:ticker 18s linear infinite;">
+            <span class="news-reel" aria-live="polite" role="status">
+              We’re at the beginning of an exciting journey at Treverno Meadows Learning Centre — a vision rooted in compassion, collaboration, and care. Our current planning proposal, now submitted, outlines a thoughtfully designed site that blends therapeutic spaces, nature-based learning, and community connection. As founders with over 30 years of combined experience in supporting vulnerable children and young people, we’re deeply committed to creating a truly bespoke environment for Cornish learners with SEMH and SEND needs. We warmly invite families, professionals, and partners to support us in shaping a space where every child can thrive, find purpose, and feel truly at home.
+            </span>
           </div>
         </div>
       </section>
@@ -175,7 +188,7 @@
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="container">
       <p>&copy; Meadow Pathways Cornwall</p>
       <p class="small">Registered provider of therapeutic education and wellbeing services</p>
@@ -183,10 +196,5 @@
   </footer>
 
   <script src="script.js"></script>
-
-  <style>
-    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-    .carousel-caption { font-size:1.02rem; color:var(--text-soft); }
-  </style>
 </body>
 </html>
