@@ -42,10 +42,34 @@ html, body {
 .header-inner {
   display:flex; justify-content:space-between; align-items:center;
   height:100%; padding: 10px 20px;
+:root {
+  --header-height-desktop: 140px;
+  --header-height-mobile: 100px;
 }
-.logo { height: 90px; border-radius: 12px; padding: 4px; background:#fff; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
-@media (max-width:600px){ .logo{height:60px;} }
 
+/* Logo (increased) */
+.logo {
+  height: 130px;
+  width: auto;
+  border-radius: 14px;
+  padding: 6px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+  display: block;
+  object-fit: contain;
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+  .logo {
+    height: 90px;
+    padding: 4px;
+  }
+  :root {
+    --header-height-desktop: 110px; /* fallback if needed on small devices */
+    --header-height-mobile: 90px;
+  }
+}
 /* ===== Nav ===== */
 .nav-tabs { list-style:none; display:flex; gap:12px; margin:0; padding:0; align-items:center; }
 .nav-tabs a {
