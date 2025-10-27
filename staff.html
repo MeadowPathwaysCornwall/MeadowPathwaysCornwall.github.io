@@ -8,74 +8,43 @@
   <meta name="robots" content="noindex" />
   <style>
     .locked-overlay { display:flex;align-items:center;justify-content:center;padding:28px 12px; }
-    .staff-panel { display:none; }
     .lock-box { max-width:760px;background:#fff;border-radius:12px;padding:22px;box-shadow:0 8px 28px rgba(0,0,0,0.08);text-align:center }
     .lock-box input[type="password"]{width:100%;padding:10px;margin-top:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08)}
     .lock-box button{margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--brand-2);color:#fff;border:none;font-weight:700;cursor:pointer}
-    .staff-controls { margin-top:10px; display:flex;gap:8px;flex-wrap:wrap;justify-content:center }
-    .policy-pills { display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;justify-content:center }
-    .policy-pills a { text-decoration:none; display:inline-block; padding:8px 12px; border-radius:20px; background:var(--pill-bg); color:var(--text-deep); border:1px solid rgba(78,71,184,0.08); box-shadow:0 6px 18px rgba(20,20,40,0.04); }
-    .staff-meta { font-size:0.95rem;color:var(--text-soft);margin-top:8px }
-    .status-inline { margin-top:12px;color:var(--text-soft);font-weight:600 }
-    .external-links { display:flex;flex-wrap:wrap;gap:8px; margin-top:12px; justify-content:center }
-    .external-links a { text-decoration:none }
-    @media (max-width:680px){ .lock-box{padding:16px} .policy-pills{justify-content:flex-start} }
   </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Header -->
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="header-inner container">
-      <div class="logo-wrap">
-        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-          <span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
-        </a>
-      </div>
-      <nav aria-label="Primary" class="primary-nav">
-        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-        <ul id="primaryNav" class="nav-tabs" role="menubar">
-          <li role="none"><a role="menuitem" href="index.html">Home</a></li>
-          <li role="none"><a role="menuitem" href="about.html">About</a></li>
-          <li role="none"><a role="menuitem" href="eotas.html">EOTAS</a></li>
-          <li role="none"><a role="menuitem" href="safeguarding.html">Safeguarding</a></li>
-          <li role="none"><a role="menuitem" href="staff.html" class="active">Staff</a></li>
-          <li role="none"><a role="menuitem" href="referral.html">Referral</a></li>
-          <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
-        </ul>
+      <div class="logo-wrap"><a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo" /></a></div>
+      <nav aria-label="Primary" class="primary-nav"><button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
+        <ul id="primaryNav" class="nav-tabs"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="eotas.html">EOTAS</a></li><li><a href="safeguarding.html">Safeguarding</a></li><li><a href="staff.html" class="active">Staff</a></li><li><a href="referral.html">Referral</a></li><li><a href="contact.html">Contact</a></li></ul>
       </nav>
     </div>
   </header>
 
   <div class="page-wrap">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-labelledby="hero-title" style="background-image:url('BG.png');">
       <div class="hero-overlay container">
         <h1 id="hero-title">Staff area</h1>
         <p class="hero-sub">Internal links and information for Meadow Pathways staff</p>
       </div>
     </section>
 
-    <main id="main" class="container" role="main">
-      <!-- Locked overlay -->
+    <main id="main" class="container">
       <div id="locked" class="locked-overlay" aria-hidden="false">
         <div class="lock-box" role="dialog" aria-labelledby="lock-title">
           <h3 id="lock-title">Staff access required</h3>
-          <p class="staff-meta">Enter the staff password to access hours logging, internal policies and safeguarding resources.</p>
-          <div class="staff-controls">
-            <input id="staffPassword" type="password" aria-label="Staff password" placeholder="Enter staff password" />
-            <button id="unlockBtn" type="button">Unlock</button>
-          </div>
-          <div style="margin-top:10px;font-size:0.95rem;color:var(--text-soft)">
-            If you have trouble accessing this area, contact Michelle or Zoe.
-          </div>
+          <p>Enter the staff password to access hours logging, internal policies and safeguarding resources.</p>
+          <input id="staffPassword" type="password" aria-label="Staff password" placeholder="Enter staff password" />
+          <button id="unlockBtn" type="button">Unlock</button>
+          <p style="margin-top:10px;font-size:0.95rem;color:var(--text-soft)">If you have trouble accessing this area, contact Michelle or Zoe.</p>
         </div>
       </div>
 
-      <!-- Staff panel -->
-      <div id="staffPanel" class="staff-panel" aria-hidden="true">
-        <section class="content card">
+      <div id="staffPanel" style="display:none" aria-hidden="true">
+        <section class="card">
           <h2>Internal information</h2>
           <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
           <ul>
@@ -86,7 +55,7 @@
           </ul>
 
           <h3>Statutory and partner resources</h3>
-          <div class="external-links" aria-label="External safeguarding resources">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
             <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025) - GOV.UK</a>
             <a class="pill" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources on Patreon</a>
             <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
@@ -94,17 +63,18 @@
             <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
           </div>
 
-          <h3 style="margin-top:14px">Internal policy documents (downloads)</h3>
-          <div class="policy-pills" aria-label="Internal policies for staff">
-            <a href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>MPWEC Curriculum Policy EOTAS September 2025.docx</a>
-            <a href="MPWEC H&S Policy Sep 25.docx" download>MPWEC H&S Policy Sep 25.docx</a>
-            <a href="MPWEC Lone Working Policy Sep25.docx" download>MPWEC Lone Working Policy Sep25.docx</a>
-            <a href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>MPWEC Safeguarding and Child Protection Policy Sep 2025.docx</a>
-            <a href="MPWEC Staff Conduct Policy.docx" download>MPWEC Staff Conduct Policy.docx</a>
+          <h3 style="margin-top:12px">Internal policy documents (downloads)</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>MPWEC Curriculum Policy EOTAS September 2025.docx</a>
+            <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>MPWEC H&S Policy Sep 25.docx</a>
+            <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>MPWEC Lone Working Policy Sep25.docx</a>
+            <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>MPWEC Safeguarding and Child Protection Policy Sep 2025.docx</a>
+            <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>MPWEC Staff Conduct Policy.docx</a>
+            <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>MPWEC Whistleblowing Policy.docx</a>
           </div>
         </section>
 
-        <section class="content card">
+        <section class="card" style="margin-top:12px;">
           <h3>Hours logged</h3>
           <form id="hoursForm" method="POST" novalidate>
             <input type="hidden" name="_subject" value="Hours logged - Meadow Pathways Staff" />
@@ -121,20 +91,20 @@
             <label for="email-staff">Staff email</label>
             <input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
             <button type="submit">Submit hours</button>
-            <div id="hoursStatus" class="status-inline" role="status" aria-live="polite"></div>
+            <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
           </form>
-          <p class="staff-meta">Remember to log hours promptly and ensure client notes comply with Meadow Pathways record-keeping guidance.</p>
+          <p style="margin-top:8px;color:var(--text-soft)">Remember to log hours promptly and ensure client notes comply with Meadow Pathways record-keeping guidance.</p>
         </section>
       </div>
     </main>
   </div>
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
+
   <footer class="site-footer"><div class="container"><p>&copy; Meadow Pathways Cornwall</p></div></footer>
 
   <script>
     (function () {
-      // Password
       const PASSWORD = 'MPWEC!';
       const lockedEl = document.getElementById('locked');
       const staffPanel = document.getElementById('staffPanel');
@@ -158,7 +128,7 @@
       unlockBtn.addEventListener('click', unlock);
       pwdInput.addEventListener('keyup', function (e) { if (e.key === 'Enter') unlock(); });
 
-      // Hours submit
+      // Hours form submit
       const hoursForm = document.getElementById('hoursForm');
       const hoursStatus = document.getElementById('hoursStatus');
       const FORMSPREE = 'https://formspree.io/f/movnvzqp';
@@ -183,6 +153,7 @@
       });
     })();
   </script>
+
   <script src="script.js"></script>
 </body>
 </html>
