@@ -8,41 +8,25 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Header -->
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="header-inner container">
-      <div class="logo-wrap">
-        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-          <span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
-        </a>
-      </div>
-      <nav aria-label="Primary" class="primary-nav">
-        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-        <ul id="primaryNav" class="nav-tabs" role="menubar">
-          <li role="none"><a role="menuitem" href="index.html">Home</a></li>
-          <li role="none"><a role="menuitem" href="about.html">About</a></li>
-          <li role="none"><a role="menuitem" href="eotas.html">EOTAS</a></li>
-          <li role="none"><a role="menuitem" href="safeguarding.html">Safeguarding</a></li>
-          <li role="none"><a role="menuitem" href="staff.html">Staff</a></li>
-          <li role="none"><a role="menuitem" href="referral.html">Referral</a></li>
-          <li role="none"><a role="menuitem" href="contact.html" class="active">Contact</a></li>
-        </ul>
+      <div class="logo-wrap"><a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo" /></a></div>
+      <nav aria-label="Primary" class="primary-nav"><button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
+        <ul id="primaryNav" class="nav-tabs"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="eotas.html">EOTAS</a></li><li><a href="safeguarding.html">Safeguarding</a></li><li><a href="staff.html">Staff</a></li><li><a href="referral.html">Referral</a></li><li><a href="contact.html" class="active">Contact</a></li></ul>
       </nav>
     </div>
   </header>
 
   <div class="page-wrap">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-labelledby="hero-title" style="background-image:url('BG.png');">
       <div class="hero-overlay container">
         <h1 id="hero-title">Contact Meadow Pathways</h1>
-        <p class="hero-sub">We welcome enquiries from families, professionals and partners.</p>
+        <p class="hero-sub">We welcome enquiries from families, professionals and partner organisations. Use the form below for non-urgent messages or email/phone the team directly using the contact details provided.</p>
       </div>
     </section>
 
-    <main id="main" class="container" role="main">
-      <section class="content card">
+    <main id="main" class="container">
+      <section class="card">
         <h2>Message the team</h2>
         <form id="contactForm" method="POST" novalidate>
           <input type="hidden" name="_subject" value="Website contact form" />
@@ -54,20 +38,17 @@
           <input id="c-phone" name="phone" type="tel" />
           <label for="c-message">Message</label>
           <textarea id="c-message" name="message" rows="6" required></textarea>
-          <p style="font-size:0.95rem;color:var(--text-soft);margin-top:8px">
-            By submitting you confirm appropriate consent to share information. For urgent safeguarding concerns contact statutory services first.
-          </p>
+          <p style="font-size:0.95rem;color:var(--text-soft);margin-top:8px">By submitting this form you confirm you have appropriate consent to share information. For urgent safeguarding concerns contact statutory services first.</p>
           <button type="submit">Send message</button>
           <div id="contactStatus" role="status" aria-live="polite" style="margin-top:12px;"></div>
         </form>
 
         <hr style="margin:18px 0" />
         <h3>Contact details</h3>
-        <p>
-          <strong>Michelle</strong> — <a href="tel:07932243358">07932 243358</a> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
-          <strong>Zoe</strong> — <a href="tel:07775733587">07775 733587</a> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
-          <strong>General</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
-        </p>
+        <p><strong>Michelle</strong> — <a href="tel:07932243358">07932 243358</a> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
+        <strong>Zoe</strong> — <a href="tel:07775733587">07775 733587</a> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
+        <strong>General</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
+
       </section>
     </main>
   </div>
@@ -101,6 +82,7 @@
       });
     })();
   </script>
+
   <script src="script.js"></script>
 </body>
 </html>
