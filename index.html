@@ -9,6 +9,20 @@
   <style>
     @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
     .news-reel { display:inline-block; padding-right:40px; }
+    /* Small helpers so demo layout is stable if style.css is missing */
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+    .card{background:#fff;border-radius:10px;padding:18px;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+    .pill{display:inline-block;padding:8px 12px;border-radius:20px;background:#2f8f4a;color:#fff;text-decoration:none}
+    .pill-secondary{background:#eee;color:#333}
+    .logo{height:90px;border-radius:12px;padding:4px;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.08);object-fit:contain}
+    .carousel{position:relative;overflow:hidden}
+    .slides{display:flex;gap:8px;align-items:center}
+    .slide{width:100%;max-height:360px;object-fit:cover;display:none}
+    .slide.active{display:block}
+    .carousel-controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px}
+    .carousel-btn{background:#fff;border:1px solid #ddd;padding:6px 10px;border-radius:6px;cursor:pointer}
+    .dot{width:10px;height:10px;border-radius:50%;background:#ddd;border:none;cursor:pointer}
+    .dot.active{background:#2f8f4a}
   </style>
 </head>
 <body class="home-page">
@@ -20,6 +34,7 @@
       <div class="logo-wrap">
         <a href="index.html" class="brand" aria-label="Meadow Pathways home">
           <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+        </a>
       </div>
 
       <nav aria-label="Primary" class="primary-nav">
@@ -41,7 +56,6 @@
     <!-- Hero -->
     <section class="hero" aria-labelledby="hero-title" style="background-image:url('BG.png');">
       <div class="hero-overlay container" style="position:relative;">
-        <!-- Decorative accent -->
         <svg aria-hidden="true" width="220" height="220" viewBox="0 0 220 220" style="position:absolute;right:22px;top:-36px;opacity:0.95;pointer-events:none">
           <defs>
             <linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#5d8aa8"/><stop offset="1" stop-color="#1f9d9a"/></linearGradient>
@@ -109,59 +123,44 @@
 
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px;">
           <div style="background:linear-gradient(180deg,#d9eef6,#f7fbfd);border-radius:12px;padding:12px;">
-            <strong style="color:#23607b"> 📅</strong>
+            <strong style="color:#23607b;font-size:1.05rem;">📅 Meeting learners where they are</strong>
             <p style="margin-top:8px;color:var(--text-soft);">
               At Meadow Pathways we recognise that every young person is unique. We are committed to working collaboratively with families, schools, and partner organisations to find the most meaningful and sustainable route to success for each learner. Whether a child is facing barriers to education due to emotional barriers, past trauma, or unmet needs, our role is to meet them <strong>where they are</strong> and help them <strong>move forward with confidence</strong>.
             </p>
           </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px;">
+          <div style="background:linear-gradient(180deg,#fde7e7,#fff6f6);border-radius:12px;padding:20px;min-height:220px;display:flex;flex-direction:column;justify-content:center;">
+            <strong style="color:#b34b4b;font-size:1.05rem;">Person‑centred Commitment 🌟</strong>
+            <p style="margin-top:12px;color:var(--text-soft);line-height:1.6;">
+              We work closely with families, schools and partners to create meaningful, sustainable routes to success tailored to each learner’s needs and strengths. 🤝
+            </p>
+          </div>
 
-  <div style="background:linear-gradient(180deg,#d9eef6,#f7fbfd);border-radius:12px;padding:20px;min-height:220px;display:flex;flex-direction:column;justify-content:center;">
-    <strong style="color:#23607b;font-size:1.05rem;">Person‑centred Commitment 🌟</strong>
-    <p style="margin-top:12px;color:var(--text-soft);line-height:1.6;">
-      At Meadow Pathways we recognise that every young person is unique. We work closely with families, schools and partners to create meaningful, sustainable routes to success tailored to each learner’s needs and strengths. 🤝
-    </p>
-  </div>
-
-  <div style="background:linear-gradient(180deg,#fde7e7,#fff6f6);border-radius:12px;padding:20px;min-height:220px;display:flex;flex-direction:column;justify-content:center;">
-    <strong style="color:#b34b4b;font-size:1.05rem;">Meeting Learners Where They Are 🌿</strong>
-    <p style="margin-top:12px;color:var(--text-soft);line-height:1.6;">
-      Whether a child faces emotional barriers, past trauma, or unmet needs, we create safe, relational spaces that foster trust and emotional regulation so progress can grow at the right pace for them. 💛
-    </p>
-  </div>
-
-  <div style="background:linear-gradient(180deg,#e7fbe7,#f7fffa);border-radius:12px;padding:20px;min-height:220px;display:flex;flex-direction:column;justify-content:center;">
-    <strong style="color:#2f8f4a;font-size:1.05rem;">Practical Learning in Community Settings 📅</strong>
-    <p style="margin-top:12px;color:var(--text-soft);line-height:1.6;">
-      We deliver curriculum-linked, hands‑on activities, bush craft, cooking, outdoor fitness, gardening and project work, so learners build skills, resilience and positive relationships while working towards accredited outcomes. 🧠🌲🍳
-    </p>
-  </div>
-
-</div>
-
-</div>
-
+          <div style="background:linear-gradient(180deg,#e7fbe7,#f7fffa);border-radius:12px;padding:20px;min-height:220px;display:flex;flex-direction:column;justify-content:center;">
+            <strong style="color:#2f8f4a;font-size:1.05rem;">Practical Learning in Community Settings 📅</strong>
+            <p style="margin-top:12px;color:var(--text-soft);line-height:1.6;">
+              We deliver curriculum-linked, hands‑on activities, bush craft, cooking, outdoor fitness, gardening and project work, so learners build skills, resilience and positive relationships while working towards accredited outcomes. 🧠🌲🍳
+            </p>
+          </div>
         </div>
       </section>
 
       <!-- Values section -->
-<section class="card" aria-labelledby="values-title">
-  <h2 id="values-title">Our Values</h2>
-  <p>
-    At Meadow Pathways, our values shape everything we do, from the way we greet a child to the way we plan their learning journey. We believe that education and wellbeing go hand in hand, and that every child deserves to feel safe, supported, and inspired. 🌿✨
-  </p>
-  <ul>
-    <li><strong>Resilience &amp; Independence</strong> — We nurture confidence, self‑belief, and the ability to grow through challenge. 💪🌱</li>
-    <li><strong>Health &amp; Wellbeing</strong> — We prioritise emotional safety, regulation, and holistic care in every setting. ❤️🧘‍♀️</li>
-    <li><strong>Honesty &amp; Integrity</strong> — We build trust through transparency, consistency, and ethical practice. 🤝🔎</li>
-    <li><strong>Friendship &amp; Kindness</strong> — We foster connection, empathy, and belonging, because relationships are the heart of healing. 💛🤗</li>
-  </ul>
-  <p>
-    These values guide our team, our decisions, and our partnerships with families, schools, and professionals. They are not just words; they are the foundation of every journey we support. 🌼
-  </p>
-</section>
-
+      <section class="card" aria-labelledby="values-title">
+        <h2 id="values-title">Our Values</h2>
+        <p>
+          At Meadow Pathways, our values shape everything we do, from the way we greet a child to the way we plan their learning journey. We believe that education and wellbeing go hand in hand, and that every child deserves to feel safe, supported, and inspired. 🌿✨
+        </p>
+        <ul>
+          <li><strong>Resilience &amp; Independence</strong> — We nurture confidence, self‑belief, and the ability to grow through challenge. 💪🌱</li>
+          <li><strong>Health &amp; Wellbeing</strong> — We prioritise emotional safety, regulation, and holistic care in every setting. ❤️🧘‍♀️</li>
+          <li><strong>Honesty &amp; Integrity</strong> — We build trust through transparency, consistency, and ethical practice. 🤝🔎</li>
+          <li><strong>Friendship &amp; Kindness</strong> — We foster connection, empathy, and belonging, because relationships are the heart of healing. 💛🤗</li>
+        </ul>
+        <p>
+          These values guide our team, our decisions, and our partnerships with families, schools, and professionals. They are not just words; they are the foundation of every journey we support. 🌼
+        </p>
+      </section>
 
       <!-- Offers section -->
       <section class="card" aria-labelledby="offers">
@@ -217,5 +216,52 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- Carousel fallback: build dots and simple controls if missing (keeps carousel script selectors stable) -->
+  <script>
+    (function () {
+      document.addEventListener('DOMContentLoaded', function () {
+        var carousel = document.getElementById('carousel');
+        if (!carousel) return;
+        var slides = Array.prototype.slice.call(carousel.querySelectorAll('.slide'));
+        var dotsContainer = document.getElementById('dots');
+
+        // Create dots if missing
+        if (dotsContainer && dotsContainer.children.length === 0 && slides.length) {
+          slides.forEach(function (_, i) {
+            var btn = document.createElement('button');
+            btn.className = 'dot' + (i === 0 ? ' active' : '');
+            btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            btn.setAttribute('data-index', i);
+            btn.addEventListener('click', function () {
+              slides.forEach(function(s){ s.classList.remove('active'); });
+              slides[i].classList.add('active');
+              var dots = dotsContainer.querySelectorAll('.dot');
+              dots.forEach(function(d){ d.classList.remove('active'); });
+              btn.classList.add('active');
+            });
+            dotsContainer.appendChild(btn);
+          });
+        }
+
+        // Wire simple prev/next if script.js doesn't
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+        function goTo(index) {
+          var idx = (index + slides.length) % slides.length;
+          slides.forEach(function(s){ s.classList.remove('active'); });
+          slides[idx].classList.add('active');
+          var dots = document.querySelectorAll('#dots .dot');
+          dots.forEach(function(d){ d.classList.remove('active'); });
+          if (dots[idx]) dots[idx].classList.add('active');
+        }
+        if (prev && next && slides.length) {
+          var current = 0;
+          prev.addEventListener('click', function(){ current = (current - 1 + slides.length) % slides.length; goTo(current); });
+          next.addEventListener('click', function(){ current = (current + 1) % slides.length; goTo(current); });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
