@@ -6,8 +6,15 @@
   <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
   <meta name="description" content="Contact Meadow Pathways Wellbeing and Education Cornwall — enquiries, referrals and general information." />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Local helpers to visually mark protected contact info on this page */
+    .protected-note{ background:#fff4e6; border-left:4px solid #d4af37; padding:10px 12px; border-radius:8px; color:#3b3b3b; margin-bottom:14px; }
+    .staff-contacts .contact-line{ margin:6px 0; }
+    .contact-details .protected { font-weight:700; color: #0f3b38; } /* emphasise protected items */
+    @media (max-width:560px){ .header-inner .logo{ max-height:72px !important; } }
+  </style>
 </head>
-<body>
+<body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Header -->
@@ -75,10 +82,10 @@
           </div>
 
           <div class="support-note" style="margin-top:12px;">
-            If you are making a referral or sending protected information, please email securely to our referrals address or call the office — do not include sensitive personal details in this form.
+            If you are making a referral or sending protected information, please email securely to our referrals address or call the office — do not include sensitive personal details in this public form.
           </div>
 
-          <div class="actions" style="margin-top:12px;">
+          <div class="actions" style="margin-top:12px; display:flex; gap:10px; align-items:center;">
             <button type="submit" class="pill primary">Send message</button>
             <a href="referral.html" class="pill secondary" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">Make a referral</a>
             <span class="hint" style="margin-left:auto;">We aim to reply promptly</span>
@@ -89,10 +96,54 @@
 
         <div class="contact-details" aria-label="Contact details">
           <h3>🌸 Meadow Pathways Wellbeing and Education Cornwall</h3>
-          <p><strong>Email:</strong> info [at] meadowpathwayscornwall [dot] com</p>
-          <p><strong>Phone:</strong> 01209 0XXXX</p>
-          <p><strong>Address:</strong> Cornwall, United Kingdom</p>
-          <p class="hint">For secure referrals or protected information, please use our secure email or telephone contact.</p>
+
+          <div class="protected-note">
+            <strong>Protected contact information below.</strong> These addresses and numbers are for authorised contact only. Do not publish elsewhere or include protected personal data in the public form.
+          </div>
+
+          <p class="contact-line"><strong>General enquiries (Formspree linked):</strong>
+            <a href="mailto:meadowpathwayscornwall@outlook.com" class="protected">meadowpathwayscornwall@outlook.com</a>
+          </p>
+
+          <h4>Team contacts (protected)</h4>
+
+          <div class="staff-contacts">
+            <div class="bio-row">
+              <div class="bio-photo">
+                <img src="zoe.jpg" alt="Photo of Zoe" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="bio-content">
+                <div class="bio-box">
+                  <h3>Zoe — Role / Title</h3>
+                  <p class="contact-line"><strong>Email:</strong>
+                    <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com" class="protected">Zoe.Waitz@meadowpathwayscornwall.com</a>
+                  </p>
+                  <p class="contact-line"><strong>Phone:</strong> <span class="protected">07775733587</span></p>
+                  <p class="hint">For sensitive or protected information please use the secure referrals contact above.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bio-row">
+              <div class="bio-photo">
+                <img src="michelle.jpg" alt="Photo of Michelle" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+              <div class="bio-content">
+                <div class="bio-box">
+                  <h3>Michelle — Role / Title</h3>
+                  <p class="contact-line"><strong>Email:</strong>
+                    <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com" class="protected">Michelle.Pascoe@meadowpathwayscornwall.com</a>
+                  </p>
+                  <p class="contact-line"><strong>Phone:</strong> <span class="protected">07932243358</span></p>
+                  <p class="hint">For referrals, please use the secure referrals email or call the office to arrange a safe transfer of information.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="support-note" style="margin-top:12px;">
+            Please do not include protected personal data in the public form. For referrals or protected records, email our secure referrals address above or call the office to arrange a safe transfer.
+          </div>
         </div>
 
       </section>
@@ -110,7 +161,7 @@
   </footer>
 
   <script>
-    // Minimal nav toggle and back-to-top behaviour (keeps functionality simple and resilient)
+    // Minimal nav toggle and back-to-top behaviour
     (function(){
       var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
       if (navToggle && nav) {
