@@ -1,5 +1,5 @@
 /* ======================================================
-   Meadow Pathways — full site theme
+   Meadow Pathways — full site theme (style.css)
    - Bright, attractive, professional, nature-inspired
    - Consistent across all pages
    - Preserves all text/content; presentation only
@@ -229,4 +229,4 @@ body.home .site-header {
 .bio-row { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:16px; }
 .bio-content { flex:1 1 320px; }
 .bio-box {
- 
+  background: linear-gradient(180deg, rgba(242,251,249,0.98), rgba(255
