@@ -223,10 +223,4 @@ body.home .site-header {
 .team-photo-frame img { display:block; max-width:100%; height:auto; border-radius:12px; }
 .contact-section .team-photo, .contact-section .team-photo-frame { display:none !important; }
 
-/* --------------------------
-   Bio boxes
-   -------------------------- */
-.bio-row { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:16px; }
-.bio-content { flex:1 1 320px; }
-.bio-box {
-  background: linear-gradient(180deg, rgba(242,251,249,0.98), rgba(255
+/* ----------------
