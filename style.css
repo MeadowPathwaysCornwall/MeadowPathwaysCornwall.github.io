@@ -1,5 +1,13 @@
 /* ======================================================
-   Meadow Pathways — full style.css
+   Meadow Pathways — full style.css (final adjustments requested)
+   - Footer logo reduced
+   - team-photo and team-photo-frame set exactly as requested
+   - BG.png used as full page background (not magnified) on every page
+   - bgr.png retained as header artwork (if present) but won't be oversized
+   - Remove visible decorative "blue circle" by hiding common ornament selectors
+   - Hide stray programming/system text that appears at top of pages (visual-only; content unchanged)
+   - Keeps all HTML, links, Formspree endpoints and footer markup unchanged
+   - Update paths to BG.png / bgr.png / Logo.png if they live in a subfolder
    ====================================================== */
 
 /* --------------------------
@@ -30,18 +38,43 @@
 html,body{height:100%}
 body{
   margin:0;
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color:var(--text);
   background-color:#f7fbf9;
-  line-height:1.45;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  -webkit-text-size-adjust:100%;
+  -ms-text-size-adjust:100%;
+  /* Page background image: BG.png shown fully, not magnified */
+  background-image: url('BG.png'); /* update path if BG.png lives in a folder */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain; /* show full image without cropping/magnifying */
+  background-attachment: scroll;
 }
-.container{max-width:var(--max-width);margin:0 auto;padding:0 var(--site-gutter);}
-a{color:var(--accent);text-decoration:none;}
-a:hover{text-decoration:underline;}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
-.skip-link{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+
+/* Ensure background sits behind everything and doesn't reduce contrast */
+.page-wrap::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.60), rgba(255,255,255,0.92));
+  z-index:0;
+}
+.page-wrap, .site-header, .site-footer, main, .container { position: relative; z-index: 1; }
+
+/* Container */
+.container{ width:100%; max-width:var(--max-width); margin:0 auto; padding:0 var(--site-gutter); }
+
+/* Accessibility helpers */
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+/* Hide visual skip link but keep for screen readers */
+.skip-link{ position:absolute !important; left:-9999px !important; top:auto !important; width:1px !important; height:1px !important; overflow:hidden !important; clip:rect(0 0 0 0) !important; white-space:nowrap !important; border:0 !important; }
 
 /* --------------------------
    Header
@@ -50,111 +83,249 @@ a:hover{text-decoration:underline;}
   position:relative;
   z-index:1100;
   border-bottom:1px solid rgba(0,0,0,0.04);
-  backdrop-filter:blur(4px) saturate(110%);
-  background-color:rgba(255,255,255,0.96);
+  backdrop-filter: blur(4px) saturate(110%);
+  background-color: rgba(255,255,255,0.96);
 }
+
+/* If you still use bgr.png as header artwork, it stays optional and won't be scaled beyond header bounds.
+   To enable header artwork only, add body.home class on index.html and use bgr.png there. */
 body.home .site-header{
-  background-image:url('bgr.png');
-  background-repeat:no-repeat;
-  background-position:center top;
-  background-size:cover;
+  background-image: url('bgr.png'); /* optional header artwork; update path if in subfolder */
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain; /* preserve whole artwork without magnifying */
+  background-attachment: scroll;
 }
 .site-header::after{
   content:"";
-  position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(255,255,255,0.70),rgba(255,255,255,0.92));
+  position:absolute;
+  inset:0;
   pointer-events:none;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.72), rgba(255,255,255,0.92));
   z-index:1099;
 }
-.header-inner{
-  position:relative;z-index:1110;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:20px;padding:14px var(--site-gutter);
-  max-width:var(--max-width);margin:0 auto;
-}
 
-/* Logo bigger */
+/* Header inner */
+.header-inner{ position:relative; z-index:1110; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px var(--site-gutter); max-width:var(--max-width); margin:0 auto; }
+
+/* --------------------------
+   Logo: make larger; ensure no blue circle is applied
+   -------------------------- */
 .header-inner .logo,
 .header-inner img.logo,
 .logo-wrap img,
 .brand img{
-  display:block!important;
-  max-height:220px!important;
-  width:auto!important;
-  height:auto!important;
+  display:block !important;
+  width:auto !important;
+  max-height:220px !important; /* desktop */
+  height:auto !important;
   object-fit:contain;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 0;
 }
-@media(max-width:1200px){.header-inner .logo{max-height:170px!important}}
-@media(max-width:880px){.header-inner .logo{max-height:110px!important}}
-@media(max-width:560px){.header-inner .logo{max-height:72px!important}}
+
+/* scale down for smaller screens */
+@media (max-width:1200px){ .header-inner .logo { max-height:170px !important; } }
+@media (max-width:880px){ .header-inner .logo { max-height:110px !important; } }
+@media (max-width:560px){ .header-inner .logo { max-height:72px !important; } }
+
+/* Remove any decorative element that could render as a "blue circle" */
+.floating-circle,
+.header-ornament,
+.header-deco,
+.decorative-circle,
+.site-header img.decorative,
+.site-header .ornament { display: none !important; }
+
+/* Some themes add pseudo-element circles — remove common ones */
+.site-header::before,
+.site-header::after { /* we keep ::after for overlay above, so only remove ornament pseudo-elements if named */
+  /* leave overlay above; specific ornaments below are removed by selectors above */
+}
 
 /* --------------------------
-   Navigation
+   Navigation (kept teal/blue-green palette)
    -------------------------- */
-.primary-nav{display:flex;align-items:center;gap:12px;z-index:1111;}
-.nav-toggle{display:none;position:absolute;right:18px;top:50%;transform:translateY(-50%);background:transparent;border:0;font-size:20px;color:var(--text);cursor:pointer;z-index:1115;}
-@media(max-width:880px){.nav-toggle{display:inline-block}}
-.nav-tabs{list-style:none;margin:0;padding:0;display:flex;gap:10px;align-items:center;}
+.primary-nav{ display:flex; align-items:center; gap:12px; z-index:1111; }
+.nav-toggle{ display:none; position:absolute; right:18px; top:50%; transform:translateY(-50%); background:transparent; border:0; font-size:20px; color:var(--text); cursor:pointer; z-index:1115; }
+@media (max-width:880px){ .nav-toggle{ display:inline-block; } }
+.nav-tabs{ list-style:none; margin:0; padding:0; display:flex; gap:10px; align-items:center; position:relative; z-index:1200; }
 .nav-tabs li a{
-  display:inline-block;padding:9px 14px;border-radius:12px;
-  background:linear-gradient(180deg,rgba(0,127,127,0.10),rgba(0,127,127,0.04));
-  border:1px solid rgba(0,127,127,0.10);
-  color:#0f3b38;font-weight:700;
+  display:inline-block; padding:9px 14px; border-radius:12px;
+  background: linear-gradient(180deg, rgba(0,127,127,0.10), rgba(0,127,127,0.04));
+  border: 1px solid rgba(0,127,127,0.10);
+  color:#0f3b38; font-weight:700;
+  box-shadow: 0 6px 18px rgba(10,30,30,0.03);
+  transition: background .14s ease, transform .12s ease, box-shadow .12s ease;
+}
+.nav-tabs li a:hover{ transform: translateY(-3px); background: linear-gradient(180deg, rgba(0,155,160,0.16), rgba(0,155,160,0.08)); box-shadow: 0 12px 30px rgba(0,155,160,0.08); color:#063532; }
+.nav-tabs li a.active{ background: linear-gradient(180deg, var(--accent), var(--accent-2)); color:#fff; border:1px solid rgba(255,255,255,0.06); box-shadow: 0 10px 28px rgba(0,155,160,0.16); position:relative; }
+.nav-tabs li a.active::after{ content:""; display:block; height:4px; width:100%; background: linear-gradient(90deg, rgba(212,175,55,0.95), rgba(255,230,130,0.6)); border-radius:4px; margin-top:8px; }
+
+/* mobile behaviour */
+@media (max-width:880px){
+  .nav-tabs{ position:absolute; top:64px; right:var(--site-gutter); background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.96)); box-shadow: var(--shadow-1); flex-direction:column; padding:12px; border-radius:10px; display:none; }
+  .nav-tabs.open{ display:flex; }
+}
+
+/* --------------------------
+   Hero & cards
+   -------------------------- */
+.hero{ padding:44px 0; background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.94)); border-radius: var(--radius); }
+#hero-title{ margin:0 0 8px 0; font-size:2rem; color:var(--accent); }
+.hero-sub{ margin:0; color:var(--muted); }
+
+.card{ background: var(--card-bg); border-radius:12px; box-shadow: var(--shadow-1); padding:18px; margin:18px 0; }
+.card > h2 { padding-left:12px; border-left:6px solid rgba(0,127,127,0.10); }
+
+/* --------------------------
+   Team photos — restore to your exact requested rules
+   -------------------------- */
+.team-photo{
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 4px solid #f0f4f8;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin: 12px auto;
+  display: block;
+  object-fit: cover;
+}
+
+.team-photo-frame{
+  padding: 8px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #d9eef6, #f7fbfd);
+  display: inline-block;
+}
+
+/* If you want a wrapper that limits overflow for very large files */
+.team-photo-frame img{ display:block; max-width:100%; height:auto; border-radius:12px; }
+
+/* --------------------------
+   Bios — coloured box matching theme
+   -------------------------- */
+.bio-row{ display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap; margin-bottom:16px; }
+.bio-content{ flex:1 1 320px; }
+.bio-box{
+  background: linear-gradient(180deg, rgba(242,251,249,0.96), rgba(255,255,255,0.98));
+  border: 1px solid rgba(0,127,127,0.08);
+  border-left: 6px solid var(--accent);
+  padding:16px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,155,160,0.06);
+}
+.bio-box h3{ margin-top:0; color:var(--accent-dark); font-size:1.05rem; }
+.bio-box p{ margin:8px 0; color:#234a3a; }
+
+/* If you prefer team photos hidden on contact page, keep both rules:
+   to hide: add the .contact-section class to the contact wrapper (we already used that earlier)
+   the following keeps photos visible except on contact page. */
+.contact-section .team-photo,
+.contact-section .team-photo-frame { display: none !important; }
+
+/* --------------------------
+   Forms, inputs, pills
+   -------------------------- */
+form{ font-size:1rem; color:var(--text); }
+label{ display:block; font-weight:700; margin-bottom:6px; color:#163632; }
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea{
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,250,250,0.98));
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius:12px;
+  padding:14px 16px;
+  font-size:1rem;
+  color:var(--text);
   box-shadow:0 6px 18px rgba(10,30,30,0.03);
-  transition:background .14s ease,transform .12s ease,box-shadow .12s ease;
+  transition: transform .08s ease, box-shadow .12s ease, border-color .12s ease;
 }
-.nav-tabs li a:hover{transform:translateY(-3px);background:linear-gradient(180deg,rgba(0,155,160,0.16),rgba(0,155,160,0.08));box-shadow:0 12px 30px rgba(0,155,160,0.08);color:#063532;}
-.nav-tabs li a.active{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#fff;border:1px solid rgba(255,255,255,0.06);box-shadow:0 10px 28px rgba(0,155,160,0.16);position:relative;}
-.nav-tabs li a.active::after{content:"";display:block;height:4px;width:100%;background:linear-gradient(90deg,rgba(212,175,55,0.95),rgba(255,230,130,0.6));border-radius:4px;margin-top:8px;}
-@media(max-width:880px){
-  .nav-tabs{position:absolute;top:64px;right:var(--site-gutter);background:rgba(255,255,255,0.96);box-shadow:var(--shadow-1);flex-direction:column;padding:12px;border-radius:10px;display:none;}
-  .nav-tabs.open{display:flex;}
+textarea{ min-height:160px; resize:vertical; }
+input:focus, select:focus, textarea:focus, a:focus, button:focus{
+  outline: none;
+  border-color: rgba(0,155,160,0.95);
+  box-shadow: var(--focus-glow);
+  transform: translateY(-2px);
+  outline-offset: 2px;
 }
+::placeholder{ color:#9aa8a0; opacity:1; }
 
-/* --------------------------
-   Hero
-   -------------------------- */
-.hero{padding:44px 0;background:linear-gradient(180deg,rgba(255,255,255,0.86),rgba(255,255,255,0.94));border-radius:var(--radius);}
-#hero-title{margin:0 0 8px;font-size:2rem;color:var(--accent);}
-.hero-sub{margin:0;color:var(--muted);}
-
-/* --------------------------
-   Cards
-   -------------------------- */
-.card{background:var(--card-bg);border-radius:12px;box-shadow:var(--shadow-1);padding:18px;margin:18px 0;}
-.card>h2{padding-left:12px;border-left:6px solid rgba(0,127,127,0.10);}
-h1,h2,h3{color:#163632;margin:0 0 10px;}
-h1{font-size:2rem}h2{font-size:1.3rem}h3{font-size:1.05rem}
-p{margin:0 0 12px;color:#234a3a;}
-
-/* --------------------------
-   Pills (match nav colour)
-   -------------------------- */
-.pill,
-.pill.primary,
-button.primary,
-.btn.primary{
-  background:linear-gradient(180deg,var(--accent),var(--accent-2));
-  color:#fff;border-radius:12px;padding:9px 14px;font-weight:700;
+/* Pills matching nav palette */
+.pill, .pill.primary, button.primary, .btn.primary{
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  color:#fff;
+  border-radius:12px;
+  padding:9px 14px;
+  font-weight:700;
   box-shadow:0 10px 30px rgba(0,155,160,0.14);
   border:1px solid rgba(255,255,255,0.06);
-  display:inline-flex;align-items:center;justify-content:center;
+  display:inline-flex; align-items:center; justify-content:center;
 }
-.pill.secondary,
-.pill.alt,
-button.secondary,
-.btn.secondary{
-  background:linear-gradient(180deg,rgba(0,127,127,0.12),rgba(0,127,127,0.06));
-  color:#0f3b38;border-radius:12px;padding:9px 14px;font-weight:700;
-  box-shadow:0 6px 18px rgba(10,30,30,0.04);
-  border:1px solid rgba(0,127,127,0.08);
-  display:inline-flex;align-items:center;justify-content:center;
+.pill.secondary, .pill.alt, button.secondary, .btn.secondary{
+  background: linear-gradient(180deg, rgba(0,127,127,0.12), rgba(0,127,127,0.06));
+  color:#0f3b38; border-radius:12px; padding:9px 14px; font-weight:700;
+  box-shadow:0 6px 18px rgba(10,30,30,0.04); border:1px solid rgba(0,127,127,0.08);
 }
-.pill:hover,button.primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,155,160,0.18);}
 
 /* --------------------------
-   Bios (no photos on contact page)
+   Footer — reduce footer logo size
    -------------------------- */
-.contact-section .bio-photo,
-.contact-section .bio-photo img{display:none!important;width:0!important;height:0!important;overflow:hidden!important;}
-.bio-box{background:linear-gradient(180deg,rgba(242,251,249,
+.site-footer{
+  background-color: var(--footer-green);
+  color:#fff;
+  text-align:center;
+  padding:18px 10px;
+  font-size:0.95rem;
+  border-top:3px solid var(--gold);
+}
+.footer-content{ display:flex; flex-direction:column; align-items:center; gap:8px; max-width:var(--max-width); margin:0 auto; padding:4px 10px; }
+.footer-logo{ width:48px; height:auto; margin-bottom:5px; /* reduced from larger size */ }
+
+/* --------------------------
+   Hide stray programming/system text at top of pages (visual-only)
+   - targets common elements that sometimes get injected or left visible:
+     - top-level <pre> or <code> nodes
+     - elements with class names commonly used by debug/templating systems
+   - This only hides them visually; content remains in the HTML if present.
+   -------------------------- */
+body > pre,
+body > code,
+body > .debug,
+body > .system-message,
+body > .raw-output,
+.debug,
+.system-message,
+.raw-output,
+.notice-debug,
+.template-warning {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  font-size: 0 !important;
+}
+
+/* Also hide empty-looking first-line stray text nodes rendered inside a div with these classes */
+.header-note, .system-note, .page-intro--debug { display:none !important; }
+
+/* --------------------------
+   Small responsive tweaks
+   -------------------------- */
+@media (max-width:880px){
+  .header-inner{ padding:10px var(--site-gutter); }
+  #hero-title{ font-size:1.6rem; }
+  .team-photo{ max-width: 100%; margin: 12px 0; }
+}
+@media (max-width:560px){
+  .nav-tabs{ right:10px; left:auto; top:58px; }
+}
+
+/* Ensure images never overflow layout */
+img{ max-width:100%; height:auto; display:block; }
+
+/* End of file */
