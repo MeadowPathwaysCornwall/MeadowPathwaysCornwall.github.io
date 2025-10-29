@@ -1,44 +1,59 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
-<meta name="description" content="Contact Meadow Pathways Wellbeing and Education Cornwall — enquiries, referrals and general information." />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="description" content="Contact Meadow Pathways Wellbeing and Education Cornwall — enquiries, referrals and general information." />
+  <link rel="stylesheet" href="Style.css" />
 </head>
 <body class="home">
+
 <a class="skip-link" href="#main">Skip to content</a>
 
+<!-- Header -->
 <header class="site-header" role="banner">
-  <div class="header-inner container">
-    <nav aria-label="Primary" class="primary-nav">
-      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-      <ul id="primaryNav" class="nav-tabs" role="menubar">
+  <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
+    <div class="container">
+      <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="eotas.html">EOTAS</a></li>
         <li><a href="safeguarding.html">Safeguarding</a></li>
         <li><a href="staff.html">Staff</a></li>
+        <li><a href="staff-rota.html">Staff Rota</a></li>
+        <li><a href="policies.html">Policies</a></li>
         <li><a href="referral.html">Referral</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+        <li><a href="protected-resources.html">Protected</a></li>
+        <li><a href="passwords.html">Passwords</a></li>
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
 
-  <div class="logo-wrap container">
-    <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+  <!-- Logo canvas: centred, blended -->
+  <section class="logo-canvas" aria-hidden="true">
+    <div class="container">
       <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-      <span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
-    </a>
-  </div>
+    </div>
+  </section>
 </header>
 
 <div class="page-wrap">
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-overlay container">
+      <h1 id="hero-title">Contact us</h1>
+      <p class="hero-sub">We’d love to hear from you — enquiries, referrals, and general information</p>
+    </div>
+  </section>
+
+  <!-- Main -->
   <main id="main" class="container" role="main">
+
     <section id="contact" class="card contact-section" aria-labelledby="contact-title">
       <h2 id="contact-title">📞 Contact Us</h2>
-
       <p>We’d love to hear from you. Use the form below for general enquiries or to discuss referrals. If this is an urgent safeguarding concern, please contact statutory services first and then call the Meadow Pathways team.</p>
 
       <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
@@ -75,7 +90,7 @@
           If you are making a referral or sending protected information, please email securely to our referrals address or call the office — do not include sensitive personal details in this public form.
         </div>
 
-        <div class="actions" style="margin-top:12px;">
+        <div class="actions" style="margin-top:12px; display:flex; gap:10px; align-items:center;">
           <button type="submit" class="pill primary">Send message</button>
           <a href="referral.html" class="pill" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">Make a referral</a>
           <span class="hint" style="margin-left:auto;">We aim to reply promptly</span>
@@ -87,7 +102,7 @@
       <div class="contact-details" aria-label="Contact details">
         <h3>🌸 Meadow Pathways Wellbeing and Education Cornwall</h3>
 
-        <div class="protected-note">
+        <div class="protected-note" style="background:#fff4e6; border-left:4px solid #d4af37; padding:10px 12px; border-radius:8px; color:#3b3b3b; margin-bottom:14px;">
           <strong>Protected contact information below.</strong> These addresses and numbers are for authorised contact only. Do not publish elsewhere or include protected personal data in the public form.
         </div>
 
@@ -128,11 +143,14 @@
         Please do not include protected personal data in the public form. For referrals or protected records, email our secure referrals address above or call the office to arrange a safe transfer.
       </div>
     </section>
+
   </main>
 </div>
 
+<!-- Back to top button -->
 <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
+<!-- Footer -->
 <footer class="site-footer">
   <div class="footer-content">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
@@ -141,17 +159,9 @@
   </div>
 </footer>
 
+<!-- Minimal JS (nav toggle can remain in script.js globally if you prefer) -->
 <script>
-// Minimal nav toggle and back-to-top behaviour
 (function(){
-  var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', function(){
-      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('open');
-    });
-  }
   var backBtn = document.getElementById('backToTop');
   window.addEventListener('scroll', function(){
     if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show');
@@ -159,6 +169,6 @@
   backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
 })();
 </script>
-<script src="script.js"></script>
+
 </body>
 </html>
