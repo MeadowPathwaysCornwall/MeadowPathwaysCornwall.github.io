@@ -1,389 +1,223 @@
 /* ======================================================
-   Meadow Pathways — Themed site stylesheet (soft textured)
-   Uses bgr.png for the header banner and Logo.png placed
-   under the navigation. Keeps all HTML and content intact.
-   ====================================================== */
+Meadow Pathways — site-wide theme
+Inspired by uploaded infographic: vibrant, playful, nature-led
+— Navigation tabs at top, logo beneath
+— Pill-shaped buttons and tabs
+— Soft cards with rounded corners and gentle shadows
+— Carousel retained, re-themed
+====================================================== */
 
-/* --------------------------
-   Root variables (palette derived from your bgr.png)
-   -------------------------- */
+/* Root palette (teals, greens, warm gold, soft coral accents) */
 :root{
-  --brand-1: #2f8f4a;      /* deep meadow green */
-  --brand-2: #00a6c1;      /* aqua accent */
-  --brand-dark: #0f3b38;
-  --accent-warm: #e7b84b;  /* golden highlight */
-  --muted: #6b7c7a;
-  --bg: #fbfdfd;
-  --panel: rgba(255,255,255,0.98);
-  --soft-border: rgba(8,20,20,0.03);
+  --brand-1: #0f3b38;        /* deep teal (text) */
+  --brand-2: #2f8f4a;        /* green primary */
+  --brand-3: #00a6c1;        /* aqua accent */
+  --brand-4: #e7b84b;        /* warm gold */
+  --brand-5: #e67a7a;        /* soft coral accent */
+  --bg-soft: #fbfdfd;
+  --text: #163632;
+  --text-soft: #4e6a67;
+  --card-bg: #ffffff;
+  --soft-border: #e6eef3;
   --shadow-1: 0 8px 28px rgba(12,28,30,0.08);
+  --radius: 14px;
   --max-width: 1100px;
   --gutter: 18px;
-  --radius: 18px;
-  --ui-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --text-deep: #163632;
-  --text-soft: #607873;
-  --pill-bg: var(--brand-1);
+  --pill-bg: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.64));
+  --pill-active: linear-gradient(180deg, #2f8f4a, #00a6c1);
+  --footer-green: #3b4d2c;
+  --gold: #d4af37;
 }
 
-/* --------------------------
-   Base / reset
-   -------------------------- */
-* { box-sizing: border-box; }
-html,body{ height:100%; }
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
 body{
-  margin:0;
-  font-family: var(--ui-font);
-  color:var(--text-deep);
-  background: linear-gradient(180deg,#fbfdfd 0%, #f3f7f5 100%);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.48;
-  --container-gap: 18px;
+  margin:0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg-soft);
+  color: var(--text);
+  line-height:1.5;
 }
 
-/* container helper (keeps same as your pages) */
-.container { max-width: var(--max-width); margin:0 auto; padding: 0 var(--gutter); }
+/* Page background using BG.png subtly, like the infographic */
+body::before{
+  content:""; position:fixed; inset:0; z-index:-2;
+  background-image:url('BG.png');
+  background-repeat:no-repeat; background-position:center top; background-size:contain;
+  opacity:0.22; pointer-events:none;
+}
+.page-wrap::before{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.74), rgba(255,255,255,0.95));
+}
 
-/* small helpers used in inline styles in your HTML */
-.skip-link{ position:absolute; left:-9999px; }
+/* Containers */
+.container{max-width:var(--max-width); margin:0 auto; padding:0 var(--gutter)}
+.skip-link{position:absolute; left:-9999px}
 
-/* --------------------------
-   Header: nav + soft textured banner
-   -------------------------- */
+/* Header: NAV at top, logo directly beneath */
 .site-header{
-  position: relative;
-  z-index:1100;
-  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.98));
-  border-bottom: 1px solid rgba(0,0,0,0.04);
-  backdrop-filter: blur(4px) saturate(110%);
-  padding-top:10px;
-  padding-bottom:8px;
-  box-shadow: 0 6px 24px rgba(10,30,30,0.03);
-  overflow: visible;
+  position:relative; z-index:1000;
+  background: rgba(255,255,255,0.98);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  backdrop-filter: blur(6px);
 }
-
-/* banner underneath nav (soft texture from bgr.png)
-   - uses background image bgr.png, positioned centered top
-   - inset gradient overlay for legibility
-*/
-.site-header::after{
-  content:"";
-  display:block;
-  width:100%;
-  height:128px; /* visible banner height under the nav */
-  background-image: url('bgr.png');
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  opacity:0.98;
-  margin-top:10px;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  filter: saturate(105%);
-  pointer-events:none;
-}
-
-/* header-inner layout:
-   - show nav first, logo after (so logo sits under nav visually)
-   - we keep markup unchanged but reorder with flex order
-*/
 .header-inner{
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 8px var(--gutter) 0 var(--gutter);
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 14px;
-  position: relative;
-  z-index:1110;
-  flex-wrap:wrap;
+  display:flex; align-items:center; justify-content:center; gap:18px;
+  padding:14px var(--gutter);
 }
 
-/* Force nav above logo visually */
-.primary-nav { order: 1; width:100%; display:flex; justify-content:center; }
-.logo-wrap    { order: 2; width:100%; display:flex; justify-content:center; margin-top:6px; }
-
-/* Logo appearance (centered under nav, framed to match the banner) */
-.logo, .brand img {
-  display:block;
-  max-height:120px;
-  width:auto;
-  object-fit:contain;
-  background: rgba(255,255,255,0.85);
-  padding:6px;
-  border-radius:14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  border: 1px solid rgba(0,0,0,0.04);
-}
-
-/* responsive logo sizing */
-@media (max-width:1200px){ .logo{ max-height:100px; } }
-@media (max-width:880px){ .logo{ max-height:84px; } }
-@media (max-width:560px){ .logo{ max-height:64px; padding:4px; } }
-
-/* --------------------------
-   Navigation (tabs inside a rounded bar)
-   -------------------------- */
-.primary-nav { display:flex; align-items:center; gap:12px; padding:6px 0; }
-.nav-toggle{ display:none; background:transparent; border:0; font-size:22px; cursor:pointer; color:var(--brand-dark); }
-
-/* nav-tabs styling */
-.nav-tabs{
-  list-style:none;
-  margin:0;
-  padding:6px;
-  display:flex;
-  gap:10px;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
-  background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.72));
-  border-radius:28px;
-  padding:8px 12px;
-  box-shadow: 0 6px 20px rgba(12,28,30,0.06);
-  border:1px solid rgba(0,0,0,0.04);
-}
-
-/* individual tab buttons (text preserved from your pages) */
+/* Primary nav styled as tabs/pills */
+.primary-nav{display:flex; align-items:center; justify-content:center; gap:10px}
+.nav-toggle{display:none; background:transparent; border:0; font-size:22px; cursor:pointer}
+.nav-tabs{list-style:none; margin:0; padding:0; display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
 .nav-tabs li a{
-  display:inline-block;
-  padding:10px 16px;
-  border-radius:14px;
-  background: transparent;
-  color:var(--brand-dark);
-  font-weight:700;
-  text-decoration:none;
-  transition: transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
-  border: 1px solid transparent;
+  display:inline-block; padding:10px 16px; border-radius:999px;
+  background: var(--pill-bg); color: var(--brand-1); font-weight:700; text-decoration:none;
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow:0 6px 18px rgba(8,26,26,0.06);
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
 }
-
-/* hover and active states */
 .nav-tabs li a:hover{
-  transform: translateY(-3px);
-  background: linear-gradient(180deg, rgba(0,166,185,0.06), rgba(0,166,185,0.02));
-  box-shadow: 0 12px 32px rgba(0,166,185,0.04);
-  color: var(--brand-dark);
+  transform: translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,166,185,0.12);
 }
 .nav-tabs li a.active{
-  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
-  color:#fff;
-  box-shadow: 0 12px 36px rgba(0,120,120,0.12);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: var(--pill-active); color:#fff; border:1px solid rgba(255,255,255,0.06);
+  box-shadow:0 12px 32px rgba(0,150,160,0.18);
 }
 
-/* mobile nav behaviour */
+/* Responsive nav */
 @media (max-width:880px){
-  .nav-toggle{ display:inline-block; }
+  .nav-toggle{display:inline-block; position:absolute; right:var(--gutter)}
+  .primary-nav{justify-content:flex-end}
   .nav-tabs{
-    position:absolute;
-    top:64px;
-    right:var(--gutter);
-    left:var(--gutter);
-    display:none;
-    flex-direction:column;
-    padding:12px;
-    z-index:1200;
-    background: rgba(255,255,255,0.98);
-    border-radius:12px;
+    position:absolute; top:56px; right:var(--gutter);
+    background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:12px;
+    box-shadow:var(--shadow-1); padding:10px; display:none; flex-direction:column; align-items:stretch
   }
-  .nav-tabs.open{ display:flex; }
-  .header-inner{ padding-bottom:0; }
+  .nav-tabs.open{display:flex}
 }
 
-/* --------------------------
-   Hero
-   -------------------------- */
+/* Logo block directly under nav */
+.logo-wrap{
+  display:flex; align-items:center; justify-content:center;
+  padding:10px 0 16px;
+}
+.logo{
+  max-height:120px; width:auto; height:auto; object-fit:contain;
+  background:#fff; border-radius:16px; padding:6px;
+  box-shadow:0 8px 28px rgba(0,0,0,0.08);
+}
+@media (max-width:560px){ .logo{ max-height:80px } }
+
+/* Hero with subtle paint-like accents */
 .hero{
-  margin-top: 18px;
-  padding: 28px;
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,255,250,0.98));
-  box-shadow: var(--shadow-1);
-  position: relative;
-  overflow: visible;
+  padding:38px 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.98));
+  border-radius: var(--radius);
+  margin: 8px 0;
+}
+.hero-overlay h1#hero-title{ font-size:2rem; color: var(--brand-3); margin:0 0 8px }
+.hero-sub{ color: var(--text-soft) }
+
+/* Decorative accent sweeps, inspired by paint splashes */
+.hero-overlay .accent-swoosh{
+  position:absolute; right:22px; top:-28px; width:220px; height:220px; opacity:0.85; pointer-events:none
 }
 
-/* Decorative accent (SVG sits as-is in your HTML) */
-#hero-title{ font-size: clamp(1.6rem, 2.2vw, 2.4rem); color:var(--brand-1); margin:0 0 8px 0; }
-.hero-sub{ color:var(--text-soft); margin:6px 0 0 0; }
-
-/* hero action pills */
-.hero .pill{ margin-top:12px; display:inline-block; }
-
-/* subtle overlay to blend hero with header banner */
-.hero::before{
-  content:"";
-  position:absolute;
-  left:0; right:0; top:-46px;
-  height:46px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.0), rgba(255,255,255,0.85));
-  pointer-events:none;
-}
-
-/* --------------------------
-   Cards/sections: softly shaped panels
-   -------------------------- */
+/* Cards */
 .card{
-  background: var(--panel);
-  border-radius: 18px;
-  padding: 22px;
-  margin: 20px 0;
-  box-shadow: 0 10px 28px rgba(12,28,30,0.04);
-  border:1px solid var(--soft-border);
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border:1px solid rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-1);
+  padding:20px; margin:16px 0;
 }
+.card > h2{ margin:0 0 12px; padding-left:12px; border-left:6px solid rgba(0,166,193,0.18) }
 
-/* gentle per-section tinting — keeps your text intact */
-.card:nth-of-type(odd){ background: linear-gradient(180deg, rgba(250,255,250,0.98), #fff); }
-.card:nth-of-type(even){ background: linear-gradient(180deg, #fff, rgba(250,255,254,0.98)); }
-
-/* headings inside cards */
-.card h2, .card h3 { color: var(--brand-dark); margin-top:0; }
-
-/* three-column blocks and internal grid (keeps inline styles) */
-.emoji-list li { margin: 10px 0; }
-
-/* team photos frames */
-.team-photo{ max-width:260px; width:100%; height:auto; border-radius:12px; border:6px solid #f0f4f8; box-shadow: 0 6px 18px rgba(0,0,0,0.06); object-fit:cover; display:block; }
-.team-photo-frame{ display:inline-block; padding:8px; border-radius:16px; background: linear-gradient(180deg, #d9eef6, #f7fbfd); }
-
-/* hide any contact-specific team-photo display override you used */
-.contact-section .team-photo, .contact-section .team-photo-frame { display:block; }
-
-/* --------------------------
-   Carousel — framed images
-   -------------------------- */
-.carousel{
-  border-radius: 18px;
-  overflow: hidden;
-  background: linear-gradient(180deg, #fbfbfb, #f6f8f7);
-  box-shadow: 0 8px 26px rgba(10,30,30,0.06);
-  padding: 12px;
+/* Boxed three-column layout (infographic-like) */
+.box-grid{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:12px; margin-top:12px;
 }
-
-/* slides (your HTML uses <img class="slide">) */
-.slides{ display:block; }
-.slide{
-  display:none; /* your inline script toggles .active */
-  width:100%;
-  height:auto;
-  max-height:420px;
-  object-fit:cover;
-  border-radius:12px;
-  border: 6px solid #fff;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+.box{
+  border-radius:12px; padding:14px;
+  background: linear-gradient(180deg, #d9eef6, #f7fbfd);
+  border:1px solid rgba(0,0,0,0.04);
 }
+.box.alt-1{ background: linear-gradient(180deg, #fde7e7, #fff6f6) }
+.box.alt-2{ background: linear-gradient(180deg, #e7fbe7, #f7fffa) }
+.box-title{ color:#23607b; font-weight:700; font-size:1.06rem }
 
-/* active slide */
-.slide.active{ display:block; }
-
-/* carousel controls (your HTML contains .carousel-controls) */
-.carousel-controls{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; }
-.carousel-btn{ background:#fff; border:1px solid rgba(0,0,0,0.06); padding:8px 12px; border-radius:8px; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
-.dots{ display:inline-flex; gap:8px; align-items:center; }
-.dot{ width:10px; height:10px; border-radius:50%; background:#ddd; border:none; cursor:pointer; }
-.dot.active{ background: var(--brand-1); }
-
-/* small caption styling */
-.carousel-caption { color: var(--text-soft); font-size:0.98rem; }
-
-/* --------------------------
-   Buttons / pills
-   -------------------------- */
+/* Pills (links, policies, actions) */
 .pill{
-  display:inline-block;
-  padding: 10px 16px;
-  border-radius: 26px;
-  background: var(--pill-bg);
-  color: #fff;
-  text-decoration:none;
-  font-weight:600;
-  transition: transform .14s ease, box-shadow .14s ease;
-  box-shadow: 0 8px 20px rgba(47,143,74,0.08);
+  display:inline-block; padding:10px 16px; border-radius:999px;
+  background: var(--pill-bg); color: var(--brand-1); text-decoration:none; font-weight:700;
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow:0 6px 18px rgba(8,26,26,0.06);
 }
-.pill:hover{ transform: translateY(-3px); box-shadow: 0 16px 34px rgba(47,143,74,0.12); }
+.pill.primary{ background: var(--pill-active); color:#fff; border:none }
+.pill.secondary{ background:#f0f4f8; color:#233; }
+.pill:hover{ transform: translateY(-2px); box-shadow:0 10px 24px rgba(0,166,185,0.12) }
 
-/* secondary pill if present */
-.pill-secondary, .pill.secondary{ background:#f3f3f3; color:var(--brand-dark); }
+/* Buttons */
+button.pill{ cursor:pointer }
+button.pill:hover{ filter:brightness(0.95) }
 
-/* inline small utility classes from your inline CSS */
-.small{ font-size:0.95rem; color:var(--text-soft); }
-.hint{ color:var(--text-soft); font-size:0.95rem; }
-
-/* --------------------------
-   Forms (contact page)
-   -------------------------- */
-.form-row{ display:flex; gap:12px; align-items:flex-start; }
-.form-col{ flex:1; display:flex; flex-direction:column; gap:8px; }
-label{ font-weight:600; color:var(--brand-dark); }
-input[type="text"], input[type="email"], input[type="tel"], textarea{
-  width:100%;
-  padding:10px 12px;
-  border-radius:10px;
-  border:1px solid rgba(0,0,0,0.08);
-  background: #fff;
-  font-size:1rem;
-  color:var(--brand-dark);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.03) inset;
+/* Carousel */
+.carousel{ position:relative; overflow:hidden; border-radius:16px; border:1px solid rgba(0,0,0,0.06) }
+.slide{ width:100%; max-height:440px; object-fit:cover; display:none }
+.slide.active{ display:block }
+.carousel-controls{ display:flex; align-items:center; justify-content:center; gap:8px; padding:10px }
+.carousel-btn{
+  background:#fff; border:1px solid #ddd; padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:700; color:var(--brand-1)
 }
-textarea{ min-height:120px; resize:vertical; }
+.dots{ display:inline-flex; gap:8px; align-items:center }
+.dot{ width:10px; height:10px; border-radius:50%; background:#ddd; border:none; cursor:pointer }
+.dot.active{ background: var(--brand-2) }
+.carousel:focus{ outline:3px solid rgba(47,143,74,0.12); outline-offset:6px }
 
-/* protected contact box */
-.protected-note{ background:#fff4e6; border-left:4px solid var(--accent-warm); padding:10px 12px; border-radius:8px; color:var(--brand-dark); }
-
-/* --------------------------
-   Footer
-   -------------------------- */
-.site-footer{
-  background: linear-gradient(180deg, var(--brand-1), #0f6b5c);
-  color:#fff;
-  text-align:center;
-  padding:28px 16px;
-  margin-top:36px;
-  border-top-left-radius: 28px;
-  border-top-right-radius: 28px;
+/* Forms */
+label{ display:block; font-weight:600; margin:6px 0; color:#234a3a }
+input[type="text"],input[type="email"],input[type="tel"],input[type="date"],select,textarea{
+  width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--soft-border);
+  background:#fff; font-size:1rem; color:#183233; box-sizing:border-box;
+  transition:box-shadow .15s ease, border-color .15s ease;
 }
-.site-footer .footer-logo{ height:72px; margin-bottom:12px; border-radius:12px; background:#fff; padding:6px; }
+input:focus,select:focus,textarea:focus{ outline:none; box-shadow:0 4px 18px rgba(47,143,74,0.08); border-color:var(--brand-2) }
+textarea{ min-height:140px; resize:vertical }
+.form-row{ display:flex; gap:12px; flex-wrap:wrap }
+.form-col{ flex:1 1 240px }
+.hint{ color:var(--text-soft); font-size:0.95rem }
 
-/* --------------------------
-   Back to top button
-   -------------------------- */
+/* Protected contact chips */
+.protected-note{ background:#fff4e6; border-left:4px solid var(--gold); padding:10px 12px; border-radius:8px; color:#3b3b3b; margin-bottom:14px }
+.contact-details .protected{ font-weight:700; color:var(--brand-1) }
+.staff-contacts .contact-line{ margin:6px 0 }
+
+/* Team photos */
+.team-photo{
+  max-width:260px; width:100%; height:auto; border-radius:12px; border:4px solid #f0f4f8;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08); margin:12px auto; display:block; object-fit:cover
+}
+.team-photo-frame{ padding:8px; border-radius:16px; background: linear-gradient(180deg, #d9eef6, #f7fbfd); display:inline-block }
+
+/* Back to top */
 .back-to-top{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  border:0;
-  background:var(--brand-1);
-  color:#fff;
-  font-weight:700;
-  cursor:pointer;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
-  display:none;
-  align-items:center;
-  justify-content:center;
+  position:fixed; right:16px; bottom:16px; width:40px; height:40px; border-radius:999px;
+  background: var(--pill-active); color:#fff; border:none; display:none; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 24px rgba(0,0,0,0.14)
 }
-.back-to-top.show{ display:flex; }
+.back-to-top.show{ display:flex }
 
-/* --------------------------
-   Responsive tweaks
-   -------------------------- */
-@media (max-width:1100px){
-  .header-inner{ padding-left:12px; padding-right:12px; }
-  .nav-tabs{ gap:8px; padding:8px; }
+/* Footer (signature-like logo size, not competing) */
+.site-footer{
+  background-color: var(--footer-green); color:#fff; text-align:center; padding:25px 10px; font-size:0.95rem; border-top:3px solid var(--gold)
 }
+.footer-content{ display:flex; flex-direction:column; align-items:center; gap:8px }
+.footer-logo{ width:70px; height:auto; margin-bottom:5px }
+.site-footer p{ margin:0; line-height:1.4 }
 
-@media (max-width:880px){
-  .hero{ padding:18px; margin-top:8px; }
-  .card{ padding:16px; border-radius:14px; }
-  .form-row{ flex-direction:column; }
-  .back-to-top{ right:12px; bottom:14px; }
-}
-
-/* Small accessibility helpers */
-a:focus, button:focus, input:focus, textarea:focus{ outline: 3px solid rgba(47,143,74,0.12); outline-offset:3px; }
-
-
+/* Utility */
+.small{ font-size:0.95rem; color:var(--text-soft) }
+.actions{ margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center }
