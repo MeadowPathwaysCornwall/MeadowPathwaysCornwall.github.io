@@ -1,190 +1,389 @@
-/* -------------------------------------------------------
-   Meadow Pathways Design Theme (based on bgr.png)
-   ------------------------------------------------------- */
+/* ======================================================
+   Meadow Pathways — Themed site stylesheet (soft textured)
+   Uses bgr.png for the header banner and Logo.png placed
+   under the navigation. Keeps all HTML and content intact.
+   ====================================================== */
 
-body {
-  margin: 0;
-  font-family: "Poppins", "Segoe UI", sans-serif;
-  background: #f7f9f8;
-  color: #333;
-  line-height: 1.6;
+/* --------------------------
+   Root variables (palette derived from your bgr.png)
+   -------------------------- */
+:root{
+  --brand-1: #2f8f4a;      /* deep meadow green */
+  --brand-2: #00a6c1;      /* aqua accent */
+  --brand-dark: #0f3b38;
+  --accent-warm: #e7b84b;  /* golden highlight */
+  --muted: #6b7c7a;
+  --bg: #fbfdfd;
+  --panel: rgba(255,255,255,0.98);
+  --soft-border: rgba(8,20,20,0.03);
+  --shadow-1: 0 8px 28px rgba(12,28,30,0.08);
+  --max-width: 1100px;
+  --gutter: 18px;
+  --radius: 18px;
+  --ui-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --text-deep: #163632;
+  --text-soft: #607873;
+  --pill-bg: var(--brand-1);
 }
 
-/* HEADER */
-.site-header {
-  background: #d9d9d9;
-  border-radius: 0 0 28px 28px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 12px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+/* --------------------------
+   Base / reset
+   -------------------------- */
+* { box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: var(--ui-font);
+  color:var(--text-deep);
+  background: linear-gradient(180deg,#fbfdfd 0%, #f3f7f5 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.48;
+  --container-gap: 18px;
 }
 
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
+/* container helper (keeps same as your pages) */
+.container { max-width: var(--max-width); margin:0 auto; padding: 0 var(--gutter); }
+
+/* small helpers used in inline styles in your HTML */
+.skip-link{ position:absolute; left:-9999px; }
+
+/* --------------------------
+   Header: nav + soft textured banner
+   -------------------------- */
+.site-header{
+  position: relative;
+  z-index:1100;
+  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.98));
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  backdrop-filter: blur(4px) saturate(110%);
+  padding-top:10px;
+  padding-bottom:8px;
+  box-shadow: 0 6px 24px rgba(10,30,30,0.03);
+  overflow: visible;
 }
 
-/* LOGO */
-.logo-wrap {
-  margin-bottom: 10px;
+/* banner underneath nav (soft texture from bgr.png)
+   - uses background image bgr.png, positioned centered top
+   - inset gradient overlay for legibility
+*/
+.site-header::after{
+  content:"";
+  display:block;
+  width:100%;
+  height:128px; /* visible banner height under the nav */
+  background-image: url('bgr.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  opacity:0.98;
+  margin-top:10px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  filter: saturate(105%);
+  pointer-events:none;
 }
 
-.logo {
-  height: 90px;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* NAVIGATION */
-.primary-nav {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.nav-tabs {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
+/* header-inner layout:
+   - show nav first, logo after (so logo sits under nav visually)
+   - we keep markup unchanged but reorder with flex order
+*/
+.header-inner{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 8px var(--gutter) 0 var(--gutter);
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
   gap: 14px;
-  flex-wrap: wrap;
+  position: relative;
+  z-index:1110;
+  flex-wrap:wrap;
 }
 
-.nav-tabs a {
-  background: #f3f3f3;
-  color: #333;
-  text-decoration: none;
-  padding: 8px 14px;
+/* Force nav above logo visually */
+.primary-nav { order: 1; width:100%; display:flex; justify-content:center; }
+.logo-wrap    { order: 2; width:100%; display:flex; justify-content:center; margin-top:6px; }
+
+/* Logo appearance (centered under nav, framed to match the banner) */
+.logo, .brand img {
+  display:block;
+  max-height:120px;
+  width:auto;
+  object-fit:contain;
+  background: rgba(255,255,255,0.85);
+  padding:6px;
+  border-radius:14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* responsive logo sizing */
+@media (max-width:1200px){ .logo{ max-height:100px; } }
+@media (max-width:880px){ .logo{ max-height:84px; } }
+@media (max-width:560px){ .logo{ max-height:64px; padding:4px; } }
+
+/* --------------------------
+   Navigation (tabs inside a rounded bar)
+   -------------------------- */
+.primary-nav { display:flex; align-items:center; gap:12px; padding:6px 0; }
+.nav-toggle{ display:none; background:transparent; border:0; font-size:22px; cursor:pointer; color:var(--brand-dark); }
+
+/* nav-tabs styling */
+.nav-tabs{
+  list-style:none;
+  margin:0;
+  padding:6px;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.72));
+  border-radius:28px;
+  padding:8px 12px;
+  box-shadow: 0 6px 20px rgba(12,28,30,0.06);
+  border:1px solid rgba(0,0,0,0.04);
+}
+
+/* individual tab buttons (text preserved from your pages) */
+.nav-tabs li a{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:14px;
+  background: transparent;
+  color:var(--brand-dark);
+  font-weight:700;
+  text-decoration:none;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+  border: 1px solid transparent;
+}
+
+/* hover and active states */
+.nav-tabs li a:hover{
+  transform: translateY(-3px);
+  background: linear-gradient(180deg, rgba(0,166,185,0.06), rgba(0,166,185,0.02));
+  box-shadow: 0 12px 32px rgba(0,166,185,0.04);
+  color: var(--brand-dark);
+}
+.nav-tabs li a.active{
+  background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+  color:#fff;
+  box-shadow: 0 12px 36px rgba(0,120,120,0.12);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* mobile nav behaviour */
+@media (max-width:880px){
+  .nav-toggle{ display:inline-block; }
+  .nav-tabs{
+    position:absolute;
+    top:64px;
+    right:var(--gutter);
+    left:var(--gutter);
+    display:none;
+    flex-direction:column;
+    padding:12px;
+    z-index:1200;
+    background: rgba(255,255,255,0.98);
+    border-radius:12px;
+  }
+  .nav-tabs.open{ display:flex; }
+  .header-inner{ padding-bottom:0; }
+}
+
+/* --------------------------
+   Hero
+   -------------------------- */
+.hero{
+  margin-top: 18px;
+  padding: 28px;
   border-radius: 16px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border: 1px solid #ccc;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,255,250,0.98));
+  box-shadow: var(--shadow-1);
+  position: relative;
+  overflow: visible;
 }
 
-.nav-tabs a:hover,
-.nav-tabs a.active {
-  background: #2f8f4a;
-  color: #fff;
-  border-color: #2f8f4a;
+/* Decorative accent (SVG sits as-is in your HTML) */
+#hero-title{ font-size: clamp(1.6rem, 2.2vw, 2.4rem); color:var(--brand-1); margin:0 0 8px 0; }
+.hero-sub{ color:var(--text-soft); margin:6px 0 0 0; }
+
+/* hero action pills */
+.hero .pill{ margin-top:12px; display:inline-block; }
+
+/* subtle overlay to blend hero with header banner */
+.hero::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:-46px;
+  height:46px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.0), rgba(255,255,255,0.85));
+  pointer-events:none;
 }
 
-/* GENERAL LAYOUT */
-section {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-h1, h2, h3 {
-  color: #2f8f4a;
-  margin-bottom: 12px;
-}
-
-/* PANEL DESIGN */
-.card {
-  border-radius: 28px;
-  padding: 40px 30px;
-  margin: 40px auto;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
-}
-
-/* Section backgrounds in gentle tones */
-#home.card { background: linear-gradient(135deg, #f7fbf8, #ffffff); }
-#approach.card { background: linear-gradient(135deg, #f0f8f5, #ffffff); }
-#support.card { background: linear-gradient(135deg, #f8fbfd, #ffffff); }
-#referrals.card { background: linear-gradient(135deg, #fff8f2, #ffffff); }
-#safeguarding.card { background: linear-gradient(135deg, #f6fff9, #ffffff); }
-#contact.card { background: linear-gradient(135deg, #fafafa, #ffffff); }
-
-/* CAROUSEL */
-.carousel {
-  margin-top: 20px;
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 8px;
+/* --------------------------
+   Cards/sections: softly shaped panels
+   -------------------------- */
+.card{
+  background: var(--panel);
   border-radius: 18px;
-  background: #f8f8f8;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  padding: 22px;
+  margin: 20px 0;
+  box-shadow: 0 10px 28px rgba(12,28,30,0.04);
+  border:1px solid var(--soft-border);
 }
 
-.carousel img.slide {
-  width: 280px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 4px solid #e4e4e4;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+/* gentle per-section tinting — keeps your text intact */
+.card:nth-of-type(odd){ background: linear-gradient(180deg, rgba(250,255,250,0.98), #fff); }
+.card:nth-of-type(even){ background: linear-gradient(180deg, #fff, rgba(250,255,254,0.98)); }
+
+/* headings inside cards */
+.card h2, .card h3 { color: var(--brand-dark); margin-top:0; }
+
+/* three-column blocks and internal grid (keeps inline styles) */
+.emoji-list li { margin: 10px 0; }
+
+/* team photos frames */
+.team-photo{ max-width:260px; width:100%; height:auto; border-radius:12px; border:6px solid #f0f4f8; box-shadow: 0 6px 18px rgba(0,0,0,0.06); object-fit:cover; display:block; }
+.team-photo-frame{ display:inline-block; padding:8px; border-radius:16px; background: linear-gradient(180deg, #d9eef6, #f7fbfd); }
+
+/* hide any contact-specific team-photo display override you used */
+.contact-section .team-photo, .contact-section .team-photo-frame { display:block; }
+
+/* --------------------------
+   Carousel — framed images
+   -------------------------- */
+.carousel{
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fbfbfb, #f6f8f7);
+  box-shadow: 0 8px 26px rgba(10,30,30,0.06);
+  padding: 12px;
 }
 
-/* BUTTONS */
-.pill {
-  background: #2f8f4a;
+/* slides (your HTML uses <img class="slide">) */
+.slides{ display:block; }
+.slide{
+  display:none; /* your inline script toggles .active */
+  width:100%;
+  height:auto;
+  max-height:420px;
+  object-fit:cover;
+  border-radius:12px;
+  border: 6px solid #fff;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+}
+
+/* active slide */
+.slide.active{ display:block; }
+
+/* carousel controls (your HTML contains .carousel-controls) */
+.carousel-controls{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; }
+.carousel-btn{ background:#fff; border:1px solid rgba(0,0,0,0.06); padding:8px 12px; border-radius:8px; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+.dots{ display:inline-flex; gap:8px; align-items:center; }
+.dot{ width:10px; height:10px; border-radius:50%; background:#ddd; border:none; cursor:pointer; }
+.dot.active{ background: var(--brand-1); }
+
+/* small caption styling */
+.carousel-caption { color: var(--text-soft); font-size:0.98rem; }
+
+/* --------------------------
+   Buttons / pills
+   -------------------------- */
+.pill{
+  display:inline-block;
+  padding: 10px 16px;
+  border-radius: 26px;
+  background: var(--pill-bg);
   color: #fff;
-  border-radius: 24px;
-  padding: 10px 18px;
-  text-decoration: none;
-  font-weight: 500;
-  display: inline-block;
-  transition: background 0.3s ease;
-  margin-top: 12px;
+  text-decoration:none;
+  font-weight:600;
+  transition: transform .14s ease, box-shadow .14s ease;
+  box-shadow: 0 8px 20px rgba(47,143,74,0.08);
 }
-.pill:hover {
-  background: #256f3a;
-}
+.pill:hover{ transform: translateY(-3px); box-shadow: 0 16px 34px rgba(47,143,74,0.12); }
 
-/* FOOTER */
-.site-footer {
-  background: #2f8f4a;
-  color: #fff;
-  text-align: center;
-  padding: 24px 0;
-  border-top-left-radius: 32px;
-  border-top-right-radius: 32px;
-  margin-top: 48px;
-}
-.footer-logo {
-  height: 70px;
-  margin-bottom: 12px;
-  border-radius: 12px;
+/* secondary pill if present */
+.pill-secondary, .pill.secondary{ background:#f3f3f3; color:var(--brand-dark); }
+
+/* inline small utility classes from your inline CSS */
+.small{ font-size:0.95rem; color:var(--text-soft); }
+.hint{ color:var(--text-soft); font-size:0.95rem; }
+
+/* --------------------------
+   Forms (contact page)
+   -------------------------- */
+.form-row{ display:flex; gap:12px; align-items:flex-start; }
+.form-col{ flex:1; display:flex; flex-direction:column; gap:8px; }
+label{ font-weight:600; color:var(--brand-dark); }
+input[type="text"], input[type="email"], input[type="tel"], textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.08);
   background: #fff;
-  padding: 6px;
+  font-size:1rem;
+  color:var(--brand-dark);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.03) inset;
+}
+textarea{ min-height:120px; resize:vertical; }
+
+/* protected contact box */
+.protected-note{ background:#fff4e6; border-left:4px solid var(--accent-warm); padding:10px 12px; border-radius:8px; color:var(--brand-dark); }
+
+/* --------------------------
+   Footer
+   -------------------------- */
+.site-footer{
+  background: linear-gradient(180deg, var(--brand-1), #0f6b5c);
+  color:#fff;
+  text-align:center;
+  padding:28px 16px;
+  margin-top:36px;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+}
+.site-footer .footer-logo{ height:72px; margin-bottom:12px; border-radius:12px; background:#fff; padding:6px; }
+
+/* --------------------------
+   Back to top button
+   -------------------------- */
+.back-to-top{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:0;
+  background:var(--brand-1);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+.back-to-top.show{ display:flex; }
+
+/* --------------------------
+   Responsive tweaks
+   -------------------------- */
+@media (max-width:1100px){
+  .header-inner{ padding-left:12px; padding-right:12px; }
+  .nav-tabs{ gap:8px; padding:8px; }
 }
 
-/* BACK TO TOP BUTTON */
-.back-to-top {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: #2f8f4a;
-  color: #fff;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  cursor: pointer;
-}
-.back-to-top:hover {
-  background: #256f3a;
+@media (max-width:880px){
+  .hero{ padding:18px; margin-top:8px; }
+  .card{ padding:16px; border-radius:14px; }
+  .form-row{ flex-direction:column; }
+  .back-to-top{ right:12px; bottom:14px; }
 }
 
-/* MOBILE OPTIMISATION */
-@media (max-width: 768px) {
-  .carousel img.slide {
-    width: 90%;
-    height: auto;
-  }
-  section {
-    padding: 30px 16px;
-  }
-}
+/* Small accessibility helpers */
+a:focus, button:focus, input:focus, textarea:focus{ outline: 3px solid rgba(47,143,74,0.12); outline-offset:3px; }
+
+
