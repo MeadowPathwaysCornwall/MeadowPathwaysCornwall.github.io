@@ -31,7 +31,7 @@ a:focus,button:focus,input:focus,textarea:focus{outline:none;box-shadow:0 0 0 va
 .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--container-padding)}
 
 /* Header */
-.site-header{background:transparent;position:sticky;top:0;z-index:60;backdrop-filter:blur(6px)}
+.site-header{background:transparent;position:sticky;top:0;z-index:60;backdrop-filter:blur(6px);padding-top:6px}
 .primary-nav{display:flex;align-items:center;justify-content:center;padding:8px 0}
 .primary-nav .container{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .primary-nav ul{display:flex;gap:10px;align-items:center;list-style:none;padding:0;margin:0}
@@ -52,6 +52,7 @@ a:focus,button:focus,input:focus,textarea:focus{outline:none;box-shadow:0 0 0 va
   justify-content:center;
   color:#fff;
   overflow:hidden;
+  padding:28px 0;
 }
 
 /* Use BG.png as the full page background image — ensure path is correct */
