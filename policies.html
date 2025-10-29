@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Policies — Meadow Pathways Wellbeing and Education Cornwall</title>
+<link rel="stylesheet" href="style.css" />
+<meta name="robots" content="noindex" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" role="banner">
+  <div class="header-inner container">
+    <nav aria-label="Primary" class="primary-nav">
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+      <ul id="primaryNav" class="nav-tabs" role="menubar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html">Staff</a></li>
+        <li><a href="staff-rota.html">Staff Rota</a></li>
+        <li><a href="policies.html" class="active">Policies</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="logo-wrap container">
+    <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+    </a>
+  </div>
+</header>
+
+<div class="page-wrap">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-overlay container">
+      <h1 id="hero-title">Policies</h1>
+      <p class="hero-sub">Downloadable policy documents for Meadow Pathways staff and partners</p>
+    </div>
+  </section>
+
+  <main id="main" class="container">
+    <section class="card" aria-labelledby="policy-list">
+      <h2 id="policy-list">📑 Policy Documents</h2>
+      <p>These policies guide our practice and ensure we maintain the highest standards of safeguarding, wellbeing, and professional conduct. Please download the documents you need below:</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;">
+        <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding & Child Protection Policy</a>
+        <a class="pill" href="MPWEC Behaviour Policy.docx" download>Behaviour Policy</a>
+        <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+        <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
+        <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy (EOTAS)</a>
+        <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>Health & Safety Policy</a>
+        <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+      </div>
+
+      <p class="hint" style="margin-top:12px;">All policies are reviewed annually and updated in line with statutory guidance.</p>
+    </section>
+  </main>
+</div>
+
+<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
+    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+    <p>Guiding Individual Journeys with Care and Purpose</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', function(){
+      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+  }
+  var backBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show');
+  });
+  backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+</body>
+</html>
