@@ -1,247 +1,144 @@
-:root {
+/* Style.css — Meadow Pathways (complete replacement)
+   Focus: consistent layout, responsive, image handling, remove artifacts, footer sizing,
+   accessible typography, framed profile images, hero BG image and overlay */
 
-  --brand-1: #0f3b38;
-  --brand-2: #2f8f4a; /* green */
-  --brand-3: #00a6c1; /* aqua */
-  --brand-4: #e7b84b; /* warm gold */
-  --brand-5: #e67a7a; /* red/rose */
-  --bg-soft: #fbfdfd;
-  --text: #163632;
-  --text-soft: #4e6a67;
+:root{
+  --brand-1: #2f8f4a;
+  --brand-2: #23603f;
+  --muted: #6b7b76;
+  --soft: #f6fbf9;
   --card-bg: #ffffff;
-  --soft-border: #e6eef3;
-  --shadow-1: 0 8px 28px rgba(12,28,30,0.08);
-  --radius: 14px;
-  --max-width: 1100px;
-  --gutter: 18px;
-  --pill-bg: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.64));
-  --pill-active: linear-gradient(180deg, #2f8f4a, #00a6c1);
-
-  /* Header/logo canvas, softly merged into background using palette from your logo */
-  --logo-gradient:
-  radial-gradient(1200px 500px at 50% 0%, rgba(231,251,231,0.95) 0%, rgba(217,238,246,0.9) 40%, rgba(217,238,246,0.65) 100%);
+  --text: #072a26;
+  --text-soft: #4e6a67;
+  --gold: #d4af37;
+  --max-width: 1150px;
+  --container-padding: 18px;
+  --radius: 12px;
+  --footer-logo-size: 48px;
+  --header-height: 88px;
+  --focus: 3px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* Base */
+/* Global resets */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--soft);color:var(--text);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block;border-style:none}
+a{color:var(--brand-1);text-decoration:none}
+a:focus,button:focus,input:focus,textarea:focus{outline:none;box-shadow:0 0 0 var(--focus) rgba(47,143,74,0.12);border-radius:8px}
 
-* { box-sizing: border-box; }
+/* Layout container */
+.container{max-width:var(--max-width);margin:0 auto;padding:0 var(--container-padding)}
 
-html, body { height: 100%; margin: 0; font-family: "Inter", system-ui, "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg-soft); color: var(--text); line-height: 1.5; }
+/* Header */
+.site-header{background:transparent;position:sticky;top:0;z-index:60;backdrop-filter:blur(6px)}
+.primary-nav{display:flex;align-items:center;justify-content:center;padding:8px 0}
+.primary-nav .container{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.primary-nav ul{display:flex;gap:10px;align-items:center;list-style:none;padding:0;margin:0}
+.primary-nav li a{display:inline-block;padding:8px 12px;border-radius:8px;color:var(--text-soft);font-weight:600}
+.primary-nav li a.active{background:rgba(47,143,74,0.08);color:var(--brand-2)}
+.logo-canvas{display:flex;align-items:center;justify-content:center;padding:12px 0}
+.logo{height:56px;width:auto;display:block}
 
-a { color: inherit; text-decoration: none; }
+/* Page wrap */
+.page-wrap{min-height:100vh;display:flex;flex-direction:column}
 
-.container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
-
-/* Navigation above merged logo */
-
-.site-header { background: var(--logo-gradient); text-align: center; position: relative; z-index: 3; }
-
-.primary-nav ul {
-  list-style: none; margin: 0; padding: 12px var(--gutter);
-  display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
+/* Hero with full BG image */
+.hero{
+  position:relative;
+  min-height:320px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  overflow:hidden;
 }
 
-.primary-nav a {
-  display: inline-block; padding: 10px 16px; border-radius: 999px;
-  background: var(--pill-bg); color: var(--brand-1); font-weight: 700;
-  border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 6px 18px rgba(8,26,26,0.06);
+/* Use BG.png as the full page background image — ensure path is correct */
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background-image:url('BG.png');
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  filter:contrast(0.98) saturate(0.95) brightness(0.68);
+  z-index:0;
 }
 
-.primary-nav a.active { background: var(--pill-active); color: #fff; }
+/* overlay for legibility */
+.hero-overlay{position:relative;z-index:2;padding:44px 16px;text-align:center;max-width:980px}
+.hero h1{margin:0;font-size:clamp(1.8rem,3.8vw,2.6rem);line-height:1.05}
+.hero p{margin:8px 0 0;color:rgba(255,255,255,0.92);font-weight:500}
 
-/* --- Logo canvas: bigger, blended under nav --- */
+/* card content */
+.card{background:var(--card-bg);border-radius:var(--radius);padding:20px;margin:18px 0;box-shadow:0 8px 30px rgba(12,28,30,0.06);border:1px solid rgba(10,20,18,0.03)}
+.card h2, .card h3{margin-top:0;color:var(--brand-2)}
 
-.logo-canvas {
-  position: relative;
-  padding: 42px 0 42px;
-  background:
-    radial-gradient(520px 220px at 18% 14%, rgba(47,143,74,0.16) 0%, transparent 58%),
-    radial-gradient(480px 200px at 82% 16%, rgba(0,166,193,0.18) 0%, transparent 58%),
-    radial-gradient(420px 180px at 50% 6%, rgba(230,122,122,0.14) 0%, transparent 68%),
-    var(--logo-gradient);
-  overflow: visible;
-  z-index: 1;
+/* Typographic niceties */
+h1,h2,h3,h4{font-weight:700;color:var(--text)}
+p{line-height:1.55;color:var(--text-soft);margin:0 0 12px}
+
+/* Values / pills */
+.pill, .pill:link, .pill:visited{display:inline-block;padding:8px 12px;border-radius:999px;background:#f0f6f4;color:var(--brand-2);font-weight:700;border:1px solid rgba(47,143,74,0.06)}
+.pill.primary{background:var(--brand-1);color:#fff;border:none}
+
+/* Team images — consistent framed circular crop with shadow */
+.themed-frame{position:relative;display:inline-block;border-radius:14px;background:linear-gradient(180deg,#fff,#f8faf8);padding:6px}
+.themed-frame.compact{padding:6px;border-radius:14px}
+.themed-frame img{display:block;border-radius:10px;width:160px;height:160px;object-fit:cover;border:4px solid rgba(255,255,255,0.8);box-shadow:0 8px 20px rgba(11,24,20,0.12);background:linear-gradient(180deg,#fff,#f0f6f3)}
+
+/* For small screens, reduce size */
+@media (max-width:680px){
+  .themed-frame img{width:120px;height:120px}
+  .logo{height:46px}
 }
 
-.logo-canvas .brand { display: inline-block; }
+/* Bio card layout */
+.crew{display:flex;gap:18px;align-items:flex-start}
+.bio-card{flex:1;min-width:0}
 
-/* make the logo larger and softly blended */
-.logo {
-  height: 260px;
-  width: auto;
-  display: block;
-  margin: 8px auto 0;
-  filter: drop-shadow(0 18px 36px rgba(0,0,0,0.12));
-  mix-blend-mode: normal;
-  background: transparent;
+/* Make sure images MP.jpeg and Zoe.jpeg are never oversized */
+img[src$="MP.jpeg"], img[src$="Zoe.jpeg"], img[src$="MP.jpg"], img[src$="Zoe.jpg"]{
+  width:160px;height:160px;object-fit:cover;border-radius:10px;border:4px solid rgba(255,255,255,0.8)
 }
-
-/* subtle overlay so the logo feels embedded */
-.logo-canvas::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; top: 0; bottom: 0;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.06));
-}
-
-/* Hero starts after logo */
-
-.hero {
-  padding: 46px 0;
-  background: linear-gradient(135deg, #e7fbe7, #d9eef6);
-  border-radius: var(--radius);
-  margin: 12px 0 8px;
-}
-
-.hero h1 { font-size: 2rem; color: var(--brand-3); margin: 0 0 8px; }
-
-.hero-sub { color: var(--text-soft); }
-
-/* Pills */
-
-.pill { display: inline-block; padding: 10px 16px; border-radius: 999px; background: var(--pill-bg); color: var(--brand-1); font-weight: 700; border: 1px solid rgba(0,0,0,0.06); }
-
-.pill.primary { background: var(--pill-active); color: #fff; border: none; }
-
-/* Document pill-box (RSHE and EBSNA) */
-
-.pill-box {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 18px 0;
-  align-items: center;
-}
-
-.pill-box .doc-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: var(--pill-bg);
-  color: var(--brand-1);
-  font-weight: 700;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 6px 18px rgba(8,26,26,0.04);
-  text-decoration: none;
-}
-
-.pill-box .doc-pill.primary {
-  background: var(--pill-active);
-  color: #fff;
-  border: none;
-}
-
-.pill-box .doc-pill .icon {
-  width: 28px; height: 28px; display: inline-grid; place-items: center;
-  background: rgba(255,255,255,0.75); border-radius: 8px; color: var(--brand-1); font-weight: 800;
-}
-
-.pill-box .doc-pill:focus,
-.pill-box .doc-pill:focus-visible {
-  outline: 3px solid rgba(0,166,193,0.18);
-  outline-offset: 3px;
-}
-
-/* Cards */
-
-.card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid rgba(0,0,0,0.05); box-shadow: var(--shadow-1); padding: 20px; margin: 16px 0; }
-
-.card > h2 { margin: 0 0 12px; padding-left: 12px; border-left: 6px solid rgba(0,166,193,0.18); }
-
-/* Box grid */
-
-.box-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 12px; }
-
-.box { border-radius: 12px; padding: 14px; background: linear-gradient(180deg, #d9eef6, #f7fbfd); }
-
-.box.alt-1 { background: linear-gradient(180deg, #fde7e7, #fff6f6); }
-
-.box.alt-2 { background: linear-gradient(180deg, #e7fbe7, #f7fffa); }
-
-.box-title { color: #23607b; font-weight: 700; font-size: 1.06rem; }
-
-/* Themed framed images for mp.jpeg and zoe.jpeg */
-
-.themed-frame {
-  display: inline-block; border-radius: 18px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.74));
-  box-shadow: 0 8px 28px rgba(12,28,30,0.10);
-  padding: 10px; border: 1px solid rgba(0,0,0,0.06);
-}
-
-.themed-frame img {
-  display: block; max-width: 520px; width: 100%; height: auto; border-radius: 12px;
-}
-
-/* Smaller framed variant for about page */
-
-.themed-frame.compact { padding: 8px; border-radius: 14px; }
-.themed-frame.compact img { max-width: 260px; border-radius: 10px; }
-
-/* Generic content images (e.g., about page) */
-
-.page-content img {
-  max-width: 100%; height: auto; border-radius: 12px;
-  box-shadow: var(--shadow-1); margin: 12px 0;
-}
-
-/* Carousel (single-image reel) */
-
-.carousel { position: relative; overflow: hidden; border-radius: 16px; border: 1px solid rgba(0,0,0,0.06); }
-
-.slide { width: 100%; max-height: 540px; object-fit: cover; display: none; }
-
-.slide.active { display: block; }
-
-.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; }
-
-.carousel-btn { background: #fff; border: 1px solid #ddd; padding: 8px 12px; border-radius: 10px; cursor: pointer; font-weight: 700; color: var(--brand-1); }
-
-.dots .dot { width: 10px; height: 10px; border-radius: 50%; background: #ddd; border: none; cursor: pointer; }
-
-.dots .dot.active { background: var(--brand-2); }
 
 /* Footer */
-
-.site-footer {
-  background: var(--pill-active);
-  color: #fff;
-  text-align: center;
-  padding: 40px 10px;
-  font-size: 0.95rem;
-  border-top: 4px solid #e7b84b;
-}
-
-.footer-content { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-
-.footer-logo { width: 140px; height: auto; margin-bottom: 10px; border-radius: 16px; background: #fff; padding: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
-
-.site-footer p { margin: 0; line-height: 1.4; }
+.site-footer{background:linear-gradient(180deg,#f7fbf8,#edf7f2);padding:18px 0;border-top:1px solid rgba(10,20,18,0.03)}
+.footer-content{display:flex;align-items:center;gap:16px;justify-content:center;flex-wrap:wrap}
+.footer-logo{width:var(--footer-logo-size);height:auto;border-radius:6px}
 
 /* Back to top */
+.back-to-top{position:fixed;right:18px;bottom:18px;background:var(--brand-2);color:#fff;border:none;padding:10px 12px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(31,58,42,0.16);opacity:0;transform:translateY(8px);transition:all .22s ease;z-index:60}
+.back-to-top.show{opacity:1;transform:translateY(0)}
 
-.back-to-top {
-  position: fixed; right: 14px; bottom: 14px;
-  background: var(--pill-active); color: #fff;
-  border: none; border-radius: 999px;
-  padding: 10px 12px; font-weight: 700; cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  opacity: 0; pointer-events: none; transition: opacity .2s ease;
+/* Accessibility helpers */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:12px;top:12px;width:auto;height:auto;background:#fff;padding:6px 8px;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.18)}
+
+/* Forms */
+input[type="text"], input[type="email"], input[type="tel"], textarea, select, input[type="number"], input[type="date"], input[type="time"], input[type="password"]{
+  width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(10,20,18,0.06);background:#fff;color:var(--text);box-shadow:none;box-sizing:border-box;
+}
+label{display:block;margin-bottom:6px;font-weight:700;color:var(--brand-2)}
+.form-row{display:flex;gap:12px}
+@media (max-width:760px){ .form-row{flex-direction:column} }
+
+/* Small utilities */
+.hint{color:var(--muted);font-size:0.95rem}
+.emoji-list li{margin:8px 0}
+.values .pill{padding:10px 14px}
+
+/* Remove stray artifactual elements (blue circle or stray svg) if present */
+body svg#__artifact, .blue-circle, .stray-code, .random-programming-text{display:none !important;visibility:hidden !important;pointer-events:none !important}
+
+/* Ensure background repeats or scales correctly on very narrow screens */
+@media (max-width:420px){
+  .hero::before{background-position: center top}
 }
 
-.back-to-top.show { opacity: 1; pointer-events: auto; }
+/* Ensure footer doesn't dominate */
+.site-footer p{margin:4px 0;color:var(--text-soft);font-size:0.95rem}
 
-/* Responsive tweaks */
-
-@media (max-width: 760px) {
-  .logo { height: 200px; }
-  .themed-frame.compact img { max-width: 180px; }
-}
-
-@media (max-width: 600px) {
-  .logo { height: 140px; }
-  .slide { max-height: 420px; }
-}
+/* Small print override for protected content (visual cue only) */
+.protected{font-weight:700}
