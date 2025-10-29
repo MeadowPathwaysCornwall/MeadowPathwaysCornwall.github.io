@@ -1,21 +1,118 @@
+/* ======================================================
+Meadow Pathways — site-wide theme
+====================================================== */
+
+:root{
+  --brand-1: #0f3b38;
+  --brand-2: #2f8f4a;
+  --brand-3: #00a6c1;
+  --brand-4: #e7b84b;
+  --brand-5: #e67a7a;
+  --bg-soft: #fbfdfd;
+  --text: #163632;
+  --text-soft: #4e6a67;
+  --card-bg: #ffffff;
+  --soft-border: #e6eef3;
+  --shadow-1: 0 8px 28px rgba(12,28,30,0.08);
+  --radius: 14px;
+  --max-width: 1100px;
+  --gutter: 18px;
+  --pill-bg: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.64));
+  --pill-active: linear-gradient(180deg, #2f8f4a, #00a6c1);
+  --gold: #d4af37;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg-soft);
+  color: var(--text);
+  line-height:1.5;
+}
+
+/* Containers */
+.container{max-width:var(--max-width); margin:0 auto; padding:0 var(--gutter)}
+.skip-link{position:absolute; left:-9999px}
+
+/* Header */
+.site-header{
+  background: rgba(255,255,255,0.98);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  backdrop-filter: blur(6px);
+}
+.header-inner{
+  display:flex; align-items:center; justify-content:center; gap:18px;
+  padding:14px var(--gutter);
+}
+.primary-nav{display:flex; align-items:center; justify-content:center; gap:10px}
+.nav-tabs{list-style:none; margin:0; padding:0; display:flex; gap:8px; flex-wrap:wrap; justify-content:center}
+.nav-tabs li a{
+  display:inline-block; padding:10px 16px; border-radius:999px;
+  background: var(--pill-bg); color: var(--brand-1); font-weight:700; text-decoration:none;
+  border:1px solid rgba(0,0,0,0.06);
+  box-shadow:0 6px 18px rgba(8,26,26,0.06);
+}
+.nav-tabs li a.active{
+  background: var(--pill-active); color:#fff;
+}
+
+/* Logo */
+.logo-wrap{display:flex; align-items:center; justify-content:center; padding:10px 0 16px;}
+.logo{max-height:120px; width:auto; object-fit:contain;}
+
+/* Hero */
+.hero{padding:38px 0; background: linear-gradient(135deg, #e7fbe7, #d9eef6); border-radius: var(--radius); margin: 8px 0;}
+.hero-overlay h1#hero-title{ font-size:2rem; color: var(--brand-3); margin:0 0 8px }
+.hero-sub{ color: var(--text-soft) }
+
+/* Cards */
+.card{
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border:1px solid rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-1);
+  padding:20px; margin:16px 0;
+}
+.card > h2{ margin:0 0 12px; padding-left:12px; border-left:6px solid rgba(0,166,193,0.18) }
+
+/* Box grid */
+.box-grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px; margin-top:12px;}
+.box{border-radius:12px; padding:14px; background: linear-gradient(180deg, #d9eef6, #f7fbfd);}
+.box.alt-1{ background: linear-gradient(180deg, #fde7e7, #fff6f6) }
+.box.alt-2{ background: linear-gradient(180deg, #e7fbe7, #f7fffa) }
+.box-title{ color:#23607b; font-weight:700; font-size:1.06rem }
+
+/* Pills */
+.pill{
+  display:inline-block; padding:10px 16px; border-radius:999px;
+  background: var(--pill-bg); color: var(--brand-1); text-decoration:none; font-weight:700;
+  border:1px solid rgba(0,0,0,0.06);
+}
+.pill.primary{ background: var(--pill-active); color:#fff; border:none }
+
+/* Carousel */
+.carousel{ position:relative; overflow:hidden; border-radius:16px; border:1px solid rgba(0,0,0,0.06) }
+.slide{ width:100%; max-height:440px; object-fit:cover; display:none }
+.slide.active{ display:block }
+.carousel-controls{ display:flex; align-items:center; justify-content:center; gap:8px; padding:10px }
+.carousel-btn{ background:#fff; border:1px solid #ddd; padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:700; color:var(--brand-1) }
+.dot{ width:10px; height:10px; border-radius:50%; background:#ddd; border:none; cursor:pointer }
+.dot.active{ background: var(--brand-2) }
+
+/* Footer (updated) */
 .site-footer {
-  background: var(--pill-active); /* same gradient as pill buttons */
+  background: var(--pill-active);
   color: #fff;
   text-align: center;
   padding: 40px 10px;
   font-size: 0.95rem;
-  border-top: 4px solid #e7b84b; /* warm gold accent */
+  border-top: 4px solid #e7b84b;
 }
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
+.footer-content { display:flex; flex-direction:column; align-items:center; gap:10px; }
 .footer-logo {
-  width: 140px; /* bigger logo */
+  width: 140px;
   height: auto;
   margin-bottom: 10px;
   border-radius: 16px;
@@ -23,8 +120,4 @@
   padding: 8px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
-
-.site-footer p {
-  margin: 0;
-  line-height: 1.4;
-}
+.site-footer p { margin:0; line-height:1.4; }
