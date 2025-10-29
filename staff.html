@@ -18,7 +18,6 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Header -->
 <header class="site-header" role="banner">
   <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
     <div class="container">
@@ -38,7 +37,6 @@
     </div>
   </nav>
 
-  <!-- Logo canvas: centred, blended -->
   <section class="logo-canvas" aria-hidden="true">
     <div class="container">
       <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
@@ -48,7 +46,6 @@
 
 <div class="page-wrap">
 
-  <!-- Hero -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-overlay container">
       <h1 id="hero-title">Staff area</h1>
@@ -56,10 +53,8 @@
     </div>
   </section>
 
-  <!-- Main -->
   <main id="main" class="container" role="main">
 
-    <!-- Password gate -->
     <div id="locked" class="locked-overlay" aria-hidden="false">
       <div class="lock-box" role="dialog" aria-labelledby="lock-title" aria-modal="true">
         <h3 id="lock-title">Staff access required</h3>
@@ -70,7 +65,6 @@
       </div>
     </div>
 
-    <!-- Protected panel -->
     <div id="staffPanel" style="display:none" aria-hidden="true">
 
       <section class="card">
@@ -86,7 +80,6 @@
         <h3>Statutory and partner resources</h3>
         <div style="display:flex;flex-wrap:wrap;gap:8px;">
           <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">KCSIE (Sep 2025) — GOV.UK</a>
-          <a class="pill" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources</a>
           <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
           <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research</a>
           <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
@@ -103,7 +96,6 @@
         </div>
       </section>
 
-      <!-- Hours form -->
       <section class="card" style="margin-top:12px;">
         <h3>Hours logged</h3>
         <form id="hoursForm" method="POST" novalidate>
@@ -137,10 +129,8 @@
   </main>
 </div>
 
-<!-- Back to top button -->
 <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
-<!-- Footer -->
 <footer class="site-footer">
   <div class="footer-content">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
@@ -149,7 +139,6 @@
   </div>
 </footer>
 
-<!-- Scripts -->
 <script>
 (function () {
   // Password unlock
@@ -204,14 +193,16 @@
     });
   }
 
-  // Back to top visibility
-  const backBtn = document.getElementById('backToTop');
+  // Back to top
+  var backBtn = document.getElementById('backToTop');
   window.addEventListener('scroll', function(){
     if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show');
   });
-  backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  if (backBtn) backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
 })();
 </script>
 
+<script src="site.js"></script>
 </body>
 </html>
