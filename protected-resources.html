@@ -1,127 +1,114 @@
-:root {
-  --brand-1: #0f3b38;
-  --brand-2: #2f8f4a; /* green */
-  --brand-3: #00a6c1; /* aqua */
-  --brand-4: #e7b84b; /* warm gold */
-  --brand-5: #e67a7a; /* red/rose */
-  --bg-soft: #fbfdfd;
-  --text: #163632;
-  --text-soft: #4e6a67;
-  --card-bg: #ffffff;
-  --soft-border: #e6eef3;
-  --shadow-1: 0 8px 28px rgba(12,28,30,0.08);
-  --radius: 14px;
-  --max-width: 1100px;
-  --gutter: 18px;
-  --pill-bg: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.64));
-  --pill-active: linear-gradient(180deg, #2f8f4a, #00a6c1);
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Protected Resources — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <link rel="stylesheet" href="Style.css" />
+</head>
+<body>
 
-  --logo-gradient:
-    radial-gradient(1200px 500px at 50% 0%, rgba(231,251,231,0.95) 0%, rgba(217,238,246,0.9) 40%, rgba(217,238,246,0.65) 100%);
-}
+<a class="skip-link" href="#main">Skip to content</a>
 
-/* Base */
-* { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; font-family: "Inter", system-ui, "Segoe UI", Roboto, Arial, sans-serif; background: var(--bg-soft); color: var(--text); line-height: 1.5; }
-a { color: inherit; text-decoration: none; }
-.container { max-width: var(--max-width); margin: 0 auto; padding: 0 var(--gutter); }
+<!-- Header -->
+<header class="site-header" role="banner">
+  <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html">Staff</a></li>
+        <li><a href="staff-rota.html">Staff Rota</a></li>
+        <li><a href="policies.html">Policies</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="active" href="protected-resources.html">Protected</a></li>
+        <li><a href="passwords.html">Passwords</a></li>
+      </ul>
+    </div>
+  </nav>
 
-/* Navigation */
-.site-header { background: var(--logo-gradient); text-align: center; position: relative; z-index: 3; }
-.primary-nav ul {
-  list-style: none; margin: 0; padding: 12px var(--gutter);
-  display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
-}
-.primary-nav a {
-  display: inline-block; padding: 10px 16px; border-radius: 999px;
-  background: var(--pill-bg); color: var(--brand-1); font-weight: 700;
-  border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 6px 18px rgba(8,26,26,0.06);
-}
-.primary-nav a.active { background: var(--pill-active); color: #fff; }
+  <!-- Logo canvas -->
+  <section class="logo-canvas" aria-hidden="true">
+    <div class="container">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+    </div>
+  </section>
+</header>
 
-/* Logo canvas */
-.logo-canvas {
-  position: relative;
-  padding: 42px 0;
-  background:
-    radial-gradient(520px 220px at 50% 20%, rgba(47,143,74,0.16) 0%, transparent 60%),
-    radial-gradient(480px 200px at 50% 40%, rgba(0,166,193,0.18) 0%, transparent 60%),
-    radial-gradient(420px 180px at 50% 60%, rgba(230,122,122,0.14) 0%, transparent 70%),
-    var(--logo-gradient);
-  text-align: center;
-}
-.logo {
-  height: 260px;
-  width: auto;
-  display: inline-block;
-  filter: drop-shadow(0 18px 36px rgba(0,0,0,0.12));
-}
+<div class="page-wrap">
 
-/* Hero */
-.hero {
-  padding: 46px 0;
-  background: linear-gradient(135deg, #e7fbe7, #d9eef6);
-  border-radius: var(--radius);
-  margin: 12px 0 8px;
-  text-align: center;
-}
-.hero h1 { font-size: 2rem; color: var(--brand-3); margin: 0 0 8px; }
-.hero-sub { color: var(--text-soft); }
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-overlay container">
+      <h1 id="hero-title">Protected resources</h1>
+      <p class="hero-sub">Internal links and information for Meadow Pathways staff</p>
+    </div>
+  </section>
 
-/* Pills */
-.pill { display: inline-block; padding: 10px 16px; border-radius: 999px; background: var(--pill-bg); color: var(--brand-1); font-weight: 700; border: 1px solid rgba(0,0,0,0.06); }
-.pill.primary { background: var(--pill-active); color: #fff; border: none; }
+  <!-- Main -->
+  <main id="main" class="container" role="main">
 
-/* Document pill-box */
-.pill-box {
-  display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; align-items: center;
-}
-.pill-box .doc-pill {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 10px 14px; border-radius: 999px;
-  background: var(--pill-bg); color: var(--brand-1); font-weight: 700;
-  border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 6px 18px rgba(8,26,26,0.04);
-}
-.pill-box .doc-pill.primary { background: var(--pill-active); color: #fff; border: none; }
-.pill-box .doc-pill .icon {
-  width: 28px; height: 28px; display: inline-grid; place-items: center;
-  background: rgba(255,255,255,0.75); border-radius: 8px; color: var(--brand-1); font-weight: 800;
-}
+    <section class="content card">
+      <h2>Internal information</h2>
+      <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
+      <ul>
+        <li>Formspree endpoint for all forms: <code>https://formspree.io/f/movnvzqp</code></li>
+        <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
+        <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
+        <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
+        <li>Michelle’s phone: 07932243358</li>
+        <li>Zoe’s phone: 07775733587</li>
+      </ul>
+    </section>
 
-/* Cards */
-.card { background: var(--card-bg); border-radius: var(--radius); border: 1px solid rgba(0,0,0,0.05); box-shadow: var(--shadow-1); padding: 20px; margin: 16px 0; }
-.card > h2 { margin: 0 0 12px; padding-left: 12px; border-left: 6px solid rgba(0,166,193,0.18); }
+    <section class="content card">
+      <h2>Policy references</h2>
+      <p>For quick access, here are links to key policies and documents:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding &amp; Child Protection</a>
+        <a class="pill" href="KCSIE 2025.pdf" download>KCSIE (2025)</a>
+        <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>Health &amp; Safety Policy</a>
+        <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+        <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
+        <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+        <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy (EOTAS)</a>
+        <a class="pill" href="RSHE 2025.pdf" download>RSHE (2025)</a>
+      </div>
+    </section>
 
-/* Carousel */
-.carousel { position: relative; overflow: hidden; border-radius: 16px; border: 1px solid rgba(0,0,0,0.06); }
-.slide { width: 100%; max-height: 540px; object-fit: cover; display: none; }
-.slide.active { display: block; }
+    <section class="content card">
+      <h2>Notes</h2>
+      <p>These resources are for internal use. Please ensure that any updates to forms, policies, or contact details are reflected here to keep everything consistent across the site.</p>
+    </section>
 
-/* Footer */
-.site-footer {
-  background: var(--pill-active); color: #fff; text-align: center;
-  padding: 40px 10px; font-size: 0.95rem; border-top: 4px solid #e7b84b;
-}
-.footer-content { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.footer-logo { width: 140px; height: auto; margin-bottom: 10px; border-radius: 16px; background: #fff; padding: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
-.site-footer p { margin: 0; line-height: 1.4; }
+  </main>
+</div>
 
-/* Back to top */
-.back-to-top {
-  position: fixed; right: 14px; bottom: 14px;
-  background: var(--pill-active); color: #fff;
-  border: none; border-radius: 999px;
-  padding: 10px 12px; font-weight: 700; cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  opacity: 0; pointer-events: none; transition: opacity .2s ease;
-}
-.back-to-top.show { opacity: 1; pointer-events: auto; }
+<!-- Back to top button -->
+<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
-/* Responsive */
-@media (max-width: 760px) {
-  .logo { height: 200px; }
-}
-@media (max-width: 600px) {
-  .logo { height: 140px; }
-  .slide { max-height: 420px; }
-}
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
+    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+    <p>Guiding Individual Journeys with Care and Purpose</p>
+  </div>
+</footer>
+
+<!-- Script -->
+<script>
+(function(){
+  var backBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show');
+  });
+  backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+
+</body>
+</html>
