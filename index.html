@@ -1,89 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meadow Pathways Well-being and Education Cornwall</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="description" content="Meadow Pathways reconnects children with learning through trauma informed, bespoke education and wellbeing support across Cornwall." />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="logo-wrap">
-        <img src="logo.png" alt="Meadow Pathways Logo" class="logo">
-      </div>
+<body class="home-page">
+  <a class="skip-link" href="#main">Skip to content</a>
 
-      <nav class="primary-nav">
-        <ul class="nav-tabs">
-          <li><a href="#home" class="active">Home</a></li>
-          <li><a href="#approach">Our Approach</a></li>
-          <li><a href="#support">Support</a></li>
-          <li><a href="#referrals">Referrals</a></li>
-          <li><a href="#safeguarding">Safeguarding</a></li>
-          <li><a href="#contact">Contact</a></li>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <nav aria-label="Primary" class="primary-nav">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+        <ul id="primaryNav" class="nav-tabs" role="menubar">
+          <li role="none"><a role="menuitem" href="index.html" class="active">Home</a></li>
+          <li role="none"><a role="menuitem" href="about.html">About Us</a></li>
+          <li role="none"><a role="menuitem" href="safeguarding.html">Safeguarding</a></li>
+          <li role="none"><a role="menuitem" href="referral.html">Referrals</a></li>
+          <li role="none"><a role="menuitem" href="eotas.html">EOTAS</a></li>
+          <li role="none"><a role="menuitem" href="staff.html">Staff Page</a></li>
+          <li role="none"><a role="menuitem" href="contact.html">Contact Us</a></li>
         </ul>
       </nav>
+
+      <div class="logo-wrap">
+        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section id="home" class="hero card">
-    <h1>Welcome to Meadow Pathways</h1>
-    <p>Providing trauma-informed, person-centred education and wellbeing support across Cornwall.</p>
-    <div class="carousel">
-      <img src="carousel1.jpg" alt="Carousel image 1" class="slide">
-      <img src="carousel2.jpg" alt="Carousel image 2" class="slide">
-      <img src="carousel3.jpg" alt="Carousel image 3" class="slide">
-    </div>
-  </section>
+  <div class="page-wrap">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-overlay container" style="position:relative;">
+        <svg aria-hidden="true" width="220" height="220" viewBox="0 0 220 220" style="position:absolute;right:22px;top:-36px;opacity:0.95;pointer-events:none">
+          <defs>
+            <linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#5d8aa8"/><stop offset="1" stop-color="#1f9d9a"/></linearGradient>
+          </defs>
+          <circle cx="110" cy="110" r="96" fill="url(#gA)" opacity="0.16" />
+          <path d="M18 120c40-60 120-60 180-20" stroke="#e67a7a" stroke-width="16" stroke-linecap="round" fill="none" opacity="0.28"/>
+          <path d="M28 64c40 20 100-10 160 20" stroke="#70c9a6" stroke-width="20" stroke-linecap="round" fill="none" opacity="0.22"/>
+        </svg>
 
-  <!-- OUR APPROACH -->
-  <section id="approach" class="card">
-    <h2>Our Approach</h2>
-    <p>Meadow Pathways provides tailored, nurturing environments that prioritise wellbeing, emotional regulation and holistic development. We are rooted in restorative, relational, and trauma-informed practice.</p>
-  </section>
+        <div style="max-width:820px;">
+          <h1 id="hero-title">Guiding individual journeys with care and purpose</h1>
+          <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿✨</p>
 
-  <!-- SUPPORT -->
-  <section id="support" class="card">
-    <h2>Support We Offer</h2>
-    <p>We specialise in supporting those with SEND, SEMH, Emotionally Based School Non-Attendance, bereavement, and the effects of educational trauma.</p>
-  </section>
+          <div class="hero-actions">
+            <a class="pill" href="referral.html">Make a referral 📝</a>
+            <a class="pill pill-secondary" href="about.html">Find out more ℹ️</a>
+          </div>
 
-  <!-- REFERRALS -->
-  <section id="referrals" class="card">
-    <h2>Referrals</h2>
-    <p>We welcome referrals from Local Authorities, schools, and parents/carers. Click below to complete our secure online form.</p>
-    <a href="https://formspree.io/f/movnvzqp" class="pill">Referral Form</a>
-  </section>
+          <div style="margin-top:14px;color:var(--text-soft);">
+            <strong>Our Commitment</strong>
+            <p>At Meadow Pathways, we recognise every young person is unique. We commit to working collaboratively with families, schools and partners to find meaningful, sustainable routes to success for each learner.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- SAFEGUARDING -->
-  <section id="safeguarding" class="card">
-    <h2>Safeguarding</h2>
-    <p>Meadow Pathways is committed to safeguarding and promoting the welfare of children and young people. If you have a concern, please contact our Designated Safeguarding Lead.</p>
-    <ul>
-      <li><strong>Michelle Pascoe</strong> – Designated Safeguarding Lead<br>
-        <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-      <li><strong>Zoe</strong> – Deputy Safeguarding Lead<br>
-        <a href="mailto:Zoe@meadowpathwayscornwall.com">Zoe@meadowpathwayscornwall.com</a></li>
-    </ul>
-  </section>
+    <!-- Carousel -->
+    <aside class="container" style="margin-top:18px;">
+      <div id="carousel" class="carousel" aria-roledescription="carousel" aria-label="Gallery">
+        <div class="slides" role="list">
+          <img src="Bake.jpg" alt="Baking activity" class="slide" role="listitem" />
+          <img src="Cooking.jpg" alt="Cooking session" class="slide" role="listitem" />
+          <img src="MM.jpg" alt="Multimedia activity" class="slide" role="listitem" />
+          <img src="Paint.jpg" alt="Painting session" class="slide" role="listitem" />
+          <img src="cook.jpg" alt="Cooking practical" class="slide" role="listitem" />
+          <img src="den.jpg" alt="Den building" class="slide" role="listitem" />
+          <img src="hand.jpg" alt="Hands in meadow activity" class="slide" role="listitem" />
+          <img src="paths.jpg" alt="Exploring paths" class="slide" role="listitem" />
+          <img src="plant.jpg" alt="Planting activity" class="slide" role="listitem" />
+          <img src="wood.jpg" alt="Woodland activity" class="slide" role="listitem" />
+        </div>
 
-  <!-- CONTACT -->
-  <section id="contact" class="card">
-    <h2>Contact Us</h2>
-    <p>To find out more about our services, please get in touch via email:</p>
-    <p><a href="mailto:info@meadowpathwayscornwall.com">info@meadowpathwayscornwall.com</a></p>
-  </section>
+        <div class="carousel-controls" aria-hidden="false">
+          <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
+          <div class="dots" id="dots" role="tablist" aria-label="Carousel pagination"></div>
+          <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
+        </div>
+      </div>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <img src="logo.png" alt="Footer Logo" class="footer-logo">
-    <p>© 2025 Meadow Pathways Well-being and Education Cornwall</p>
-  </footer>
+      <p class="carousel-caption">Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities. 🎨🍳🌲</p>
+    </aside>
 
-  <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
+    <!-- Main content -->
+    <main id="main" class="container" role="main">
+      <section class="card" aria-labelledby="welcome">
+        <h2 id="welcome">Welcome</h2>
+        <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community based activities to build confidence, skills, and a sense of belonging. 🌱</p>
+      </section>
 
-</body>
-</html>
+      <section class="card" aria-labelledby="approach">
+        <h2 id="approach">Our Approach</h2>
+        <p>We work relationally, using trauma informed practice and creative, curriculum linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.</p>
+      </section>
+
+      <section class="card" aria-labelledby="values-title">
+        <h2 id="values-title">Our Values</h2>
+        <ul>
+          <li><strong>💪🌱Resilience &amp; Independence</strong> — We nurture confidence, self-belief, and the ability to grow through challenge.</li>
+          <li><strong>💪🧘‍♀️Health &amp; Wellbeing</strong> — We prioritise emotional safety, regulation, and holistic care in every setting.</li>
+          <li><strong>🔎Honesty &amp; Integrity</strong> — We build trust through transparency, consistency, and ethical practice.</li>
+          <li><strong>🤗Friendship &amp; Kindness</strong> — We foster connection, empathy, and belonging, because relationships are the heart of healing.</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="offers">
+        <h2 id="offers">What we offer 🎯</h2>
+        <p>To support this journey we provide a fully bespoke package of care and education that includes:</p>
+        <ul>
+          <li>Mentoring and Advocacy</li>
+          <li>Tailored Learning Packages</li>
+          <li>Life Skills</li>
+          <li>Diagnostic Assessments</li>
+          <li>SEMH Interventions</li>
+          <li>Wellbeing &amp; PSHE</li>
+          <li>Transitional Services</li>
+          <li>Therapeutic &amp; Curriculum Activities</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="next">
+        <h2 id="next">Next Steps</h2>
+        <p>If you’d like to explore Meadow Pathways for a child or young person, you can:</p>
+        <a class="pill" href="referral.html">Referral Form 📝</a>
+        <a class="pill" href="about.html">About Us ℹ️</a>
+        <a class="pill" href="contact.html">Contact ☎️</a>
+      </section>
+    </ma
