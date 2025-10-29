@@ -1,48 +1,89 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
-<meta name="description" content="Referral form for Meadow Pathways Cornwall — refer a child or young person for therapeutic education and wellbeing support." />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="description" content="Referral form for Meadow Pathways Cornwall — refer a child or young person for therapeutic education and wellbeing support." />
+  <link rel="stylesheet" href="Style.css" />
+  <style>
+    :root{
+      --accent:#2f8f4a;
+      --muted:#667788;
+      --card-bg:#fff;
+      --soft-border:#e6eef3;
+      --gold:#d4af37;
+      --footer-green:#3b4d2c;
+    }
+    .referral-hero{ padding:40px 0; background: linear-gradient(180deg,#f0fbf7,#fff); }
+    .referral-hero h1{ margin:0 0 6px 0; color:var(--accent); }
+    .referral-hero p{ margin:0; color:var(--muted); }
+    .card.referral-form{ padding:22px; background:var(--card-bg); border-radius:12px; box-shadow:0 6px 18px rgba(15,40,50,0.04); max-width:980px; margin:18px auto; }
+    .referral-form h2{ margin-top:0; border-left:6px solid var(--accent); padding-left:12px; color:var(--accent); }
+    .referral-form h3{ margin:18px 0 8px 0; color:#264f3d; }
+    form .grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:14px; }
+    @media(max-width:760px){ form .grid{ grid-template-columns: 1fr; } }
+    label{ display:block; font-weight:600; margin-bottom:6px; color:#234a3a; }
+    input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea{
+      width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--soft-border); background:#fff;
+      font-size:1rem; color:#183233; box-sizing:border-box; transition:box-shadow .15s ease, border-color .15s ease;
+    }
+    input:focus, select:focus, textarea:focus{ outline:none; box-shadow:0 4px 18px rgba(47,143,74,0.08); border-color:var(--accent); }
+    textarea{ min-height:140px; resize:vertical; }
+    .full-width { grid-column: 1 / -1; }
+    .hint{ color:var(--muted); font-size:0.95rem; margin-top:6px; }
+    .support-note{ margin-top:12px; padding:12px 14px; background: linear-gradient(180deg,#fff6f6,#fff); border-radius:10px; border:1px solid rgba(179,75,75,0.06); color:#6b3b3b; font-size:0.95rem; }
+    .actions{ display:flex; gap:12px; justify-content:flex-start; align-items:center; margin-top:16px; flex-wrap:wrap; }
+    .pill, button.pill{ display:inline-block; padding:10px 16px; border-radius:12px; background:var(--accent); color:#fff; border:none; cursor:pointer; font-weight:700; text-decoration:none; }
+    button.pill{ box-shadow:0 6px 18px rgba(47,143,74,0.12); }
+    button.pill:hover{ background:#256c39; }
+    .secondary{ background:#f0f4f8; color:#233; padding:10px 14px; border-radius:10px; text-decoration:none; }
+    .form-col-large{ min-width:300px; }
+  </style>
 </head>
 <body>
+
 <a class="skip-link" href="#main">Skip to content</a>
 
+<!-- Header -->
 <header class="site-header" role="banner">
-  <div class="header-inner container">
-    <nav aria-label="Primary" class="primary-nav">
-      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-      <ul id="primaryNav" class="nav-tabs" role="menubar">
+  <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
+    <div class="container">
+      <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="eotas.html">EOTAS</a></li>
         <li><a href="safeguarding.html">Safeguarding</a></li>
         <li><a href="staff.html">Staff</a></li>
-        <li><a href="referral.html" class="active">Referral</a></li>
+        <li><a class="active" href="referral.html">Referral</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="protected-resources.html">Protected</a></li>
+        <li><a href="passwords.html">Passwords</a></li>
       </ul>
-    </nav>
-  </div>
+    </div>
+  </nav>
 
-  <div class="logo-wrap container">
-    <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+  <!-- Logo canvas -->
+  <section class="logo-canvas" aria-hidden="true">
+    <div class="container">
       <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-      <span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
-    </a>
-  </div>
+    </div>
+  </section>
 </header>
 
 <div class="page-wrap">
-  <section class="hero referral-hero">
+
+  <!-- Hero -->
+  <section class="referral-hero">
     <div class="container">
       <h1>Referral</h1>
       <p class="hero-sub">Complete this secure referral form to refer a child or young person to Meadow Pathways Wellbeing and Education Cornwall.</p>
     </div>
   </section>
 
+  <!-- Main -->
   <main id="main" class="container" role="main">
+
     <section class="card referral-form" aria-labelledby="referral-title">
       <h2 id="referral-title">📋 Meadow Pathways Cornwall Referral Form</h2>
       <p>Please complete this referral form if you are a parent, carer, or Local Authority professional wishing to refer a child or young person to Meadow Pathways Wellbeing and Education Cornwall. All information shared will be treated confidentially in line with GDPR and safeguarding procedures.</p>
@@ -125,17 +166,20 @@
         </div>
 
         <div class="actions">
-          <button type="submit" class="pill primary">Submit Referral</button>
-          <a href="contact.html" class="pill">Contact us first</a>
+          <button type="submit" class="pill">Submit Referral</button>
+          <a href="contact.html" class="secondary">Contact us first</a>
           <span class="hint" style="margin-left:auto;">All referrals are reviewed promptly</span>
         </div>
       </form>
     </section>
+
   </main>
 </div>
 
+<!-- Back to top button -->
 <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
+<!-- Footer -->
 <footer class="site-footer">
   <div class="footer-content">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
@@ -144,17 +188,9 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<!-- Script -->
 <script>
 (function(){
-  var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
-  if (navToggle && nav){
-    navToggle.addEventListener('click', function(){
-      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('open');
-    });
-  }
   var backBtn = document.getElementById('backToTop');
   window.addEventListener('scroll', function(){
     if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show');
@@ -162,5 +198,6 @@
   backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
 })();
 </script>
+
 </body>
 </html>
