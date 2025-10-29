@@ -10,7 +10,6 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Header -->
 <header class="site-header" role="banner">
   <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
     <div class="container">
@@ -30,7 +29,6 @@
     </div>
   </nav>
 
-  <!-- Logo canvas: centred, blended -->
   <section class="logo-canvas" aria-hidden="true">
     <div class="container">
       <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
@@ -40,7 +38,6 @@
 
 <div class="page-wrap">
 
-  <!-- Hero -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-overlay container">
       <h1 id="hero-title">Safeguarding and child protection</h1>
@@ -48,7 +45,6 @@
     </div>
   </section>
 
-  <!-- Main -->
   <main id="main" class="container" role="main">
 
     <section class="card">
@@ -65,7 +61,7 @@
 
       <h3 style="margin-top:18px">Quick links for families</h3>
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
-        <a class="pill" href="https://www.nspcc.org.uk/advice-for-families/?gclid" target="_blank" rel="noopener">NSPCC Advice for Families</a>
+        <a class="pill" href="https://www.nspcc.org.uk/advice-for-families/" target="_blank" rel="noopener">NSPCC Advice for Families</a>
         <a class="pill" href="https://www.ceop.police.uk/Safety-Centre/" target="_blank" rel="noopener">CEOP Safety Centre</a>
         <a class="pill" href="https://ciossafeguarding.org.uk/scp/p/parents-and-carers/information-for-parents-and-carers" target="_blank" rel="noopener">Cios Safeguarding for Parents</a>
         <a class="pill" href="https://www.childnet.com/help-and-advice/parents-and-carers" target="_blank" rel="noopener">Childnet Advice for Parents</a>
@@ -96,10 +92,8 @@
   </main>
 </div>
 
-<!-- Back to top button -->
 <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
-<!-- Footer -->
 <footer class="site-footer">
   <div class="footer-content">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
@@ -108,16 +102,6 @@
   </div>
 </footer>
 
-<!-- Script -->
-<script>
-(function(){
-  var backBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', function(){
-    if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show');
-  });
-  backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
-})();
-</script>
-
+<script src="site.js"></script>
 </body>
 </html>
