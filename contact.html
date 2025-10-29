@@ -11,7 +11,6 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Header -->
 <header class="site-header" role="banner">
   <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
     <div class="container">
@@ -31,7 +30,6 @@
     </div>
   </nav>
 
-  <!-- Logo canvas: centred, blended -->
   <section class="logo-canvas" aria-hidden="true">
     <div class="container">
       <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
@@ -41,7 +39,6 @@
 
 <div class="page-wrap">
 
-  <!-- Hero -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-overlay container">
       <h1 id="hero-title">Contact us</h1>
@@ -49,33 +46,32 @@
     </div>
   </section>
 
-  <!-- Main -->
   <main id="main" class="container" role="main">
 
     <section id="contact" class="card contact-section" aria-labelledby="contact-title">
-      <h2 id="contact-title">📞 Contact Us</h2>
+      <h2 id="contact-title">Contact Us</h2>
       <p>We’d love to hear from you. Use the form below for general enquiries or to discuss referrals. If this is an urgent safeguarding concern, please contact statutory services first and then call the Meadow Pathways team.</p>
 
       <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
         <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.github.io/thankyou.html" />
 
         <div class="form-row">
-          <div class="form-col">
+          <div style="flex:1">
             <label for="name">Your name</label>
             <input type="text" id="name" name="name" required placeholder="Full name" />
           </div>
-          <div class="form-col">
+          <div style="flex:1">
             <label for="role">Role / Relationship</label>
             <input type="text" id="role" name="role" placeholder="E.g. parent, teacher, professional" />
           </div>
         </div>
 
         <div class="form-row" style="margin-top:12px;">
-          <div class="form-col">
+          <div style="flex:1">
             <label for="email">Email address</label>
             <input type="email" id="email" name="email" required placeholder="you@example.com" />
           </div>
-          <div class="form-col">
+          <div style="flex:1">
             <label for="phone">Phone number</label>
             <input type="tel" id="phone" name="phone" placeholder="Telephone number" />
           </div>
@@ -92,7 +88,7 @@
 
         <div class="actions" style="margin-top:12px; display:flex; gap:10px; align-items:center;">
           <button type="submit" class="pill primary">Send message</button>
-          <a href="referral.html" class="pill" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">Make a referral</a>
+          <a href="referral.html" class="pill">Make a referral</a>
           <span class="hint" style="margin-left:auto;">We aim to reply promptly</span>
         </div>
       </form>
@@ -100,28 +96,26 @@
       <hr style="margin:22px 0; border:none; border-top:1px solid rgba(0,0,0,0.06);" />
 
       <div class="contact-details" aria-label="Contact details">
-        <h3>🌸 Meadow Pathways Wellbeing and Education Cornwall</h3>
+        <h3>Meadow Pathways Wellbeing and Education Cornwall</h3>
 
         <div class="protected-note" style="background:#fff4e6; border-left:4px solid #d4af37; padding:10px 12px; border-radius:8px; color:#3b3b3b; margin-bottom:14px;">
           <strong>Protected contact information below.</strong> These addresses and numbers are for authorised contact only. Do not publish elsewhere or include protected personal data in the public form.
         </div>
 
-        <p class="contact-line"><strong>General enquiries (Formspree linked):</strong>
+        <p class="contact-line"><strong>General enquiries:</strong>
           <a href="mailto:meadowpathwayscornwall@outlook.com" class="protected">meadowpathwayscornwall@outlook.com</a>
         </p>
 
         <h4>Team contacts (protected)</h4>
 
-        <div class="staff-contacts">
-          <div class="bio-content">
-            <div class="bio-box">
-              <h3>Zoe — Role / Title</h3>
-              <p class="contact-line"><strong>Email:</strong>
-                <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com" class="protected">Zoe.Waitz@meadowpathwayscornwall.com</a>
-              </p>
-              <p class="contact-line"><strong>Phone:</strong> <span class="protected">07775733587</span></p>
-              <p class="hint">For sensitive or protected information please use the secure referrals contact above.</p>
-            </div>
+        <div class="bio-content">
+          <div class="bio-box">
+            <h3>Zoe — Role / Title</h3>
+            <p class="contact-line"><strong>Email:</strong>
+              <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com" class="protected">Zoe.Waitz@meadowpathwayscornwall.com</a>
+            </p>
+            <p class="contact-line"><strong>Phone:</strong> <span class="protected">07775733587</span></p>
+            <p class="hint">For sensitive or protected information please use the secure referrals contact above.</p>
           </div>
         </div>
 
@@ -147,10 +141,8 @@
   </main>
 </div>
 
-<!-- Back to top button -->
 <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
-<!-- Footer -->
 <footer class="site-footer">
   <div class="footer-content">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
@@ -159,16 +151,6 @@
   </div>
 </footer>
 
-<!-- Minimal JS (nav toggle can remain in script.js globally if you prefer) -->
-<script>
-(function(){
-  var backBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', function(){
-    if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show');
-  });
-  backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
-})();
-</script>
-
+<script src="site.js"></script>
 </body>
 </html>
