@@ -1,34 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
-<link rel="stylesheet" href="style.css" />
-<meta name="robots" content="noindex" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="robots" content="noindex" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" role="banner">
+<!-- Header -->
+<header class="site-header">
   <div class="header-inner container">
     <div class="logo-wrap">
-      <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-        <img src="Logo.png" alt="Meadow Pathways Logo" />
-      </a>
+      <a href="index.html" class="brand"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo" /></a>
     </div>
-    <nav class="primary-nav" aria-label="Primary">
+    <nav aria-label="Primary" class="primary-nav">
       <button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
-      <ul id="primaryNav" class="nav-tabs"> ... </ul>
-    </nav>
-  </div>
-</header>
-    <nav class="primary-nav" aria-label="Primary">
-      <button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
-      <ul id="primaryNav" class="nav-tabs"> ... </ul>
-    </nav>
-  </div>
-</header>
       <ul id="primaryNav" class="nav-tabs">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -42,60 +31,52 @@
   </div>
 </header>
 
-<div class="hero-theme">
-  <!-- place this once, directly after header, inside .hero-theme or body -->
-<div class="logo-overlay" aria-hidden="true">
-  <img src="Logo.png" alt="Meadow Pathways decorative logo" />
-</div>
-  <div class="logo-overlay" aria-hidden="true">
-    <img src="Logo.png" alt="Meadow Pathways Logo">
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-overlay container">
+    <h1 id="hero-title">Staff Area</h1>
+    <p class="hero-sub">Internal links and information for Meadow Pathways staff</p>
   </div>
-  <section class="hero" aria-labelledby="hero-title" style="background-image:url('BG.png');">
-    <div class="hero-overlay container">
-      <h1 id="hero-title">Staff area</h1>
-      <p class="hero-sub">Internal links and information for Meadow Pathways staff</p>
-    </div>
-  </section>
-</div>
+</section>
 
+<!-- Main -->
 <main id="main" class="container">
+  <!-- Password gate -->
   <div id="locked" class="card" aria-hidden="false">
-    <h3 id="lock-title">Staff access required</h3>
+    <h3>Staff access required</h3>
     <p>Enter the staff password to access hours logging, internal policies and safeguarding resources.</p>
-    <input id="staffPassword" type="password" aria-label="Staff password" placeholder="Enter staff password" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.12)" />
+    <input id="staffPassword" type="password" aria-label="Staff password" placeholder="Enter staff password" />
     <button id="unlockBtn" type="button" class="pill" style="margin-top:10px">Unlock</button>
     <p style="margin-top:10px;font-size:0.95rem;color:var(--text-soft)">If you have trouble accessing this area, contact Michelle or Zoe.</p>
   </div>
 
+  <!-- Staff panel -->
   <div id="staffPanel" style="display:none" aria-hidden="true">
     <section class="card">
       <h2>Internal information</h2>
-      <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
       <ul>
-        <li>Formspree endpoint for all forms: <code>https://formspree.io/f/movnvzqp</code></li>
-        <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
-        <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-        <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-        <li>Michelle’s phone: 07932243358</li>
-        <li>Zoe’s phone: 07775733587</li>
+        <li>Formspree endpoint: <code>https://formspree.io/f/movnvzqp</code></li>
+        <li>General email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
+        <li>Michelle: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> — 07932 243358</li>
+        <li>Zoe: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a> — 07775 733587</li>
       </ul>
 
       <h3>Statutory and partner resources</h3>
       <div style="display:flex;flex-wrap:wrap;gap:8px;">
-        <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025) - GOV.UK</a>
-        <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
-        <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research</a>
-        <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
+        <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">KCSIE 2025</a>
+        <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House</a>
+        <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC Learning</a>
+        <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios Safeguarding</a>
       </div>
 
-      <h3 style="margin-top:12px">Internal policy documents (downloads)</h3>
+      <h3 style="margin-top:12px">Internal policy documents</h3>
       <div style="display:flex;flex-wrap:wrap;gap:8px;">
-        <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>MPWEC Curriculum Policy EOTAS September 2025.docx</a>
-        <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>MPWEC H&S Policy Sep 25.docx</a>
-        <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>MPWEC Lone Working Policy Sep25.docx</a>
-        <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>MPWEC Safeguarding and Child Protection Policy Sep 2025.docx</a>
-        <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>MPWEC Staff Conduct Policy.docx</a>
-        <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>MPWEC Whistleblowing Policy.docx</a>
+        <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy</a>
+        <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>Health & Safety</a>
+        <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working</a>
+        <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
+        <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct</a>
+        <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing</a>
       </div>
     </section>
 
@@ -114,17 +95,17 @@
         <label for="notes">Brief notes</label>
         <textarea id="notes" name="notes" rows="4"></textarea>
         <label for="email-staff">Staff email</label>
-        <input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
+        <input id="email-staff" name="staff_email" type="email" required />
         <button type="submit" class="pill">Submit hours</button>
         <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
       </form>
-      <p style="margin-top:8px;color:var(--text-soft)">Remember to log hours promptly and ensure client notes comply with Meadow Pathways record-keeping guidance.</p>
     </section>
   </div>
 </main>
 
 <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
+<!-- Footer -->
 <footer class="site-footer">
   <div class="footer-content">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
@@ -148,11 +129,10 @@
       staffPanel.style.display = 'block';
       lockedEl.setAttribute('aria-hidden', 'true');
       staffPanel.setAttribute('aria-hidden', 'false');
-      document.getElementById('staff-name').focus();
     } else {
       pwdInput.value = '';
       pwdInput.focus();
-      alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+      alert('Incorrect password. Please contact Michelle or Zoe if you need access.');
     }
   }
 
@@ -168,22 +148,4 @@
       hoursStatus.textContent = 'Submitting...';
       const data = new FormData(hoursForm);
       try {
-        const res = await fetch(FORMSPREE, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
-        if (res.ok) {
-          hoursForm.reset();
-          hoursStatus.textContent = 'Hours submitted. Thank you.';
-          setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
-        } else {
-          const result = await res.json();
-          hoursStatus.textContent = (result && result.errors) ? result.errors.map(err => err.message).join('; ') : 'Submission error — please try again later.';
-        }
-      } catch (err) {
-        hoursStatus.textContent = 'Network error — check connection and try again.';
-      }
-    });
-  }
-})();
-</script>
-<script src="script.js"></script>
-</body>
-</html>
+        const res = await fetch(FOR
