@@ -1,8 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="description" content="Meadow Pathways reconnects children with learning through trauma informed, bespoke education and wellbeing support across Cornwall." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="home-page">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Header: single compact logo -->
 <header class="site-header" role="banner">
   <div class="header-inner container">
     <div class="logo-wrap">
       <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-        <img src="Logo.png" alt="Meadow Pathways Logo" />
+        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
       </a>
     </div>
 
@@ -21,25 +35,20 @@
   </div>
 </header>
 
-<div class="hero-theme">
-  <!-- Decorative overlay logo — include this once per page (after header) -->
-  <div class="logo-overlay" aria-hidden="true">
-    <img src="Logo.png" alt="Meadow Pathways decorative logo" />
-  </div>
-
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-overlay container">
-      <h1 id="hero-title">Guiding individual journeys with care and purpose</h1>
-      <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿✨</p>
-      <div class="hero-actions" style="margin-top:14px;display:flex;gap:10px;">
-        <a class="pill" href="referral.html">Make a referral 📝</a>
-        <a class="pill" href="about.html">Find out more ℹ️</a>
-      </div>
+<!-- Hero (no duplicate logo overlay here) -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-overlay container">
+    <h1 id="hero-title">Guiding individual journeys with care and purpose</h1>
+    <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿✨</p>
+    <div class="hero-actions">
+      <a class="pill" href="referral.html">Make a referral 📝</a>
+      <a class="pill" href="about.html">Find out more ℹ️</a>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
-<aside class="container" style="margin-top:18px;">
+<!-- Carousel -->
+<aside class="container">
   <div id="carousel" class="carousel" aria-roledescription="carousel" aria-label="Gallery">
     <div class="slides" role="list">
       <img src="Bake.jpg" alt="Baking activity" class="slide" role="listitem" />
@@ -53,16 +62,17 @@
       <img src="plant.jpg" alt="Planting activity" class="slide" role="listitem" />
       <img src="wood.jpg" alt="Woodland activity" class="slide" role="listitem" />
     </div>
+
     <div class="carousel-controls" aria-hidden="false">
       <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
       <div class="dots" id="dots" role="tablist" aria-label="Carousel pagination"></div>
       <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
     </div>
   </div>
-  <p class="carousel-caption" style="margin-top:10px;color:var(--text-soft)">Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities. 🎨🍳🌲</p>
 </aside>
 
-<main id="main" class="container" role="main" style="margin-top:18px;">
+<!-- Main content -->
+<main id="main" class="container" role="main">
   <section class="card">
     <h2>Welcome</h2>
     <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community based activities to build confidence, skills, and a sense of belonging. 🌱</p>
@@ -74,18 +84,8 @@
   </section>
 
   <section class="card">
-    <h2>Our Values</h2>
-    <ul>
-      <li><strong>💪 Resilience & Independence</strong></li>
-      <li><strong>🧘‍♀️ Health & Wellbeing</strong></li>
-      <li><strong>🔎 Honesty & Integrity</strong></li>
-      <li><strong>🤗 Friendship & Kindness</strong></li>
-    </ul>
-  </section>
-
-  <section class="card">
     <h2>Policies and Resources</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+    <div class="resource-pills">
       <a class="pill secondary" href="KCSIE 2025.pdf" target="_blank" rel="noopener">KCSIE 2025</a>
       <a class="pill secondary" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx">Safeguarding Policy</a>
       <a class="pill secondary" href="MPWEC Behaviour Policy.docx">Behaviour Policy</a>
@@ -100,6 +100,7 @@
 
 <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
+<!-- Footer: BG.png used decoratively only in CSS -->
 <footer class="site-footer">
   <div class="footer-content">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
