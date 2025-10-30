@@ -1,4 +1,6 @@
-// Nav toggle, back-to-top, carousel controller
+// Meadow Pathways site script
+// Handles nav toggle, back-to-top button, and carousel
+
 (function () {
   // Nav toggle
   var navToggle = document.getElementById('navToggle');
@@ -15,9 +17,12 @@
   var backBtn = document.getElementById('backToTop');
   if (backBtn) {
     window.addEventListener('scroll', function () {
-      if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show');
+      if (window.scrollY > 300) backBtn.classList.add('show');
+      else backBtn.classList.remove('show');
     });
-    backBtn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    backBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
   // Carousel
@@ -27,17 +32,17 @@
     var slidesContainer = carousel.querySelector('.slides');
     var slides = Array.prototype.slice.call(slidesContainer.querySelectorAll('img.slide'));
     if (!slides.length) return;
+
     var dotsContainer = document.getElementById('dots');
     var prevBtn = document.getElementById('prev');
     var nextBtn = document.getElementById('next');
 
-    // Hide all slides and init
+    // Initialize
     slides.forEach(function (s, i) {
       s.classList.remove('active');
       s.setAttribute('data-index', i);
       s.style.display = 'none';
     });
-
     var current = 0;
     slides[current].classList.add('active');
     slides[current].style.display = '';
@@ -86,14 +91,24 @@
     });
     carousel.setAttribute('tabindex', '0');
 
+    // Autoplay
     var autoplayInterval = 6000, autoplayId = null;
-    function startAutoplay() { if (autoplayId) return; autoplayId = setInterval(function () { goTo(current + 1); }, autoplayInterval); }
-    function stopAutoplay() { if (!autoplayId) return; clearInterval(autoplayId); autoplayId = null; }
+    function startAutoplay() {
+      if (autoplayId) return;
+      autoplayId = setInterval(function () { goTo(current + 1); }, autoplayInterval);
+    }
+    function stopAutoplay() {
+      if (!autoplayId) return;
+      clearInterval(autoplayId);
+      autoplayId = null;
+    }
     function resetAutoplay() { stopAutoplay(); startAutoplay(); }
+
     carousel.addEventListener('mouseenter', stopAutoplay);
     carousel.addEventListener('mouseleave', startAutoplay);
     carousel.addEventListener('focusin', stopAutoplay);
     carousel.addEventListener('focusout', startAutoplay);
+
     startAutoplay();
   });
 })();
