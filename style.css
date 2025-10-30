@@ -1,12 +1,9 @@
-/* ------------------------------
-   Base Reset & Typography
------------------------------- */
+/* Base Reset & Typography */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
 html, body {
   margin: 0;
   padding: 0;
@@ -16,7 +13,6 @@ html, body {
   background: url('bgr.png') no-repeat center top fixed;
   background-size: cover;
 }
-
 a {
   color: #0f3b38;
   text-decoration: none;
@@ -24,21 +20,17 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
-h1, h2, h3, h4 {
+h1, h2, h3 {
   margin-top: 0;
   font-weight: 600;
 }
 
-/* ------------------------------
-   Layout Helpers
------------------------------- */
+/* Layout */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 18px;
 }
-
 .skip-link {
   position: absolute;
   top: -40px;
@@ -52,9 +44,7 @@ h1, h2, h3, h4 {
   top: 0;
 }
 
-/* ------------------------------
-   Header & Navigation
------------------------------- */
+/* Header */
 .site-header {
   position: fixed;
   top: 0;
@@ -65,20 +55,17 @@ h1, h2, h3, h4 {
   backdrop-filter: saturate(180%) blur(6px);
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
-
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 72px;
 }
-
 .logo {
   width: 70px;
   height: auto;
   display: block;
 }
-
 .nav-tabs {
   display: flex;
   gap: 14px;
@@ -94,8 +81,6 @@ h1, h2, h3, h4 {
 .nav-tabs a:hover {
   background: rgba(15,59,56,0.08);
 }
-
-/* Mobile nav toggle */
 .nav-toggle {
   display: none;
   background: none;
@@ -117,11 +102,9 @@ h1, h2, h3, h4 {
   .nav-tabs.open { display: flex; }
 }
 
-/* ------------------------------
-   Hero
------------------------------- */
-.hero {
-  margin-top: 120px; /* ensures logo is visible */
+/* Hero */
+body.home-page .hero {
+  margin-top: 120px;
   padding: 40px 0;
   text-align: center;
 }
@@ -138,9 +121,7 @@ h1, h2, h3, h4 {
   flex-wrap: wrap;
 }
 
-/* ------------------------------
-   Carousel
------------------------------- */
+/* Carousel */
 .carousel {
   position: relative;
   margin: 40px auto;
@@ -155,7 +136,6 @@ h1, h2, h3, h4 {
   display: none;
 }
 .slide.active { display: block; }
-
 .carousel-controls {
   display: flex;
   justify-content: center;
@@ -185,9 +165,7 @@ h1, h2, h3, h4 {
 }
 .dot.active { background: #0f3b38; }
 
-/* ------------------------------
-   Cards & Sections
------------------------------- */
+/* Cards */
 .card {
   background: #fff;
   padding: 24px;
@@ -196,9 +174,7 @@ h1, h2, h3, h4 {
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* ------------------------------
-   Pills & Buttons
------------------------------- */
+/* Pills */
 .pill {
   display: inline-block;
   padding: 10px 16px;
@@ -215,9 +191,7 @@ h1, h2, h3, h4 {
   opacity: 0.9;
 }
 
-/* ------------------------------
-   Back to Top
------------------------------- */
+/* Back to Top */
 .back-to-top {
   position: fixed;
   bottom: 20px;
@@ -233,16 +207,14 @@ h1, h2, h3, h4 {
 }
 .back-to-top.show { display: block; }
 
-/* ------------------------------
-   Footer with BG.png
------------------------------- */
+/* Footer with BG.png */
 .site-footer {
   position: relative;
   z-index: 1;
   padding: 48px 18px;
   text-align: center;
   color: #fff;
-  background-color: transparent;
+  background-color: transparent !important;
   overflow: hidden;
   margin-top: 40px;
 }
