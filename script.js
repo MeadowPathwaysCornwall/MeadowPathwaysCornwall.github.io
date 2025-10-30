@@ -1,95 +1,100 @@
-// ===== script.js: Functionality for Carousel, Nav Toggle, Back-to-Top =====
-
-// NAV TOGGLE (Hamburger for mobile)
-document.addEventListener('DOMContentLoaded', function () {
-  const navToggle = document.getElementById('nav-toggle');
-  const navbar = document.getElementById('navbar');
-  navToggle.addEventListener('click', function () {
-    const expanded = navbar.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-  });
-});
-
-// CAROUSEL LOGIC
+<script>
+// Nav toggle + back-to-top + carousel enhancements
 (function(){
-  const carousels = document.querySelectorAll('.carousel');
-  carousels.forEach((carousel) => {
-    const items = carousel.querySelectorAll('.carousel-item');
-    const dots = carousel.querySelectorAll('.carousel-dot');
-    const prevBtn = carousel.querySelector('.carousel-btn.prev');
-    const nextBtn = carousel.querySelector('.carousel-btn.next');
-    let current = 0;
+  // Nav toggle
+  var navToggle = document.getElementById('navToggle');
+  var nav = document.getElementById('primaryNav');
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', function(){
+      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+  }
 
-    function goTo(idx) {
-      items.forEach((item, i) => {
-        item.style.display = i === idx ? 'block' : 'none';
+  // Back to top
+  var backBtn = document.getElementById('backToTop');
+  if (backBtn) {
+    window.addEventListener('scroll', function(){
+      if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show');
+    });
+    backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  }
+
+  // Carousel controller (adds aria-current to active dot)
+  document.addEventListener('DOMContentLoaded', function () {
+    var carousel = document.getElementById('carousel');
+    if (!carousel) return;
+    var slidesContainer = carousel.querySelector('.slides');
+    var slides = Array.prototype.slice.call(slidesContainer.querySelectorAll('img.slide'));
+    if (!slides.length) return;
+
+    var dotsContainer = document.getElementById('dots');
+    var prevBtn = document.getElementById('prev');
+    var nextBtn = document.getElementById('next');
+
+    slides.forEach(function (s, i) {
+      s.classList.remove('active');
+      s.setAttribute('data-index', i);
+      s.style.display = 'none';
+    });
+
+    var current = 0;
+    slides[current].classList.add('active');
+    slides[current].style.display = '';
+
+    if (dotsContainer) {
+      while (dotsContainer.firstChild) dotsContainer.removeChild(dotsContainer.firstChild);
+      slides.forEach(function (_, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'dot' + (i === 0 ? ' active' : '');
+        btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        btn.setAttribute('data-index', i);
+        if (i === 0) btn.setAttribute('aria-current', 'true');
+        btn.addEventListener('click', function () { goTo(i); resetAutoplay(); });
+        dotsContainer.appendChild(btn);
       });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === idx);
-        dot.setAttribute('aria-current', i === idx ? 'true' : 'false');
-      });
-      // control buttons ARIA
-      prevBtn.disabled = (idx === 0);
-      nextBtn.disabled = (idx === items.length - 1);
-      current = idx;
     }
 
-    // Init
-    goTo(current);
+    function syncDots(prevIndex, nextIndex) {
+      if (!dotsContainer) return;
+      var prevDot = dotsContainer.querySelector('.dot[data-index="' + prevIndex + '"]');
+      var nextDot = dotsContainer.querySelector('.dot[data-index="' + nextIndex + '"]');
+      if (prevDot) { prevDot.classList.remove('active'); prevDot.removeAttribute('aria-current'); }
+      if (nextDot) { nextDot.classList.add('active'); nextDot.setAttribute('aria-current', 'true'); }
+    }
 
-    // Button controls
-    prevBtn.addEventListener('click', () => {
-      if(current > 0) goTo(current-1);
-    });
-    nextBtn.addEventListener('click', () => {
-      if(current < items.length-1) goTo(current+1);
-    });
+    function goTo(index) {
+      index = (index + slides.length) % slides.length;
+      if (index === current) return;
+      slides[current].classList.remove('active');
+      slides[current].style.display = 'none';
+      var prevIndex = current;
+      current = index;
+      slides[current].classList.add('active');
+      slides[current].style.display = '';
+      syncDots(prevIndex, current);
+    }
 
-    // Dots
-    dots.forEach((dot, idx) => {
-      dot.addEventListener('click', () => goTo(idx));
-      dot.addEventListener('keydown', (e) => {
-        if(e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          goTo(idx);
-        }
-      });
-    });
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); resetAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); resetAutoplay(); });
 
-    // Keyboard left/right on carousel container
-    carousel.addEventListener('keydown', (e) => {
-      if(e.key === 'ArrowLeft' && current > 0) {
-        goTo(current-1);
-      } else if(e.key === 'ArrowRight' && current < items.length-1) {
-        goTo(current+1);
-      }
+    carousel.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { goTo(current - 1); resetAutoplay(); }
+      if (e.key === 'ArrowRight') { goTo(current + 1); resetAutoplay(); }
     });
+    carousel.setAttribute('tabindex', '0');
 
-    // Optional: auto-advance or loop? Not implemented for accessibility stability (user control is preferred).
+    var autoplayInterval = 6000, autoplayId = null;
+    function startAutoplay() { if (autoplayId) return; autoplayId = setInterval(function () { goTo(current + 1); }, autoplayInterval); }
+    function stopAutoplay() { if (!autoplayId) return; clearInterval(autoplayId); autoplayId = null; }
+    function resetAutoplay() { stopAutoplay(); startAutoplay(); }
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    carousel.addEventListener('focusin', stopAutoplay);
+    carousel.addEventListener('focusout', startAutoplay);
+    startAutoplay();
   });
 })();
-
-// BACK TO TOP BUTTON
-(function() {
-  // Insert button if not present
-  if(!document.getElementById('backToTop')) {
-    const btn = document.createElement('button');
-    btn.id = 'backToTop';
-    btn.title = 'Back to top';
-    btn.setAttribute('aria-label','Back to top');
-    btn.innerHTML = '↑';
-    document.body.appendChild(btn);
-  }
-  const btn = document.getElementById('backToTop');
-  window.addEventListener('scroll', function () {
-    const show = window.scrollY > 260;
-    btn.style.display = show ? 'flex' : 'none';
-  });
-
-  btn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    btn.blur();
-  });
-})();
-
-// END script.js
+</script>
