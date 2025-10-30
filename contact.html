@@ -1,33 +1,30 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
-<meta name="description" content="Contact Meadow Pathways Wellbeing and Education Cornwall — enquiries, referrals and general information." />
-<link rel="stylesheet" href="style.css" />
-<style>
-.protected-note{ background:#fff4e6; border-left:4px solid #d4af37; padding:10px 12px; border-radius:8px; color:#3b3b3b; margin-bottom:14px; }
-.staff-contacts .contact-line{ margin:6px 0; }
-.contact-details .protected { font-weight:700; color: #0f3b38; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="description" content="Contact Meadow Pathways Wellbeing and Education Cornwall — enquiries, referrals and general information." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .protected-note{background:#fff4e6;border-left:4px solid #d4af37;padding:10px 12px;border-radius:8px;color:#3b3b3b;margin-bottom:14px;}
+    .staff-contacts .contact-line{margin:6px 0;}
+    .contact-details .protected{font-weight:700;color:#0f3b38;}
+  </style>
 </head>
-<body class="home">
+<body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" role="banner">
+<!-- Header -->
+<header class="site-header" role="banner">
   <div class="header-inner container">
     <div class="logo-wrap">
       <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-        <img src="Logo.png" alt="Meadow Pathways Logo" />
+        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
       </a>
     </div>
-    <nav class="primary-nav" aria-label="Primary">
-      <button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
-      <ul id="primaryNav" class="nav-tabs"> ... </ul>
-    </nav>
-  </div>
-</header>
+    <nav aria-label="Primary" class="primary-nav">
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
       <ul id="primaryNav" class="nav-tabs" role="menubar">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -41,29 +38,22 @@
   </div>
 </header>
 
-<div class="hero-theme">
-  <!-- place this once, directly after header, inside .hero-theme or body -->
-<div class="logo-overlay" aria-hidden="true">
-  <img src="Logo.png" alt="Meadow Pathways decorative logo" />
-</div>
-  <div class="logo-overlay" aria-hidden="true">
-    <img src="Logo.png" alt="Meadow Pathways Logo">
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-overlay container">
+    <h1 id="hero-title">📞 Contact Us</h1>
+    <p class="hero-sub">We’d love to hear from you. Use the form below for general enquiries or to discuss referrals. If this is an urgent safeguarding concern, please contact statutory services first and then call the Meadow Pathways team.</p>
   </div>
-  <section class="hero" aria-labelledby="hero-title" style="background-image:url('BG.png');">
-    <div class="hero-overlay container">
-      <h1 id="hero-title">📞 Contact Us</h1>
-      <p class="hero-sub">We’d love to hear from you. Use the form below for general enquiries or to discuss referrals. If this is an urgent safeguarding concern, please contact statutory services first and then call the Meadow Pathways team.</p>
-    </div>
-  </section>
-</div>
+</section>
 
+<!-- Main -->
 <main id="main" class="container" role="main">
-  <section id="contact" class="card contact-section" aria-labelledby="contact-title">
+  <section class="card contact-section" aria-labelledby="contact-title">
     <h2 id="contact-title">📞 Contact Us</h2>
-    <p>We’d love to hear from you. Use the form below for general enquiries or to discuss referrals. If this is an urgent safeguarding concern, please contact statutory services first and then call the Meadow Pathways team.</p>
 
     <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate aria-describedby="protected-info">
       <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.github.io/thankyou.html" />
+
       <div class="form-row">
         <div class="form-col">
           <label for="name">Your name</label>
@@ -97,7 +87,7 @@
 
       <div class="actions" style="margin-top:12px; display:flex; gap:10px; align-items:center;">
         <button type="submit" class="pill">Send message</button>
-        <a href="referral.html" class="pill secondary" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">Make a referral</a>
+        <a href="referral.html" class="pill secondary">Make a referral</a>
         <span class="hint" style="margin-left:auto;">We aim to reply promptly</span>
       </div>
     </form>
@@ -111,47 +101,24 @@
         <strong>Protected contact information below.</strong> These addresses and numbers are for authorised contact only. Do not publish elsewhere or include protected personal data in the public form.
       </div>
 
-      <p class="contact-line"><strong>General enquiries (Formspree linked):</strong>
+      <p class="contact-line"><strong>General enquiries:</strong>
         <a href="mailto:meadowpathwayscornwall@outlook.com" class="protected">meadowpathwayscornwall@outlook.com</a>
       </p>
 
       <h4>Team contacts (protected)</h4>
-
-      <div class="bio-row">
-        <div class="bio-content">
-          <div class="bio-box">
-            <h3>Zoe — Role / Title</h3>
-            <p class="contact-line"><strong>Email:</strong>
-              <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com" class="protected">Zoe.Waitz@meadowpathwayscornwall.com</a>
-            </p>
-            <p class="contact-line"><strong>Phone:</strong> <span class="protected">07775733587</span></p>
-            <p class="hint">For sensitive or protected information please use the secure referrals contact above.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bio-row">
-        <div class="bio-content">
-          <div class="bio-box">
-            <h3>Michelle — Role / Title</h3>
-            <p class="contact-line"><strong>Email:</strong>
-              <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com" class="protected">Michelle.Pascoe@meadowpathwayscornwall.com</a>
-            </p>
-            <p class="contact-line"><strong>Phone:</strong> <span class="protected">07932243358</span></p>
-            <p class="hint">For referrals, please use the secure referrals email or call the office to arrange a safe transfer of information.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="support-note" style="margin-top:12px;">
-      Please do not include protected personal data in the public form. For referrals or protected records, email our secure referrals address above or call the office to arrange a safe transfer.
+      <p class="contact-line"><strong>Michelle:</strong>
+        <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com" class="protected">Michelle.Pascoe@meadowpathwayscornwall.com</a> — <span class="protected">07932243358</span>
+      </p>
+      <p class="contact-line"><strong>Zoe:</strong>
+        <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com" class="protected">Zoe.Waitz@meadowpathwayscornwall.com</a> — <span class="protected">07775733587</span>
+      </p>
     </div>
   </section>
 </main>
 
 <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
+<!-- Footer -->
 <footer class="site-footer">
   <div class="footer-content">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
