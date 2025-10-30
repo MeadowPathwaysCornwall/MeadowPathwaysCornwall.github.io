@@ -1,7 +1,8 @@
-/* Meadow Pathways — theme stylesheet
-   - Use bgr.png as the site background/theme
-   - Use BG.png only for footer decoration
-   - Header brand kept compact; overlay logo shown once on pages that include it
+/* Meadow Pathways — core theme styles
+   - bgr.png used as site background/theme
+   - BG.png used only as footer decorative background (via ::before)
+   - header shows a single compact logo
+   - carousel styling included
 */
 
 :root{
@@ -15,10 +16,10 @@
   --max-width:1100px;
   --gutter:18px;
   --radius:14px;
-  --ui-font:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --ui-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
-/* reset */
+/* Reset & base */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
@@ -29,129 +30,76 @@ body{
   line-height:1.45;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  /* Site-wide theme background (bgr.png) */
-  background-image: url('bgr.png');
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  background-attachment: fixed;
+
+  /* Global theme background */
+  background-image:url('bgr.png');
+  background-position:center top;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-attachment:fixed;
 }
 
-/* content width helpers */
 .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--gutter)}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
 
-/* header */
+/* Header */
 .site-header{
-  position:relative;
-  z-index:1200;
-  background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.88));
+  position:relative;z-index:1200;
+  background:linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.88));
   border-bottom:1px solid rgba(0,0,0,0.04);
-  backdrop-filter: blur(4px);
+  backdrop-filter:blur(4px);
 }
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  padding:14px var(--gutter);
-}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px var(--gutter)}
+.brand img, .logo { height:72px; width:auto; display:block; object-fit:contain; border-radius:10px; background:#fff }
 
-/* compact header brand (single small logo) */
-.brand{display:inline-block}
-.brand img{height:72px;width:auto;display:block;border-radius:10px;object-fit:contain}
-
-/* primary nav */
+/* Nav */
 .primary-nav{display:flex;align-items:center;gap:12px}
-.nav-toggle{display:none;background:transparent;border:0;font-size:20px}
+.nav-toggle{display:none}
 .nav-tabs{list-style:none;margin:0;padding:0;display:flex;gap:10px}
-.nav-tabs a{
-  display:inline-block;padding:8px 14px;border-radius:12px;
-  background:linear-gradient(180deg,rgba(255,255,255,0.86),rgba(255,255,255,0.74));
-  border:1px solid rgba(0,0,0,0.04);font-weight:700;color:#0f3b38;text-decoration:none;
-  box-shadow:0 6px 18px rgba(8,26,26,0.06);
-}
-.nav-tabs a.active{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 12px 36px rgba(0,150,160,0.14)}
-@media(max-width:880px){
-  .nav-toggle{display:inline-block}
-  .nav-tabs{position:absolute;top:64px;right:var(--gutter);flex-direction:column;background:rgba(255,255,255,0.98);padding:12px;border-radius:12px;display:none}
-  .nav-tabs.open{display:flex}
-}
+.nav-tabs a{display:inline-block;padding:8px 14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.86),rgba(255,255,255,0.74));border:1px solid rgba(0,0,0,0.04);font-weight:700;color:#0f3b38}
+.nav-tabs a.active{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 12px 36px rgba(0,150,160,0.12)}
+@media(max-width:880px){ .nav-toggle{display:inline-block} .nav-tabs{position:absolute;top:64px;right:var(--gutter);flex-direction:column;background:rgba(255,255,255,0.98);padding:12px;border-radius:12px;display:none} .nav-tabs.open{display:flex} }
 
-/* hero block: content sits beneath the header/navigation.
-   Keep hero background neutral; the global bgr.png remains visible behind when hero is semi-transparent */
-.hero {
-  margin-top:8px;
-  padding:40px 0;
-  background:linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.98));
-  border-radius:var(--radius);
-  position:relative;
-  z-index:1;
-}
-.hero .hero-overlay{max-width:820px;margin:0 auto;padding:0 var(--gutter)}
+/* Hero */
+.hero{margin:16px auto;padding:40px 0;background:linear-gradient(180deg,rgba(255,255,255,0.94),rgba(255,255,255,0.98));border-radius:var(--radius);max-width:1200px}
+.hero-overlay{max-width:820px;margin:0 auto;padding:0 var(--gutter)}
 #hero-title{font-size:2rem;color:var(--accent);margin:0 0 8px 0}
 .hero-sub{color:var(--muted);margin:0}
+.hero-actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
 
-/* overlay logo (large decorative) — show when page includes .show-overlay on body or .hero-theme wrapper */
-.logo-overlay{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  top:6vh;
-  width:72%;
-  max-width:720px;
-  z-index:100; /* sits above header visually if placed after header in markup on pages that use it */
-  pointer-events:none;
-}
-.logo-overlay img{width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,0.22);opacity:0.98}
-
-/* cards and layout */
+/* Cards */
 .card{background:var(--card-bg);border-radius:12px;padding:18px;margin:18px 0;box-shadow:var(--shadow);border:1px solid rgba(8,20,20,0.03)}
-.card>h2{padding-left:12px;border-left:6px solid rgba(0,127,127,0.12)}
+.card h2{padding-left:12px;border-left:6px solid rgba(0,127,127,0.12)}
 
-/* pills */
-.pill{display:inline-block;padding:8px 12px;border-radius:20px;background:#2f8f4a;color:#fff;text-decoration:none}
+/* Pills */
+.pill{display:inline-block;padding:8px 12px;border-radius:20px;background:#2f8f4a;color:#fff}
 .pill.secondary{background:#f0f4f8;color:#233}
 
-/* carousel */
-.carousel{position:relative;overflow:hidden}
-.slide{width:100%;display:none;object-fit:cover;max-height:420px}
+/* Carousel */
+.carousel{position:relative;overflow:hidden;margin-top:12px}
+.slides{display:block}
+.slide{width:100%;max-height:420px;object-fit:cover;display:none}
 .slide.active{display:block}
-.carousel-controls{display:flex;justify-content:center;gap:8px;margin-top:8px}
-.dot{width:10px;height:10px;border-radius:50%;background:#ddd;display:inline-block;border:none}
+.carousel-controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px}
+.carousel-btn{background:#fff;border:1px solid #ddd;padding:6px 10px;border-radius:6px;cursor:pointer}
+.dots{display:inline-flex;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:#ddd;border:none;cursor:pointer}
 .dot.active{background:#2f8f4a}
 
-/* footer: BG.png used only for footer decoration */
-.site-footer{
-  position:relative;
-  z-index:1;
-  padding:48px 18px;
-  text-align:center;
-  color:#fff;
-  background-color:rgba(6,40,34,0.86);
-  overflow:hidden;
-}
-.site-footer::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image:url('BG.png');
-  background-repeat:no-repeat;
-  background-position:center bottom;
-  background-size:cover;
-  opacity:0.22;
-  pointer-events:none;
-  z-index:0;
-}
-.site-footer .footer-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;max-width:var(--max-width);margin:0 auto}
-.footer-logo{width:70px;height:auto}
-
-/* back-to-top */
+/* Back to top */
 .back-to-top{position:fixed;right:16px;bottom:16px;opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:1400}
 .back-to-top.show{opacity:1;pointer-events:auto}
 
-/* responsiveness */
-@media(max-width:900px){ .logo-overlay{width:86%;max-width:540px;top:4vh} }
-@media(max-width:600px){ .logo-overlay{width:92%;max-width:420px;top:3vh}; .brand img{height:56px} }
+/* Footer: BG.png used only here */
+.site-footer{position:relative;z-index:1;padding:48px 18px;text-align:center;color:#fff;background-color:rgba(6,40,34,0.86);overflow:hidden}
+.site-footer::before{content:"";position:absolute;inset:0;background-image:url('BG.png');background-repeat:no-repeat;background-position:center bottom;background-size:cover;opacity:0.22;pointer-events:none;z-index:0}
+.site-footer .footer-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;max-width:var(--max-width);margin:0 auto}
+.footer-logo{width:70px;height:auto}
 
-/* accessibility */
+/* Responsive */
+@media(max-width:900px){ .brand img{height:60px} .hero{padding:28px 0} }
+@media(max-width:600px){ .brand img{height:52px} .hero{padding:20px 0} }
+
+/* Accessibility */
 a:focus,button:focus{outline:3px solid rgba(99,170,136,0.28);outline-offset:3px}
