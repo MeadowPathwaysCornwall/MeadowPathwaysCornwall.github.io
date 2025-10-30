@@ -1,11 +1,10 @@
-<script>
-// Nav toggle + back-to-top + carousel enhancements
-(function(){
+// Nav toggle, back-to-top, carousel controller
+(function () {
   // Nav toggle
   var navToggle = document.getElementById('navToggle');
   var nav = document.getElementById('primaryNav');
   if (navToggle && nav) {
-    navToggle.addEventListener('click', function(){
+    navToggle.addEventListener('click', function () {
       var expanded = navToggle.getAttribute('aria-expanded') === 'true';
       navToggle.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('open');
@@ -15,24 +14,24 @@
   // Back to top
   var backBtn = document.getElementById('backToTop');
   if (backBtn) {
-    window.addEventListener('scroll', function(){
+    window.addEventListener('scroll', function () {
       if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show');
     });
-    backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    backBtn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   }
 
-  // Carousel controller (adds aria-current to active dot)
+  // Carousel
   document.addEventListener('DOMContentLoaded', function () {
     var carousel = document.getElementById('carousel');
     if (!carousel) return;
     var slidesContainer = carousel.querySelector('.slides');
     var slides = Array.prototype.slice.call(slidesContainer.querySelectorAll('img.slide'));
     if (!slides.length) return;
-
     var dotsContainer = document.getElementById('dots');
     var prevBtn = document.getElementById('prev');
     var nextBtn = document.getElementById('next');
 
+    // Hide all slides and init
     slides.forEach(function (s, i) {
       s.classList.remove('active');
       s.setAttribute('data-index', i);
@@ -43,6 +42,7 @@
     slides[current].classList.add('active');
     slides[current].style.display = '';
 
+    // Build dots
     if (dotsContainer) {
       while (dotsContainer.firstChild) dotsContainer.removeChild(dotsContainer.firstChild);
       slides.forEach(function (_, i) {
@@ -97,4 +97,3 @@
     startAutoplay();
   });
 })();
-</script>
