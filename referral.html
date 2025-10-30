@@ -1,28 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
-<meta name="description" content="Referral form for Meadow Pathways Cornwall — refer a child or young person for therapeutic education and wellbeing support." />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="description" content="Referral form for Meadow Pathways Cornwall — refer a child or young person for therapeutic education and wellbeing support." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
+<!-- Header -->
 <header class="site-header" role="banner">
   <div class="header-inner container">
     <div class="logo-wrap">
       <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-        <img src="Logo.png" alt="Meadow Pathways Logo" />
+        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
       </a>
     </div>
-    <nav class="primary-nav" aria-label="Primary">
-      <button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
-      <ul id="primaryNav" class="nav-tabs"> ... </ul>
-    </nav>
-  </div>
-</header>
+    <nav aria-label="Primary" class="primary-nav">
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
       <ul id="primaryNav" class="nav-tabs" role="menubar">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -36,26 +33,19 @@
   </div>
 </header>
 
-<div class="hero-theme">
-  <!-- place this once, directly after header, inside .hero-theme or body -->
-<div class="logo-overlay" aria-hidden="true">
-  <img src="Logo.png" alt="Meadow Pathways decorative logo" />
-</div>
-  <div class="logo-overlay" aria-hidden="true">
-    <img src="Logo.png" alt="Meadow Pathways Logo">
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-overlay container">
+    <h1 id="hero-title">Referral</h1>
+    <p class="hero-sub">Complete this secure referral form to refer a child or young person to Meadow Pathways Wellbeing and Education Cornwall.</p>
   </div>
-  <section class="hero" aria-labelledby="hero-title" style="background-image:url('BG.png');">
-    <div class="hero-overlay container">
-      <h1 id="hero-title">Referral</h1>
-      <p class="hero-sub">Complete this secure referral form to refer a child or young person to Meadow Pathways Wellbeing and Education Cornwall.</p>
-    </div>
-  </section>
-</div>
+</section>
 
+<!-- Main -->
 <main id="main" class="container" role="main">
   <section class="card referral-form" aria-labelledby="referral-title">
-    <h2 id="referral-title">📋 Meadow Pathways Cornwall Referral Form</h2>
-    <p>Please complete this referral form if you are a parent, carer, or Local Authority professional wishing to refer a child or young person to Meadow Pathways Wellbeing and Education Cornwall. All information shared will be treated confidentially in line with GDPR and safeguarding procedures.</p>
+    <h2 id="referral-title">📋 Meadow Pathways Referral Form</h2>
+    <p>Please complete this referral form if you are a parent, carer, or Local Authority professional wishing to refer a child or young person. All information shared will be treated confidentially in line with GDPR and safeguarding procedures.</p>
 
     <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
       <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.github.io/thankyou.html" />
@@ -64,7 +54,7 @@
       <div class="grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;">
         <div>
           <label for="childName">Full Name:</label>
-          <input type="text" id="childName" name="childName" required placeholder="Child or young person’s full name" />
+          <input type="text" id="childName" name="childName" required />
         </div>
         <div>
           <label for="dob">Date of Birth:</label>
@@ -72,11 +62,11 @@
         </div>
         <div class="full-width">
           <label for="address">Address:</label>
-          <textarea id="address" name="address" rows="3" required placeholder="Home address"></textarea>
+          <textarea id="address" name="address" rows="3" required></textarea>
         </div>
         <div>
           <label for="school">Current or Most Recent School:</label>
-          <input type="text" id="school" name="school" placeholder="School name" />
+          <input type="text" id="school" name="school" />
         </div>
         <div>
           <label for="ehcp">Does the child/young person have an EHCP?</label>
@@ -91,47 +81,47 @@
 
       <h3 style="margin-top:18px;">👪 Referrer Details</h3>
       <div class="grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;">
-        <div class="form-col-large">
+        <div>
           <label for="referrerName">Your Name:</label>
-          <input type="text" id="referrerName" name="referrerName" required placeholder="Your full name" />
+          <input type="text" id="referrerName" name="referrerName" required />
         </div>
         <div>
-          <label for="role">Role / Relationship to Child:</label>
-          <input type="text" id="role" name="role" required placeholder="E.g. parent, SENCO, social worker" />
+          <label for="role">Role / Relationship:</label>
+          <input type="text" id="role" name="role" required />
         </div>
         <div class="full-width">
           <label for="organisation">Organisation (if applicable):</label>
-          <input type="text" id="organisation" name="organisation" placeholder="Organisation name" />
+          <input type="text" id="organisation" name="organisation" />
         </div>
         <div>
           <label for="email">Email Address:</label>
-          <input type="email" id="email" name="email" required placeholder="you@example.com" />
+          <input type="email" id="email" name="email" required />
         </div>
         <div>
           <label for="phone">Phone Number:</label>
-          <input type="tel" id="phone" name="phone" placeholder="Telephone number" />
+          <input type="tel" id="phone" name="phone" />
         </div>
       </div>
 
       <h3 style="margin-top:18px;">🧠 Needs and Background Information</h3>
       <div>
         <label for="summary">Summary of Needs / Concerns:</label>
-        <textarea id="summary" name="summary" rows="6" required placeholder="Brief summary of needs, behaviours, risks, sensory or health needs, and safeguarding concerns"></textarea>
+        <textarea id="summary" name="summary" rows="6" required></textarea>
       </div>
       <div style="margin-top:12px;">
-        <label for="support">Current Support or Interventions in Place:</label>
-        <textarea id="support" name="support" rows="4" placeholder="Detail existing support, agencies involved, and any recent reports"></textarea>
+        <label for="support">Current Support or Interventions:</label>
+        <textarea id="support" name="support" rows="4"></textarea>
       </div>
       <div style="margin-top:12px;">
-        <label for="goals">What outcomes are hoped for from this referral?</label>
-        <textarea id="goals" name="goals" rows="4" placeholder="What would success look like for this child or young person?"></textarea>
+        <label for="goals">What outcomes are hoped for?</label>
+        <textarea id="goals" name="goals" rows="4"></textarea>
       </div>
 
       <h3 style="margin-top:18px;">📎 Supporting Information</h3>
-      <p class="hint">If possible, please email supporting documents such as an EHCP, educational reports, or other relevant assessments to <strong>meadowpathwayscornwall@outlook.com</strong>. Do not attach documents to this form; use email for files.</p>
+      <p class="hint">If possible, please email supporting documents (EHCP, reports, assessments) to <strong>meadowpathwayscornwall@outlook.com</strong>. Do not attach documents to this form.</p>
 
-      <div class="support-note full-width" style="margin-top:12px;padding:12px 14px;background:linear-gradient(180deg,#fff6f6,#fff);border-radius:10px;border:1px solid rgba(179,75,75,0.06);color:#6b3b3b;font-size:0.95rem;">
-        If this referral is a safeguarding concern or urgent, please contact statutory services first and then call the Meadow Pathways team directly. By submitting this form you consent to Meadow Pathways processing the information for the purpose of assessing the referral.
+      <div class="support-note" style="margin-top:12px;">
+        If this referral is a safeguarding concern or urgent, please contact statutory services first and then call the Meadow Pathways team directly.
       </div>
 
       <div class="actions">
@@ -145,6 +135,7 @@
 
 <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
+<!-- Footer -->
 <footer class="site-footer">
   <div class="footer-content">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
