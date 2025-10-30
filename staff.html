@@ -1,20 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
-  <link rel="stylesheet" href="style.css" />
-  <meta name="robots" content="noindex" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
+<link rel="stylesheet" href="style.css" />
+<meta name="robots" content="noindex" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="header-inner container">
-    <div class="logo-wrap">
-      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo" /></a>
-    </div>
+    <div class="logo-wrap"><a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo" /></a></div>
     <nav aria-label="Primary" class="primary-nav">
       <button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
       <ul id="primaryNav" class="nav-tabs">
@@ -43,7 +41,6 @@
 </div>
 
 <main id="main" class="container">
-  <!-- Password gate -->
   <div id="locked" class="card" aria-hidden="false">
     <h3 id="lock-title">Staff access required</h3>
     <p>Enter the staff password to access hours logging, internal policies and safeguarding resources.</p>
@@ -52,7 +49,6 @@
     <p style="margin-top:10px;font-size:0.95rem;color:var(--text-soft)">If you have trouble accessing this area, contact Michelle or Zoe.</p>
   </div>
 
-  <!-- Staff panel -->
   <div id="staffPanel" style="display:none" aria-hidden="true">
     <section class="card">
       <h2>Internal information</h2>
@@ -62,13 +58,13 @@
         <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
         <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
         <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-        <li>Michelle’s phone: 07932 243358</li>
-        <li>Zoe’s phone: 07775 733587</li>
+        <li>Michelle’s phone: 07932243358</li>
+        <li>Zoe’s phone: 07775733587</li>
       </ul>
 
       <h3>Statutory and partner resources</h3>
       <div style="display:flex;flex-wrap:wrap;gap:8px;">
-        <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025)</a>
+        <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025) - GOV.UK</a>
         <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
         <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research</a>
         <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
@@ -76,12 +72,12 @@
 
       <h3 style="margin-top:12px">Internal policy documents (downloads)</h3>
       <div style="display:flex;flex-wrap:wrap;gap:8px;">
-        <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy (EOTAS)</a>
-        <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>Health & Safety Policy</a>
-        <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
-        <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
-        <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
-        <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+        <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>MPWEC Curriculum Policy EOTAS September 2025.docx</a>
+        <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>MPWEC H&S Policy Sep 25.docx</a>
+        <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>MPWEC Lone Working Policy Sep25.docx</a>
+        <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>MPWEC Safeguarding and Child Protection Policy Sep 2025.docx</a>
+        <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>MPWEC Staff Conduct Policy.docx</a>
+        <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>MPWEC Whistleblowing Policy.docx</a>
       </div>
     </section>
 
@@ -131,4 +127,45 @@
     const val = (pwdInput.value || '').trim();
     if (val === PASSWORD) {
       lockedEl.style.display = 'none';
-      staffPanel.style
+      staffPanel.style.display = 'block';
+      lockedEl.setAttribute('aria-hidden', 'true');
+      staffPanel.setAttribute('aria-hidden', 'false');
+      document.getElementById('staff-name').focus();
+    } else {
+      pwdInput.value = '';
+      pwdInput.focus();
+      alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+    }
+  }
+
+  unlockBtn.addEventListener('click', unlock);
+  pwdInput.addEventListener('keyup', function (e) { if (e.key === 'Enter') unlock(); });
+
+  const hoursForm = document.getElementById('hoursForm');
+  const hoursStatus = document.getElementById('hoursStatus');
+  const FORMSPREE = 'https://formspree.io/f/movnvzqp';
+  if (hoursForm) {
+    hoursForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      hoursStatus.textContent = 'Submitting...';
+      const data = new FormData(hoursForm);
+      try {
+        const res = await fetch(FORMSPREE, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
+        if (res.ok) {
+          hoursForm.reset();
+          hoursStatus.textContent = 'Hours submitted. Thank you.';
+          setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
+        } else {
+          const result = await res.json();
+          hoursStatus.textContent = (result && result.errors) ? result.errors.map(err => err.message).join('; ') : 'Submission error — please try again later.';
+        }
+      } catch (err) {
+        hoursStatus.textContent = 'Network error — check connection and try again.';
+      }
+    });
+  }
+})();
+</script>
+<script src="script.js"></script>
+</body>
+</html>
