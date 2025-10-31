@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="description" content="Meadow Pathways reconnects children with learning through trauma informed, bespoke education and wellbeing support across Cornwall." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="home-page">
@@ -26,12 +27,10 @@
   </div>
 </header>
 
-<!-- Central logo (visual focus) -->
 <div class="logo-top" role="img" aria-label="Meadow Pathways logo">
   <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" />
 </div>
 
-<!-- Hero -->
 <section class="hero" aria-labelledby="hero-welcome">
   <div class="hero-inner container">
     <h1 id="hero-welcome" class="hero-heading">Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
@@ -40,7 +39,7 @@
       <p class="hero-tagline">Guiding individual journeys with care and purpose</p>
     </div>
 
-    <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches.</p>
+    <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿✨</p>
 
     <div class="hero-actions">
       <a class="pill primary" href="contact.html">Contact ☎️</a>
@@ -50,7 +49,6 @@
   </div>
 </section>
 
-<!-- Carousel framed -->
 <aside class="carousel-wrap container" aria-label="Gallery">
   <div id="carousel" class="carousel" aria-roledescription="carousel" tabindex="0">
     <div class="carousel-frame">
@@ -74,11 +72,10 @@
   </div>
 </aside>
 
-<!-- Main content -->
 <main id="main" class="container" role="main">
   <section class="card">
     <h2>Welcome</h2>
-    <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community based activities to build confidence, skills, and a sense of belonging.</p>
+    <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community based activities to build confidence, skills, and a sense of belonging. 🌱</p>
   </section>
 
   <section class="card">
@@ -108,7 +105,6 @@
 
 <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
 
-<!-- Footer: BG.png is the background -->
 <footer class="site-footer" role="contentinfo">
   <div class="footer-content">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
@@ -117,7 +113,6 @@
   </div>
 </footer>
 
-<!-- Referral modal (hidden by default, opens when Referral pill or button clicked) -->
 <div id="referralModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="referralTitle">
   <div class="modal-panel">
     <button class="modal-close" aria-label="Close referral form">&times;</button>
@@ -142,69 +137,6 @@
   </div>
 </div>
 
-<script>
-/* Minimal interactive behaviours: carousel, referral modal, back-to-top, nav focus */
-(function () {
-  // Carousel
-  var carousel = document.getElementById('carousel');
-  if (carousel) {
-    var slides = Array.prototype.slice.call(carousel.querySelectorAll('img.slide'));
-    var dots = document.getElementById('dots');
-    var prev = document.getElementById('prev'), next = document.getElementById('next');
-    var current = 0;
-    function show(i) {
-      i = (i + slides.length) % slides.length;
-      slides.forEach(function(s, idx){ s.style.display = idx === i ? '' : 'none'; s.classList.toggle('active', idx===i); });
-      if (dots) {
-        Array.prototype.slice.call(dots.children).forEach(function(b, idx){ b.classList.toggle('active', idx===i); });
-      }
-      current = i;
-    }
-    if (dots) {
-      dots.innerHTML = '';
-      slides.forEach(function(_, i){
-        var b = document.createElement('button'); b.type='button'; b.className='dot' + (i===0? ' active':''); b.setAttribute('aria-label','Go to slide '+(i+1)); b.dataset.index=i;
-        b.addEventListener('click', function(){ show(i); reset(); });
-        dots.appendChild(b);
-      });
-    }
-    show(0);
-    prev && prev.addEventListener('click', function(){ show(current-1); reset(); });
-    next && next.addEventListener('click', function(){ show(current+1); reset(); });
-    var autoplay = setInterval(function(){ show(current+1); }, 6000);
-    function reset(){ clearInterval(autoplay); autoplay = setInterval(function(){ show(current+1); }, 6000); }
-    carousel.addEventListener('mouseenter', function(){ clearInterval(autoplay); });
-    carousel.addEventListener('mouseleave', function(){ reset(); });
-    carousel.addEventListener('keydown', function(e){ if(e.key==='ArrowLeft') show(current-1); if(e.key==='ArrowRight') show(current+1); });
-  }
-
-  // Back to top
-  var back = document.getElementById('backToTop');
-  window.addEventListener('scroll', function(){ back.classList.toggle('show', window.scrollY > 300); });
-  back && back.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
-
-  // Referral modal
-  var modal = document.getElementById('referralModal');
-  var openBtns = [document.getElementById('referralOpen'), document.getElementById('referralInline')];
-  var closeBtns = modal ? modal.querySelectorAll('.modal-close, .modal-cancel') : [];
-  function openModal(){
-    if(!modal) return;
-    modal.setAttribute('aria-hidden','false'); modal.classList.add('open'); modal.querySelector('input, textarea, button') && modal.querySelector('input,textarea,button').focus();
-  }
-  function closeModal(){
-    if(!modal) return;
-    modal.setAttribute('aria-hidden','true'); modal.classList.remove('open');
-  }
-  openBtns.forEach(function(b){ if(b) b.addEventListener('click', openModal); });
-  closeBtns.forEach(function(b){ b.addEventListener('click', closeModal); });
-  if (modal) modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
-
-  // Simple nav keyboard focus for pills (optional enhancement)
-  var navPills = document.querySelectorAll('.nav-pill');
-  navPills.forEach(function(p){ p.setAttribute('tabindex','0'); });
-
-})();
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
