@@ -1,136 +1,162 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
-<meta name="description" content="Contact Meadow Pathways Wellbeing and Education Cornwall — enquiries, referrals and general information." />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="description" content="Contact Meadow Pathways for referrals, enquiries, or to request staff access." />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="home">
+<body class="contact-page">
 
-<a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" role="banner">
-  <div class="header-inner container">
-    <nav class="primary-nav" aria-label="Primary navigation">
-      <ul class="nav-tabs">
-        <li><a href="index.html" class="nav-pill">Home</a></li>
-        <li><a href="about.html" class="nav-pill">About</a></li>
-        <li><a href="eotas.html" class="nav-pill">EOTAS</a></li>
-        <li><a href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
-        <li><a href="staff.html" class="nav-pill">Staff</a></li>
-        <li><a href="referral.html" class="nav-pill">Referral</a></li>
-        <li><a href="contact.html" class="nav-pill active">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <ul class="nav-tabs" id="primaryNav" role="menubar">
+          <li role="none"><a role="menuitem" href="index.html" class="nav-pill">Home</a></li>
+          <li role="none"><a role="menuitem" href="about.html" class="nav-pill">About</a></li>
+          <li role="none"><a role="menuitem" href="eotas.html" class="nav-pill">EOTAS</a></li>
+          <li role="none"><a role="menuitem" href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
+          <li role="none"><a role="menuitem" href="staff.html" class="nav-pill">Staff</a></li>
+          <li role="none"><button id="referralOpen" class="nav-pill nav-pill-cta" aria-haspopup="dialog">Referral</button></li>
+          <li role="none"><a role="menuitem" href="contact.html" class="nav-pill active" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-accent" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- Compact logo for non-home pages -->
+  <div class="logo-top" role="img" aria-label="Meadow Pathways logo">
+    <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" width="260" height="88" />
   </div>
-</header>
 
-<div class="logo-top">
-  <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" />
-</div>
+  <main id="main" class="container" role="main">
+    <section class="card">
+      <h1>Contact us</h1>
+      <p>If you'd like to get in touch about referrals, services, or staff access, please use the form below or call the number on our policies page. We aim to respond within 3 working days.</p>
+    </section>
 
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero-inner container">
-    <h1 id="hero-title">📞 Contact Us</h1>
-    <div class="hero-pill"><p class="hero-tagline">Get in touch about referrals, enquiries and support</p></div>
-    <p class="hero-sub">If this is an urgent safeguarding concern, contact statutory services first and then call the Meadow Pathways team.</p>
-  </div>
-</section>
+    <section class="card">
+      <h2>Send us a message</h2>
 
-<main id="main" class="container" role="main">
-  <section id="contact" class="card contact-section" aria-labelledby="contact-title">
-    <h2 id="contact-title">Contact Us</h2>
-    <p>We’d love to hear from you. Use the form below for general enquiries or to discuss referrals. If this is an urgent safeguarding concern, please contact statutory services first and then call the Meadow Pathways team.</p>
+      <form id="contactForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate class="form-card" aria-describedby="contact-help">
+        <div class="form-row">
+          <div class="field">
+            <label class="form-label" for="contact-name">Full name</label>
+            <input id="contact-name" name="name" class="form-input" required />
+          </div>
 
-    <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-      <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.github.io/thankyou.html" />
-      <div class="form-row" style="display:flex;gap:12px;flex-wrap:wrap;">
-        <div style="flex:1">
-          <label for="name">Your name</label>
-          <input type="text" id="name" name="name" required placeholder="Full name" />
-        </div>
-        <div style="flex:1">
-          <label for="role">Role / Relationship</label>
-          <input type="text" id="role" name="role" placeholder="E.g. parent, teacher, professional" />
-        </div>
-      </div>
-
-      <div class="form-row" style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;">
-        <div style="flex:1">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" required placeholder="you@example.com" />
-        </div>
-        <div style="flex:1">
-          <label for="phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" placeholder="Telephone number" />
-        </div>
-      </div>
-
-      <div style="margin-top:12px;">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="8" required placeholder="Tell us how we can help"></textarea>
-      </div>
-
-      <div class="support-note" style="margin-top:12px;">
-        If you are making a referral or sending protected information, please email securely to our referrals address or call the office — do not include sensitive personal details in this public form.
-      </div>
-
-      <div class="actions" style="margin-top:12px;display:flex;gap:10px;align-items:center;">
-        <button type="submit" class="pill primary">Send message</button>
-        <a href="referral.html" class="pill secondary">Make a referral</a>
-        <span style="margin-left:auto;color:var(--muted);">We aim to reply promptly</span>
-      </div>
-    </form>
-
-    <hr style="margin:22px 0;border:none;border-top:1px solid rgba(0,0,0,0.06);" />
-
-    <div class="contact-details" aria-label="Contact details">
-      <h3>🌸 Meadow Pathways Wellbeing and Education Cornwall</h3>
-
-      <div class="protected-note" style="background:#fff4e6;border-left:4px solid #d4af37;padding:10px 12px;border-radius:8px;color:#3b3b3b;margin-bottom:14px;">
-        <strong>Protected contact information below.</strong> These addresses and numbers are for authorised contact only. Do not publish elsewhere or include protected personal data in the public form.
-      </div>
-
-      <p class="contact-line"><strong>General enquiries (Formspree linked):</strong>
-      <a href="mailto:meadowpathwayscornwall@outlook.com" class="protected">meadowpathwayscornwall@outlook.com</a></p>
-
-      <h4>Team contacts (protected)</h4>
-
-      <div class="staff-contacts">
-        <div class="bio-box">
-          <h3>Zoe — Role / Title</h3>
-          <p class="contact-line"><strong>Email:</strong> <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com" class="protected">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
-          <p class="contact-line"><strong>Phone:</strong> <span class="protected">07775733587</span></p>
-          <p class="hint">For sensitive or protected information please use the secure referrals contact above.</p>
+          <div class="field">
+            <label class="form-label" for="contact-email">Email address</label>
+            <input id="contact-email" type="email" name="email" class="form-input" required />
+          </div>
         </div>
 
-        <div class="bio-box" style="margin-top:12px;">
-          <h3>Michelle — Role / Title</h3>
-          <p class="contact-line"><strong>Email:</strong> <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com" class="protected">Michelle.Pascoe@meadowpathwayscornwall.com</a></p>
-          <p class="contact-line"><strong>Phone:</strong> <span class="protected">07932243358</span></p>
-          <p class="hint">For referrals, please use the secure referrals email or call the office to arrange a safe transfer of information.</p>
+        <div class="form-row">
+          <div class="field" style="flex:1 1 100%">
+            <label class="form-label" for="contact-subject">Subject</label>
+            <input id="contact-subject" name="subject" class="form-input" />
+          </div>
         </div>
-      </div>
 
-      <div class="support-note" style="margin-top:12px;">
-        Please do not include protected personal data in the public form. For referrals or protected records, email our secure referrals address above or call the office to arrange a safe transfer.
+        <div class="form-row">
+          <div class="field" style="flex:1 1 100%">
+            <label class="form-label" for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" class="form-textarea" rows="7" required></textarea>
+          </div>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" name="consent" required />
+          I agree to Meadow Pathways processing my data in line with the privacy policy.
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="pill primary">Send Message</button>
+        </div>
+
+        <p id="contact-help" class="form-help">We will only use your information to respond to this enquiry. If you are making a referral, please use the Referral form so we can collect the required details.</p>
+
+        <div id="contactResult" class="form-success" style="display:none" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Other ways to contact us</h2>
+      <p>For policies, safeguarding contacts, and protected resources, please visit the Safeguarding and Policies pages.</p>
+      <div class="resource-links">
+        <a class="pill secondary" href="policies.html">Policies</a>
+        <a class="pill secondary" href="safeguarding.html">Safeguarding</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to top -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Referral modal (reused from index) -->
+  <div id="referralModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="referralTitle">
+    <div class="modal-panel" role="document">
+      <button class="modal-close" aria-label="Close referral form">&times;</button>
+      <div class="referral-panel form-card">
+        <h2 id="referralTitle">Referral — Meadow Pathways</h2>
+
+        <form id="referralForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label class="form-label" for="ref-name">Your name</label>
+              <input id="ref-name" name="referrerName" class="form-input" required />
+            </div>
+
+            <div class="field">
+              <label class="form-label" for="ref-role">Role / relationship</label>
+              <input id="ref-role" name="role" class="form-input" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field" style="flex:1 1 100%">
+              <label class="form-label" for="childName">Child / young person full name</label>
+              <input id="childName" name="childName" class="form-input" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field" style="flex:1 1 100%">
+              <label class="form-label" for="summary">Summary of needs / concerns</label>
+              <textarea id="summary" name="summary" rows="7" class="form-textarea" required></textarea>
+            </div>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            I confirm I have consent to share these details and understand how they will be processed.
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="pill primary">Submit referral</button>
+            <button type="button" class="pill secondary modal-cancel">Cancel</button>
+          </div>
+
+          <div id="referralResult" class="form-success" style="display:none" role="status" aria-live="polite"></div>
+        </form>
       </div>
     </div>
-  </section>
-</main>
-
-<button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
-
-<footer class="site-footer">
-  <div class="footer-content">
-    <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-    <p>Guiding Individual Journeys with Care and Purpose</p>
   </div>
-</footer>
 
-<script src="script.js"></script>
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-content container">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+      <p>Guiding Individual Journeys with Care and Purpose</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
