@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
-<link rel="stylesheet" href="style.css" />
-<meta name="robots" content="noindex" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="robots" content="noindex" />
 </head>
 <body>
 
@@ -36,50 +36,31 @@
 </header>
 
 <div class="page-wrap">
-  <section class="hero" aria-labelledby="hero-title" style="margin-top:12px;">
-    <div class="hero-content container">
-      <h1 id="hero-title">Staff area</h1>
-      <p class="hero-sub">Internal links and information for Meadow Pathways staff</p>
-    </div>
-    <div class="hero-art" aria-hidden="true">
-      <img src="BG.png" alt="" role="presentation" />
-    </div>
-  </section>
-
   <main id="main" class="container" role="main">
-    <section class="card" aria-labelledby="access">
-      <h2 id="access">Request access</h2>
-      <p>To protect sensitive documents and credentials we no longer expose passwords or protected links in client-side code. If you are a member of staff and need access to internal pages (hours logging, protected downloads, safekeeping), please request access below. Your request will be emailed to the lead and processed securely.</p>
+    <section class="card" aria-labelledby="staff-access">
+      <h1 id="staff-access">Staff access</h1>
+      <p>To access protected staff resources, please enter the staff password below. If you do not have the password, contact Michelle or Zoe to request access.</p>
 
-      <!-- Small access request form (Formspree). Replace action if you have an internal endpoint. -->
-      <form action="https://formspree.io/f/movnvzqp" method="POST" style="max-width:620px;">
-        <label for="staffName">Your full name</label>
-        <input id="staffName" name="staffName" type="text" required placeholder="Full name" />
-
-        <label for="staffEmail" style="margin-top:10px;">Your work email</label>
-        <input id="staffEmail" name="staffEmail" type="email" required placeholder="you@organisation.com" />
-
-        <label for="reason" style="margin-top:10px;">Reason for access</label>
-        <textarea id="reason" name="reason" rows="4" placeholder="Brief reason for access request" required></textarea>
-
+      <form id="staffLogin" style="max-width:420px;">
+        <label for="staffPassword">Enter password</label>
+        <input type="password" id="staffPassword" name="staffPassword" required placeholder="Enter password" />
         <div class="actions" style="margin-top:12px;">
-          <button class="pill" type="submit">Request access</button>
-          <a class="pill secondary" href="contact.html">Contact lead</a>
+          <button type="submit" class="pill">Unlock staff area</button>
         </div>
+        <p id="loginMessage" class="hint" style="margin-top:10px;"></p>
       </form>
-
-      <p class="hint" style="margin-top:12px;">Once access is approved you'll be issued an account or a secure link. Do not share credentials via email or public forms.</p>
     </section>
 
-    <section class="card" aria-labelledby="resources" style="margin-top:16px;">
-      <h2 id="resources">Staff resources (summary)</h2>
-      <p>Approved staff will see a secured staff panel with downloads and hours logging. The items below are maintained centrally and are available to staff after secure sign-in:</p>
+    <section id="staffPanel" class="card" style="display:none;" aria-labelledby="staff-panel">
+      <h2 id="staff-panel">Staff resources</h2>
+      <p>Welcome to the protected staff area. Here you’ll find internal guidance, links, and resources for Meadow Pathways team members.</p>
       <ul>
-        <li>Formspree endpoint for forms: <code>https://formspree.io/f/movnvzqp</code></li>
-        <li>Policy downloads (curriculum, H&S, safeguarding) — stored on protected server</li>
-        <li>Hours logging and client-note guidance (available via staff panel)</li>
+        <li><a href="MPWEC Curriculum Policy EOTAS September 2025.docx" class="pill file">Curriculum Policy</a></li>
+        <li><a href="RSHE 2025.pdf" class="pill file">RSHE Document</a></li>
+        <li><a href="EBSNA Guidance.pdf" class="pill file">EBSNA Guidance</a></li>
+        <li><a href="protected-resources.html" class="pill secondary">Protected Resources</a></li>
       </ul>
-      <p class="hint">If you already have authorised access and need the staff panel unlocked, contact Michelle or Zoe directly so they can enable your account.</p>
+      <p class="hint" style="margin-top:12px;">Please do not share these links externally. For updates or access issues, contact Michelle or Zoe directly.</p>
     </section>
   </main>
 </div>
@@ -96,15 +77,15 @@
       </div>
     </div>
     <div>
-      <a class="pill secondary" href="protected-resources.html">Protected resources</a>
-      <a class="pill secondary" href="passwords.html">Access guidance</a>
+      <a class="pill secondary" href="contact.html">Contact</a>
+      <a class="pill secondary" href="privacy.html">Privacy</a>
     </div>
   </div>
 </footer>
 
 <script>
 (function(){
-  // nav toggle as in index
+  // nav toggle
   var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
   if (navToggle && nav) {
     navToggle.addEventListener('click', function(){
@@ -113,10 +94,30 @@
       nav.classList.toggle('open');
     });
   }
+
   // back to top
   var backBtn = document.getElementById('backToTop');
   window.addEventListener('scroll', function(){ backBtn.style.display = (window.scrollY > 300) ? 'block' : 'none'; });
   backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  // staff password check
+  var form = document.getElementById('staffLogin');
+  var input = document.getElementById('staffPassword');
+  var panel = document.getElementById('staffPanel');
+  var message = document.getElementById('loginMessage');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var pw = input.value.trim();
+    if (pw === 'MPWEC!') {
+      panel.style.display = 'block';
+      form.style.display = 'none';
+      message.textContent = '';
+    } else {
+      message.textContent = 'Incorrect password. Please try again or contact the team.';
+      input.focus();
+    }
+  });
 })();
 </script>
 
