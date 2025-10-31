@@ -1,148 +1,72 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
-  <meta name="description" content="Make a referral to Meadow Pathways. Please complete the form with accurate information and confirm consent." />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
+<link rel="stylesheet" href="style.css" />
 </head>
-<body class="referral-page">
-
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header" role="banner">
-    <div class="header-inner container">
-      <nav class="primary-nav" aria-label="Primary navigation">
-        <ul class="nav-tabs" role="menubar">
-          <li role="none"><a href="index.html" class="nav-pill">Home</a></li>
-          <li role="none"><a href="about.html" class="nav-pill">About</a></li>
-          <li role="none"><a href="eotas.html" class="nav-pill">EOTAS</a></li>
-          <li role="none"><a href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
-          <li role="none"><a href="staff.html" class="nav-pill">Staff</a></li>
-          <li role="none"><a href="contact.html" class="nav-pill">Contact</a></li>
-          <li role="none"><button id="referralOpen" class="nav-pill nav-pill-cta" aria-haspopup="dialog">Referral</button></li>
-        </ul>
-      </nav>
-      <div class="header-accent" aria-hidden="true"></div>
-    </div>
-  </header>
-
-  <div class="logo-top" role="img" aria-label="Meadow Pathways logo">
-    <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" width="260" height="88" />
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+      <svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#e7f4ee"/><path d="M16 38c8-12 24-12 32-6" stroke="#2f8f4a" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+      <span class="wordmark">Meadow Pathways</span>
+      <img src="Logo.png" alt="Meadow Pathways logo" class="logo-img" />
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation"><button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
+      <ul id="primaryNav" class="nav-tabs">
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="eotas.html">EOTAS</a></li><li><a href="safeguarding.html">Safeguarding</a></li><li><a href="staff.html">Staff</a></li><li><a href="referral.html" class="active">Referral</a></li><li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </div>
+</header>
 
-  <main id="main" class="container" role="main">
-    <section class="card">
-      <h1>Referral form</h1>
-      <p>Please complete the form below with as much information as possible. Fields marked required must be completed. If this is an urgent safeguarding concern, follow local safeguarding procedures and contact the relevant authorities immediately.</p>
-    </section>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-inner container"><div class="hero-content"><h1 id="hero-title">Referral form</h1><p class="hero-sub">Complete this secure form to refer a child or young person.</p></div></div>
+</section>
 
-    <section class="card">
-      <h2>Referral details</h2>
+<main id="main" class="container" role="main">
+  <section class="card">
+    <h2>Meadow Pathways Cornwall Referral Form</h2>
+    <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
+      <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.github.io/thankyou.html" />
 
-      <form id="referralForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate class="form-card" aria-describedby="referral-help">
-        <input type="hidden" name="_subject" value="New referral from website" />
+      <h3>Child/Young Person details</h3>
+      <label for="childName">Full name</label><input id="childName" name="childName" required />
+      <label for="dob">Date of birth</label><input id="dob" name="dob" type="date" required />
+      <label for="address">Address</label><textarea id="address" name="address" rows="3" required></textarea>
+      <label for="school">Current/Most recent school</label><input id="school" name="school" />
 
-        <div class="form-row">
-          <div class="field">
-            <label class="form-label" for="ref-name">Your name</label>
-            <input id="ref-name" name="referrerName" class="form-input" required />
-          </div>
+      <h3 style="margin-top:14px;">Referrer details</h3>
+      <label for="referrerName">Your name</label><input id="referrerName" name="referrerName" required />
+      <label for="role">Role/Relationship</label><input id="role" name="role" required />
+      <label for="email">Email</label><input id="email" name="email" type="email" required />
+      <label for="phone">Phone</label><input id="phone" name="phone" type="tel" />
 
-          <div class="field">
-            <label class="form-label" for="ref-role">Role / relationship</label>
-            <input id="ref-role" name="role" class="form-input" placeholder="e.g., parent, teacher, social worker" />
-          </div>
-        </div>
+      <h3 style="margin-top:14px;">Needs & background</h3>
+      <label for="summary">Summary of needs/concerns</label><textarea id="summary" name="summary" rows="6" required></textarea>
+      <label for="support">Current support</label><textarea id="support" name="support" rows="4"></textarea>
+      <label for="goals">Outcomes hoped for</label><textarea id="goals" name="goals" rows="4"></textarea>
 
-        <div class="form-row">
-          <div class="field" style="flex:1 1 48%">
-            <label class="form-label" for="childName">Child / young person full name</label>
-            <input id="childName" name="childName" class="form-input" required />
-          </div>
+      <div class="actions" style="margin-top:12px;">
+        <button type="submit" class="pill">Submit Referral</button>
+        <a href="contact.html" class="pill secondary">Contact us first</a>
+      </div>
+      <p class="hint" style="margin-top:10px;">If urgent, contact statutory services first, then call the team.</p>
+    </form>
+  </section>
+</main>
 
-          <div class="field" style="flex:1 1 48%">
-            <label class="form-label" for="dob">Date of birth (if known)</label>
-            <input id="dob" name="dob" type="date" class="form-input" />
-          </div>
-        </div>
+<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
-        <div class="form-row">
-          <div class="field" style="flex:1 1 100%">
-            <label class="form-label" for="education">Current education setting</label>
-            <input id="education" name="education" class="form-input" placeholder="School, alternative provision, home educated, etc." />
-          </div>
-        </div>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-content">
+    <div style="display:flex;align-items:center;gap:12px;"><img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" /><div><p style="margin:0;">© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p><p style="margin:0;font-size:0.92rem;">Guiding Individual Journeys with Care and Purpose</p></div></div>
+    <nav aria-label="Footer links"><a class="pill secondary" href="protected-resources.html">Protected</a><a class="pill secondary" href="privacy.html">Privacy</a></nav>
+  </div>
+</footer>
 
-        <div class="form-row">
-          <div class="field" style="flex:1 1 100%">
-            <label class="form-label" for="summary">Summary of presenting needs / concerns</label>
-            <textarea id="summary" name="summary" rows="8" class="form-textarea" required placeholder="Please describe the reasons for referral, recent changes, and any relevant context."></textarea>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="field">
-            <label class="form-label" for="support">Current support in place</label>
-            <input id="support" name="support" class="form-input" placeholder="e.g., CAMHS, SEN support, EWO" />
-          </div>
-
-          <div class="field">
-            <label class="form-label" for="risk">Known risks or safeguarding concerns</label>
-            <input id="risk" name="risk" class="form-input" placeholder="Summarise any risks (brief)" />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="field">
-            <label class="form-label" for="contactPhone">Referrer's phone</label>
-            <input id="contactPhone" name="contactPhone" class="form-input" />
-          </div>
-
-          <div class="field">
-            <label class="form-label" for="contactEmail">Referrer's email</label>
-            <input id="contactEmail" name="contactEmail" type="email" class="form-input" required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="field" style="flex:1 1 100%">
-            <label class="form-label" for="additional">Additional information (optional)</label>
-            <textarea id="additional" name="additional" rows="5" class="form-textarea" placeholder="Anything else you think is important"></textarea>
-          </div>
-        </div>
-
-        <label class="consent">
-          <input type="checkbox" name="consent" required />
-          I confirm I have consent to share these details and understand how they will be processed.
-        </label>
-
-        <div class="form-actions">
-          <button type="submit" class="pill primary">Submit referral</button>
-          <button type="reset" class="pill secondary">Reset</button>
-        </div>
-
-        <p id="referral-help" class="form-help">We will contact you using the details you provide. If you need to send attachments or supporting documents, please email the office (see Policies page for contact details).</p>
-
-        <div id="referralResult" class="form-success" style="display:none" role="status" aria-live="polite"></div>
-      </form>
-    </section>
-
-    <section class="card">
-      <h2>After you submit</h2>
-      <p>On successful submission you will see a confirmation message and the form will clear. If you do not receive a response within our published timescale, please follow up via the Contact page.</p>
-    </section>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-content container">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-      <p>Guiding Individual Journeys with Care and Purpose</p>
-    </div>
-  </footer>
-
-  <script src="script.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
