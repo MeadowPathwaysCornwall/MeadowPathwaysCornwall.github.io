@@ -24,12 +24,15 @@
           <li role="none"><a role="menuitem" href="contact.html" class="nav-pill">Contact</a></li>
         </ul>
       </nav>
+
+      <!-- decorative BG accent (low opacity) -->
+      <div class="header-accent" aria-hidden="true"></div>
     </div>
   </header>
 
-  <!-- Compact logo -->
+  <!-- Featured logo (large on home) -->
   <div class="logo-top" role="img" aria-label="Meadow Pathways logo">
-    <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" width="260" height="88" />
+    <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" width="560" height="160" />
   </div>
 
   <!-- Hero -->
@@ -113,28 +116,47 @@
   <div id="referralModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="referralTitle">
     <div class="modal-panel" role="document">
       <button class="modal-close" aria-label="Close referral form">&times;</button>
-      <div class="referral-panel">
+      <div class="referral-panel form-card">
         <h2 id="referralTitle">Referral — Meadow Pathways</h2>
+
         <form id="referralForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-          <input type="hidden" name="_redirect" value="thankyou.html" />
-          <label for="ref-name">Your name</label>
-          <input id="ref-name" name="referrerName" required />
-          <label for="ref-role">Role / relationship</label>
-          <input id="ref-role" name="role" />
-          <label for="childName">Child / young person full name</label>
-          <input id="childName" name="childName" required />
-          <label for="summary">Summary of needs / concerns</label>
-          <textarea id="summary" name="summary" rows="6" required></textarea>
+          <div class="form-row">
+            <div class="field">
+              <label class="form-label" for="ref-name">Your name</label>
+              <input id="ref-name" name="referrerName" class="form-input" required />
+            </div>
+
+            <div class="field">
+              <label class="form-label" for="ref-role">Role / relationship</label>
+              <input id="ref-role" name="role" class="form-input" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field" style="flex:1 1 100%">
+              <label class="form-label" for="childName">Child / young person full name</label>
+              <input id="childName" name="childName" class="form-input" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field" style="flex:1 1 100%">
+              <label class="form-label" for="summary">Summary of needs / concerns</label>
+              <textarea id="summary" name="summary" rows="7" class="form-textarea" required></textarea>
+            </div>
+          </div>
 
           <label class="consent">
             <input type="checkbox" name="consent" required />
             I confirm I have consent to share these details and understand how they will be processed.
           </label>
 
-          <div class="modal-actions">
+          <div class="form-actions">
             <button type="submit" class="pill primary">Submit referral</button>
             <button type="button" class="pill secondary modal-cancel">Cancel</button>
           </div>
+
+          <div id="referralResult" class="form-success" style="display:none" role="status" aria-live="polite"></div>
         </form>
       </div>
     </div>
