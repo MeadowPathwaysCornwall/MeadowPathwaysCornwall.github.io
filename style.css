@@ -160,6 +160,51 @@ body {
 .pill { display:inline-block; padding:10px 14px; border-radius:999px; background:var(--accent-1); color:#fff; font-weight:700; text-decoration:none; border:none; cursor:pointer; }
 .pill.secondary { background:#fff; color:#123; border:1px solid rgba(0,0,0,0.04); }
 
+/* Team photo frame and image sizing — fixed small framed portraits (place after Cards, lists, pills) */
+.team-photo-frame {
+  width: 160px;
+  height: 160px;
+  flex: 0 0 160px;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(180deg,#f7fbfd,#eaf7f4);
+  padding: 6px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  align-self: flex-start;
+}
+
+.team-photo-frame img.team-photo,
+.team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Fallback selectors in case markup uses slightly different class names */
+.bio-card .team-photo,
+.team-photo-frame img,
+.team-photo-frame img.team-photo {
+  max-width: 100%;
+  display: block;
+}
+
+/* Responsive — reduce frame on small screens */
+@media (max-width: 520px) {
+  .team-photo-frame {
+    width: 110px;
+    height: 110px;
+    flex: 0 0 110px;
+    padding: 4px;
+  }
+  .team-photo-frame img.team-photo,
+  .team-photo {
+    border-radius: 8px;
+  }
+}
+
 /* --------------- Footer (BG.png full footer background) --------------- */
 /* Footer: show BG.png as the visible decorative banner, no solid green overlay */
 .site-footer {
