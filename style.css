@@ -32,23 +32,15 @@ a:hover { text-decoration: underline; }
 .container { max-width: var(--container-max); margin: 0 auto; padding: 0 20px; }
 .skip-link { position:absolute; left:-9999px; }
 
-/* Page background: smooth graduated blue-green with subtle texture */
+/* Page background: use bgro.jpg as the main background (no repeat) */
 body {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  background-color: var(--bg-top);
+  background-image: url('bgro.jpg'), linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center top, center top;
+  background-size: cover, auto;
   min-height: 100%;
   position: relative;
-}
-
-/* optional subtle texture overlay using BG.png if present but not repeating */
-body::after{
-  content: "";
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  background-image: url('bgr_texture.png'); /* small texture file if available; safe to omit */
-  background-repeat: repeat;
-  opacity: var(--texture-opacity);
-  z-index: 0;
 }
 
 /* --------------- Header & Navigation --------------- */
@@ -99,7 +91,7 @@ body::after{
 .nav-pill-cta { background: linear-gradient(180deg,#f7c86b,#e7b84b); color:#123; box-shadow: 0 10px 32px rgba(231,184,75,0.18); }
 
 /* --------------- Central logo --------------- */
-.logo-top { display:flex; justify-content:center; margin-top: 50px; z-index: 5; position: relative; }
+.logo-top { display:flex; justify-content:center; margin-top: 80px; z-index: 5; position: relative; }
 .central-logo {
   height: var(--logo-height);
   width: auto;
