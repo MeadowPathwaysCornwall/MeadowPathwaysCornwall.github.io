@@ -1,100 +1,118 @@
-(function () {
-  // NAVIGATION TOGGLE
-  const navToggle = document.getElementById('navToggle');
-  const nav = document.getElementById('primaryNav');
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', () => {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('open');
-    });
-  }
+/* Meadow Pathways — script.js
+   Navigation, carousel, back-to-top, and Formspree form handling
+*/
 
-  // BACK TO TOP
-  const backBtn = document.getElementById('backToTop');
-  if (backBtn) {
-    window.addEventListener('scroll', () => {
-      backBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-    backBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
 
-  // CAROUSEL
-  const carousel = document.getElementById('carousel');
-  if (carousel) {
-    const slides = Array.from(carousel.querySelectorAll('.slides img'));
-    const dots = document.getElementById('dots');
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-    let current = 0;
-    let timer = null;
-
-    function show(i) {
-      slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
-      const btns = dots.querySelectorAll('button');
-      btns.forEach((b, idx) => b.classList.toggle('active', idx === i));
-      current = i;
-    }
-
-    function auto() {
-      timer = setInterval(() => {
-        show((current + 1) % slides.length);
-      }, 6000);
-    }
-
-    function reset() {
-      clearInterval(timer);
-      auto();
-    }
-
-    // Build dots
-    if (dots) {
-      slides.forEach((_, idx) => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = idx === 0 ? 'dot active' : 'dot';
-        b.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
-        b.addEventListener('click', () => {
-          show(idx);
-          reset();
-        });
-        dots.appendChild(b);
+    /* ---------------------------
+       MOBILE NAV TOGGLE
+    --------------------------- */
+    const navToggle = document.getElementById('navToggle');
+    const primaryNav = document.getElementById('primaryNav');
+    if(navToggle && primaryNav){
+      navToggle.addEventListener('click', () => {
+        const open = primaryNav.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', String(open));
       });
     }
 
-    if (prev) prev.addEventListener('click', () => { show((current - 1 + slides.length) % slides.length); reset(); });
-    if (next) next.addEventListener('click', () => { show((current + 1) % slides.length); reset(); });
+    /* ---------------------------
+       BACK TO TOP BUTTON
+    --------------------------- */
+    const backBtn = document.getElementById('backToTop');
+    if(backBtn){
+      window.addEventListener('scroll', () => {
+        if(window.scrollY > 320) backBtn.classList.add('show');
+        else backBtn.classList.remove('show');
+      });
+      backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
-    show(0);
-    auto();
-    carousel.addEventListener('mouseenter', () => clearInterval(timer));
-    carousel.addEventListener('mouseleave', () => reset());
-    carousel.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') show((current - 1 + slides.length) % slides.length);
-      if (e.key === 'ArrowRight') show((current + 1) % slides.length);
-    });
-  }
+    /* ---------------------------
+       IMAGE CAROUSEL
+    --------------------------- */
+    const carousel = document.getElementById('carousel');
+    if(carousel){
+      const slides = Array.from(carousel.querySelectorAll('.slides img'));
+      const dotsContainer = document.getElementById('dots');
+      const prevBtn = document.getElementById('prev');
+      const nextBtn = document.getElementById('next');
+      let current = 0;
 
-  // STAFF PASSWORD UNLOCK
-  const loginForm = document.getElementById('staffLogin');
-  const passwordInput = document.getElementById('staffPassword');
-  const staffPanel = document.getElementById('staffPanel');
-  const loginMessage = document.getElementById('loginMessage');
-
-  if (loginForm && passwordInput && staffPanel) {
-    loginForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const pw = passwordInput.value.trim();
-      if (pw === 'MPWEC!') {
-        staffPanel.style.display = 'block';
-        loginForm.style.display = 'none';
-        loginMessage.textContent = '';
-      } else {
-        loginMessage.textContent = 'Incorrect password. Please try again or contact the team.';
-        passwordInput.focus();
+      function showSlide(index){
+        slides.forEach((slide,i)=>{
+          slide.classList.toggle('active', i===index);
+          slide.style.display = i===index ? '' : 'none';
+        });
+        const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
+        dots.forEach((d,i)=> d.classList.toggle('active', i===index));
       }
+
+      function goTo(idx){
+        current = (idx + slides.length) % slides.length;
+        showSlide(current);
+      }
+
+      if(dotsContainer){
+        dotsContainer.innerHTML = '';
+        slides.forEach((_,i)=>{
+          const dot = document.createElement('button');
+          dot.type='button';
+          dot.className='dot' + (i===0?' active':'');
+          dot.setAttribute('aria-label','Go to slide '+(i+1));
+          dot.addEventListener('click',()=>{goTo(i); resetAuto();});
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      prevBtn?.addEventListener('click',()=>{goTo(current-1); resetAuto();});
+      nextBtn?.addEventListener('click',()=>{goTo(current+1); resetAuto();});
+      carousel.setAttribute('tabindex','0');
+      carousel.addEventListener('keydown',e=>{
+        if(e.key==='ArrowLeft'){goTo(current-1); resetAuto();}
+        if(e.key==='ArrowRight'){goTo(current+1); resetAuto();}
+      });
+
+      let autoPlay;
+      function startAuto(){autoPlay = setInterval(()=>goTo(current+1),6000);}
+      function stopAuto(){clearInterval(autoPlay);}
+      function resetAuto(){stopAuto();startAuto();}
+      carousel.addEventListener('mouseenter',stopAuto);
+      carousel.addEventListener('mouseleave',startAuto);
+      showSlide(current);
+      startAuto();
+    }
+
+    /* ---------------------------
+       FORMSPREE HANDLING
+    --------------------------- */
+    const forms = document.querySelectorAll('form[data-ajax="true"]');
+    forms.forEach(form=>{
+      form.addEventListener('submit',async e=>{
+        e.preventDefault();
+        const endpoint=form.getAttribute('action');
+        const data=new FormData(form);
+        try{
+          const res=await fetch(endpoint,{method:'POST',body:data,headers:{'Accept':'application/json'}});
+          if(res.ok){
+            form.reset();
+            const redirect=form.querySelector('input[name="_redirect"]');
+            if(redirect) window.location=redirect.value;
+            else alert('Thank you — your message has been sent.');
+          }else{
+            const json=await res.json();
+            console.error(json);
+            alert('Error sending form — please try again later.');
+          }
+        }catch(err){
+          console.error(err);
+          alert('Network error — please try again later.');
+        }
+      });
     });
-  }
+
+  });
 })();
