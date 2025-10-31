@@ -1,189 +1,175 @@
-/* ======================================================
-   Meadow Pathways — site theme (style.css)
-   - Blue-green graduated textured page background
-   - Pill nav, central logo, hero pill, framed carousel
-   - Footer uses BG.png as full footer background (not magnified)
-   - Logo slightly larger; pill spacing adjustable via variables
-   - All pages share the same theme and components
-   ====================================================== */
-
-:root{
-  --accent-1: #0f6b67;        /* dark teal */
-  --accent-2: #1f9d9a;        /* aqua */
+:root {
+  --accent-1: #0f6b67;
+  --accent-2: #1f9d9a;
   --accent-contrast: #ffffff;
   --muted: #586b69;
-  --bg-top: #e6f6f4;          /* top blue-green */
-  --bg-bottom: #cfe9e6;       /* bottom blue-green */
-  --texture-opacity: 0.06;    /* subtle texture overlay */
+  --bg-top: #e6f6f4;
+  --bg-bottom: #cfe9e6;
   --card-bg: rgba(255,255,255,0.98);
   --container-max: 1180px;
   --radius: 12px;
-  --header-height: 84px;      /* header visual height */
-  --logo-height: 140px;       /* central logo height (slightly larger) */
-  --hero-pill-lift: -46px;    /* lift the hero pill toward the logo */
+  --header-height: 84px;
+  --logo-height: 180px;
+  --hero-pill-lift: -46px;
 }
 
-/* --------------- Reset & base --------------- */
-* { box-sizing: border-box; }
-html,body { height:100%; margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color:#123232; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-a { color: var(--accent-1); text-decoration: none; }
-a:hover { text-decoration: underline; }
+/* ------------------------------
+   Base Reset & Page Background
+------------------------------ */
+*,
+*::before,
+*::after { box-sizing: border-box; }
 
-.container { max-width: var(--container-max); margin: 0 auto; padding: 0 20px; }
-.skip-link { position:absolute; left:-9999px; }
-
-/* Page background: use bgro.jpg as the main background (no repeat) */
-body {
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  color: #123232;
   background-color: var(--bg-top);
-  background-image: url('bgro.jpg'), linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  background-image: url('bgro.jpg'), linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
   background-repeat: no-repeat, no-repeat;
   background-position: center top, center top;
   background-size: cover, auto;
   min-height: 100%;
-  position: relative;
 }
 
-/* --------------- Header & Navigation --------------- */
+/* ------------------------------
+   Container + Helpers
+------------------------------ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background:#000; color:#fff; padding:8px; z-index:10000;
+}
+.skip-link:focus { top: 0; }
+
+/* ------------------------------
+   Header & Navigation
+------------------------------ */
 .site-header {
   position: sticky;
   top: 0;
-  width: 100%;
   z-index: 1200;
   background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(6px) saturate(120%);
-  border-bottom: 1px solid rgba(10,25,24,0.06);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
   height: var(--header-height);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-
 .header-inner {
-  width: 100%;
-  max-width: var(--container-max);
-  padding: 6px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  padding: 12px 20px;
 }
-
-/* pill nav */
-.primary-nav { width:100%; display:flex; justify-content:center; }
-.nav-tabs { list-style:none; margin:0; padding:0; display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:center; }
+.primary-nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.nav-tabs {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
 .nav-pill {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 16px;
-  border-radius:999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
   background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
   color: var(--accent-contrast);
-  font-weight:700;
+  font-weight: 700;
   border: none;
   cursor: pointer;
   text-decoration: none;
-  transition: transform .12s ease, box-shadow .12s ease;
   box-shadow: 0 8px 28px rgba(15,107,103,0.08);
 }
-.nav-pill:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(15,107,103,0.10); }
-.nav-pill.secondary { background: #fff; color: #123; box-shadow: 0 6px 18px rgba(10,20,20,0.03); border: 1px solid rgba(0,0,0,0.04); }
-.nav-pill-cta { background: linear-gradient(180deg,#f7c86b,#e7b84b); color:#123; box-shadow: 0 10px 32px rgba(231,184,75,0.18); }
-
-/* --------------- Central logo --------------- */
-.logo-top { display:flex; justify-content:center; margin-top: 80px; z-index: 5; position: relative; }
-.central-logo {
-  height: var(--logo-height);
-  width: auto;
-  display:block;
-  border-radius: 10px;
-  background: var(--card-bg);
-  padding:8px;
-  box-shadow: 0 12px 36px rgba(8,28,26,0.12);
-  object-fit: contain;
+.nav-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 44px rgba(15,107,103,0.10);
+}
+.nav-pill.secondary {
+  background: #fff;
+  color: #123;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.nav-pill-cta {
+  background: linear-gradient(180deg,#f7c86b,#e7b84b);
+  color: #123;
+  box-shadow: 0 10px 32px rgba(231,184,75,0.18);
 }
 
-/* --------------- Hero --------------- */
-/* ensure hero sits below header visually */
-.hero {
-  margin-top: 6px;
-  padding: 18px 0 28px;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-}
-.hero-inner { max-width: 920px; margin: 0 auto; padding: 0 8px; }
-.hero-heading { margin: 6px 0 10px; font-size: 1.6rem; color: #0f3b38; font-weight: 700; }
-.hero-pill {
-  display:inline-block;
-  background: var(--card-bg);
-  color: #0f3b38;
-  padding: 14px 22px;
-  border-radius: 999px;
-  box-shadow: 0 14px 36px rgba(15,107,103,0.08);
-  font-weight: 700;
-  transform: translateY(var(--hero-pill-lift));
-  margin-bottom: 14px;
-}
-.hero-tagline { margin:0; font-size:1.05rem; }
-.hero-sub { color: var(--muted); max-width: 760px; margin: 12px auto; }
-
-/* hero actions */
-.hero-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top: 10px; }
-
-/* --------------- Carousel (framed) --------------- */
-.carousel-wrap { max-width: 980px; margin: 22px auto; padding: 0 10px; }
-.carousel-frame {
-  background: linear-gradient(180deg, rgba(255,255,255,0.98), #f6fffc);
-  border-radius: 14px;
-  padding: 12px;
-  border: 1px solid rgba(10,25,24,0.04);
-  box-shadow: 0 18px 48px rgba(8,28,26,0.06);
-}
-.carousel { position: relative; }
-.slides { position: relative; overflow: hidden; border-radius: 10px; }
-.slide { width: 100%; height: 300px; object-fit: cover; display:none; }
-.slide.active { display:block; }
-.carousel-controls { display:flex; align-items:center; justify-content:center; gap:12px; margin-top:10px; }
-.carousel-btn { background: #fff; border: 1px solid rgba(0,0,0,0.06); padding: 8px 12px; border-radius: 8px; cursor:pointer; }
-.dots { display:flex; gap:8px; }
-.dot { width:10px; height:10px; border-radius:999px; background:#ddd; border: none; cursor:pointer; }
-.dot.active { background: var(--accent-2); }
-.carousel-caption { color: var(--muted); text-align:center; margin-top:10px; }
-
-/* --------------- Cards, lists, pills --------------- */
-.card { background: var(--card-bg); padding: 18px; border-radius: 12px; margin: 18px 0; box-shadow: 0 14px 36px rgba(8,28,26,0.06); border: 1px solid rgba(0,0,0,0.03); }
-.emoji-list{ list-style:none; padding-left:0; margin:0; }
-.emoji-list li { margin: 10px 0; display:flex; gap:12px; align-items:flex-start; }
-
-/* pill buttons */
-.pill { display:inline-block; padding:10px 14px; border-radius:999px; background:var(--accent-1); color:#fff; font-weight:700; text-decoration:none; border:none; cursor:pointer; }
-.pill.secondary { background:#fff; color:#123; border:1px solid rgba(0,0,0,0.04); }
-
-/* Logo spacing and hero pill alignment */
+/* ------------------------------
+   Central Logo
+------------------------------ */
 .logo-top {
-  margin-top: 18px;          /* space above logo if needed */
-  margin-bottom: 20px;       /* gap between logo and hero */
   display: flex;
   justify-content: center;
-  z-index: 5;
+  align-items: center;
+  margin-top: 14px;
+  margin-bottom: 26px;
+  position: relative;
+  z-index: 4;
 }
-
 .central-logo {
-  height: var(--logo-height); /* uses your existing variable; adjust if needed */
+  height: var(--logo-height);
   max-width: 92%;
   width: auto;
-  display: block;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.96);
+  padding: 10px;
+  box-shadow: 0 20px 60px rgba(6,20,18,0.16);
+  object-fit: contain;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: logo-fade 900ms ease forwards;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.logo-top::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 200px;
+  background: radial-gradient(closest-side, rgba(31,157,154,0.12), rgba(31,157,154,0.02));
+  filter: blur(28px);
+  bottom: -8px;
+  z-index: 2;
+  pointer-events: none;
+}
+@keyframes logo-fade {
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Ensure the hero sits visually below the logo and center content */
+/* ------------------------------
+   Hero Section
+------------------------------ */
 .hero {
-  margin-top: 0;             /* keep small or adjust if you need extra room */
+  margin-top: 0;
   padding-top: 6px;
   text-align: center;
 }
-
-/* Make the pill include the h1 and tagline neatly */
+.hero-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+.hero-heading {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: #0f3b38;
+}
 .hero-pill {
   display: inline-block;
   background: var(--card-bg);
@@ -192,29 +178,17 @@ body {
   border-radius: 999px;
   box-shadow: 0 14px 36px rgba(15,107,103,0.08);
   font-weight: 700;
-  transform: translateY(var(--hero-pill-lift)); /* uses existing variable */
+  transform: translateY(var(--hero-pill-lift));
   margin-bottom: 12px;
   text-align: center;
   max-width: calc(100% - 48px);
 }
-
-/* H1 inside the pill — remove large default spacing and scale for small screens */
-.hero-heading {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.2;
-  color: #0f3b38;
-}
-
-/* tagline styling (inside the pill) */
 .hero-tagline {
   margin: 6px 0 0 0;
   font-weight: 600;
   font-size: 0.95rem;
   color: #0f5250;
 }
-
-/* Keep the following subtext slightly separated from the pill */
 .hero-sub {
   margin-top: 14px;
   color: var(--muted);
@@ -222,166 +196,91 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-
-/* Responsive reductions */
-@media (max-width: 520px) {
-  .hero-pill { padding: 12px 16px; transform: translateY(calc(var(--hero-pill-lift) / 1.6)); }
-  .hero-heading { font-size: 1.05rem; }
-  .central-logo { height: calc(var(--logo-height) * 0.8); }
-}
-
-/* Team photo frame and image sizing — fixed small framed portraits (place after Cards, lists, pills) */
-.team-photo-frame {
-  width: 160px;
-  height: 160px;
-  flex: 0 0 160px;
-  display: block;
-  border-radius: 12px;
-  overflow: hidden;
-  background: linear-gradient(180deg,#f7fbfd,#eaf7f4);
-  padding: 6px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  align-self: flex-start;
-}
-
-.team-photo-frame img.team-photo,
-.team-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 8px;
-}
-
-/* Fallback selectors in case markup uses slightly different class names */
-.bio-card .team-photo,
-.team-photo-frame img,
-.team-photo-frame img.team-photo {
-  max-width: 100%;
-  display: block;
-}
-
-/* Responsive — reduce frame on small screens */
-@media (max-width: 520px) {
-  .team-photo-frame {
-    width: 110px;
-    height: 110px;
-    flex: 0 0 110px;
-    padding: 4px;
-  }
-  .team-photo-frame img.team-photo,
-  .team-photo {
-    border-radius: 8px;
-  }
-}
-
-/* --------------- Footer (BG.png full footer background) --------------- */
-/* Footer: show BG.png as the visible decorative banner, no solid green overlay */
-.site-footer {
-  position: relative;
-  z-index: 3;
-  padding: 56px 20px;
-  text-align: center;
-  color: #ffffff;
-  overflow: hidden;
-  margin-top: 28px;
-
-  /* BG.png is the visible footer artwork */
-  background-image: url('BG.png');
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: auto;     /* natural image size (no magnify). Use 'cover' only if you want full coverage */
-  background-color: transparent;
-}
-
-/* Subtle darkening gradient to keep text readable while leaving the image visible */
-.site-footer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.28) 100%);
-  mix-blend-mode: normal;
-}
-
-/* Footer content sits above the overlay and the image */
-.site-footer .footer-content {
-  position: relative;
-  z-index: 1;
+.hero-actions {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  max-width: var(--container-max, 1180px);
-  margin: 0 auto;
-  padding-bottom: 12px; /* gives breathing room if BG.png has bottom edge detail */
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
-/* Footer logo and text */
-.footer-logo {
-  width: 92px;
-  height: auto;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.95); /* small card behind logo for contrast */
-  padding: 6px;
+/* ------------------------------
+   Carousel
+------------------------------ */
+.carousel-wrap {
+  max-width: 980px;
+  margin: 22px auto;
+  padding: 0 10px;
 }
-
-/* If BG.png is quite dark, give text a faint shadow for extra contrast */
-.site-footer .footer-content p {
-  text-shadow: 0 2px 6px rgba(0,0,0,0.35);
-  margin: 0;
+.carousel-frame {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), #f6fffc);
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid rgba(10,25,24,0.04);
+  box-shadow: 0 18px 48px rgba(8,28,26,0.06);
 }
-
-/* If BG.png is too small to cover, provide a subtle solid fallback behind it */
-.site-footer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(12,57,54,0.85) 0%, rgba(7,44,41,0.9) 100%);
-  z-index: 0;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-}
-
-/* Footer content sits above the overlay */
-.site-footer .footer-content {
+.carousel {
   position: relative;
-  z-index: 2;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:8px;
-  max-width: var(--container-max);
-  margin: 0 auto;
 }
-.footer-logo { width: 92px; height: auto; border-radius: 8px; background: rgba(255,255,255,0.96); padding:6px; }
-
-/* --------------- Modal (referral inline) --------------- */
-.modal { position: fixed; inset: 0; display:none; align-items:center; justify-content:center; background: rgba(6,20,18,0.48); z-index: 1500; padding: 20px; }
-.modal.open { display:flex; }
-.modal-panel { background: #fff; border-radius: 12px; max-width: 920px; width: 100%; padding: 18px; box-shadow: 0 30px 80px rgba(8,28,26,0.36); position: relative; }
-.modal-close { position:absolute; right:12px; top:10px; background:transparent; border:0; font-size:26px; cursor:pointer; }
-.referral-panel label{ display:block; font-weight:600; margin-top:10px; }
-.referral-panel input, .referral-panel textarea, .referral-panel select { width:100%; padding:10px 12px; border-radius:8px; border:1px solid rgba(10,25,24,0.06); margin-top:6px; }
-
-/* --------------- Back to top --------------- */
-.back-to-top { position: fixed; right: 18px; bottom: 18px; background: var(--accent-2); color: #fff; border: none; padding: 10px 12px; border-radius: 10px; display:none; z-index:1600; cursor:pointer; }
-.back-to-top.show { display:block; }
-
-/* --------------- Accessibility & responsive tweaks --------------- */
-@media (max-width: 920px) {
-  :root { --logo-height: 110px; --hero-pill-lift: -32px; --header-height: 72px; }
-  .slide { height: 220px; }
-  .hero-heading { font-size: 1.35rem; }
+.slides {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
 }
-@media (max-width: 520px) {
-  :root { --logo-height: 92px; --hero-pill-lift: -22px; }
-  .slide { height: 160px; }
-  .footer-logo { width: 64px; }
+.slide {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: none;
+}
+.slide.active {
+  display: block;
+}
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.carousel-btn {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.dots {
+  display: flex;
+  gap: 8px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+}
+.dot.active {
+  background: var(--accent-2);
+}
+.carousel-caption {
+  color: var(--muted);
+  text-align: center;
+  margin-top: 10px;
 }
 
-/* --------------- Small helpers --------------- */
-.hidden { display:none !important; }
-.center { text-align:center; }
-.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+/* ------------------------------
+   Cards, Lists, Pills
+------------------------------ */
+.card {
+  background: var(--card-bg);
+  padding: 18px;
+  border-radius: 12px;
+  margin: 18px 0;
+  box-shadow: 0 14px 36px rgba(8,28,26,0.06);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+.emoji-list {
+  list-style
