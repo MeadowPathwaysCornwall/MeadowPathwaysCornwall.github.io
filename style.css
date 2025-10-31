@@ -161,19 +161,61 @@ body {
 .pill.secondary { background:#fff; color:#123; border:1px solid rgba(0,0,0,0.04); }
 
 /* --------------- Footer (BG.png full footer background) --------------- */
-/* place BG.png as footer background at natural size and not stretched; center bottom */
+/* Footer: show BG.png as the visible decorative banner, no solid green overlay */
 .site-footer {
   position: relative;
   z-index: 3;
   padding: 56px 20px;
   text-align: center;
+  color: #ffffff;
   overflow: hidden;
   margin-top: 28px;
-  background-color: transparent;
+
+  /* BG.png is the visible footer artwork */
   background-image: url('BG.png');
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: auto; /* natural size; not cover or contain to avoid magnification */
+  background-size: auto;     /* natural image size (no magnify). Use 'cover' only if you want full coverage */
+  background-color: transparent;
+}
+
+/* Subtle darkening gradient to keep text readable while leaving the image visible */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.28) 100%);
+  mix-blend-mode: normal;
+}
+
+/* Footer content sits above the overlay and the image */
+.site-footer .footer-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: var(--container-max, 1180px);
+  margin: 0 auto;
+  padding-bottom: 12px; /* gives breathing room if BG.png has bottom edge detail */
+}
+
+/* Footer logo and text */
+.footer-logo {
+  width: 92px;
+  height: auto;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.95); /* small card behind logo for contrast */
+  padding: 6px;
+}
+
+/* If BG.png is quite dark, give text a faint shadow for extra contrast */
+.site-footer .footer-content p {
+  text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  margin: 0;
 }
 
 /* If BG.png is too small to cover, provide a subtle solid fallback behind it */
