@@ -20,30 +20,26 @@
         <li role="none"><a role="menuitem" href="eotas.html" class="nav-pill">EOTAS</a></li>
         <li role="none"><a role="menuitem" href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
         <li role="none"><a role="menuitem" href="staff.html" class="nav-pill">Staff</a></li>
-         <li role="none"><a role="menuitem" href="referral.html" class="nav-pill">Staff</a></li>
+        <li role="none"><button id="referralOpen" class="nav-pill nav-pill-cta" aria-haspopup="dialog">Referral</button></li>
         <li role="none"><a role="menuitem" href="contact.html" class="nav-pill">Contact</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
+<!-- Central logo -->
 <div class="logo-top" role="img" aria-label="Meadow Pathways logo">
   <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" />
 </div>
 
-
-  
-  
-  <section class="hero" aria-labelledby="hero-welcome">
+<!-- Hero with merged welcome and tagline -->
+<section class="hero" aria-labelledby="hero-welcome">
   <div class="hero-inner container">
-
     <div class="hero-pill" aria-hidden="false">
-     <h1 id="hero-welcome" class="hero-heading">Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
+      <h1 id="hero-welcome" class="hero-heading">Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
       <p class="hero-tagline">Guiding individual journeys with care and purpose</p>
     </div>
-
     <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿✨</p>
-
     <div class="hero-actions">
       <a class="pill primary" href="contact.html">Contact ☎️</a>
       <button id="referralInline" class="pill secondary">Make a referral 📝</button>
@@ -52,6 +48,7 @@
   </div>
 </section>
 
+<!-- Carousel -->
 <aside class="carousel-wrap container" aria-label="Gallery">
   <div id="carousel" class="carousel" aria-roledescription="carousel" tabindex="0">
     <div class="carousel-frame">
@@ -64,17 +61,16 @@
         <img src="paths.jpg" alt="Exploring paths" class="slide" role="listitem" />
       </div>
     </div>
-
     <div class="carousel-controls">
       <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
       <div id="dots" class="dots" role="tablist" aria-label="Carousel pagination"></div>
       <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
     </div>
-
     <p class="carousel-caption">Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities.</p>
   </div>
 </aside>
 
+<!-- Main content -->
 <main id="main" class="container" role="main">
   <section class="card">
     <h2>Welcome</h2>
@@ -106,8 +102,10 @@
   </section>
 </main>
 
+<!-- Back to top -->
 <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
 
+<!-- Footer -->
 <footer class="site-footer" role="contentinfo">
   <div class="footer-content">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
@@ -116,6 +114,7 @@
   </div>
 </footer>
 
+<!-- Referral modal -->
 <div id="referralModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="referralTitle">
   <div class="modal-panel">
     <button class="modal-close" aria-label="Close referral form">&times;</button>
