@@ -1,4 +1,4 @@
-// Meadow Pathways site scripts: carousel, modal, back-to-top, Formspree AJAX (no client passwords)
+// Meadow Pathways site scripts: carousel, modal, back-to-top, Formspree AJAX
 (function () {
   function $id(id){return document.getElementById(id)}
 
@@ -123,7 +123,6 @@
             alert('Thanks — your submission has been received.');
           }
           form.reset();
-          // close referral modal if open
           const modal = document.getElementById('referralModal');
           if (modal && modal.classList.contains('open')) {
             modal.classList.remove('open');
