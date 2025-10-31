@@ -99,7 +99,7 @@ body::after{
 .nav-pill-cta { background: linear-gradient(180deg,#f7c86b,#e7b84b); color:#123; box-shadow: 0 10px 32px rgba(231,184,75,0.18); }
 
 /* --------------- Central logo --------------- */
-.logo-top { display:flex; justify-content:center; margin-top: 14px; z-index: 5; position: relative; }
+.logo-top { display:flex; justify-content:center; margin-top: 50px; z-index: 5; position: relative; }
 .central-logo {
   height: var(--logo-height);
   width: auto;
@@ -173,7 +173,6 @@ body::after{
 .site-footer {
   position: relative;
   z-index: 3;
-  color: #fff;
   padding: 56px 20px;
   text-align: center;
   overflow: hidden;
