@@ -14,14 +14,14 @@
   <header class="site-header" role="banner">
     <div class="header-inner container">
       <nav class="primary-nav" aria-label="Primary navigation">
-        <ul class="nav-tabs" id="primaryNav" role="menubar">
-          <li role="none"><a role="menuitem" href="index.html" class="nav-pill">Home</a></li>
-          <li role="none"><a role="menuitem" href="about.html" class="nav-pill">About</a></li>
-          <li role="none"><a role="menuitem" href="eotas.html" class="nav-pill">EOTAS</a></li>
-          <li role="none"><a role="menuitem" href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
-          <li role="none"><a role="menuitem" href="staff.html" class="nav-pill">Staff</a></li>
+        <ul class="nav-tabs" role="menubar">
+          <li role="none"><a href="index.html" class="nav-pill">Home</a></li>
+          <li role="none"><a href="about.html" class="nav-pill">About</a></li>
+          <li role="none"><a href="eotas.html" class="nav-pill">EOTAS</a></li>
+          <li role="none"><a href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
+          <li role="none"><a href="staff.html" class="nav-pill">Staff</a></li>
           <li role="none"><button id="referralOpen" class="nav-pill nav-pill-cta" aria-haspopup="dialog">Referral</button></li>
-          <li role="none"><a role="menuitem" href="contact.html" class="nav-pill active" aria-current="page">Contact</a></li>
+          <li role="none"><a href="contact.html" class="nav-pill active" aria-current="page">Contact</a></li>
         </ul>
       </nav>
 
@@ -29,7 +29,6 @@
     </div>
   </header>
 
-  <!-- Compact logo for non-home pages -->
   <div class="logo-top" role="img" aria-label="Meadow Pathways logo">
     <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" width="260" height="88" />
   </div>
@@ -37,7 +36,7 @@
   <main id="main" class="container" role="main">
     <section class="card">
       <h1>Contact us</h1>
-      <p>If you'd like to get in touch about referrals, services, or staff access, please use the form below or call the number on our policies page. We aim to respond within 3 working days.</p>
+      <p>If you'd like to get in touch about referrals, services, or staff access, please use the form below or contact us directly using the details below. We aim to respond within 3 working days.</p>
     </section>
 
     <section class="card">
@@ -86,6 +85,29 @@
     </section>
 
     <section class="card">
+      <h2>Team contacts</h2>
+      <div class="team-list">
+        <div class="team-photo-frame" aria-hidden="true"><img src="MM.jpg" alt="Michelle photo" /></div>
+        <div>
+          <h3>Michelle — Founding Director</h3>
+          <p>Email: <a href="mailto:michelle@meadowpathwayscornwall.org">michelle@meadowpathwayscornwall.org</a></p>
+          <p>Phone: <a href="tel:+441234567890">01234 567 890</a></p>
+        </div>
+      </div>
+
+      <hr style="margin:18px 0;border:none;border-top:1px solid rgba(0,0,0,0.06)">
+
+      <div class="team-list">
+        <div class="team-photo-frame" aria-hidden="true"><img src="MM.jpg" alt="Zoe photo" /></div>
+        <div>
+          <h3>Zoe — Operations & Support</h3>
+          <p>Email: <a href="mailto:zoe@meadowpathwayscornwall.org">zoe@meadowpathwayscornwall.org</a></p>
+          <p>Phone: <a href="tel:+441234567891">01234 567 891</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
       <h2>Other ways to contact us</h2>
       <p>For policies, safeguarding contacts, and protected resources, please visit the Safeguarding and Policies pages.</p>
       <div class="resource-links">
@@ -95,60 +117,50 @@
     </section>
   </main>
 
-  <!-- Back to top -->
   <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
 
-  <!-- Referral modal (reused from index) -->
   <div id="referralModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="referralTitle">
     <div class="modal-panel" role="document">
       <button class="modal-close" aria-label="Close referral form">&times;</button>
       <div class="referral-panel form-card">
         <h2 id="referralTitle">Referral — Meadow Pathways</h2>
-
         <form id="referralForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
           <div class="form-row">
             <div class="field">
               <label class="form-label" for="ref-name">Your name</label>
               <input id="ref-name" name="referrerName" class="form-input" required />
             </div>
-
             <div class="field">
               <label class="form-label" for="ref-role">Role / relationship</label>
               <input id="ref-role" name="role" class="form-input" />
             </div>
           </div>
-
           <div class="form-row">
             <div class="field" style="flex:1 1 100%">
               <label class="form-label" for="childName">Child / young person full name</label>
               <input id="childName" name="childName" class="form-input" required />
             </div>
           </div>
-
           <div class="form-row">
             <div class="field" style="flex:1 1 100%">
               <label class="form-label" for="summary">Summary of needs / concerns</label>
               <textarea id="summary" name="summary" rows="7" class="form-textarea" required></textarea>
             </div>
           </div>
-
           <label class="consent">
             <input type="checkbox" name="consent" required />
             I confirm I have consent to share these details and understand how they will be processed.
           </label>
-
           <div class="form-actions">
             <button type="submit" class="pill primary">Submit referral</button>
             <button type="button" class="pill secondary modal-cancel">Cancel</button>
           </div>
-
           <div id="referralResult" class="form-success" style="display:none" role="status" aria-live="polite"></div>
         </form>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content container">
       <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
