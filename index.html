@@ -1,168 +1,208 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meadow Pathways Wellbeing and Education Cornwall</title>
-  <meta name="description" content="Meadow Pathways reconnects children with learning through trauma informed, bespoke education and wellbeing support across Cornwall." />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Meadow Pathways Wellbeing and Education Cornwall</title>
+<meta name="description" content="Guiding Individual Journeys with Care and Purpose.  Meadow Pathways reconnects children with learning through trauma informed, bespoke education and wellbeing support across Cornwall." />
+<link rel="stylesheet" href="style.css" />
 </head>
 <body class="home-page">
 
-  <a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" role="banner">
-    <div class="header-inner container">
-      <nav class="primary-nav" aria-label="Primary navigation">
-        <ul class="nav-tabs" id="primaryNav" role="menubar">
-          <li role="none"><a role="menuitem" href="index.html" class="nav-pill active" aria-current="page">Home</a></li>
-          <li role="none"><a role="menuitem" href="about.html" class="nav-pill">About</a></li>
-          <li role="none"><a role="menuitem" href="eotas.html" class="nav-pill">EOTAS</a></li>
-          <li role="none"><a role="menuitem" href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
-          <li role="none"><a role="menuitem" href="staff.html" class="nav-pill">Staff</a></li>
-          <li role="none"><button id="referralOpen" class="nav-pill nav-pill-cta" aria-haspopup="dialog">Referral</button></li>
-          <li role="none"><a role="menuitem" href="contact.html" class="nav-pill">Contact</a></li>
-        </ul>
-      </nav>
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <!-- Logo: inline SVG wordmark + image fallback for scale -->
+    <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+      <!-- Inline small SVG badge for crispness (keeps logo visible even if image missing) -->
+      <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <circle cx="32" cy="32" r="30" fill="#e7f4ee" />
+        <path d="M16 38c8-12 24-12 32-6" stroke="#2f8f4a" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </svg>
+      <!-- Wordmark text for accessibility and scaling -->
+      <span class="wordmark">Meadow Pathways</span>
+      <!-- Fallback PNG (optional) -->
+      <img src="Logo.png" alt="Meadow Pathways logo" class="logo-img" style="display:none;" />
+    </a>
 
-      <div class="header-accent" aria-hidden="true"></div>
-    </div>
-  </header>
-
-  <div class="logo-top" role="img" aria-label="Meadow Pathways logo">
-    <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" width="560" height="160" />
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+      <ul id="primaryNav" class="nav-tabs" role="menubar">
+        <li><a href="index.html" class="active" role="menuitem">Home</a></li>
+        <li><a href="about.html" role="menuitem">About</a></li>
+        <li><a href="eotas.html" role="menuitem">EOTAS</a></li>
+        <li><a href="safeguarding.html" role="menuitem">Safeguarding</a></li>
+        <li><a href="staff.html" role="menuitem">Staff</a></li>
+        <li><a href="referral.html" role="menuitem">Referral</a></li>
+        <li><a href="contact.html" role="menuitem">Contact</a></li>
+      </ul>
+    </nav>
   </div>
+</header>
 
-  <section class="hero" aria-labelledby="hero-welcome">
-    <div class="hero-inner container">
-      <div class="hero-pill" role="region" aria-label="Welcome">
-        <h1 id="hero-welcome" class="hero-heading">Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
-        <p class="hero-tagline">Guiding individual journeys with care and purpose</p>
+<div class="page-wrap">
+
+  <!-- Hero: decorative BG image rendered as <img> to avoid scaling issues -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-content container">
+      <h1 id="hero-title">Guiding individual journeys with care and purpose</h1>
+      <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices.</p>
+      <div style="margin-top:14px;" class="actions">
+        <a class="pill" href="referral.html">Make a referral 📝</a>
+        <a class="pill secondary" href="about.html">Find out more ℹ️</a>
       </div>
+      <p style="margin-top:12px;" class="small"><strong>Our Commitment</strong> — We work collaboratively with families, schools and partners to find meaningful, sustainable routes to success for each learner.</p>
+    </div>
 
-      <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches.</p>
-
-      <div class="hero-actions" role="group" aria-label="Primary actions">
-        <a class="pill primary" href="contact.html">Contact</a>
-        <button id="referralInline" class="pill secondary">Make a referral</button>
-        <a class="pill" href="about.html">Find out more</a>
-      </div>
+    <div class="hero-art" aria-hidden="true">
+      <!-- Use BG.png as a contained decorative art; accessible text remains in hero-content -->
+      <img src="BG.png" alt="" role="presentation" />
     </div>
   </section>
 
-  <aside class="carousel-wrap container" aria-label="Gallery">
-    <div id="carousel" class="carousel" aria-roledescription="carousel" tabindex="0">
-      <div class="carousel-frame">
-        <div class="slides" role="list">
-          <img src="Bake.jpg" alt="Baking activity" class="slide" role="listitem" loading="lazy" />
-          <img src="Cooking.jpg" alt="Cooking session" class="slide" role="listitem" loading="lazy" />
-          <img src="MM.jpg" alt="Multimedia activity" class="slide" role="listitem" loading="lazy" />
-          <img src="Paint.jpg" alt="Painting session" class="slide" role="listitem" loading="lazy" />
-          <img src="den.jpg" alt="Den building" class="slide" role="listitem" loading="lazy" />
-          <img src="paths.jpg" alt="Exploring paths" class="slide" role="listitem" loading="lazy" />
-        </div>
+  <!-- Carousel (keeps your existing images) -->
+  <aside class="container" style="margin-top:8px;">
+    <div id="carousel" class="carousel" aria-roledescription="carousel" aria-label="Gallery">
+      <div class="slides" role="list">
+          <img src="Bake.jpg" alt="Baking activity" class="slide" role="listitem" />
+          <img src="Cooking.jpg" alt="Cooking session" class="slide" role="listitem" />
+          <img src="MM.jpg" alt="Multimedia activity" class="slide" role="listitem" />
+          <img src="Paint.jpg" alt="Painting session" class="slide" role="listitem" />
+          <img src="cook.jpg" alt="Cooking practical" class="slide" role="listitem" />
+          <img src="den.jpg" alt="Den building" class="slide" role="listitem" />
+          <img src="hand.jpg" alt="Hands in meadow activity" class="slide" role="listitem" />
+          <img src="paths.jpg" alt="Exploring paths" class="slide" role="listitem" />
+          <img src="plant.jpg" alt="Planting activity" class="slide" role="listitem" />
+          <img src="wood.jpg" alt="Woodland activity" class="slide" role="listitem" />
+ 
       </div>
-
-      <div class="carousel-controls">
+      <div class="carousel-controls" aria-hidden="false">
         <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
-        <div id="dots" class="dots" role="tablist" aria-label="Carousel pagination"></div>
+        <div class="dots" id="dots" role="tablist" aria-label="Carousel pagination"></div>
         <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
       </div>
-
-      <p class="carousel-caption">Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities.</p>
     </div>
+    <p class="small" style="margin-top:10px;">Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities.</p>
   </aside>
 
-  <main id="main" class="container" role="main">
-    <section class="card">
-      <h2>Welcome</h2>
-      <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community based activities to build confidence, skills, and a sense of belonging.</p>
+  <main id="main" class="container" role="main" style="margin-top:18px;">
+    <section class="card" aria-labelledby="welcome">
+      <h2 id="welcome">Welcome</h2>
+      <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community-based activities to build confidence, skills, and a sense of belonging.</p>
     </section>
 
-    <section class="card">
-      <h2>Our approach</h2>
-      <p>We work relationally, using trauma informed practice and creative, curriculum linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.</p>
-    </section>
-
-    <section class="card">
-      <h2>What we offer</h2>
-      <ul class="emoji-list">
-        <li>🧑‍🤝‍🧑 <strong>Mentoring and Advocacy</strong> — Consistent relational support.</li>
-        <li>📚 <strong>Tailored Learning Packages</strong> — Flexible academic pathways.</li>
-        <li>🛠️ <strong>Life Skills and Independence</strong> — Functional skills and community engagement.</li>
-        <li>🎨 <strong>Therapeutic & Curriculum Activities</strong> — Nature-based, cooking, arts and accredited outcomes.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Policies and protected resources</h2>
-      <p>Policies and protected resources are available from the Policies or Protected Resources pages to ensure internal documents are not published on the homepage.</p>
-      <div class="resource-links">
-        <a class="pill secondary" href="policies.html">Policies</a>
-        <a class="pill secondary" href="protected-resources.html">Protected Resources</a>
+    <section class="card" aria-labelledby="offers">
+      <h2 id="offers">What we offer</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;">
+        <div><h4>Mentoring and Advocacy</h4><p>Consistent relational support and advocacy.</p></div>
+        <div><h4>Tailored Learning</h4><p>Flexible academic pathways linked to learner strengths.</p></div>
+        <div><h4>Life Skills</h4><p>Functional skills and community engagement.</p></div>
       </div>
     </section>
+
+    <section class="card" aria-labelledby="policies">
+      <h2 id="policies">Policies & Important Documents</h2>
+
+      <!-- Existing policy pills -->
+      <div class="pills" style="margin-bottom:12px;">
+        <a class="pill file" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding policy</a>
+        <a class="pill file" href="MPWEC Behaviour Policy.docx" download>Behaviour policy</a>
+        <a class="pill file" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing policy</a>
+        <a class="pill file" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct policy</a>
+      </div>
+
+      <!-- New separate pill boxes for EBSNA and RSHE documents -->
+      <div class="pills" aria-label="Key documents">
+        <a class="pill file" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy (EOTAS)</a>
+        <a class="pill file" href="RSHE 2025.pdf" download>RSHE (2025)</a>
+        <a class="pill file" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding (copy)</a>
+      </div>
+
+      <p class="hint" style="margin-top:12px;">If you cannot download a document, check the filenames on the server match exactly (including spaces and capitals).</p>
+    </section>
+
+    <section class="card" aria-labelledby="next">
+      <h2 id="next">Next steps</h2>
+      <div class="actions">
+        <a class="pill" href="referral.html">Referral form 📝</a>
+        <a class="pill secondary" href="contact.html">Contact ☎️</a>
+      </div>
+      <p style="margin-top:12px;" class="small">If your enquiry is urgent or a safeguarding concern, contact statutory services first and then call the Meadow Pathways team.</p>
+    </section>
+
   </main>
+</div>
 
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
-  <div id="referralModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="referralTitle">
-    <div class="modal-panel" role="document">
-      <button class="modal-close" aria-label="Close referral form">&times;</button>
-      <div class="referral-panel form-card">
-        <h2 id="referralTitle">Referral — Meadow Pathways</h2>
-
-        <form id="referralForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-          <div class="form-row">
-            <div class="field">
-              <label class="form-label" for="ref-name">Your name</label>
-              <input id="ref-name" name="referrerName" class="form-input" required />
-            </div>
-
-            <div class="field">
-              <label class="form-label" for="ref-role">Role / relationship</label>
-              <input id="ref-role" name="role" class="form-input" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="field" style="flex:1 1 100%">
-              <label class="form-label" for="childName">Child / young person full name</label>
-              <input id="childName" name="childName" class="form-input" required />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="field" style="flex:1 1 100%">
-              <label class="form-label" for="summary">Summary of needs / concerns</label>
-              <textarea id="summary" name="summary" rows="7" class="form-textarea" required></textarea>
-            </div>
-          </div>
-
-          <label class="consent">
-            <input type="checkbox" name="consent" required />
-            I confirm I have consent to share these details and understand how they will be processed.
-          </label>
-
-          <div class="form-actions">
-            <button type="submit" class="pill primary">Submit referral</button>
-            <button type="button" class="pill secondary modal-cancel">Cancel</button>
-          </div>
-
-          <div id="referralResult" class="form-success" style="display:none" role="status" aria-live="polite"></div>
-        </form>
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-content">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+      <div style="text-align:left;">
+        <p style="margin:0;">© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+        <p style="margin:0;font-size:0.92rem;">Guiding Individual Journeys with Care and Purpose</p>
       </div>
     </div>
+    <nav aria-label="Footer links">
+      <a class="pill secondary" href="privacy.html">Privacy</a>
+      <a class="pill secondary" href="protected-resources.html">Protected</a>
+    </nav>
   </div>
+</footer>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-content container">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-      <p>Guiding Individual Journeys with Care and Purpose</p>
-    </div>
-  </footer>
+<!-- Minimal site script: nav toggle, back to top, carousel controller -->
+<script>
+(function(){
+  // nav toggle
+  var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', function(){
+      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+  }
 
-  <script src="script.js" defer></script>
+  // back to top
+  var backBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function(){ backBtn.style.display = (window.scrollY > 300) ? 'block' : 'none'; });
+  backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  // simple accessible carousel
+  document.addEventListener('DOMContentLoaded', function(){
+    var carousel = document.getElementById('carousel'); if (!carousel) return;
+    var slides = Array.from(carousel.querySelectorAll('.slides img'));
+    if (!slides.length) return;
+    var dots = document.getElementById('dots'), prev = document.getElementById('prev'), next = document.getElementById('next');
+    var current = 0;
+    function show(i){
+      slides.forEach((s, idx) => { s.classList.toggle('active', idx===i); });
+      var btns = dots.querySelectorAll('button'); btns.forEach((b,idx)=> b.classList.toggle('active', idx===i));
+      current = i;
+    }
+    // build dots
+    if (dots) {
+      slides.forEach((s, idx)=> {
+        var b = document.createElement('button'); b.type='button'; b.className = (idx===0?'dot active':'dot'); b.setAttribute('aria-label','Go to slide '+(idx+1));
+        b.addEventListener('click', ()=> { show(idx); reset(); });
+        dots.appendChild(b);
+      });
+    }
+    if (prev) prev.addEventListener('click', ()=> { show((current-1+slides.length)%slides.length); reset(); });
+    if (next) next.addEventListener('click', ()=> { show((current+1)%slides.length); reset(); });
+    function auto(){
+      timer = setInterval(()=> { show((current+1)%slides.length); }, 6000);
+    }
+    var timer = null;
+    function reset(){ clearInterval(timer); auto(); }
+    show(0); auto();
+    carousel.addEventListener('mouseenter', ()=> clearInterval(timer));
+    carousel.addEventListener('mouseleave', ()=> reset());
+  });
+})();
+</script>
+
 </body>
 </html>
