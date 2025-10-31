@@ -1,61 +1,124 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff access — Meadow Pathways</title>
-  <meta name="description" content="Staff resources and protected documents. Request staff access." />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
+<link rel="stylesheet" href="style.css" />
+<meta name="robots" content="noindex" />
 </head>
-<body class="staff-page">
+<body>
 
-  <a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" role="banner">
-    <div class="header-inner container">
-      <nav class="primary-nav" aria-label="Primary navigation">
-        <ul class="nav-tabs" role="menubar">
-          <li role="none"><a href="index.html" class="nav-pill">Home</a></li>
-          <li role="none"><a href="about.html" class="nav-pill">About</a></li>
-          <li role="none"><a href="eotas.html" class="nav-pill">EOTAS</a></li>
-          <li role="none"><a href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
-          <li role="none"><a href="staff.html" class="nav-pill active" aria-current="page">Staff</a></li>
-          <li role="none"><a href="contact.html" class="nav-pill">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="header-accent" aria-hidden="true"></div>
-    </div>
-  </header>
-
-  <div class="logo-top" role="img" aria-label="Meadow Pathways logo">
-    <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" width="260" height="88" />
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+      <svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <circle cx="32" cy="32" r="30" fill="#e7f4ee"/>
+        <path d="M16 38c8-12 24-12 32-6" stroke="#2f8f4a" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span class="wordmark">Meadow Pathways</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+      <ul id="primaryNav" class="nav-tabs" role="menubar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html" class="active">Staff</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </div>
+</header>
+
+<div class="page-wrap">
+  <section class="hero" aria-labelledby="hero-title" style="margin-top:12px;">
+    <div class="hero-content container">
+      <h1 id="hero-title">Staff area</h1>
+      <p class="hero-sub">Internal links and information for Meadow Pathways staff</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <img src="BG.png" alt="" role="presentation" />
+    </div>
+  </section>
 
   <main id="main" class="container" role="main">
-    <section class="card">
-      <h1>Staff access</h1>
-      <p>Staff resources are held securely. For security, staff-only pages are not protected with client-side passwords. To request staff access or to receive documents, please contact the site administrator through the Contact page.</p>
+    <section class="card" aria-labelledby="access">
+      <h2 id="access">Request access</h2>
+      <p>To protect sensitive documents and credentials we no longer expose passwords or protected links in client-side code. If you are a member of staff and need access to internal pages (hours logging, protected downloads, safekeeping), please request access below. Your request will be emailed to the lead and processed securely.</p>
 
-      <div class="form-actions" style="margin-top:18px">
-        <a class="pill primary" href="contact.html">Request access via Contact form</a>
-        <a class="pill secondary" href="policies.html">View policies</a>
-      </div>
+      <!-- Small access request form (Formspree). Replace action if you have an internal endpoint. -->
+      <form action="https://formspree.io/f/movnvzqp" method="POST" style="max-width:620px;">
+        <label for="staffName">Your full name</label>
+        <input id="staffName" name="staffName" type="text" required placeholder="Full name" />
+
+        <label for="staffEmail" style="margin-top:10px;">Your work email</label>
+        <input id="staffEmail" name="staffEmail" type="email" required placeholder="you@organisation.com" />
+
+        <label for="reason" style="margin-top:10px;">Reason for access</label>
+        <textarea id="reason" name="reason" rows="4" placeholder="Brief reason for access request" required></textarea>
+
+        <div class="actions" style="margin-top:12px;">
+          <button class="pill" type="submit">Request access</button>
+          <a class="pill secondary" href="contact.html">Contact lead</a>
+        </div>
+      </form>
+
+      <p class="hint" style="margin-top:12px;">Once access is approved you'll be issued an account or a secure link. Do not share credentials via email or public forms.</p>
     </section>
 
-    <section class="card">
-      <h2>Staff notices</h2>
-      <p>Staff notices and resources are available once access is granted. If you are a member of staff and believe you should have access, please submit a request using the contact form and include your role and reason for access.</p>
+    <section class="card" aria-labelledby="resources" style="margin-top:16px;">
+      <h2 id="resources">Staff resources (summary)</h2>
+      <p>Approved staff will see a secured staff panel with downloads and hours logging. The items below are maintained centrally and are available to staff after secure sign-in:</p>
+      <ul>
+        <li>Formspree endpoint for forms: <code>https://formspree.io/f/movnvzqp</code></li>
+        <li>Policy downloads (curriculum, H&S, safeguarding) — stored on protected server</li>
+        <li>Hours logging and client-note guidance (available via staff panel)</li>
+      </ul>
+      <p class="hint">If you already have authorised access and need the staff panel unlocked, contact Michelle or Zoe directly so they can enable your account.</p>
     </section>
   </main>
+</div>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-content container">
+<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-content">
+    <div style="display:flex;align-items:center;gap:12px;">
       <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-      <p>Guiding Individual Journeys with Care and Purpose</p>
+      <div>
+        <p style="margin:0;">© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+        <p style="margin:0;font-size:0.92rem;">Guiding Individual Journeys with Care and Purpose</p>
+      </div>
     </div>
-  </footer>
+    <div>
+      <a class="pill secondary" href="protected-resources.html">Protected resources</a>
+      <a class="pill secondary" href="passwords.html">Access guidance</a>
+    </div>
+  </div>
+</footer>
 
-  <script src="script.js" defer></script>
+<script>
+(function(){
+  // nav toggle as in index
+  var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', function(){
+      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+  }
+  // back to top
+  var backBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function(){ backBtn.style.display = (window.scrollY > 300) ? 'block' : 'none'; });
+  backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+
 </body>
 </html>
