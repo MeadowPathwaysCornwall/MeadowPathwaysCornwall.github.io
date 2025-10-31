@@ -14,7 +14,7 @@
 }
 
 /* ------------------------------
-   Base Reset & Page Background
+   Reset & Background
 ------------------------------ */
 *,
 *::before,
@@ -35,7 +35,7 @@ html, body {
 }
 
 /* ------------------------------
-   Container + Helpers
+   Container & Helpers
 ------------------------------ */
 .container {
   max-width: var(--container-max);
@@ -203,7 +203,6 @@ html, body {
   flex-wrap: wrap;
   margin-top: 10px;
 }
-
 /* ------------------------------
    Carousel
 ------------------------------ */
@@ -279,4 +278,20 @@ html, body {
   padding: 18px;
   border-radius: 12px;
   margin: 18px 0;
-  box-shadow: 0 14px 36
+  box-shadow: 0 14px 36px rgba(8,28,26,0.06);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+.emoji-list {
+  list-style: none;
+  padding: 0;
+}
+.emoji-list li {
+  margin: 8px 0;
+}
+
+/* ------------------------------
+   Team Photos
+------------------------------ */
+.team-photo-frame {
+  width: 160px;
+  height
