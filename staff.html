@@ -1,125 +1,66 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
-  <link rel="stylesheet" href="style.css" />
-  <meta name="robots" content="noindex" />
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
+<link rel="stylesheet" href="style.css" /><meta name="robots" content="noindex" />
 </head>
 <body>
-
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header" role="banner">
   <div class="header-inner">
     <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-      <svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-        <circle cx="32" cy="32" r="30" fill="#e7f4ee"/>
-        <path d="M16 38c8-12 24-12 32-6" stroke="#2f8f4a" stroke-width="3" stroke-linecap="round" fill="none"/>
-      </svg>
+      <svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#e7f4ee"/><path d="M16 38c8-12 24-12 32-6" stroke="#2f8f4a" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
       <span class="wordmark">Meadow Pathways</span>
+      <img src="Logo.png" alt="Meadow Pathways logo" class="logo-img" />
     </a>
     <nav class="primary-nav" aria-label="Primary navigation">
-      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-      <ul id="primaryNav" class="nav-tabs" role="menubar">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="staff.html" class="active">Staff</a></li>
-        <li><a href="referral.html">Referral</a></li>
-        <li><a href="contact.html">Contact</a></li>
+      <button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
+      <ul id="primaryNav" class="nav-tabs">
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="eotas.html">EOTAS</a></li><li><a href="safeguarding.html">Safeguarding</a></li><li><a href="staff.html" class="active">Staff</a></li><li><a href="referral.html">Referral</a></li><li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<div class="page-wrap">
-  <main id="main" class="container" role="main">
-    <section class="card" aria-labelledby="staff-access">
-      <h1 id="staff-access">Staff access</h1>
-      <p>To access protected staff resources, please enter the staff password below. If you do not have the password, contact Michelle or Zoe to request access.</p>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-inner container"><div class="hero-content"><h1 id="hero-title">Staff area</h1><p class="hero-sub">Internal links and information for Meadow Pathways staff</p></div></div>
+</section>
 
-      <form id="staffLogin" style="max-width:420px;">
-        <label for="staffPassword">Enter password</label>
-        <input type="password" id="staffPassword" name="staffPassword" required placeholder="Enter password" />
-        <div class="actions" style="margin-top:12px;">
-          <button type="submit" class="pill">Unlock staff area</button>
-        </div>
-        <p id="loginMessage" class="hint" style="margin-top:10px;"></p>
-      </form>
-    </section>
+<main id="main" class="container" role="main">
+  <section class="card" aria-labelledby="access">
+    <h2 id="access">Enter password to access</h2>
+    <form id="staffLogin" style="max-width:420px;">
+      <label for="staffPassword">Enter password</label>
+      <input type="password" id="staffPassword" name="staffPassword" required placeholder="Enter password" />
+      <div class="actions" style="margin-top:12px;"><button type="submit" class="pill">Unlock staff area</button></div>
+      <p id="loginMessage" class="hint" style="margin-top:10px;"></p>
+    </form>
+  </section>
 
-    <section id="staffPanel" class="card" style="display:none;" aria-labelledby="staff-panel">
-      <h2 id="staff-panel">Staff resources</h2>
-      <p>Welcome to the protected staff area. Here you’ll find internal guidance, links, and resources for Meadow Pathways team members.</p>
-      <ul>
-        <li><a href="MPWEC Curriculum Policy EOTAS September 2025.docx" class="pill file">Curriculum Policy</a></li>
-        <li><a href="RSHE 2025.pdf" class="pill file">RSHE Document</a></li>
-        <li><a href="EBSNA Guidance.pdf" class="pill file">EBSNA Guidance</a></li>
-        <li><a href="protected-resources.html" class="pill secondary">Protected Resources</a></li>
-      </ul>
-      <p class="hint" style="margin-top:12px;">Please do not share these links externally. For updates or access issues, contact Michelle or Zoe directly.</p>
-    </section>
-  </main>
-</div>
+  <section id="staffPanel" class="card" style="display:none;" aria-labelledby="staff-panel">
+    <h2 id="staff-panel">Staff resources</h2>
+    <p>Welcome to the protected staff area. Please keep internal links secure.</p>
+    <ul>
+      <li><a href="MPWEC Curriculum Policy EOTAS September 2025.docx" class="pill file">Curriculum Policy</a></li>
+      <li><a href="RSHE 2025.pdf" class="pill file">RSHE Document</a></li>
+      <li><a href="EBSNA Guidance.pdf" class="pill file">EBSNA Guidance</a></li>
+      <li><a href="protected-resources.html" class="pill secondary">Protected Resources</a></li>
+    </ul>
+    <p class="hint" style="margin-top:12px;">Do not share links externally. For updates, contact Michelle or Zoe.</p>
+  </section>
+</main>
 
 <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
 <footer class="site-footer" role="contentinfo">
   <div class="footer-content">
-    <div style="display:flex;align-items:center;gap:12px;">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
-      <div>
-        <p style="margin:0;">© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-        <p style="margin:0;font-size:0.92rem;">Guiding Individual Journeys with Care and Purpose</p>
-      </div>
-    </div>
-    <div>
-      <a class="pill secondary" href="contact.html">Contact</a>
-      <a class="pill secondary" href="privacy.html">Privacy</a>
-    </div>
+    <div style="display:flex;align-items:center;gap:12px;"><img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" /><div><p style="margin:0;">© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p><p style="margin:0;font-size:0.92rem;">Guiding Individual Journeys with Care and Purpose</p></div></div>
+    <div><a class="pill secondary" href="contact.html">Contact</a><a class="pill secondary" href="privacy.html">Privacy</a></div>
   </div>
 </footer>
 
-<script>
-(function(){
-  // nav toggle
-  var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', function(){
-      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('open');
-    });
-  }
-
-  // back to top
-  var backBtn = document.getElementById('backToTop');
-  window.addEventListener('scroll', function(){ backBtn.style.display = (window.scrollY > 300) ? 'block' : 'none'; });
-  backBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
-
-  // staff password check
-  var form = document.getElementById('staffLogin');
-  var input = document.getElementById('staffPassword');
-  var panel = document.getElementById('staffPanel');
-  var message = document.getElementById('loginMessage');
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var pw = input.value.trim();
-    if (pw === 'MPWEC!') {
-      panel.style.display = 'block';
-      form.style.display = 'none';
-      message.textContent = '';
-    } else {
-      message.textContent = 'Incorrect password. Please try again or contact the team.';
-      input.focus();
-    }
-  });
-})();
-</script>
-
+<script src="script.js" defer></script>
 </body>
 </html>
