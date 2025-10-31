@@ -1,31 +1,26 @@
-/* Base Reset & Typography */
+/* ------------------------------
+   Base Reset & Global Background
+   Use a solid blue-green page background (no repeating bgr.png)
+------------------------------ */
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
+
 html, body {
   margin: 0;
   padding: 0;
   font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
   color: #333;
-  background: url('bgr.png') no-repeat center top fixed;
-  background-size: cover;
-}
-a {
-  color: #0f3b38;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-h1, h2, h3 {
-  margin-top: 0;
-  font-weight: 600;
+  /* Blue-green solid background to replace repeating bgr.png */
+  background-color: #e6f6f4; /* very light aqua base */
+  background-image: linear-gradient(180deg, #dfeff0 0%, #cfe9e6 40%, #bfe3df 100%);
+  min-height: 100%;
 }
 
-/* Layout */
+/* ------------------------------
+   Container + Helpers
+------------------------------ */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -35,22 +30,19 @@ h1, h2, h3 {
   position: absolute;
   top: -40px;
   left: 0;
-  background: #000;
-  color: #fff;
-  padding: 8px;
-  z-index: 10000;
+  background:#000; color:#fff; padding:8px; z-index:10000;
 }
-.skip-link:focus {
-  top: 0;
-}
+.skip-link:focus { top: 0; }
 
-/* Header */
+/* ------------------------------
+   Header (no nav logo)
+------------------------------ */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 1200;
   background: rgba(255,255,255,0.96);
   backdrop-filter: saturate(180%) blur(6px);
   border-bottom: 1px solid rgba(0,0,0,0.06);
@@ -61,11 +53,14 @@ h1, h2, h3 {
   justify-content: space-between;
   min-height: 72px;
 }
-.logo {
-  width: 70px;
-  height: auto;
-  display: block;
+.brand-text {
+  font-weight: 600;
+  color: #0f3b38;
+  text-decoration: none;
+  font-size: 1.05rem;
 }
+
+/* Nav */
 .nav-tabs {
   display: flex;
   gap: 14px;
@@ -73,163 +68,110 @@ h1, h2, h3 {
   margin: 0;
   padding: 0;
 }
-.nav-tabs a {
-  padding: 8px 12px;
-  border-radius: 6px;
-}
-.nav-tabs a.active,
-.nav-tabs a:hover {
-  background: rgba(15,59,56,0.08);
-}
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 24px;
-}
+.nav-tabs a { padding: 8px 12px; border-radius: 6px; color: #0f3b38; text-decoration: none; }
+.nav-tabs a.active, .nav-tabs a:hover { background: rgba(15,59,56,0.08); }
+
+/* Mobile nav */
+.nav-toggle { display: none; }
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
-  .nav-tabs {
-    display: none;
-    flex-direction: column;
-    background: #fff;
-    position: absolute;
-    top: 72px;
-    right: 0;
-    width: 200px;
-    border: 1px solid #ddd;
-  }
+  .nav-tabs { display: none; position: absolute; top: 72px; right: 0; background:#fff; width:220px; flex-direction: column; border:1px solid #ddd; }
   .nav-tabs.open { display: flex; }
 }
 
-/* Hero */
-body.home-page .hero {
-  margin-top: 120px;
-  padding: 40px 0;
-  text-align: center;
+/* ------------------------------
+   Hero: pill positioned visually under embedded logo area
+   The page uses a solid blue-green background so embedded logo in the old bgr.png won't repeat.
+------------------------------ */
+:root {
+  --header-height: 72px;
+  --hero-offset: 40px; /* vertical gap between header bottom and pill */
+  --pill-lift: -40px;  /* visual lift to sit beneath decorative area if needed */
 }
+
+/* Ensure hero sits below the fixed header */
+.hero {
+  padding: calc(var(--header-height) + var(--hero-offset) + 20px) 0 40px;
+  text-align: center;
+  position: relative;
+}
+
+/* Pill that contains the headline */
+.hero-inner { max-width: 960px; margin: 0 auto; padding: 0 18px; }
+.hero-pill {
+  display: inline-block;
+  background: #ffffff;
+  color: #0f3b38;
+  padding: 14px 20px;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(15,59,56,0.12);
+  font-weight: 600;
+  transform: translateY(var(--pill-lift)); /* lifts the pill up visually */
+  margin-bottom: 18px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .hero { padding-top: calc(var(--header-height) + 12px); }
+  .hero-pill { transform: translateY(-24px); padding: 12px 16px; font-size: 0.95rem; }
+}
+
+/* Hero subtext and actions */
 .hero-sub {
   max-width: 800px;
-  margin: 0 auto 20px;
-  font-size: 1.1rem;
+  margin: 0 auto 18px;
   color: #444;
 }
-.hero-actions {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+.hero-actions { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
 
-/* Carousel */
-.carousel {
-  position: relative;
-  margin: 40px auto;
-  overflow: hidden;
-}
-.slides {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-.slide {
-  min-width: 100%;
-  display: none;
-}
-.slide.active { display: block; }
-.carousel-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 12px;
-  gap: 8px;
-}
-.carousel-btn {
-  background: #0f3b38;
-  color: #fff;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.dots {
-  display: flex;
-  gap: 6px;
-}
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: none;
-  background: #ccc;
-  cursor: pointer;
-}
-.dot.active { background: #0f3b38; }
+/* ------------------------------
+   Carousel (simple)
+------------------------------ */
+.carousel { margin: 36px auto; overflow: hidden; position: relative; }
+.slides { display:flex; transition: transform .45s ease; }
+.slide { min-width:100%; display:none; }
+.slide.active { display:block; }
 
-/* Cards */
-.card {
-  background: #fff;
-  padding: 24px;
-  border-radius: 12px;
-  margin: 24px 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
+/* ------------------------------
+   Cards and content
+------------------------------ */
+.card { background:#fff; padding:24px; border-radius:12px; margin:24px 0; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
 
-/* Pills */
-.pill {
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: #0f3b38;
-  color: #fff;
-  font-weight: 500;
-}
-.pill.secondary {
-  background: #eee;
-  color: #333;
-}
-.pill:hover {
-  opacity: 0.9;
-}
+/* Pills/buttons */
+.pill { display:inline-block; padding:10px 16px; border-radius:999px; background:#0f3b38; color:#fff; font-weight:500; margin:6px; }
+.pill.secondary { background:#eee; color:#333; }
 
-/* Back to Top */
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #0f3b38;
-  color: #fff;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: none;
-  z-index: 999;
-}
-.back-to-top.show { display: block; }
+/* ------------------------------
+   Back to top
+------------------------------ */
+.back-to-top { position:fixed; bottom:20px; right:20px; background:#0f3b38; color:#fff; border:none; padding:10px 14px; border-radius:50%; display:none; z-index:1300; }
+.back-to-top.show { display:block; }
 
-/* Footer with BG.png */
+/* ------------------------------
+   Footer: BG.png used as full footer background that covers page bg
+------------------------------ */
 .site-footer {
   position: relative;
-  z-index: 1;
-  padding: 48px 18px;
+  z-index: 100;
+  padding: 56px 18px;
   text-align: center;
   color: #fff;
-  background-color: transparent !important;
+  background: url('BG.png') no-repeat center bottom;
+  background-size: cover;
   overflow: hidden;
   margin-top: 40px;
 }
-.site-footer::before {
+
+/* subtle overlay to ensure text contrast */
+.site-footer::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('BG.png');
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: cover;
-  opacity: 0.22;
-  pointer-events: none;
+  background: rgba(0,0,0,0.18);
   z-index: 0;
+  pointer-events: none;
 }
+
 .site-footer .footer-content {
   position: relative;
   z-index: 1;
@@ -240,7 +182,10 @@ body.home-page .hero {
   max-width: 1200px;
   margin: 0 auto;
 }
-.footer-logo {
-  width: 70px;
-  height: auto;
-}
+.footer-logo { width: 70px; height: auto; }
+
+/* ------------------------------
+   Typographic colours and small utility tweaks
+------------------------------ */
+h1, h2, h3 { color: #0f3b38; }
+a { color: #0f3b38; }
