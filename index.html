@@ -4,102 +4,151 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="description" content="Meadow Pathways reconnects children with learning through trauma informed, bespoke education and wellbeing support across Cornwall." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="home-page">
 
-<a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" role="banner">
-  <div class="header-inner container">
-    <nav class="primary-nav" aria-label="Primary navigation">
-      <ul class="nav-tabs">
-        <li><a href="index.html" class="nav-pill active">Home</a></li>
-        <li><a href="about.html" class="nav-pill">About</a></li>
-        <li><a href="eotas.html" class="nav-pill">EOTAS</a></li>
-        <li><a href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
-        <li><a href="staff.html" class="nav-pill">Staff</a></li>
-        <li><button id="referralOpen" class="nav-pill nav-pill-cta">Referral</button></li>
-        <li><a href="contact.html" class="nav-pill">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<div class="logo-top">
-  <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" />
-</div>
-
-<section class="hero">
-  <div class="hero-inner container">
-    <div class="hero-pill">
-      <h1 class="hero-heading">Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
-      <p class="hero-tagline">Guiding individual journeys with care and purpose</p>
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <ul class="nav-tabs" id="primaryNav" role="menubar">
+          <li role="none"><a role="menuitem" href="index.html" class="nav-pill active" aria-current="page">Home</a></li>
+          <li role="none"><a role="menuitem" href="about.html" class="nav-pill">About</a></li>
+          <li role="none"><a role="menuitem" href="eotas.html" class="nav-pill">EOTAS</a></li>
+          <li role="none"><a role="menuitem" href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
+          <li role="none"><a role="menuitem" href="staff.html" class="nav-pill">Staff</a></li>
+          <li role="none"><button id="referralOpen" class="nav-pill nav-pill-cta" aria-haspopup="dialog">Referral</button></li>
+          <li role="none"><a role="menuitem" href="contact.html" class="nav-pill">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿✨</p>
-  </div>
-</section>
+  </header>
 
-<aside class="carousel-wrap container">
-  <div id="carousel" class="carousel" tabindex="0">
-    <div class="carousel-frame">
-      <div class="slides">
-        <img src="Bake.jpg" alt="Baking activity" class="slide" />
-        <img src="Cooking.jpg" alt="Cooking session" class="slide" />
-        <img src="MM.jpg" alt="Multimedia activity" class="slide" />
-        <img src="Paint.jpg" alt="Painting session" class="slide" />
-        <img src="den.jpg" alt="Den building" class="slide" />
-        <img src="paths.jpg" alt="Exploring paths" class="slide" />
+  <!-- Compact logo -->
+  <div class="logo-top" role="img" aria-label="Meadow Pathways logo">
+    <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" width="260" height="88" />
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-welcome">
+    <div class="hero-inner container">
+      <div class="hero-pill" role="region" aria-label="Welcome">
+        <h1 id="hero-welcome" class="hero-heading">Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
+        <p class="hero-tagline">Guiding individual journeys with care and purpose</p>
+      </div>
+
+      <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches.</p>
+
+      <div class="hero-actions" role="group" aria-label="Primary actions">
+        <a class="pill primary" href="contact.html">Contact</a>
+        <button id="referralInline" class="pill secondary">Make a referral</button>
+        <a class="pill" href="about.html">Find out more</a>
       </div>
     </div>
-    <div class="carousel-controls">
-      <button id="prev" class="carousel-btn">‹</button>
-      <div id="dots" class="dots"></div>
-      <button id="next" class="carousel-btn">›</button>
-    </div>
-  </div>
-</aside>
-
-<main id="main" class="container">
-  <section class="card">
-    <h2>Welcome</h2>
-    <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs.</p>
   </section>
-</main>
 
-<!-- Referral modal (closed by default) -->
-<div id="referralModal" class="modal" aria-hidden="true">
-  <div class="modal-panel">
-    <button class="modal-close" aria-label="Close referral form">&times;</button>
-    <div class="referral-panel">
-      <h2>Referral — Meadow Pathways</h2>
-      <form action="https://formspree.io/f/movnvzqp" method="POST">
-        <label for="ref-name">Your name</label>
-        <input id="ref-name" name="referrerName" required />
-        <label for="ref-role">Role / relationship</label>
-        <input id="ref-role" name="role" />
-        <label for="childName">Child / young person full name</label>
-        <input id="childName" name="childName" required />
-        <label for="summary">Summary of needs / concerns</label>
-        <textarea id="summary" name="summary" rows="6" required></textarea>
-        <div class="modal-actions">
-          <button type="submit" class="pill primary">Submit referral</button>
-          <button type="button" class="pill secondary modal-cancel">Cancel</button>
+  <!-- Carousel -->
+  <aside class="carousel-wrap container" aria-label="Gallery">
+    <div id="carousel" class="carousel" aria-roledescription="carousel" tabindex="0">
+      <div class="carousel-frame">
+        <div class="slides" role="list">
+          <img src="Bake.jpg" alt="Baking activity" class="slide" role="listitem" loading="lazy" />
+          <img src="Cooking.jpg" alt="Cooking session" class="slide" role="listitem" loading="lazy" />
+          <img src="MM.jpg" alt="Multimedia activity" class="slide" role="listitem" loading="lazy" />
+          <img src="Paint.jpg" alt="Painting session" class="slide" role="listitem" loading="lazy" />
+          <img src="den.jpg" alt="Den building" class="slide" role="listitem" loading="lazy" />
+          <img src="paths.jpg" alt="Exploring paths" class="slide" role="listitem" loading="lazy" />
         </div>
-      </form>
+      </div>
+
+      <div class="carousel-controls">
+        <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
+        <div id="dots" class="dots" role="tablist" aria-label="Carousel pagination"></div>
+        <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
+      </div>
+
+      <p class="carousel-caption">Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities.</p>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main id="main" class="container" role="main">
+    <section class="card">
+      <h2>Welcome</h2>
+      <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community based activities to build confidence, skills, and a sense of belonging.</p>
+    </section>
+
+    <section class="card">
+      <h2>Our approach</h2>
+      <p>We work relationally, using trauma informed practice and creative, curriculum linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.</p>
+    </section>
+
+    <section class="card">
+      <h2>What we offer</h2>
+      <ul class="emoji-list">
+        <li>🧑‍🤝‍🧑 <strong>Mentoring and Advocacy</strong> — Consistent relational support.</li>
+        <li>📚 <strong>Tailored Learning Packages</strong> — Flexible academic pathways.</li>
+        <li>🛠️ <strong>Life Skills and Independence</strong> — Functional skills and community engagement.</li>
+        <li>🎨 <strong>Therapeutic & Curriculum Activities</strong> — Nature-based, cooking, arts and accredited outcomes.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Policies and protected resources</h2>
+      <p>Policies and protected resources are available from the Policies or Protected Resources pages to ensure internal documents are not published on the homepage.</p>
+      <div class="resource-links">
+        <a class="pill secondary" href="policies.html">Policies</a>
+        <a class="pill secondary" href="protected-resources.html">Protected Resources</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to top -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Referral modal (hidden by default) -->
+  <div id="referralModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="referralTitle">
+    <div class="modal-panel" role="document">
+      <button class="modal-close" aria-label="Close referral form">&times;</button>
+      <div class="referral-panel">
+        <h2 id="referralTitle">Referral — Meadow Pathways</h2>
+        <form id="referralForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
+          <input type="hidden" name="_redirect" value="thankyou.html" />
+          <label for="ref-name">Your name</label>
+          <input id="ref-name" name="referrerName" required />
+          <label for="ref-role">Role / relationship</label>
+          <input id="ref-role" name="role" />
+          <label for="childName">Child / young person full name</label>
+          <input id="childName" name="childName" required />
+          <label for="summary">Summary of needs / concerns</label>
+          <textarea id="summary" name="summary" rows="6" required></textarea>
+
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            I confirm I have consent to share these details and understand how they will be processed.
+          </label>
+
+          <div class="modal-actions">
+            <button type="submit" class="pill primary">Submit referral</button>
+            <button type="button" class="pill secondary modal-cancel">Cancel</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Footer is now outside the modal -->
-<footer class="site-footer">
-  <div class="footer-content">
-    <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-    <p>Guiding Individual Journeys with Care and Purpose</p>
-  </div>
-</footer>
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-content container">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+      <p>Guiding Individual Journeys with Care and Purpose</p>
+    </div>
+  </footer>
 
-<script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
