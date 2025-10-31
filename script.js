@@ -1,5 +1,5 @@
 (function () {
-  // NAVIGATION TOGGLE
+  // NAV TOGGLE
   const navToggle = document.getElementById('navToggle');
   const nav = document.getElementById('primaryNav');
   if (navToggle && nav) {
@@ -41,37 +41,25 @@
     }
 
     function auto() {
-      timer = setInterval(() => {
-        show((current + 1) % slides.length);
-      }, 6000);
+      timer = setInterval(() => show((current + 1) % slides.length), 6000);
     }
+    function reset() { clearInterval(timer); auto(); }
 
-    function reset() {
-      clearInterval(timer);
-      auto();
-    }
-
-    // Build dots
     if (dots) {
       slides.forEach((_, idx) => {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = idx === 0 ? 'dot active' : 'dot';
         b.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
-        b.addEventListener('click', () => {
-          show(idx);
-          reset();
-        });
+        b.addEventListener('click', () => { show(idx); reset(); });
         dots.appendChild(b);
       });
     }
 
-    if (prev) prev.addEventListener('click', () => { show((current - 1 + slides.length) % slides.length); reset(); });
-    if (next) next.addEventListener('click', () => { show((current + 1) % slides.length); reset(); });
+    prev?.addEventListener('click', () => { show((current - 1 + slides.length) % slides.length); reset(); });
+    next?.addEventListener('click', () => { show((current + 1) % slides.length); reset(); });
 
-    show(0);
-    auto();
-
+    show(0); auto();
     carousel.addEventListener('mouseenter', () => clearInterval(timer));
     carousel.addEventListener('mouseleave', () => reset());
     carousel.addEventListener('keydown', (e) => {
