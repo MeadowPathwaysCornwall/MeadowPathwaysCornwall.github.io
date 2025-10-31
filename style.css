@@ -160,6 +160,76 @@ body {
 .pill { display:inline-block; padding:10px 14px; border-radius:999px; background:var(--accent-1); color:#fff; font-weight:700; text-decoration:none; border:none; cursor:pointer; }
 .pill.secondary { background:#fff; color:#123; border:1px solid rgba(0,0,0,0.04); }
 
+/* Logo spacing and hero pill alignment */
+.logo-top {
+  margin-top: 18px;          /* space above logo if needed */
+  margin-bottom: 20px;       /* gap between logo and hero */
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+}
+
+.central-logo {
+  height: var(--logo-height); /* uses your existing variable; adjust if needed */
+  max-width: 92%;
+  width: auto;
+  display: block;
+}
+
+/* Ensure the hero sits visually below the logo and center content */
+.hero {
+  margin-top: 0;             /* keep small or adjust if you need extra room */
+  padding-top: 6px;
+  text-align: center;
+}
+
+/* Make the pill include the h1 and tagline neatly */
+.hero-pill {
+  display: inline-block;
+  background: var(--card-bg);
+  color: #0f3b38;
+  padding: 16px 26px;
+  border-radius: 999px;
+  box-shadow: 0 14px 36px rgba(15,107,103,0.08);
+  font-weight: 700;
+  transform: translateY(var(--hero-pill-lift)); /* uses existing variable */
+  margin-bottom: 12px;
+  text-align: center;
+  max-width: calc(100% - 48px);
+}
+
+/* H1 inside the pill — remove large default spacing and scale for small screens */
+.hero-heading {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: #0f3b38;
+}
+
+/* tagline styling (inside the pill) */
+.hero-tagline {
+  margin: 6px 0 0 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #0f5250;
+}
+
+/* Keep the following subtext slightly separated from the pill */
+.hero-sub {
+  margin-top: 14px;
+  color: var(--muted);
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive reductions */
+@media (max-width: 520px) {
+  .hero-pill { padding: 12px 16px; transform: translateY(calc(var(--hero-pill-lift) / 1.6)); }
+  .hero-heading { font-size: 1.05rem; }
+  .central-logo { height: calc(var(--logo-height) * 0.8); }
+}
+
 /* Team photo frame and image sizing — fixed small framed portraits (place after Cards, lists, pills) */
 .team-photo-frame {
   width: 160px;
