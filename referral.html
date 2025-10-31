@@ -14,22 +14,20 @@
   <header class="site-header" role="banner">
     <div class="header-inner container">
       <nav class="primary-nav" aria-label="Primary navigation">
-        <ul class="nav-tabs" id="primaryNav" role="menubar">
-          <li role="none"><a role="menuitem" href="index.html" class="nav-pill">Home</a></li>
-          <li role="none"><a role="menuitem" href="about.html" class="nav-pill">About</a></li>
-          <li role="none"><a role="menuitem" href="eotas.html" class="nav-pill">EOTAS</a></li>
-          <li role="none"><a role="menuitem" href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
-          <li role="none"><a role="menuitem" href="staff.html" class="nav-pill">Staff</a></li>
-          <li role="none"><a role="menuitem" href="contact.html" class="nav-pill">Contact</a></li>
+        <ul class="nav-tabs" role="menubar">
+          <li role="none"><a href="index.html" class="nav-pill">Home</a></li>
+          <li role="none"><a href="about.html" class="nav-pill">About</a></li>
+          <li role="none"><a href="eotas.html" class="nav-pill">EOTAS</a></li>
+          <li role="none"><a href="safeguarding.html" class="nav-pill">Safeguarding</a></li>
+          <li role="none"><a href="staff.html" class="nav-pill">Staff</a></li>
+          <li role="none"><a href="contact.html" class="nav-pill">Contact</a></li>
           <li role="none"><button id="referralOpen" class="nav-pill nav-pill-cta" aria-haspopup="dialog">Referral</button></li>
         </ul>
       </nav>
-
       <div class="header-accent" aria-hidden="true"></div>
     </div>
   </header>
 
-  <!-- Compact logo for non-home pages -->
   <div class="logo-top" role="img" aria-label="Meadow Pathways logo">
     <img src="Logo.png" alt="Meadow Pathways logo" class="central-logo" width="260" height="88" />
   </div>
@@ -45,6 +43,7 @@
 
       <form id="referralForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate class="form-card" aria-describedby="referral-help">
         <input type="hidden" name="_subject" value="New referral from website" />
+
         <div class="form-row">
           <div class="field">
             <label class="form-label" for="ref-name">Your name</label>
@@ -58,16 +57,21 @@
         </div>
 
         <div class="form-row">
-          <div class="field" style="flex:1 1 100%">
+          <div class="field" style="flex:1 1 48%">
             <label class="form-label" for="childName">Child / young person full name</label>
             <input id="childName" name="childName" class="form-input" required />
+          </div>
+
+          <div class="field" style="flex:1 1 48%">
+            <label class="form-label" for="dob">Date of birth (if known)</label>
+            <input id="dob" name="dob" type="date" class="form-input" />
           </div>
         </div>
 
         <div class="form-row">
           <div class="field" style="flex:1 1 100%">
-            <label class="form-label" for="dob">Date of birth (if known)</label>
-            <input id="dob" name="dob" type="date" class="form-input" />
+            <label class="form-label" for="education">Current education setting</label>
+            <input id="education" name="education" class="form-input" placeholder="School, alternative provision, home educated, etc." />
           </div>
         </div>
 
@@ -80,13 +84,13 @@
 
         <div class="form-row">
           <div class="field">
-            <label class="form-label" for="education">Current education setting</label>
-            <input id="education" name="education" class="form-input" placeholder="School, alternative provision, home educated, etc." />
+            <label class="form-label" for="support">Current support in place</label>
+            <input id="support" name="support" class="form-input" placeholder="e.g., CAMHS, SEN support, EWO" />
           </div>
 
           <div class="field">
-            <label class="form-label" for="support">Current support in place</label>
-            <input id="support" name="support" class="form-input" placeholder="e.g., CAMHS, SEN support, EWO" />
+            <label class="form-label" for="risk">Known risks or safeguarding concerns</label>
+            <input id="risk" name="risk" class="form-input" placeholder="Summarise any risks (brief)" />
           </div>
         </div>
 
@@ -131,7 +135,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-content container">
       <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
