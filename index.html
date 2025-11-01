@@ -4,25 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Meadow Pathways Wellbeing and Education Cornwall</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Meadow Pathways reconnects children with learning through trauma informed, bespoke education and wellbeing support across Cornwall." />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body class="bp-page">
 
-  <header class="site-header">
+  <!-- Header (shared) -->
+  <header class="site-header" role="banner">
     <div class="header-inner container">
-      <div class="logo-wrap">
-        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+      <div class="logo-box">
+        <!-- Logo sits separate from nav for stability -->
+        <a class="brand" href="index.html" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways Logo" class="site-logo" />
         </a>
       </div>
 
-      <nav aria-label="Primary" class="primary-nav">
+      <nav class="primary-nav" aria-label="Primary navigation">
         <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
         <ul id="primaryNav" class="nav-tabs" role="menubar">
-          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="eotas.html">EOTAS</a></li>
           <li><a href="safeguarding.html">Safeguarding</a></li>
@@ -34,39 +34,85 @@
     </div>
   </header>
 
-  <main id="main" class="container" role="main">
-    <section class="hero" aria-labelledby="home-title" style="margin-top:12px;">
-      <div class="hero-overlay">
-        <h1 id="home-title">Meadow Pathways</h1>
-        <p class="hero-sub">Wellbeing and Education Cornwall — supporting children and young people with SEN, SEMH, educational trauma and EBSNA</p>
-        <p><a class="pill" href="referral.html">Make a referral</a> <a class="pill secondary" href="policies.html" style="margin-left:10px;">Policies</a></p>
+  <!-- Hero -->
+  <section class="hero" style="background-image:url('BG.png');">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Guiding individual journeys with care and purpose</h1>
+        <p class="lead">Reconnecting children with learning and life. We support individual growth through trauma‑informed, person‑centred education and wellbeing practice.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="referral.html">Make a referral</a>
+          <a class="btn" href="about.html">Find out more</a>
+        </div>
       </div>
+
+      <div class="hero-card">
+        <div class="logo-reel">
+          <p class="kicker">Our approach</p>
+          <p>Therapeutic, curriculum‑linked activities: bush craft, cooking, creative learning and more — linked to ASDAN & AQA Unit Awards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carousel block (self-contained) -->
+  <aside class="container carousel-wrap" aria-label="Gallery">
+    <div id="carousel" class="carousel" tabindex="0" aria-roledescription="carousel">
+      <div class="slides" role="list">
+        <img src="Bake.jpg" alt="Baking activity" class="slide" role="listitem" />
+        <img src="Cooking.jpg" alt="Cooking session" class="slide" role="listitem" />
+        <img src="MM.jpg" alt="Multimedia activity" class="slide" role="listitem" />
+        <img src="Paint.jpg" alt="Painting session" class="slide" role="listitem" />
+        <img src="cook.jpg" alt="Cooking practical" class="slide" role="listitem" />
+        <img src="den.jpg" alt="Den building" class="slide" role="listitem" />
+      </div>
+
+      <div class="controls">
+        <button id="prev" class="control">‹</button>
+        <div id="dots" class="dots" role="tablist" aria-label="Carousel pagination"></div>
+        <button id="next" class="control">›</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main content (keeps your exact wording; shortened here) -->
+  <main id="main" class="container">
+    <section class="card">
+      <h2>Welcome</h2>
+      <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community based activities to build confidence, skills, and a sense of belonging.</p>
     </section>
 
-    <section class="card" style="max-width:980px;margin:18px auto;">
-      <h2>What we offer</h2>
-      <p>Person-centred therapeutic and educational support in a nature-inspired setting. We work with schools, families and professionals to re-engage children and young people with learning and wellbeing.</p>
-
-      <div class="row" style="margin-top:12px;">
-        <div class="col card long-text">
-          <h3>Therapeutic support</h3>
-          <p>Trauma-informed counselling, play therapy and family work designed to build emotional safety and resilience.</p>
-        </div>
-
-        <div class="col card long-text">
-          <h3>EOTAS provision</h3>
-          <p>Alternative education packages, personalised learning and reintegration planning for children not attending mainstream school.</p>
-        </div>
+    <section class="card grid-3">
+      <div>
+        <h3>Mentoring and Advocacy</h3>
+        <p>Consistent relational support and advocacy to build trust and resilience.</p>
+      </div>
+      <div>
+        <h3>Tailored Learning</h3>
+        <p>Flexible, curriculum-linked packages to meet each learner’s needs.</p>
+      </div>
+      <div>
+        <h3>Life Skills</h3>
+        <p>Functional, community-based learning preparing young people for independence.</p>
       </div>
     </section>
   </main>
 
+  <!-- Footer (shared) -->
   <footer class="site-footer">
-    <div class="footer-content">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-      <p>Guiding Individual Journeys with Care and Purpose</p>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+      </div>
+      <div class="footer-copy">
+        <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+        <p>Guiding Individual Journeys with Care and Purpose</p>
+      </div>
     </div>
   </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="assets/site.js"></script>
 </body>
 </html>
