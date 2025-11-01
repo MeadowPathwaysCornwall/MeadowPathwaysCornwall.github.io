@@ -259,6 +259,25 @@
         });
       }
     } catch {}
+     document.addEventListener('DOMContentLoaded', function () {
+  var carouselEl = document.querySelector('.carousel');
+  if (!carouselEl) return;
+
+  try {
+    // Create the carousel only if Bootstrap Carousel is available
+    if (typeof bootstrap !== 'undefined' && bootstrap.Carousel) {
+      new bootstrap.Carousel(carouselEl, {
+        interval: 5000,  // change autoplay speed if you like
+        ride: false,     // do not auto-start until initialised
+        pause: 'hover',
+        wrap: true
+      });
+    }
+  } catch (err) {
+    // Fail silently so nothing else on the page breaks
+    console.error('Carousel init error:', err);
+  }
+});
   })();
 
 })();
