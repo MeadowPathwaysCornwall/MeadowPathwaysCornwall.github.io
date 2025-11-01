@@ -1,219 +1,43 @@
-/* Meadow Pathways — Blugoon style theme
-   -------------------------------------------------- */
-
-/* Base */
-:root {
-  --mp-green: #163632;
-  --mp-light: #f7fbf6;
-  --mp-accent: #198754; /* Bootstrap success */
-  --mp-text: #1b2b28;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  color: var(--mp-text);
-  background: var(--mp-light);
-  font-smooth: always;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Links and focus */
-a {
-  color: var(--mp-accent);
-  text-decoration: none;
-}
-a:hover { text-decoration: underline; }
-
-:focus-visible {
-  outline: 3px solid #89c9a5;
-  outline-offset: 2px;
-}
-
-/* Header */
-.site-header {
-  background: #ffffff;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-.header-inner {
-  padding: 10px 0;
-}
+/* Logo: slightly larger but responsive */
 .logo-img {
-  height: 70px;
+  height: 110px; /* new default */
+  max-height: 140px;
   width: auto;
-  display: block;
 }
 
-/* Nav tabs (top menu) */
-.nav-tabs {
-  border-bottom: none;
-  gap: 6px;
-}
-.nav-tabs .nav-link {
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 10px;
-  color: var(--mp-text);
-  padding: 8px 12px;
-  background: #fff;
-}
-.nav-tabs .nav-link.active {
-  color: #fff;
-  background: var(--mp-green);
-  border-color: var(--mp-green);
-}
-.nav-tabs .nav-link:hover {
-  background: #f6f9f5;
+/* Reduce on very small screens to avoid crowding the header */
+@media (max-width: 576px) {
+  .logo-img { height: 64px; }
 }
 
-/* Hero */
-.hero {
-  position: relative;
-  background: url('BG.png') no-repeat center / cover;
-  color: #fff;
+/* Carousel hero adjustments (keeps your BG.png usage) */
+.hero-carousel .carousel-item {
+  min-height: 320px;
+  height: 44vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  position:relative;
 }
-.hero .container {
+.hero-carousel .carousel-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(22,54,50,0.45);
+  z-index: 1;
+}
+.hero-carousel .carousel-item .container {
   position: relative;
   z-index: 2;
 }
-.hero h1, .hero .lead {
-  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
-}
 
-/* Cards */
-.card {
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 14px;
-}
-.card h2 {
-  color: var(--mp-green);
-}
+/* Pill boxes: add theme colour variants while keeping markup identical */
+.pill-box { border-radius: 999px; padding: .45rem .9rem; font-weight:600; display:inline-block; margin:4px; }
+.pill-box--green { background: #198754; color: #fff; border: 1px solid #157443; }
+.pill-box--teal  { background: #0d6e63; color: #fff; border: 1px solid #0b5b51; }
+.pill-box--sand  { background: #f0e6d8; color: #2b2b23; border: 1px solid rgba(0,0,0,0.06); }
+.pill-box--muted { background: #e6f4ef; color: #0f3b35; border: 1px solid rgba(0,0,0,0.04); }
 
-/* Buttons: outline-success harmonised */
-.btn-outline-success {
-  color: var(--mp-green);
-  border-color: var(--mp-green);
-}
-.btn-outline-success:hover {
-  color: #fff;
-  background: var(--mp-green);
-  border-color: var(--mp-green);
-}
-.btn-success {
-  background: var(--mp-accent);
-  border-color: var(--mp-accent);
-}
-.btn-success:hover {
-  filter: brightness(0.95);
-}
-
-/* Pills group spacing */
-.d-flex.gap-2 > * { margin-right: 0 !important; }
-
-/* Footer */
-.site-footer {
-  background: var(--mp-green);
-}
-.site-footer .footer-logo {
-  height: 60px;
-  width: auto;
-}
-
-/* Images */
-.img-fluid.rounded.shadow-sm {
-  border-radius: 12px !important;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08) !important;
-}
-
-/* Carousel */
-.carousel {
-  border-radius: 14px;
-  overflow: hidden;
-}
-.carousel-item img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  object-position: center;
-}
-@media (max-width: 576px) {
-  .carousel-item img { height: 280px; }
-}
-
-/* Forms — accessibility and comfort spacing */
-form .form-label {
-  font-weight: 600;
-  color: var(--mp-green);
-}
-.form-control, .form-select, textarea {
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.12);
-  padding: 10px 12px;
-}
-.form-control:focus, .form-select:focus, textarea:focus {
-  border-color: #89c9a5;
-  box-shadow: 0 0 0 0.2rem rgba(137,201,165,0.25);
-}
-
-/* Alerts */
-.alert-warning {
-  border-radius: 12px;
-  border: 1px solid rgba(255,193,7,0.25);
-}
-.alert-info {
-  border-radius: 12px;
-  border: 1px solid rgba(13,202,240,0.25);
-}
-
-/* Staff page lock card */
-.lock-card {
-  border: 1px solid rgba(0,0,0,0.06);
-}
-
-/* Utility spacing (tighten up page rhythm) */
-.container.my-5 { margin-top: 2.2rem !important; margin-bottom: 2.2rem !important; }
-.card.p-4 { padding: 1.3rem !important; }
-.shadow-sm { box-shadow: 0 8px 24px rgba(0,0,0,0.06) !important; }
-
-/* BG image full display variants (optional accent areas)
-   Use .bg-contain to show BG.png fully without cropping.
-*/
-.bg-contain {
-  background: url('BG.png') no-repeat center / contain;
-}
-.bg-cover {
-  background: url('BG.png') no-repeat center / cover;
-}
-
-/* Accessible small print */
-.small, .text-muted {
-  color: #6b7c77 !important;
-}
-
-/* Table tweaks */
-.table {
-  border-radius: 12px;
-  overflow: hidden;
-}
-.table th { color: var(--mp-green); }
-
-/* Responsive header layout */
-@media (max-width: 992px) {
-  .header-inner {
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-
-/* Ensure buttons feel consistent within grids */
-.btn.w-100 {
-  border-radius: 12px;
-  padding: 12px 14px;
-}
-
-/* Thank you page card override (in case style is loaded globally) */
-main.card {
-  border-radius: 16px;
-}
+/* Keep existing outline-success buttons looking consistent when combined with pill-box */
+.btn-outline-success.pill-box { padding: .35rem .85rem; border-radius: 999px; }
