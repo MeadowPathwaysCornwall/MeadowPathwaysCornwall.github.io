@@ -1,6 +1,4 @@
-/* script.js — site-safe initialisation and custom .slides slider
-   Replaces previous script.js. Defensive, accessible, and fails safely.
-*/
+/* script.js — safe site initialisation and custom .slides slider */
 (function () {
   'use strict';
 
@@ -8,7 +6,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
 
-    /* -------------------- Custom .slides slider -------------------- */
+    /* Custom .slides slider */
     (function initCustomSlides() {
       try {
         var slidesRoot = document.querySelector('.slides');
@@ -17,7 +15,6 @@
         var slides = Array.prototype.slice.call(slidesRoot.querySelectorAll('.slide'));
         if (!slides.length) return;
 
-        // Apply safe container and slide inline styles only if not present
         slidesRoot.style.position = slidesRoot.style.position || 'relative';
         slidesRoot.style.overflow = slidesRoot.style.overflow || 'hidden';
         slidesRoot.style.display = slidesRoot.style.display || 'block';
@@ -61,23 +58,28 @@
         slidesRoot.addEventListener('mouseleave', start);
         slides.forEach(function (s) { s.addEventListener('focus', stop); s.addEventListener('blur', start); });
 
-        // Start after a short delay so layout finishes
         setTimeout(start, 250);
       } catch (err) {
         console.error('Custom slides init error:', err);
       }
     })();
 
-    /* -------------------- Nav toggle (mobile) -------------------- */
+    /* Mobile nav toggle */
     try {
       var navToggle = $('.nav-toggle');
       var navMenu = $('.nav-menu');
       if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function () { navMenu.classList.toggle('is-open'); });
+        navToggle.addEventListener('click', function () {
+          var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+          navToggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          navMenu.classList.toggle('is-open');
+        });
       }
-    } catch (err) { console.error('Nav toggle error:', err); }
+    } catch (err) {
+      console.error('Nav toggle error:', err);
+    }
 
-    /* -------------------- Smooth scroll for internal anchors -------------------- */
+    /* Smooth scroll for internal anchors */
     try {
       var anchorLinks = document.querySelectorAll('a[href^="#"]');
       anchorLinks.forEach(function (link) {
@@ -92,9 +94,11 @@
           }
         });
       });
-    } catch (err) { console.error('Smooth scroll error:', err); }
+    } catch (err) {
+      console.error('Smooth scroll error:', err);
+    }
 
-    /* -------------------- Keyboard focus detection for accessible outlines -------------------- */
+    /* Keyboard focus detection */
     try {
       function handleFirstTab(e) {
         if (e.key === 'Tab') {
@@ -103,12 +107,9 @@
         }
       }
       window.addEventListener('keydown', handleFirstTab);
-    } catch (err) { console.error('Focus setup error:', err); }
+    } catch (err) {
+      console.error('Focus setup error:', err);
+    }
 
   }); // DOMContentLoaded end
-
-  window.addEventListener('load', function () {
-    // Placeholder for on-load behaviours if required
-  });
-
 })();
