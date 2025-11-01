@@ -3,117 +3,63 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
-  <meta name="description" content="Contact Meadow Pathways for referrals, enquiries, and safeguarding concerns." />
-
-  <!-- Styles (ensure these files are in your repo root) -->
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <title>Contact — Meadow Pathways</title>
+  <meta name="description" content="Contact Meadow Pathways for referrals, enquiries and support." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<!-- Header -->
-<header class="site-header">
-  <div class="header-inner container d-flex justify-content-between align-items-center">
-    <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo-img">
-    </a>
-
-    <nav aria-label="Primary navigation">
-      <ul class="nav">
-        <li class="nav-item"><a href="index.html" class="nav-link pill-box pill-box--green">Home</a></li>
-        <li class="nav-item"><a href="about.html" class="nav-link pill-box pill-box--teal">About</a></li>
-        <li class="nav-item"><a href="eotas.html" class="nav-link pill-box pill-box--sand">EOTAS</a></li>
-        <li class="nav-item"><a href="safeguarding.html" class="nav-link pill-box pill-box--muted">Safeguarding</a></li>
-        <li class="nav-item"><a href="staff.html" class="nav-link pill-box pill-box--green">Staff</a></li>
-        <li class="nav-item"><a href="referral.html" class="nav-link pill-box pill-box--teal">Referral</a></li>
-        <li class="nav-item"><a href="contact.html" class="nav-link pill-box pill-box--green" aria-current="page">Contact</a></li>
-        <li class="nav-item"><a href="policies.html" class="nav-link pill-box pill-box--sand">Policies</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="container text-center py-5">
-    <h1>Contact Meadow Pathways</h1>
-    <p class="lead">Questions about referrals, safeguarding or partnerships — we're here to help.</p>
-    <div class="mt-4">
-      <a class="btn btn-success me-2" href="referral.html">Refer a child</a>
-      <a class="btn btn-outline-success" href="contact.html#contact-form">Send a message</a>
+  <!-- header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="site-logo">
+        <a href="index.html" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways logo" class="logo" />
+        </a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      <nav id="main-nav" class="main-nav nav-menu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-pill nav-pill--home">Home</a>
+        <a href="about.html" class="nav-pill nav-pill--about">About</a>
+        <a href="eotas.html" class="nav-pill nav-pill--eotas">EOTAS</a>
+        <a href="safeguarding.html" class="nav-pill nav-pill--safeguarding">Safeguarding</a>
+        <a href="staff.html" class="nav-pill nav-pill--staff">Team</a>
+        <a href="referral.html" class="nav-pill nav-pill--referral">Make a referral</a>
+        <a href="contact.html" class="nav-pill nav-pill--contact">Contact</a>
+        <a href="policies.html" class="nav-pill nav-pill--policies">Policies</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<main class="container my-5">
+  <main class="container" role="main">
+    <h1 class="section-title">Contact</h1>
 
-  <section class="card p-4 shadow-sm mb-4">
-    <h2>Office contact</h2>
-    <p><strong>Meadow Pathways Wellbeing and Education Cornwall</strong></p>
-    <p>Email: <a href="mailto:info@meadowpathwayscornwall.com">info@meadowpathwayscornwall.com</a></p>
-    <p>Phone: <strong>07932 243358</strong></p>
-    <p>Head office: Falmouth, Cornwall (by appointment)</p>
-    <p class="small text-muted">For urgent safeguarding concerns see the Safeguarding page and contact the DSL directly.</p>
-  </section>
-
-  <section class="card p-4 shadow-sm mb-4" id="contact-form">
-    <h2>Send us a message</h2>
-    <form action="https://formspree.io/f/movnvzqp" method="POST" data-ajax="true" data-redirect="thankyou.html" aria-labelledby="contact-form">
-      <input type="hidden" name="form_type" value="contact">
-
-      <div class="row g-3">
-        <div class="col-md-6">
-          <label class="form-label" for="contact-name">Your name</label>
-          <input id="contact-name" name="name" class="form-control" required>
-        </div>
-        <div class="col-md-6">
-          <label class="form-label" for="contact-email">Email</label>
-          <input id="contact-email" name="email" type="email" class="form-control" required>
-        </div>
-        <div class="col-12">
-          <label class="form-label" for="contact-subject">Subject</label>
-          <input id="contact-subject" name="subject" class="form-control" required>
-        </div>
-        <div class="col-12">
-          <label class="form-label" for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" class="form-control" rows="6" required></textarea>
-        </div>
+    <div class="row">
+      <div class="col card">
+        <h3>Get in touch</h3>
+        <p>Phone: 01234 567890</p>
+        <p>Email: <a href="mailto:info@meadowpathwayscornwall.org">info@meadowpathwayscornwall.org</a></p>
+        <p>Address: Meadow Pathways, Cornwall</p>
       </div>
 
-      <div class="d-flex gap-2 mt-3">
-        <button type="submit" class="btn btn-success">Send message</button>
-        <a class="btn btn-outline-success" href="referral.html">Refer a child</a>
+      <div class="col card">
+        <h3>Opening hours</h3>
+        <p>Mon - Fri: 09:00 — 17:00</p>
+        <p>We respond to referrals and enquiries within 2 working days where possible.</p>
       </div>
+    </div>
+  </main>
 
-      <div class="form-status mt-3" role="status" aria-live="polite"></div>
-      <p class="small text-muted mt-2">We aim to respond within 3 working days. For urgent matters contact the DSL by phone.</p>
-    </form>
-  </section>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div>&copy; Meadow Pathways Wellbeing and Education Cornwall</div>
+      <div>
+        <a href="privacy.html">Privacy</a> •
+        <a href="policies.html">Policies</a> •
+        <a href="referral.html">Referral</a>
+      </div>
+    </div>
+  </footer>
 
-  <section class="card p-4 shadow-sm mb-4">
-    <h2>Visit us</h2>
-    <p>Sessions are by appointment in community or outdoor settings. We do not operate an open drop-in service to protect privacy and manage caseloads.</p>
-    <p>If you'd like to arrange a visit or consultation, please call or use the referral form.</p>
-  </section>
-
-  <section class="card p-4 shadow-sm">
-    <h2>Accessibility</h2>
-    <p>If you need this information in another format (large print, easy read, translated) please contact us and we will do our best to provide it.</p>
-    <p class="small text-muted">Contact details above used for enquiry purposes only. Do not send sensitive personal documents via unsecured email; use secure file transfer or the referral process for protected information.</p>
-  </section>
-
-</main>
-
-<!-- Footer -->
-<footer class="site-footer text-center text-white py-4" style="background:#163632;">
-  <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo mb-2" style="height:60px;">
-  <p class="mb-0">© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-</footer>
-
-<!-- Scripts (ensure bootstrap.bundle.min.js and script.js are present in repo root) -->
-<script src="bootstrap.bundle.min.js"></script>
-<script src="script.js" defer></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
