@@ -1,98 +1,127 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Staff Access — Meadow Pathways</title>
-<link rel="stylesheet" href="style.css" />
-<meta name="robots" content="noindex" />
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
+/* assets/style.css
+   Meadow Pathways — Blugoon-inspired theme
+   Keep this file at /assets/style.css and reference it from pages
+*/
 
-<header class="site-header">
-  <div class="header-inner container">
-    <div class="logo-wrap">
-      <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-      </a>
-    </div>
-    <nav aria-label="Primary" class="primary-nav">
-      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-      <ul id="primaryNav" class="nav-tabs" role="menubar">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a class="active" href="staff.html">Staff</a></li>
-        <li><a href="referral.html">Referral</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+/* ---------------- root / variables ---------------- */
+:root{
+  --accent:#0e8a73;
+  --accent-2:#00a6c1;
+  --accent-warm:#e7b84b;
+  --muted:#6b7a78;
+  --text:#12322f;
+  --bg:#fbfdfd;
+  --card:#ffffff;
+  --soft:#eef5f3;
+  --radius:12px;
+  --max-width:1100px;
+  --gutter:18px;
+  --shadow: 0 8px 28px rgba(12,28,30,0.06);
+  --pill-bg: linear-gradient(180deg,var(--accent),var(--accent-2));
+  --pill-color:#fff;
+  --section-gap:20px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
 
-<main id="main" class="container" role="main">
-  <section class="hero" aria-labelledby="hero-title" style="margin-top:12px;">
-    <div class="hero-overlay container">
-      <h1 id="hero-title">Staff access and requests</h1>
-      <p class="hero-sub">Protected resources are available to verified staff only. Request access below and a senior lead will respond.</p>
-    </div>
-  </section>
+/* ---------------- base ---------------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.45;
+}
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 var(--gutter);
+}
 
-  <section class="card" aria-labelledby="access-title" style="max-width:920px;margin:18px auto;">
-    <h2 id="access-title">Request staff access</h2>
-    <p>If you need access to staff resources (policies, hours logging, protected documents) please complete the short request form. This request is sent to senior leads and will be reviewed promptly.</p>
+/* ---------------- header ---------------- */
+.site-header{
+  background: #fff;
+  border-bottom:1px solid rgba(0,0,0,0.04);
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px var(--gutter);
+}
+.logo-box{ display:flex; align-items:center; gap:12px; }
+.site-logo{ height:84px; width:auto; object-fit:contain; border-radius:10px; background:#fff; padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
 
-    <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-      <input type="hidden" name="_subject" value="Staff access request — Meadow Pathways" />
-      <label for="name">Your full name</label>
-      <input id="name" name="name" type="text" required placeholder="Full name" />
+/* nav */
+.primary-nav { display:flex; align-items:center; gap:12px; }
+.nav-toggle{ display:none; border:0; background:transparent; font-size:20px; cursor:pointer; }
+.nav-tabs{ list-style:none; margin:0; padding:0; display:flex; gap:8px; align-items:center; }
+.nav-tabs a{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:10px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.98));
+  border:1px solid rgba(0,0,0,0.04);
+  color:#153532;
+  font-weight:700;
+  text-decoration:none;
+}
+.nav-tabs a.active{ background:var(--pill-bg); color:var(--pill-color); box-shadow:0 10px 26px rgba(0,120,100,0.08); }
 
-      <label for="work-email" style="margin-top:12px;">Work email</label>
-      <input id="work-email" name="email" type="email" required placeholder="you@organisation.org" />
+/* responsive nav */
+@media (max-width:900px){
+  .nav-toggle{ display:inline-block; }
+  .nav-tabs{ position:absolute; top:72px; right:var(--gutter); background:#fff; flex-direction:column; padding:10px; border-radius:12px; display:none; box-shadow:var(--shadow); }
+  .nav-tabs.open{ display:flex; }
+}
 
-      <label for="role" style="margin-top:12px;">Role / relation to Meadow Pathways</label>
-      <input id="role" name="role" type="text" placeholder="E.g. staff, volunteer, partner" />
+/* ---------------- hero ---------------- */
+.hero{ padding:36px 0; background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,1)); border-bottom:1px solid rgba(0,0,0,0.02); }
+.hero-inner{ display:flex; gap:24px; align-items:stretch; }
+.hero-copy{ flex:1; max-width:760px; }
+.hero-copy h1{ margin:0 0 10px; font-size:1.9rem; color:var(--accent); }
+.lead{ color:var(--muted); margin:0 0 12px; }
+.hero-actions{ display:flex; gap:10px; margin-top:12px; }
+.btn{ display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; background:#eee; color:var(--text); border:1px solid rgba(0,0,0,0.04); font-weight:700; }
+.btn-primary{ background:var(--accent); color:#fff; border:0; box-shadow:0 8px 20px rgba(14,138,115,0.08); }
 
-      <label for="reason" style="margin-top:12px;">Reason for access</label>
-      <textarea id="reason" name="reason" rows="4" placeholder="Brief reason (e.g., hours logging, access to safeguarding docs)"></textarea>
+/* hero-card (accent to right) */
+.hero-card{ width:260px; background:linear-gradient(180deg,var(--soft),#fff); border-radius:12px; padding:16px; box-shadow:var(--shadow); }
+.kicker{ margin:0; font-weight:700; color:var(--accent-2); }
 
-      <div style="margin-top:12px;">
-        <button type="submit" class="pill">Request access</button>
-        <a class="secondary" href="contact.html" style="margin-left:12px;">Contact a lead</a>
-      </div>
+/* ---------------- carousel ---------------- */
+.carousel-wrap{ margin-top:var(--section-gap); margin-bottom:var(--section-gap); }
+.carousel{ position:relative; background:#fff; border-radius:12px; padding:14px; box-shadow:var(--shadow); overflow:hidden; }
+.slides{ display:block; }
+.slide{ width:100%; display:none; object-fit:cover; border-radius:8px; max-height:420px; width:100%; }
+.slide.active{ display:block; }
+.controls{ display:flex; align-items:center; justify-content:center; gap:12px; margin-top:10px; }
+.control{ border:1px solid rgba(0,0,0,0.06); background:#fff; padding:6px 10px; border-radius:8px; cursor:pointer; }
+.dots{ display:inline-flex; gap:8px; }
+.dot{ width:10px; height:10px; border-radius:50%; background:#ddd; border:none; }
+.dot.active{ background:var(--accent); }
 
-      <p style="margin-top:14px;color:var(--muted)">Requests are reviewed by Michelle and Zoe. Approved accounts will be contacted by the leads with secure access instructions. Do not share protected information through this public form.</p>
-    </form>
-  </section>
+/* ---------------- cards / layout ---------------- */
+.card{ background:var(--card); border-radius:12px; padding:18px; box-shadow:var(--shadow); margin:18px 0; border:1px solid rgba(0,0,0,0.03); }
+.grid-3{ display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
 
-  <section class="card" style="max-width:920px;margin:18px auto;">
-    <h2>Need urgent access?</h2>
-    <p>If this is urgent (safeguarding or health and safety), contact a lead by telephone rather than using this form.</p>
-    <p><strong>Michelle</strong> — 07932 243358 &nbsp; • &nbsp; <strong>Zoe</strong> — 07775 733587</p>
-  </section>
-</main>
+/* footer */
+.site-footer{ background: #12322f; color:#fff; padding:22px 0; margin-top:22px; }
+.footer-inner{ display:flex; gap:12px; align-items:center; justify-content:center; flex-direction:column; }
+.footer-logo{ width:84px; height:auto; border-radius:10px; background:#fff; padding:6px; }
 
-<footer class="site-footer">
-  <div class="footer-content">
-    <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-    <p>Guiding individual journeys with care and purpose</p>
-  </div>
-</footer>
+/* back-to-top */
+.back-to-top{ position:fixed; right:18px; bottom:18px; padding:10px 12px; border-radius:8px; border:0; background:var(--accent); color:#fff; display:none; cursor:pointer; }
+.back-to-top.show{ display:block; }
 
-<script>
-(function(){
-  var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
-  if(navToggle && nav){
-    navToggle.addEventListener('click', function(){
-      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('open');
-    });
-  }
-})();
-</script>
-</body>
-</html>
+/* small helpers */
+.kicker, .muted-small{ color:var(--muted); font-size:0.95rem; }
+a.pill{ display:inline-block; padding:8px 12px; border-radius:20px; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; }
+
+/* accessibility */
+:focus{ outline:3px solid rgba(14,138,115,0.12); outline-offset:4px }
