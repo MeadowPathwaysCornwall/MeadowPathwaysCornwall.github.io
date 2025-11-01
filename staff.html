@@ -3,184 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
-  <meta name="description" content="Staff team, roles and secure access to protected resources for Meadow Pathways Cornwall." />
-  <meta name="robots" content="noindex" />
-
-  <!-- Styles (ensure these files are in your repo root) -->
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <title>Team — Meadow Pathways</title>
+  <meta name="description" content="Meet the Meadow Pathways team." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<!-- Header -->
-<header class="site-header">
-  <div class="header-inner container d-flex justify-content-between align-items-center">
-    <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo-img">
-    </a>
-
-    <nav aria-label="Primary navigation">
-      <ul class="nav">
-        <li class="nav-item"><a href="index.html" class="nav-link pill-box pill-box--green">Home</a></li>
-        <li class="nav-item"><a href="about.html" class="nav-link pill-box pill-box--teal">About</a></li>
-        <li class="nav-item"><a href="eotas.html" class="nav-link pill-box pill-box--sand">EOTAS</a></li>
-        <li class="nav-item"><a href="safeguarding.html" class="nav-link pill-box pill-box--muted">Safeguarding</a></li>
-        <li class="nav-item"><a href="staff.html" class="nav-link pill-box pill-box--green" aria-current="page">Staff</a></li>
-        <li class="nav-item"><a href="referral.html" class="nav-link pill-box pill-box--teal">Referral</a></li>
-        <li class="nav-item"><a href="contact.html" class="nav-link pill-box pill-box--green">Contact</a></li>
-        <li class="nav-item"><a href="policies.html" class="nav-link pill-box pill-box--sand">Policies</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<!-- Hero carousel -->
-<section class="hero hero-carousel">
-  <div id="mpHeroCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-
-      <div class="carousel-item active" style="background:url('BG.png') center/cover no-repeat; position:relative;">
-        <div class="container text-center py-5">
-          <h1>Meet the team</h1>
-          <p class="lead">Experienced practitioners, therapists and educators working across Cornwall</p>
-          <div class="mt-4">
-            <a class="btn btn-success me-2" href="contact.html">Contact the team</a>
-            <a class="btn btn-outline-success" href="policies.html">Staff policies</a>
-          </div>
-        </div>
+  <!-- header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="site-logo">
+        <a href="index.html" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways logo" class="logo" />
+        </a>
       </div>
-
-      <div class="carousel-item" style="background:url('BG.png') center/cover no-repeat; position:relative;">
-        <div class="container text-center py-5">
-          <h1>Working safely together</h1>
-          <p class="lead">Protected resources and clear request-access for authorised staff</p>
-          <div class="mt-4">
-            <a class="btn btn-success me-2" href="passwords.html">Request access</a>
-            <a class="btn btn-outline-success" href="protected-resources.html">Protected resources</a>
-          </div>
-        </div>
-      </div>
-
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+      <nav id="main-nav" class="main-nav nav-menu" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-pill nav-pill--home">Home</a>
+        <a href="about.html" class="nav-pill nav-pill--about">About</a>
+        <a href="eotas.html" class="nav-pill nav-pill--eotas">EOTAS</a>
+        <a href="safeguarding.html" class="nav-pill nav-pill--safeguarding">Safeguarding</a>
+        <a href="staff.html" class="nav-pill nav-pill--staff">Team</a>
+        <a href="referral.html" class="nav-pill nav-pill--referral">Make a referral</a>
+        <a href="contact.html" class="nav-pill nav-pill--contact">Contact</a>
+        <a href="policies.html" class="nav-pill nav-pill--policies">Policies</a>
+      </nav>
     </div>
+  </header>
 
-    <button class="carousel-control-prev" type="button" data-bs-target="#mpHeroCarousel" data-bs-slide="prev" aria-label="Previous slide">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#mpHeroCarousel" data-bs-slide="next" aria-label="Next slide">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
+  <main class="container" role="main">
+    <h1 class="section-title">Team</h1>
 
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#mpHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#mpHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    </div>
-  </div>
-</section>
-
-<main class="container my-5">
-
-  <section class="card p-4 shadow-sm mb-4">
-    <h2>Core team</h2>
-    <div class="row g-3">
-      <div class="col-md-6">
-        <div class="card p-3 h-100">
-          <h3 class="h5">Michelle — Founding director & lead therapist</h3>
-          <p>Qualifed counsellor and play therapist; leads therapeutic practice, safeguarding and service design.</p>
-          <p><strong>Role:</strong> DSL, Clinical Lead</p>
-        </div>
+    <div class="row">
+      <div class="col card">
+        <h3>Founding director and lead therapist</h3>
+        <p>Qualified counsellor and play therapist with over 20 years' experience supporting children and families in therapeutic education settings.</p>
       </div>
 
-      <div class="col-md-6">
-        <div class="card p-3 h-100">
-          <h3 class="h5">Zoe — Senior practitioner</h3>
-          <p>Leads curriculum delivery, family liaison and outdoor learning activities across community settings.</p>
-          <p><strong>Role:</strong> Operations and Education Lead</p>
-        </div>
+      <div class="col card">
+        <h3>Education lead</h3>
+        <p>Experienced teacher and alternative provision specialist focused on re-engagement and personalised learning plans.</p>
       </div>
     </div>
-  </section>
+  </main>
 
-  <section class="card p-4 shadow-sm mb-4">
-    <h2>Associate practitioners</h2>
-    <div class="row g-3">
-      <div class="col-md-4">
-        <div class="card p-3 h-100">
-          <h3 class="h6">Sam — Therapeutic practitioner</h3>
-          <p>Working with children and families on emotion regulation and re-engagement strategies.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card p-3 h-100">
-          <h3 class="h6">Aisha — Teaching support</h3>
-          <p>Delivers curriculum-linked small-group teaching and differentiated resources.</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card p-3 h-100">
-          <h3 class="h6">Tom — Outdoor practitioner</h3>
-          <p>Leads nature-based activities, safety logistics and site-based learning.</p>
-        </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div>&copy; Meadow Pathways Wellbeing and Education Cornwall</div>
+      <div>
+        <a href="privacy.html">Privacy</a> •
+        <a href="policies.html">Policies</a> •
+        <a href="contact.html">Contact</a>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <section class="card p-4 shadow-sm mb-4">
-    <h2>Staff resources (protected)</h2>
-    <p>The following resources are restricted to authorised staff. To request access, please use the secure request-access flow.</p>
-
-    <div id="locked" class="lock-card p-3" aria-hidden="false" style="position:relative;">
-      <h3 class="h6">Request access to protected resources</h3>
-      <p>Please complete the staff access request form. Requests are reviewed and confirmed by the director.</p>
-
-      <form action="https://formspree.io/f/movnvzqp" method="POST" data-ajax="true" class="mt-3" aria-labelledby="access-form-title">
-        <input type="hidden" name="purpose" value="staff-access-request">
-        <div class="mb-2">
-          <label class="form-label" for="name">Full name</label>
-          <input id="name" name="name" class="form-control" required>
-        </div>
-        <div class="mb-2">
-          <label class="form-label" for="email">Work email</label>
-          <input id="email" name="email" type="email" class="form-control" required>
-        </div>
-        <div class="mb-2">
-          <label class="form-label" for="role">Role / reason for access</label>
-          <input id="role" name="role" class="form-control" required>
-        </div>
-
-        <div class="d-flex gap-2 mt-2">
-          <button type="submit" class="btn btn-success">Request access</button>
-          <a href="passwords.html" class="btn btn-outline-success">Read staff guidance</a>
-        </div>
-
-        <div class="form-status mt-2" role="status" aria-live="polite"></div>
-      </form>
-    </div>
-  </section>
-
-  <section class="card p-4 shadow-sm mb-4">
-    <h2>Recruitment and training</h2>
-    <p>We welcome conversations with qualified practitioners. Training includes safeguarding, trauma-informed practice and ongoing reflective supervision.</p>
-    <a href="contact.html" class="btn btn-outline-success mt-2">Contact for recruitment</a>
-  </section>
-
-  <section class="card p-4 shadow-sm">
-    <h2>Staff wellbeing</h2>
-    <p>We prioritise staff wellbeing through supervision, manageable caseloads and access to reflective practice. Please speak with the director or operations lead if you need support.</p>
-  </section>
-
-</main>
-
-<!-- Footer -->
-<footer class="site-footer text-center text-white py-4" style="background:#163632;">
-  <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo mb-2" style="height:60px;">
-  <p class="mb-0">© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-  <p class="mb-0">Guiding Individual Journeys with Care and Purpose</p>
-</footer>
-
-<!-- Scripts (ensure bootstrap.bundle.min.js and script.js are present in repo root) -->
-<script src="bootstrap.bundle.min.js"></script>
-<script src="script.js" defer></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
