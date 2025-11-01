@@ -4,60 +4,53 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Thank you — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="description" content="Thank you for contacting Meadow Pathways. We will respond shortly." />
 
-  <!-- Bootstrap & Theme CSS (root paths, as-is) -->
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    body {
-      display:flex; min-height:100vh; align-items:center; justify-content:center;
-      background:#f7fbf6; color:#163632;
-    }
-    .card {
-      max-width:820px; margin:28px; background:#fff; padding:28px;
-      border-radius:14px; box-shadow:0 10px 30px rgba(20,20,40,0.06); text-align:left;
-    }
-    .actions { margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
-    .btn-soft {
-      display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none;
-      background:#f0f4f8; color:#163632; border:1px solid rgba(0,0,0,0.06);
-    }
-  </style>
 </head>
 <body>
 
-<main class="card" role="main" aria-labelledby="thank-title">
-  <h1 id="thank-title">Thank you</h1>
-  <p>Thank you for contacting Meadow Pathways Wellbeing and Education Cornwall. We have received your message and will respond as soon as we can.</p>
-  <p>If your message was a referral or urgent safeguarding concern and you do not hear from us within a timely period, please contact the team directly by phone.</p>
+<header class="site-header">
+  <div class="header-inner container d-flex justify-content-between align-items-center">
+    <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo-img">
+    </a>
 
-  <div class="small">
-    <strong>Contact</strong><br />
-    Michelle — 07932 243358 — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br />
-    Zoe — 07775 733587 — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav">
+        <li class="nav-item"><a href="index.html" class="nav-link pill-box pill-box--green">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link pill-box pill-box--teal">About</a></li>
+        <li class="nav-item"><a href="eotas.html" class="nav-link pill-box pill-box--sand">EOTAS</a></li>
+        <li class="nav-item"><a href="safeguarding.html" class="nav-link pill-box pill-box--muted">Safeguarding</a></li>
+        <li class="nav-item"><a href="staff.html" class="nav-link pill-box pill-box--green">Staff</a></li>
+        <li class="nav-item"><a href="referral.html" class="nav-link pill-box pill-box--teal">Referral</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link pill-box pill-box--green">Contact</a></li>
+        <li class="nav-item"><a href="policies.html" class="nav-link pill-box pill-box--sand">Policies</a></li>
+      </ul>
+    </nav>
   </div>
+</header>
 
-  <div class="actions" aria-label="Next steps">
-    <a class="btn btn-success" href="index.html">Return to home</a>
-    <a class="btn-soft" href="referral.html">Submit another referral</a>
-    <a class="btn-soft" href="contact.html">Contact page</a>
-  </div>
-
-  <p class="small" style="margin-top:14px">
-    Meadow Pathways is committed to protecting confidentiality and handling information sensitively.
-    If you have questions about how we use information, contact us at the email above.
-  </p>
+<main class="container my-5">
+  <section class="card p-4 shadow-sm text-center">
+    <h1>Thank you</h1>
+    <p class="lead">We have received your message. A member of the Meadow Pathways team will be in touch shortly.</p>
+    <p>If your message was a referral, we will acknowledge receipt and aim to respond within 3 working days.</p>
+    <div class="mt-3">
+      <a href="index.html" class="btn btn-success">Return to homepage</a>
+      <a href="contact.html" class="btn btn-outline-success">Contact page</a>
+    </div>
+  </section>
 </main>
 
-<footer class="site-footer text-center text-white py-4" style="position:fixed; left:0; right:0; bottom:0; background:#163632;">
-  <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo mb-2" style="height:50px;">
+<footer class="site-footer text-center text-white py-4" style="background:#163632;">
+  <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo mb-2" style="height:60px;">
   <p class="mb-0">© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-  <p class="mb-0">Guiding Individual Journeys with Care and Purpose</p>
 </footer>
 
-<!-- Scripts (root paths, matching your repo) -->
 <script src="bootstrap.bundle.min.js"></script>
 <script src="script.js" defer></script>
+
 </body>
 </html>
