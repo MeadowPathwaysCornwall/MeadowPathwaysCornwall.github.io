@@ -1,66 +1,40 @@
-/* ===== Pill and pill-block styles: brand-themed CTA and info boxes ===== */
+/* ===== Site additions: slider base, pills, and long-text theme boxes ===== */
 
-/* Pill link base (inline) */
-.pill {
-  display: inline-block;
-  padding: 12px 18px;
-  border-radius: 999px;
-  color: #ffffff;
-  font-weight: 600;
-  margin: 6px 8px 12px 0;
-  text-decoration: none;
-  transition: transform .12s ease, box-shadow .12s ease;
-  box-shadow: 0 2px 0 rgba(0,0,0,0.06);
-}
-
-/* Full-width block boxes for long text content */
-.pill-block {
+/* Custom .slides slider base */
+.slides { position: relative; overflow: hidden; display: block; width: 100%; }
+.slides .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
+  object-fit: cover;
   display: block;
-  border-radius: 12px;
-  padding: 18px;
-  margin: 12px 0;
-  color: #ffffff;
-  font-weight: 600;
-  line-height: 1.45;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
+.slides .slide:first-child { opacity: 1; }
 
-/* Theme colours (adjust hex if you prefer different tones) */
-.pill--teal { background: #238a78; }
-.pill--blue { background: #2b67b2; }
-.pill--orange { background: #e07a2a; }
-.pill--muted { background: #6b7280; }
+/* Ensure images do not stretch on tall containers — use object-fit to crop if necessary */
+.slides img.slide { width: 100%; height: auto; max-width: 100%; }
 
-/* Pill-block gradients for visual depth */
-.pill-block--teal { background: linear-gradient(180deg,#2aa98b,#1e7f6f); }
-.pill-block--blue { background: linear-gradient(180deg,#4b84d6,#2b67b2); }
-.pill-block--orange { background: linear-gradient(180deg,#f59a4e,#e07a2a); }
-.pill-block--muted { background: linear-gradient(180deg,#9aa0a6,#6b7280); }
+/* Pill / pill-block styles (brand colours) */
+.pill { display: inline-block; padding: 12px 18px; border-radius: 999px; color: #fff; font-weight:600; margin:6px 8px 12px 0; text-decoration:none; transition: transform .12s ease, box-shadow .12s ease; box-shadow:0 2px 0 rgba(0,0,0,0.06); }
+.pill-block { display:block; border-radius:12px; padding:18px; margin:12px 0; color:#fff; font-weight:600; line-height:1.45; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
 
-/* Hover and focus styles */
-.pill:hover, .pill:focus, .pill-block:hover, .pill-block:focus {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-  outline: none;
-}
+/* Theme colours */
+.pill--teal { background:#238a78; } .pill--blue { background:#2b67b2; } .pill--orange { background:#e07a2a; } .pill--muted { background:#6b7280; }
+.pill-block--teal { background:linear-gradient(180deg,#2aa98b,#1e7f6f); } .pill-block--blue { background:linear-gradient(180deg,#4b84d6,#2b67b2); } .pill-block--orange { background:linear-gradient(180deg,#f59a4e,#e07a2a); } .pill-block--muted { background:linear-gradient(180deg,#9aa0a6,#6b7280); }
 
-/* Accessible focus ring for keyboard users */
-.user-is-tabbing .pill:focus, .user-is-tabbing .pill-block:focus {
-  outline: 3px solid rgba(255,255,255,0.15);
-  outline-offset: 3px;
-}
+/* Map existing long content containers (if they use .long-text or .service-box) to a default theme */
+.long-text, .service-box { background: linear-gradient(180deg,#4b84d6,#2b67b2); color:#fff; border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
 
-/* Ensure readable text on small screens */
+/* Hover/focus affordances */
+.pill:hover, .pill:focus, .pill-block:hover, .pill-block:focus { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.12); outline:none; }
+.user-is-tabbing .pill:focus, .user-is-tabbing .pill-block:focus { outline:3px solid rgba(255,255,255,0.15); outline-offset:3px; }
+
+/* Responsive tweaks */
 @media (max-width: 600px) {
   .pill { padding: 10px 14px; font-size: 15px; }
-  .pill-block { padding: 14px; font-size: 16px; }
+  .pill-block, .long-text, .service-box { padding: 14px; font-size: 16px; }
 }
-
-/* Convenience selectors: if your long text boxes share another class, you can map it here.
-   Add any of these lines if you prefer global recolour without editing HTML:
-   Example: .long-text or .service-box mapped to pill-block--blue
-*/
-/* .long-text { composes: pill-block pill-block--blue; }  <-- not all CSS processors support composes */
-
-/* If your long content containers have the class .long-text, colour them as blue blocks */
-.long-text { background: linear-gradient(180deg,#4b84d6,#2b67b2); color: #fff; border-radius: 12px; padding: 18px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
