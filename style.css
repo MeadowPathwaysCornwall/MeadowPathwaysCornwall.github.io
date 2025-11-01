@@ -1,6 +1,6 @@
-/* Meadow Pathways — site stylesheet (replace existing style.css)
-   Key changes: larger logo, smaller hero, consistent nav pill colours,
-   visible backgrounds for long text / cards, accessibility + responsive.
+/* Meadow Pathways — final consolidated stylesheet
+   Restores logo size, reduces hero height, ensures coloured nav pills,
+   and applies visible backgrounds to long-text and card areas.
 */
 
 /* Theme variables */
@@ -16,37 +16,38 @@
   --nav-8: #9aa0a6;
   --text: #222222;
   --bg: #ffffff;
-  --max-width: 1100px;
+  --content-bg: #ffffff;
+  --max-width: 1200px;
 }
 
 /* Reset / base */
 *{box-sizing:border-box}
 html,body{height:100%}
 html{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif; font-size:16px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; color:var(--text); background:var(--bg)}
-body{margin:0; line-height:1.45}
+body{margin:0; line-height:1.5}
 
-/* Container */
-.container{width:90%; max-width:var(--max-width); margin:0 auto; padding:24px 0}
+/* Layout container */
+.container{width:92%; max-width:var(--max-width); margin:0 auto; padding:20px 0}
 
 /* Header / logo / nav */
 .site-header{background:linear-gradient(180deg,#fff,#fbfbfb); border-bottom:1px solid rgba(34,34,34,0.04)}
 .site-header .container{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
 
-/* Logo: increased size so it no longer appears too small */
-.site-logo img{height:72px; width:auto; display:block; transition:height .18s ease}
-.site-logo img.logo--small{height:56px} /* if a page needs a smaller logo */
+/* Logo: make clearly visible site-wide */
+.site-logo img{height:84px; width:auto; display:block; transition:height .18s ease}
+.site-logo img.logo--small{height:56px} /* for pages that need a slightly smaller logo */
 
 /* Navigation base */
 .main-nav{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
 .main-nav a{color:var(--text); text-decoration:none; padding:8px 12px; border-radius:8px; font-weight:700; display:inline-block}
 
-/* Nav pill classes (apply these in HTML to identify tabs) */
-.nav-pill{ color:#fff; padding:8px 12px; border-radius:999px; font-weight:700; display:inline-block; text-decoration:none; }
+/* Nav pill classes (preferred: add these classes in each page header) */
+.nav-pill{ color:#fff; padding:8px 12px; border-radius:999px; font-weight:700; display:inline-block; text-decoration:none }
 .nav-pill--home{ background:var(--brand-teal) } .nav-pill--about{ background:var(--brand-blue) } .nav-pill--eotas{ background:var(--brand-orange) }
 .nav-pill--safeguarding{ background:var(--nav-4) } .nav-pill--staff{ background:var(--nav-5) } .nav-pill--referral{ background:var(--nav-6) }
 .nav-pill--contact{ background:var(--nav-7) } .nav-pill--policies{ background:var(--nav-8) }
 
-/* Fallback: nth-child colouring if you prefer not to edit HTML */
+/* Safe fallback: nth-child colouring if the HTML nav links are not updated */
 .main-nav a:nth-child(1){ background:var(--brand-teal); color:#fff; border-radius:999px; padding:8px 12px; font-weight:700 }
 .main-nav a:nth-child(2){ background:var(--brand-blue); color:#fff; border-radius:999px; padding:8px 12px; font-weight:700 }
 .main-nav a:nth-child(3){ background:var(--brand-orange); color:#fff; border-radius:999px; padding:8px 12px; font-weight:700 }
@@ -64,44 +65,41 @@ body{margin:0; line-height:1.45}
 @media (max-width:800px){
   .main-nav{display:none}
   .nav-toggle{display:block}
-  .nav-menu.is-open{display:block; position:absolute; top:72px; right:12px; background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:8px; padding:12px; box-shadow:0 8px 24px rgba(0,0,0,0.06); z-index:40}
+  .nav-menu.is-open{display:block; position:absolute; top:90px; right:12px; background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:8px; padding:12px; box-shadow:0 8px 24px rgba(0,0,0,0.06); z-index:40}
 }
 
-/* Hero / slider
-   IMPORTANT: reduced the hero height so it’s not overwhelming.
-   Desktop: 420px; Medium: 360px; Mobile: 220px
-*/
+/* Hero / slider — reduced heights so carousel is not overpowering */
 .hero{width:100%; margin:0; padding:0; position:relative; overflow:hidden}
-.slides{position:relative; overflow:hidden; display:block; width:100%; height:360px}
-@media (min-width:900px){ .slides{height:420px} } /* desktop */
-@media (max-width:900px){ .slides{height:320px} }
+.slides{position:relative; overflow:hidden; display:block; width:100%; height:300px}
+@media (min-width:900px){ .slides{height:360px} } /* desktop moderate height */
+@media (max-width:900px){ .slides{height:300px} }
 @media (max-width:600px){ .slides{height:220px} }
 
 .slides .slide{position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; transition:opacity 600ms ease-in-out; object-fit:cover; display:block}
 .slides .slide:first-child{opacity:1}
 .slides img.slide{width:100%; height:100%; object-fit:cover; display:block}
 
-/* Overlay to ensure text remains readable on hero images */
-.hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.16), rgba(0,0,0,0.04)); pointer-events:none}
+/* Overlay for legibility on images */
+.hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.02)); pointer-events:none}
 
-/* Content layout */
+/* Content sections */
 .section-title{font-size:1.5rem; margin-bottom:12px; font-weight:700}
 .row{display:flex; gap:24px; flex-wrap:wrap}
 .col{flex:1 1 280px; min-width:220px}
-.card{background:linear-gradient(180deg, #ffffff, #fbfdff); border-radius:10px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,0.04); border:1px solid rgba(0,0,0,0.03); color:var(--text)}
 
-/* Pill and long-text boxes: visible backgrounds for all pages */
+/* Card and content backgrounds: visible, gentle colours across all pages */
+.card{background:linear-gradient(180deg,#ffffff,#fbfdff); border-radius:10px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,0.04); border:1px solid rgba(0,0,0,0.03); color:var(--text)}
+.long-text, .service-box { background: linear-gradient(180deg,#f9fbff,#eef6ff); color:var(--text); border-radius:12px; padding:16px; box-shadow:0 6px 18px rgba(0,0,0,0.04); border:1px solid rgba(0,0,0,0.04) }
+
+/* If you prefer stronger brand-coloured blocks, swap to pill-block classes or enable the line below */
+/* .long-text, .service-box { background: linear-gradient(180deg,#4b84d6,#2b67b2); color:#fff; } */
+
+/* Pills and CTA boxes */
 .pill{display:inline-block; padding:12px 18px; border-radius:999px; color:#fff; font-weight:600; margin:6px 8px 12px 0; text-decoration:none; transition:transform .12s ease, box-shadow .12s ease; box-shadow:0 2px 0 rgba(0,0,0,0.06)}
 .pill-block{display:block; border-radius:12px; padding:18px; margin:12px 0; color:#fff; font-weight:600; line-height:1.45; box-shadow:0 6px 18px rgba(0,0,0,0.06)}
 
 .pill--teal{background:var(--brand-teal)} .pill--blue{background:var(--brand-blue)} .pill--orange{background:var(--brand-orange)} .pill--muted{background:var(--muted)}
 .pill-block--teal{background:linear-gradient(180deg,#2aa98b,#1e7f6f)} .pill-block--blue{background:linear-gradient(180deg,#4b84d6,#2b67b2)} .pill-block--orange{background:linear-gradient(180deg,#f59a4e,#e07a2a)} .pill-block--muted{background:linear-gradient(180deg,#9aa0a6,#6b7280)}
-
-/* Map existing long content classes to a visible themed box so no HTML edits are required */
-.long-text, .service-box { background: linear-gradient(180deg,#ffffff,#f1f7ff); color:var(--text); border-radius:12px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,0.04); border:1px solid rgba(0,0,0,0.04) }
-
-/* If you prefer long text to use brand blue, uncomment the next line (or change to pill-block--blue)
-.long-text, .service-box { background: linear-gradient(180deg,#4b84d6,#2b67b2); color:#fff; } */
 
 /* Hover/focus */
 .pill:hover, .pill:focus, .pill-block:hover, .pill-block:focus{transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,0.12); outline:none}
@@ -126,11 +124,11 @@ textarea{min-height:120px; resize:vertical}
 .visually-hidden{position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap}
 a:focus{outline:3px solid rgba(43,103,178,0.22); outline-offset:3px}
 
-/* Responsive */
+/* Responsive tweaks */
 @media (max-width:900px){
-  .slides{height:320px}
-  .container{width:94%}
-  .site-logo img{height:64px}
+  .slides{height:300px}
+  .container{width:95%}
+  .site-logo img{height:72px}
 }
 @media (max-width:600px){
   .slides{height:220px}
