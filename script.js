@@ -1,12 +1,12 @@
 /* script.js
-   Shared site behaviours for Meadow Pathways (Blugoon theme)
+   Meadow Pathways — shared site behaviours (consolidated)
    - Nav toggle (mobile)
    - Back-to-top button
    - Lightweight carousel enhancement (if #carousel present)
    - Generic Formspree / form feedback handling
-   - No client-side password checks or secrets
+   - Defensive removal of client-side secrets
+   - A11y helpers
 */
-
 (function () {
   'use strict';
 
@@ -21,7 +21,7 @@
       navToggleBtn.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Close mobile nav when a nav link is clicked (helpful for single page navs)
+    // Close mobile nav when a nav link is clicked
     primaryNav.addEventListener('click', function (e) {
       var target = e.target;
       if (target && target.tagName === 'A' && primaryNav.classList.contains('open')) {
@@ -50,11 +50,11 @@
   })();
 
   /* ---------- CAROUSEL ENHANCEMENT (optional) ----------
-     Expects markup like:
+     Expects markup:
      <div id="carousel">
        <div class="slides"><img class="slide" ... /></div>
        <button id="prev">‹</button> <div id="dots"></div> <button id="next">›</button>
-     */
+  */
   (function carouselInit() {
     var carousel = document.getElementById('carousel');
     if (!carousel) return;
@@ -65,7 +65,7 @@
     var nextBtn = carousel.querySelector('#next') || carousel.querySelector('.carousel-next');
     var dotsContainer = carousel.querySelector('#dots') || carousel.querySelector('.dots');
 
-    if (!slides.length || !slidesWrap) return;
+    if (!slidesWrap || !slides.length) return;
 
     // ensure image sizing is safe
     slides.forEach(function (s) {
@@ -79,7 +79,7 @@
     slides[current].style.display = '';
     slides[current].classList.add('active');
 
-    // build dots
+    // build dots if container exists
     if (dotsContainer) {
       dotsContainer.innerHTML = '';
       slides.forEach(function (_, i) {
@@ -98,14 +98,18 @@
       if (i === current) return;
       slides[current].style.display = 'none';
       slides[current].classList.remove('active');
-      var prevDot = dotsContainer && dotsContainer.querySelector('.dot[data-index="' + current + '"]');
-      if (prevDot) prevDot.classList.remove('active');
+      if (dotsContainer) {
+        var prevDot = dotsContainer.querySelector('.dot[data-index="' + current + '"]');
+        if (prevDot) prevDot.classList.remove('active');
+      }
 
       current = i;
       slides[current].style.display = '';
       slides[current].classList.add('active');
-      var nextDot = dotsContainer && dotsContainer.querySelector('.dot[data-index="' + current + '"]');
-      if (nextDot) nextDot.classList.add('active');
+      if (dotsContainer) {
+        var nextDot = dotsContainer.querySelector('.dot[data-index="' + current + '"]');
+        if (nextDot) nextDot.classList.add('active');
+      }
     }
 
     if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); resetAutoplay(); });
@@ -136,34 +140,28 @@
     carousel.addEventListener('focusin', stopAutoplay);
     carousel.addEventListener('focusout', startAutoplay);
 
-    // small responsive safeguard: ensure slides wrap height when viewport changes
+    // responsive safeguard
     window.addEventListener('resize', function () {
-      // ensure active stays visible
       slides.forEach(function (s, idx) { s.style.display = (idx === current ? '' : 'none'); });
     }, { passive: true });
 
-    // start
+    // start autoplay
     startAutoplay();
   })();
 
   /* ---------- GENERIC FORMSPREE + FORM FEEDBACK HANDLER ----------
-     Enhances forms that post to Formspree (or any external action) to provide
-     consistent UI feedback without changing HTML form markup.
-     Requirements: forms may include a hidden input named _redirect for redirect behavior.
+     Adds client-side UX for forms that post to Formspree; leaves non-Formspree forms to normal submit.
+     Forms can include <input name="_redirect" value="..."> to redirect on success.
   */
   (function formsHandler() {
     var forms = Array.prototype.slice.call(document.querySelectorAll('form'));
     if (!forms.length) return;
 
     forms.forEach(function (form) {
-      // Skip forms that specify data-skip-enhance
       if (form.hasAttribute('data-skip-enhance')) return;
-
-      // Only enhance if action exists (we still allow server default)
       var action = form.getAttribute('action') || '';
       var isFormspree = action.indexOf('formspree.io') !== -1;
 
-      // Create a lightweight status element if none exists
       var status = form.querySelector('[role="status"]') || document.createElement('div');
       status.setAttribute('role', 'status');
       status.setAttribute('aria-live', 'polite');
@@ -171,7 +169,6 @@
       if (!form.contains(status)) form.appendChild(status);
 
       form.addEventListener('submit', function (e) {
-        // Let default submit proceed if form uses normal server flow and not Formspree
         if (!isFormspree) {
           status.textContent = 'Submitting...';
           return;
@@ -179,9 +176,8 @@
         e.preventDefault();
         status.textContent = 'Submitting...';
         var data = new FormData(form);
-
-        // If form has a _redirect and the endpoint will redirect, we still POST then redirect client-side for reliable UX
-        var redirect = form.querySelector('input[name="_redirect"]') ? form.querySelector('input[name="_redirect"]').value : null;
+        var redirectEl = form.querySelector('input[name="_redirect"]');
+        var redirect = redirectEl ? redirectEl.value : null;
 
         fetch(action, {
           method: 'POST',
@@ -189,22 +185,18 @@
           headers: { 'Accept': 'application/json' }
         }).then(function (res) {
           if (res.ok) {
-            // success: clear form (but keep values if form is hours logging? default is to reset)
             try { form.reset(); } catch (err) { /* ignore */ }
             status.textContent = 'Submitted. Thank you.';
-            if (redirect) {
-              // small delay for better UX
-              setTimeout(function () { window.location.href = redirect; }, 700);
-            }
-          } else {
-            return res.json().then(function (json) {
-              var msg = 'Submission error';
-              if (json && json.errors && json.errors.length) msg = json.errors.map(function (x) { return x.message; }).join('; ');
-              status.textContent = msg;
-            }).catch(function () {
-              status.textContent = 'Submission error — please try again later.';
-            });
+            if (redirect) setTimeout(function () { window.location.href = redirect; }, 700);
+            return;
           }
+          return res.json().then(function (json) {
+            var msg = 'Submission error';
+            if (json && json.errors && json.errors.length) msg = json.errors.map(function (x) { return x.message; }).join('; ');
+            status.textContent = msg;
+          }).catch(function () {
+            status.textContent = 'Submission error — please try again later.';
+          });
         }).catch(function () {
           status.textContent = 'Network error — please check your connection and try again.';
         });
@@ -212,10 +204,7 @@
     });
   })();
 
-  /* ---------- CLEANUP: remove any accidental client-side password references ----------
-     Defensive step: remove any global variables named PASSWORD, PW or similar
-     from window to avoid accidental exposure. This does not affect server-side auth.
-  */
+  /* ---------- DEFENSIVE: remove accidental client-side password references ---------- */
   (function removeGlobals() {
     try {
       if (window.PASSWORD) { try { delete window.PASSWORD; } catch (e) { window.PASSWORD = undefined; } }
@@ -223,7 +212,7 @@
     } catch (e) { /* silent */ }
   })();
 
-  /* ---------- SIMPLE A11Y: focus outlines for clicked elements (visual) ---------- */
+  /* ---------- A11Y: focus-visible fallback ---------- */
   (function focusVisibleFallback() {
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Tab') document.documentElement.classList.add('user-is-tabbing');
