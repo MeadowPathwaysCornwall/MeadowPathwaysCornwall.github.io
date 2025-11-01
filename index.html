@@ -1,1 +1,146 @@
+/* Meadow Pathways — final consolidated stylesheet
+   Restores logo size, reduces hero height, ensures coloured nav pills,
+   and applies visible backgrounds to long-text and card areas.
+*/
 
+/* Theme variables */
+:root{
+  --brand-teal: #238a78;
+  --brand-blue: #2b67b2;
+  --brand-orange: #e07a2a;
+  --muted: #6b7280;
+  --nav-4: #6f9a44;
+  --nav-5: #8b5fc6;
+  --nav-6: #f59a4e;
+  --nav-7: #3aa4d8;
+  --nav-8: #9aa0a6;
+  --text: #222222;
+  --bg: #ffffff;
+  --content-bg: #ffffff;
+  --max-width: 1200px;
+}
+
+/* Reset / base */
+*{box-sizing:border-box}
+html,body{height:100%}
+html{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif; font-size:16px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; color:var(--text); background:var(--bg)}
+body{margin:0; line-height:1.5}
+
+/* Layout container */
+.container{width:92%; max-width:var(--max-width); margin:0 auto; padding:20px 0}
+
+/* Header / logo / nav */
+.site-header{background:linear-gradient(180deg,#fff,#fbfbfb); border-bottom:1px solid rgba(34,34,34,0.04)}
+.site-header .container{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
+
+/* Logo: make clearly visible site-wide */
+.site-logo img{height:84px; width:auto; display:block; transition:height .18s ease}
+.site-logo img.logo--small{height:56px} /* for pages that need a slightly smaller logo */
+
+/* Navigation base */
+.main-nav{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+.main-nav a{color:var(--text); text-decoration:none; padding:8px 12px; border-radius:8px; font-weight:700; display:inline-block}
+
+/* Nav pill classes (preferred: add these classes in each page header) */
+.nav-pill{ color:#fff; padding:8px 12px; border-radius:999px; font-weight:700; display:inline-block; text-decoration:none }
+.nav-pill--home{ background:var(--brand-teal) } .nav-pill--about{ background:var(--brand-blue) } .nav-pill--eotas{ background:var(--brand-orange) }
+.nav-pill--safeguarding{ background:var(--nav-4) } .nav-pill--staff{ background:var(--nav-5) } .nav-pill--referral{ background:var(--nav-6) }
+.nav-pill--contact{ background:var(--nav-7) } .nav-pill--policies{ background:var(--nav-8) }
+
+/* Safe fallback: nth-child colouring if the HTML nav links are not updated */
+.main-nav a:nth-child(1){ background:var(--brand-teal); color:#fff; border-radius:999px; padding:8px 12px; font-weight:700 }
+.main-nav a:nth-child(2){ background:var(--brand-blue); color:#fff; border-radius:999px; padding:8px 12px; font-weight:700 }
+.main-nav a:nth-child(3){ background:var(--brand-orange); color:#fff; border-radius:999px; padding:8px 12px; font-weight:700 }
+.main-nav a:nth-child(4){ background:var(--nav-4); color:#fff; border-radius:999px; padding:8px 12px; font-weight:700 }
+.main-nav a:nth-child(5){ background:var(--nav-5); color:#fff; border-radius:999px; padding:8px 12px; font-weight:700 }
+.main-nav a:nth-child(6){ background:var(--nav-6); color:#fff; border-radius:999px; padding:8px 12px; font-weight:700 }
+.main-nav a:nth-child(7){ background:var(--nav-7); color:#fff; border-radius:999px; padding:8px 12px; font-weight:700 }
+.main-nav a:nth-child(8){ background:var(--nav-8); color:#fff; border-radius:999px; padding:8px 12px; font-weight:700 }
+
+/* Hover/focus affordance */
+.main-nav a:hover, .main-nav a:focus{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,0.06); outline:none }
+
+/* Mobile nav toggle */
+.nav-toggle{display:none; background:none; border:0; padding:8px; cursor:pointer}
+@media (max-width:800px){
+  .main-nav{display:none}
+  .nav-toggle{display:block}
+  .nav-menu.is-open{display:block; position:absolute; top:90px; right:12px; background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:8px; padding:12px; box-shadow:0 8px 24px rgba(0,0,0,0.06); z-index:40}
+}
+
+/* Hero / slider — reduced heights so carousel is not overpowering */
+.hero{width:100%; margin:0; padding:0; position:relative; overflow:hidden}
+.slides{position:relative; overflow:hidden; display:block; width:100%; height:300px}
+@media (min-width:900px){ .slides{height:360px} } /* desktop moderate height */
+@media (max-width:900px){ .slides{height:300px} }
+@media (max-width:600px){ .slides{height:220px} }
+
+.slides .slide{position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; transition:opacity 600ms ease-in-out; object-fit:cover; display:block}
+.slides .slide:first-child{opacity:1}
+.slides img.slide{width:100%; height:100%; object-fit:cover; display:block}
+
+/* Overlay for legibility on images */
+.hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.02)); pointer-events:none}
+
+/* Content sections */
+.section-title{font-size:1.5rem; margin-bottom:12px; font-weight:700}
+.row{display:flex; gap:24px; flex-wrap:wrap}
+.col{flex:1 1 280px; min-width:220px}
+
+/* Card and content backgrounds: visible, gentle colours across all pages */
+.card{background:linear-gradient(180deg,#ffffff,#fbfdff); border-radius:10px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,0.04); border:1px solid rgba(0,0,0,0.03); color:var(--text)}
+.long-text, .service-box { background: linear-gradient(180deg,#f9fbff,#eef6ff); color:var(--text); border-radius:12px; padding:16px; box-shadow:0 6px 18px rgba(0,0,0,0.04); border:1px solid rgba(0,0,0,0.04) }
+
+/* If you prefer stronger brand-coloured blocks, swap to pill-block classes or enable the line below */
+/* .long-text, .service-box { background: linear-gradient(180deg,#4b84d6,#2b67b2); color:#fff; } */
+
+/* Pills and CTA boxes */
+.pill{display:inline-block; padding:12px 18px; border-radius:999px; color:#fff; font-weight:600; margin:6px 8px 12px 0; text-decoration:none; transition:transform .12s ease, box-shadow .12s ease; box-shadow:0 2px 0 rgba(0,0,0,0.06)}
+.pill-block{display:block; border-radius:12px; padding:18px; margin:12px 0; color:#fff; font-weight:600; line-height:1.45; box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+
+.pill--teal{background:var(--brand-teal)} .pill--blue{background:var(--brand-blue)} .pill--orange{background:var(--brand-orange)} .pill--muted{background:var(--muted)}
+.pill-block--teal{background:linear-gradient(180deg,#2aa98b,#1e7f6f)} .pill-block--blue{background:linear-gradient(180deg,#4b84d6,#2b67b2)} .pill-block--orange{background:linear-gradient(180deg,#f59a4e,#e07a2a)} .pill-block--muted{background:linear-gradient(180deg,#9aa0a6,#6b7280)}
+
+/* Hover/focus */
+.pill:hover, .pill:focus, .pill-block:hover, .pill-block:focus{transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,0.12); outline:none}
+.user-is-tabbing .pill:focus, .user-is-tabbing .pill-block:focus{outline:3px solid rgba(255,255,255,0.15); outline-offset:3px}
+
+/* Forms */
+input, textarea, select, button{font-family:inherit; font-size:1rem; border-radius:8px; border:1px solid rgba(0,0,0,0.12); padding:10px 12px}
+label{display:block; margin-bottom:6px; font-weight:600}
+.form-row{display:flex; gap:12px; flex-wrap:wrap}
+input[type="text"], input[type="email"], textarea{min-height:44px}
+textarea{min-height:120px; resize:vertical}
+
+/* Buttons */
+.btn{display:inline-block; padding:10px 16px; border-radius:8px; background:var(--brand-teal); color:#fff; font-weight:700; border:0; cursor:pointer; text-decoration:none}
+.btn--alt{background:var(--brand-blue)}
+
+/* Footer */
+.site-footer{background:#f7f9fb; padding:24px 0; border-top:1px solid rgba(34,34,34,0.04)}
+.site-footer .container{display:flex; gap:18px; flex-wrap:wrap; align-items:center; justify-content:space-between}
+
+/* Accessibility helpers */
+.visually-hidden{position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap}
+a:focus{outline:3px solid rgba(43,103,178,0.22); outline-offset:3px}
+
+/* Responsive tweaks */
+@media (max-width:900px){
+  .slides{height:300px}
+  .container{width:95%}
+  .site-logo img{height:72px}
+}
+@media (max-width:600px){
+  .slides{height:220px}
+  .section-title{font-size:1.25rem}
+  .pill{padding:10px 14px; font-size:15px}
+  .pill-block, .long-text, .service-box{padding:14px; font-size:16px}
+  .row{flex-direction:column}
+  .site-logo img{height:56px}
+}
+
+/* Utilities */
+.text-center{text-align:center}
+.mb-12{margin-bottom:12px}
+.mt-12{margin-top:12px}
+.hide{display:none}
