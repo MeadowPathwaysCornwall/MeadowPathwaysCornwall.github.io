@@ -3,211 +3,150 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff rota & hours — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <title>Staff Rota — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
   <meta name="robots" content="noindex" />
-
-  <!-- Bootstrap & Theme CSS (root paths, as-is) -->
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-
   <style>
-    .table-wrap { overflow-x:auto }
-    .table thead th { white-space:nowrap }
-    .badge-soft { background:#f0f4f8; color:#163632; border:1px solid rgba(0,0,0,0.06); padding:.4rem .6rem; border-radius:.6rem }
+    .rota-hero { padding:36px 0; background:linear-gradient(180deg,#f7fbf6,#fff); }
+    .card.rota { max-width:880px; margin:18px auto; padding:18px; border-radius:12px; background:#fff; box-shadow:0 8px 24px rgba(10,30,30,0.06); }
+    .grid { display:grid; gap:12px; grid-template-columns: repeat(2,minmax(0,1fr)); }
+    @media (max-width:760px){ .grid{ grid-template-columns: 1fr; } }
+    label{ display:block; font-weight:600; margin-bottom:6px; color:#234a3a; }
+    input, select, textarea { width:100%; padding:10px 12px; border-radius:10px; border:1px solid #e6eef3; background:#fff; box-sizing:border-box; }
+    textarea { min-height:120px; resize:vertical; }
+    .actions { display:flex; gap:12px; align-items:center; margin-top:12px; flex-wrap:wrap; }
+    .pill { display:inline-block; padding:10px 16px; border-radius:12px; background:#2f8f4a; color:#fff; text-decoration:none; font-weight:700; border:none; cursor:pointer; }
+    .secondary { background:#f0f4f8; color:#233; padding:10px 14px; border-radius:10px; text-decoration:none; }
+    .hint { margin-left:auto; color:#657b7a; font-weight:600; }
+    .note { margin-top:12px; color:#475569; font-size:0.95rem; }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- Header -->
-<header class="site-header">
-  <div class="header-inner container d-flex justify-content-between align-items-center">
-    <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo-img" style="height:70px;">
-    </a>
-    <nav aria-label="Primary navigation">
-      <ul class="nav nav-tabs">
-        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="eotas.html" class="nav-link">EOTAS</a></li>
-        <li class="nav-item"><a href="safeguarding.html" class="nav-link">Safeguarding</a></li>
-        <li class="nav-item"><a href="staff.html" class="nav-link">Staff</a></li>
-        <li class="nav-item"><a href="referral.html" class="nav-link">Referral</a></li>
-        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-        <li class="nav-item"><a href="policies.html" class="nav-link">Policies</a></li>
-        <li class="nav-item"><a href="protected-resources.html" class="nav-link">Protected</a></li>
-        <li class="nav-item"><a href="staff-rota.html" class="nav-link active">Staff rota</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<!-- Hero -->
-<section class="hero text-center text-white" style="background:url('BG.png') no-repeat center/cover; padding:100px 20px; position:relative;">
-  <div style="background:rgba(22,54,50,0.6); position:absolute; inset:0;"></div>
-  <div class="container position-relative">
-    <h1>Staff rota & hours</h1>
-    <p class="lead">Log session hours and note staffing for the week</p>
-  </div>
-</section>
-
-<main class="container my-5">
-
-  <!-- Hours form -->
-  <section class="card p-4 shadow-sm mb-4" aria-labelledby="hours-title">
-    <h2 id="hours-title">Log hours</h2>
-    <p>Submit session hours promptly. Keep notes concise and follow Meadow Pathways record‑keeping guidance.</p>
-
-    <form id="hoursForm" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-      <input type="hidden" name="_subject" value="Hours logged — Meadow Pathways Staff" />
-      <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.github.io/thankyou.html" />
-
-      <div class="row g-3">
-        <div class="col-md-6">
-          <label for="staffName" class="form-label">Staff member</label>
-          <input id="staffName" name="staff_name" type="text" class="form-control" required />
-        </div>
-        <div class="col-md-3">
-          <label for="dateWorked" class="form-label">Date</label>
-          <input id="dateWorked" name="date_worked" type="date" class="form-control" required />
-        </div>
-        <div class="col-md-3">
-          <label for="durationHours" class="form-label">Duration (hours)</label>
-          <input id="durationHours" name="duration_hours" type="number" step="0.25" min="0" class="form-control" required />
-        </div>
-        <div class="col-md-6">
-          <label for="clientName" class="form-label">Client / session with</label>
-          <input id="clientName" name="client_name" type="text" class="form-control" />
-        </div>
-        <div class="col-md-6">
-          <label for="location" class="form-label">Location</label>
-          <input id="location" name="location" type="text" class="form-control" placeholder="E.g. beach, gym, home, centre" />
-        </div>
-        <div class="col-12">
-          <label for="notes" class="form-label">Brief notes</label>
-          <textarea id="notes" name="notes" rows="4" class="form-control" placeholder="Non-sensitive summary of session content and outcomes"></textarea>
-        </div>
-        <div class="col-md-6">
-          <label for="staffEmail" class="form-label">Staff email</label>
-          <input id="staffEmail" name="staff_email" type="email" class="form-control" required />
-        </div>
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <div class="logo-wrap">
+        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+        </a>
       </div>
 
-      <div class="d-flex align-items-center gap-2 mt-3 flex-wrap">
-        <button type="submit" class="btn btn-success">Submit hours</button>
-        <a href="staff.html" class="btn btn-outline-success">Back to Staff</a>
-        <span id="hoursStatus" class="text-muted ms-auto" role="status" aria-live="polite"></span>
+      <nav aria-label="Primary" class="primary-nav">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+        <ul id="primaryNav" class="nav-tabs" role="menubar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="staff.html">Staff</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-wrap">
+    <section class="rota-hero" aria-labelledby="rota-title">
+      <div class="container">
+        <h1 id="rota-title">Staff rota and hours</h1>
+        <p class="hero-sub">Log shifts and staff availability. Internal use only.</p>
       </div>
-    </form>
-  </section>
+    </section>
 
-  <!-- Weekly rota (editable in-page, non-persistent) -->
-  <section class="card p-4 shadow-sm" aria-labelledby="rota-title">
-    <h2 id="rota-title">Weekly rota (in-page notes)</h2>
-    <p class="mb-3">Use this table to sketch staffing for the week. This is a local note — it does not save to the server. For persistent records, submit hours via the form above.</p>
+    <main id="main" class="container" role="main">
+      <section class="card rota" aria-labelledby="rota-form-title">
+        <h2 id="rota-form-title">Log a shift or update availability</h2>
 
-    <div class="table-wrap">
-      <table class="table table-striped align-middle">
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Staff</th>
-            <th>Location</th>
-            <th>Session focus</th>
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody contenteditable="true" aria-label="Editable rota rows">
-          <tr>
-            <td>Monday</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-          </tr>
-          <tr>
-            <td>Tuesday</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-          </tr>
-          <tr>
-            <td>Wednesday</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-          </tr>
-          <tr>
-            <td>Thursday</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-          </tr>
-          <tr>
-            <td>Friday</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-            <td class="text-muted">—</td>
-          </tr>
-        </tbody>
-      </table>
+        <form id="rotaForm" method="POST" action="https://formspree.io/f/movnvzqp" novalidate>
+          <input type="hidden" name="_redirect" value="thankyou.html" />
+          <div class="grid">
+            <div>
+              <label for="staffName">Staff name</label>
+              <input id="staffName" name="staff_name" type="text" required placeholder="Full name" />
+            </div>
+
+            <div>
+              <label for="role">Role</label>
+              <input id="role" name="role" type="text" placeholder="e.g., Lead Therapist, Mentor" />
+            </div>
+
+            <div>
+              <label for="date">Date</label>
+              <input id="date" name="date" type="date" required />
+            </div>
+
+            <div>
+              <label for="start">Start time</label>
+              <input id="start" name="start_time" type="time" />
+            </div>
+
+            <div>
+              <label for="end">End time</label>
+              <input id="end" name="end_time" type="time" />
+            </div>
+
+            <div>
+              <label for="hours">Duration (hours)</label>
+              <input id="hours" name="duration_hours" type="number" step="0.25" min="0" placeholder="e.g., 3.5" />
+            </div>
+
+            <div class="full-width" style="grid-column:1/-1">
+              <label for="location">Location or activity</label>
+              <input id="location" name="location" type="text" placeholder="e.g., Treverno Meadows; Home visit; Online session" />
+            </div>
+
+            <div class="full-width" style="grid-column:1/-1">
+              <label for="notes">Notes (brief)</label>
+              <textarea id="notes" name="notes" placeholder="Any brief session notes, safeguarding flags, or scheduling notes"></textarea>
+            </div>
+          </div>
+
+          <div class="note">Do not include protected personal data in notes submitted through this public form. For sensitive client records use secure internal channels.</div>
+
+          <div class="actions" style="margin-top:14px">
+            <button type="submit" class="pill">Submit shift</button>
+            <a href="staff.html" class="secondary">Staff area</a>
+            <span class="hint">Logged shifts appear in staff records</span>
+          </div>
+
+          <div id="rotaStatus" role="status" aria-live="polite" class="note"></div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+      <p>Guiding Individual Journeys with Care and Purpose</p>
     </div>
+  </footer>
 
-    <div class="d-flex gap-2 mt-2">
-      <span class="badge-soft">Tip: Click into cells to type. Copy/paste to email if needed.</span>
-      <a class="btn btn-outline-success" href="protected-resources.html">Protected resources</a>
-    </div>
-  </section>
-
-</main>
-
-<!-- Footer -->
-<footer class="site-footer text-center text-white py-4" style="background:#163632;">
-  <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo mb-2" style="height:60px;">
-  <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-  <p>Guiding Individual Journeys with Care and Purpose</p>
-</footer>
-
-<!-- Scripts (root paths, matching your repo) -->
-<script src="bootstrap.bundle.min.js"></script>
-<script src="script.js" defer></script>
-
-<!-- Optional: Inline status update for Formspree submit if JS is desired -->
-<script>
-  (function() {
-    const form = document.getElementById('hoursForm');
-    const status = document.getElementById('hoursStatus');
-    if (!form) return;
-
-    form.addEventListener('submit', async function(e) {
-      if (!window.fetch) return; // fallback: let Formspree handle POST + redirect
-      e.preventDefault();
-      status.textContent = 'Submitting...';
-      try {
-        const data = new FormData(form);
-        const res = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: data
+  <script>
+    // Minimal behaviour: nav toggle and back-to-top
+    (function () {
+      var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
+      if (navToggle && nav) {
+        navToggle.addEventListener('click', function () {
+          var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+          navToggle.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('open');
         });
-        if (res.ok) {
-          form.reset();
-          status.textContent = 'Hours submitted. Thank you.';
-          setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
-        } else {
-          const result = await res.json().catch(() => null);
-          status.textContent = (result && result.errors)
-            ? result.errors.map(err => err.message).join('; ')
-            : 'Submission error — please try again later.';
-        }
-      } catch {
-        status.textContent = 'Network error — check connection and try again.';
       }
-    });
-  })();
-</script>
+      var backBtn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () { if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show'); });
+      backBtn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+      // Simple form feedback when using Formspree
+      var rotaForm = document.getElementById('rotaForm'), rotaStatus = document.getElementById('rotaStatus');
+      rotaForm.addEventListener('submit', function (e) {
+        rotaStatus.textContent = 'Submitting…';
+      });
+    })();
+  </script>
 </body>
 </html>
