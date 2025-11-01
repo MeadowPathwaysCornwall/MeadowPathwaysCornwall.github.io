@@ -1,12 +1,10 @@
-// script.js — safe initialization for carousel and related UI behavior
-// Place this entire file content in your script.js (replace existing carousel init only)
-// It waits for DOMContentLoaded, checks for elements and Bootstrap, and fails silently.
-
+// script.js — safe initialization for carousel and common UI behaviours
+// Replace the entire existing script.js with this file content
 (function () {
   'use strict';
 
-  // Helper: safe querySelector
-  function $(selector) {
+  // Small helper: query single element
+  function $ (selector) {
     return document.querySelector(selector);
   }
 
@@ -16,21 +14,23 @@
     try {
       var carouselEl = document.querySelector('.carousel');
       if (carouselEl && typeof bootstrap !== 'undefined' && bootstrap.Carousel) {
-        // If you already have markup using data-bs-ride="carousel" you may want ride: false
-        new bootstrap.Carousel(carouselEl, {
+        // Use getOrCreateInstance to avoid double-initialisation
+        var carouselInstance = bootstrap.Carousel.getOrCreateInstance(carouselEl, {
           interval: 5000,
           ride: false,
           pause: 'hover',
           wrap: true
         });
+
+        // If you want autoplay after DOM load, uncomment the next line
+        // carouselInstance.cycle();
       }
     } catch (err) {
-      // Do not let carousel errors break the rest of the page
+      // Fail silently so the rest of the page keeps working
       console.error('Carousel init error:', err);
     }
 
-    // ---------- Example: safe handling for any other JS behaviour you use ----------
-    // Toggle mobile nav (if you have one)
+    // ---------- Nav toggle (if present) ----------
     try {
       var navToggle = $('.nav-toggle');
       var navMenu = $('.nav-menu');
@@ -43,12 +43,14 @@
       console.error('Nav toggle error:', err);
     }
 
-    // Example: smooth scroll for internal anchor links
+    // ---------- Smooth scroll for internal anchors ----------
     try {
       var anchorLinks = document.querySelectorAll('a[href^="#"]');
       anchorLinks.forEach(function (link) {
         link.addEventListener('click', function (e) {
-          var targetId = this.getAttribute('href').slice(1);
+          var href = this.getAttribute('href');
+          if (!href || href === '#' || href === '#0') return;
+          var targetId = href.slice(1);
           var target = document.getElementById(targetId);
           if (target) {
             e.preventDefault();
@@ -60,16 +62,26 @@
       console.error('Smooth scroll error:', err);
     }
 
-    // Any additional initialisation you need can be added here following the same pattern.
+    // ---------- Accessible focus outlines for keyboard users ----------
+    try {
+      function handleFirstTab(e) {
+        if (e.key === 'Tab') {
+          document.documentElement.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    } catch (err) {
+      console.error('Focus outline setup error:', err);
+    }
   });
 
-  // Optional: window load fallback (if you need to wait for images/assets)
+  // Optional: window load fallback (images/assets loaded)
   window.addEventListener('load', function () {
-    // If you want the carousel to start automatically after full load, uncomment below:
     try {
       var carouselEl = document.querySelector('.carousel');
       if (carouselEl && typeof bootstrap !== 'undefined' && bootstrap.Carousel) {
-        // Start the carousel after full load (uncomment if desired)
+        // If you prefer to start the carousel only after full load, enable below
         // var inst = bootstrap.Carousel.getOrCreateInstance(carouselEl);
         // inst.cycle();
       }
