@@ -5,26 +5,20 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Policies — Meadow Pathways Wellbeing and Education Cornwall</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
   <meta name="robots" content="noindex" />
-  <style>
-    /* Minimal page-specific helpers so file is usable if style.css is missing */
-    .container { max-width:1100px; margin:0 auto; padding:0 16px; }
-    .card { background:#fff; border-radius:12px; padding:18px; margin:18px 0; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
-    .pol-list { display:flex; flex-direction:column; gap:10px; }
-    .policy-pill { display:inline-block; padding:10px 14px; border-radius:10px; background:#f3f7f5; color:#183233; text-decoration:none; border:1px solid rgba(0,0,0,0.04); }
-    .policy-pill .meta { display:block; font-size:0.9rem; color:#566; margin-top:6px; }
-    h1{margin:0 0 10px 0;color:#234a3a}
-    p{color:#475569}
-  </style>
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner container">
       <div class="logo-wrap">
         <a href="index.html" class="brand" aria-label="Meadow Pathways home">
           <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
         </a>
       </div>
+
       <nav aria-label="Primary" class="primary-nav">
         <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
         <ul id="primaryNav" class="nav-tabs" role="menubar">
@@ -34,8 +28,8 @@
           <li><a href="safeguarding.html">Safeguarding</a></li>
           <li><a href="staff.html">Staff</a></li>
           <li><a href="referral.html">Referral</a></li>
-          <li><a href="contact.html">Contact</a></li>
           <li><a class="active" href="policies.html">Policies</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -102,25 +96,11 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-content container">
+    <div class="footer-content">
       <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
       <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
       <p>Guiding Individual Journeys with Care and Purpose</p>
     </div>
   </footer>
-
-  <script>
-    // minimal nav toggle
-    (function(){
-      var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
-      if (navToggle && nav) {
-        navToggle.addEventListener('click', function(){
-          var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-          navToggle.setAttribute('aria-expanded', String(!expanded));
-          nav.classList.toggle('open');
-        });
-      }
-    })();
-  </script>
 </body>
 </html>
