@@ -4,8 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>EOTAS — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="description" content="Education Otherwise Than At School (EOTAS) provision — Meadow Pathways Cornwall. Individualised curriculum and therapeutic support." />
 
-  <!-- Bootstrap & Theme CSS (files are in the repo root, as-is) -->
+  <!-- Styles (ensure these files are in your repo root) -->
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -15,99 +16,112 @@
 <header class="site-header">
   <div class="header-inner container d-flex justify-content-between align-items-center">
     <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo-img" style="height:70px;">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo-img">
     </a>
+
     <nav aria-label="Primary navigation">
-      <ul class="nav nav-tabs">
-        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="eotas.html" class="nav-link active">EOTAS</a></li>
-        <li class="nav-item"><a href="safeguarding.html" class="nav-link">Safeguarding</a></li>
-        <li class="nav-item"><a href="staff.html" class="nav-link">Staff</a></li>
-        <li class="nav-item"><a href="referral.html" class="nav-link">Referral</a></li>
-        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      <ul class="nav">
+        <li class="nav-item"><a href="index.html" class="nav-link pill-box pill-box--green">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link pill-box pill-box--teal">About</a></li>
+        <li class="nav-item"><a href="eotas.html" class="nav-link pill-box pill-box--sand" aria-current="page">EOTAS</a></li>
+        <li class="nav-item"><a href="safeguarding.html" class="nav-link pill-box pill-box--muted">Safeguarding</a></li>
+        <li class="nav-item"><a href="staff.html" class="nav-link pill-box pill-box--green">Staff</a></li>
+        <li class="nav-item"><a href="referral.html" class="nav-link pill-box pill-box--teal">Referral</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link pill-box pill-box--green">Contact</a></li>
+        <li class="nav-item"><a href="policies.html" class="nav-link pill-box pill-box--sand">Policies</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<!-- Hero -->
-<section class="hero text-center text-white" style="background:url('BG.png') no-repeat center/cover; padding:100px 20px; position:relative;">
-  <div style="background:rgba(22,54,50,0.6); position:absolute; inset:0;"></div>
-  <div class="container position-relative">
-    <h1>EOTAS at Meadow Pathways</h1>
-    <p class="lead">Guiding Individual Journeys with Care and Purpose</p>
+<!-- Hero carousel (keeps consistent look) -->
+<section class="hero hero-carousel">
+  <div id="mpHeroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active" style="background:url('BG.png') center/cover no-repeat; position:relative;">
+        <div class="container text-center py-5">
+          <h1>EOTAS provision</h1>
+          <p class="lead">Individualised, curriculum-linked learning delivered with therapeutic support</p>
+          <div class="mt-4">
+            <a class="btn btn-success me-2" href="referral.html">Refer a child</a>
+            <a class="btn btn-outline-success" href="policies.html">Curriculum policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item" style="background:url('BG.png') center/cover no-repeat; position:relative;">
+        <div class="container text-center py-5">
+          <h1>Tailored learning pathways</h1>
+          <p class="lead">Flexible settings: home, community and outdoor sessions to meet each learner's needs</p>
+          <div class="mt-4">
+            <a class="btn btn-success me-2" href="contact.html">Discuss a referral</a>
+            <a class="btn btn-outline-success" href="about.html">Our approach</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#mpHeroCarousel" data-bs-slide="prev" aria-label="Previous slide">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mpHeroCarousel" data-bs-slide="next" aria-label="Next slide">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#mpHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#mpHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
   </div>
 </section>
 
-<!-- Main content -->
 <main class="container my-5">
 
-  <!-- Intro -->
   <section class="card p-4 shadow-sm mb-4">
-    <h2>🌱 Education Otherwise Than At School (EOTAS)</h2>
-    <p>There are some circumstances where children and young people with special educational needs cannot be educated in a mainstream school setting. This may be because a placement has broken down, is at risk of breaking down due to the complexity of needs, or because the provision required cannot be delivered within a school. 🏫➡️🏡</p>
-
-    <p><strong>SEND Code of Practice (para 10.39)</strong> states:</p>
-    <blockquote>
-      <em>
-        “Local authorities must make arrangements where, for any reason, a child of compulsory school age would not otherwise receive suitable education. Suitable education means efficient education suitable to a child or young person’s age, ability and aptitude, and to any special educational needs they may have. This education must be full time, unless the local authority determines that, for reasons relating to the physical or mental health of the child, a reduced level of education would be in the child’s best interests.”
-      </em>
-    </blockquote>
-
-    <p>You can read more about local authorities’ duties to provide <strong>Alternative Provision</strong> through your local authority’s <em>Local Offer</em>. 🔍</p>
-
-    <p>If your child or young person is finding it challenging to access their current setting, and an <strong>Education, Health and Care (EHCP)</strong> plan is in place or being secured, you may wish to consider an <strong>EOTAS request</strong> to ensure that the special educational provision outlined in the plan can be delivered in a setting other than a school. 📄🤝</p>
+    <h2>What is EOTAS?</h2>
+    <p>Education Otherwise Than At School (EOTAS) describes tailored education for learners who cannot access mainstream school provision for reasons including significant anxiety, medical needs, or educational trauma. Meadow Pathways offers small‑group and one‑to‑one programmes linked to EHCP outcomes and accreditation pathways.</p>
   </section>
 
-  <!-- What is EOTAS -->
   <section class="card p-4 shadow-sm mb-4">
-    <h2>💡 What is EOTAS?</h2>
-    <p><strong>Education Otherwise Than At School</strong> means the education or special educational provision of children or young people outside of a formal educational setting. It can only be agreed in conjunction with the local authority as part of an EHC needs assessment, a reassessment of needs, or through the EHCP annual review process.</p>
-    <p>A child or young person accessing EOTAS is not on roll at a school or post‑16 setting. Provision may take place at home or in another non‑registered setting, depending on the child’s needs and the agreed plan. 🏠📚</p>
-    <ul class="list-unstyled">
-      <li>💻 Online or virtual learning</li>
-      <li>🏠 Home tuition</li>
-      <li>🏫 Tuition centres or specialist learning hubs</li>
-      <li>🏥 Hospital schooling</li>
-      <li>💬 Therapeutic input: speech and language therapy, occupational therapy, physiotherapy, counselling, or play therapy</li>
+    <h2>How we work</h2>
+    <ul>
+      <li>Individual learning plans co‑produced with families, schools and local authorities</li>
+      <li>Therapeutic sessions integrated with curriculum objectives</li>
+      <li>Outdoor and community settings used to reduce stress and build practical skills</li>
+      <li>Flexible timetables that respect pacing and emotional safety</li>
     </ul>
-    <p>All such provision should be detailed in <strong>Section F of the EHCP</strong>, which the local authority is then responsible for securing and funding. 📝</p>
+    <a href="policies.html" class="btn btn-outline-success mt-2">View curriculum policy</a>
   </section>
 
-  <!-- Our EOTAS offer -->
   <section class="card p-4 shadow-sm mb-4">
-    <h2>🌿 Our EOTAS offer at Meadow Pathways</h2>
-    <p><strong>Meadow Pathways Wellbeing and Education Cornwall</strong> provides bespoke EOTAS provision across Cornwall. Our offer places wellbeing at the heart of learning, integrating therapeutic support with personalised education. We work closely with families and partner agencies to plan learning that supports emotional safety, builds confidence, and re‑engages young people with purposeful learning. 🤝🌈</p>
+    <h2>Accreditation and assessment</h2>
+    <p>We support recognised accreditation where appropriate (AQA Unit Awards, ASDAN) and provide clear progress reporting aligned to EHCP outcomes and individual goals.</p>
   </section>
 
-  <!-- Who we support -->
   <section class="card p-4 shadow-sm mb-4">
-    <h2>👧 Who we support</h2>
-    <p>We support children and young people who cannot attend mainstream school for reasons such as SEMH needs, SEND, school avoidance, or where a tailored approach is needed to re‑engage a learner with education. Our approach is flexible and responsive to each learner’s strengths, needs and interests. 🌟</p>
+    <h2>Referral considerations</h2>
+    <p>When making a referral, please include recent reports, risk information, and any relevant EHCP evidence. Use our referral form or contact the team to discuss complex cases before submission.</p>
+    <div class="d-flex gap-2 mt-2">
+      <a class="btn btn-success" href="referral.html">Refer now</a>
+      <a class="btn btn-outline-success" href="contact.html">Contact the team</a>
+    </div>
   </section>
 
-  <!-- How we work -->
   <section class="card p-4 shadow-sm mb-4">
-    <h2>🧭 How we work</h2>
-    <p>Our work begins with listening. We gather information from families, schools and professionals, informing the development of bespoke learning packages which support the child's/young person's needs, interests and future aspirations. Sessions blend therapeutic approaches with curriculum‑linked activities so that learning is meaningful and transferable. Our approach uses small group work, one‑to‑one or two‑to‑one mentoring, and community‑based activities to build skills, confidence and positive connections. 🎒🧠</p>
+    <h2>Case examples</h2>
+    <p class="mb-1"><strong>Example 1</strong> — A young person with severe school anxiety re‑engaged through weekly nature-based sessions and small‑group maths support, leading to improved regulation and attendance.</p>
+    <p class="mb-1"><strong>Example 2</strong> — A learner with disrupted education received curriculum‑linked one‑to‑one tuition and therapeutic input, enabling partial reintegration to school with a staggered timetable.</p>
   </section>
 
-  <!-- What we offer list -->
-  <section class="card p-4 shadow-sm mb-4">
-    <h2>🎯 What we offer</h2>
-    <ul class="list-unstyled">
-      <li>🧑‍🤝‍🧑 <strong>Mentoring and Advocacy:</strong> Building trust and self‑belief through consistent relational support and alternative provisions.</li>
-      <li>📚 <strong>Tailored Learning Packages:</strong> Flexible academic pathways matched to each learner’s pace and interests.</li>
-      <li>🛠️ <strong>Life Skills and Independence Development:</strong> Practical preparation for adulthood, including functional skills and community engagement.</li>
-      <li>🧮 <strong>Diagnostic Assessments:</strong> Literacy and numeracy profiling to inform targeted intervention.</li>
-      <li>💛 <strong>SEMH Interventions:</strong> Trauma‑informed strategies to support emotional regulation and resilience.</li>
-      <li>🎨 <strong>Wellbeing and PSHE Packages:</strong> Creative therapeutic sessions that promote self‑awareness, relationships and personal growth.</li>
-      <li>🔄 <strong>Transitional Services:</strong> Carefully planned reintegration or onward pathways supported by multi‑agency collaboration.</li>
-      <li>🧠 <strong>Therapeutic & Curriculum Linked Activities:</strong> Engaging activities adapted to each learner’s interests, including nature‑based bush craft, walking, fitness, water‑based activities, fishing, climbing, cooking, play, biking and more.</li>
-    </ul>
-    <p>Our bespoke provision reflects each child’s individual interests. Activities are linked to the curriculum and supported by ASDAN qualifications and AQA Unit Awards, so young people can build recognised achievements while engaging in meaningful learning. 🏅</p>
-    <p class="text-muted mt-2">If you would like to discuss EOTAS for a child or young person, please <a href="contact.html">contact the Meadow Pathways team</a> or complete a <a href="referral.html">referral form</a>. For urgent safeguarding concerns, contact statutory services first. 📞</p>
+  <section class="card p-4 shadow-sm">
+    <h2>Further information</h2>
+    <p>For detailed policy documents and downloads, see the Policies page. For referrals and direct queries contact the Meadow Pathways team.</p>
+    <div class="d-flex gap-2 mt-2">
+      <a class="btn btn-outline-success" href="policies.html">Policies & downloads</a>
+      <a class="btn btn-success" href="contact.html">Contact</a>
+    </div>
   </section>
 
 </main>
@@ -115,12 +129,13 @@
 <!-- Footer -->
 <footer class="site-footer text-center text-white py-4" style="background:#163632;">
   <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo mb-2" style="height:60px;">
-  <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-  <p>Guiding Individual Journeys with Care and Purpose</p>
+  <p class="mb-0">© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+  <p class="mb-0">Guiding Individual Journeys with Care and Purpose</p>
 </footer>
 
-<!-- Scripts (root paths, matching your repo) -->
+<!-- Scripts (ensure bootstrap.bundle.min.js and script.js are present in repo root) -->
 <script src="bootstrap.bundle.min.js"></script>
 <script src="script.js" defer></script>
+
 </body>
 </html>
