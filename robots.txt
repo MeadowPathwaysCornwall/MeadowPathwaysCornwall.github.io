@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /protected-resources.html
+Disallow: /passwords.html
+Disallow: /staff.html
+Disallow: /protected/
+Allow: /
+
+Sitemap: https://MeadowPathwaysCornwall.github.io/sitemap.xml
