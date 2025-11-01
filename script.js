@@ -1,18 +1,14 @@
 /* script.js — site-safe initialisation and custom .slides slider
-   Replace your existing script.js with this file content.
-   It initialises features only if the relevant elements exist,
-   and it fails silently so no other page behaviour breaks.
+   Replaces previous script.js. Defensive, accessible, and fails safely.
 */
 (function () {
   'use strict';
 
-  // Helper: single element
   function $ (selector) { return document.querySelector(selector); }
 
-  // DOM ready
   document.addEventListener('DOMContentLoaded', function () {
 
-    // ---------- 1. Custom .slides slider initialiser (safe) ----------
+    /* -------------------- Custom .slides slider -------------------- */
     (function initCustomSlides() {
       try {
         var slidesRoot = document.querySelector('.slides');
@@ -21,7 +17,7 @@
         var slides = Array.prototype.slice.call(slidesRoot.querySelectorAll('.slide'));
         if (!slides.length) return;
 
-        // Ensure container styles that the CSS may rely on
+        // Apply safe container and slide inline styles only if not present
         slidesRoot.style.position = slidesRoot.style.position || 'relative';
         slidesRoot.style.overflow = slidesRoot.style.overflow || 'hidden';
         slidesRoot.style.display = slidesRoot.style.display || 'block';
@@ -31,22 +27,21 @@
           s.style.top = '0';
           s.style.left = '0';
           s.style.width = '100%';
-          s.style.height = 'auto';
+          s.style.height = '100%';
           s.style.opacity = (i === 0 ? '1' : '0');
           s.style.transition = s.style.transition || 'opacity 600ms ease-in-out';
           s.setAttribute('data-slide-index', i);
           s.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
-          // Ensure images scale nicely
           if (s.tagName.toLowerCase() === 'img') {
             s.style.display = 'block';
-            s.style.objectFit = s.style.objectFit || 'cover';
+            s.style.objectFit = 'cover';
             s.style.maxWidth = '100%';
-            s.style.height = 'auto';
+            s.style.height = '100%';
           }
         });
 
         var current = 0;
-        var interval = 4000; // ms
+        var interval = 4000;
         var timerId = null;
 
         function showSlide(next) {
@@ -59,25 +54,21 @@
         }
 
         function nextSlide() { showSlide((current + 1) % slides.length); }
-
         function start() { if (!timerId) timerId = setInterval(nextSlide, interval); }
-
         function stop() { if (timerId) { clearInterval(timerId); timerId = null; } }
 
-        // Pause on hover and focus
         slidesRoot.addEventListener('mouseenter', stop);
         slidesRoot.addEventListener('mouseleave', start);
         slides.forEach(function (s) { s.addEventListener('focus', stop); s.addEventListener('blur', start); });
 
-        // Start autoplay after a short delay so layout settles
+        // Start after a short delay so layout finishes
         setTimeout(start, 250);
       } catch (err) {
-        // Do not throw; log for debugging only
         console.error('Custom slides init error:', err);
       }
     })();
 
-    // ---------- 2. Nav toggle (safe) ----------
+    /* -------------------- Nav toggle (mobile) -------------------- */
     try {
       var navToggle = $('.nav-toggle');
       var navMenu = $('.nav-menu');
@@ -86,7 +77,7 @@
       }
     } catch (err) { console.error('Nav toggle error:', err); }
 
-    // ---------- 3. Smooth scroll for internal anchors ----------
+    /* -------------------- Smooth scroll for internal anchors -------------------- */
     try {
       var anchorLinks = document.querySelectorAll('a[href^="#"]');
       anchorLinks.forEach(function (link) {
@@ -103,7 +94,7 @@
       });
     } catch (err) { console.error('Smooth scroll error:', err); }
 
-    // ---------- 4. Accessible keyboard focus detection ----------
+    /* -------------------- Keyboard focus detection for accessible outlines -------------------- */
     try {
       function handleFirstTab(e) {
         if (e.key === 'Tab') {
@@ -114,11 +105,10 @@
       window.addEventListener('keydown', handleFirstTab);
     } catch (err) { console.error('Focus setup error:', err); }
 
-  }); // end DOMContentLoaded
+  }); // DOMContentLoaded end
 
-  // Window load fallback (no forced behaviour here, kept for future safe toggles)
   window.addEventListener('load', function () {
-    // Placeholder: start functions that must wait for images if needed
+    // Placeholder for on-load behaviours if required
   });
 
 })();
