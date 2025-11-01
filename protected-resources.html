@@ -1,63 +1,103 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Protected Resources — Meadow Pathways Wellbeing and Education Cornwall</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Protected Resources — Meadow Pathways Wellbeing and Education Cornwall</title>
+
+  <!-- Bootstrap & Theme CSS (root paths, as-is) -->
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <meta name="robots" content="noindex" />
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header" role="banner">
-  <div class="header-inner">
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inner container d-flex justify-content-between align-items-center">
     <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-      <svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#e7f4ee"/><path d="M16 38c8-12 24-12 32-6" stroke="#2f8f4a" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
-      <span class="wordmark">Meadow Pathways</span>
-      <img src="Logo.png" alt="Meadow Pathways logo" class="logo-img" />
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo-img" style="height:70px;">
     </a>
-    <nav class="primary-nav" aria-label="Primary navigation"><button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
-      <ul id="primaryNav" class="nav-tabs"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="eotas.html">EOTAS</a></li><li><a href="safeguarding.html">Safeguarding</a></li><li><a href="staff.html">Staff</a></li><li><a href="referral.html">Referral</a></li><li><a href="contact.html">Contact</a></li></ul>
+    <nav aria-label="Primary navigation">
+      <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="eotas.html" class="nav-link">EOTAS</a></li>
+        <li class="nav-item"><a href="safeguarding.html" class="nav-link">Safeguarding</a></li>
+        <li class="nav-item"><a href="staff.html" class="nav-link">Staff</a></li>
+        <li class="nav-item"><a href="referral.html" class="nav-link">Referral</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        <li class="nav-item"><a href="policies.html" class="nav-link">Policies</a></li>
+        <li class="nav-item"><a href="protected-resources.html" class="nav-link active">Protected</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
-<section class="hero" aria-labelledby="hero-title"><div class="hero-inner container"><div class="hero-content"><h1 id="hero-title">Protected Resources</h1><p class="hero-sub">Internal links and information for staff</p></div></div></section>
+<!-- Hero -->
+<section class="hero text-center text-white" style="background:url('BG.png') no-repeat center/cover; padding:100px 20px; position:relative;">
+  <div style="background:rgba(22,54,50,0.6); position:absolute; inset:0;"></div>
+  <div class="container position-relative">
+    <h1>Protected resources</h1>
+    <p class="lead">Internal links and information for Meadow Pathways staff</p>
+  </div>
+</section>
 
-<main id="main" class="container" role="main">
-  <section class="card">
+<!-- Main content -->
+<main class="container my-5">
+  <section class="card p-4 shadow-sm mb-4">
     <h2>Internal information</h2>
     <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
+
     <ul>
-      <li>Formspree endpoint: <code>https://formspree.io/f/movnvzqp</code></li>
-      <li>General email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
+      <li>Formspree endpoint for all forms: <code>https://formspree.io/f/movnvzqp</code></li>
+      <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
       <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
       <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
       <li>Michelle’s phone: 07932243358</li>
       <li>Zoe’s phone: 07775733587</li>
     </ul>
+
+    <div class="d-flex flex-wrap gap-2 mt-2">
+      <a class="btn btn-outline-success" href="staff.html">Back to Staff area</a>
+      <a class="btn btn-outline-success" href="policies.html">Policies index</a>
+      <a class="btn btn-outline-success" href="passwords.html">Passwords notice</a>
+      <a class="btn btn-outline-success" href="staff-rota.html">Staff log hours</a>
+    </div>
   </section>
 
-  <section class="card">
+  <section class="card p-4 shadow-sm mb-4">
     <h2>Policy references</h2>
-    <div class="pills">
-      <a class="pill file" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding & Child Protection</a>
-      <a class="pill file" href="KCSIE 2025.pdf" download>Keeping Children Safe in Education (2025)</a>
-      <a class="pill file" href="MPWEC H&S Policy Sep 25.docx" download>Health & Safety</a>
-      <a class="pill file" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working</a>
-      <a class="pill file" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct</a>
-      <a class="pill file" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing</a>
-      <a class="pill file" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum (EOTAS)</a>
-      <a class="pill file" href="RSHE 2025.pdf" download>RSHE (2025)</a>
+    <p>For quick access, here are links to key policies and documents:</p>
+
+    <div class="d-flex flex-wrap gap-2">
+      <a class="btn btn-outline-success" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding &amp; Child Protection Policy</a>
+      <a class="btn btn-outline-success" href="KCSIE 2025.pdf" download>KCSIE (2025)</a>
+      <a class="btn btn-outline-success" href="MPWEC H&S Policy Sep 25.docx" download>Health &amp; Safety Policy</a>
+      <a class="btn btn-outline-success" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+      <a class="btn btn-outline-success" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
+      <a class="btn btn-outline-success" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+      <a class="btn btn-outline-success" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy (EOTAS)</a>
+      <a class="btn btn-outline-success" href="RSHE 2025.pdf" download>RSHE (2025)</a>
+      <a class="btn btn-outline-success" href="EBSNA.docx" download>EBSNA Guidance</a>
     </div>
+  </section>
+
+  <section class="card p-4 shadow-sm">
+    <h2>Notes</h2>
+    <p>These resources are for internal use. Please ensure that any updates to forms, policies, or contact details are reflected here to keep everything consistent across the site.</p>
   </section>
 </main>
 
-<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
+<!-- Footer -->
+<footer class="site-footer text-center text-white py-4" style="background:#163632;">
+  <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo mb-2" style="height:60px;">
+  <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+  <p>Guiding Individual Journeys with Care and Purpose</p>
+</footer>
 
-<footer class="site-footer" role="contentinfo"><div class="footer-content">
-  <div style="display:flex;align-items:center;gap:12px;"><img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" /><div><p style="margin:0;">© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p><p style="margin:0;font-size:0.92rem;">Guiding Individual Journeys with Care and Purpose</p></div></div>
-  <nav aria-label="Footer links"><a class="pill secondary" href="staff.html">Staff</a><a class="pill secondary" href="privacy.html">Privacy</a></nav>
-</div></footer>
-
+<!-- Scripts (root paths, matching your repo) -->
+<script src="bootstrap.bundle.min.js"></script>
 <script src="script.js" defer></script>
 </body>
 </html>
