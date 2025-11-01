@@ -1,6 +1,6 @@
-/* Meadow Pathways — final consolidated stylesheet
-   Restores logo size, reduces hero height, ensures coloured nav pills,
-   and applies visible backgrounds to long-text and card areas.
+/* Meadow Pathways — consolidated stylesheet
+   Replace the existing style.css with this file.
+   Adjust variable values if you want different brand tones.
 */
 
 /* Theme variables */
@@ -68,10 +68,10 @@ body{margin:0; line-height:1.5}
   .nav-menu.is-open{display:block; position:absolute; top:90px; right:12px; background:#fff; border:1px solid rgba(0,0,0,0.06); border-radius:8px; padding:12px; box-shadow:0 8px 24px rgba(0,0,0,0.06); z-index:40}
 }
 
-/* Hero / slider — reduced heights so carousel is not overpowering */
+/* Hero / slider — moderate heights */
 .hero{width:100%; margin:0; padding:0; position:relative; overflow:hidden}
 .slides{position:relative; overflow:hidden; display:block; width:100%; height:300px}
-@media (min-width:900px){ .slides{height:360px} } /* desktop moderate height */
+@media (min-width:900px){ .slides{height:360px} }
 @media (max-width:900px){ .slides{height:300px} }
 @media (max-width:600px){ .slides{height:220px} }
 
@@ -79,20 +79,17 @@ body{margin:0; line-height:1.5}
 .slides .slide:first-child{opacity:1}
 .slides img.slide{width:100%; height:100%; object-fit:cover; display:block}
 
-/* Overlay for legibility on images */
+/* Overlay for legibility on hero images */
 .hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.02)); pointer-events:none}
 
-/* Content sections */
+/* Content layout */
 .section-title{font-size:1.5rem; margin-bottom:12px; font-weight:700}
 .row{display:flex; gap:24px; flex-wrap:wrap}
 .col{flex:1 1 280px; min-width:220px}
 
-/* Card and content backgrounds: visible, gentle colours across all pages */
+/* Cards and visible backgrounds for long text across all pages */
 .card{background:linear-gradient(180deg,#ffffff,#fbfdff); border-radius:10px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,0.04); border:1px solid rgba(0,0,0,0.03); color:var(--text)}
 .long-text, .service-box { background: linear-gradient(180deg,#f9fbff,#eef6ff); color:var(--text); border-radius:12px; padding:16px; box-shadow:0 6px 18px rgba(0,0,0,0.04); border:1px solid rgba(0,0,0,0.04) }
-
-/* If you prefer stronger brand-coloured blocks, swap to pill-block classes or enable the line below */
-/* .long-text, .service-box { background: linear-gradient(180deg,#4b84d6,#2b67b2); color:#fff; } */
 
 /* Pills and CTA boxes */
 .pill{display:inline-block; padding:12px 18px; border-radius:999px; color:#fff; font-weight:600; margin:6px 8px 12px 0; text-decoration:none; transition:transform .12s ease, box-shadow .12s ease; box-shadow:0 2px 0 rgba(0,0,0,0.06)}
