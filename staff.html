@@ -1,127 +1,81 @@
-/* assets/style.css
-   Meadow Pathways — Blugoon-inspired theme
-   Keep this file at /assets/style.css and reference it from pages
-*/
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body class="bp-page">
 
-/* ---------------- root / variables ---------------- */
-:root{
-  --accent:#0e8a73;
-  --accent-2:#00a6c1;
-  --accent-warm:#e7b84b;
-  --muted:#6b7a78;
-  --text:#12322f;
-  --bg:#fbfdfd;
-  --card:#ffffff;
-  --soft:#eef5f3;
-  --radius:12px;
-  --max-width:1100px;
-  --gutter:18px;
-  --shadow: 0 8px 28px rgba(12,28,30,0.06);
-  --pill-bg: linear-gradient(180deg,var(--accent),var(--accent-2));
-  --pill-color:#fff;
-  --section-gap:20px;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <div class="logo-box">
+        <a class="brand" href="index.html" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways Logo" class="site-logo" />
+        </a>
+      </div>
 
-/* ---------------- base ---------------- */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  color:var(--text);
-  background:var(--bg);
-  -webkit-font-smoothing:antialiased;
-  line-height:1.45;
-}
-.container{
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:0 var(--gutter);
-}
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+        <ul id="primaryNav" class="nav-tabs" role="menubar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="staff.html" class="active">Staff</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-/* ---------------- header ---------------- */
-.site-header{
-  background: #fff;
-  border-bottom:1px solid rgba(0,0,0,0.04);
-  position:sticky;
-  top:0;
-  z-index:999;
-}
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:14px var(--gutter);
-}
-.logo-box{ display:flex; align-items:center; gap:12px; }
-.site-logo{ height:84px; width:auto; object-fit:contain; border-radius:10px; background:#fff; padding:6px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+  <section class="hero" style="background-image:url('BG.png');">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Staff area</h1>
+        <p class="lead">Internal resources and staff links. This area contains protected information and is for authorised staff only.</p>
+      </div>
+      <div class="hero-card">
+        <p class="kicker">Access</p>
+        <p>Staff should not rely on client-side password protection. If you need access to internal materials, request access using the contact email below and we will provide secure delivery.</p>
+      </div>
+    </div>
+  </section>
 
-/* nav */
-.primary-nav { display:flex; align-items:center; gap:12px; }
-.nav-toggle{ display:none; border:0; background:transparent; font-size:20px; cursor:pointer; }
-.nav-tabs{ list-style:none; margin:0; padding:0; display:flex; gap:8px; align-items:center; }
-.nav-tabs a{
-  display:inline-block;
-  padding:8px 14px;
-  border-radius:10px;
-  background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.98));
-  border:1px solid rgba(0,0,0,0.04);
-  color:#153532;
-  font-weight:700;
-  text-decoration:none;
-}
-.nav-tabs a.active{ background:var(--pill-bg); color:var(--pill-color); box-shadow:0 10px 26px rgba(0,120,100,0.08); }
+  <main class="container">
+    <section class="card">
+      <h2>Request access to protected resources</h2>
+      <p>To request access to internal documents, policies or the staff rota, please email a request to <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a> from your staff email. Include your name, role and the resources you need.</p>
+      <p>Once verified, authorised staff will receive secure links or instructions for safe access. Client-side password forms are not a secure method for protecting sensitive documents and have been removed from the public site.</p>
+    </section>
 
-/* responsive nav */
-@media (max-width:900px){
-  .nav-toggle{ display:inline-block; }
-  .nav-tabs{ position:absolute; top:72px; right:var(--gutter); background:#fff; flex-direction:column; padding:10px; border-radius:12px; display:none; box-shadow:var(--shadow); }
-  .nav-tabs.open{ display:flex; }
-}
+    <section class="card">
+      <h2>Internal links (for authorised staff)</h2>
+      <p>Below are links to documents typically used by staff. These remain on the site for authorised download if you have access:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;">
+        <a class="btn" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy EOTAS</a>
+        <a class="btn" href="MPWEC H&S Policy Sep 25.docx" download>H&S Policy</a>
+        <a class="btn" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+        <a class="btn" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
+      </div>
+      <p style="margin-top:12px;color:var(--muted);">If you need hours logging or an internal form connected to staff systems, contact the lead for secure instructions.</p>
+    </section>
+  </main>
 
-/* ---------------- hero ---------------- */
-.hero{ padding:36px 0; background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,1)); border-bottom:1px solid rgba(0,0,0,0.02); }
-.hero-inner{ display:flex; gap:24px; align-items:stretch; }
-.hero-copy{ flex:1; max-width:760px; }
-.hero-copy h1{ margin:0 0 10px; font-size:1.9rem; color:var(--accent); }
-.lead{ color:var(--muted); margin:0 0 12px; }
-.hero-actions{ display:flex; gap:10px; margin-top:12px; }
-.btn{ display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; background:#eee; color:var(--text); border:1px solid rgba(0,0,0,0.04); font-weight:700; }
-.btn-primary{ background:var(--accent); color:#fff; border:0; box-shadow:0 8px 20px rgba(14,138,115,0.08); }
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+      <div>
+        <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+        <p>Guiding Individual Journeys with Care and Purpose</p>
+      </div>
+    </div>
+  </footer>
 
-/* hero-card (accent to right) */
-.hero-card{ width:260px; background:linear-gradient(180deg,var(--soft),#fff); border-radius:12px; padding:16px; box-shadow:var(--shadow); }
-.kicker{ margin:0; font-weight:700; color:var(--accent-2); }
-
-/* ---------------- carousel ---------------- */
-.carousel-wrap{ margin-top:var(--section-gap); margin-bottom:var(--section-gap); }
-.carousel{ position:relative; background:#fff; border-radius:12px; padding:14px; box-shadow:var(--shadow); overflow:hidden; }
-.slides{ display:block; }
-.slide{ width:100%; display:none; object-fit:cover; border-radius:8px; max-height:420px; width:100%; }
-.slide.active{ display:block; }
-.controls{ display:flex; align-items:center; justify-content:center; gap:12px; margin-top:10px; }
-.control{ border:1px solid rgba(0,0,0,0.06); background:#fff; padding:6px 10px; border-radius:8px; cursor:pointer; }
-.dots{ display:inline-flex; gap:8px; }
-.dot{ width:10px; height:10px; border-radius:50%; background:#ddd; border:none; }
-.dot.active{ background:var(--accent); }
-
-/* ---------------- cards / layout ---------------- */
-.card{ background:var(--card); border-radius:12px; padding:18px; box-shadow:var(--shadow); margin:18px 0; border:1px solid rgba(0,0,0,0.03); }
-.grid-3{ display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
-
-/* footer */
-.site-footer{ background: #12322f; color:#fff; padding:22px 0; margin-top:22px; }
-.footer-inner{ display:flex; gap:12px; align-items:center; justify-content:center; flex-direction:column; }
-.footer-logo{ width:84px; height:auto; border-radius:10px; background:#fff; padding:6px; }
-
-/* back-to-top */
-.back-to-top{ position:fixed; right:18px; bottom:18px; padding:10px 12px; border-radius:8px; border:0; background:var(--accent); color:#fff; display:none; cursor:pointer; }
-.back-to-top.show{ display:block; }
-
-/* small helpers */
-.kicker, .muted-small{ color:var(--muted); font-size:0.95rem; }
-a.pill{ display:inline-block; padding:8px 12px; border-radius:20px; background:var(--accent); color:#fff; text-decoration:none; font-weight:700; }
-
-/* accessibility */
-:focus{ outline:3px solid rgba(14,138,115,0.12); outline-offset:4px }
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
