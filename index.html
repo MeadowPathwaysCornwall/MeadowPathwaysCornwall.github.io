@@ -1,41 +1,93 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meadow Pathways — Wellbeing and Education Cornwall</title>
-  <meta name="description" content="Meadow Pathways provides trauma-informed wellbeing and education support for children and young people across Cornwall." />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Meadow Pathways Wellbeing and Education Cornwall</title>
+<meta name="description" content="Meadow Pathways reconnects children with learning through trauma informed, bespoke education and wellbeing support across Cornwall." />
+<link rel="stylesheet" href="style.css" />
+<style>
+/* Minimal fallbacks so page remains legible if style.css is missing */
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.news-reel { display: inline-block; padding-right: 40px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+.card { background: #fff; border-radius: 10px; padding: 18px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.pill { display: inline-block; padding: 8px 12px; border-radius: 20px; background: #2f8f4a; color: #fff; text-decoration: none; }
+.logo { height: 90px; border-radius: 12px; padding: 4px; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.08); object-fit: contain; }
+.carousel { position: relative; overflow: hidden; }
+.slides { display: block; }
+.slide { width: 100%; max-height: 420px; object-fit: cover; display: none; }
+.slide.active { display: block; }
+.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
+.carousel-btn { background: #fff; border: 1px solid #ddd; padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+.dots { display: inline-flex; gap: 8px; align-items: center; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: #ddd; border: none; cursor: pointer; }
+.dot.active { background: #2f8f4a; }
+.carousel:focus { outline: 3px solid rgba(47,143,74,0.12); outline-offset: 6px; }
+</style>
 </head>
-<body>
-  <!-- Shared header -->
-  <header class="site-header" role="banner">
-    <div class="container">
-      <div class="site-logo">
-        <a href="index.html" aria-label="Meadow Pathways home">
-          <img src="Logo.png" alt="Meadow Pathways logo" class="logo" />
-        </a>
-      </div>
+<body class="home-page">
+<a class="skip-link" href="#main">Skip to content</a>
 
-      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
-
-      <nav id="main-nav" class="main-nav nav-menu" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="nav-pill nav-pill--home">Home</a>
-        <a href="about.html" class="nav-pill nav-pill--about">About</a>
-        <a href="eotas.html" class="nav-pill nav-pill--eotas">EOTAS</a>
-        <a href="safeguarding.html" class="nav-pill nav-pill--safeguarding">Safeguarding</a>
-        <a href="staff.html" class="nav-pill nav-pill--staff">Team</a>
-        <a href="referral.html" class="nav-pill nav-pill--referral">Make a referral</a>
-        <a href="contact.html" class="nav-pill nav-pill--contact">Contact</a>
-        <a href="policies.html" class="nav-pill nav-pill--policies">Policies</a>
-      </nav>
+<!-- Header -->
+<header class="site-header" role="banner">
+  <div class="header-inner container">
+    <div class="logo-wrap">
+      <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+      </a>
     </div>
-  </header>
 
-  <main id="main" role="main">
-    <!-- Hero / Carousel -->
-    <section class="hero" aria-label="Hero">
-      <div class="slides" role="list" aria-roledescription="carousel" aria-label="Meadow Pathways image carousel">
+    <nav aria-label="Primary" class="primary-nav">
+      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+      <ul id="primaryNav" class="nav-tabs" role="menubar">
+        <li role="none"><a role="menuitem" href="index.html" class="active">Home</a></li>
+        <li role="none"><a role="menuitem" href="about.html">About</a></li>
+        <li role="none"><a role="menuitem" href="eotas.html">EOTAS</a></li>
+        <li role="none"><a role="menuitem" href="safeguarding.html">Safeguarding</a></li>
+        <li role="none"><a role="menuitem" href="staff.html">Staff</a></li>
+        <li role="none"><a role="menuitem" href="referral.html">Referral</a></li>
+        <li role="none"><a role="menuitem" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title" style="background-image:url('BG.png');">
+    <div class="hero-overlay container" style="position:relative;">
+      <svg aria-hidden="true" width="220" height="220" viewBox="0 0 220 220" style="position:absolute;right:22px;top:-36px;opacity:0.95;pointer-events:none">
+        <defs>
+          <linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#5d8aa8"/><stop offset="1" stop-color="#1f9d9a"/></linearGradient>
+        </defs>
+        <circle cx="110" cy="110" r="96" fill="url(#gA)" opacity="0.16" />
+        <path d="M18 120c40-60 120-60 180-20" stroke="#e67a7a" stroke-width="16" stroke-linecap="round" fill="none" opacity="0.28"/>
+        <path d="M28 64c40 20 100-10 160 20" stroke="#70c9a6" stroke-width="20" stroke-linecap="round" fill="none" opacity="0.22"/>
+      </svg>
+
+      <div style="max-width:820px;">
+        <h1 id="hero-title" style="margin:0 0 8px 0;font-size:2rem">Guiding individual journeys with care and purpose</h1>
+        <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches.</p>
+
+        <div class="hero-actions" style="margin-top:14px;display:flex;gap:10px;">
+          <a class="pill" href="referral.html">Make a referral 📝</a>
+          <a class="pill" href="about.html">Find out more ℹ️</a>
+        </div>
+
+        <div style="margin-top:14px;color:var(--text-soft);">
+          <strong>Our Commitment</strong>
+          <p style="margin:8px 0 0 0">At Meadow Pathways, we recognise every young person is unique. We commit to working collaboratively with families, schools and partners to find meaningful, sustainable routes to success for each learner.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carousel -->
+  <aside class="container" style="margin-top:18px;">
+    <div id="carousel" class="carousel" aria-roledescription="carousel" aria-label="Gallery">
+      <div class="slides" role="list">
         <img src="Bake.jpg" alt="Baking activity" class="slide" role="listitem" />
         <img src="Cooking.jpg" alt="Cooking session" class="slide" role="listitem" />
         <img src="MM.jpg" alt="Multimedia activity" class="slide" role="listitem" />
@@ -48,95 +100,186 @@
         <img src="wood.jpg" alt="Woodland activity" class="slide" role="listitem" />
       </div>
 
-      <div class="overlay" aria-hidden="true"></div>
+      <div class="carousel-controls" aria-hidden="false">
+        <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
+        <div class="dots" id="dots" role="tablist" aria-label="Carousel pagination"></div>
+        <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
+      </div>
+    </div>
 
-      <div class="container" style="position:relative; z-index:5; margin-top:-90px;">
-        <div class="card" style="background:rgba(255,255,255,0.95); max-width:760px;">
-          <h1 class="section-title">Meadow Pathways — Wellbeing and Education Cornwall</h1>
-          <p>We offer trauma-informed, relational education and therapeutic support for children and young people who need a different approach to learning and wellbeing. Our small, personalised provision supports social, emotional and mental health needs with practical, restorative activities and tailored learning plans.</p>
-          <p><a class="btn" href="referral.html">Make a referral</a> <a class="btn btn--alt" href="about.html">Learn more</a></p>
+    <p class="carousel-caption" style="margin-top:10px;color:var(--text-soft)">Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities. 🎨🍳🌳</p>
+  </aside>
+
+  <!-- Main -->
+  <main id="main" class="container" role="main" style="margin-top:18px;">
+    <section class="card" aria-labelledby="welcome">
+      <h2 id="welcome">Welcome</h2>
+      <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community based activities to build confidence, skills, and a sense of belonging.</p>
+    </section>
+
+    <section class="card" aria-labelledby="approach">
+      <h2 id="approach">Our approach</h2>
+      <p>We work relationally, using trauma informed practice and creative, curriculum linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px;">
+        <div style="background:linear-gradient(180deg,#d9eef6,#f7fbfd);border-radius:12px;padding:12px;">
+          <strong style="color:#23607b;font-size:1.05rem;">📅 Meeting learners where they are</strong>
+          <p style="margin-top:8px;color:var(--text-soft);">At Meadow Pathways we recognise that every young person is unique. We are committed to working collaboratively with families, schools, and partner organisations to find meaningful and sustainable routes to success.</p>
+        </div>
+        <div style="background:linear-gradient(180deg,#fde7e7,#fff6f6);border-radius:12px;padding:20px;min-height:220px;display:flex;flex-direction:column;justify-content:center;">
+          <strong style="color:#b34b4b;font-size:1.05rem;">Person centred Commitment ⭐</strong>
+          <p style="margin-top:12px;color:var(--text-soft);line-height:1.6;">We work closely with families, schools and partners to create meaningful, sustainable routes to success tailored to each learner’s needs and strengths.</p>
+        </div>
+        <div style="background:linear-gradient(180deg,#e7fbe7,#f7fffa);border-radius:12px;padding:20px;min-height:220px;display:flex;flex-direction:column;justify-content:center;">
+          <strong style="color:#2f8f4a;font-size:1.05rem;">Practical Learning in Community Settings 📅</strong>
+          <p style="margin-top:12px;color:var(--text-soft);line-height:1.6;">We deliver curriculum linked, hands-on activities, bush craft, cooking, outdoor fitness, gardening and project work, so learners build skills, resilience and positive relationships while working towards accredited outcomes.</p>
         </div>
       </div>
     </section>
 
-    <!-- Services -->
-    <section class="container" aria-labelledby="services">
-      <h2 id="services" class="section-title">What we offer</h2>
-      <div class="row">
-        <div class="col card">
-          <h3>EOTAS Provision</h3>
-          <div class="long-text">
-            Our EOTAS provision blends therapeutic practice with practical learning. We support literacy and numeracy, life skills and emotional regulation through small group and 1:1 work in nurturing outdoor and indoor settings.
-          </div>
-          <p>We tailor individual learning plans and work closely with families, schools and multi-agency partners to create safe, predictable learning journeys.</p>
-        </div>
+    <section class="card" aria-labelledby="values-title">
+      <h2 id="values-title">Our Values</h2>
+      <p>At Meadow Pathways, our values shape everything we do, from the way we greet a child to the way we plan their learning journey. We believe that education and wellbeing go hand in hand, and that every child deserves to feel safe, supported, and inspired.</p>
+      <ul>
+        <li><strong>💪🌱 Resilience & Independence</strong> — We nurture confidence, self-belief, and the ability to grow through challenge.</li>
+        <li><strong>💪🧑‍⚕️ Health & Wellbeing</strong> — We prioritise emotional safety, regulation, and holistic care in every setting.</li>
+        <li><strong>🔎 Honesty & Integrity</strong> — We build trust through transparency, consistency, and ethical practice.</li>
+        <li><strong>🤝 Friendship & Kindness</strong> — We foster connection, empathy, and belonging, because relationships are the heart of healing.</li>
+      </ul>
+    </section>
 
-        <div class="col card">
-          <h3>Therapeutic Support</h3>
-          <p>Play therapy and person-centred counselling are available for children and young people to process events, build resilience and re-engage with learning. Our team uses trauma-informed techniques to promote safety and trust.</p>
+    <section class="card" aria-labelledby="offers">
+      <h2 id="offers">What we offer 🎯</h2>
+      <p>To support this journey we provide a fully bespoke package of care and education that includes:</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px;">
+        <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)">
+          <h4>Mentoring and Advocacy 🧑‍🤝‍🧑</h4><p>Building trust and self belief through consistent relational support and Alternative Provisions.</p>
         </div>
-
-        <div class="col card">
-          <h3>Practical Activities</h3>
-          <p>We use practical, hands-on activities—gardening, cooking, den-building, creative arts and multimedia—to develop confidence, social skills and independence.</p>
+        <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)">
+          <h4>Tailored Learning Packages 📚</h4><p>Flexible academic pathways matched to each learner’s pace and interests.</p>
+        </div>
+        <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)">
+          <h4>Life Skills 🛠️</h4><p>Practical preparation for adulthood including functional skills and community engagement.</p>
+        </div>
+        <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)">
+          <h4>Diagnostic Assessments 🧠</h4><p>Literacy and numeracy profiling to inform targeted intervention.</p>
+        </div>
+        <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)">
+          <h4>SEMH Interventions ❤️</h4><p>Trauma informed strategies to support emotional regulation and resilience.</p>
+        </div>
+        <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)">
+          <h4>Wellbeing & PSHE 🎨</h4><p>Creative therapeutic sessions that promote self awareness, relationships and personal growth.</p>
         </div>
       </div>
     </section>
 
-    <!-- Quick links -->
-    <section class="container" aria-label="Quick links">
-      <h2 class="section-title">Quick links</h2>
-      <a class="pill pill--teal" href="referral.html">Referral form</a>
-      <a class="pill pill--blue" href="eotas.html">EOTAS provision details</a>
-      <a class="pill pill--orange" href="safeguarding.html">Safeguarding and policies</a>
-      <a class="pill pill--muted" href="contact.html">Contact us</a>
-    </section>
-
-    <!-- Impact -->
-    <section class="container" aria-labelledby="impact">
-      <h2 id="impact" class="section-title">Impact and outcomes</h2>
-      <div class="row">
-        <div class="col card">
-          <p>"Meadow Pathways helped my child feel safe again. The team built trust and provided practical support that made a real difference." — Parent</p>
-        </div>
-        <div class="col card">
-          <p>"A thoughtful, person-centred approach with clear outcomes and local partnership working." — School partner</p>
-        </div>
+    <section class="card" aria-labelledby="next">
+      <h2 id="next">Next steps</h2>
+      <p>If you’d like to explore Meadow Pathways for a child or young person, you can:</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+        <a class="pill" href="referral.html">Referral form 📝</a>
+        <a class="pill" href="about.html">About us ℹ️</a>
+        <a class="pill" href="contact.html">Contact ☎️</a>
+        <a class="pill" href="eotas.html">EOTAS provision 🔍</a>
       </div>
+      <p style="margin-top:12px;color:var(--text-soft);">If your enquiry is urgent or a safeguarding concern, please contact statutory services first and then call the Meadow Pathways team directly.</p>
     </section>
 
-    <!-- Contact preview -->
-    <section class="container" aria-labelledby="contact">
-      <h2 id="contact" class="section-title">Get in touch</h2>
-      <div class="row">
-        <div class="col card">
-          <h3>Contact</h3>
-          <p>Phone: 01234 567890</p>
-          <p>Email: <a href="mailto:info@meadowpathwayscornwall.org">info@meadowpathwayscornwall.org</a></p>
-          <p>Office: Meadow Pathways, Cornwall</p>
-        </div>
-
-        <div class="col card">
-          <h3>Request support</h3>
-          <p>If you want to discuss a referral, please complete our referral form or call us to arrange an initial conversation.</p>
-          <p><a class="btn" href="referral.html">Refer a young person</a></p>
+    <section class="card" aria-labelledby="news">
+      <h3 id="news">News</h3>
+      <div style="white-space:nowrap;overflow:hidden;">
+        <div style="display:inline-block;padding-right:40px;animation:ticker 18s linear infinite;">
+          <span class="news-reel" aria-live="polite" role="status">🤩 Planning Submitted..... For our first site 'Treverno Meadows' 🤩</span>
         </div>
       </div>
     </section>
   </main>
+</div>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div>&copy; Meadow Pathways Wellbeing and Education Cornwall</div>
-      <div>
-        <a href="privacy.html">Privacy</a> •
-        <a href="policies.html">Policies</a> •
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-  </footer>
+<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
 
-  <!-- Ensure your script.js is present in the repo root -->
-  <script src="script.js"></script>
+<footer class="site-footer">
+  <div class="footer-content">
+    <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+    <p>Guiding Individual Journeys with Care and Purpose</p>
+  </div>
+</footer>
+
+<!-- Consolidated site JS -->
+<script src="script.js"></script>
+
+<!-- Self-contained carousel controller ensures robust behaviour -->
+<script>
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var carousel = document.getElementById('carousel');
+    if (!carousel) return;
+    var slidesContainer = carousel.querySelector('.slides');
+    var slides = Array.prototype.slice.call(slidesContainer.querySelectorAll('img.slide'));
+    if (!slides.length) return;
+    var dotsContainer = document.getElementById('dots');
+    var prevBtn = document.getElementById('prev');
+    var nextBtn = document.getElementById('next');
+
+    slides.forEach(function (s, i) {
+      s.classList.remove('active');
+      s.setAttribute('data-index', i);
+      s.style.display = 'none';
+    });
+
+    var current = 0;
+    slides[current].classList.add('active');
+    slides[current].style.display = '';
+
+    if (dotsContainer) {
+      while (dotsContainer.firstChild) dotsContainer.removeChild(dotsContainer.firstChild);
+      slides.forEach(function (_, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'dot' + (i === 0 ? ' active' : '');
+        btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        btn.setAttribute('data-index', i);
+        btn.addEventListener('click', function () { goTo(i); resetAutoplay(); });
+        dotsContainer.appendChild(btn);
+      });
+    }
+
+    function goTo(index) {
+      index = (index + slides.length) % slides.length;
+      if (index === current) return;
+      slides[current].classList.remove('active');
+      slides[current].style.display = 'none';
+      var prevDot = dotsContainer && dotsContainer.querySelector('.dot[data-index="' + current + '"]');
+      if (prevDot) prevDot.classList.remove('active');
+      current = index;
+      slides[current].classList.add('active');
+      slides[current].style.display = '';
+      var nextDot = dotsContainer && dotsContainer.querySelector('.dot[data-index="' + current + '"]');
+      if (nextDot) nextDot.classList.add('active');
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); resetAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); resetAutoplay(); });
+
+    carousel.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { goTo(current - 1); resetAutoplay(); }
+      if (e.key === 'ArrowRight') { goTo(current + 1); resetAutoplay(); }
+    });
+
+    carousel.setAttribute('tabindex', '0');
+
+    var autoplayInterval = 6000, autoplayId = null;
+    function startAutoplay() { if (autoplayId) return; autoplayId = setInterval(function () { goTo(current + 1); }, autoplayInterval); }
+    function stopAutoplay() { if (!autoplayId) return; clearInterval(autoplayId); autoplayId = null; }
+    function resetAutoplay() { stopAutoplay(); startAutoplay(); }
+
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+    carousel.addEventListener('focusin', stopAutoplay);
+    carousel.addEventListener('focusout', startAutoplay);
+    startAutoplay();
+  });
+})();
+</script>
 </body>
 </html>
