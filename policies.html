@@ -3,53 +3,124 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Policies — Meadow Pathways</title>
-  <meta name="description" content="Policies, safeguarding and documents." />
+  <title>Policies — Meadow Pathways Wellbeing and Education Cornwall</title>
   <link rel="stylesheet" href="style.css" />
+  <meta name="robots" content="noindex" />
+  <style>
+    /* Minimal page-specific helpers so file is usable if style.css is missing */
+    .container { max-width:1100px; margin:0 auto; padding:0 16px; }
+    .card { background:#fff; border-radius:12px; padding:18px; margin:18px 0; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+    .pol-list { display:flex; flex-direction:column; gap:10px; }
+    .policy-pill { display:inline-block; padding:10px 14px; border-radius:10px; background:#f3f7f5; color:#183233; text-decoration:none; border:1px solid rgba(0,0,0,0.04); }
+    .policy-pill .meta { display:block; font-size:0.9rem; color:#566; margin-top:6px; }
+    h1{margin:0 0 10px 0;color:#234a3a}
+    p{color:#475569}
+  </style>
 </head>
 <body>
-  <!-- header -->
   <header class="site-header" role="banner">
-    <div class="container">
-      <div class="site-logo">
-        <a href="index.html" aria-label="Meadow Pathways home">
-          <img src="Logo.png" alt="Meadow Pathways logo" class="logo" />
+    <div class="container header-inner">
+      <div class="logo-wrap">
+        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
         </a>
       </div>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
-      <nav id="main-nav" class="main-nav nav-menu" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="nav-pill nav-pill--home">Home</a>
-        <a href="about.html" class="nav-pill nav-pill--about">About</a>
-        <a href="eotas.html" class="nav-pill nav-pill--eotas">EOTAS</a>
-        <a href="safeguarding.html" class="nav-pill nav-pill--safeguarding">Safeguarding</a>
-        <a href="staff.html" class="nav-pill nav-pill--staff">Team</a>
-        <a href="referral.html" class="nav-pill nav-pill--referral">Make a referral</a>
-        <a href="contact.html" class="nav-pill nav-pill--contact">Contact</a>
-        <a href="policies.html" class="nav-pill nav-pill--policies">Policies</a>
+      <nav aria-label="Primary" class="primary-nav">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+        <ul id="primaryNav" class="nav-tabs" role="menubar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="staff.html">Staff</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="active" href="policies.html">Policies</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container" role="main">
-    <h1 class="section-title">Policies and documents</h1>
+  <main id="main" class="container" role="main">
+    <section class="card">
+      <h1>Policies and Guidance</h1>
+      <p>Key policies, templates and guidance for staff. These documents are internal: do not share externally without approval.</p>
 
-    <div class="card">
-      <p>Here you will find safeguarding policies, RSHE documentation, privacy details and other guidance. These documents are available on request where necessary and summary information is presented here for parents and partners.</p>
-      <p><a class="pill pill--blue" href="safeguarding.html">Safeguarding information</a></p>
-      <p><a class="pill pill--teal" href="contact.html">Contact us for full documents</a></p>
-    </div>
+      <div class="pol-list" style="margin-top:14px;">
+        <a class="policy-pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>
+          Safeguarding and Child Protection Policy
+          <span class="meta">Updated Sep 2025 — download</span>
+        </a>
+
+        <a class="policy-pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>
+          Curriculum Policy (EOTAS)
+          <span class="meta">EOTAS curriculum guidance and accreditation links</span>
+        </a>
+
+        <a class="policy-pill" href="MPWEC H&S Policy Sep 25.docx" download>
+          Health & Safety Policy
+          <span class="meta">Lone working, first aid and site safety</span>
+        </a>
+
+        <a class="policy-pill" href="MPWEC Lone Working Policy Sep25.docx" download>
+          Lone Working Policy
+          <span class="meta">Procedures and risk mitigation</span>
+        </a>
+
+        <a class="policy-pill" href="MPWEC Staff Conduct Policy.docx" download>
+          Staff Conduct Policy
+          <span class="meta">Code of conduct, professional boundaries</span>
+        </a>
+
+        <a class="policy-pill" href="MPWEC Whistleblowing Policy.docx" download>
+          Whistleblowing Policy
+          <span class="meta">How to raise concerns safely</span>
+        </a>
+
+        <a class="policy-pill" href="RSHE 2025.pdf" download>
+          RSHE (2025)
+          <span class="meta">Relationships, Sex & Health Education guidance</span>
+        </a>
+
+        <a class="policy-pill" href="KCSIE 2025.pdf" target="_blank" rel="noopener">
+          Keeping Children Safe in Education (KCSIE 2025)
+          <span class="meta">External statutory guidance (GOV.UK)</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>How to update a policy</h2>
+      <ol>
+        <li>Make edits in the working copy stored offline.</li>
+        <li>Send the revised document to Michelle for approval.</li>
+        <li>Once approved, replace the file in the repo and update this page if the filename changes.</li>
+      </ol>
+
+      <p style="margin-top:12px;color:#6b6b6b">Note: keep all safeguarding and sensitive personnel documents restricted in the staff area or Protected Resources. If you need the file visible to parents or partners, create a public summary version without protected details.</p>
+    </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div>&copy; Meadow Pathways Wellbeing and Education Cornwall</div>
-      <div>
-        <a href="privacy.html">Privacy</a> •
-        <a href="contact.html">Contact</a>
-      </div>
+  <footer class="site-footer">
+    <div class="footer-content container">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+      <p>Guiding Individual Journeys with Care and Purpose</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // minimal nav toggle
+    (function(){
+      var navToggle = document.getElementById('navToggle'), nav = document.getElementById('primaryNav');
+      if (navToggle && nav) {
+        navToggle.addEventListener('click', function(){
+          var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+          navToggle.setAttribute('aria-expanded', String(!expanded));
+          nav.classList.toggle('open');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
