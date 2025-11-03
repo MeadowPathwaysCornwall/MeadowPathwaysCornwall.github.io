@@ -5,54 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meadow Pathways Wellbeing and Education Cornwall</title>
 
-  <!-- Core CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="tooplate-style.css">
-  <link rel="stylesheet" href="style.css"> <!-- your overrides -->
-
-  <!-- Optional extras -->
-  <link rel="stylesheet" href="fontawesome.css">
-  <link rel="stylesheet" href="lightbox.css">
-  <link rel="stylesheet" href="owl.css">
-  <link rel="stylesheet" href="flex-slider.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Header -->
-  <header class="site-header text-center py-4">
+  <header class="text-center py-4">
     <img src="Logo.png" alt="Meadow Pathways Logo" style="max-height:120px;">
     <h1>Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
     <p class="lead">Guiding Individual Journeys with Care and Purpose</p>
   </header>
 
-  <!-- Hero / Background -->
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="eotas.html">EOTAS</a></li>
+          <li class="nav-item"><a class="nav-link" href="safeguarding.html">Safeguarding</a></li>
+          <li class="nav-item"><a class="nav-link" href="referral.html">Referral</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="policies.html">Policies</a></li>
+          <li class="nav-item"><a class="nav-link" href="staff.html">Staff</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
   <section class="hero" style="background:url('BG.png') center/cover no-repeat; height:300px;">
   </section>
 
-  <!-- Core Values -->
+  <!-- Welcome -->
   <section class="container my-5">
-    <h2 class="text-center mb-4">Our Core Values</h2>
-    <div class="row text-center">
-      <div class="col-md-3"><h4>Resilience &amp; Independence</h4></div>
-      <div class="col-md-3"><h4>Health &amp; Wellbeing</h4></div>
-      <div class="col-md-3"><h4>Honesty &amp; Integrity</h4></div>
-      <div class="col-md-3"><h4>Friendship &amp; Kindness</h4></div>
-    </div>
+    <h2>Welcome</h2>
+    <p>Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿✨</p>
+    <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community based activities to build confidence, skills, and a sense of belonging. 🌱</p>
   </section>
+
+  <!-- Our Approach -->
+  <section class="container my-5">
+    <h2>Our Approach</h2>
+    <p>We work relationally, using trauma informed practice and creative, curriculum linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.</p>
+    <p>At Meadow Pathways we recognise that every young person is unique. We are committed to working collaboratively with families, schools, and partner organisations to find the most meaningful and sustainable route to success for each learner.</p>
+    <p>We deliver curriculum linked, hands‑on activities, bush craft, cooking, outdoor fitness, gardening and project work, so learners build skills, resilience and positive relationships while working towards accredited outcomes. 🧠🌲🍳</p>
+  </section>
+
+ <!-- Core Values with Tabs -->
+<section class="container my-5">
+  <h2 class="text-center mb-4">Our Core Values</h2>
+
+  <!-- Tabs navigation -->
+  <ul class="nav nav-tabs justify-content-center" id="valuesTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="text-tab" data-bs-toggle="tab" data-bs-target="#textValues" type="button" role="tab" aria-controls="textValues" aria-selected="true">
+        Text View
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="flyer-tab" data-bs-toggle="tab" data-bs-target="#flyerValues" type="button" role="tab" aria-controls="flyerValues" aria-selected="false">
+        Flyer View
+      </button>
+    </li>
+  </ul>
+
+  <!-- Tabs content -->
+  <div class="tab-content mt-4" id="valuesTabContent">
+    <!-- Text tab -->
+    <div class="tab-pane fade show active" id="textValues" role="tabpanel" aria-labelledby="text-tab">
+      <div class="row text-center">
+        <div class="col-md-3"><h4>💪🌱 Resilience &amp; Independence</h4></div>
+        <div class="col-md-3"><h4>🧘‍♀️ Health &amp; Wellbeing</h4></div>
+        <div class="col-md-3"><h4>🔎 Honesty &amp; Integrity</h4></div>
+        <div class="col-md-3"><h4>🤗 Friendship &amp; Kindness</h4></div>
+      </div>
+      <p class="mt-3">
+        These values guide our team, our decisions, and our partnerships with families, schools, and professionals. 
+        They are not just words; they are the foundation of every journey we support. 🌼
+      </p>
+    </div>
+
+    <!-- Flyer tab -->
+    <div class="tab-pane fade text-center" id="flyerValues" role="tabpanel" aria-labelledby="flyer-tab">
+      <img src="Values.png" alt="Meadow Pathways Values Flyer" class="img-fluid mt-3" style="max-height:600px;">
+      <p class="mt-2">Download or view our flyer for a visual summary of our values.</p>
+    </div>
+  </div>
+</section>
 
   <!-- Carousel -->
   <section class="container my-5">
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="Bake.jpg" class="d-block w-100" alt="Baking">
-        </div>
-        <div class="carousel-item">
-          <img src="Paint.jpg" class="d-block w-100" alt="Painting">
-        </div>
-        <div class="carousel-item">
-          <img src="paths.jpg" class="d-block w-100" alt="Paths">
-        </div>
+        <div class="carousel-item active"><img src="Bake.jpg" class="d-block w-100" alt="Bake"></div>
+        <div class="carousel-item"><img src="Cooking.jpg" class="d-block w-100" alt="Cooking"></div>
+        <div class="carousel-item"><img src="MM.jpg" class="d-block w-100" alt="MM"></div>
+        <div class="carousel-item"><img src="Paint.jpg" class="d-block w-100" alt="Paint"></div>
+        <div class="carousel-item"><img src="cook.jpg" class="d-block w-100" alt="cook"></div>
+        <div class="carousel-item"><img src="den.jpg" class="d-block w-100" alt="den"></div>
+        <div class="carousel-item"><img src="hand meadow.jpg" class="d-block w-100" alt="hand meadow"></div>
+        <div class="carousel-item"><img src="paths.jpg" class="d-block w-100" alt="paths"></div>
+        <div class="carousel-item"><img src="plant.jpg" class="d-block w-100" alt="plant"></div>
+        <div class="carousel-item"><img src="wood.jpg" class="d-block w-100" alt="wood"></div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
@@ -63,23 +125,33 @@
     </div>
   </section>
 
-  <!-- Call to Action Pills -->
-  <section class="container my-5 text-center">
-    <a href="referral.html" class="btn btn-primary m-2">Referral Form</a>
-    <a href="contact.html" class="btn btn-secondary m-2">Contact Us</a>
-    <a href="safeguarding.html" class="btn btn-info m-2">Safeguarding</a>
-    <a href="policies.html" class="btn btn-success m-2">Policies</a>
+  <!-- What We Offer -->
+  <section class="container my-5">
+    <h2>What We Offer 🎯</h2>
+    <ul>
+      <li><strong>🧑‍🤝‍🧑 Mentoring and Advocacy</strong> — Building trust and self belief through consistent relational support.</li>
+      <li><strong>📚 Tailored Learning Packages</strong> — Flexible academic pathways matched to each learner’s pace and interests.</li>
+      <li><strong>🛠 Life Skills</strong> — Practical preparation for adulthood including functional skills and community engagement.</li>
+      <li><strong>🧮 Diagnostic Assessments</strong> — Literacy and numeracy profiling to inform targeted intervention.</li>
+      <li><strong>💛 SEMH Interventions</strong> — Trauma informed strategies to support emotional regulation and resilience.</li>
+      <li><strong>🎨 Wellbeing &amp; PSHE</strong> — Creative therapeutic sessions that promote self awareness and personal growth.</li>
+      <li><strong>🔄 Transitional Services</strong> — Carefully planned reintegration or onward pathways supported by multi agency collaboration.</li>
+      <li><strong>🌲 Therapeutic &amp; Curriculum Activities</strong> — Nature based bush craft, walking, fitness, water-based activities, fishing, climbing, cooking, play, biking and more linked to ASDAN &amp; AQA Unit Awards.</li>
+    </ul>
   </section>
 
-  <!-- Footer -->
-  <footer class="text-center py-4 bg-light">
-    <p>&copy; 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-  </footer>
+  <!-- News Reel -->
+  <section class="bg-dark text-white py-2">
+    <div class="container">
+      <marquee behavior="scroll" direction="left">
+        🤩 Planning Submitted..... For our first site 'Treverno Meadows' 🤩
+      </marquee>
+    </div>
+  </section>
 
-  <!-- Scripts -->
-  <script src="jquery.min.js"></script>
-  <script src="bootstrap.min.js"></script>
-  <script src="custom.js"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+  <!-- Next Steps -->
+  <section class="container my-5">
+    <h2>Next Steps</h2>
+    <p>If you’d like to explore Meadow Pathways for a child or young person, you can:</p>
+    <ul>
+      <li><a href="referral.html">
