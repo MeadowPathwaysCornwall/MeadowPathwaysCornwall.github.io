@@ -1,60 +1,66 @@
-/* ===========================
-   Meadow Pathways Custom JS
-   =========================== */
+/* Meadow Pathways — site scripts
+   No jQuery required. Depends on Bootstrap 5 bundle (bootstrap.bundle.min.js).
+*/
 
-// NAV TOGGLE (for mobile menu)
-(function() {
-  const navToggle = document.getElementById('navToggle');
-  const nav = document.getElementById('primaryNav');
+(function () {
+  'use strict';
 
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', function() {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('open');
-    });
-  }
-})();
+  // Helper: safe query
+  const $ = (sel) => document.querySelector(sel);
+  const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
-// BACK TO TOP BUTTON
-(function() {
-  const backBtn = document.getElementById('backToTop');
-  if (!backBtn) return;
+  // Initialize after DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Navbar: nothing custom needed; Bootstrap handles toggler via data attributes.
 
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 300) {
-      backBtn.classList.add('show');
-    } else {
-      backBtn.classList.remove('show');
+    // Tabs: Bootstrap 5 handles via data-bs-toggle="tab".
+    // If you want to programmatically activate a tab on load, you can uncomment:
+    // const firstTabTrigger = document.querySelector('#text-tab');
+    // if (firstTabTrigger) new bootstrap.Tab(firstTabTrigger).show();
+
+    // Carousel: optional programmatic init to ensure consistent timing
+    const carouselEl = $('#carouselExample');
+    if (carouselEl && window.bootstrap && bootstrap.Carousel) {
+      // You can tweak interval or wrap according to preference
+      const carousel = new bootstrap.Carousel(carouselEl, {
+        interval: 5000,
+        ride: 'carousel',
+        pause: 'hover',
+        wrap: true
+      });
+
+      // Example: keyboard left/right navigation for accessibility
+      carouselEl.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          carousel.prev();
+        } else if (e.key === 'ArrowRight') {
+          carousel.next();
+        }
+      });
     }
-  });
 
-  backBtn.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-})();
-
-// BOOTSTRAP CAROUSEL AUTOPLAY (optional)
-(function() {
-  const carousel = document.querySelector('#carouselExample');
-  if (carousel) {
-    const bsCarousel = new bootstrap.Carousel(carousel, {
-      interval: 5000, // 5 seconds
-      ride: 'carousel'
-    });
-  }
-})();
-
-// FORM VALIDATION (basic)
-(function() {
-  const forms = document.querySelectorAll('form');
-  forms.forEach(form => {
-    form.addEventListener('submit', function(e) {
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        e.stopPropagation();
-        alert("Please fill in all required fields before submitting.");
+    // Focus ring visibility on keyboard nav
+    const handleFirstTab = (e) => {
+      if (e.key === 'Tab') {
+        document.documentElement.classList.add('user-tabbing');
+        window.removeEventListener('keydown', handleFirstTab);
+        window.addEventListener('mousedown', handleMouseDownOnce);
       }
-    });
+    };
+    const handleMouseDownOnce = () => {
+      document.documentElement.classList.remove('user-tabbing');
+      window.removeEventListener('mousedown', handleMouseDownOnce);
+      window.addEventListener('keydown', handleFirstTab);
+    };
+    window.addEventListener('keydown', handleFirstTab);
+
+    // Warn if assets with spaces might cause issues
+    const imagesWithSpaces = $$('.carousel-item img, header img, .hero, #flyerValues img')
+      .map((el) => (el.tagName === 'IMG' ? el.getAttribute('src') : el.style.backgroundImage))
+      .filter(Boolean)
+      .filter((srcOrBg) => /%20|\s/.test(srcOrBg));
+    if (imagesWithSpaces.length) {
+      console.warn('Consider renaming image files to remove spaces (e.g., "hand meadow.jpg" -> "hand-meadow.jpg").', imagesWithSpaces);
+    }
   });
 })();
