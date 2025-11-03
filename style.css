@@ -1,205 +1,168 @@
-/* =========================
-   Meadow Pathways 2025 Theme
-   ========================= */
+/* =========================================
+   Meadow Pathways — brand overrides for Blugoon
+   Load after:
+   1) bootstrap.min.css
+   2) tooplate-style.css
+   ========================================= */
 
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
+/* Core palette & text */
+:root {
+  --accent: #007f7f;   /* teal */
+  --accent-2: #00a6c1; /* aqua */
+  --warm: #e7b84b;     /* gold */
+  --text: #163632;
 }
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #fff;
+  color: var(--text);
+  background: #fbfdfd;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Links */
-a {
-  color: #006d77;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
+.lead { color: #4a6160; }
+.caption { color: #647b7a; font-size: 0.95rem; }
 
-/* =========================
-   Header & Navigation
-   ========================= */
-header {
-  background: url("BG.png") no-repeat center/cover;
-  padding: 2rem 1rem;
-  text-align: center;
+/* Sidebar (Blugoon left menu) — gentle refinements */
+.sidebar-menu .brand .site-title {
+  margin: 8px 0 0;
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+.sidebar-menu .brand .site-sub {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+}
+.sidebar-menu .main-menu > li > a {
+  border-radius: 8px;
+}
+.sidebar-menu .main-menu > li > a:hover,
+.sidebar-menu .main-menu > li.active > a {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
   color: #fff;
 }
 
-header img.logo {
-  max-width: 120px;
-  margin-bottom: 1rem;
+/* Mobile toggle for sidebar if using .menu-trigger */
+.sidebar-menu.active { transform: translateX(0); }
+@media (max-width: 992px) {
+  .sidebar-menu { position: static; width: 100%; }
+  .page-content { margin-left: 0 !important; }
 }
 
-header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+/* Page content column (right side) */
+.page-content {
+  margin-left: 280px; /* matches Blugoon’s sidebar width */
+  min-height: 100vh;
+  background: #fbfdfd;
+}
+@media (max-width: 992px) {
+  .page-content { margin-left: 0; }
 }
 
-header p.subheading {
-  font-size: 1.2rem;
-  font-weight: 300;
+/* Logo and footer logo sizing */
+.logo {
+  max-height: 120px;
+  width: auto;
+  object-fit: contain;
+}
+.footer-logo {
+  max-height: 70px;
+  width: auto;
+  object-fit: contain;
 }
 
-nav {
-  margin-top: 1rem;
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-nav ul li a {
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  background: #83c5be;
-  color: #fff;
-  transition: background 0.3s;
-}
-nav ul li a:hover {
-  background: #006d77;
-}
-
-/* =========================
-   Hero Section
-   ========================= */
+/* Hero section background */
 .hero {
-  padding: 3rem 1rem;
-  text-align: center;
-  background: #edf6f9;
-}
-.hero h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-.hero p {
-  max-width: 700px;
-  margin: 0 auto;
+  min-height: 320px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* =========================
-   Carousel
-   ========================= */
-.carousel {
-  position: relative;
-  max-width: 900px;
-  margin: 2rem auto;
-  overflow: hidden;
-  border-radius: 10px;
-}
-.carousel img {
-  width: 100%;
-  display: none;
-}
-.carousel img.active {
-  display: block;
-}
-
-/* =========================
-   Pills / Cards
-   ========================= */
-.pills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem auto;
-  max-width: 1000px;
-}
-.pill {
-  flex: 1 1 200px;
-  padding: 1rem;
+/* Primary action buttons */
+.main-button {
+  display: inline-block;
+  padding: 10px 16px;
   border-radius: 12px;
-  background: #ffddd2;
-  text-align: center;
-  transition: transform 0.2s;
+  background: var(--accent);
+  color: #fff !important;
+  margin: 4px 6px 0 0;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
 }
-.pill:hover {
-  transform: translateY(-4px);
-  background: #e29578;
-  color: #fff;
+.main-button:hover {
+  background: #00615f;
+  color: #fff !important;
 }
 
-/* =========================
-   Forms
-   ========================= */
-form {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 10px;
+/* Values “pill” cards */
+.pill {
+  background: #fff;
+  border: 1px solid #dfe7ea;
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+  margin-bottom: 12px;
 }
-form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-}
-form input,
-form textarea {
+
+/* Carousel image cropping and responsiveness */
+.carousel .carousel-item img {
   width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
+  max-height: 420px;
+  object-fit: cover;
 }
-form button {
-  background: #006d77;
-  color: #fff;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-form button:hover {
-  background: #004f52;
+@media (max-width: 576px) {
+  .carousel .carousel-item img { max-height: 300px; }
 }
 
-/* =========================
-   Footer
-   ========================= */
-footer {
-  background: #006d77;
-  color: #fff;
-  text-align: center;
-  padding: 1.5rem 1rem;
-  margin-top: 2rem;
+/* Content images (e.g., safeguarding page side-by-side) */
+.content-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
 }
-footer p {
-  margin: 0.5rem 0;
-}
-footer a {
-  color: #ffddd2;
-}
-footer a:hover {
-  color: #fff;
+@media (min-width: 768px) {
+  .content-img--half { max-width: 48%; }
 }
 
-/* =========================
-   Responsive
-   ========================= */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-  }
-  .pills {
-    flex-direction: column;
-  }
+/* Team portraits (About page) */
+.team-photo {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
+/* Footer styling aligned to brand */
+.site-footer {
+  background: #0d3b44;
+  color: #fff;
+  padding: 24px 0;
+  margin-top: 30px;
+}
+.site-footer p { margin: 0.25rem 0; }
+
+/* Forms (Contact/Referral) tidy with Bootstrap classes) */
+form .form-control {
+  border-radius: 10px;
+  border-color: #dfe7ea;
+}
+form .form-control:focus {
+  box-shadow: 0 6px 18px rgba(0,127,127,0.08);
+  border-color: var(--accent);
+}
+
+/* Accessibility helpers */
+a:focus,
+button:focus,
+.main-button:focus {
+  outline: 3px solid rgba(0,166,185,0.35);
+  outline-offset: 2px;
+}
+
+/* Utility spacing for section containers if needed */
+.section .container .card { border: 1px solid rgba(8,20,20,0.06); }
