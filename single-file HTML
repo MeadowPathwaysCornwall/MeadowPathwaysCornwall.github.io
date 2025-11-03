@@ -1,362 +1,76 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Meadow Pathways — single-file preview</title>
-<meta name="description" content="Meadow Pathways Wellbeing and Education Cornwall — single-file preview including theme, carousel and scripts." />
-<link rel="icon" href="Logo.png" />
-<style>
-/* Embedded consolidated theme (from style.css) - save to style.css in production */
-:root{
-  --accent: #2f8f4a;
-  --accent-2: #00a6c1;
-  --accent-dark: #005f63;
-  --accent-warm: #d4af37;
-  --muted: #667788;
-  --text: #163632;
-  --text-soft: #6b7d7a;
-  --card-bg: rgba(255,255,255,0.98);
-  --soft-border: #e6eef3;
-  --shadow-1: 0 8px 28px rgba(12,28,30,0.08);
-  --max-width: 1100px;
-  --gutter: 18px;
-  --radius: 14px;
-  --ui-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --footer-green: #3b4d2c;
-}
-
-/* Reset & base */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family:var(--ui-font);
-  color:var(--text);
-  background:#fbfdfd;
-  line-height:1.45;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-.container{max-width:var(--max-width);margin:0 auto;padding:0 var(--gutter)}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-img{max-width:100%;height:auto;display:block}
-
-/* Page wrap + BG overlay */
-.page-wrap::before{
-  content:"";
-  position:fixed;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom, rgba(255,255,255,0.62), rgba(255,255,255,0.94));
-  z-index:0;
-}
-.page-wrap, .site-header, main, .container, .site-footer{position:relative;z-index:1}
-
-/* Header */
-.site-header{
-  position:relative;z-index:1100;
-  background-color:rgba(255,255,255,0.98);
-  border-bottom:1px solid rgba(0,0,0,0.04);
-  backdrop-filter: blur(4px) saturate(110%);
-}
-.header-inner{
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:16px var(--gutter);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-}
-.logo{height:90px;object-fit:contain;border-radius:12px;padding:4px;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
-@media (max-width:880px){ .logo{max-height:110px} }
-@media (max-width:560px){ .logo{max-height:72px} }
-
-/* Navigation */
-.primary-nav{display:flex;align-items:center;gap:14px}
-.nav-toggle{display:none;background:transparent;border:0;font-size:20px;cursor:pointer}
-@media (max-width:880px){.nav-toggle{display:inline-block}}
-.nav-tabs{list-style:none;margin:0;padding:0;display:flex;gap:10px;align-items:center}
-.nav-tabs li a{
-  display:inline-block;padding:10px 16px;border-radius:12px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,255,255,0.64));
-  border:1px solid rgba(0,0,0,0.04);color:#0f3b38;font-weight:700;
-  box-shadow:0 6px 18px rgba(8,26,26,0.06);
-  transition: transform .12s ease, box-shadow .12s ease;
-}
-.nav-tabs li a:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,166,185,0.06)}
-.nav-tabs li a.active{
-  background:linear-gradient(180deg,var(--accent),var(--accent-2));
-  color:#fff;border:1px solid rgba(255,255,255,0.06);box-shadow:0 12px 36px rgba(0,150,160,0.14)
-}
-.nav-tabs.open{display:flex;flex-direction:column;padding:12px;border-radius:12px;box-shadow:var(--shadow-1)}
-@media (max-width:880px){ .nav-tabs{ position:absolute; top:64px; right:var(--gutter); background:rgba(255,255,255,0.98); display:none } }
-
-/* Hero */
-.hero{padding:36px 0;border-radius:var(--radius);margin-top:8px;background-repeat:no-repeat;background-position:center top;background-size:contain}
-#hero-title{font-size:2rem;color:var(--accent);margin-bottom:8px}
-.hero-sub{color:var(--muted)}
-.hero-actions{margin-top:14px;display:flex;gap:10px}
-
-/* Cards */
-.card{
-  background:var(--card-bg);border-radius:14px;box-shadow:var(--shadow-1);
-  padding:20px;margin:20px 0;border:1px solid rgba(8,20,20,0.03);
-}
-.card > h2{padding-left:14px;border-left:6px solid rgba(0,127,127,0.12);margin-bottom:12px}
-
-/* Pills & buttons */
-.pill, .btn{
-  display:inline-block;padding:10px 16px;border-radius:12px;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;border:none;
-}
-.pill.secondary, .btn.secondary{background:#f0f4f8;color:#233}
-
-/* Carousel */
-.carousel{position:relative;overflow:hidden}
-.slides{display:block}
-.slide{width:100%;max-height:420px;object-fit:cover;display:none}
-.slide.active{display:block}
-.carousel-controls{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px}
-.carousel-btn{background:#fff;border:1px solid #ddd;padding:6px 10px;border-radius:6px;cursor:pointer}
-.dots{display:inline-flex;gap:8px;align-items:center}
-.dot{width:10px;height:10px;border-radius:50%;background:#ddd;border:none;cursor:pointer}
-.dot.active{background:var(--accent)}
-
-/* Team photos */
-.team-photo{max-width:260px;width:100%;height:auto;border-radius:12px;border:4px solid #f0f4f8;box-shadow:0 4px 12px rgba(0,0,0,0.08);margin:12px auto;object-fit:cover}
-
-/* Footer */
-.site-footer{background-color:var(--footer-green);color:#fff;text-align:center;padding:25px 10px;font-size:0.95rem;border-top:3px solid var(--accent-warm)}
-.footer-content{display:flex;flex-direction:column;align-items:center;gap:8px}
-.footer-logo{width:70px;height:auto;margin-bottom:5px}
-
-/* Utility */
-.back-to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,0.08);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .18s}
-.back-to-top.show{opacity:1;pointer-events:auto}
-
-/* Protected contact highlight */
-.protected-note{background:#fff4e6;border-left:4px solid var(--accent-warm);padding:10px 12px;border-radius:8px;color:#3b3b3b;margin-bottom:14px}
-
-/* Small screens */
-@media (max-width:845px){
-  .section{width:94%;right:3%;left:3%}
-  .carousel-caption{font-size:0.95rem}
-}
-
-/* Screen-reader only */
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Site Quick Checker — Meadow Pathways</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Arial;margin:18px;background:#fbfdff;color:#0b233f}
+    h1{margin:0 0 12px}
+    .grid{display:grid;gap:10px;grid-template-columns:1fr 120px;max-width:980px}
+    .item{padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(11,35,64,0.06);box-shadow:0 6px 18px rgba(11,35,64,0.03)}
+    .status{font-weight:700;display:inline-block;padding:6px 8px;border-radius:8px}
+    .ok{background:#e6ffef;color:#0b6623;border:1px solid rgba(11,35,64,0.04)}
+    .no{background:#fff1f0;color:#8b1d1d;border:1px solid rgba(11,35,64,0.04)}
+    .note{font-size:0.92rem;color:#475569;margin-top:8px}
+    button{margin-top:14px;padding:10px 12px;border-radius:8px;border:none;background:#ff7a2d;color:#fff;font-weight:700;cursor:pointer}
+  </style>
 </head>
 <body>
-<a class="skip-link sr-only" href="#main">Skip to content</a>
+  <h1>Meadow Pathways — Quick site checker</h1>
+  <p class="note">Developer helper: quick, local checks of site pages and sample assets. Open from the site root to run tests.</p>
+  <div id="results"></div>
+  <button id="run">Run checks</button>
 
-<header class="site-header" role="banner">
-  <div class="header-inner container">
-    <div class="logo-wrap">
-      <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-      </a>
-    </div>
+  <script>
+  (function(){
+    const CHECKS = [
+      {label:'index.html', url:'index.html'},
+      {label:'about.html', url:'about.html'},
+      {label:'contact.html', url:'contact.html'},
+      {label:'Logo.png', url:'Logo.png'},
+      {label:'BG.png', url:'BG.png'},
+    ];
 
-    <nav aria-label="Primary" class="primary-nav">
-      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-      <ul id="primaryNav" class="nav-tabs" role="menubar">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="staff.html">Staff</a></li>
-        <li><a href="referral.html">Referral</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    const resultsEl = document.getElementById('results');
+    const runBtn = document.getElementById('run');
 
-<div class="page-wrap">
-  <section class="hero" aria-labelledby="hero-title" style="background-image:url('BG.png');">
-    <div class="hero-overlay container" style="max-width:920px;">
-      <h1 id="hero-title">Guiding individual journeys with care and purpose</h1>
-      <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿✨</p>
-      <div class="hero-actions">
-        <a class="pill" href="referral.html">Make a referral</a>
-        <a class="pill" href="about.html">Find out more</a>
-      </div>
-    </div>
-  </section>
-
-  <aside class="container" style="margin-top:18px;">
-    <div id="carousel" class="carousel" aria-roledescription="carousel" aria-label="Gallery">
-      <div class="slides" role="list">
-        <img src="Bake.jpg" alt="Baking activity" class="slide" role="listitem" />
-        <img src="Cooking.jpg" alt="Cooking session" class="slide" role="listitem" />
-        <img src="MM.jpg" alt="Multimedia activity" class="slide" role="listitem" />
-        <img src="Paint.jpg" alt="Painting session" class="slide" role="listitem" />
-        <img src="cook.jpg" alt="Cooking practical" class="slide" role="listitem" />
-        <img src="den.jpg" alt="Den building" class="slide" role="listitem" />
-        <img src="hand.jpg" alt="Hands in meadow activity" class="slide" role="listitem" />
-        <img src="paths.jpg" alt="Exploring paths" class="slide" role="listitem" />
-        <img src="plant.jpg" alt="Planting activity" class="slide" role="listitem" />
-        <img src="wood.jpg" alt="Woodland activity" class="slide" role="listitem" />
-      </div>
-
-      <div class="carousel-controls" aria-hidden="false">
-        <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
-        <div class="dots" id="dots" role="tablist" aria-label="Carousel pagination"></div>
-        <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
-      </div>
-    </div>
-
-    <p class="carousel-caption" style="margin-top:10px;color:var(--text-soft)">Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities. 🎨🍳🌲</p>
-  </aside>
-
-  <main id="main" class="container" role="main" style="margin-top:18px;">
-    <section class="card" aria-labelledby="welcome">
-      <h2 id="welcome">Welcome</h2>
-      <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community based activities to build confidence, skills, and a sense of belonging. 🌱</p>
-    </section>
-
-    <section class="card" aria-labelledby="approach">
-      <h2 id="approach">Our approach</h2>
-      <p>We work relationally, using trauma informed practice and creative, curriculum linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px;">
-        <div style="background:linear-gradient(180deg,#d9eef6,#f7fbfd);border-radius:12px;padding:12px;">
-          <strong style="color:#23607b;font-size:1.05rem;">Meeting learners where they are</strong>
-          <p style="margin-top:8px;color:var(--text-soft);">At Meadow Pathways we recognise that every young person is unique. We work collaboratively with families, schools, and partner organisations to find meaningful and sustainable routes to success.</p>
-        </div>
-        <div style="background:linear-gradient(180deg,#fde7e7,#fff6f6);border-radius:12px;padding:20px;min-height:220px;display:flex;align-items:center;">
-          <strong style="color:#b34b4b;font-size:1.05rem;">Person centred commitment</strong>
-        </div>
-        <div style="background:linear-gradient(180deg,#e7fbe7,#f7fffa);border-radius:12px;padding:20px;min-height:220px;display:flex;align-items:center;">
-          <strong style="color:#2f8f4a;font-size:1.05rem;">Practical learning in community settings</strong>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" aria-labelledby="offers">
-      <h2 id="offers">What we offer</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px;">
-        <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Mentoring and Advocacy</h4><p>Consistent relational support and advocacy for learners.</p></div>
-        <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Tailored Learning</h4><p>Flexible academic packages matched to needs.</p></div>
-        <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Life Skills</h4><p>Functional, practical preparation for adulthood.</p></div>
-      </div>
-    </section>
-  </main>
-</div>
-
-<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
-
-<footer class="site-footer">
-  <div class="footer-content container">
-    <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-    <p>Guiding Individual Journeys with Care and Purpose</p>
-    <p style="margin-top:8px"><a class="pill" href="sitemap.html" style="text-decoration:none">Sitemap</a> <a class="pill secondary" href="policies.html" style="text-decoration:none">Policies</a></p>
-  </div>
-</footer>
-
-<script>
-/* Embedded script (matches script.js) */
-(function () {
-  'use strict';
-
-  // NAV TOGGLE
-  var navToggle = document.getElementById('navToggle');
-  var nav = document.getElementById('primaryNav');
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', function () {
-      var expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('open');
-    });
-  }
-
-  // BACK TO TOP
-  var backBtn = document.getElementById('backToTop');
-  if (backBtn) {
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 300) backBtn.classList.add('show');
-      else backBtn.classList.remove('show');
-    });
-    backBtn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // CAROUSEL
-  document.addEventListener('DOMContentLoaded', function () {
-    var carousel = document.getElementById('carousel');
-    if (!carousel) return;
-    var slidesContainer = carousel.querySelector('.slides');
-    if (!slidesContainer) return;
-    var slides = Array.prototype.slice.call(slidesContainer.querySelectorAll('img.slide'));
-    if (!slides.length) return;
-    var dotsContainer = document.getElementById('dots');
-    var prevBtn = document.getElementById('prev');
-    var nextBtn = document.getElementById('next');
-
-    slides.forEach(function (s, i) {
-      s.classList.remove('active');
-      s.setAttribute('data-index', i);
-      s.style.display = 'none';
-    });
-    var current = 0;
-    slides[current].classList.add('active');
-    slides[current].style.display = '';
-
-    if (dotsContainer) {
-      while (dotsContainer.firstChild) dotsContainer.removeChild(dotsContainer.firstChild);
-      slides.forEach(function (_, i) {
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'dot' + (i === 0 ? ' active' : '');
-        btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        btn.setAttribute('data-index', i);
-        btn.addEventListener('click', function () {
-          goTo(i);
-          resetAutoplay();
-        });
-        dotsContainer.appendChild(btn);
-      });
+    function makeRow(check){
+      const wrapper = document.createElement('div'); wrapper.className='grid';
+      const left = document.createElement('div'); left.className='item';
+      left.innerHTML = '<strong>'+check.label+'</strong><div class="note">'+check.url+'</div>';
+      const right = document.createElement('div'); right.className='item';
+      right.style.display='flex'; right.style.alignItems='center'; right.style.justifyContent='center';
+      right.innerHTML = '<span class="status">Checking…</span>';
+      wrapper.appendChild(left); wrapper.appendChild(right); resultsEl.appendChild(wrapper);
+      return {wrapper,right};
     }
 
-    function goTo(index) {
-      index = (index + slides.length) % slides.length;
-      if (index === current) return;
-      slides[current].classList.remove('active');
-      slides[current].style.display = 'none';
-      var prevDot = dotsContainer && dotsContainer.querySelector('.dot[data-index="' + current + '"]');
-      if (prevDot) prevDot.classList.remove('active');
-      current = index;
-      slides[current].classList.add('active');
-      slides[current].style.display = '';
-      var nextDot = dotsContainer && dotsContainer.querySelector('.dot[data-index="' + current + '"]');
-      if (nextDot) nextDot.classList.add('active');
+    function setStatus(el, ok, message){
+      const span = el.querySelector('.status');
+      span.textContent = message || (ok ? 'OK' : 'Missing');
+      span.className = 'status ' + (ok ? 'ok' : 'no');
     }
 
-    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); resetAutoplay(); });
-    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); resetAutoplay(); });
+    async function runChecks(){
+      resultsEl.innerHTML = '';
+      for (const check of CHECKS){
+        const row = makeRow(check);
+        try {
+          const controller = new AbortController();
+          const id = setTimeout(()=> controller.abort(), 7000);
+          const resp = await fetch(check.url, {method:'GET', signal: controller.signal, mode:'no-cors'});
+          clearTimeout(id);
+          if (resp && (resp.ok || resp.type === 'opaque')) setStatus(row.right, true, 'OK'); else setStatus(row.right, false, 'Missing');
+        } catch (err) { setStatus(row.right, false, 'Missing'); }
+      }
+      const summary = document.createElement('div'); summary.style.marginTop='16px'; summary.className='item';
+      summary.innerHTML = '<strong>Done</strong><p class="note">If files show Missing, verify filenames and upload to the repo root.</p>';
+      resultsEl.appendChild(summary);
+    }
 
-    carousel.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') { goTo(current - 1); resetAutoplay(); }
-      if (e.key === 'ArrowRight') { goTo(current + 1); resetAutoplay(); }
-    });
-    carousel.setAttribute('tabindex', '0');
-
-    var autoplayInterval = 6000, autoplayId = null;
-    function startAutoplay() { if (autoplayId) return; autoplayId = setInterval(function () { goTo(current + 1); }, autoplayInterval); }
-    function stopAutoplay() { if (!autoplayId) return; clearInterval(autoplayId); autoplayId = null; }
-    function resetAutoplay() { stopAutoplay(); startAutoplay(); }
-
-    carousel.addEventListener('mouseenter', stopAutoplay);
-    carousel.addEventListener('mouseleave', startAutoplay);
-    carousel.addEventListener('focusin', stopAutoplay);
-    carousel.addEventListener('focusout', startAutoplay);
-
-    startAutoplay();
-  });
-
-})();
-</script>
+    runBtn.addEventListener('click', runChecks);
+  })();
+  </script>
 </body>
 </html>
