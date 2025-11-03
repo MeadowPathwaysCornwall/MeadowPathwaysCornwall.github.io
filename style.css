@@ -1,131 +1,182 @@
-/* ===========================
-   Meadow Pathways Custom CSS
-   =========================== */
+/* Meadow Pathways — site styles
+   Works with Bootstrap 5 and your current index.html
+   Keep overrides minimal and accessible.
+*/
 
-/* General body styling */
+/* Base */
+:root {
+  --mp-green: #3b7f4b;
+  --mp-dark: #2a2a2a;
+  --mp-light: #f7f9f8;
+  --mp-accent: #7abf91;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #f7fbf6;
+  background-color: var(--mp-light);
   color: #222;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
 }
 
 /* Header */
 header img {
-  max-height: 120px;
-  margin-bottom: 10px;
+  display: inline-block;
+  height: auto;
 }
 header h1 {
-  font-size: 2rem;
+  margin-top: 0.5rem;
   font-weight: 700;
-  margin-top: 10px;
 }
 header .lead {
-  font-size: 1.2rem;
   color: #444;
 }
 
 /* Navbar */
 .navbar {
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
-.navbar-nav .nav-link {
+.navbar-brand {
+  font-weight: 600;
+}
+.nav-link {
   font-weight: 500;
-  padding: 8px 14px;
 }
-.navbar-nav .nav-link.active {
-  color: #0f3b38;
-  border-bottom: 2px solid #0f3b38;
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--mp-green);
+}
+.navbar-toggler {
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* Hero section */
+/* Hero background (full image, not magnified) */
 .hero {
   min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  background-color: #cfe8d6; /* soft fallback tint if BG.png missing */
+  background-image: url("BG.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; /* show full-bleed, preserves proportions at common sizes */
 }
 
-/* Section headings */
-section h2 {
-  font-size: 1.8rem;
+/* Content sections */
+.container h2 {
   font-weight: 700;
-  margin-bottom: 1rem;
-  text-align: center;
+  color: var(--mp-dark);
+}
+.container p {
+  font-size: 1.05rem;
 }
 
-/* Core Values pills */
-.values .pill,
-.row.text-center h4 {
-  background: #eaf7f0;
-  border-radius: 10px;
-  padding: 12px;
-  margin: 8px;
-  font-weight: 600;
-  color: #0f3b38;
+/* Tabs */
+.nav-tabs .nav-link {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.nav-tabs .nav-link.active {
+  color: var(--mp-green);
+  border-color: var(--mp-green);
+}
+.tab-content {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 1rem 1rem 1.25rem;
 }
 
-/* Carousel images */
+/* Values image */
+#flyerValues img {
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Carousel */
+.carousel {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
 .carousel-item img {
   object-fit: cover;
-  height: 400px;
-  border-radius: 6px;
+  height: 400px; /* consistent height */
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+.carousel .carousel-indicators [data-bs-target] {
+  background-color: var(--mp-green);
 }
 
 /* News reel */
-marquee {
+.bg-dark.text-white {
+  background-image: linear-gradient(90deg, #1e1e1e, #2a2a2a);
+}
+.bg-dark .container marquee {
   font-weight: 600;
-  font-size: 1.1rem;
-  letter-spacing: 0.5px;
-}
-
-/* Buttons */
-.btn, .pill {
-  border-radius: 8px;
-  padding: 10px 16px;
-  font-weight: 600;
-}
-.btn-primary, .pill.primary {
-  background-color: #0f3b38;
-  border: none;
-}
-.btn-primary:hover {
-  background-color: #145c54;
 }
 
 /* Footer */
 footer {
-  background: #f1f1f1;
-  padding: 20px;
-  margin-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+footer img {
+  display: inline-block;
+  height: auto;
 }
 footer p {
-  margin: 4px 0;
-  font-size: 0.9rem;
-  color: #333;
-}
-footer img.footer-logo {
-  max-height: 60px;
-  margin-bottom: 10px;
+  margin: 0.25rem 0;
+  color: #444;
 }
 
-/* Back to top button */
-.back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #0f3b38;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  display: none;
-  align-items: center;
-  justify-content: center;
+/* Utility cards for messaging (optional) */
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background-color: #fff;
 }
-.back-to-top.show {
-  display: flex;
+
+/* Accessibility helpers */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--mp-accent);
+  outline-offset: 2px;
 }
+
+/* Responsive */
+@media (max-width: 992px) {
+  .lead {
+    max-width: 70ch;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .carousel-item img {
+    height: 280px;
+  }
+  .hero {
+    min-height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Image filename caution (spaces can break on some setups)
+   Rename 'hand meadow.jpg' to 'hand-meadow.jpg' and update HTML src.
+*/
