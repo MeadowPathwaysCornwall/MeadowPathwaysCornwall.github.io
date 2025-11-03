@@ -1,141 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meadow Pathways Wellbeing and Education Cornwall</title>
-  <meta name="description" content="Trauma-informed, bespoke education and wellbeing support across Cornwall." />
 
-  <!-- Blugoon + libs you already uploaded -->
+  <!-- Core CSS -->
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="tooplate-style.css">
+  <link rel="stylesheet" href="style.css"> <!-- your overrides -->
+
+  <!-- Optional extras -->
   <link rel="stylesheet" href="fontawesome.css">
   <link rel="stylesheet" href="lightbox.css">
   <link rel="stylesheet" href="owl.css">
   <link rel="stylesheet" href="flex-slider.css">
-
-  <!-- Your overrides (keep last) -->
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Sidebar menu (Blugoon-style) -->
-<div class="sidebar-menu" role="navigation" aria-label="Primary">
-  <div class="brand text-center">
-    <a href="index.html" aria-label="Meadow Pathways home">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo">
-    </a>
-    <h1 class="site-title">Meadow Pathways</h1>
-    <p class="site-sub">Guiding Individual Journeys with Care and Purpose</p>
-  </div>
-  <nav>
-    <ul class="main-menu">
-      <li class="active"><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="eotas.html">EOTAS</a></li>
-      <li><a href="safeguarding.html">Safeguarding</a></li>
-      <li><a href="referral.html">Referral</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="staff.html">Staff</a></li>
-    </ul>
-  </nav>
-  <div class="menu-trigger" aria-label="Toggle menu"><span>☰</span></div>
-</div>
+  <!-- Header -->
+  <header class="site-header text-center py-4">
+    <img src="Logo.png" alt="Meadow Pathways Logo" style="max-height:120px;">
+    <h1>Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
+    <p class="lead">Guiding Individual Journeys with Care and Purpose</p>
+  </header>
 
-<!-- Page content -->
-<div class="page-content">
+  <!-- Hero / Background -->
+  <section class="hero" style="background:url('BG.png') center/cover no-repeat; height:300px;">
+  </section>
 
-  <!-- Hero -->
-  <section class="section hero" aria-labelledby="hero-title" style="background-image:url('BG.png'); background-size:cover; background-position:center;">
-    <div class="container">
-      <h2 id="hero-title">Guiding individual journeys with care and purpose</h2>
-      <p class="lead">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices.</p>
-      <div class="buttons">
-        <a class="main-button" href="referral.html">Make a referral</a>
-        <a class="main-button" href="about.html">Find out more</a>
-        <a class="main-button" href="Values.png" download>Our Values</a>
-        <a class="main-button" href="RSHE 2025.pdf" target="_blank" rel="noopener">RSHE 2025</a>
-        <a class="main-button" href="KCSIE 2025.pdf" target="_blank" rel="noopener">KCSIE 2025</a>
-        <a class="main-button" href="EBSNA.docx" download>What is EBSNA?</a>
-      </div>
+  <!-- Core Values -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Our Core Values</h2>
+    <div class="row text-center">
+      <div class="col-md-3"><h4>Resilience &amp; Independence</h4></div>
+      <div class="col-md-3"><h4>Health &amp; Wellbeing</h4></div>
+      <div class="col-md-3"><h4>Honesty &amp; Integrity</h4></div>
+      <div class="col-md-3"><h4>Friendship &amp; Kindness</h4></div>
     </div>
   </section>
 
-  <!-- Bootstrap carousel (your images) -->
-  <section class="section" aria-label="Activity gallery">
-    <div class="container">
-      <div id="mpCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#mpCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#mpCarousel" data-slide-to="1"></li>
-          <li data-target="#mpCarousel" data-slide-to="2"></li>
-          <li data-target="#mpCarousel" data-slide-to="3"></li>
-          <li data-target="#mpCarousel" data-slide-to="4"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active"><img src="Bake.jpg" class="d-block w-100" alt="Baking"></div>
-          <div class="carousel-item"><img src="Paint.jpg" class="d-block w-100" alt="Painting"></div>
-          <div class="carousel-item"><img src="paths.jpg" class="d-block w-100" alt="Exploring paths"></div>
-          <div class="carousel-item"><img src="den.jpg" class="d-block w-100" alt="Den building"></div>
-          <div class="carousel-item"><img src="plant.jpg" class="d-block w-100" alt="Planting"></div>
+  <!-- Carousel -->
+  <section class="container my-5">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="Bake.jpg" class="d-block w-100" alt="Baking">
         </div>
-        <a class="carousel-control-prev" href="#mpCarousel" role="button" data-slide="prev" aria-label="Previous">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </a>
-        <a class="carousel-control-next" href="#mpCarousel" role="button" data-slide="next" aria-label="Next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </a>
+        <div class="carousel-item">
+          <img src="Paint.jpg" class="d-block w-100" alt="Painting">
+        </div>
+        <div class="carousel-item">
+          <img src="paths.jpg" class="d-block w-100" alt="Paths">
+        </div>
       </div>
-      <p class="caption mt-2">Our approach blends therapeutic practice and curriculum‑linked activities to create meaningful learning opportunities. 🎨🍳🌲</p>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
   </section>
 
-  <!-- Values -->
-  <section class="section" aria-labelledby="values-title">
-    <div class="container">
-      <h3 id="values-title">Our values</h3>
-      <div class="row">
-        <div class="col-md-6 col-lg-3"><div class="pill">Resilience &amp; Independence</div></div>
-        <div class="col-md-6 col-lg-3"><div class="pill">Health &amp; Wellbeing</div></div>
-        <div class="col-md-6 col-lg-3"><div class="pill">Honesty &amp; Integrity</div></div>
-        <div class="col-md-6 col-lg-3"><div class="pill">Friendship &amp; Kindness</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Next steps -->
-  <section class="section" aria-labelledby="next-title">
-    <div class="container">
-      <h3 id="next-title">Next steps</h3>
-      <p>If you’d like to explore Meadow Pathways for a child or young person, you can:</p>
-      <div class="buttons">
-        <a class="main-button" href="referral.html">Referral form</a>
-        <a class="main-button" href="about.html">About us</a>
-        <a class="main-button" href="contact.html">Contact</a>
-        <a class="main-button" href="eotas.html">EOTAS provision</a>
-      </div>
-      <p class="text-muted mt-2">If your enquiry is urgent or a safeguarding concern, contact statutory services first and then call the Meadow Pathways team directly.</p>
-    </div>
+  <!-- Call to Action Pills -->
+  <section class="container my-5 text-center">
+    <a href="referral.html" class="btn btn-primary m-2">Referral Form</a>
+    <a href="contact.html" class="btn btn-secondary m-2">Contact Us</a>
+    <a href="safeguarding.html" class="btn btn-info m-2">Safeguarding</a>
+    <a href="policies.html" class="btn btn-success m-2">Policies</a>
   </section>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container text-center">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-      <p>Guiding Individual Journeys with Care and Purpose</p>
-    </div>
+  <footer class="text-center py-4 bg-light">
+    <p>&copy; 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
   </footer>
 
-</div>
-
-<!-- JS includes (use filenames you uploaded) -->
-<script src="jquery.min.js"></script>
-<script src="bootstrap.min.js"></script>
-<script src="owl-carousel.js"></script>
-<script src="lightbox.js"></script>
-<script src="isotope.min.js"></script>
-<script src="custom.js"></script>
-<script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="custom.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
