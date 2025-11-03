@@ -1,39 +1,40 @@
 # MeadowPathways2025
-Wellbeing &amp; Education-EOTAS - Guiding Individual Journeys with Care &amp; Purpose - MPWEC
-# Meadow Pathways Wellbeing and Education Cornwall
 
-Welcome to the official website repository for **Meadow Pathways**, a trauma-informed, person-centred education and wellbeing service supporting children and young people across Cornwall.
+Public website source for Meadow Pathways Wellbeing and Education Cornwall.
 
-This site is designed to be emotionally safe, visually welcoming, and technically reliable — reflecting our ethos of care, clarity, and connection.
+This repository contains the site used on GitHub Pages:
+https://meadowpathwayscornwall.github.io/MeadowPathways2025/
 
----
+Purpose
+- Present Meadow Pathways services, EOTAS, safeguarding and contact/referral information.
+- Provide public policies and resources meant for families, partners and the public.
+- Provide a clear request-access flow for staff-only and protected resources.
 
-## 🌿 About Meadow Pathways
+Important notes
+- Protected internal documents and credentials MUST NOT be stored in this public repository.
+- Staff-only policies or documents should be stored in a secure location and shared via secure channels.
+- The site uses Bootstrap and the Blugoon (Tooplate) base files (provided in repo root). Styling is layered:
+  1. `bootstrap.min.css`
+  2. `tooplate-style.css`
+  3. `style.css` (project overrides — your brand tweaks)
 
-We reconnect children with learning and life through bespoke therapeutic education. Our work is guided by:
+How pages are structured
+- Root-level HTML files: `index.html`, `about.html`, `eotas.html`, `safeguarding.html`, `referral.html`, `contact.html`, `staff.html`, `thankyou.html`, etc.
+- Publicly downloadable policy files (example names present in repo root): `RSHE 2025.pdf`, `KCSIE 2025.pdf`, `MPWEC Safeguarding and Child Protection Policy Sep 2025.docx`, etc.
+- Images are at the repo root and referenced by filename (e.g., `Logo.png`, `BG.png`, `Bake.jpg`, ...).
 
-- **Resilience & Independence**
-- **Health & Wellbeing**
-- **Honesty & Integrity**
-- **Friendship & Kindness**
+Forms and contact
+- Public forms use Formspree for submissions. Example endpoint in the repo:
+  `https://formspree.io/f/movnvzqp`
+- The contact and referral forms redirect to `thankyou.html` on successful submission.
 
-We offer tailored support for children with SEND, SEMH, educational trauma, bereavement, and Emotionally Based School Non-Attendance (EBSNA).
+Developer / Maintenance
+- To run a quick site check locally, open `check-site.html` (or `single-file.html`) in a browser on the site root.
+- Ensure filenames are case-sensitive and match exactly on GitHub Pages (example: `thankyou.html` vs `Thankyou.html`).
 
----
+Privacy and protected data
+- Protected or sensitive client records should not be uploaded to this public repo or to GitHub Pages.
+- For staff-only resources, follow the request-access flow (see `protected-resources.html` and `staff.html`).
 
-## 🖥️ Website Overview
-
-This site is built using plain HTML, CSS, and JavaScript — no frameworks, no build tools — to ensure simplicity, accessibility, and full control.
-
-### Key Features
-
-- ✅ Responsive design with accessible navigation
-- ✅ Carousel showcasing therapeutic activities
-- ✅ Referral and contact forms (Formspree integration)
-- ✅ Sitemap and robots.txt for search engine indexing
-- ✅ Emotionally safe visual design with nature-inspired accents
-
----
-
-## 📁 File Structure
-
+Contacts
+- Site owner / lead contact: Michelle Pascoe (contact details are included on the public site pages).
