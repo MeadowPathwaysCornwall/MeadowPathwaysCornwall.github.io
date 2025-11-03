@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Site checker — Meadow Pathways</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <meta name="robots" content="noindex" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="logo-wrap">
+        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+        </a>
+      </div>
+
+      <nav aria-label="Primary" class="primary-nav">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+        <ul id="primaryNav" class="nav-tabs" role="menubar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="staff.html">Staff</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <section class="card" aria-labelledby="check-title">
+      <h1 id="check-title">Quick site checker</h1>
+      <p>Use the buttons below to check that key files are present and accessible on the site root.</p>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+        <a class="pill" href="/style.css" target="_blank" rel="noopener">Check style.css</a>
+        <a class="pill" href="/script.js" target="_blank" rel="noopener">Check script.js</a>
+        <a class="pill" href="/sitemap.xml" target="_blank" rel="noopener">Check sitemap.xml</a>
+        <a class="pill" href="/robots.txt" target="_blank" rel="noopener">Check robots.txt</a>
+      </div>
+
+      <p style="margin-top:14px;color:#556;">If any link returns 404, upload the missing file to the repo root and re-deploy.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+    </div>
+  </footer>
+</body>
+</html>

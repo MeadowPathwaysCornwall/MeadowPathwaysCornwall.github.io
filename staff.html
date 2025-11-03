@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
+<link rel="stylesheet" href="style.css" />
+<meta name="robots" content="noindex" />
+<style>
+.locked-overlay { display:flex;align-items:center;justify-content:center;padding:28px 12px; }
+.lock-box { max-width:760px;background:#fff;border-radius:12px;padding:22px;box-shadow:0 8px 28px rgba(0,0,0,0.08);text-align:center }
+.lock-box input[type="password"]{width:100%;padding:10px;margin-top:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08)}
+.lock-box button{margin-top:12px;padding:10px 14px;border-radius:8px;background:#1f9d9a;color:#fff;border:none;font-weight:700;cursor:pointer}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="header-inner container">
+<div class="logo-wrap"><a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo" /></a></div>
+<nav aria-label="Primary" class="primary-nav"><button id="navToggle" class="nav-toggle" aria-expanded="false">☰</button>
+<ul id="primaryNav" class="nav-tabs">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="eotas.html">EOTAS</a></li>
+<li><a href="safeguarding.html">Safeguarding</a></li>
+<li><a href="staff.html" class="active">Staff</a></li>
+<li><a href="referral.html">Referral</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="page-wrap">
+<section class="hero" aria-labelledby="hero-title" style="background-image:url('BG.png');">
+<div class="hero-overlay container"><h1 id="hero-title">Staff area</h1><p class="hero-sub">Internal links and information for Meadow Pathways staff</p></div>
+</section>
+<main id="main" class="container">
+<div id="locked" class="locked-overlay" aria-hidden="false">
+<div class="lock-box" role="dialog" aria-labelledby="lock-title">
+<h3 id="lock-title">Staff access required</h3>
+<p>Enter the staff password to access hours logging, internal policies and safeguarding resources.</p>
+<input id="staffPassword" type="password" aria-label="Staff password" placeholder="Enter staff password" />
+<button id="unlockBtn" type="button">Unlock</button>
+<p style="margin-top:10px;font-size:0.95rem;color:var(--text-soft)">If you have trouble accessing this area, contact Michelle or Zoe.</p>
+</div>
+</div>
+<div id="staffPanel" style="display:none" aria-hidden="true">
+<section class="card">
+<h2>Internal information</h2>
+<p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
+<ul>
+<li>Formspree endpoint for all forms: <code>https://formspree.io/f/movnvzqp</code></li>
+<li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
+<li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
+<li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
+</ul>
+<h3>Statutory and partner resources</h3>
+<div style="display:flex;flex-wrap:wrap;gap:8px;">
+<a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025) - GOV.UK</a>
+<a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
+<a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research</a>
+<a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
+</div>
+<h3 style="margin-top:12px">Internal policy documents (downloads)</h3>
+<div style="display:flex;flex-wrap:wrap;gap:8px;">
+<a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>MPWEC Curriculum Policy EOTAS September 2025.docx</a>
+<a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>MPWEC H&S Policy Sep 25.docx</a>
+<a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>MPWEC Lone Working Policy Sep25.docx</a>
+<a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>MPWEC Safeguarding and Child Protection Policy Sep 2025.docx</a>
+</div>
+</section>
+<section class="card" style="margin-top:12px;">
+<h3>Hours logged</h3>
+<form id="hoursForm" method="POST" novalidate>
+<input type="hidden" name="_subject" value="Hours logged - Meadow Pathways Staff" />
+<label for="staff-name">Staff member name</label>
+<input id="staff-name" name="staff_name" type="text" required />
+<label for="date-worked">Date</label>
+<input id="date-worked" name="date_worked" type="date" required />
+<label for="duration">Duration (hours)</label>
+<input id="duration" name="duration_hours" type="number" step="0.25" min="0" required />
+<label for="client">Client / session with</label>
+<input id="client" name="client_name" type="text" />
+<label for="notes">Brief notes</label>
+<textarea id="notes" name="notes" rows="4"></textarea>
+<label for="email-staff">Staff email</label>
+<input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
+<button type="submit">Submit hours</button>
+<div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
+</form>
+<p style="margin-top:8px;color:var(--text-soft)">Remember to log hours promptly and ensure client notes comply with Meadow Pathways record-keeping guidance.</p>
+</section>
+</div>
+</main>
+</div>
+<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
+<footer class="site-footer">
+<div class="footer-content">
+<img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+<p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+<p>Guiding Individual Journeys with Care and Purpose</p>
+</div>
+</footer>
+<script>
+(function () {
+const PASSWORD = 'MPWEC!'; // keep this secure offline in production
+const lockedEl = document.getElementById('locked');
+const staffPanel = document.getElementById('staffPanel');
+const unlockBtn = document.getElementById('unlockBtn');
+const pwdInput = document.getElementById('staffPassword');
+function unlock() {
+const val = (pwdInput.value || '').trim();
+if (val === PASSWORD) {
+lockedEl.style.display = 'none';
+staffPanel.style.display = 'block';
+lockedEl.setAttribute('aria-hidden', 'true');
+staffPanel.setAttribute('aria-hidden', 'false');
+document.getElementById('staff-name').focus();
+} else {
+pwdInput.value = '';
+pwdInput.focus();
+alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+}
+}
+unlockBtn.addEventListener('click', unlock);
+pwdInput.addEventListener('keyup', function (e) { if (e.key === 'Enter') unlock(); });
+// Hours form submit
+const hoursForm = document.getElementById('hoursForm');
+const hoursStatus = document.getElementById('hoursStatus');
+const FORMSPREE = 'https://formspree.io/f/movnvzqp';
+hoursForm.addEventListener('submit', async function (e) {
+e.preventDefault();
+hoursStatus.textContent = 'Submitting...';
+const data = new FormData(hoursForm);
+try {
+const res = await fetch(FORMSPREE, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
+if (res.ok) {
+hoursForm.reset();
+hoursStatus.textContent = 'Hours submitted. Thank you.';
+setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
+} else {
+const result = await res.json();
+hoursStatus.textContent = (result && result.errors) ? result.errors.map(err => err.message).join('; ') : 'Submission error — please try again later.';
+}
+} catch (err) {
+hoursStatus.textContent = 'Network error — check connection and try again.';
+}
+});
+})();
+</script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Staff Rota — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <meta name="robots" content="noindex" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <div class="logo-wrap">
+        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+        </a>
+      </div>
+
+      <nav aria-label="Primary" class="primary-nav">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+        <ul id="primaryNav" class="nav-tabs" role="menubar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a class="active" href="staff.html">Staff</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <section class="card rota" aria-labelledby="rota-form-title" style="max-width:920px;margin:18px auto;">
+      <h1 id="rota-form-title">Staff rota and hours</h1>
+      <p>Log shifts and staff availability. Internal use only.</p>
+
+      <form id="rotaForm" method="POST" action="https://formspree.io/f/movnvzqp" novalidate>
+        <input type="hidden" name="_redirect" value="thankyou.html" />
+        <div class="grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+          <div>
+            <label for="staffName">Staff name</label>
+            <input id="staffName" name="staff_name" type="text" required placeholder="Full name" />
+          </div>
+
+          <div>
+            <label for="role">Role</label>
+            <input id="role" name="role" type="text" placeholder="e.g., Lead Therapist, Mentor" />
+          </div>
+
+          <div>
+            <label for="date">Date</label>
+            <input id="date" name="date" type="date" required />
+          </div>
+
+          <div>
+            <label for="start">Start time</label>
+            <input id="start" name="start_time" type="time" />
+          </div>
+
+          <div>
+            <label for="end">End time</label>
+            <input id="end" name="end_time" type="time" />
+          </div>
+
+          <div>
+            <label for="hours">Duration (hours)</label>
+            <input id="hours" name="duration_hours" type="number" step="0.25" min="0" placeholder="e.g., 3.5" />
+          </div>
+
+          <div style="grid-column:1/-1">
+            <label for="location">Location or activity</label>
+            <input id="location" name="location" type="text" placeholder="e.g., Treverno Meadows; Home visit; Online session" />
+          </div>
+
+          <div style="grid-column:1/-1">
+            <label for="notes">Notes (brief)</label>
+            <textarea id="notes" name="notes" placeholder="Any brief session notes, safeguarding flags, or scheduling notes"></textarea>
+          </div>
+        </div>
+
+        <div class="note" style="margin-top:12px;color:var(--muted)">Do not include protected personal data in notes submitted through this public form. For sensitive client records use secure internal channels.</div>
+
+        <div style="margin-top:12px;display:flex;gap:12px;align-items:center;">
+          <button type="submit" class="pill">Submit shift</button>
+          <a href="staff.html" class="secondary">Staff area</a>
+          <span class="hint" style="margin-left:auto;color:var(--muted);font-weight:600">Logged shifts appear in staff records</span>
+        </div>
+
+        <div role="status" aria-live="polite" class="form-status" style="margin-top:12px;color:var(--muted)"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+    </div>
+  </footer>
+</body>
+</html>

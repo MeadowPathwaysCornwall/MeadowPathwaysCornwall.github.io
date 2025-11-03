@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
+<meta name="description" content="Referral form for Meadow Pathways Cornwall — refer a child or young person for therapeutic education and wellbeing support." />
+<link rel="stylesheet" href="style.css" />
+<style>
+:root{
+--accent:#2f8f4a;
+--muted:#667788;
+--card-bg:#fff;
+--soft-border:#e6eef3;
+--gold:#d4af37;
+--footer-green:#3b4d2c;
+}
+.referral-hero{ padding:40px 0; background: linear-gradient(180deg,#f0fbf7,#fff); }
+.referral-hero h1{ margin:0 0 6px 0; color:var(--accent); }
+.referral-hero p{ margin:0; color:var(--muted); }
+.card.referral-form{ padding:22px; background:var(--card-bg); border-radius:12px; box-shadow:0 6px 18px rgba(15,40,50,0.04); max-width:980px; margin:18px auto; }
+.referral-form h2{ margin-top:0; border-left:6px solid var(--accent); padding-left:12px; color:var(--accent); }
+form .grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:14px; }
+@media(max-width:760px){ form .grid{ grid-template-columns: 1fr; } }
+label{ display:block; font-weight:600; margin-bottom:6px; color:#234a3a; }
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea{ width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--soft-border); background:#fff; font-size:1rem; color:#183233; box-sizing:border-box; transition:box-shadow .15s ease, border-color .15s ease; }
+input:focus, select:focus, textarea:focus{ outline:none; box-shadow:0 4px 18px rgba(47,143,74,0.08); border-color:var(--accent); }
+textarea{ min-height:140px; resize:vertical; }
+.full-width { grid-column: 1 / -1; }
+.hint{ color:var(--muted); font-size:0.95rem; margin-top:6px; }
+.support-note{ margin-top:12px; padding:12px 14px; background: linear-gradient(180deg,#fff6f6,#fff); border-radius:10px; border:1px solid rgba(179,75,75,0.06); color:#6b3b3b; font-size:0.95rem; }
+.actions{ display:flex; gap:12px; justify-content:flex-start; align-items:center; margin-top:16px; flex-wrap:wrap; }
+.pill, button.pill{ display:inline-block; padding:10px 16px; border-radius:12px; background:var(--accent); color:#fff; border:none; cursor:pointer; font-weight:700; text-decoration:none; }
+button.pill{ box-shadow:0 6px 18px rgba(47,143,74,0.12); }
+button.pill:hover{ background:#256c39; }
+.secondary{ background:#f0f4f8; color:#233; padding:10px 14px; border-radius:10px; text-decoration:none; }
+.form-col-large{ min-width:300px; }
+.sr-only{ position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+.site-footer { background-color: var(--footer-green); color: #fff; text-align: center; padding: 25px 10px; font-size: 0.95rem; border-top: 3px solid var(--gold); }
+.footer-content { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.footer-logo { width: 70px; height: auto; margin-bottom: 5px; }
+.site-footer p { margin: 0; line-height: 1.4; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<!-- Header -->
+<header class="site-header" role="banner">
+<div class="header-inner container">
+<div class="logo-wrap">
+<a href="index.html" class="brand" aria-label="Meadow Pathways home">
+<img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+<span class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</span>
+</a>
+</div>
+<nav aria-label="Primary" class="primary-nav">
+<button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
+<ul id="primaryNav" class="nav-tabs" role="menubar">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="eotas.html">EOTAS</a></li>
+<li><a href="safeguarding.html">Safeguarding</a></li>
+<li><a href="staff.html">Staff</a></li>
+<li><a href="referral.html" class="active">Referral</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="page-wrap">
+<section class="referral-hero">
+<div class="container">
+<h1>Referral</h1>
+<p class="hero-sub">Complete this secure referral form to refer a child or young person to Meadow Pathways Wellbeing and Education Cornwall.</p>
+</div>
+</section>
+<main id="main" class="container" role="main">
+<section class="card referral-form" aria-labelledby="referral-title">
+<h2 id="referral-title">📋 Meadow Pathways Cornwall Referral Form</h2>
+<p>Please complete this referral form if you are a parent, carer, or Local Authority professional wishing to refer a child or young person to Meadow Pathways Wellbeing and Education Cornwall. All information shared will be treated confidentially in line with GDPR and safeguarding procedures.</p>
+<form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
+<input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.github.io/thankyou.html" />
+<h3>👤 Child or Young Person’s Details</h3>
+<div class="grid">
+<div>
+<label for="childName">Full Name:</label>
+<input type="text" id="childName" name="childName" required placeholder="Child or young person’s full name" />
+</div>
+<div>
+<label for="dob">Date of Birth:</label>
+<input type="date" id="dob" name="dob" required />
+</div>
+<div class="full-width">
+<label for="address">Address:</label>
+<textarea id="address" name="address" rows="3" required placeholder="Home address"></textarea>
+</div>
+<div>
+<label for="school">Current or Most Recent School:</label>
+<input type="text" id="school" name="school" placeholder="School name" />
+</div>
+<div>
+<label for="ehcp">Does the child/young person have an EHCP?</label>
+<select id="ehcp" name="ehcp" required>
+<option value="">Select</option>
+<option value="Yes">Yes</option>
+<option value="In process">In process</option>
+<option value="No">No</option>
+</select>
+</div>
+</div>
+<h3 style="margin-top:18px;">👪 Referrer Details</h3>
+<div class="grid">
+<div class="form-col-large">
+<label for="referrerName">Your Name:</label>
+<input type="text" id="referrerName" name="referrerName" required placeholder="Your full name" />
+</div>
+<div>
+<label for="role">Role / Relationship to Child:</label>
+<input type="text" id="role" name="role" required placeholder="E.g. parent, SENCO, social worker" />
+</div>
+<div class="full-width">
+<label for="organisation">Organisation (if applicable):</label>
+<input type="text" id="organisation" name="organisation" placeholder="Organisation name" />
+</div>
+<div>
+<label for="email">Email Address:</label>
+<input type="email" id="email" name="email" required placeholder="you@example.com" />
+</div>
+<div>
+<label for="phone">Phone Number:</label>
+<input type="tel" id="phone" name="phone" placeholder="Telephone number" />
+</div>
+</div>
+<h3 style="margin-top:18px;">🧠 Needs and Background Information</h3>
+<div>
+<label for="summary">Summary of Needs / Concerns:</label>
+<textarea id="summary" name="summary" rows="6" required placeholder="Brief summary of needs, behaviours, risks, sensory or health needs, and safeguarding concerns"></textarea>
+</div>
+<div style="margin-top:12px;">
+<label for="support">Current Support or Interventions in Place:</label>
+<textarea id="support" name="support" rows="4" placeholder="Detail existing support, agencies involved, and any recent reports"></textarea>
+</div>
+<div style="margin-top:12px;">
+<label for="goals">What outcomes are hoped for from this referral?</label>
+<textarea id="goals" name="goals" rows="4" placeholder="What would success look like for this child or young person?"></textarea>
+</div>
+<h3 style="margin-top:18px;">📎 Supporting Information</h3>
+<p class="hint">If possible, please email supporting documents such as an EHCP, educational reports, or other relevant assessments to <strong>meadowpathwayscornwall@outlook.com</strong>. Do not attach documents to this form; use email for files.</p>
+<div class="support-note full-width">
+If this referral is a safeguarding concern or urgent, please contact statutory services first and then call the Meadow Pathways team directly. By submitting this form you consent to Meadow Pathways processing the information for the purpose of assessing the referral.
+</div>
+<div class="actions">
+<button type="submit" class="pill">Submit Referral</button>
+<a href="contact.html" class="secondary">Contact us first</a>
+<span class="hint" style="margin-left:auto;">All referrals are reviewed promptly</span>
+</div>
+</form>
+</section>
+</main>
+</div>
+<button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
+<footer class="site-footer">
+<div class="footer-content">
+<img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo" />
+<p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+<p>Guiding Individual Journeys with Care and Purpose</p>
+</div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
