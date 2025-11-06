@@ -1,183 +1,220 @@
-/* === Global Styles === */
+/* ========== GLOBAL STYLES ========== */
 :root {
-  --blue-main: #4a90e2;
-  --blue-light: #a3c7f3;
-  --green-accent: #78c79e;
-  --orange-accent: #f5a45d;
-  --purple-accent: #b291ff;
-  --yellow-accent: #ffdb6e;
-  --teal-accent: #52d1c0;
-  --bg-light: #f9fafb;
-  --text-main: #243447;
-  --text-soft: #4b5563;
+  --blue: #009cd8;
+  --light-blue: #e9f8ff;
+  --accent-green: #5fcba4;
+  --accent-yellow: #ffde59;
+  --accent-pink: #f9b3c4;
+  --accent-purple: #b7a3f9;
+  --text-dark: #243447;
+  --text-soft: #4a5868;
+  --bg-body: #f6fcff;
+  --bg-card: #ffffff;
+  --font-main: "Poppins", Arial, sans-serif;
 }
 
-body.blugoon-body {
-  font-family: 'Poppins', Arial, sans-serif;
+body {
   margin: 0;
-  display: flex;
-  background-color: var(--bg-light);
-  color: var(--text-main);
+  padding: 0;
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  background: var(--bg-body) url("BG.png") repeat fixed;
+  background-size: cover;
+  line-height: 1.6;
 }
 
-/* === Sidebar === */
-.sidebar {
-  width: 250px;
-  background-color: var(--blue-main);
-  color: white;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  overflow-y: auto;
-  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar-inner {
-  text-align: center;
+/* ========== LAYOUT WRAPPERS ========== */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
 
-.sidebar-logo {
-  width: 140px;
-  margin-bottom: 20px;
-  border-radius: 50%;
-  background-color: white;
-  padding: 10px;
-}
-
-.side-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.side-nav li {
-  margin: 12px 0;
-}
-
-.side-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  display: block;
-  padding: 8px 12px;
-  border-radius: 10px;
-  transition: background 0.3s;
-}
-
-.side-nav a:hover,
-.side-nav a.active {
-  background-color: var(--blue-light);
-  color: var(--text-main);
-}
-
-/* === Main Content === */
-.main-content {
-  margin-left: 260px;
-  padding: 30px;
-  flex: 1;
-}
-
-.wrap {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.card {
-  background: white;
-  border-radius: 20px;
-  padding: 25px 30px;
-  margin-bottom: 25px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-  background-size: cover;
-}
-
-/* === Headings === */
-h1, h2, h3 {
-  color: var(--text-main);
-  font-weight: 700;
-}
-
-h1 {
-  font-size: 2rem;
-}
-
-/* === Carousel === */
-.carousel {
-  overflow: hidden;
-  border-radius: 20px;
-  position: relative;
-}
-
-.carousel-inner {
+/* ========== HEADER & NAVIGATION ========== */
+header {
+  background: var(--blue);
+  color: #fff;
   display: flex;
-  transition: transform 0.6s ease-in-out;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.logo {
+  max-height: 90px;
+  width: auto;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 8px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  background: var(--accent-green);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--accent-yellow);
+  color: var(--text-dark);
+}
+
+/* ========== CARDS & CONTENT SECTIONS ========== */
+.card {
+  background: url("paper-texture.jpg") repeat, var(--bg-card);
+  background-blend-mode: lighten;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 28px;
+  padding: 24px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3, h4 {
+  color: var(--text-dark);
+  margin-top: 0;
+}
+
+p {
+  color: var(--text-soft);
+}
+
+/* ========== BUTTONS & LINKS ========== */
+button,
+.submit-btn {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover,
+.submit-btn:hover {
+  background: var(--accent-green);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--blue);
+  color: #fff;
+  text-align: center;
+  padding: 18px;
+  font-size: 0.9rem;
+}
+
+/* ========== CAROUSEL ========== */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 .carousel-inner img {
   width: 100%;
-  height: 400px;
-  object-fit: cover;
-  flex-shrink: 0;
+  display: none;
+  border-radius: 14px;
+}
+
+.carousel-inner img.active {
+  display: block;
+  animation: fade 2s ease-in-out;
 }
 
 .carousel-dots {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   margin-top: 10px;
 }
 
 .carousel-dots span {
-  width: 12px;
-  height: 12px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--accent-purple);
   border-radius: 50%;
-  background-color: var(--blue-light);
-  margin: 0 4px;
+  margin: 0 5px;
   cursor: pointer;
 }
 
-.carousel-dots span.active {
-  background-color: var(--blue-main);
+.carousel-dots .active {
+  background: var(--accent-yellow);
 }
 
-/* === Pills (Tabs) === */
-.pill-container {
+/* ========== BIOS & VALUES ========== */
+.bio-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 10px;
+  gap: 24px;
+  justify-content: center;
 }
 
-.pill {
-  display: inline-block;
-  padding: 10px 16px;
+.bio-card {
+  flex: 1 1 45%;
+  background: url("paper-texture.jpg") repeat, var(--light-blue);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 18px;
+  text-align: center;
+}
+
+.bio-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--blue);
+}
+
+.values-section {
+  text-align: center;
+}
+
+.values-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+.value-item {
+  background: var(--accent-pink);
+  color: var(--text-dark);
+  padding: 16px;
   border-radius: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  color: white;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  width: 240px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.pill:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
+.value-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 8px;
 }
 
-.pill.blue { background-color: var(--blue-main); }
-.pill.green { background-color: var(--green-accent); }
-.pill.orange { background-color: var(--orange-accent); }
-.pill.purple { background-color: var(--purple-accent); }
-.pill.yellow { background-color: var(--yellow-accent); color: var(--text-main); }
-.pill.teal { background-color: var(--teal-accent); color: #fff; }
-.pill.pink { background-color: #f57fa2; }
-.pill.lightblue { background-color: var(--blue-light); color: var(--text-main); }
-.pill.coral { background-color: #f97b66; }
-.pill.mint { background-color: #a1e3c2; color: var(--text-main); }
-.pill.lime { background-color: #c4e56a; color: var(--text-main); }
-.pill.grey { background-color: #d1d5db; color: var(--text-main); }
-
-/* === Forms === */
+/* ========== FORMS ========== */
 form {
   display: flex;
   flex-direction: column;
@@ -185,96 +222,78 @@ form {
 }
 
 input, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1.5px solid #cbd5e1;
-  border-radius: 10px;
-  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
   font-size: 1rem;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
-  background-color: #fefefe;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.submit-btn {
-  background-color: var(--blue-main);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.submit-btn:hover {
-  background-color: var(--green-accent);
-}
-
-/* === Image Frames === */
-.bio-photo, .safe-img {
-  border-radius: 16px;
   width: 100%;
-  max-width: 250px;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #f9fdff;
 }
 
-.photo-frame {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-green);
+  box-shadow: 0 0 8px rgba(95,203,164,0.4);
 }
 
-/* === Grid Layouts === */
-.contact-grid, .qr-grid, .bio-grid, .values-grid {
-  display: grid;
-  gap: 20px;
+/* ========== POLICY & LINK BUTTONS ========== */
+a.pill {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 20px;
+  margin: 6px;
+  transition: transform 0.2s ease;
 }
 
-.contact-grid {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* Each page link tab has a different colour */
+a.pill:nth-of-type(1) { background: var(--accent-yellow); }
+a.pill:nth-of-type(2) { background: var(--accent-green); }
+a.pill:nth-of-type(3) { background: var(--accent-pink); }
+a.pill:nth-of-type(4) { background: var(--accent-purple); }
+a.pill:nth-of-type(5) { background: var(--blue); }
+
+a.pill:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
-.qr-grid {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+/* ========== QR SECTION ========== */
+.qr-section {
   text-align: center;
 }
 
-.values-grid {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.qr-image {
+  max-width: 200px;
+  margin-top: 10px;
+  border: 3px solid var(--accent-green);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-.value-icon {
-  font-size: 1.8rem;
-  display: block;
-  margin-bottom: 6px;
-}
-
-/* === News Section === */
-.news-card marquee {
-  font-weight: 500;
-  font-size: 1.1rem;
-  color: var(--text-soft);
-}
-
-/* === Footer === */
-.site-foot {
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-soft);
-  margin-top: 30px;
-}
-
-/* === Responsive === */
-@media (max-width: 800px) {
-  .sidebar {
-    display: none;
+/* ========== MEDIA QUERIES ========== */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .main-content {
-    margin-left: 0;
+
+  .bio-grid {
+    flex-direction: column;
   }
+
+  .bio-card {
+    width: 100%;
+  }
+
+  .carousel-inner img {
+    border-radius: 0;
+  }
+}
+
+@keyframes fade {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
 }
