@@ -1,59 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Staff Rota — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="blugoon-body">
 
-  <header class="site-header">
-    <div class="wrap">
-      <div class="brand">
-        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="logo"></a>
-      </div>
-      <nav class="main-nav" aria-label="Primary navigation">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="staff.html" class="active">Staff</a></li>
-        </ul>
-      </nav>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand-left">
+      <a href="index.html"><img src="Logo.png" alt="Logo" class="logo"></a>
     </div>
-  </header>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="staff.html" class="active">Staff</a></li>
+        <li><a href="staff-rota.html">Staff Rota</a></li>
+        <li><a href="protected-resources.html">Resources</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main class="wrap main-content">
-    <section class="card">
-      <h2>Staff Rota Form</h2>
-      <p class="lead">Submit your weekly rota or availability below. This form is visible only to logged-in staff.</p>
+<main class="wrap main-content">
+  <section class="card">
+    <h2>Staff Rota Submission 🗓️</h2>
+    <p>This form is only for authorised staff members. All submissions are securely stored via Netlify Forms and not publicly visible.</p>
 
-      <form name="staff-rota" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thankyou.html" class="rota-form">
-        <input type="hidden" name="form-name" value="staff-rota">
-        <p class="hidden"><label>Don’t fill this out if you're human: <input name="bot-field"></label></p>
+    <form name="staff-rota" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html">
+      <input type="hidden" name="form-name" value="staff-rota" />
+      <p><label>Name:<br><input type="text" name="name" required></label></p>
+      <p><label>Week Commencing:<br><input type="date" name="week" required></label></p>
+      <p><label>Working Days / Notes:<br><textarea name="rota-details" rows="5" required></textarea></label></p>
+      <div data-netlify-recaptcha="true"></div>
+      <p><button type="submit" class="submit-btn">Submit Rota</button></p>
+    </form>
+  </section>
+</main>
 
-        <label>Your Name
-          <input type="text" name="name" required>
-        </label>
-        <label>Week Commencing
-          <input type="date" name="week" required>
-        </label>
-        <label>Days / Hours
-          <textarea name="hours" rows="5" required></textarea>
-        </label>
-
-        <button type="submit" class="submit-btn">Submit Rota</button>
-      </form>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <img src="Logo.png" alt="Logo" class="footer-logo">
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-right">
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
