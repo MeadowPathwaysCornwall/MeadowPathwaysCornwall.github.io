@@ -1,21 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body class="blugoon-body">
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <div class="brand-left">
-        <a href="index.html"><img src="Logo.png" alt="Logo" class="logo"></a>
+
+  <!-- SIDEBAR (same as index.html) -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="logo-wrap">
+        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
       </div>
-      <nav class="main-nav">
-        <button class="nav-toggle">☰</button>
-        <ul class="nav-list">
+
+      <nav class="side-nav">
+        <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" class="active">About</a></li>
           <li><a href="eotas.html">EOTAS</a></li>
@@ -26,50 +27,61 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-    </div>
-  </header>
 
-  <main class="wrap">
-    <section class="card">
+      <div class="sidebar-footer">
+        <p>© 2025 Meadow Pathways</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <header class="main-header"><div class="wrap header-top"></div></header>
+
+    <section class="wrap card">
       <h2>About Meadow Pathways 🌿</h2>
       <p>
-        We are passionate about supporting children and young people through creative, trauma-informed education
-        and wellbeing. Every learner is unique, and our aim is to guide them with empathy, understanding,
-        and positive connection.
+        We are passionate about supporting children and young people through creative, trauma-informed education and wellbeing.  
+        Every learner is unique, and our aim is to guide them with empathy, understanding, and positive connection.
       </p>
     </section>
 
-    <section class="bio-grid">
+    <!-- TEAM BIOS -->
+    <section class="wrap bio-grid">
       <article class="bio-card">
-        <div class="photo-frame">
-          <img src="MP.jpeg" alt="Michelle Pascoe" class="bio-photo">
-        </div>
-        <h3>Michelle Pascoe — Director & Founder</h3>
-        <p>
-          Michelle brings years of practical experience supporting young people. Her compassionate approach helps learners rediscover confidence and achieve their potential.
-        </p>
-      </article>
-
-      <article class="bio-card">
-        <div class="photo-frame">
-          <img src="Zoe.jpeg" alt="Zoe Waitz" class="bio-photo">
-        </div>
+        <div class="photo-frame"><img src="Zoe.jpeg" alt="Zoe Waitz" class="bio-photo"></div>
         <h3>Zoe Waitz — Lead Practitioner</h3>
         <p>
-          Zoe supports children and families through creative, nurturing practice and pastoral care, helping every learner feel valued and understood.
+          Zoe supports children and families through creative, nurturing practice and pastoral care, helping every learner feel valued and understood.  
+          She brings compassion and creativity to every interaction, ensuring that wellbeing, engagement, and belonging remain at the heart of her work.  
+          Zoe’s practical, person-centred approach makes a difference for learners who may have struggled to thrive in traditional settings.
+        </p>
+      </article>
+
+      <article class="bio-card">
+        <div class="photo-frame"><img src="MP.jpeg" alt="Michelle Pascoe" class="bio-photo"></div>
+        <h3>Michelle Pascoe — Director & Founder</h3>
+        <p>
+          Michelle is a founding director and Lead Therapist for <strong>Meadow Pathways Wellbeing and Education Cornwall</strong>.  
+          She supports children and young people across the community who experience Special Educational Needs (SEN), Social, Emotional and Mental Health (SEMH) needs, educational trauma, bereavement, and Emotionally Based School Non-Attendance (EBSNA).
+        </p>
+        <p>
+          With over 20 years of experience, Michelle is a qualified counsellor and play therapist. She spent more than a decade in an independent SEN school, beginning as a HLTA and progressing to senior leadership, where she served as Designated Safeguarding Lead for over seven years.  
+          She also dedicated 10 years to one of Cornwall’s only accredited Nurture Groups, embedding a trauma-informed approach into every aspect of her practice.
+        </p>
+        <p>
+          Michelle works in a trauma-informed, person-centred way, focusing on building trust and emotional safety with families, schools, and professionals.  
+          Her approach combines therapeutic insight with creativity and compassion, helping children rediscover their confidence, curiosity, and sense of belonging.
+        </p>
+        <p>
+          Beyond her professional role, Michelle enjoys exploring Cornwall’s coastal paths and woodlands with her two dogs, Pixie and Ivey 🐾🌊🌲.  
+          She brings warmth, creativity, and a deep commitment to fostering relationships that support both healing and learning — ensuring that every child feels seen, heard, and valued. ✨
         </p>
       </article>
     </section>
 
-    <section class="card">
-      <h3>Our Mission 💙</h3>
-      <p>
-        To create a safe, inclusive and supportive environment where every child and young person can learn and thrive — supported by caring professionals who understand trauma, healing and resilience.
-      </p>
-    </section>
-
-    <!-- 🌼 OUR VALUES SECTION -->
-    <section class="card values-section">
+    <!-- VALUES SECTION -->
+    <section class="wrap card values-section">
       <h3>Our Values 🌼</h3>
       <div class="values-grid">
         <div class="value-item">
@@ -77,16 +89,19 @@
           <h4>Resilience &amp; Independence</h4>
           <p>We help our learners build confidence and independence through supportive challenges and positive growth experiences.</p>
         </div>
+
         <div class="value-item">
           <span class="value-icon">💚</span>
           <h4>Health &amp; Wellbeing</h4>
           <p>We prioritise emotional and physical wellbeing, ensuring a balanced, healthy environment for every learner and staff member.</p>
         </div>
+
         <div class="value-item">
           <span class="value-icon">🤝</span>
           <h4>Honesty &amp; Integrity</h4>
-          <p>We believe in transparency, trust and open communication in all relationships — with learners, families and partners.</p>
+          <p>We believe in transparency, trust, and open communication in all relationships — with learners, families, and partners.</p>
         </div>
+
         <div class="value-item">
           <span class="value-icon">🌸</span>
           <h4>Friendship &amp; Kindness</h4>
@@ -94,14 +109,9 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <img src="Logo.png" alt="logo" class="footer-logo">
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-    </div>
-  </footer>
+    <footer class="wrap site-foot"><p>© Meadow Pathways 2025</p></footer>
+  </main>
 
   <script src="script.js"></script>
 </body>
