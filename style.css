@@ -1,182 +1,24 @@
-/* Meadow Pathways — site styles
-   Works with Bootstrap 5 and your current index.html
-   Keep overrides minimal and accessible.
-*/
-
-/* Base */
-:root {
-  --mp-green: #3b7f4b;
-  --mp-dark: #2a2a2a;
-  --mp-light: #f7f9f8;
-  --mp-accent: #7abf91;
+:root{
+  --accent: #2f8f4a;
+  --muted: #667788;
+  --soft-border: #e6eef3;
+  --brand-2: #2f8f4a;
+  --text-deep: #0b233f;
+  --pill-bg: #f6fff4;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:var(--text-deep);background:#fbfdff;}
+.container{max-width:1100px;margin:0 auto;padding:18px;}
+.site-header{padding:12px 0;border-bottom:1px solid #eee}
+.hero{padding:40px 0;background-image:url('BG.png');background-size:cover;background-position:center;color:white}
+.card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 8px 18px rgba(15,40,50,0.04);margin-bottom:18px}
+.pill{display:inline-block;padding:8px 12px;border-radius:999px;background:var(--pill-bg);text-decoration:none;color:var(--text-deep);border:1px solid rgba(0,0,0,0.04)}
+button{cursor:pointer}
+.site-footer{background:#f7fbf6;padding:18px 0;margin-top:20px;text-align:center}
+.footer-logo{height:56px}
+.lead{max-width:60ch;margin:0 auto}
+@media(max-width:760px){
+  .container{padding:12px}
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--mp-light);
-  color: #222;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-}
-
-/* Header */
-header img {
-  display: inline-block;
-  height: auto;
-}
-header h1 {
-  margin-top: 0.5rem;
-  font-weight: 700;
-}
-header .lead {
-  color: #444;
-}
-
-/* Navbar */
-.navbar {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-.navbar-brand {
-  font-weight: 600;
-}
-.nav-link {
-  font-weight: 500;
-}
-.nav-link:hover,
-.nav-link:focus {
-  color: var(--mp-green);
-}
-.navbar-toggler {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-/* Hero background (full image, not magnified) */
-.hero {
-  min-height: 300px;
-  background-color: #cfe8d6; /* soft fallback tint if BG.png missing */
-  background-image: url("BG.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover; /* show full-bleed, preserves proportions at common sizes */
-}
-
-/* Content sections */
-.container h2 {
-  font-weight: 700;
-  color: var(--mp-dark);
-}
-.container p {
-  font-size: 1.05rem;
-}
-
-/* Tabs */
-.nav-tabs .nav-link {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
-.nav-tabs .nav-link.active {
-  color: var(--mp-green);
-  border-color: var(--mp-green);
-}
-.tab-content {
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-top: none;
-  border-radius: 0 0 12px 12px;
-  padding: 1rem 1rem 1.25rem;
-}
-
-/* Values image */
-#flyerValues img {
-  border-radius: 12px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
-}
-
-/* Carousel */
-.carousel {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
-  background: #fff;
-}
-.carousel-item img {
-  object-fit: cover;
-  height: 400px; /* consistent height */
-}
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
-}
-.carousel .carousel-indicators [data-bs-target] {
-  background-color: var(--mp-green);
-}
-
-/* News reel */
-.bg-dark.text-white {
-  background-image: linear-gradient(90deg, #1e1e1e, #2a2a2a);
-}
-.bg-dark .container marquee {
-  font-weight: 600;
-}
-
-/* Footer */
-footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-footer img {
-  display: inline-block;
-  height: auto;
-}
-footer p {
-  margin: 0.25rem 0;
-  color: #444;
-}
-
-/* Utility cards for messaging (optional) */
-.card {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  background-color: #fff;
-}
-
-/* Accessibility helpers */
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--mp-accent);
-  outline-offset: 2px;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-  .lead {
-    max-width: 70ch;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  .carousel-item img {
-    height: 280px;
-  }
-  .hero {
-    min-height: 220px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Image filename caution (spaces can break on some setups)
-   Rename 'hand meadow.jpg' to 'hand-meadow.jpg' and update HTML src.
-*/
