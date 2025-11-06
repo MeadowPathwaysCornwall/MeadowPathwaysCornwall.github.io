@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(currentSlide);
   }
 
-  // Auto slide every 4s
+  // Auto slide every 4 seconds
   setInterval(nextSlide, 4000);
 
   // ========== NAVIGATION ACTIVE LINK ==========
@@ -85,4 +85,16 @@ document.addEventListener("DOMContentLoaded", () => {
       img.style.boxShadow = "0 6px 18px rgba(0,0,0,0.12)";
     });
   });
+
+  // ========== PASSWORD PROTECTION (for staff page) ==========
+  const passwordProtectedPage = '/staff.html'; // Define path for password protection
+
+  if (window.location.pathname === passwordProtectedPage) {
+    const password = prompt("Please enter the password to access this page:");
+
+    if (password !== "yourPasswordHere") {
+      alert("Incorrect password! You cannot access this page.");
+      window.location.href = '/'; // Redirect to home page if password is incorrect
+    }
+  }
 });
