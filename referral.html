@@ -1,83 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Referral Form — Meadow Pathways</title>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Referral — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="blugoon-body">
-<header class="site-header">
-  <div class="wrap header-inner">
-    <div class="brand-left"><a href="index.html"><img src="Logo.png" alt="Logo" class="logo"></a></div>
-    <nav class="main-nav"><button class="nav-toggle">☰</button>
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="policies.html">Policies</a></li>
-        <li><a href="referral.html" class="active">Referral</a></li>
-        <li><a href="staff.html">Staff</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <!-- copy sidebar -->
+  <main class="main-content">
+    <section class="wrap card form-card">
+      <h2>Referral Form 📝</h2>
+      <p>Please complete the details below. This form is processed securely via Netlify Forms.</p>
 
-<main class="wrap">
-  <section class="form-card card">
-    <h2>Referral Form 📝</h2>
-    <p>Please complete the details below. The form is handled securely by Netlify Forms (SSL) and is redirected to a thank-you page after submission.</p>
+      <form name="referral" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html" autocomplete="on">
+        <input type="hidden" name="form-name" value="referral" />
+        <fieldset><legend>Referrer</legend>
+          <div class="form-row">
+            <label>Referrer name<br><input type="text" name="referrer_name" required></label>
+            <label>Organisation<br><input type="text" name="organisation"></label>
+          </div>
+          <div class="form-row">
+            <label>Role<br><input type="text" name="role"></label>
+            <label>Email<br><input type="email" name="email" required></label>
+          </div>
+        </fieldset>
 
-    <form name="referral" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html" autocomplete="on">
-      <input type="hidden" name="form-name" value="referral" />
+        <fieldset><legend>Learner</legend>
+          <div class="form-row">
+            <label>Learner name<br><input type="text" name="learner_name" required></label>
+            <label>Date of birth<br><input type="date" name="dob"></label>
+          </div>
+          <label>Address<br><textarea name="address" rows="3"></textarea></label>
+          <label>Current placement<br><input type="text" name="placement"></label>
+          <label>Reason for referral<br><textarea name="reason" rows="5"></textarea></label>
+        </fieldset>
 
-      <fieldset>
-        <legend>Referrer Information</legend>
-        <div class="form-row">
-          <label>Full Name<br><input type="text" name="referrer_name" required></label>
-          <label>Organisation / School<br><input type="text" name="organisation"></label>
-        </div>
-        <div class="form-row">
-          <label>Role<br><input type="text" name="role"></label>
-          <label>Email<br><input type="email" name="email" required></label>
-        </div>
-      </fieldset>
+        <fieldset><legend>Support Needs</legend>
+          <label>Background info<br><textarea name="background" rows="5"></textarea></label>
+          <label>Goals for support<br><textarea name="goals" rows="4"></textarea></label>
+        </fieldset>
 
-      <fieldset>
-        <legend>Learner Information</legend>
-        <div class="form-row">
-          <label>Learner Full Name<br><input type="text" name="learner_name" required></label>
-          <label>Date of Birth<br><input type="date" name="dob"></label>
-        </div>
-        <label>Address<br><textarea name="address" rows="3"></textarea></label>
-        <label>Current Placement<br><input type="text" name="placement"></label>
-        <label>Reason for Referral<br><textarea name="reason" rows="5"></textarea></label>
-      </fieldset>
-
-      <fieldset>
-        <legend>Support Needs & Goals</legend>
-        <label>Relevant Background Information<br><textarea name="background" rows="5"></textarea></label>
-        <label>Specific Goals for Support<br><textarea name="goals" rows="4"></textarea></label>
-      </fieldset>
-
-      <div data-netlify-recaptcha="true"></div>
-
-      <p class="form-actions">
-        <button type="submit" class="submit-btn">Submit Referral</button>
-        <a href="policies.html" class="link-muted">View policies & guidance</a>
-      </p>
-    </form>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <img src="Logo.png" alt="logo" class="footer-logo">
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-  </div>
-</footer>
+        <div data-netlify-recaptcha="true"></div>
+        <p class="form-actions"><button type="submit" class="submit-btn">Submit Referral</button></p>
+      </form>
+    </section>
+  </main>
 
 <script src="script.js"></script>
 </body>
