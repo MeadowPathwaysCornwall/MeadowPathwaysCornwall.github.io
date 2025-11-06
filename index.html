@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meadow Pathways — Home</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
+
 <body class="blugoon-body">
 
   <!-- SIDEBAR -->
@@ -14,7 +16,6 @@
       <div class="logo-wrap">
         <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
       </div>
-
       <nav class="side-nav">
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
@@ -27,99 +28,77 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-
-      <div class="sidebar-qr">
-        <!-- Crowdfunder QR (you provided this file) -->
-        <img src="treverno-meadows-learning-centre---cornwall-qrcode.png" alt="Crowdfunder QR" class="qr-img">
-        <p class="qr-caption">Scan to view our Crowdfunderfor Treverno Meadow Learning Centre</p>
-      </div>
-
-      <div class="sidebar-footer">
-        <p>© 2025 Meadow Pathways</p>
-      </div>
     </div>
   </aside>
 
   <!-- MAIN CONTENT -->
   <main class="main-content">
-    <header class="main-header">
-      <div class="wrap header-top">
-        <div class="cta">
-          <a class="crowdfund-link" href="https://www.crowdfunder.co.uk/p/treverno-meadows-learning-centre-cornwall" target="_blank" rel="noopener">💙 Support our Crowdfunder</a>
-        </div>
-      </div>
-    </header>
-
-    <!-- HERO CAROUSEL -->
-    <section class="hero card">
-      <div class="carousel-wrap">
-        <div class="carousel-slides">
-          <div class="carousel-slide"><img src="Bake.png" alt="Bake"></div>
-          <div class="carousel-slide"><img src="Cooking.jpg" alt="Cooking"></div>
-          <div class="carousel-slide"><img src="MM.jpg" alt="MM"></div>
-          <div class="carousel-slide"><img src="Paint.jpg" alt="Paint"></div>
-          <div class="carousel-slide"><img src="cook.jpg" alt="Cook"></div>
-          <div class="carousel-slide"><img src="hand.jpg" alt="Hand"></div>
-          <div class="carousel-slide"><img src="paths.jpg" alt="Paths"></div>
-          <div class="carousel-slide"><img src="plant.jpg" alt="Plant"></div>
-          <div class="carousel-slide"><img src="wood.jpg" alt="Wood"></div>
-        </div>
-        <button class="carousel-prev" aria-label="Previous">‹</button>
-        <button class="carousel-next" aria-label="Next">›</button>
-        <div class="carousel-dots"></div>
-      </div>
+    <!-- News Reel -->
+    <section class="news-banner">
+      <p>🌿 <strong>Treverno Meadow Learning Centre</strong> planning is now open! 💫 
+         <a href="https://www.crowdfunder.co.uk/p/treverno-meadows-learning-centre-cornwall" target="_blank" class="news-link">
+           Visit our Crowdfunder page
+         </a> 🚀
+      </p>
     </section>
 
-    <!-- WELCOME / MISSION -->
-    <section class="wrap welcome card">
+    <!-- Carousel -->
+    <section class="wrap carousel card">
+      <div class="carousel-inner">
+        <img src="Bake.jpg" alt="Baking activity" class="active">
+        <img src="Cooking.jpg" alt="Cooking" />
+        <img src="MM.jpg" alt="Outdoor learning" />
+        <img src="Paint.jpg" alt="Art session" />
+        <img src="cook.jpg" alt="Cooking" />
+        <img src="hand.jpg" alt="Creative activity" />
+        <img src="paths.jpg" alt="Outdoor path" />
+        <img src="plant.jpg" alt="Plant learning" />
+        <img src="wood.jpg" alt="Forest" />
+      </div>
+      <div class="carousel-dots"></div>
+    </section>
+
+    <!-- Welcome -->
+    <section class="wrap welcome-section card">
       <h1>Welcome to Meadow Pathways 🌿</h1>
       <p>
-      ✨At Meadow Pathways Wellbeing and Education Cornwall, we provide nurturing, creative learning opportunities
+        At Meadow Pathways Wellbeing and Education Cornwall, we provide nurturing, creative learning opportunities
         for young people with additional needs and those requiring EOTAS support. Our mission is to help every learner
         grow, flourish, and find their unique pathway to success.
-       🌿 Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. 
-        We help children thrive through tailored trauma informed educational approaches. </p>
       </p>
-
       <p>
-        🌿 <strong>Our Commitment:</strong> At Meadow Pathways we recognise that every young person is unique.
-        We are committed to working collaboratively with families, schools, and partner organisations to find
-        the most meaningful and sustainable route to success for each learner.
-      </p>
-
-      <p>
-       🧠 Whether a child is facing barriers to education due to emotional challenges, past trauma, or unmet needs,
-        our role is to meet them where they are to help them move forward with confidence, belonging,
-        and the skills to thrive through creative and informed educational approaches.
+        🌿 <strong>Our Commitment:</strong> At Meadow Pathways we recognise that every young person is unique. We are committed 
+        to working collaboratively with families, schools, and partner organisations to find the most meaningful and 
+        sustainable route to success for each learner. Whether a child is facing barriers to education due to emotional 
+        barriers, past trauma, or unmet needs, our role is to meet them where they are and help them move forward with confidence.
       </p>
     </section>
-      <p>🌲🍳We deliver curriculum linked, hands‑on activities, bush craft, cooking, outdoor fitness, gardening and 
-        project work, so learners build skills, resilience and positive relationships while working towards accredited outcomes. 
 
-    <!-\- QUICK LINKS -->
-    <section class="wrap quick-links card">
-      <div class="link-grid">
-        <a class="tab-btn blue" href="referral.html">Referral Form 📝</a>
-        <a class="tab-btn green" href="policies.html">Policies 📘</a>
-        <a class="tab-btn purple" href="safeguarding.html">Safeguarding 🛡️</a>
-        <a class="tab-btn warm" href="contact.html">Contact Us ✉️</a>
-        <a class="tab-btn accent" href="https://www.crowdfunder.co.uk/p/treverno-meadows-learning-centre-cornwall" target="_blank">Crowdfunder ❤️</a>
+    <!-- Quick Links -->
+    <section class="wrap card">
+      <h2>Explore Meadow Pathways 💫</h2>
+      <div class="policy-tabs">
+        <a class="policy-tab blue" href="referral.html">📝 Referral Form</a>
+        <a class="policy-tab green" href="policies.html">📘 Policies</a>
+        <a class="policy-tab pink" href="safeguarding.html">🛡️ Safeguarding</a>
+        <a class="policy-tab teal" href="contact.html">📧 Contact Us</a>
+        <a class="policy-tab warm" href="https://www.crowdfunder.co.uk/p/treverno-meadows-learning-centre-cornwall" target="_blank">🌻 Crowdfunder</a>
       </div>
     </section>
 
-    <!-- NEWS REEL -->
-    <section class="wrap news card">
-      <h2>Latest News 🗞️</h2>
-      <div class="news-reel">
-        <div class="news-item">🌿 Treverno Meadow Learning Centre planning is now open. 💫 Please visit our Crowdfunder page.</div>
+    <!-- QR Section -->
+    <section class="wrap card qr-section">
+      <h3>Support Our Vision 💙</h3>
+      <p>
+        Help us bring <strong>Treverno Meadow Learning Centre</strong> to life your support makes a difference!  
+        Scan the QR code below or click our Crowdfunder link.
+      </p>
+      <div class="qr-wrap">
+        <img src="treverno-meadows-learning-centre---cornwall-qrcode.png" alt="Crowdfunder QR Code" class="qr-code">
       </div>
     </section>
 
-    <footer class="wrap site-foot">
-      <p>Meadow Pathways Wellbeing & Education Cornwall - Guiding Individual Journeys with Care & Purpose.</p>
-    </footer>
+    <footer class="wrap site-foot"><p>© Meadow Pathways 2025</p></footer>
   </main>
-
-<script src="script.js"></script>
 </body>
 </html>
