@@ -4,96 +4,111 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Meadow Pathways Wellbeing and Education Cornwall</title>
-  <link rel="stylesheet" href="bootstrap.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Meadow Pathways Wellbeing and Education Cornwall — trauma-aware, practical education and wellbeing support for young people.">
 </head>
-<body>
-  <!-- Header -->
-  <header class="text-center py-4">
-    <img src="Logo.png" alt="Meadow Pathways logo" style="max-height:120px;" />
-    <h1 class="mt-2">Welcome to Meadow Pathways Wellbeing and Education Cornwall</h1>
-    <p class="lead">Guiding Individual Journeys with Care and Purpose</p>
-  </header>
+<body class="blugoon-body">
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Primary">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Meadow Pathways</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMain">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="eotas.html">EOTAS</a></li>
-          <li class="nav-item"><a class="nav-link" href="safeguarding.html">Safeguarding</a></li>
-          <li class="nav-item"><a class="nav-link" href="staff.html">Staff</a></li>
-          <li class="nav-item"><a class="nav-link" href="referral.html">Referral</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <a href="index.html" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways logo" class="logo">
+        </a>
+      </div>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <button id="navToggle" class="nav-toggle" aria-expanded="false">Menu</button>
+        <ul id="navList" class="nav-list">
+          <li><a href="index.html" class="nav-item active">Home</a></li>
+          <li><a href="about.html" class="nav-item">About</a></li>
+          <li><a href="eotas.html" class="nav-item">EOTAS</a></li>
+          <li><a href="safeguarding.html" class="nav-item">Safeguarding</a></li>
+          <li><a href="policies.html" class="nav-item">Policies</a></li>
+          <li><a href="referral.html" class="nav-item accent-pill">Referral</a></li>
+          <li><a href="staff.html" class="nav-item">Staff</a></li>
+          <li><a href="contact.html" class="nav-item">Contact</a></li>
         </ul>
+      </nav>
+
+      <div class="cta-wrap">
+        <a class="crowdfund-btn" href="https://www.crowdfunder.co.uk/p/treverno-meadows-learning-centre-cornwall" target="_blank" rel="noopener noreferrer">Support our Crowdfunder</a>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- Carousel -->
-  <section class="container my-4">
-    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner" style="border-radius:8px; overflow:hidden;">
-        <div class="carousel-item active">
-          <img src="MP.jpeg" class="d-block w-100" alt="Meadow Pathways" style="max-height:520px; object-fit:cover;">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Meadow Pathways Wellbeing and Education Cornwall</h5>
-            <p>Guiding individual journeys with care and purpose.</p>
+  <!-- Hero / Carousel (Blugoon-style) -->
+  <section class="hero">
+    <div class="carousel" id="homeCarousel" tabindex="0" aria-roledescription="carousel">
+      <div class="slides">
+        <div class="slide active">
+          <img src="MP.jpeg" alt="Meadow Pathways - outdoor learning">
+          <div class="slide-caption">
+            <h2>Guiding Individual Journeys with Care and Purpose</h2>
+            <p>We support children and young people through trauma-informed education and practical learning.</p>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="BG.png" class="d-block w-100" alt="Countryside" style="max-height:520px; object-fit:cover;">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Outdoor learning & wellbeing</h5>
-            <p>Connection to place and practice.</p>
+        <div class="slide">
+          <img src="BG.png" alt="Countryside wellbeing">
+          <div class="slide-caption">
+            <h2>Outdoor learning & wellbeing</h2>
+            <p>Connection to place and nature is central to our approach.</p>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="Bake.jpg" class="d-block w-100" alt="Activities" style="max-height:520px; object-fit:cover;">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Practical skills & enrichment</h5>
-            <p>Creative, hands-on learning.</p>
+        <div class="slide">
+          <img src="Bake.jpg" alt="Creative practical learning">
+          <div class="slide-caption">
+            <h2>Practical skills & enrichment</h2>
+            <p>Hands-on activities build confidence and life skills.</p>
           </div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+
+      <button class="carousel-prev" aria-label="Previous slide">&lsaquo;</button>
+      <button class="carousel-next" aria-label="Next slide">&rsaquo;</button>
+      <div class="carousel-dots" aria-hidden="false"></div>
     </div>
   </section>
 
-  <!-- Main content sample -->
-  <main class="container">
-    <section class="card p-4">
-      <h2>Welcome</h2>
-      <p>We support children and young people through trauma-informed, practical educational approaches. Find policies, referral forms and staff resources via the navigation above.</p>
+  <!-- Intro -->
+  <main class="wrap main-content">
+    <section class="card">
+      <h3>Welcome</h3>
+      <p class="lead">Meadow Pathways Wellbeing and Education Cornwall provides trauma-aware, practical education for children and young people. We combine outdoor approaches, therapeutic support, and specialist teaching to meet individual needs.</p>
+
+      <div class="quick-links">
+        <a class="pill" href="referral.html">Referral Form</a>
+        <a class="pill" href="policies.html">View Policies</a>
+        <a class="pill" href="protected-resources.html">Staff resources</a>
+      </div>
+    </section>
+
+    <section class="card two-columns">
+      <div>
+        <h4>What we do</h4>
+        <p>We work with learners who need an alternative arrangement to mainstream education, offering bespoke programmes, practical activities, and therapeutic support to help them re-engage and thrive.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a><br>Phone: 07932 243358</p>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer mt-4 py-4">
-    <div class="container text-center">
-      <img src="Logo.png" alt="Logo" class="footer-logo" style="height:60px;">
-      <p class="mt-2">© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <img src="Logo.png" alt="Meadow Pathways logo" class="footer-logo">
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+      <p class="footer-links">
+        <a href="policies.html">Policies</a> ·
+        <a href="safeguarding.html">Safeguarding</a> ·
+        <a href="contact.html">Contact</a> ·
+        <a href="https://www.crowdfunder.co.uk/p/treverno-meadows-learning-centre-cornwall" target="_blank" rel="noopener noreferrer">Crowdfunder</a>
+      </p>
     </div>
   </footer>
 
-  <script src="jquery.min.js"></script>
-  <script src="bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
