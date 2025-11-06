@@ -3,65 +3,72 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <title>Referral — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="blugoon-body">
+
   <header class="site-header">
-    <div class="container">
-      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" style="height:72px"></a>
-      <nav><!-- same nav as index --></nav>
+    <div class="wrap">
+      <div class="brand">
+        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="logo"></a>
+      </div>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="policies.html">Policies</a></li>
+          <li><a href="referral.html" class="accent-pill active">Referral</a></li>
+          <li><a href="staff.html">Staff</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="cta-wrap">
+        <a class="crowdfund-btn" href="https://www.crowdfunder.co.uk/p/treverno-meadows-learning-centre-cornwall" target="_blank">Support our Crowdfunder</a>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="card referral-form">
-      <h2>📋 Meadow Pathways Cornwall Referral Form</h2>
-      <p>Please complete this referral form; information shared will be treated confidentially in line with GDPR and safeguarding procedures.</p>
+  <main class="wrap main-content">
+    <section class="card">
+      <h2>Referral Form</h2>
+      <p class="lead">This form is for professionals referring a child or young person to Meadow Pathways Wellbeing and Education Cornwall.</p>
 
-      <!-- Recommended: use Netlify Forms (data-netlify="true").
-           If you prefer Formspree, uncomment the action below and remove data-netlify.
-           Fallback Formspree endpoint found in your doc: https://formspree.io/f/movnvzqp -->
-      <form name="referral" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="referralForm">
-        <input type="hidden" name="form-name" value="referral" />
-        <p style="display:none">
-          <label>Don’t fill this out if you're human: <input name="bot-field"></label>
-        </p>
+      <form name="referral" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thankyou.html" class="referral-form">
+        <input type="hidden" name="form-name" value="referral">
+        <p class="hidden"><label>Don’t fill this out if you're human: <input name="bot-field"></label></p>
 
-        <h3>Child or Young Person’s Details</h3>
-        <label>Full name <input type="text" name="childName" required></label>
-        <label>Date of birth <input type="date" name="dob" required></label>
-        <label>Address <textarea name="address" rows="3" required></textarea></label>
+        <label>Referrer Name
+          <input type="text" name="referrer-name" required>
+        </label>
+        <label>Referrer Email
+          <input type="email" name="referrer-email" required>
+        </label>
+        <label>Organisation
+          <input type="text" name="organisation">
+        </label>
+        <label>Young Person’s Initials
+          <input type="text" name="young-person-initials" required>
+        </label>
+        <label>Summary of Needs / Support Required
+          <textarea name="summary" rows="5" required></textarea>
+        </label>
 
-        <h3>Referrer details</h3>
-        <label>Your name <input type="text" name="referrerName" required></label>
-        <label>Role <input type="text" name="role" required></label>
-        <label>Email <input type="email" name="email" required></label>
-
-        <h3>Needs and background</h3>
-        <label>Summary <textarea name="summary" rows="6" required></textarea></label>
-
-        <button type="submit">Submit referral</button>
+        <button type="submit" class="submit-btn">Submit Referral</button>
       </form>
-
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container text-center">
+    <div class="wrap">
+      <img src="Logo.png" alt="Logo" class="footer-logo">
       <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
     </div>
   </footer>
 
-  <script>
-    // simple client success redirect for Netlify forms
-    document.addEventListener('DOMContentLoaded', function(){
-      const form = document.getElementById('referralForm');
-      if(!form) return;
-      form.addEventListener('submit', function(){ 
-        // Netlify handles submission; you can show a spinner here
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
