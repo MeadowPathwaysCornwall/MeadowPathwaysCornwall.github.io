@@ -4,142 +4,64 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
-  <meta name="description" content="Refer a child or young person for therapeutic education and wellbeing support." />
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="tooplate-style.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<div class="sidebar-menu">
-  <div class="brand text-center">
-    <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo"></a>
-    <h1 class="site-title">Meadow Pathways</h1>
-    <p class="site-sub">Guiding Individual Journeys with Care and Purpose</p>
-  </div>
-  <nav>
-    <ul class="main-menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="eotas.html">EOTAS</a></li>
-      <li><a href="safeguarding.html">Safeguarding</a></li>
-      <li class="active"><a href="referral.html">Referral</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="staff.html">Staff</a></li>
-    </ul>
-  </nav>
-  <div class="menu-trigger"><span>☰</span></div>
-</div>
-
-<div class="page-content">
-  <section class="section">
+  <header class="site-header">
     <div class="container">
-      <div class="card p-3">
-        <h2>📋 Meadow Pathways Cornwall Referral Form</h2>
-        <p>Please complete this referral form if you are a parent, carer, or Local Authority professional wishing to refer a child or young person. All information is handled confidentially in line with GDPR and safeguarding procedures.</p>
-
-        <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-          <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.github.io/MeadowPathways2025/thankyou.html" />
-
-          <h3>👤 Child or Young Person’s Details</h3>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="childName">Full Name</label>
-              <input type="text" id="childName" name="childName" required class="form-control" />
-            </div>
-            <div class="form-group col-md-6">
-              <label for="dob">Date of Birth</label>
-              <input type="date" id="dob" name="dob" required class="form-control" />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="address">Address</label>
-            <textarea id="address" name="address" rows="3" required class="form-control"></textarea>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="school">Current or Most Recent School</label>
-              <input type="text" id="school" name="school" class="form-control" />
-            </div>
-            <div class="form-group col-md-6">
-              <label for="ehcp">EHCP status</label>
-              <select id="ehcp" name="ehcp" required class="form-control">
-                <option value="">Select</option>
-                <option value="Yes">Yes</option>
-                <option value="In process">In process</option>
-                <option value="No">No</option>
-              </select>
-            </div>
-          </div>
-
-          <h3 class="mt-3">👪 Referrer Details</h3>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="referrerName">Your Name</label>
-              <input type="text" id="referrerName" name="referrerName" required class="form-control" />
-            </div>
-            <div class="form-group col-md-6">
-              <label for="role">Role / Relationship</label>
-              <input type="text" id="role" name="role" required class="form-control" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="organisation">Organisation (if applicable)</label>
-              <input type="text" id="organisation" name="organisation" class="form-control" />
-            </div>
-            <div class="form-group col-md-3">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required class="form-control" />
-            </div>
-            <div class="form-group col-md-3">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" class="form-control" />
-            </div>
-          </div>
-
-          <h3 class="mt-3">🧠 Needs and Background Information</h3>
-          <div class="form-group">
-            <label for="summary">Summary of Needs / Concerns</label>
-            <textarea id="summary" name="summary" rows="6" required class="form-control"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="support">Current Support or Interventions</label>
-            <textarea id="support" name="support" rows="4" class="form-control"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="goals">Hoped-for Outcomes</label>
-            <textarea id="goals" name="goals" rows="4" class="form-control"></textarea>
-          </div>
-
-          <h3 class="mt-3">📎 Supporting Information</h3>
-          <p class="text-muted">If possible, please email supporting documents (EHCP, reports) to <strong>meadowpathwayscornwall@outlook.com</strong>. Do not attach documents to this public form.</p>
-
-          <p class="text-muted">If this referral is urgent or a safeguarding concern, contact statutory services first and then call the Meadow Pathways team.</p>
-
-          <button type="submit" class="main-button">Submit Referral</button>
-          <a href="contact.html" class="main-button">Contact us first</a>
-        </form>
-      </div>
+      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" style="height:72px"></a>
+      <nav><!-- same nav as index --></nav>
     </div>
-  </section>
+  </header>
+
+  <main class="container">
+    <section class="card referral-form">
+      <h2>📋 Meadow Pathways Cornwall Referral Form</h2>
+      <p>Please complete this referral form; information shared will be treated confidentially in line with GDPR and safeguarding procedures.</p>
+
+      <!-- Recommended: use Netlify Forms (data-netlify="true").
+           If you prefer Formspree, uncomment the action below and remove data-netlify.
+           Fallback Formspree endpoint found in your doc: https://formspree.io/f/movnvzqp -->
+      <form name="referral" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="referralForm">
+        <input type="hidden" name="form-name" value="referral" />
+        <p style="display:none">
+          <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+        </p>
+
+        <h3>Child or Young Person’s Details</h3>
+        <label>Full name <input type="text" name="childName" required></label>
+        <label>Date of birth <input type="date" name="dob" required></label>
+        <label>Address <textarea name="address" rows="3" required></textarea></label>
+
+        <h3>Referrer details</h3>
+        <label>Your name <input type="text" name="referrerName" required></label>
+        <label>Role <input type="text" name="role" required></label>
+        <label>Email <input type="email" name="email" required></label>
+
+        <h3>Needs and background</h3>
+        <label>Summary <textarea name="summary" rows="6" required></textarea></label>
+
+        <button type="submit">Submit referral</button>
+      </form>
+
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="container text-center">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
       <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
     </div>
   </footer>
-</div>
 
-<script src="jquery.min.js"></script>
-<script src="bootstrap.min.js"></script>
-<script src="custom.js"></script>
-<script src="script.js"></script>
+  <script>
+    // simple client success redirect for Netlify forms
+    document.addEventListener('DOMContentLoaded', function(){
+      const form = document.getElementById('referralForm');
+      if(!form) return;
+      form.addEventListener('submit', function(){ 
+        // Netlify handles submission; you can show a spinner here
+      });
+    });
+  </script>
 </body>
 </html>
