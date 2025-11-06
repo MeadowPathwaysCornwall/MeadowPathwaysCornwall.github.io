@@ -3,102 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
-  <meta name="description" content="Contact Meadow Pathways — enquiries, referrals and general information." />
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="tooplate-style.css">
-  <link rel="stylesheet" href="fontawesome.css">
-  <link rel="stylesheet" href="style.css">
+  <title>Contact — Meadow Pathways</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="blugoon-body">
 
-<div class="sidebar-menu">
-  <div class="brand text-center">
-    <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo"></a>
-    <h1 class="site-title">Meadow Pathways</h1>
-    <p class="site-sub">Guiding Individual Journeys with Care and Purpose</p>
-  </div>
-  <nav>
-    <ul class="main-menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="eotas.html">EOTAS</a></li>
-      <li><a href="safeguarding.html">Safeguarding</a></li>
-      <li><a href="referral.html">Referral</a></li>
-      <li class="active"><a href="contact.html">Contact</a></li>
-      <li><a href="staff.html">Staff</a></li>
-    </ul>
-  </nav>
-  <div class="menu-trigger"><span>☰</span></div>
-</div>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="logo"></a>
+      </div>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="policies.html">Policies</a></li>
+          <li><a href="referral.html" class="accent-pill">Referral</a></li>
+          <li><a href="staff.html">Staff</a></li>
+          <li><a href="contact.html" class="nav-item active">Contact</a></li>
+        </ul>
+      </nav>
 
-<div class="page-content">
-  <section class="section">
-    <div class="container">
-      <div class="card p-3">
-        <h2>📞 Contact Us</h2>
-        <p>We’d love to hear from you. Use the form below for general enquiries or to discuss referrals. If this is an urgent safeguarding concern, contact statutory services first and then call the team.</p>
-
-        <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-          <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.github.io/MeadowPathways2025/thankyou.html" />
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="name">Your name</label>
-              <input type="text" id="name" name="name" required class="form-control" placeholder="Full name" />
-            </div>
-            <div class="form-group col-md-6">
-              <label for="role">Role / Relationship</label>
-              <input type="text" id="role" name="role" class="form-control" placeholder="E.g. parent, teacher, professional" />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="email">Email address</label>
-              <input type="email" id="email" name="email" required class="form-control" placeholder="you@example.com" />
-            </div>
-            <div class="form-group col-md-6">
-              <label for="phone">Phone number</label>
-              <input type="tel" id="phone" name="phone" class="form-control" placeholder="Telephone number" />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="8" required class="form-control" placeholder="Tell us how we can help"></textarea>
-          </div>
-
-          <p class="text-muted">If you are making a referral or sending protected information, please email securely to our referrals address or call the office — do not include sensitive personal details in this public form.</p>
-
-          <button type="submit" class="main-button">Send message</button>
-          <a href="referral.html" class="main-button">Make a referral</a>
-        </form>
-
-        <hr class="my-3">
-
-        <h3>🌸 Meadow Pathways Wellbeing and Education Cornwall</h3>
-        <p><strong>General enquiries (Formspree linked):</strong> <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
-
-        <h4>Team contacts (protected)</h4>
-        <p><strong>Zoe:</strong> <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a> — <span>07775733587</span></p>
-        <p><strong>Michelle:</strong> <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> — <span>07932243358</span></p>
-        <p class="text-muted">For referrals or protected records, email securely or call to arrange a safe transfer.</p>
+      <div class="cta-wrap">
+        <a class="crowdfund-btn" href="https://www.crowdfunder.co.uk/p/treverno-meadows-learning-centre-cornwall" target="_blank">Support our Crowdfunder</a>
       </div>
     </div>
-  </section>
+  </header>
+
+  <main class="wrap main-content">
+    <section class="card">
+      <h2>Contact Us</h2>
+      <p class="lead">Please get in touch using the form below. Your message will be handled confidentially in accordance with our safeguarding and privacy policies.</p>
+
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hidden"><label>Don’t fill this out if you're human: <input name="bot-field"></label></p>
+
+        <label>Your Name
+          <input type="text" name="name" required>
+        </label>
+        <label>Email Address
+          <input type="email" name="email" required>
+        </label>
+        <label>Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+
+      <p class="contact-extra">Alternatively, you can email us directly at <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a> or call <strong>07932 243358</strong>.</p>
+    </section>
+  </main>
 
   <footer class="site-footer">
-    <div class="container text-center">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
+    <div class="wrap">
+      <img src="Logo.png" alt="Logo" class="footer-logo">
       <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
     </div>
   </footer>
-</div>
 
-<script src="jquery.min.js"></script>
-<script src="bootstrap.min.js"></script>
-<script src="custom.js"></script>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
