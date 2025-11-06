@@ -1,67 +1,78 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff — Meadow Pathways</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Staff Area — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script defer src="script.js"></script>
 </head>
+
 <body class="blugoon-body">
 
-  <!-- copy same sidebar here -->
-
-  <main class="main-content">
-    <header class="main-header"><div class="wrap header-top"></div></header>
-
-    <section id="login" class="wrap card center-card">
-      <h2>Staff Login 🔒</h2>
-      <p>This area is for authorised Meadow Pathways staff only. Please sign in or enter the staff password.</p>
-
-      <div class="login-controls">
-        <button id="netlifyLoginBtn" class="submit-btn">Sign in with Netlify</button>
-        <div class="password-login">
-          <label>Staff password<br><input id="pw" type="password" placeholder=MPWEC2025!></label>
-          <p><button onclick="checkPassword()" class="submit-btn">Enter</button></p>
-          <p id="msg" class="muted small"></p>
-        </div>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="logo-wrap">
+        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
       </div>
+      <nav class="side-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="policies.html">Policies</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="staff.html" class="active">Staff</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <section class="wrap card">
+      <h1>Staff Portal 🔒</h1>
+      <p>
+        This section is for Meadow Pathways team members only.  
+        Please enter your password below to access secure resources, forms, and policy updates.
+      </p>
+
+      <div id="login">
+        <input type="password" id="pw" placeholder=MPWEC2025!" />
+        <button onclick="checkPassword()">Login</button>
+        <p id="msg" class="pw-message"></p>
+      </div>
+
+      <template id="staff-content-template">
+        <div class="staff-area">
+          <h2>Welcome, Meadow Pathways Team 🌿</h2>
+          <p>Here you can access important staff resources, training, and wellbeing links.</p>
+
+          <div class="policy-tabs">
+            <a class="policy-tab blue" href="staff-rota.html">📅 Staff Rota</a>
+            <a class="policy-tab teal" href="staff-expenses.html">💰 Log Hours &amp; Expenses</a>
+            <a class="policy-tab pink" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC Resources</a>
+            <a class="policy-tab purple" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House Resources</a>
+            <a class="policy-tab green" href="https://ciossafeguarding.org.uk/scp" target="_blank">CIOS Safeguarding Partnership</a>
+          </div>
+
+          <h3>Training &amp; Reference 📚</h3>
+          <p>
+            Please ensure you remain up-to-date with safeguarding and wellbeing practices.
+            The following resources are recommended for all staff:
+          </p>
+          <ul class="staff-links">
+            <li><a href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">KCSIE 2025 — GOV.UK</a></li>
+            <li><a href="https://www.patreon.com/cw/pookyh/home" target="_blank">Pooky Knightsmith — Wellbeing Resources</a></li>
+          </ul>
+        </div>
+      </template>
     </section>
-
-    <!-- template-hiddden: staff content cloned in by JS after auth -->
-    <template id="staff-content-template">
-      <section id="staff-content" class="wrap card">
-        <h2>Staff Resources 👩‍🏫</h2>
-        <p>Welcome, staff. Access internal documents below.</p>
-
-        <h3>Policies</h3>
-        <div class="policy-tabs">
-          <a class="policy-tab blue" href="MPWEC Staff Conduct Policy.docx" target="_blank">Staff Conduct</a>
-          <a class="policy-tab aqua" href="MPWEC Lone Working Policy Sep25.docx" target="_blank">Lone Working</a>
-          <a class="policy-tab teal" href="MPWEC H&S Policy Sep 25.docx" target="_blank">H&S</a>
-          <a class="policy-tab navy" href="MPWEC Whistleblowing Policy.docx" target="_blank">Whistleblowing</a>
-        </div>
-
-        <h3>Forms</h3>
-        <div class="policy-tabs">
-          <a class="policy-tab warm" href="staff-rota.html">Staff Rota</a>
-          <a class="policy-tab accent" href="staff-expenses.html">Hours & Expenses</a>
-          <a class="policy-tab green" href="protected-resources.html">Protected Resources</a>
-        </div>
-
-        <h3>Training & External Links</h3>
-        <div class="policy-tabs">
-          <a class="policy-tab blue" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">KCSIE (Sep 2025)</a>
-          <a class="policy-tab purple" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH</a>
-          <a class="policy-tab aqua" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House</a>
-          <a class="policy-tab teal" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC</a>
-          <a class="policy-tab green" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios SCP</a>
-        </div>
-      </section>
-    </template>
 
     <footer class="wrap site-foot"><p>© Meadow Pathways 2025</p></footer>
   </main>
-
-<script src="script.js"></script>
 </body>
 </html>
