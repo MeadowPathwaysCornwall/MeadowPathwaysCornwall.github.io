@@ -32,9 +32,17 @@ body.blugoon-body {
 }
 
 .logo {
-  height: 70px;
+  height: 90px;      /* make larger */
   width: auto;
+  margin-right: 1rem;
 }
+
+@media (max-width: 768px) {
+  .logo {
+    height: 70px;    /* scale down on mobile */
+  }
+}
+
 
 .main-nav .nav-list {
   list-style: none;
@@ -293,3 +301,4 @@ body.blugoon-body {
 /* Forms */
 form input,
 form tex
+
