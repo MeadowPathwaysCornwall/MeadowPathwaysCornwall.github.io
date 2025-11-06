@@ -1,112 +1,61 @@
-/* =============================
-   Meadow Pathways — Script.js
-   ============================= */
+// === Carousel Logic ===
+document.addEventListener("DOMContentLoaded", () => {
+  const carousel = document.querySelector(".carousel-inner");
+  const images = document.querySelectorAll(".carousel-inner img");
+  const dotsContainer = document.querySelector(".carousel-dots");
 
-/* Smooth Scroll for Anchor Links */
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+  if (!carousel || images.length === 0) return;
+
+  let currentIndex = 0;
+
+  // Create dots
+  images.forEach((_, index) => {
+    const dot = document.createElement("span");
+    dot.addEventListener("click", () => showSlide(index));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll("span");
+
+  function showSlide(index) {
+    currentIndex = index;
+    carousel.style.transform = `translateX(-${100 * index}%)`;
+    dots.forEach(d => d.classList.remove("active"));
+    dots[index].classList.add("active");
+  }
+
+  // Auto cycle
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showSlide(currentIndex);
+  }
+
+  showSlide(currentIndex);
+  setInterval(nextSlide, 4000);
+});
+
+// === Smooth Scroll for Internal Links ===
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth"
+    });
   });
 });
 
-/* =============================
-   Carousel Functionality
-   ============================= */
-const carousel = document.querySelector('.carousel');
-if (carousel) {
-  const slides = carousel.querySelectorAll('.carousel-slide');
-  let index = 0;
-
-  function showSlide(i) {
-    slides.forEach((slide, idx) => {
-      slide.classList.toggle('active', idx === i);
-    });
-  }
-
-  function nextSlide() {
-    index = (index + 1) % slides.length;
-    showSlide(index);
-  }
-
-  showSlide(index);
-  setInterval(nextSlide, 5000); // Change slide every 5 seconds
-}
-
-/* =============================
-   News Reel Scroller
-   ============================= */
-const newsReel = document.querySelector('.news-reel');
-if (newsReel) {
-  let offset = 0;
-  function scrollNews() {
-    offset -= 1;
-    if (offset <= -newsReel.scrollWidth) offset = window.innerWidth;
-    newsReel.style.transform = `translateX(${offset}px)`;
-    requestAnimationFrame(scrollNews);
-  }
-  scrollNews();
-}
-
-/* =============================
-   Staff Page Password Lock
-   ============================= */
-const pwForm = document.getElementById('pwForm');
-if (pwForm) {
-  const pwInput = document.getElementById('staffPassword');
-  const pwMessage = document.getElementById('pwMessage');
-  const staffContent = document.getElementById('staffContent');
-  const lockscreen = document.getElementById('lockscreen');
-
-  // Set your password here (keep short term only; use Netlify Identity for permanent)
-  const correctPassword = MPWEC2025!;
-
-  pwForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const entered = pwInput.value.trim();
-    if (entered === correctPassword) {
-      lockscreen.style.display = "none";
-      staffContent.style.display = "block";
-    } else {
-      pwMessage.textContent = "❌ Incorrect password, please try again.";
-      pwMessage.style.color = "#ffdddd";
+// === Form Validation Helper (Optional) ===
+const forms = document.querySelectorAll("form");
+forms.forEach(form => {
+  form.addEventListener("submit", e => {
+    const required = form.querySelectorAll("[required]");
+    for (let field of required) {
+      if (!field.value.trim()) {
+        alert("Please complete all required fields.");
+        e.preventDefault();
+        field.focus();
+        return;
+      }
     }
   });
-}
-
-/* =============================
-   Contact Form Enhancement
-   ============================= */
-const contactForm = document.querySelector('form[name="contact"]');
-if (contactForm) {
-  contactForm.addEventListener('submit', function (e) {
-    const btn = contactForm.querySelector('button[type="submit"]');
-    btn.textContent = "Sending...";
-    btn.disabled = true;
-  });
-}
-
-/* =============================
-   Referral Form Enhancement
-   ============================= */
-const referralForm = document.querySelector('form[name="referral"]');
-if (referralForm) {
-  referralForm.addEventListener('submit', function (e) {
-    const btn = referralForm.querySelector('button[type="submit"]');
-    btn.textContent = "Submitting...";
-    btn.disabled = true;
-  });
-}
-
-/* =============================
-   Navbar Highlight (Active Page)
-   ============================= */
-const navLinks = document.querySelectorAll('.side-nav a');
-navLinks.forEach(link => {
-  if (link.href === window.location.href) {
-    link.classList.add('active');
-  }
 });
