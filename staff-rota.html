@@ -1,53 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Staff Rota — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="blugoon-body">
-
-<header class="site-header">
-  <div class="wrap header-inner">
-    <div class="brand-left">
-      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways" class="logo"></a>
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="logo-wrap">
+        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
+      </div>
+      <nav class="side-nav">
+        <ul>
+          <li><a href="staff.html">⬅ Back to Staff Area</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav class="main-nav">
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="staff.html" class="active">Staff</a></li>
-        <li><a href="staff-rota.html">Staff Rota</a></li>
-        <li><a href="protected-resources.html">Resources</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </aside>
 
-<main class="wrap main-content">
-  <section class="card">
-    <h2>Staff Rota Submission 🗓️</h2>
-    <p>This form is only for authorised staff members. All submissions are securely stored via Netlify Forms and not publicly visible.</p>
+  <main class="main-content">
+    <section class="wrap card">
+      <h1>Weekly Staff Rota 📅</h1>
+      <p>
+        Please review the current rota below. Updates are posted every Friday for the following week.
+      </p>
 
-    <form name="staff-rota" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html">
-      <input type="hidden" name="form-name" value="staff-rota" />
-      <p><label>Name:<br><input type="text" name="name" required></label></p>
-      <p><label>Week Commencing:<br><input type="date" name="week" required></label></p>
-      <p><label>Working Days / Notes:<br><textarea name="rota-details" rows="5" required></textarea></label></p>
-      <div data-netlify-recaptcha="true"></div>
-      <p><button type="submit" class="submit-btn">Submit Rota</button></p>
-    </form>
-  </section>
-</main>
+      <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_ROTA_LINK/pubhtml?widget=true&amp;headers=false"
+        width="100%" height="500" style="border:1px solid #ccc;border-radius:12px;">
+      </iframe>
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-right">
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-    </div>
-  </div>
-</footer>
+      <p>Contact management at <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a> for rota amendments.</p>
+    </section>
 
-<script src="script.js"></script>
+    <footer class="wrap site-foot"><p>© Meadow Pathways 2025</p></footer>
+  </main>
 </body>
 </html>
