@@ -1,63 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff Area — Meadow Pathways</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Staff Login — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body class="blugoon-body">
 
-  <header class="site-header">
-    <div class="wrap">
-      <div class="brand">
-        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="logo"></a>
-      </div>
-      <nav class="main-nav" aria-label="Primary navigation">
-        <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="eotas.html">EOTAS</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="policies.html">Policies</a></li>
-          <li><a href="referral.html" class="accent-pill">Referral</a></li>
-          <li><a href="staff.html" class="nav-item active">Staff</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="cta-wrap">
-        <a class="crowdfund-btn" href="https://www.crowdfunder.co.uk/p/treverno-meadows-learning-centre-cornwall" target="_blank">Support our Crowdfunder</a>
-      </div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand-left">
+      <a href="index.html"><img src="Logo.png" alt="Logo" class="logo"></a>
     </div>
-  </header>
+    <nav class="main-nav">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="policies.html">Policies</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="staff.html" class="active">Staff</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <main class="wrap main-content">
-    <section class="card">
-      <h2>Staff Portal</h2>
-      <p class="lead">This area is restricted to authorised Meadow Pathways staff.</p>
-
-      <div data-netlify-identity-menu></div>
-
-      <div id="staffContent" class="hidden">
-        <h3>Welcome back!</h3>
-        <p>You are logged in as <span id="userEmail"></span>.</p>
-        <ul class="staff-links">
-          <li><a href="staff-rota.html">Staff Rota Form</a></li>
-          <li><a href="protected-resources.html">Internal Policies & Resources</a></li>
-        </ul>
-        <button data-netlify-identity-logout class="logout-btn">Log out</button>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <img src="Logo.png" alt="Logo" class="footer-logo">
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+<main class="wrap main-content center-text">
+  <section class="card center-card">
+    <h2>Staff Portal 🔒</h2>
+    <p>This area is protected. Only authorised Meadow Pathways staff can access these resources.</p>
+    <p><button id="loginBtn" class="submit-btn">Sign in</button></p>
+    <p><button id="logoutBtn" class="submit-btn hidden">Sign out</button></p>
+    <p id="staffMessage" class="hidden">Welcome back! Access staff pages below:</p>
+    <div id="staffLinks" class="hidden">
+      <a href="staff-rota.html" class="pill">Staff Rota</a>
+      <a href="protected-resources.html" class="pill">Protected Resources</a>
     </div>
-  </footer>
+  </section>
+</main>
 
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="script.js"></script>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-right">
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("loginBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const message = document.getElementById("staffMessage");
+  const links = document.getElementById("staffLinks");
+
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (user) {
+        loginBtn.classList.add("hidden");
+        logoutBtn.classList.remove("hidden");
+        message.classList.remove("hidden");
+        links.classList.remove("hidden");
+      }
+    });
+
+    loginBtn.addEventListener("click", () => window.netlifyIdentity.open());
+    logoutBtn.addEventListener("click", () => {
+      window.netlifyIdentity.logout();
+      location.reload();
+    });
+  }
+});
+</script>
+
 </body>
 </html>
