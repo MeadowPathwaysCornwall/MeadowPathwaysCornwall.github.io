@@ -75,17 +75,20 @@ nav a.active {
 
 /* ========== CARDS & CONTENT SECTIONS ========== */
 .card {
-  background: url("paper-texture.jpg") repeat, var(--bg-card);
+  background-color: rgba(255, 255, 255, 0.9); /* soft white overlay */
+  background-image: url("paper-texture.jpg"); /* subtle paper texture */
+  background-repeat: repeat;
   background-blend-mode: lighten;
   border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  margin-bottom: 28px;
-  padding: 24px;
-  transition: transform 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  margin-bottom: 24px;
+  padding: 22px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
 }
 
 /* ========== TYPOGRAPHY ========== */
@@ -274,19 +277,6 @@ a.pill:hover {
 }
 
 /* ========== MEDIA QUERIES ========== */
-/* ===== Fade-In Animation for Scroll Elements ===== */
-.card, .bio-card, .values-section, .qr-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.4s ease-out, transform 1.4s ease-out;
-;
-}
-
-.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -310,4 +300,3 @@ a.pill:hover {
   from { opacity: 0.3; }
   to { opacity: 1; }
 }
-
