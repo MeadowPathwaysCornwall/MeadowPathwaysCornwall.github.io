@@ -1,15 +1,15 @@
 /* ========== GLOBAL STYLES ========== */
 :root {
-:root {
-  --blugoon-blue: #4fa3d1;          /* Lighter Blugoon blue */
-  --blugoon-dark: #2c698d;
-  --blugoon-light: #eaf6fb;
-  --accent-green: #4bbf9f;
-  --accent-yellow: #ffd86b;
-  --text-dark: #1f2933;
-  --text-soft: #445566;
-  --bg-light: #f9fbfc;
-  --card-bg: #ffffff;
+  --blue: #009cd8;
+  --light-blue: #e9f8ff;
+  --accent-green: #5fcba4;
+  --accent-yellow: #ffde59;
+  --accent-pink: #f9b3c4;
+  --accent-purple: #b7a3f9;
+  --text-dark: #243447;
+  --text-soft: #4a5868;
+  --bg-body: #f6fcff;
+  --bg-card: #ffffff;
   --font-main: "Poppins", Arial, sans-serif;
 }
 
@@ -24,10 +24,10 @@ body {
   display: flex;
 }
 
-/* ========== SIDEBAR STYLES ========== */
+/* ========== SIDEBAR STYLES (Blugoon original) ========== */
 .sidebar {
   width: 250px;
-    background: linear-gradient(180deg, var(--blugoon-blue), var(--blugoon-dark));
+  background-color: var(--blue); /* sidebar blue color */
   color: white;
   height: 100vh;
   position: fixed;
@@ -150,6 +150,48 @@ nav a.active {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
 }
 
+/* ========== CAROUSEL FIX (reduce image size) ========== */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%; /* Ensures the carousel doesn't overflow horizontally */
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 1s ease; /* Smooth transition for slide effect */
+}
+
+.carousel-inner img {
+  max-width: 80%; /* Adjust image size (change percentage to make it smaller) */
+  height: auto;    /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto;  /* Center the image */
+  border-radius: 14px;
+}
+
+.carousel-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.carousel-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--accent-purple);
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-dots .active {
+  background: var(--accent-yellow);
+}
+
 /* ========== TYPOGRAPHY ========== */
 h1, h2, h3, h4 {
   color: var(--text-dark);
@@ -186,50 +228,6 @@ footer {
   padding: 18px;
   font-size: 0.9rem;
 }
-
-// ========== CAROUSEL ==========
-document.addEventListener("DOMContentLoaded", () => {
-  const slides = document.querySelectorAll(".carousel-inner img");
-  const dotsContainer = document.querySelector(".carousel-dots");
-  let currentSlide = 0;
-
-  // Create dots dynamically
-  slides.forEach((_, i) => {
-    const dot = document.createElement("span");
-    if (i === 0) dot.classList.add("active");
-    dotsContainer.appendChild(dot);
-    dot.addEventListener("click", () => {
-      showSlide(i);
-      currentSlide = i;
-    });
-  });
-
-  const dots = dotsContainer.querySelectorAll("span");
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.remove("active");
-      dots[i].classList.remove("active");
-    });
-
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
-
-    // Transition effect (sliding images horizontally)
-    document.querySelector(".carousel-inner").style.transform = `translateX(-${index * 100}%)`;
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  // Initial setup
-  showSlide(currentSlide);
-
-  // Auto slide every 3 seconds
-  setInterval(nextSlide, 4000);
-});
 
 /* ========== BIOS & VALUES ========== */
 .bio-grid {
@@ -365,5 +363,3 @@ a.pill:hover {
   from { opacity: 0.3; }
   to { opacity: 1; }
 }
-
-
