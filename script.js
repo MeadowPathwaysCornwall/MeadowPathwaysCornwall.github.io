@@ -1,105 +1,129 @@
 /* =========================================================
-   Meadow Pathways 2025 – main JavaScript
-   Handles: carousel, smooth scroll, mobile nav, staff login
+   Meadow Pathways — Final JS (2025)
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
-
-  /* ---------- 1. Mobile navigation toggle ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+  /* --- Mobile Navigation Toggle --- */
   const navToggle = document.querySelector(".nav-toggle");
   const navList = document.querySelector(".nav-list");
-  if (navToggle && navList) {
-    navToggle.addEventListener("click", () => {
-      navList.classList.toggle("open");
-      navToggle.classList.toggle("active");
-    });
-  }
-
-  /* ---------- 2. Smooth scrolling for anchor links ---------- */
-  const links = document.querySelectorAll('a[href^="#"]');
-  for (const link of links) {
-    link.addEventListener("click", function (e) {
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        e.preventDefault();
-        window.scrollTo({
-          top: target.offsetTop - 70,
-          behavior: "smooth"
-        });
-      }
-    });
-  }
-
-  /* ---------- 3. Carousel (Owl Carousel / Blugoon slider) ---------- */
-  if (window.jQuery && $(".owl-carousel").length) {
-    $(".owl-carousel").owlCarousel({
-      items: 1,
-      loop: true,
-      autoplay: true,
-      autoplayTimeout: 4000,
-      autoplayHoverPause: true,
-      dots: true,
-      nav: false,
-      animateOut: "fadeOut",
-      smartSpeed: 900
-    });
-  }
-
-  /* ---------- 4. Header shadow on scroll ---------- */
-  const header = document.querySelector(".site-header");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) header.classList.add("scrolled");
-    else header.classList.remove("scrolled");
+  navToggle?.addEventListener("click", () => {
+    navList?.classList.toggle("open");
   });
 
-  /* ---------- 5. Staff-only password check ---------- */
-  window.checkPassword = function () {
-    const pwInput = document.getElementById("pw");
-    const msg = document.getElementById("msg");
-    const staffContent = document.getElementById("staff-content");
-    const loginBox = document.getElementById("login");
+  /* --- Simple Carousel --- */
+  const slidesWrap = document.querySelector(".carousel-slides");
+  if (slidesWrap) {
+    const slides = Array.from(slidesWrap.children);
+    let index = 0;
+    const dotsContainer = document.querySelector(".carousel-dots");
 
-    // Use a secure password string that you set
-    const correctPassword = "YourSecurePasswordHere";
-
-    if (!pwInput || !staffContent || !loginBox) return;
-
-    const entered = pwInput.value.trim();
-    if (entered === correctPassword) {
-      staffContent.style.display = "block";
-      loginBox.style.display = "none";
-      msg.textContent = "";
-    } else {
-      msg.textContent = "❌ Incorrect password. Please try again.";
-      msg.style.color = "red";
-      pwInput.value = "";
-      pwInput.focus();
-    }
-  };
-
-  /* ---------- 6. Auto-close nav on link click (mobile) ---------- */
-  if (navList) {
-    navList.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navList.classList.remove("open");
-        navToggle?.classList.remove("active");
+    if (dotsContainer) {
+      slides.forEach((_, i) => {
+        const btn = document.createElement("button");
+        btn.className = "carousel-dot";
+        btn.addEventListener("click", () => { index = i; update(); });
+        dotsContainer.appendChild(btn);
       });
+    }
+
+    const nextBtn = document.querySelector(".carousel-next");
+    const prevBtn = document.querySelector(".carousel-prev");
+
+    function update() {
+      slidesWrap.style.transform = `translateX(-${index * 100}%)`;
+      const dots = dotsContainer?.querySelectorAll(".carousel-dot") || [];
+      dots.forEach((d, i) => d.classList.toggle("active-dot", i === index));
+    }
+
+    nextBtn?.addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      update();
     });
+    prevBtn?.addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      update();
+    });
+
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      update();
+    }, 7000);
+    update();
   }
 
-  /* ---------- 7. Simple fade-in for cards ---------- */
+  /* --- Fade In Animation for Cards --- */
   const cards = document.querySelectorAll(".card");
   const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add("visible");
       });
     },
     { threshold: 0.1 }
   );
-  cards.forEach(card => observer.observe(card));
-});
+  cards.forEach((c) => observer.observe(c));
 
-/* =========================================================
-   End of Meadow Pathways main script
-   ========================================================= */
+  /* --- Staff Page Authentication --- */
+  function showStaffContent() {
+    const loginBox = document.getElementById("login");
+    const content = document.getElementById("staff-content");
+    if (loginBox) loginBox.style.display = "none";
+    if (content) content.style.display = "block";
+  }
+
+  // Netlify Identity handling (preferred)
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (
+        user &&
+        user.app_metadata &&
+        user.app_metadata.roles &&
+        user.app_metadata.roles.includes("staff")
+      ) {
+        showStaffContent();
+      }
+    });
+
+    const netBtn = document.getElementById("netlifyLoginBtn");
+    if (netBtn) {
+      netBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.netlifyIdentity.open();
+      });
+    }
+  }
+
+  // Password fallback (client-side)
+  window.checkPassword = function () {
+    const pw = document.getElementById("pw");
+    const msg = document.getElementById("msg");
+    const login = document.getElementById("login");
+    const content = document.getElementById("staff-content");
+    if (!pw) return;
+    const entered = pw.value.trim();
+
+    /* Replace below with your real password if using fallback */
+    const PLACEHOLDER_PASSWORD = MPWEC2025!;
+
+    if (entered === PLACEHOLDER_PASSWORD) {
+      try { localStorage.setItem("mp_staff_auth", "1"); } catch (e) {}
+      if (login) login.style.display = "none";
+      if (content) content.style.display = "block";
+      if (msg) msg.textContent = "";
+    } else {
+      if (msg) {
+        msg.textContent = "Incorrect password — please try again.";
+        msg.style.color = "#d9534f";
+      }
+      pw.value = "";
+      pw.focus();
+    }
+  };
+
+  // Persist login locally
+  try {
+    if (localStorage.getItem("mp_staff_auth") === "1") {
+      showStaffContent();
+    }
+  } catch (e) {}
+});
