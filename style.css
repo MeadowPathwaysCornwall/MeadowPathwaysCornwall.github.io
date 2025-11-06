@@ -187,43 +187,49 @@ footer {
   font-size: 0.9rem;
 }
 
-/* ========== CAROUSEL ========== */
-.carousel {
-  position: relative;
-  overflow: hidden;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
+// ========== CAROUSEL ==========
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".carousel-inner img");
+  const dotsContainer = document.querySelector(".carousel-dots");
+  let currentSlide = 0;
 
-.carousel-inner img {
-  width: 100%;
-  display: none;
-  border-radius: 14px;
-}
+  // Create dots dynamically
+  slides.forEach((_, i) => {
+    const dot = document.createElement("span");
+    if (i === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+    dot.addEventListener("click", () => {
+      showSlide(i);
+      currentSlide = i;
+    });
+  });
 
-.carousel-inner img.active {
-  display: block;
-  animation: fade 2s ease-in-out;
-}
+  const dots = dotsContainer.querySelectorAll("span");
 
-.carousel-dots {
-  text-align: center;
-  margin-top: 10px;
-}
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove("active");
+      dots[i].classList.remove("active");
+    });
 
-.carousel-dots span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background: var(--accent-purple);
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-}
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
 
-.carousel-dots .active {
-  background: var(--accent-yellow);
-}
+    // Transition effect (sliding images horizontally)
+    document.querySelector(".carousel-inner").style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Initial setup
+  showSlide(currentSlide);
+
+  // Auto slide every 3 seconds
+  setInterval(nextSlide, 4000);
+});
 
 /* ========== BIOS & VALUES ========== */
 .bio-grid {
@@ -359,4 +365,5 @@ a.pill:hover {
   from { opacity: 0.3; }
   to { opacity: 1; }
 }
+
 
