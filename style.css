@@ -274,6 +274,19 @@ a.pill:hover {
 }
 
 /* ========== MEDIA QUERIES ========== */
+/* ===== Fade-In Animation for Scroll Elements ===== */
+.card, .bio-card, .values-section, .qr-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.4s ease-out, transform 1.4s ease-out;
+;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -297,3 +310,4 @@ a.pill:hover {
   from { opacity: 0.3; }
   to { opacity: 1; }
 }
+
