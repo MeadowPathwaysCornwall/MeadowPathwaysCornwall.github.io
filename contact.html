@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 
 <body class="blugoon-body">
-
-  <!-- SIDEBAR -->
+  <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-inner">
-      <div class="logo-wrap">
-        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
-      </div>
-
+      <a href="index.html">
+        <img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo">
+      </a>
       <nav class="side-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -28,69 +27,61 @@
           <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
       </nav>
-
-      <div class="sidebar-footer">
-        <p>© 2025 Meadow Pathways</p>
-      </div>
     </div>
   </aside>
 
-  <!-- MAIN -->
+  <!-- Main content -->
   <main class="main-content">
-    <header class="main-header"><div class="wrap header-top"></div></header>
 
-    <section class="wrap card">
-      <h2>Contact Us ✉️</h2>
+    <section class="wrap card" style="background:url('BG.png') repeat;">
+      <h1>Contact Us 📞</h1>
       <p>
-        Please use the form below for all general enquiries, referrals, and partnership opportunities.  
-        Your message will go directly to the Meadow Pathways team and we’ll respond as soon as possible.
+        We’d love to hear from you!  
+        Whether you’re a parent, school, or professional, please get in touch with our team to learn more about Meadow Pathways Wellbeing and Education Cornwall.
       </p>
+    </section>
 
-      <!-- Netlify Form -->
+    <section class="wrap card contact-info">
+      <h2>Our Team 💬</h2>
+
+      <div class="contact-grid">
+        <div class="contact-person">
+          <h3>Michelle Pascoe</h3>
+          <p>📧 <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></p>
+          <p>📞 <a href="tel:07932243358">07932 243358</a></p>
+        </div>
+
+        <div class="contact-person">
+          <h3>Zoe Waitz</h3>
+          <p>📧 <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
+          <p>📞 <a href="tel:07775733587">07775 733587</a></p>
+        </div>
+
+        <div class="contact-person">
+          <h3>General Enquiries</h3>
+          <p>📧 <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap card form-card">
+      <h2>Send Us a Message ✉️</h2>
       <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html">
         <input type="hidden" name="form-name" value="contact" />
 
-        <div class="form-row">
-          <label>Full Name<br><input type="text" name="name" required></label>
-        </div>
-
-        <div class="form-row">
-          <label>Email<br><input type="email" name="email" required></label>
-        </div>
-
-        <div class="form-row">
-          <label>Message<br><textarea name="message" rows="5" required></textarea></label>
-        </div>
+        <p><label>👤 Name:<br><input type="text" name="name" required></label></p>
+        <p><label>📧 Email:<br><input type="email" name="email" required></label></p>
+        <p><label>💬 Message:<br><textarea name="message" rows="5" placeholder="Write your message here..."></textarea></label></p>
 
         <div data-netlify-recaptcha="true"></div>
-        <button type="submit" class="submit-btn">Send Message</button>
+        <p><button type="submit" class="submit-btn">Send Message 🚀</button></p>
       </form>
     </section>
 
-    <!-- CONTACT DETAILS (safe placeholders) -->
-    <section class="wrap card contact-details">
-      <h3>Team Contacts 📞</h3>
-      <p><strong>Michelle Pascoe</strong><br>
-         <em>Director &amp; Founder</em><br>
-         Email: <Michelle.Pascoe@meadowpathwayscornwall.com><br>
-         Phone: <📞07932243358>
-      </p>
+    <footer class="wrap site-foot">
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
+    </footer>
 
-      <p><strong>Zoe Waitz</strong><br>
-         <em>Director</em><br>
-         Email: <Zoe.Waitz@meadowpathwayscornwall.com><br>
-         Phone: <📞07775733587>
-      </p>
-
-      <p><strong>General Enquiries</strong><br>
-         <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
-      </p>
-    </section>
-
-    <footer class="wrap site-foot"><p>© Meadow Pathways 2025</p></footer>
   </main>
-
-  <script src="script.js"></script>
 </body>
 </html>
-
