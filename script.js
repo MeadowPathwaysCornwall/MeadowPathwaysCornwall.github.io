@@ -1,103 +1,100 @@
-document.addEventListener("DOMContentLoaded", () => {
-  /* Mobile nav toggle: show/hide side nav on small screens */
-  const sideNav = document.querySelector('.side-nav');
-  const sidebar = document.querySelector('.sidebar');
-  if (window.innerWidth < 960 && sideNav) {
-    // add a small toggle - clicking logo toggles nav
-    const logo = document.querySelector('.sidebar-logo');
-    logo?.addEventListener('click', () => {
-      sideNav.style.display = sideNav.style.display === 'block' ? 'none' : 'block';
-    });
-  }
+/* =========================
+   Meadow Pathways Script.js
+   ========================= */
 
-  /* Simple carousel */
-  const slidesWrap = document.querySelector('.carousel-slides');
-  if (slidesWrap) {
-    const slides = Array.from(slidesWrap.children);
-    let index = 0;
-    const dotsContainer = document.querySelector('.carousel-dots');
+/* ---- Carousel ---- */
+document.addEventListener("DOMContentLoaded", () => {
+  const carousel = document.querySelector(".carousel");
+  if (carousel) {
+    const slides = carousel.querySelectorAll("img");
+    const dotsContainer = carousel.querySelector(".carousel-dots");
+    let current = 0;
 
     // create dots
-    if (dotsContainer) {
-      slides.forEach((_, i) => {
-        const b = document.createElement('button');
-        b.className = 'carousel-dot';
-        b.addEventListener('click', () => { index = i; update(); });
-        dotsContainer.appendChild(b);
-      });
-    }
-
-    const nextBtn = document.querySelector('.carousel-next');
-    const prevBtn = document.querySelector('.carousel-prev');
-
-    function update() {
-      slidesWrap.style.transform = `translateX(-${index * 100}%)`;
-      const dots = dotsContainer?.querySelectorAll('.carousel-dot') || [];
-      dots.forEach((d, i) => d.classList.toggle('active-dot', i === index));
-    }
-
-    nextBtn?.addEventListener('click', () => { index = (index+1) % slides.length; update(); });
-    prevBtn?.addEventListener('click', () => { index = (index-1 + slides.length) % slides.length; update(); });
-
-    setInterval(() => { index = (index+1) % slides.length; update(); }, 7000);
-    update();
-  }
-
-  /* Fade-in cards on scroll */
-  const cards = document.querySelectorAll('.card');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, {threshold: 0.08});
-  cards.forEach(c => observer.observe(c));
-
-  /* Staff auth: reveal template after Netlify Identity login OR password fallback */
-  function revealStaffContent() {
-    const tpl = document.getElementById('staff-content-template');
-    if (!tpl) return;
-    const node = tpl.content.cloneNode(true);
-    // insert after login block
-    const login = document.getElementById('login');
-    if (login && login.parentNode) login.parentNode.insertBefore(node, login.nextSibling);
-    // re-run observer so new cards fade in
-    const newCards = document.querySelectorAll('#staff-content .card, #staff-content');
-    newCards.forEach(c => c.classList.add('visible'));
-  }
-
-  // Netlify Identity (if enabled)
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on('init', user => {
-      if (user && user.app_metadata && user.app_metadata.roles && user.app_metadata.roles.includes('staff')) {
-        revealStaffContent();
-        const login = document.getElementById('login'); if (login) login.style.display = 'none';
-      }
+    slides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.classList.add(i === 0 ? "active" : "");
+      dotsContainer.appendChild(dot);
+      dot.addEventListener("click", () => showSlide(i));
     });
 
-    const netBtn = document.getElementById('netlifyLoginBtn');
-    netBtn?.addEventListener('click', e => { e.preventDefault(); window.netlifyIdentity.open(); });
+    const dots = dotsContainer.querySelectorAll("button");
+
+    function showSlide(index) {
+      slides[current].classList.remove("active");
+      dots[current].classList.remove("active");
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add("active");
+      dots[current].classList.add("active");
+    }
+
+    function nextSlide() {
+      showSlide(current + 1);
+    }
+
+    let autoPlay = setInterval(nextSlide, 5000);
+
+    // Pause on hover
+    carousel.addEventListener("mouseenter", () => clearInterval(autoPlay));
+    carousel.addEventListener("mouseleave", () => autoPlay = setInterval(nextSlide, 5000));
   }
 
-  // Password fallback (note: client-side only; replace before going live)
-  window.checkPassword = function() {
-    const pw = document.getElementById('pw');
-    const msg = document.getElementById('msg');
-    if (!pw) return;
-    const val = pw.value.trim();
-    const PLACEHOLDER = 'SetYourPasswordHere'; // <--- replace with your chosen staff password before use
-    if (val === PLACEHOLDER) {
-      try { localStorage.setItem('mp_staff_auth','1'); } catch(e) {}
-      const login = document.getElementById('login'); if (login) login.style.display = 'none';
-      revealStaffContent();
-    } else {
-      if (msg) { msg.textContent = 'Incorrect password — please try again.'; msg.style.color = '#d9534f'; }
-      pw.value = ''; pw.focus();
-    }
-  };
+  /* ---- Mobile Sidebar Toggle (optional future use) ---- */
+  const navToggle = document.querySelector(".nav-toggle");
+  const sideNav = document.querySelector(".side-nav");
+  if (navToggle && sideNav) {
+    navToggle.addEventListener("click", () => {
+      sideNav.classList.toggle("open");
+    });
+  }
 
-  // restore from localStorage
-  try {
-    if (localStorage.getItem('mp_staff_auth') === '1') {
-      const login = document.getElementById('login'); if (login) login.style.display='none';
+  /* ---- News Reel (optional animation reset) ---- */
+  const news = document.querySelector(".news-reel");
+  if (news) {
+    // restart animation every loop
+    news.addEventListener("animationiteration", () => {
+      news.style.animation = "none";
+      news.offsetHeight; // trigger reflow
+      news.style.animation = null;
+    });
+  }
+
+  /* ---- Staff Page Security ---- */
+  const pwInput = document.getElementById("pw");
+  const msg = document.getElementById("msg");
+  if (pwInput) {
+    window.checkPassword = function () {
+      const correct = "Meadow2025"; // ⚠️ Change this to your secure password
+      if (pwInput.value === correct) {
+        msg.textContent = "Access granted.";
+        msg.style.color = "green";
+        revealStaffContent();
+      } else {
+        msg.textContent = "Incorrect password.";
+        msg.style.color = "red";
+      }
+    };
+  }
+
+  /* ---- Netlify Identity integration ---- */
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (user) {
+        revealStaffContent();
+      }
+    });
+    window.netlifyIdentity.on("login", user => {
       revealStaffContent();
-    }
-  } catch(e){}
+      window.netlifyIdentity.close();
+    });
+  }
 });
+
+/* ---- Reveal protected staff content ---- */
+function revealStaffContent() {
+  const tpl = document.getElementById("staff-content-template");
+  if (!tpl) return;
+  const node = tpl.content.cloneNode(true);
+  const login = document.getElementById("login");
+  if (login && login.parentNode) login.parentNode.insertBefore(node, login.nextSibling);
+}
