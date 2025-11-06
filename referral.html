@@ -5,17 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Referral Form — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="jquery.min.js"></script>
-  <script src="script.js"></script>
 </head>
-
 <body class="blugoon-body">
 <header class="site-header">
   <div class="wrap header-inner">
-    <div class="brand-left">
-      <a href="index.html"><img src="Logo.png" alt="Logo" class="logo"></a>
-    </div>
-    <nav class="main-nav">
+    <div class="brand-left"><a href="index.html"><img src="Logo.png" alt="Logo" class="logo"></a></div>
+    <nav class="main-nav"><button class="nav-toggle">☰</button>
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -27,56 +22,63 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
   </div>
 </header>
 
 <main class="wrap">
   <section class="form-card card">
     <h2>Referral Form 📝</h2>
-    <p>
-      Thank you for choosing to refer a young person to Meadow Pathways Wellbeing and Education Cornwall.
-      Please complete all relevant fields below. This form is securely processed through Netlify Forms.
-    </p>
+    <p>Please complete the details below. The form is handled securely by Netlify Forms (SSL) and is redirected to a thank-you page after submission.</p>
 
-    <form name="referral" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html">
+    <form name="referral" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html" autocomplete="on">
       <input type="hidden" name="form-name" value="referral" />
 
       <fieldset>
         <legend>Referrer Information</legend>
-        <p><label>Full Name:<br><input type="text" name="referrer_name" required></label></p>
-        <p><label>Organisation / School:<br><input type="text" name="organisation"></label></p>
-        <p><label>Role:<br><input type="text" name="role"></label></p>
-        <p><label>Email:<br><input type="email" name="email" required></label></p>
-        <p><label>Phone:<br><input type="tel" name="phone"></label></p>
+        <div class="form-row">
+          <label>Full Name<br><input type="text" name="referrer_name" required></label>
+          <label>Organisation / School<br><input type="text" name="organisation"></label>
+        </div>
+        <div class="form-row">
+          <label>Role<br><input type="text" name="role"></label>
+          <label>Email<br><input type="email" name="email" required></label>
+        </div>
       </fieldset>
 
       <fieldset>
         <legend>Learner Information</legend>
-        <p><label>Learner Name:<br><input type="text" name="learner_name" required></label></p>
-        <p><label>Date of Birth:<br><input type="date" name="dob"></label></p>
-        <p><label>Address:<br><textarea name="address" rows="3"></textarea></label></p>
-        <p><label>Current Education Placement:<br><input type="text" name="placement"></label></p>
-        <p><label>Reason for Referral:<br><textarea name="reason" rows="5"></textarea></label></p>
+        <div class="form-row">
+          <label>Learner Full Name<br><input type="text" name="learner_name" required></label>
+          <label>Date of Birth<br><input type="date" name="dob"></label>
+        </div>
+        <label>Address<br><textarea name="address" rows="3"></textarea></label>
+        <label>Current Placement<br><input type="text" name="placement"></label>
+        <label>Reason for Referral<br><textarea name="reason" rows="5"></textarea></label>
       </fieldset>
 
       <fieldset>
-        <legend>Support Needs</legend>
-        <p><label>Relevant Background Information:<br><textarea name="background" rows="5"></textarea></label></p>
-        <p><label>Specific Goals for Support:<br><textarea name="goals" rows="4"></textarea></label></p>
+        <legend>Support Needs & Goals</legend>
+        <label>Relevant Background Information<br><textarea name="background" rows="5"></textarea></label>
+        <label>Specific Goals for Support<br><textarea name="goals" rows="4"></textarea></label>
       </fieldset>
 
       <div data-netlify-recaptcha="true"></div>
-      <p><button type="submit" class="submit-btn">Submit Referral</button></p>
+
+      <p class="form-actions">
+        <button type="submit" class="submit-btn">Submit Referral</button>
+        <a href="policies.html" class="link-muted">View policies & guidance</a>
+      </p>
     </form>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <img src="Logo.png" alt="Meadow Pathways logo" class="footer-logo">
+    <img src="Logo.png" alt="logo" class="footer-logo">
     <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
   </div>
 </footer>
+
+<script src="script.js"></script>
 </body>
 </html>
