@@ -21,9 +21,68 @@ body {
   background: var(--bg-body) url("BG.png") repeat fixed;
   background-size: cover;
   line-height: 1.6;
+  display: flex;
 }
 
-/* ========== LAYOUT WRAPPERS ========== */
+/* ========== SIDEBAR STYLES ========== */
+.sidebar {
+  width: 250px;
+  background-color: var(--blue); /* sidebar blue color */
+  color: white;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-inner {
+  text-align: center;
+  padding: 20px;
+}
+
+.sidebar-logo {
+  width: 140px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 10px;
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-nav li {
+  margin: 12px 0;
+}
+
+.side-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.side-nav a:hover,
+.side-nav a.active {
+  background-color: var(--blue-light);
+  color: var(--text-main);
+}
+
+/* ========== MAIN CONTENT LAYOUT ========== */
+.main-content {
+  margin-left: 260px; /* Push content to the right of the sidebar */
+  padding: 30px;
+  flex: 1;
+}
+
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
