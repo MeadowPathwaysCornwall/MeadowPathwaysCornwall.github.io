@@ -1,123 +1,96 @@
 <!doctype html>
 <html lang="en">
 <head>
-   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Home — Meadow Pathways</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <meta name="description" content="Meadow Pathways Wellbeing and Education Cornwall — EOTAS, SEMH, and therapeutic education provision.">
-<meta name="keywords" content="EOTAS, SEMH, education, wellbeing, Cornwall, Meadow Pathways">
-<meta name="author" content="Meadow Pathways Cornwall">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff Portal — Meadow Pathways</title>
+  <title>Staff Area — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
-  <style>
-    /* Simple lock overlay styling */
-    #lockscreen {
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(160deg, var(--blugoon-blue), var(--blugoon-light));
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-align: center;
-      z-index: 9999;
-    }
-    #lockscreen input {
-      padding: 0.6rem;
-      border: none;
-      border-radius: 6px;
-      margin-top: 1rem;
-      width: 220px;
-      font-size: 1rem;
-    }
-    #lockscreen button {
-      margin-top: 0.6rem;
-      background: var(--accent-green);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 0.6rem 1rem;
-      cursor: pointer;
-    }
-  </style>
 </head>
 
 <body class="blugoon-body">
-
-  <!-- LOCK SCREEN -->
-  <div id="lockscreen">
-    <h2>🔒 Staff Login</h2>
-    <p>Please enter the staff password to continue.</p>
-    <input type="password" id="pwInput" placeholder="Enter password" />
-    <button onclick="unlockStaff()">Login</button>
-    <p id="pwMessage"></p>
-  </div>
-
-  <!-- PROTECTED CONTENT (hidden until unlock) -->
-  <div id="staffContent" style="display:none;">
-    <aside class="sidebar">
-      <div class="sidebar-inner">
-        <div class="logo-wrap">
-          <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
-        </div>
-        <nav class="side-nav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="eotas.html">EOTAS</a></li>
-            <li><a href="safeguarding.html">Safeguarding</a></li>
-            <li><a href="policies.html">Policies</a></li>
-            <li><a href="staff.html" class="active">Staff</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </aside>
-
-    <main class="main-content">
-      <section class="wrap card">
-        <h1>Welcome Meadow Pathways Team 🌿</h1>
-        <p>Here you can access staff resources, training, and secure forms.</p>
-
-        <div class="policy-tabs">
-          <a class="policy-tab blue" href="staff-rota.html">📅 Staff Rota</a>
-          <a class="policy-tab teal" href="staff-expenses.html">💰 Log Hours &amp; Expenses</a>
-          <a class="policy-tab pink" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC Resources</a>
-          <a class="policy-tab purple" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House Resources</a>
-          <a class="policy-tab green" href="https://ciossafeguarding.org.uk/scp" target="_blank">CIOS Safeguarding Partnership</a>
-        </div>
-
-        <h3>Training &amp; Reference 📚</h3>
-        <ul class="staff-links">
-          <li><a href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">KCSIE 2025 — GOV.UK</a></li>
-          <li><a href="https://www.patreon.com/cw/pookyh/home" target="_blank">Pooky Knightsmith — Wellbeing Resources</a></li>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <a href="index.html">
+        <img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo">
+      </a>
+      <nav class="side-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="policies.html">Policies</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="staff.html" class="active">Staff</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://www.crowdfunder.co.uk/p/treverno-meadows-learning-centre-cornwall" target="_blank">
+              Crowdfunder</a></li>
         </ul>
-      </section>
+      </nav>
+    </div>
+  </aside>
 
-      <footer class="wrap site-foot"><p>© Meadow Pathways 2025</p></footer>
-    </main>
-  </div>
+  <!-- Main content -->
+  <main class="main-content">
 
-  <script>
-    function unlockStaff() {
-      const pw = document.getElementById("pwInput").value;
-      const msg = document.getElementById("pwMessage");
-      const correct = MPWEC2025!; // CHANGE THIS privately before upload
+    <section class="wrap card" style="background:url('BG.png') repeat;">
+      <h1>Staff Portal 👩‍🏫</h1>
+      <p>
+        Welcome to the <strong>Meadow Pathways Staff Area</strong>.  
+        This section contains key staff resources, links, and internal documents.  
+        Access to this page is restricted for authorised staff only.
+      </p>
+    </section>
 
-      if (pw === correct) {
-        document.getElementById("lockscreen").style.display = "none";
-        document.getElementById("staffContent").style.display = "block";
-      } else {
-        msg.textContent = "❌ Incorrect password. Try again.";
-        msg.style.color = "yellow";
-      }
-    }
-  </script>
+    <section class="wrap card">
+      <h2>Staff Policies & Resources 📄</h2>
+      <div class="pill-container">
+        <a class="pill blue" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
+        <a class="pill green" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+        <a class="pill purple" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+        <a class="pill orange" href="MPWEC H&S Policy Sep 25.docx" download>Health & Safety Policy</a>
+      </div>
+    </section>
+
+    <section class="wrap card">
+      <h2>Professional Training & Safeguarding Links 🌱</h2>
+      <div class="pill-container">
+        <a class="pill teal" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">
+          Keeping Children Safe in Education (2025)
+        </a>
+        <a class="pill pink" href="https://beaconhouse.org.uk/resources/" target="_blank">
+          Beacon House Resources
+        </a>
+        <a class="pill purple" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">
+          NSPCC Learning
+        </a>
+        <a class="pill green" href="https://www.patreon.com/cw/pookyh/home" target="_blank">
+          PookyH Resources
+        </a>
+        <a class="pill orange" href="https://ciossafeguarding.org.uk/scp" target="_blank">
+          CIOS Safeguarding Partnership
+        </a>
+      </div>
+    </section>
+
+    <section class="wrap card">
+      <h2>Staff Forms 🧾</h2>
+      <p>
+        Please complete internal logs and submissions below.  
+        These forms are protected and only accessible by authorised staff.
+      </p>
+
+      <div class="pill-container">
+        <a class="pill yellow" href="staff-rota.html">Staff Rota & Hours Log</a>
+        <a class="pill lightblue" href="protected-resources.html">Expenses & Resources Form</a>
+      </div>
+    </section>
+
+    <footer class="wrap site-foot">
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
+    </footer>
+  </main>
 </body>
 </html>
