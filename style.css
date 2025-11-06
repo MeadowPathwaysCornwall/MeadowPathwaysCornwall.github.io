@@ -1,28 +1,38 @@
-/* Blugoon-style theme for Meadow Pathways */
-/* Global base styles */
-body.blugoon-body {
+/* =========================================================
+   Meadow Pathways 2025
+   Theme: Blugoon-inspired blue + accent colours
+   ========================================================= */
+
+/* ---------- Global styles ---------- */
+body {
   margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: #123;
-  background-color: #f9fbfd;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f8faff;
+  color: #222;
   line-height: 1.6;
 }
 
-/* Wrap & container */
-.wrap {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
+h1, h2, h3 {
+  color: #0a2540;
+  font-weight: 600;
 }
 
-/* Header & Nav */
+a { text-decoration: none; }
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ---------- Header ---------- */
 .site-header {
-  background: linear-gradient(90deg, #0a3d62, #1e5aa8);
+  background: #0a2540;
   color: white;
-  padding: 0.5rem 0;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
 .header-inner {
@@ -32,273 +42,154 @@ body.blugoon-body {
 }
 
 .logo {
-  height: 90px;      /* make larger */
+  height: 90px;
   width: auto;
-  margin-right: 1rem;
 }
 
-@media (max-width: 768px) {
-  .logo {
-    height: 70px;    /* scale down on mobile */
-  }
-}
-
-
-.main-nav .nav-list {
+.nav-list {
   list-style: none;
   display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-list li {
-  margin: 0 0.75rem;
+  gap: 1rem;
 }
 
 .nav-list a {
-  color: #eaf2ff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-list a:hover,
-.nav-list a.active {
-  color: #00c6ff;
-}
-
-.nav-toggle {
-  display: none;
-  background: none;
-  border: 2px solid #fff;
-  color: #fff;
-  border-radius: 6px;
-  padding: 0.3rem 0.6rem;
-}
-
-/* Mobile Nav */
-@media (max-width: 800px) {
-  .main-nav .nav-list {
-    display: none;
-    flex-direction: column;
-    background: #0a3d62;
-    position: absolute;
-    right: 1rem;
-    top: 80px;
-    border-radius: 10px;
-    width: 200px;
-  }
-
-  .main-nav .nav-list.show {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-}
-
-/* Crowdfunder Button */
-.crowdfund-btn {
-  background: #00aaff;
   color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  text-decoration: none;
-  font-weight: 600;
+  background: #1d3d6b;
+  padding: 0.6rem 1.1rem;
+  border-radius: 0.5rem;
   transition: background 0.3s;
 }
 
-.crowdfund-btn:hover {
-  background: #0090e0;
+.nav-list a:hover, .nav-list a.active {
+  background: #2b5da8;
 }
 
-/* Hero Carousel */
-.hero {
+/* ---------- Carousel ---------- */
+.hero-carousel img {
   width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-bottom: 4px solid #0a2540;
+}
+
+/* ---------- Cards & layout ---------- */
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin: 2rem 0;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* ---------- Quick links ---------- */
+.quick-links .link-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.tab-btn {
+  display: inline-block;
+  color: white;
+  padding: 1rem 1.4rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 160px;
+  transition: transform 0.2s ease, opacity 0.3s;
+}
+
+.tab-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Accent colours */
+.blue { background: #0a2540; }
+.green { background: #1b5e20; }
+.purple { background: #4a148c; }
+.yellow { background: #f9a825; color: #0a2540; }
+.teal { background: #00695c; }
+
+/* ---------- News reel ---------- */
+.news-reel {
   overflow: hidden;
   position: relative;
 }
 
-.carousel {
-  position: relative;
-}
-
-.carousel .slides {
+.reel {
   display: flex;
-  transition: transform 0.6s ease;
+  animation: scrollNews 25s linear infinite;
 }
 
-.carousel .slide {
-  min-width: 100%;
-  position: relative;
-}
-
-.carousel img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-}
-
-.slide-caption {
-  position: absolute;
-  bottom: 10%;
-  left: 5%;
-  background: rgba(0, 0, 0, 0.45);
-  color: #fff;
-  padding: 1rem;
-  border-radius: 10px;
-  max-width: 500px;
-}
-
-.carousel-prev,
-.carousel-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.4);
+.news-item {
+  background: #2b5da8;
   color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 0.3rem 0.8rem;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-.carousel-prev:hover,
-.carousel-next:hover {
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.carousel-prev {
-  left: 10px;
-}
-
-.carousel-next {
-  right: 10px;
-}
-
-/* Cards & Content */
-.card {
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  margin: 1rem 0;
-}
-
-.center-card {
-  text-align: center;
-}
-
-.intro h2 {
-  color: #0a3d62;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-}
-
-/* Buttons & Links */
-.pill,
-.submit-btn {
-  background: #1e5aa8;
-  color: white;
-  border: none;
-  border-radius: 9999px;
-  padding: 0.6rem 1.2rem;
-  text-decoration: none;
-  display: inline-block;
-  font-weight: 600;
-  transition: background 0.3s;
-}
-
-.pill:hover,
-.submit-btn:hover {
-  background: #0078d7;
-}
-
-/* Document tabs */
-.doc-tab,
-.policy-tab {
-  display: inline-block;
-  margin: 0.3rem;
-  padding: 0.6rem 1rem;
-  border-radius: 12px;
-  text-decoration: none;
-  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 0.8rem;
+  margin-right: 1rem;
+  white-space: nowrap;
   font-weight: 500;
 }
 
-.doc-tab { background: #1e5aa8; }
-.doc-tab:hover { background: #0078d7; }
-
-.policy-tab.blue { background: #1e5aa8; }
-.policy-tab.aqua { background: #00aaff; }
-.policy-tab.teal { background: #008b8b; }
-.policy-tab.navy { background: #0a3d62; }
-.policy-tab:hover { opacity: 0.85; }
-
-/* Bio Cards */
-.bio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+@keyframes scrollNews {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
-.bio-card {
-  background: #f1f8ff;
-  border-radius: 15px;
+/* ---------- Contact teaser ---------- */
+.contact-teaser {
   text-align: center;
-  padding: 1rem;
 }
 
-.bio-photo {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
+.contact-teaser p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
 
-/* Safeguarding */
-.safe-image {
-  width: 45%;
-  border-radius: 12px;
-  margin: 1rem;
-}
-
-/* Footer */
+/* ---------- Footer ---------- */
 .site-footer {
-  background: #0a3d62;
-  color: #fff;
-  padding: 1rem 0;
-  margin-top: 2rem;
-}
-
-.footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  background: #0a2540;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
 .footer-logo {
-  height: 50px;
-  width: auto;
+  height: 70px;
+  margin-bottom: 1rem;
 }
 
-.footer-links a {
-  color: #b3d9ff;
-  text-decoration: none;
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column;
+    background: #0a2540;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    display: none;
+  }
+
+  .nav-list.open { display: flex; }
+
+  .nav-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .hero-carousel img {
+    height: 300px;
+  }
 }
-
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-/* Forms */
-form input,
-form tex
-
