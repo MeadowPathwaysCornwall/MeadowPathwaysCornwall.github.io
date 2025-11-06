@@ -3,91 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Quick site checker — Meadow Pathways</title>
-  <style>
-    body{font-family:system-ui,Segoe UI,Arial;margin:18px;background:#fbfdff;color:#0b233f}
-    h1{margin:0 0 12px}
-    .grid{display:grid;gap:10px;grid-template-columns:1fr 140px;max-width:980px}
-    .item{padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(11,35,64,0.06);box-shadow:0 6px 18px rgba(11,35,64,0.03)}
-    .status{font-weight:700;display:inline-block;padding:6px 8px;border-radius:8px}
-    .ok{background:#e6ffef;color:#0b6623;border:1px solid rgba(11,35,64,0.04)}
-    .no{background:#fff1f0;color:#8b1d1d;border:1px solid rgba(11,35,64,0.04)}
-    .note{font-size:0.92rem;color:#475569;margin-top:8px}
-    button{margin-top:14px;padding:10px 12px;border-radius:8px;border:none;background:#007f7f;color:#fff;font-weight:700;cursor:pointer}
-  </style>
+  <title>Check Site — Meadow Pathways</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <h1>Meadow Pathways — Quick site checker</h1>
-  <p class="note">Run checks from your site root. This page makes lightweight requests to common pages and assets. It does not transmit any private data.</p>
-  <div id="results"></div>
-  <button id="run">Run checks</button>
+<body class="blugoon-body">
 
-  <script>
-  (function(){
-    const CHECKS = [
-      {label:'Home (index.html)', url:'index.html'},
-      {label:'About (about.html)', url:'about.html'},
-      {label:'EOTAS (eotas.html)', url:'eotas.html'},
-      {label:'Safeguarding (safeguarding.html)', url:'safeguarding.html'},
-      {label:'Referral (referral.html)', url:'referral.html'},
-      {label:'Contact (contact.html)', url:'contact.html'},
-      {label:'Thank you (thankyou.html)', url:'thankyou.html'},
-      {label:'Logo (Logo.png)', url:'Logo.png'},
-      {label:'BG (BG.png)', url:'BG.png'},
-      {label:'Carousel sample (Bake.jpg)', url:'Bake.jpg'},
-      {label:'RSHE doc (RSHE 2025.pdf)', url:'RSHE 2025.pdf'},
-      {label:'Formspree endpoint (HEAD)', url:'https://formspree.io/f/movnvzqp', method:'HEAD'}
-    ];
+  <main class="wrap main-content">
+    <section class="card">
+      <h2>Website Check</h2>
+      <p>If you are seeing this page, the Meadow Pathways site is under scheduled maintenance or testing.</p>
+      <p>Return to <a href="index.html">Home Page</a>.</p>
+    </section>
+  </main>
 
-    const resultsEl = document.getElementById('results');
-    const runBtn = document.getElementById('run');
-
-    function makeRow(check){
-      const wrapper = document.createElement('div'); wrapper.className='grid';
-      const left = document.createElement('div'); left.className='item';
-      left.innerHTML = '<strong>'+check.label+'</strong><div class="note">'+check.url+'</div>';
-      const right = document.createElement('div'); right.className='item';
-      right.style.display='flex'; right.style.alignItems='center'; right.style.justifyContent='center';
-      right.innerHTML = '<span class="status">Checking…</span>';
-      wrapper.appendChild(left); wrapper.appendChild(right); resultsEl.appendChild(wrapper);
-      return {wrapper,right};
-    }
-
-    function setStatus(el, ok, message){
-      const span = el.querySelector('.status');
-      span.textContent = message || (ok ? 'OK' : 'Missing');
-      span.className = 'status ' + (ok ? 'ok' : 'no');
-    }
-
-    async function runChecks(){
-      resultsEl.innerHTML = '';
-      for (const check of CHECKS){
-        const row = makeRow(check);
-        try {
-          const controller = new AbortController();
-          const id = setTimeout(()=> controller.abort(), 7000);
-          const opts = {method: check.method || 'GET', signal: controller.signal, mode: 'no-cors'};
-          const resp = await fetch(check.url, opts);
-          clearTimeout(id);
-          // When mode no-cors, status may be opaque; treat resolved fetch as likely OK
-          if (resp && (resp.ok || resp.type === 'opaque' || resp.type === 'basic')) {
-            setStatus(row.right, true, 'OK');
-          } else {
-            setStatus(row.right, false, 'Missing');
-          }
-        } catch (err) {
-          setStatus(row.right, false, 'Missing');
-        }
-      }
-
-      const summary = document.createElement('div');
-      summary.style.marginTop='16px'; summary.className='item';
-      summary.innerHTML = '<strong>Check complete</strong><p class="note">If an item is Missing, verify filename, path and that the file is uploaded to the repo root. For Formspree, ensure the endpoint is correct.</p>';
-      resultsEl.appendChild(summary);
-    }
-
-    runBtn.addEventListener('click', runChecks);
-  })();
-  </script>
+  <footer class="site-footer">
+    <div class="wrap">
+      <img src="Logo.png" alt="Logo" class="footer-logo">
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+    </div>
+  </footer>
 </body>
 </html>
