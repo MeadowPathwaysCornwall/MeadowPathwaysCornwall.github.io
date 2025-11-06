@@ -1,94 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Staff — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Netlify Identity widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-
 <body class="blugoon-body">
-<header class="site-header">
-  <div class="wrap header-inner">
-    <div class="brand-left">
-      <a href="index.html"><img src="Logo.png" alt="Logo" class="logo"></a>
-    </div>
-    <nav class="main-nav">
-      <button class="nav-toggle">☰</button>
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="policies.html">Policies</a></li>
-        <li><a href="referral.html">Referral</a></li>
-        <li><a href="staff.html" class="active">Staff</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
 
-<main class="wrap">
-  <!-- Login Section -->
-  <section id="login" class="card center-card">
-    <h2>Staff Login 🔒</h2>
-    <p>This area is for authorised Meadow Pathways staff only.</p>
+  <!-- copy same sidebar here -->
 
-    <div class="login-controls">
-      <button id="netlifyLoginBtn" class="submit-btn">Sign in with Netlify</button>
-      <div class="password-login">
-        <label>Staff password<br>
-          <input id="pw" type="password" placeholder=MPWEC25!>
-        </label>
-        <p><button onclick="checkPassword()" class="submit-btn">Enter</button></p>
-        <p id="msg" class="small muted"></p>
+  <main class="main-content">
+    <header class="main-header"><div class="wrap header-top"></div></header>
+
+    <section id="login" class="wrap card center-card">
+      <h2>Staff Login 🔒</h2>
+      <p>This area is for authorised Meadow Pathways staff only. Please sign in or enter the staff password.</p>
+
+      <div class="login-controls">
+        <button id="netlifyLoginBtn" class="submit-btn">Sign in with Netlify</button>
+        <div class="password-login">
+          <label>Staff password<br><input id="pw" type="password" placeholder=MPWEC2025!></label>
+          <p><button onclick="checkPassword()" class="submit-btn">Enter</button></p>
+          <p id="msg" class="muted small"></p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Protected Staff Content -->
-  <section id="staff-content" class="card" style="display:none;">
-    <h2>Staff Resources 👩‍🏫</h2>
-    <p>Welcome, Meadow Pathways team. Access internal documents, policies, and trusted external resources below.</p>
+    <!-- template-hiddden: staff content cloned in by JS after auth -->
+    <template id="staff-content-template">
+      <section id="staff-content" class="wrap card">
+        <h2>Staff Resources 👩‍🏫</h2>
+        <p>Welcome, staff. Access internal documents below.</p>
 
-    <!-- Staff Policies -->
-    <h3>Policies 📘</h3>
-    <div class="policy-tabs">
-      <a class="policy-tab blue" href="MPWEC Staff Conduct Policy.docx" target="_blank">Staff Conduct</a>
-      <a class="policy-tab aqua" href="MPWEC Lone Working Policy Sep25.docx" target="_blank">Lone Working</a>
-      <a class="policy-tab teal" href="MPWEC H&S Policy Sep 25.docx" target="_blank">Health & Safety</a>
-      <a class="policy-tab navy" href="MPWEC Whistleblowing Policy.docx" target="_blank">Whistleblowing</a>
-    </div>
+        <h3>Policies</h3>
+        <div class="policy-tabs">
+          <a class="policy-tab blue" href="MPWEC Staff Conduct Policy.docx" target="_blank">Staff Conduct</a>
+          <a class="policy-tab aqua" href="MPWEC Lone Working Policy Sep25.docx" target="_blank">Lone Working</a>
+          <a class="policy-tab teal" href="MPWEC H&S Policy Sep 25.docx" target="_blank">H&S</a>
+          <a class="policy-tab navy" href="MPWEC Whistleblowing Policy.docx" target="_blank">Whistleblowing</a>
+        </div>
 
-    <!-- Staff Forms -->
-    <h3>Forms 📝</h3>
-    <div class="policy-tabs">
-      <a class="policy-tab warm" href="staff-rota.html">Staff Rota Form</a>
-      <a class="policy-tab accent" href="staff-expenses.html">Hours & Expenses Form</a>
-      <a class="policy-tab green" href="protected-resources.html">Protected Resources</a>
-    </div>
+        <h3>Forms</h3>
+        <div class="policy-tabs">
+          <a class="policy-tab warm" href="staff-rota.html">Staff Rota</a>
+          <a class="policy-tab accent" href="staff-expenses.html">Hours & Expenses</a>
+          <a class="policy-tab green" href="protected-resources.html">Protected Resources</a>
+        </div>
 
-    <!-- Training & External Resources -->
-    <h3>Training & Resources 🌐</h3>
-    <div class="policy-tabs">
-      <a class="policy-tab blue" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">KCSIE (Sep 2025)</a>
-      <a class="policy-tab purple" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH Resources</a>
-      <a class="policy-tab aqua" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House</a>
-      <a class="policy-tab teal" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC Learning</a>
-      <a class="policy-tab green" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios Safeguarding Partnership</a>
-    </div>
-  </section>
-</main>
+        <h3>Training & External Links</h3>
+        <div class="policy-tabs">
+          <a class="policy-tab blue" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">KCSIE (Sep 2025)</a>
+          <a class="policy-tab purple" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH</a>
+          <a class="policy-tab aqua" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House</a>
+          <a class="policy-tab teal" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC</a>
+          <a class="policy-tab green" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios SCP</a>
+        </div>
+      </section>
+    </template>
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <img src="Logo.png" alt="logo" class="footer-logo">
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-  </div>
-</footer>
+    <footer class="wrap site-foot"><p>© Meadow Pathways 2025</p></footer>
+  </main>
 
 <script src="script.js"></script>
 </body>
