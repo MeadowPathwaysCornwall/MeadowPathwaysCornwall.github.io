@@ -19,15 +19,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-      dots[i].classList.toggle("active", i === index);
+      slide.classList.remove("active");
+      dots[i].classList.remove("active");
     });
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+
+    // Transition effect (sliding images horizontally)
+    document.querySelector(".carousel-inner").style.transform = `translateX(-${index * 100}%)`;
   }
 
   function nextSlide() {
     currentSlide = (currentSlide + 1) % slides.length;
     showSlide(currentSlide);
   }
+
+  // Initial setup
+  showSlide(currentSlide);
 
   // Auto slide every 4 seconds
   setInterval(nextSlide, 4000);
