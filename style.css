@@ -1,15 +1,15 @@
 /* ========== GLOBAL STYLES ========== */
 :root {
-  --blue: #009cd8;
-  --light-blue: #e9f8ff;
-  --accent-green: #5fcba4;
-  --accent-yellow: #ffde59;
-  --accent-pink: #f9b3c4;
-  --accent-purple: #b7a3f9;
-  --text-dark: #243447;
-  --text-soft: #4a5868;
-  --bg-body: #f6fcff;
-  --bg-card: #ffffff;
+:root {
+  --blugoon-blue: #4fa3d1;          /* Lighter Blugoon blue */
+  --blugoon-dark: #2c698d;
+  --blugoon-light: #eaf6fb;
+  --accent-green: #4bbf9f;
+  --accent-yellow: #ffd86b;
+  --text-dark: #1f2933;
+  --text-soft: #445566;
+  --bg-light: #f9fbfc;
+  --card-bg: #ffffff;
   --font-main: "Poppins", Arial, sans-serif;
 }
 
@@ -27,7 +27,7 @@ body {
 /* ========== SIDEBAR STYLES ========== */
 .sidebar {
   width: 250px;
-  background-color: var(--blue); /* sidebar blue color */
+    background: linear-gradient(180deg, var(--blugoon-blue), var(--blugoon-dark));
   color: white;
   height: 100vh;
   position: fixed;
@@ -359,3 +359,4 @@ a.pill:hover {
   from { opacity: 0.3; }
   to { opacity: 1; }
 }
+
