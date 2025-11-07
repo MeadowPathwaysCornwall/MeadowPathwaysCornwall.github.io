@@ -1,6 +1,6 @@
 /* ========== GLOBAL STYLES ========== */
 :root {
-  --blue: #009cd8; /* Blugoon Blue */
+  --blue: #009cd8; /* Original Blugoon blue */
   --light-blue: #e9f8ff;
   --accent-green: #5fcba4;
   --accent-yellow: #ffde59;
@@ -39,11 +39,12 @@ body {
 
 .sidebar-logo {
   width: 140px;
-  margin-bottom: 20px;
+  height: 140px;
+  margin: 20px auto;
   border-radius: 50%;
   background-color: white;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .side-nav ul {
@@ -61,15 +62,16 @@ body {
   text-decoration: none;
   font-weight: 600;
   display: block;
-  padding: 8px 12px;
-  border-radius: 10px;
-  transition: background 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: background 0.3s ease, padding-left 0.3s ease;
 }
 
 .side-nav a:hover,
 .side-nav a.active {
   background-color: var(--accent-green);
   color: var(--text-dark);
+  padding-left: 20px; /* Add a slight padding on hover for effect */
 }
 
 /* ========== MAIN CONTENT LAYOUT ========== */
@@ -268,4 +270,3 @@ a.pill:hover {
   from { opacity: 0.3; }
   to { opacity: 1; }
 }
-
