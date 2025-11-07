@@ -1,4 +1,4 @@
-/* --- General Reset & Body --- */
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +10,6 @@ body {
   background-color: #f7f8fa;
   color: #333;
   line-height: 1.6;
-  margin: 0;
 }
 
 a {
@@ -22,11 +21,7 @@ a:focus, a:hover {
   color: var(--accent-green);
 }
 
-.blugoon-body {
-  background-color: #fff;
-}
-
-/* --- Colors & Variables --- */
+/* Variables */
 :root {
   --blugoon-blue: #0075b3;
   --blugoon-light: #d9eef6;
@@ -36,183 +31,31 @@ a:focus, a:hover {
   --footer-text: #333;
 }
 
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 3rem 0;
-  text-align: center;
-}
-
-.hero-overlay h1 {
-  font-size: 3rem;
-  color: white;
-}
-
-.hero-overlay p {
-  font-size: 1.2rem;
-  color: white;
-}
-
-.site-header {
-  background-color: var(--blugoon-blue);
-  color: #fff;
-  padding: 1rem 0;
-}
-
-.site-header .primary-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-tabs {
-  list-style: none;
-  display: flex;
-  padding: 0;
-}
-
-.nav-tabs li {
-  margin: 0 1.5rem;
-}
-
-.nav-tabs a {
-  color: white;
-  font-size: 1.1rem;
-}
-
-.nav-tabs .active {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.nav-toggle {
-  background-color: var(--blugoon-blue);
-  border: none;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.site-footer {
-  background-color: var(--footer-bg);
-  text-align: center;
-  padding: 2rem 0;
-}
-
-.site-footer p {
-  color: var(--footer-text);
-}
-
-.footer-logo {
-  width: 150px;
-  margin-bottom: 1rem;
-}
-
-/* --- Carousel --- */
-.carousel {
-  display: flex;
-  overflow: hidden;
+.hero {
   position: relative;
-  width: 100%;
-}
-
-.carousel-images {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-images img {
-  width: 100%;
-  max-width: 100%;
-  display: block;
-}
-
-.carousel-nav {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-}
-
-.carousel-prev, .carousel-next {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  height: 300px;
   color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-/* --- News Ticker --- */
-.news-reel {
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.news-reel span {
-  animation: ticker 15s linear infinite;
-}
-
-@keyframes ticker {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* --- Layout & Spacing --- */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.page-wrap {
-  padding: 3rem 0;
-}
-
-.wrap {
-  margin-bottom: 3rem;
-}
-
-.card {
-  background-color: #fff;
+  text-align: center;
   padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
 }
 
-.card h1, .card h2 {
-  color: var(--blugoon-blue);
-  margin-bottom: 1rem;
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
 }
 
-.card p {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+.hero h1 {
+  font-size: 3rem;
 }
 
-.card ul {
-  padding-left: 20px;
-  list-style-type: square;
+.hero p {
+  font-size: 1.2rem;
 }
 
-.card .emoji-list {
-  padding-left: 0;
-}
-
-.card a {
-  font-weight: bold;
-  color: var(--accent-green);
-}
-
-/* --- Sidebar --- */
+/* Sidebar */
 .sidebar {
-  width: 300px;
+  width: 250px;
   position: fixed;
   top: 0;
   left: 0;
@@ -252,35 +95,125 @@ a:focus, a:hover {
   text-decoration: underline;
 }
 
-/* --- Forms & Buttons --- */
-input[type="text"], input[type="email"], input[type="password"], textarea {
-  width: 100%;
-  padding: 1rem;
-  margin: 0.8rem 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
+/* Main Content */
+.main-content {
+  margin-left: 270px;
+  padding: 3rem 2rem;
 }
 
-button, .submit-btn {
-  padding: 1rem 2rem;
-  background-color: var(--accent-green);
+.wrap {
+  margin-bottom: 3rem;
+}
+
+.card {
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.card h1, .card h2 {
+  color: var(--blugoon-blue);
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.card ul {
+  padding-left: 20px;
+  list-style-type: square;
+}
+
+.card a {
+  font-weight: bold;
+  color: var(--accent-green);
+}
+
+.card .emoji-list {
+  padding-left: 0;
+}
+
+/* Carousel */
+.carousel {
+  position: relative;
+  max-width: 100%;
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.carousel-prev, .carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  border-radius: 8px;
+  padding: 10px;
   cursor: pointer;
 }
 
-button:hover, .submit-btn:hover {
-  background-color: #4b8e3d;
+.carousel-prev {
+  left: 10px;
 }
 
-.form-actions {
+.carousel-next {
+  right: 10px;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* News Ticker */
+.news-reel {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.news-reel span {
+  animation: ticker 15s linear infinite;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Footer */
+.site-foot {
+  background-color: var(--footer-bg);
   text-align: center;
-
+  padding: 2rem 0;
 }
 
-/* Back to top button */
+.site-foot p {
+  color: var(--footer-text);
+}
+
+.footer-logo {
+  width: 150px;
+  margin-bottom: 1rem;
+}
+
+/* Back to Top Button */
 #backToTop {
   position: fixed;
   bottom: 2rem;
@@ -296,6 +229,7 @@ button:hover, .submit-btn:hover {
   background-color: #4b8e3d;
 }
 
+/* Responsive Styles */
 @media screen and (max-width: 768px) {
   .primary-nav ul {
     display: none;
@@ -324,5 +258,19 @@ button:hover, .submit-btn:hover {
     height: auto;
     position: static;
     padding: 1rem;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .hero {
+    height: 200px;
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
   }
 }
