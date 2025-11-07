@@ -1,58 +1,158 @@
-// Carousel functionality
-const carouselImages = document.querySelectorAll(".carousel-inner img");
-let activeImage = 0;
-
-function changeImage() {
-  // Remove the "active" class from the current image
-  carouselImages[activeImage].classList.remove("active");
-  
-  // Move to the next image, looping back to the first image at the end
-  activeImage = (activeImage + 1) % carouselImages.length;
-
-  // Add the "active" class to the new image
-  carouselImages[activeImage].classList.add("active");
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #2f8f4a;
 }
 
-// Change image every 3 seconds
-setInterval(changeImage, 3000);
-
-// Make the first image visible initially
-carouselImages[activeImage].classList.add("active");
-
-// Navigation link active styling
-const links = document.querySelectorAll('.side-nav a');
-links.forEach(link => {
-  link.addEventListener('click', function() {
-    // Remove "active" class from all navigation links
-    links.forEach(link => link.classList.remove('active'));
-
-    // Add "active" class to the clicked navigation link
-    this.classList.add('active');
-  });
-});
-
-// Add event listeners to the links on page load to highlight the active link based on the current page
-document.addEventListener("DOMContentLoaded", () => {
-  const currentPage = window.location.pathname;
-  links.forEach(link => {
-    if (link.href.includes(currentPage)) {
-      link.classList.add('active');
-    }
-  });
-});
-
-// QR Section visibility logic (only show on homepage)
-if (document.body.classList.contains("home")) {
-  document.querySelector(".qr-section").style.display = "block";
-} else {
-  document.querySelector(".qr-section").style.display = "none";
+h1, h2, h3, h4, h5, h6 {
+    color: #1f9d9a;
 }
 
-// Optional: Password protection for certain pages (such as the staff page)
-if (window.location.pathname === "/staff.html") {
-  const password = prompt("Please enter the password to access this page:");
-  if (password !== "yourPassword") {
-    alert("Access denied!");
-    window.location.href = "index.html"; // Redirect back to the homepage if the password is wrong
-  }
+a {
+    text-decoration: none;
+    color: #2f8f4a;
+}
+
+a:hover {
+    color: #5d8aa8;
+}
+
+header {
+    background-color: #1f9d9a;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+}
+
+nav {
+    background-color: #2f8f4a;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #5d8aa8;
+}
+
+.hero {
+    background: url('BG.png') no-repeat center center;
+    background-size: cover;
+    padding: 100px 20px;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero-sub {
+    font-size: 1.5rem;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+}
+
+.pill {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #2f8f4a;
+    color: white;
+    border-radius: 20px;
+}
+
+.pill-secondary {
+    background-color: #eee;
+    color: #333;
+}
+
+/* Carousel Styles */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+.carousel .slides {
+    display: block;
+}
+
+.carousel .slide {
+    width: 100%;
+    display: none;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.carousel .slide.active {
+    display: block;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.carousel-btn {
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carousel-btn:hover {
+    background-color: #2f8f4a;
+}
+
+.dots {
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #2f8f4a;
+}
+
+footer {
+    background-color: #1f9d9a;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
 }
