@@ -1,5 +1,5 @@
-// ========== CAROUSEL ==========
 document.addEventListener("DOMContentLoaded", () => {
+  // ========== CAROUSEL ==========
   const slides = document.querySelectorAll(".carousel-inner img");
   const dotsContainer = document.querySelector(".carousel-dots");
   let currentSlide = 0;
@@ -61,6 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }, appearOptions);
   faders.forEach(fader => appearOnScroll.observe(fader));
 
+  // ========== HIDE QR SECTION ON OTHER PAGES ==========
+  if (currentPage !== 'index.html') {
+    const qrSection = document.querySelector('.qr-section');
+    if (qrSection) {
+      qrSection.style.display = 'none';
+    }
+  }
+
   // ========== NETLIFY FORM CONFIRMATION ==========
   const forms = document.querySelectorAll("form[data-netlify='true']");
   forms.forEach(form => {
@@ -79,19 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(() => {
         alert("⚠️ There was a problem submitting your form. Please try again later.");
       });
-    });
-  });
-
-  // ========== QR CODE HOVER EFFECT ==========
-  const qrImages = document.querySelectorAll(".qr-image");
-  qrImages.forEach(img => {
-    img.addEventListener("mouseover", () => {
-      img.style.transform = "scale(1.05)";
-      img.style.boxShadow = "0 6px 18px rgba(0,0,0,0.25)";
-    });
-    img.addEventListener("mouseout", () => {
-      img.style.transform = "scale(1)";
-      img.style.boxShadow = "0 6px 18px rgba(0,0,0,0.12)";
     });
   });
 
