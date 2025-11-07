@@ -1,83 +1,86 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Referral Form — Meadow Pathways</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Referral — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
+  <meta name="description" content="Meadow Pathways Wellbeing and Education Cornwall — EOTAS, SEMH, and therapeutic education provision.">
+  <meta name="keywords" content="EOTAS, SEMH, education, wellbeing, Cornwall, Meadow Pathways">
+  <meta name="author" content="Meadow Pathways Cornwall">
 </head>
 
 <body class="blugoon-body">
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo">
-      </a>
-      <nav class="side-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="eotas.html">EOTAS</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="policies.html">Policies</a></li>
-          <li><a href="referral.html" class="active">Referral</a></li>
-          <li><a href="staff.html">Staff</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </aside>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="eotas.html">EOTAS</a></li>
+      <li><a href="safeguarding.html">Safeguarding</a></li>
+      <li><a href="staff.html">Staff</a></li>
+      <li><a href="referral.html" class="active">Referral</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- Main content -->
+  <!-- Main Content -->
   <main class="main-content">
-
-    <section class="wrap card" style="background:url('BG.png') repeat;">
-      <h1>Referral Form 📝</h1>
-      <p>
-        Thank you for choosing to refer a young person to Meadow Pathways Wellbeing and Education Cornwall.  
-        Please complete all relevant fields. This form is securely handled by <strong>Netlify Forms</strong>.
-      </p>
-    </section>
-
     <section class="wrap card form-card">
-      <form name="referral" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html">
+      <h2>Referral Form 📝</h2>
+      <p>Please complete the details below. This form is processed securely via Netlify Forms.</p>
+
+      <form name="referral" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html" autocomplete="on">
         <input type="hidden" name="form-name" value="referral" />
 
+        <!-- Referrer Details -->
         <fieldset>
-          <legend>👩‍💼 Referrer Information</legend>
-          <p><label>Name:<br><input type="text" name="referrer_name" required></label></p>
-          <p><label>Organisation / School:<br><input type="text" name="organisation"></label></p>
-          <p><label>Role:<br><input type="text" name="role"></label></p>
-          <p><label>Email:<br><input type="email" name="email" required></label></p>
-          <p><label>Phone:<br><input type="tel" name="phone"></label></p>
+          <legend>Referrer</legend>
+          <div class="form-row">
+            <label>Referrer Name<br><input type="text" name="referrer_name" required></label>
+            <label>Organisation<br><input type="text" name="organisation"></label>
+          </div>
+          <div class="form-row">
+            <label>Role<br><input type="text" name="role"></label>
+            <label>Email<br><input type="email" name="email" required></label>
+          </div>
         </fieldset>
 
+        <!-- Learner Details -->
         <fieldset>
-          <legend>👦 Learner Information</legend>
-          <p><label>Full Name:<br><input type="text" name="learner_name" required></label></p>
-          <p><label>Date of Birth:<br><input type="date" name="dob"></label></p>
-          <p><label>Address:<br><textarea name="address" rows="3"></textarea></label></p>
-          <p><label>Current Education Placement:<br><input type="text" name="placement"></label></p>
-          <p><label>Reason for Referral:<br><textarea name="reason" rows="4" placeholder="Please give as much detail as possible..."></textarea></label></p>
+          <legend>Learner</legend>
+          <div class="form-row">
+            <label>Learner Name<br><input type="text" name="learner_name" required></label>
+            <label>Date of Birth<br><input type="date" name="dob"></label>
+          </div>
+          <label>Address<br><textarea name="address" rows="3"></textarea></label>
+          <label>Current Placement<br><input type="text" name="placement"></label>
+          <label>Reason for Referral<br><textarea name="reason" rows="5"></textarea></label>
         </fieldset>
 
+        <!-- Support Needs -->
         <fieldset>
-          <legend>💛 Support Needs</legend>
-          <p><label>Relevant Background Information:<br><textarea name="background" rows="4"></textarea></label></p>
-          <p><label>Specific Goals for Support:<br><textarea name="goals" rows="3"></textarea></label></p>
+          <legend>Support Needs</legend>
+          <label>Background Info<br><textarea name="background" rows="5"></textarea></label>
+          <label>Goals for Support<br><textarea name="goals" rows="4"></textarea></label>
         </fieldset>
 
-        <div class="recaptcha-wrapper" data-netlify-recaptcha="true"></div>
-        <p class="submit-wrap"><button type="submit" class="submit-btn">Submit Referral ✉️</button></p>
+        <!-- reCAPTCHA -->
+        <div data-netlify-recaptcha="true"></div>
+
+        <!-- Submit Button -->
+        <p class="form-actions"><button type="submit" class="submit-btn">Submit Referral</button></p>
       </form>
     </section>
-
-    <footer class="wrap site-foot">
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-    </footer>
-
   </main>
+
+  <footer>
+    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
