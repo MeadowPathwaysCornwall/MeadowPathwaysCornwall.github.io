@@ -13,20 +13,10 @@
   --font-main: "Poppins", Arial, sans-serif;
 }
 
-body.home {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-main);
-  color: var(--text-dark);
-  background: var(--bg-body) url("BG.png") repeat fixed;
-  background-size: cover;
-  line-height: 1.6;
-  display: flex;
-}
-
+/* ========== SIDEBAR STYLES (Blugoon original) ========== */
 .sidebar {
   width: 250px;
-  background-color: var(--blue);
+  background-color: var(--blue); /* Original Blugoon blue */
   color: white;
   height: 100vh;
   position: fixed;
@@ -73,6 +63,7 @@ body.home {
   padding-left: 20px; /* Hover effect for padding */
 }
 
+/* ========== MAIN CONTENT LAYOUT ========== */
 .main-content {
   margin-left: 260px; /* Sidebar width */
   padding: 30px;
@@ -85,13 +76,15 @@ body.home {
   padding: 20px;
 }
 
+/* ========== CAROUSEL FIX (reduce image size) ========== */
 .carousel {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  max-width: 100%;
+  width: 80%;
+  max-width: 80%;  /* Reduce size of the images */
   border-radius: 14px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  margin: 0 auto;
 }
 
 .carousel-inner {
@@ -126,7 +119,7 @@ body.home {
   background: var(--accent-yellow);
 }
 
-/* QR Section */
+/* ========== QR SECTION (index.html only) ========== */
 .qr-section {
   text-align: center;
   display: block;
@@ -165,4 +158,3 @@ body.home {
     display: none;
   }
 }
-
