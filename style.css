@@ -1,160 +1,27 @@
-/* ========== GLOBAL STYLES ========== */
-:root {
-  --blue: #009cd8; /* Original Blugoon blue */
-  --light-blue: #e9f8ff;
-  --accent-green: #5fcba4;
-  --accent-yellow: #ffde59;
-  --accent-pink: #f9b3c4;
-  --accent-purple: #b7a3f9;
-  --text-dark: #243447;
-  --text-soft: #4a5868;
-  --bg-body: #f6fcff;
-  --bg-card: #ffffff;
-  --font-main: "Poppins", Arial, sans-serif;
+// carousel functionality
+const carouselImages = document.querySelectorAll(".carousel-inner img");
+let activeImage = 0;
+
+function changeImage() {
+  carouselImages[activeImage].classList.remove("active");
+  activeImage = (activeImage + 1) % carouselImages.length;
+  carouselImages[activeImage].classList.add("active");
 }
 
-/* ========== SIDEBAR STYLES ========== */
-.sidebar {
-  width: 250px;
-  background-color: var(--blue); /* Original Blugoon blue */
-  color: white;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  overflow-y: auto;
-  padding-top: 20px;
-}
+setInterval(changeImage, 3000);  // Change image every 3 seconds
 
-.sidebar-logo {
-  width: 140px;
-  height: 140px;
-  margin: 20px auto;
-  border-radius: 50%;
-  background-color: white;
-  padding: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
+// Navigation active link styling
+const links = document.querySelectorAll('.side-nav a');
+links.forEach(link => {
+  link.addEventListener('click', function() {
+    links.forEach(link => link.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
 
-.side-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.side-nav li {
-  margin: 12px 0;
-}
-
-.side-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  display: block;
-  padding: 8px 16px;
-  border-radius: 12px;
-  transition: background 0.3s ease;
-}
-
-.side-nav a:hover,
-.side-nav a.active {
-  background-color: var(--accent-green);
-  color: var(--text-dark);
-  padding-left: 20px; /* Hover effect for padding */
-}
-
-/* ========== MAIN CONTENT LAYOUT ========== */
-.main-content {
-  margin-left: 260px; /* Sidebar width */
-  padding: 30px;
-  flex: 1;
-}
-
-.wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* ========== CAROUSEL FIX (reduce image size) ========== */
-.carousel {
-  position: relative;
-  overflow: hidden;
-  width: 80%;
-  max-width: 80%;  /* Reduce size of the images */
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  margin: 0 auto;
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 1s ease;
-}
-
-.carousel-inner img {
-  max-width: 80%;  /* Reduce size of the images */
-  height: auto;    /* Maintain aspect ratio */
-  display: block;
-  margin: 0 auto;  /* Center the images */
-  border-radius: 14px;
-}
-
-.carousel-dots {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.carousel-dots span {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background: var(--accent-purple);
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.carousel-dots .active {
-  background: var(--accent-yellow);
-}
-
-/* ========== QR SECTION (index.html only) ========== */
-.qr-section {
-  text-align: center;
-  display: block;
-  margin-top: 20px;
-}
-
-.qr-image {
-  max-width: 250px;
-  margin: 20px auto;
-  border: 3px solid var(--accent-green);
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}
-
-.qr-image img {
-  max-width: 100%;
-}
-
-/* ========== MEDIA QUERIES ========== */
-@media (max-width: 768px) {
-  .side-nav {
-    display: none;  /* Hide sidebar on mobile */
-  }
-
-  .main-content {
-    margin-left: 0;
-    padding: 10px;
-  }
-
-  .carousel-inner img {
-    max-width: 100%;
-  }
-
-  /* Hide QR codes on other pages */
-  .qr-section {
-    display: none;
-  }
+// QR Section visibility
+if (document.body.classList.contains("home")) {
+  document.querySelector(".qr-section").style.display = "block";
+} else {
+  document.querySelector(".qr-section").style.display = "none";
 }
