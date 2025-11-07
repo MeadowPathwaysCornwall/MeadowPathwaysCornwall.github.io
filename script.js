@@ -2,7 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // --- Carousel functionality ---
   let currentSlide = 0;
-  const slides = document.querySelectorAll('.carousel-images img');
+  const carouselImages = document.querySelector('.carousel-images');
+  
+  if (!carouselImages) return;  // Exit if carousel container is not found
+
+  const slides = carouselImages.querySelectorAll('img');
   const totalSlides = slides.length;
 
   const showSlide = (index) => {
@@ -15,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Move the carousel images
-    document.querySelector('.carousel-images').style.transform = `translateX(-${currentSlide * 100}%)`;
+    carouselImages.style.transform = `translateX(-${currentSlide * 100}%)`;
   };
 
   const nextSlide = () => showSlide(currentSlide + 1);
@@ -24,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Event listeners for carousel navigation
   const nextButton = document.querySelector('.carousel-next');
   const prevButton = document.querySelector('.carousel-prev');
+  
   if (nextButton && prevButton) {
     nextButton.addEventListener('click', nextSlide);
     prevButton.addEventListener('click', prevSlide);
@@ -45,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // --- Back to Top Button functionality ---
   const backToTopButton = document.getElementById('backToTop');
+  
   if (backToTopButton) {
     window.addEventListener('scroll', () => {
       if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
