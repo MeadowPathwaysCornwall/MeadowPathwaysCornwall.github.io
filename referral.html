@@ -4,18 +4,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Meadow Pathways</title>
+  <title>Referral — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
 </head>
 
 <body class="blugoon-body">
-  <!-- Sidebar -->
+
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-inner">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo">
-      </a>
+      <div class="logo-wrap">
+        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
+      </div>
+
       <nav class="side-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -23,29 +24,28 @@
           <li><a href="eotas.html">EOTAS</a></li>
           <li><a href="safeguarding.html">Safeguarding</a></li>
           <li><a href="policies.html">Policies</a></li>
-          <li><a href="referral.html">Referral</a></li>
+          <li><a href="referral.html" class="active">Referral</a></li>
           <li><a href="staff.html">Staff</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
-          <li><a href="https://www.crowdfunder.co.uk/p/treverno-meadows-learning-centre-cornwall" target="_blank">Crowdfunder</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="sidebar-footer">
+        <img src="treverno-meadows-learning-centre---cornwall-qrcode.png" alt="Crowdfunder QR code" class="footer-logo">
+        <p>© 2025 Meadow Pathways</p>
+      </div>
     </div>
   </aside>
 
-  <!-- Main Content -->
+  <!-- MAIN CONTENT -->
   <main class="main-content">
-
-    <!-- Introduction Section -->
-    <section class="wrap card" style="background:url('BG.png') repeat;">
-      <h1>Contact Us</h1>
-      <p>We appreciate your interest in Meadow Pathways Wellbeing and Education Cornwall. If you have any questions or would like to refer a young person to our services, please use the form below to get in touch.</p>
+    <section class="wrap card">
+      <h1>Referral Form 📝</h1>
+      <p>Thank you for choosing to refer a young person to Meadow Pathways Wellbeing and Education Cornwall. Please complete all relevant fields. This form is securely handled by <strong>Netlify Forms</strong>.</p>
     </section>
 
-    <!-- Referral Form Section -->
+    <!-- Referral Form -->
     <section class="wrap card form-card">
-      <h2>Referral Form 📝</h2>
-      <p>Thank you for choosing to refer a young person to Meadow Pathways Wellbeing and Education Cornwall. Please complete all relevant fields. This form is securely handled by <strong>Netlify Forms</strong>.</p>
-
       <form name="referral" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html">
         <input type="hidden" name="form-name" value="referral" />
 
@@ -84,12 +84,42 @@
       </form>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Policies Section -->
+    <section class="wrap card">
+      <h2>Core Policies</h2>
+      <div class="policy-tabs">
+        <a class="policy-tab blue" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy</a>
+        <a class="policy-tab teal" href="MPWEC Behaviour Policy.docx" download>Behaviour Policy</a>
+        <a class="policy-tab purple" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+        <a class="policy-tab pink" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+        <a class="policy-tab navy" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
+      </div>
+    </section>
+
+    <section class="wrap card">
+      <h2>Safeguarding &amp; Wellbeing</h2>
+      <div class="policy-tabs">
+        <a class="policy-tab blue" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding &amp; Child Protection Policy</a>
+        <a class="policy-tab aqua" href="RSHE 2025.pdf" target="_blank">RSHE Policy</a>
+        <a class="policy-tab accent" href="EBSNA.docx" download>EBSNA Guidance</a>
+      </div>
+    </section>
+
+    <section class="wrap card">
+      <h2>Useful References</h2>
+      <div class="policy-tabs">
+        <a class="policy-tab warm" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">KCSIE (Sep 2025)</a>
+        <a class="policy-tab green" href="https://www.gov.uk/government/publications/working-together-to-safeguard-children--2" target="_blank" rel="noopener">Working Together 2025</a>
+        <a class="policy-tab teal" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">CIOS Safeguarding Partnership</a>
+      </div>
+    </section>
+
     <footer class="wrap site-foot">
       <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
     </footer>
-
   </main>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
