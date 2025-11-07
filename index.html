@@ -1,151 +1,139 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meadow Pathways Wellbeing and Education Cornwall</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home — Meadow Pathways</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <meta name="description" content="Meadow Pathways Wellbeing and Education Cornwall — EOTAS, SEMH, and therapeutic education provision." />
+  <meta name="keywords" content="EOTAS, SEMH, education, wellbeing, Cornwall, Meadow Pathways" />
+  <meta name="author" content="Meadow Pathways Cornwall" />
 </head>
 
-<body>
-    <header>
-        <h1>Meadow Pathways Wellbeing and Education Cornwall</h1>
-    </header>
-
-    <nav>
+<body class="blugoon-body">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="logo-wrap">
+        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
+      </div>
+      <nav class="side-nav">
         <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="eotas.html">EOTAS</a></li>
-            <li><a href="safeguarding.html">Safeguarding</a></li>
-            <li><a href="staff.html">Staff</a></li>
-            <li><a href="referral.html">Referral</a></li>
-            <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="policies.html">Policies</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Guiding Individual Journeys with Care and Purpose</h1>
-        <p class="hero-sub">Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices.</p>
-    </section>
-
-    <!-- Image Carousel -->
-    <div class="carousel" id="carousel">
-        <div class="slides">
-            <img src="Bake.jpg" alt="Baking activity" class="slide" role="listitem">
-            <img src="Cooking.jpg" alt="Cooking session" class="slide" role="listitem">
-            <img src="MM.jpg" alt="Multimedia activity" class="slide" role="listitem">
-            <img src="Paint.jpg" alt="Painting session" class="slide" role="listitem">
-            <img src="cook.jpg" alt="Cooking practical" class="slide" role="listitem">
-            <img src="den.jpg" alt="Den building" class="slide" role="listitem">
-            <img src="hand.jpg" alt="Hands in meadow activity" class="slide" role="listitem">
-            <img src="paths.jpg" alt="Exploring paths" class="slide" role="listitem">
-            <img src="plant.jpg" alt="Planting activity" class="slide" role="listitem">
-            <img src="wood.jpg" alt="Woodland activity" class="slide" role="listitem">
-        </div>
-        <div class="carousel-controls">
-            <button class="carousel-btn" id="prev">‹</button>
-            <div class="dots" id="dots"></div>
-            <button class="carousel-btn" id="next">›</button>
-        </div>
+      </nav>
     </div>
+  </aside>
 
-    <!-- Approach and Three Column Block -->
-    <section class="card" aria-labelledby="approach">
-        <h2 id="approach">Our approach</h2>
-        <p>We work relationally, using trauma informed practice and creative, curriculum linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.</p>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-top:12px;">
-            <div style="background:linear-gradient(180deg,#d9eef6,#f7fbfd);border-radius:12px;padding:12px;">
-                <strong style="color:#23607b;font-size:1.05rem;">📅 Meeting learners where they are</strong>
-                <p style="margin-top:8px;color:var(--text-soft);">
-                    At Meadow Pathways we recognise that every young person is unique. We are committed to working collaboratively with families, schools, and partner organisations to find the most meaningful and sustainable route to success for each learner. Whether a child is facing barriers to education due to emotional barriers, past trauma, or unmet needs, our role is to meet them <strong>where they are</strong> and help them <strong>move forward with confidence</strong>.
-                </p>
-            </div>
-
-            <div style="background:linear-gradient(180deg,#fde7e7,#fff6f6);border-radius:12px;padding:20px;min-height:220px;display:flex;flex-direction:column;justify-content:center;">
-                <strong style="color:#b34b4b;font-size:1.05rem;">Person centred Commitment 🌟</strong>
-                <p style="margin-top:12px;color:var(--text-soft);line-height:1.6;">
-                    We work closely with families, schools and partners to create meaningful, sustainable routes to success tailored to each learner’s needs and strengths.
-                </p>
-            </div>
-
-            <div style="background:linear-gradient(180deg,#e7fbe7,#f7fffa);border-radius:12px;padding:20px;min-height:220px;display:flex;flex-direction:column;justify-content:center;">
-                <strong style="color:#2f8f4a;font-size:1.05rem;">Practical Learning in Community Settings 📅</strong>
-                <p style="margin-top:12px;color:var(--text-soft);line-height:1.6;">
-                    We deliver curriculum linked, hands‑on activities, bush craft, cooking, outdoor fitness, gardening and project work, so learners build skills, resilience and positive relationships while working towards accredited outcomes. 🧠🌲🍳
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Values Section -->
-    <section class="card" aria-labelledby="values-title">
-        <h2 id="values-title">Our Values</h2>
-        <p>
-            At Meadow Pathways, our values shape everything we do, from the way we greet a child to the way we plan their learning journey. We believe that education and wellbeing go hand in hand, and that every child deserves to feel safe, supported, and inspired. 🌿✨
-        </p>
-        <ul>
-            <li><strong>💪🌱Resilience &amp; Independence</strong> — We nurture confidence, self‑belief, and the ability to grow through challenge.</li>
-            <li><strong>💪🧘‍♀️Health &amp; Wellbeing</strong> — We prioritise emotional safety, regulation, and holistic care in every setting.</li>
-            <li><strong>🔎Honesty &amp; Integrity</strong> — We build trust through transparency, consistency, and ethical practice.</li>
-            <li><strong>🤗Friendship &amp; Kindness</strong> — We foster connection, empathy, and belonging, because relationships are the heart of healing.</li>
-        </ul>
-        <p>
-            These values guide our team, our decisions, and our partnerships with families, schools, and professionals. They are not just words; they are the foundation of every journey we support. 🌼
-        </p>
-    </section>
-
-    <!-- Offers Section -->
-    <section class="card" aria-labelledby="offers">
-        <h2 id="offers">What we offer 🎯</h2>
-        <p>To support this journey we provide a fully bespoke package of care and education that includes:</p>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-top:12px;">
-            <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Mentoring and Advocacy 🧑‍🤝‍🧑</h4><p>Building trust and self belief through consistent relational support and Alternative Provisions.</p></div>
-            <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Tailored Learning Packages 📚</h4><p>Flexible academic pathways matched to each learner’s pace and interests.</p></div>
-            <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Life Skills 🛠</h4><p>Practical preparation for adulthood including functional skills and community engagement.</p></div>
-            <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Diagnostic Assessments 🧮</h4><p>Literacy and numeracy profiling to inform targeted intervention.</p></div>
-            <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>SEMH Interventions 🧠</h4><p>Trauma informed strategies to support emotional regulation and resilience.</p></div>
-            <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Wellbeing &amp; PSHE 🎨</h4><p>Creative therapeutic sessions that promote self awareness, relationships and personal growth.</p></div>
-            <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Transitional Services 🔄</h4><p>Carefully planned reintegration or onward pathways supported by multi agency collaboration.</p></div>
-            <div style="padding:12px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,0.03)"><h4>Therapeutic &amp; Curriculum Activities 🧠</h4><p>Nature based bush craft, walking, fitness, water-based activities, fishing, climbing, cooking, play, biking and more linked to ASDAN &amp; AQA Unit Awards.</p></div>
-        </div>
-    </section>
-
-    <!-- Next Steps -->
-    <section class="card" aria-labelledby="next">
-        <h2 id="next">Next steps</h2>
-        <p>If you’d like to explore Meadow Pathways for a child or young person, you can:</p>
-        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:12px;">
-            <a class="pill" href="referral.html">Referral form 📝</a>
-            <a class="pill" href="about.html">About us ℹ️</a>
-            <a class="pill" href="contact.html">Contact ☎️</a>
-            <a class="pill" href="eotas.html">EOTAS provision 🔍</a>
-        </div>
-        <p style="margin-top:12px;color:var(--text-soft);">If your enquiry is urgent or a safeguarding concern, please contact statutory services first and then call the Meadow Pathways team directly.</p>
-    </section>
-
-    <!-- News ticker -->
-    <section class="card" aria-labelledby="news">
-        <h3 id="news">News</h3>
-        <div style="white-space:nowrap;overflow:hidden;">
-            <div style="display:inline-block;padding-right:40px;animation:ticker 18s linear infinite;">
-                <span class="news-reel" aria-live="polite" role="status">
-                    🤩Planning Submitted..... For our first site 'Treverno Meadows' 🤩
-                </span>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('BG.png');">
+      <div class="hero-overlay">
+        <h1>Welcome to Meadow Pathways</h1>
         <p>Guiding Individual Journeys with Care and Purpose</p>
+      </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section class="carousel">
+      <div class="carousel-images">
+        <img src="Bake.jpg" alt="Baking activity" class="slide">
+        <img src="Cooking.jpg" alt="Cooking session" class="slide">
+        <img src="MM.jpg" alt="Multimedia activity" class="slide">
+        <img src="Paint.jpg" alt="Painting session" class="slide">
+        <img src="cook.jpg" alt="Cooking practical" class="slide">
+        <img src="den.jpg" alt="Den building" class="slide">
+        <img src="hand.jpg" alt="Hands in meadow activity" class="slide">
+        <img src="paths.jpg" alt="Exploring paths" class="slide">
+        <img src="plant.jpg" alt="Planting activity" class="slide">
+        <img src="wood.jpg" alt="Woodland activity" class="slide">
+      </div>
+      <button class="carousel-prev">Prev</button>
+      <button class="carousel-next">Next</button>
+    </section>
+
+    <!-- About Section -->
+    <section class="wrap card">
+      <h2>About Meadow Pathways 🌿</h2>
+      <p>
+        We are passionate about supporting children and young people through creative, trauma-informed education and wellbeing.  
+        Every learner is unique, and our aim is to guide them with empathy, understanding, and positive connection.
+      </p>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="wrap card">
+      <h2>Our Approach</h2>
+      <p>
+        We work relationally, using trauma-informed practice and creative, curriculum-linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.
+      </p>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="wrap card">
+      <h2>Our Values 🌼</h2>
+      <ul>
+        <li><strong>💪🌱Resilience &amp; Independence</strong> — We nurture confidence, self-belief, and the ability to grow through challenge.</li>
+        <li><strong>💪🧘‍♀️Health &amp; Wellbeing</strong> — We prioritise emotional safety, regulation, and holistic care in every setting.</li>
+        <li><strong>🔎Honesty &amp; Integrity</strong> — We build trust through transparency, consistency, and ethical practice.</li>
+        <li><strong>🤗Friendship &amp; Kindness</strong> — We foster connection, empathy, and belonging, because relationships are the heart of healing.</li>
+      </ul>
+    </section>
+
+    <!-- Referral Section -->
+    <section class="wrap card">
+      <h2>Referral Form 📝</h2>
+      <p>Please complete the details below. This form is processed securely via Netlify Forms.</p>
+
+      <form name="referral" method="POST" data-netlify="true" action="thankyou.html" autocomplete="on">
+        <input type="hidden" name="form-name" value="referral" />
+        <fieldset><legend>Referrer</legend>
+          <div class="form-row">
+            <label>Referrer name<br><input type="text" name="referrer_name" required></label>
+            <label>Organisation<br><input type="text" name="organisation"></label>
+          </div>
+          <div class="form-row">
+            <label>Role<br><input type="text" name="role"></label>
+            <label>Email<br><input type="email" name="email" required></label>
+          </div>
+        </fieldset>
+
+        <fieldset><legend>Learner</legend>
+          <div class="form-row">
+            <label>Learner name<br><input type="text" name="learner_name" required></label>
+            <label>Date of birth<br><input type="date" name="dob"></label>
+          </div>
+          <label>Address<br><textarea name="address" rows="3"></textarea></label>
+          <label>Current placement<br><input type="text" name="placement"></label>
+          <label>Reason for referral<br><textarea name="reason" rows="5"></textarea></label>
+        </fieldset>
+
+        <fieldset><legend>Support Needs</legend>
+          <label>Background info<br><textarea name="background" rows="5"></textarea></label>
+          <label>Goals for support<br><textarea name="goals" rows="4"></textarea></label>
+        </fieldset>
+
+        <div data-netlify-recaptcha="true"></div>
+        <p class="form-actions"><button type="submit" class="submit-btn">Submit Referral</button></p>
+      </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="wrap site-foot">
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
+      <p>Guiding Individual Journeys with Care and Purpose</p>
     </footer>
 
-    <script src="script.js"></script>
+  </main>
+  
+  <script src="script.js"></script>
 </body>
-
 </html>
