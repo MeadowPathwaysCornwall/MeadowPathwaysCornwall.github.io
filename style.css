@@ -1,27 +1,124 @@
-// carousel functionality
-const carouselImages = document.querySelectorAll(".carousel-inner img");
-let activeImage = 0;
-
-function changeImage() {
-  carouselImages[activeImage].classList.remove("active");
-  activeImage = (activeImage + 1) % carouselImages.length;
-  carouselImages[activeImage].classList.add("active");
+/* Base colors */
+:root {
+  --blugoon-blue: #4fa3d1;
+  --blugoon-dark: #2c698d;
+  --blugoon-light: #eaf6fb;
+  --accent-green: #4bbf9f;
+  --accent-yellow: #ffd86b;
+  --accent-pink: #f9b3c4;
+  --accent-purple: #b7a3f9;
+  --text-dark: #243447;
+  --text-soft: #4a5868;
+  --bg-body: #f6fcff;
+  --bg-card: #ffffff;
 }
 
-setInterval(changeImage, 3000);  // Change image every 3 seconds
-
-// Navigation active link styling
-const links = document.querySelectorAll('.side-nav a');
-links.forEach(link => {
-  link.addEventListener('click', function() {
-    links.forEach(link => link.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
-
-// QR Section visibility
-if (document.body.classList.contains("home")) {
-  document.querySelector(".qr-section").style.display = "block";
-} else {
-  document.querySelector(".qr-section").style.display = "none";
+/* Sidebar styles */
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background-color: var(--blugoon-blue);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
 }
+
+.sidebar-logo {
+  width: 150px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Main content styles */
+.main-content {
+  margin-left: 270px;
+  padding: 20px;
+  background: var(--bg-body);
+}
+
+/* Card Styles */
+.card {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  background: var(--blugoon-light);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.hero-sub {
+  color: var(--text-soft);
+}
+
+.hero-actions {
+  margin-top: 20px;
+}
+
+/* Carousel styles */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 80%;
+  max-width: 80%;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  margin: 0 auto;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 1s ease;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  margin: 0 auto;
+}
+
+.carousel-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.carousel-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--accent-purple);
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.carousel-dots .active {
+  background: var(--accent-yellow);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .side-nav {
+    display: none;  /* Hide sidebar on mobile */
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .carousel-inner img {
+    max-width: 100%;
+  }
+}
+
