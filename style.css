@@ -1,6 +1,6 @@
 /* ========== GLOBAL STYLES ========== */
 :root {
-  --blue: #009cd8; /* Original Blugoon blue */
+  --blue: #009cd8; /* Blugoon blue */
   --light-blue: #e9f8ff;
   --accent-green: #5fcba4;
   --accent-yellow: #ffde59;
@@ -22,12 +22,13 @@ body {
   background-size: cover;
   line-height: 1.6;
   display: flex;
+  flex-direction: column;
 }
 
 /* ========== SIDEBAR STYLES (Blugoon original) ========== */
 .sidebar {
   width: 250px;
-  background-color: var(--blue); /* Original Blugoon blue */
+  background-color: var(--blue);
   color: white;
   height: 100vh;
   position: fixed;
@@ -35,6 +36,7 @@ body {
   top: 0;
   overflow-y: auto;
   box-shadow: 3px 0 8px rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
 }
 
 .sidebar-logo {
@@ -71,12 +73,12 @@ body {
 .side-nav a.active {
   background-color: var(--accent-green);
   color: var(--text-dark);
-  padding-left: 20px; /* Add a slight padding on hover for effect */
+  padding-left: 20px; /* Hover effect for padding */
 }
 
 /* ========== MAIN CONTENT LAYOUT ========== */
 .main-content {
-  margin-left: 260px; /* Push content to the right of the sidebar */
+  margin-left: 260px; /* Sidebar width */
   padding: 30px;
   flex: 1;
 }
@@ -130,24 +132,6 @@ nav a.active {
   color: var(--text-dark);
 }
 
-/* ========== CARDS & CONTENT SECTIONS ========== */
-.card {
-  background-color: rgba(255, 255, 255, 0.9); /* soft white overlay */
-  background-image: url("paper-texture.jpg"); /* subtle paper texture */
-  background-repeat: repeat;
-  background-blend-mode: lighten;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  margin-bottom: 24px;
-  padding: 22px;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
-}
-
 /* ========== CAROUSEL FIX (reduce image size) ========== */
 .carousel {
   position: relative;
@@ -192,7 +176,7 @@ nav a.active {
 
 /* ========== SAFEGUARDING PAGE IMAGE SIZE REDUCTION ========== */
 #safeguarding-images img {
-  max-width: 40%; /* Reduce size of large images */
+  max-width: 45%; /* Reduced image size */
   height: auto;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -210,12 +194,10 @@ a.pill {
   transition: background 0.3s;
 }
 
-/* Each page link tab has a different colour */
 a.pill:nth-of-type(1) { background: var(--accent-yellow); }
 a.pill:nth-of-type(2) { background: var(--accent-green); }
 a.pill:nth-of-type(3) { background: var(--accent-pink); }
 a.pill:nth-of-type(4) { background: var(--accent-purple); }
-a.pill:nth-of-type(5) { background: var(--blue); }
 
 a.pill:hover {
   background: var(--blue);
@@ -266,7 +248,3 @@ a.pill:hover {
   }
 }
 
-@keyframes fade {
-  from { opacity: 0.3; }
-  to { opacity: 1; }
-}
