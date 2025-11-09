@@ -2,86 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact — Meadow Pathways</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-wrapper">
+    <aside class="sidebar"><div class="sidebar-top"><img src="Logo.png" alt="logo" class="logo-small"><h1 class="brand">Meadow Pathways</h1></div>
+      <nav class="side-nav"><ul><li><a href="index.html">Home</a></li><li><a href="contact.html" class="active">Contact</a></li></ul></nav>
+    </aside>
 
-<body class="blugoon-body">
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-      <a href="index.html">
-        <img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo">
-      </a>
-      <nav class="side-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="eotas.html">EOTAS</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="policies.html">Policies</a></li>
-          <li><a href="referral.html">Referral</a></li>
-          <li><a href="staff.html">Staff</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </aside>
+    <main id="main" class="main-content" role="main">
+      <section class="container">
+        <h1>Contact Meadow Pathways</h1>
+        <p>Enquiries, referrals and general information.</p>
 
-  <!-- Main content -->
-  <main class="main-content">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thankyou.html">
+          <input type="hidden" name="form-name" value="contact"><input type="hidden" name="bot-field">
+          <label for="name">Your name</label><input id="name" name="name" required>
+          <label for="emailc">Email</label><input id="emailc" name="email" type="email" required>
+          <label for="phonec">Phone</label><input id="phonec" name="phone" type="tel">
+          <label for="message">Message</label><textarea id="message" name="message" rows="5" required></textarea>
+          <div class="actions"><button type="submit" class="pill">Send message</button></div>
+        </form>
 
-    <section class="wrap card" style="background:url('BG.png') repeat;">
-      <h1>Contact Us 📞</h1>
-      <p>
-        We’d love to hear from you!  
-        Whether you’re a parent, school, or professional, please get in touch with our team to learn more about Meadow Pathways Wellbeing and Education Cornwall.
-      </p>
-    </section>
+        <h3>Team contacts</h3>
+        <p>
+          <strong>Zoe – Director &amp; Founder, DDSL</strong><br>
+          Email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
+          Phone: 07775733587
+        </p>
 
-    <section class="wrap card contact-info">
-      <h2>Our Team 💬</h2>
+        <p>
+          <strong>Michelle – Director &amp; Founder, DSL</strong><br>
+          Email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
+          Phone: 07932243358
+        </p>
 
-      <div class="contact-grid">
-        <div class="contact-person">
-          <h3>Michelle Pascoe</h3>
-          <p>📧 <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></p>
-          <p>📞 <a href="tel:07932243358">07932 243358</a></p>
-        </div>
+        <p>If your enquiry is urgent or a safeguarding concern, contact statutory services: <strong>01872 324605</strong> or <a href="mailto:earlyhelphub@cornwall.gov.uk">earlyhelphub@cornwall.gov.uk</a>.</p>
+      </section>
+    </main>
+  </div>
 
-        <div class="contact-person">
-          <h3>Zoe Waitz</h3>
-          <p>📧 <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
-          <p>📞 <a href="tel:07775733587">07775 733587</a></p>
-        </div>
-
-        <div class="contact-person">
-          <h3>General Enquiries</h3>
-          <p>📧 <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap card form-card">
-      <h2>Send Us a Message ✉️</h2>
-      <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html">
-        <input type="hidden" name="form-name" value="contact" />
-
-        <p><label>👤 Name:<br><input type="text" name="name" required></label></p>
-        <p><label>📧 Email:<br><input type="email" name="email" required></label></p>
-        <p><label>💬 Message:<br><textarea name="message" rows="5" placeholder="Write your message here..."></textarea></label></p>
-
-        <div data-netlify-recaptcha="true"></div>
-        <p><button type="submit" class="submit-btn">Send Message 🚀</button></p>
-      </form>
-    </section>
-
-    <footer class="wrap site-foot">
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-    </footer>
-
-  </main>
+  <script src="jquery.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
