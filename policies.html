@@ -4,24 +4,98 @@
   <meta charset="utf-8" />
   <title>Policies — Meadow Pathways</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <div class="site-wrapper">
-    <aside class="sidebar"><div class="sidebar-top"><img src="Logo.png" alt="logo" class="logo-small"></div></aside>
-    <main class="main-content">
-      <section class="container">
-        <h1>Policies & Downloads</h1>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding & Child Protection Policy</a>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <img src="Logo.png" alt="Meadow Pathways logo" class="logo-small">
+        <h1 class="brand">Meadow Pathways</h1>
+        <p class="tag">Wellbeing &amp; Education Cornwall</p>
+      </div>
+
+      <nav class="side-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="staff.html">Staff</a></li>
+          <li><a href="policies.html" class="active">Policies</a></li>
+        </ul>
+      </nav>
+
+      <footer class="sidebar-foot">
+        <small>© 2025 Meadow Pathways</small>
+      </footer>
+    </aside>
+
+    <!-- Main content -->
+    <main id="main" class="main-content" role="main">
+      <section class="container content">
+
+        <h2>Policies and Documents</h2>
+        <p>All Meadow Pathways policies are reviewed annually or as required by statutory guidance. You can download the most up-to-date versions below. If you need a document in an alternative format, please contact <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>.</p>
+
+        <div class="policy-links">
+          <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding &amp; Child Protection Policy</a>
           <a class="pill" href="MPWEC Behaviour Policy.docx" download>Behaviour Policy</a>
           <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
           <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
-          <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy EOTAS Sep 2025</a>
-          <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>H&S Policy Sep 25</a>
+          <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy (EOTAS)</a>
+          <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>Health &amp; Safety Policy</a>
+          <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+          <a class="pill" href="values.pdf" download>Values and Ethos Statement (PDF)</a>
+          <a class="pill" href="RSHE 2025.pdf" download>RSHE Overview (PDF)</a>
+          <a class="pill" href="KCSIE 2025.pdf" download>Keeping Children Safe in Education 2025</a>
         </div>
+
+        <h3>Additional Key Documents</h3>
+        <p>
+          <a href="EBSNA.docx" class="pill" download>EBSNA Guidance</a>
+          <a href="MPWEC Behaviour Policy.docx" class="pill" download>Behaviour Policy</a>
+          <a href="MPWEC Staff Conduct Policy.docx" class="pill" download>Staff Conduct Policy</a>
+        </p>
+
+        <h3>Related Pages</h3>
+        <p>See also:  
+          <a href="safeguarding.html">Safeguarding</a>,  
+          <a href="referral.html">Referral</a>, or  
+          <a href="contact.html">Contact Us</a> for further support.
+        </p>
+
       </section>
     </main>
   </div>
+
+  <script src="jquery.min.js"></script>
+  <script src="script.js"></script>
+
+  <style>
+    .policy-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .policy-links .pill {
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    .policy-links .pill:hover {
+      background: #3aa04b;
+    }
+  </style>
 </body>
 </html>
