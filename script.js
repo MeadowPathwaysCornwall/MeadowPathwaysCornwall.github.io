@@ -1,129 +1,42 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Carousel
+  const slidesEl = document.querySelector('.slides');
+  if (slidesEl) {
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const dotsEl = document.getElementById('dots');
+    let idx = 0;
 
-  // --- Carousel functionality ---
-  let currentSlide = 0;
-  const carouselImages = document.querySelector('.carousel-images');
-  
-  if (!carouselImages) return;  // Exit if carousel container is not found
-
-  const slides = carouselImages.querySelectorAll('img');
-  const totalSlides = slides.length;
-
-  const showSlide = (index) => {
-    if (index >= totalSlides) {
-      currentSlide = 0;
-    } else if (index < 0) {
-      currentSlide = totalSlides - 1;
-    } else {
-      currentSlide = index;
+    function createDots() {
+      slides.forEach((s, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label','Slide '+(i+1));
+        if(i===0) b.classList.add('active');
+        b.addEventListener('click', ()=> { goTo(i); });
+        dotsEl.appendChild(b);
+      });
     }
 
-    // Move the carousel images
-    carouselImages.style.transform = `translateX(-${currentSlide * 100}%)`;
-  };
+    function goTo(i){
+      idx = i;
+      slidesEl.style.transform = `translateX(-${idx * 100}%)`;
+      const ds = dotsEl.querySelectorAll('button');
+      ds.forEach((d,ii)=> d.classList.toggle('active', ii===idx));
+    }
 
-  const nextSlide = () => showSlide(currentSlide + 1);
-  const prevSlide = () => showSlide(currentSlide - 1);
-
-  // Event listeners for carousel navigation
-  const nextButton = document.querySelector('.carousel-next');
-  const prevButton = document.querySelector('.carousel-prev');
-  
-  if (nextButton && prevButton) {
-    nextButton.addEventListener('click', nextSlide);
-    prevButton.addEventListener('click', prevSlide);
-  }
-
-  // Automatic slide change every 5 seconds
-  setInterval(nextSlide, 5000);
-
-  // --- News Ticker functionality ---
-  const newsReel = document.querySelector('.news-reel');
-  if (newsReel) {
-    newsReel.addEventListener('animationiteration', () => {
-      newsReel.style.animation = 'none';
-      setTimeout(() => {
-        newsReel.style.animation = 'ticker 18s linear infinite';
-      }, 100);
-    });
-  }
-
-  // --- Back to Top Button functionality ---
-  const backToTopButton = document.getElementById('backToTop');
-  
-  if (backToTopButton) {
-    window.addEventListener('scroll', () => {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        backToTopButton.style.display = 'block';
-      } else {
-        backToTopButton.style.display = 'none';
-      }
-    });
-
-    backToTopButton.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  // --- Password Protection for Staff Page ---
-  function unlockStaff() {
-    const passwordInput = document.getElementById('pwInput')?.value;
-    const correctPassword = 'MPWEC2025!'; // Change this to a secure password
-
-    if (passwordInput === correctPassword) {
-      document.getElementById('lockscreen').style.display = 'none';
-      document.getElementById('staffContent').style.display = 'block';
-    } else {
-      const msg = document.getElementById('pwMessage');
-      if (msg) {
-        msg.textContent = '❌ Incorrect password. Try again.';
-        msg.style.color = 'yellow';
-      }
+    if (prevBtn && nextBtn && dotsEl) {
+      prevBtn.addEventListener('click', ()=> goTo((idx-1+slides.length)%slides.length));
+      nextBtn.addEventListener('click', ()=> goTo((idx+1)%slides.length));
+      createDots();
+      let timer = setInterval(()=> goTo((idx+1)%slides.length), 5000);
+      ['mouseover','focusin'].forEach(e => slidesEl.addEventListener(e, ()=> clearInterval(timer)));
+      ['mouseout','focusout'].forEach(e => slidesEl.addEventListener(e, ()=> timer = setInterval(()=> goTo((idx+1)%slides.length), 5000)));
     }
   }
 
-  const unlockButton = document.getElementById('unlockButton');
-  if (unlockButton) {
-    unlockButton.addEventListener('click', unlockStaff);
-  }
-
-  // --- Mobile Navigation Toggle ---
-  const navToggle = document.getElementById('navToggle');
-  const primaryNav = document.getElementById('primaryNav');
-
-  if (navToggle && primaryNav) {
-    navToggle.addEventListener('click', () => {
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !isExpanded);
-      primaryNav.style.display = isExpanded ? 'none' : 'flex';
-    });
-  }
-
-  // --- Form Validation (optional) ---
-  const forms = document.querySelectorAll('form');
-
-  forms.forEach(form => {
-    form.addEventListener('submit', (e) => {
-      const requiredFields = form.querySelectorAll('[required]');
-      let isValid = true;
-
-      requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-          field.classList.add('error');
-          isValid = false;
-        } else {
-          field.classList.remove('error');
-        }
-      });
-
-      if (!isValid) {
-        e.preventDefault();
-        alert('Please fill in all required fields.');
-      }
-    });
-  });
-
+  // back to top (if included)
+  const btt = document.getElementById('backToTop');
+  if (btt) btt.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
 });
