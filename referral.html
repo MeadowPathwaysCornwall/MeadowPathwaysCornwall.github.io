@@ -1,125 +1,84 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Referral — Meadow Pathways</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-wrapper">
+    <aside class="sidebar"><div class="sidebar-top"><img src="Logo.png" alt="logo" class="logo-small"><h1 class="brand">Meadow Pathways</h1></div>
+      <nav class="side-nav"><ul><li><a href="index.html">Home</a></li><li><a href="referral.html" class="active">Referral</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+    </aside>
 
-<body class="blugoon-body">
+    <main id="main" class="main-content" role="main">
+      <section class="container">
+        <h1>Referral</h1>
+        <p>Complete this secure referral form to refer a child or young person to Meadow Pathways Wellbeing and Education Cornwall.</p>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-      <div class="logo-wrap">
-        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
-      </div>
+        <form name="referral" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thankyou.html">
+          <input type="hidden" name="form-name" value="referral">
+          <input type="hidden" name="bot-field" />
 
-      <nav class="side-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="eotas.html">EOTAS</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="policies.html">Policies</a></li>
-          <li><a href="referral.html" class="active">Referral</a></li>
-          <li><a href="staff.html">Staff</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+          <h3>Child or Young Person’s Details</h3>
+          <label for="childName">Full Name</label>
+          <input id="childName" name="childName" required>
 
-      <div class="sidebar-footer">
-        <img src="treverno-meadows-learning-centre---cornwall-qrcode.png" alt="Crowdfunder QR code" class="footer-logo">
-        <p>© 2025 Meadow Pathways</p>
-      </div>
-    </div>
-  </aside>
+          <label for="dob">Date of Birth</label>
+          <input id="dob" name="dob" type="date" required>
 
-  <!-- MAIN CONTENT -->
-  <main class="main-content">
-    <section class="wrap card">
-      <h1>Referral Form 📝</h1>
-      <p>Thank you for choosing to refer a young person to Meadow Pathways Wellbeing and Education Cornwall. Please complete all relevant fields. This form is securely handled by <strong>Netlify Forms</strong>.</p>
-    </section>
+          <label for="address">Address</label>
+          <textarea id="address" name="address" rows="3" required></textarea>
 
-    <!-- Referral Form -->
-    <section class="wrap card form-card">
-      <form name="referral" method="POST" data-netlify="true" data-netlify-recaptcha="true" action="thankyou.html">
-        <input type="hidden" name="form-name" value="referral" />
+          <label for="school">Current or Most Recent School</label>
+          <input id="school" name="school">
 
-        <!-- Referrer Information -->
-        <fieldset>
-          <legend>👩‍💼 Referrer Information</legend>
-          <p><label>Name:<br><input type="text" name="referrer_name" required></label></p>
-          <p><label>Organisation / School:<br><input type="text" name="organisation"></label></p>
-          <p><label>Role:<br><input type="text" name="role"></label></p>
-          <p><label>Email:<br><input type="email" name="email" required></label></p>
-          <p><label>Phone:<br><input type="tel" name="phone"></label></p>
-        </fieldset>
+          <label for="ehcp">Does the child/young person have an EHCP?</label>
+          <select id="ehcp" name="ehcp" required>
+            <option value="">Select</option><option>Yes</option><option>In process</option><option>No</option>
+          </select>
 
-        <!-- Learner Information -->
-        <fieldset>
-          <legend>👦 Learner Information</legend>
-          <p><label>Full Name:<br><input type="text" name="learner_name" required></label></p>
-          <p><label>Date of Birth:<br><input type="date" name="dob"></label></p>
-          <p><label>Address:<br><textarea name="address" rows="3"></textarea></label></p>
-          <p><label>Current Education Placement:<br><input type="text" name="placement"></label></p>
-          <p><label>Reason for Referral:<br><textarea name="reason" rows="4" placeholder="Please give as much detail as possible..."></textarea></label></p>
-        </fieldset>
+          <h3>Referrer details</h3>
+          <label for="referrerName">Your Name</label>
+          <input id="referrerName" name="referrerName" required>
 
-        <!-- Support Needs -->
-        <fieldset>
-          <legend>💛 Support Needs</legend>
-          <p><label>Relevant Background Information:<br><textarea name="background" rows="4"></textarea></label></p>
-          <p><label>Specific Goals for Support:<br><textarea name="goals" rows="3"></textarea></label></p>
-        </fieldset>
+          <label for="role">Role / Relationship to Child</label>
+          <input id="role" name="role" required>
 
-        <!-- reCAPTCHA -->
-        <div class="recaptcha-wrapper" data-netlify-recaptcha="true"></div>
+          <label for="organisation">Organisation (if applicable)</label>
+          <input id="organisation" name="organisation">
 
-        <!-- Submit Button -->
-        <p class="submit-wrap"><button type="submit" class="submit-btn">Submit Referral ✉️</button></p>
-      </form>
-    </section>
+          <label for="email">Email Address</label>
+          <input id="email" name="email" type="email" required>
 
-    <!-- Policies Section -->
-    <section class="wrap card">
-      <h2>Core Policies</h2>
-      <div class="policy-tabs">
-        <a class="policy-tab blue" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy</a>
-        <a class="policy-tab teal" href="MPWEC Behaviour Policy.docx" download>Behaviour Policy</a>
-        <a class="policy-tab purple" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
-        <a class="policy-tab pink" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
-        <a class="policy-tab navy" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
-      </div>
-    </section>
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel">
 
-    <section class="wrap card">
-      <h2>Safeguarding &amp; Wellbeing</h2>
-      <div class="policy-tabs">
-        <a class="policy-tab blue" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding &amp; Child Protection Policy</a>
-        <a class="policy-tab aqua" href="RSHE 2025.pdf" target="_blank">RSHE Policy</a>
-        <a class="policy-tab accent" href="EBSNA.docx" download>EBSNA Guidance</a>
-      </div>
-    </section>
+          <h3>Needs and Background</h3>
+          <label for="summary">Summary of Needs / Concerns</label>
+          <textarea id="summary" name="summary" rows="6" required></textarea>
 
-    <section class="wrap card">
-      <h2>Useful References</h2>
-      <div class="policy-tabs">
-        <a class="policy-tab warm" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">KCSIE (Sep 2025)</a>
-        <a class="policy-tab green" href="https://www.gov.uk/government/publications/working-together-to-safeguard-children--2" target="_blank" rel="noopener">Working Together 2025</a>
-        <a class="policy-tab teal" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">CIOS Safeguarding Partnership</a>
-      </div>
-    </section>
+          <label for="support">Current Support or Interventions</label>
+          <textarea id="support" name="support" rows="4"></textarea>
 
-    <footer class="wrap site-foot">
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-    </footer>
-  </main>
+          <label for="goals">What outcomes are hoped for from this referral?</label>
+          <textarea id="goals" name="goals" rows="4"></textarea>
 
+          <p class="hint">If possible, email supporting documents (EHCP, reports) to <strong>meadowpathwayscornwall@outlook.com</strong>. Do not attach protected files in this form.</p>
+
+          <div class="actions">
+            <button type="submit" class="pill">Submit Referral</button>
+            <a href="contact.html" class="secondary">Contact us first</a>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="jquery.min.js"></script>
   <script src="script.js"></script>
 </body>
-
 </html>
