@@ -1,139 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home — Meadow Pathways</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <meta name="description" content="Meadow Pathways Wellbeing and Education Cornwall — EOTAS, SEMH, and therapeutic education provision." />
-  <meta name="keywords" content="EOTAS, SEMH, education, wellbeing, Cornwall, Meadow Pathways" />
-  <meta name="author" content="Meadow Pathways Cornwall" />
+  <title>Meadow Pathways — Home</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<body class="blugoon-body">
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-      <div class="logo-wrap">
-        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
+  <div class="site-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" role="complementary" aria-label="Main navigation">
+      <div class="sidebar-top">
+        <!-- Your logo integrated into the sidebar -->
+        <img src="Logo.png" alt="Meadow Pathways logo" class="logo-small">
+        <h1 class="brand">Meadow Pathways</h1>
+        <p class="tag">Wellbeing &amp; Education Cornwall</p>
       </div>
-      <nav class="side-nav">
+
+      <nav class="side-nav" aria-label="Primary">
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="eotas.html">EOTAS</a></li>
           <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="policies.html">Policies</a></li>
           <li><a href="referral.html">Referral</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="staff.html">Staff</a></li>
+          <li><a href="policies.html">Policies</a></li>
         </ul>
       </nav>
-    </div>
-  </aside>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <!-- Hero Section -->
-    <section class="hero" style="background-image: url('BG.png');">
-      <div class="hero-overlay">
-        <h1>Welcome to Meadow Pathways</h1>
-        <p>Guiding Individual Journeys with Care and Purpose</p>
+      <div class="social">
+        <img src="FacebookQR.jpg" alt="Facebook QR" class="qr">
+        <img src="crowdfunderQR.png" alt="Crowdfunder QR" class="qr">
       </div>
-    </section>
 
-    <!-- Carousel Section -->
-    <section class="carousel">
-      <div class="carousel-images">
-        <img src="Bake.jpg" alt="Baking activity" class="slide">
-        <img src="Cooking.jpg" alt="Cooking session" class="slide">
-        <img src="MM.jpg" alt="Multimedia activity" class="slide">
-        <img src="Paint.jpg" alt="Painting session" class="slide">
-        <img src="cook.jpg" alt="Cooking practical" class="slide">
-        <img src="den.jpg" alt="Den building" class="slide">
-        <img src="hand.jpg" alt="Hands in meadow activity" class="slide">
-        <img src="paths.jpg" alt="Exploring paths" class="slide">
-        <img src="plant.jpg" alt="Planting activity" class="slide">
-        <img src="wood.jpg" alt="Woodland activity" class="slide">
-      </div>
-      <button class="carousel-prev">Prev</button>
-      <button class="carousel-next">Next</button>
-    </section>
+      <footer class="sidebar-foot">
+        <small>© 2025 Meadow Pathways</small>
+      </footer>
+    </aside>
 
-    <!-- About Section -->
-    <section class="wrap card">
-      <h2>About Meadow Pathways 🌿</h2>
-      <p>
-        We are passionate about supporting children and young people through creative, trauma-informed education and wellbeing.  
-        Every learner is unique, and our aim is to guide them with empathy, understanding, and positive connection.
-      </p>
-    </section>
+    <!-- Main area -->
+    <main id="main" class="main-content" role="main">
+      <!-- Hero with carousel (replaces the two people exercising picture) -->
+      <header class="hero">
+        <div class="hero-frame">
+          <div id="carousel" class="carousel-frame" aria-roledescription="carousel">
+            <div class="slides">
+              <img src="Bake.jpg" alt="Baking activity" class="slide" />
+              <img src="Cooking.jpg" alt="Cooking session" class="slide" />
+              <img src="MM.jpg" alt="Multimedia activity" class="slide" />
+              <img src="Paint.jpg" alt="Painting session" class="slide" />
+              <img src="cook.jpg" alt="Cooking practical" class="slide" />
+              <img src="den.jpg" alt="Den building" class="slide" />
+              <img src="hand.jpg" alt="Hands in meadow activity" class="slide" />
+              <img src="paths.jpg" alt="Exploring paths" class="slide" />
+              <img src="plant.jpg" alt="Planting activity" class="slide" />
+              <img src="wood.jpg" alt="Woodland activity" class="slide" />
+            </div>
 
-    <!-- Our Approach Section -->
-    <section class="wrap card">
-      <h2>Our Approach</h2>
-      <p>
-        We work relationally, using trauma-informed practice and creative, curriculum-linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.
-      </p>
-    </section>
-
-    <!-- Our Values Section -->
-    <section class="wrap card">
-      <h2>Our Values 🌼</h2>
-      <ul>
-        <li><strong>💪🌱Resilience &amp; Independence</strong> — We nurture confidence, self-belief, and the ability to grow through challenge.</li>
-        <li><strong>💪🧘‍♀️Health &amp; Wellbeing</strong> — We prioritise emotional safety, regulation, and holistic care in every setting.</li>
-        <li><strong>🔎Honesty &amp; Integrity</strong> — We build trust through transparency, consistency, and ethical practice.</li>
-        <li><strong>🤗Friendship &amp; Kindness</strong> — We foster connection, empathy, and belonging, because relationships are the heart of healing.</li>
-      </ul>
-    </section>
-
-    <!-- Referral Section -->
-    <section class="wrap card">
-      <h2>Referral Form 📝</h2>
-      <p>Please complete the details below. This form is processed securely via Netlify Forms.</p>
-
-      <form name="referral" method="POST" data-netlify="true" action="thankyou.html" autocomplete="on">
-        <input type="hidden" name="form-name" value="referral" />
-        <fieldset><legend>Referrer</legend>
-          <div class="form-row">
-            <label>Referrer name<br><input type="text" name="referrer_name" required></label>
-            <label>Organisation<br><input type="text" name="organisation"></label>
+            <div class="carousel-controls" aria-hidden="false">
+              <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
+              <div class="dots" id="dots" role="tablist" aria-label="Carousel pagination"></div>
+              <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
+            </div>
           </div>
-          <div class="form-row">
-            <label>Role<br><input type="text" name="role"></label>
-            <label>Email<br><input type="email" name="email" required></label>
-          </div>
-        </fieldset>
+        </div>
+      </header>
 
-        <fieldset><legend>Learner</legend>
-          <div class="form-row">
-            <label>Learner name<br><input type="text" name="learner_name" required></label>
-            <label>Date of birth<br><input type="date" name="dob"></label>
-          </div>
-          <label>Address<br><textarea name="address" rows="3"></textarea></label>
-          <label>Current placement<br><input type="text" name="placement"></label>
-          <label>Reason for referral<br><textarea name="reason" rows="5"></textarea></label>
-        </fieldset>
+      <section class="content container">
+        <h2>Meadow Pathways reconnects children with learning</h2>
+        <p>Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿✨</p>
 
-        <fieldset><legend>Support Needs</legend>
-          <label>Background info<br><textarea name="background" rows="5"></textarea></label>
-          <label>Goals for support<br><textarea name="goals" rows="4"></textarea></label>
-        </fieldset>
+        <p>At Meadow Pathways, we recognise every young person is unique. We commit to working collaboratively with families, schools and partners to find meaningful, sustainable routes to success for each learner.</p>
 
-        <div data-netlify-recaptcha="true"></div>
-        <p class="form-actions"><button type="submit" class="submit-btn">Submit Referral</button></p>
-      </form>
-    </section>
+        <hr>
 
-    <!-- Footer Section -->
-    <footer class="wrap site-foot">
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-      <p>Guiding Individual Journeys with Care and Purpose</p>
-    </footer>
+        <h3>Our approach</h3>
+        <p>We work relationally, using trauma informed practice and creative, curriculum linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy.</p>
 
-  </main>
-  
+        <div class="card callout">
+          <h4>What we offer</h4>
+          <ul>
+            <li>Mentoring and Advocacy</li>
+            <li>Tailored Learning Packages</li>
+            <li>Life Skills</li>
+            <li>Diagnostic Assessments</li>
+            <li>SEMH Interventions</li>
+            <li>Wellbeing &amp; PSHE</li>
+            <li>Transitional Services</li>
+            <li>Therapeutic &amp; Curriculum Activities</li>
+          </ul>
+          <p>To explore Meadow Pathways for a child or young person, please visit our <a href="referral.html">Referral</a> page or <a href="contact.html">Contact</a> us.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="jquery.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
