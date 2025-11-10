@@ -1,170 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Referral — Meadow Pathways</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Blugoon card and form styling */
-    .card { 
-      background: var(--card-bg, #fff); 
-      border-radius: 12px; 
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08); 
-      padding: 24px; 
-      margin: 24px auto; 
-      max-width: 800px; 
-    }
-    .card h3, .card h4 { color: var(--primary-color, #1a73e8); }
-    .card h4 { margin-top: 16px; margin-bottom:8px; }
-    .card label { display:block; margin-top:12px; font-weight:600; }
-    .card input, .card textarea, .card select { 
-      width: 100%; 
-      padding: 8px; 
-      margin-top:4px; 
-      border: 1px solid #ccc; 
-      border-radius:6px; 
-    }
-    .card button { 
-      margin-top:16px; 
-      padding:10px 24px; 
-      background: var(--primary-color, #1a73e8); 
-      color:#fff; 
-      border:none; 
-      border-radius:6px; 
-      cursor:pointer; 
-      font-weight:600;
-    }
-    .card button:hover { background: #155ab6; }
-    #formStatus { margin-top:12px; font-weight:600; color:var(--text-soft,#555); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referral Form — Meadow Pathways</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <section class="card">
-      <h3>Referral Form</h3>
-      <p>Please complete this form to refer a child or young person to Meadow Pathways. You can attach any relevant documents. Once submitted, a copy will be available to download for your records.</p>
 
-      <form id="referralForm" name="referralForm" method="POST" data-netlify="true" netlify enctype="multipart/form-data">
-        <input type="hidden" name="form-name" value="referralForm">
+<header>
+    <img src="logo.png" alt="Meadow Pathways Logo">
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-        <!-- Child / Young Person Details -->
-        <h4>Child / Young Person Details</h4>
-        <label for="child-name">Full Name</label>
-        <input id="child-name" name="child_name" type="text" required>
+<main>
+    <h1>Referral Form</h1>
+    <p>Complete the form below or download a copy to complete offline:</p>
+    <a href="referral_form.docx" class="download-link" target="_blank">Download Referral Form</a>
 
-        <label for="dob">Date of Birth</label>
-        <input id="dob" name="dob" type="date" required>
+    <form name="referral" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="referral">
+        <label>Child's Name:</label>
+        <input type="text" name="child_name" required>
 
-        <label for="gender">Gender</label>
-        <select id="gender" name="gender">
-          <option value="">Select</option>
-          <option value="Female">Female</option>
-          <option value="Male">Male</option>
-          <option value="Non-binary/Other">Non-binary/Other</option>
-        </select>
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" required>
 
-        <label for="address">Address</label>
-        <textarea id="address" name="address" rows="2" required></textarea>
+        <label>Parent/Carer Name:</label>
+        <input type="text" name="parent_name" required>
 
-        <label for="school">Current School / Setting</label>
-        <input id="school" name="school" type="text">
+        <label>Contact Email:</label>
+        <input type="email" name="email" required>
 
-        <label for="ehcp">EHCP / SEND Support?</label>
-        <select id="ehcp" name="ehcp_status">
-          <option value="">Select</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
+        <label>Reason for Referral:</label>
+        <textarea name="reason" rows="5" required></textarea>
 
-        <!-- Reason for Referral -->
-        <h4>Reason for Referral</h4>
-        <label for="reason">Main concerns / reason for referral</label>
-        <textarea id="reason" name="reason" rows="5" required></textarea>
-
-        <label for="current_support">Current Support / Interventions in Place</label>
-        <textarea id="current_support" name="current_support" rows="3"></textarea>
-
-        <!-- Referrer Information -->
-        <h4>Referrer Details</h4>
-        <label for="referrer-name">Full Name</label>
-        <input id="referrer-name" name="referrer_name" type="text" required>
-
-        <label for="referrer-role">Role / Relationship to Child</label>
-        <input id="referrer-role" name="referrer_role" type="text" required>
-
-        <label for="referrer-email">Email</label>
-        <input id="referrer-email" name="referrer_email" type="email" required>
-
-        <label for="referrer-phone">Phone</label>
-        <input id="referrer-phone" name="referrer_phone" type="tel" required>
-
-        <!-- File Upload -->
-        <h4>Attach Documents</h4>
-        <label for="attachments">Upload relevant files (EHCPs, reports, assessments)</label>
-        <input id="attachments" name="attachments[]" type="file" multiple>
-
-        <!-- Consent -->
-        <h4>Consent</h4>
-        <label>
-          <input type="checkbox" name="consent" required>
-          I confirm that I have parental consent to share this information with Meadow Pathways
-        </label>
+        <label>Additional Information:</label>
+        <textarea name="additional_info" rows="5"></textarea>
 
         <button type="submit">Submit Referral</button>
-        <div id="formStatus" role="status" aria-live="polite"></div>
-      </form>
-    </section>
+    </form>
+</main>
 
-    <section class="card" id="downloadSection" style="display:none;">
-      <h3>Download Your Referral Copy</h3>
-      <p>You can download a copy of your referral for your records.</p>
-      <a id="downloadLink" href="#" download="MeadowPathways_Referral.pdf">
-        <button>Download Referral PDF</button>
-      </a>
-    </section>
-  </main>
+<button id="back-to-top">↑</button>
 
-  <script>
-    const referralForm = document.getElementById('referralForm');
-    const formStatus = document.getElementById('formStatus');
-    const downloadSection = document.getElementById('downloadSection');
-    const downloadLink = document.getElementById('downloadLink');
-
-    referralForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      formStatus.textContent = "Submitting...";
-      const data = new FormData(referralForm);
-
-      try {
-        // Submit to Netlify
-        const res = await fetch("/", { method: "POST", body: data });
-        if (res.ok) {
-          formStatus.textContent = "Referral submitted successfully!";
-          referralForm.reset();
-
-          // Generate PDF copy
-          let formDataObj = {};
-          data.forEach((value, key) => {
-            if (value instanceof File) {
-              formDataObj[key] = value.name; // list filenames only
-            } else {
-              formDataObj[key] = value;
-            }
-          });
-
-          const pdfContent = `Meadow Pathways Referral\n\n${JSON.stringify(formDataObj, null, 2)}`;
-          const blob = new Blob([pdfContent], { type: "application/pdf" });
-          downloadLink.href = URL.createObjectURL(blob);
-          downloadSection.style.display = "block";
-          window.scrollTo({ top: downloadSection.offsetTop, behavior: "smooth" });
-        } else {
-          formStatus.textContent = "Submission error — please try again later.";
-        }
-      } catch (err) {
-        formStatus.textContent = "Network error — check your connection and try again.";
-      }
-    });
-  </script>
 </body>
 </html>
