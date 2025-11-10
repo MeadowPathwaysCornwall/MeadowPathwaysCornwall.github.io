@@ -1,253 +1,238 @@
-/* ===== Blugoon Base Styles ===== */
-body.blugoon-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f7f9fc;
-  color: #0b233f;
+/* ===========================
+   Global Body & Reset
+=========================== */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
 }
 
-/* ===== Sidebar ===== */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===========================
+   Sidebar
+=========================== */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 240px;
-  height: 100%;
-  background: #1f497d;
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-}
-
-.sidebar.open {
-  transform: translateX(0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #1e90ff; /* Default sidebar color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 16px;
+    overflow-y: auto;
 }
 
 .sidebar-inner {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 20px 10px;
-}
-
-.logo-wrap {
-  text-align: center;
-  margin-bottom: 20px;
+    width: 100%;
 }
 
 .sidebar-logo {
-  max-width: 180px;
-  height: auto;
+    width: 160px;
+    display: block;
+    margin: 0 auto 16px auto;
 }
 
 .side-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .side-nav li {
-  margin-bottom: 12px;
+    width: 100%;
 }
 
-.side-nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 8px 12px;
-  display: block;
-  border-radius: 6px;
-  transition: 0.3s background;
+.side-nav li a {
+    display: block;
+    padding: 12px 16px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    margin: 4px 8px;
+    transition: 0.3s;
 }
 
-.side-nav a:hover,
-.side-nav a.active {
-  background: #ff7a2d;
+.side-nav li a:hover,
+.side-nav li a.active {
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transform: scale(1.02);
 }
 
-/* ===== Main content ===== */
+/* ===========================
+   Main Content
+=========================== */
 .main-content {
-  margin-left: 240px;
-  padding: 30px;
-  min-height: 100vh;
+    margin-left: 240px;
+    padding: 24px;
 }
 
 .wrap {
-  max-width: 1000px;
-  margin: 0 auto 30px;
+    max-width: 900px;
+    margin: 16px auto;
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
 
-.card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 6px 20px rgba(11, 35, 64, 0.05);
-}
-
-/* ===== Colored Tabs ===== */
-.tabs {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 15px 0;
-  gap: 10px;
-}
-
-.tab {
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  color: #fff;
-  transition: 0.3s;
-}
-
-.tab.referral { background: #ff7a2d; }
-.tab.about    { background: #2e82b0; }
-.tab.contact  { background: #4caf50; }
-.tab.eotas    { background: #9c27b0; }
-
-.tab:hover {
-  opacity: 0.85;
-}
-
-/* ===== Carousel ===== */
+/* ===========================
+   Carousel
+=========================== */
 .carousel-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  max-width: 100%;
-  height: 380px; /* Fixed height for all slides */
-  margin-bottom: 30px;
-  background: #f0f2f5;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
-.slide {
-  display: none;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slides img {
+    width: 100%;
+    height: 250px; /* Fixed height for uniform display */
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 .carousel-controls {
-  position: absolute;
-  bottom: 15px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
 }
 
 .carousel-btn {
-  background: rgba(11, 35, 64, 0.6);
-  border: none;
-  color: #fff;
-  font-size: 24px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .carousel-btn:hover {
-  background: #ff7a2d;
+    background-color: rgba(0,0,0,0.6);
 }
 
 .dots {
-  display: flex;
-  gap: 6px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.7);
-  border: none;
-  cursor: pointer;
+.dots button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ccc;
+    cursor: pointer;
 }
 
-.dot.active {
-  background: #ff7a2d;
+.dots button.active {
+    background-color: #1e90ff;
 }
 
-/* ===== News Ticker ===== */
-.news-ticker {
-  white-space: nowrap;
-  overflow: hidden;
-  font-weight: 600;
-  color: #1f497d;
-  margin: 20px 0;
+/* ===========================
+   QR Codes
+=========================== */
+.qr-codes {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 12px;
 }
 
-/* ===== QR Images ===== */
-.qr-img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  transition: 0.3s transform;
+.qr-codes .qr {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
 }
 
-.qr-img.hover {
-  transform: scale(1.1);
-}
-
-/* ===== Footer ===== */
+/* ===========================
+   Footer
+=========================== */
 .site-footer {
-  background: url('BG.png') no-repeat center center;
-  background-size: cover;
-  color: #ffffff;
-  padding: 25px 20px;
-  text-align: center;
-  font-size: 0.95rem;
+    background: url('BG.png') no-repeat center/cover;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 24px 16px;
+    margin-top: 24px;
 }
 
-.site-footer a {
-  color: #ffdd57;
-  text-decoration: none;
+.site-footer p {
+    margin: 4px 0;
 }
 
-.site-footer a:hover {
-  text-decoration: underline;
+/* ===========================
+   Cards / Highlighted sections
+=========================== */
+.card h1, .card h2 {
+    margin-top: 0;
 }
 
-/* ===== Forms ===== */
-.styled-form input,
-.styled-form textarea,
-.styled-form select {
-  width: 100%;
-  padding: 10px 12px;
-  margin-bottom: 14px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+.card ul {
+    padding-left: 20px;
 }
 
-.styled-form button.submit-btn {
-  background: #ff7a2d;
-  color: #fff;
-  font-weight: 700;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 16px;
-  cursor: pointer;
-  transition: 0.3s;
+/* ===========================
+   Staff page specific
+=========================== */
+.staff-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    margin-top: 16px;
 }
 
-.styled-form button.submit-btn:hover {
-  background: #e06723;
+.staff-member {
+    text-align: center;
+    background-color: #f0f8ff;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
-/* ===== Responsive ===== */
-@media(max-width:1024px){
-  .main-content { margin-left: 220px; padding: 20px; }
-  .sidebar { width: 220px; }
+.staff-member img {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 50%;
+    margin-bottom: 12px;
 }
 
-@media(max-width:768px){
-  .sidebar { transform: translateX(-100%); transition: 0.3s; }
-  .main-content { margin-left: 0; padding: 15px; }
-  .menu-trigger { display: block; cursor: pointer; font-size: 24px; margin: 12px; color: #1f497d; }
+/* ===========================
+   Responsive
+=========================== */
+@media screen and (max-width: 900px) {
+    .main-content {
+        margin-left: 0;
+        padding: 16px;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
 }
