@@ -16,6 +16,7 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    border-radius: 12px;
 }
 
 /* ==================== Navigation ==================== */
@@ -63,6 +64,27 @@ main {
     padding: 20px;
     max-width: 1200px;
     margin: auto;
+}
+
+.container.content h1,
+.container.content h2,
+.container.content h3 {
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #2279BD;
+}
+
+.container.content p {
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+}
+
+.news-ticker {
+    background-color: #2279BD;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
 }
 
 /* ==================== Carousel ==================== */
@@ -133,31 +155,6 @@ main {
     background-color: #2279BD;
 }
 
-/* ==================== Content Sections ==================== */
-.container.content {
-    margin: 40px 0;
-}
-
-.container.content h2, 
-.container.content h3 {
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #2279BD;
-}
-
-.container.content p {
-    font-size: 1.15rem;
-    margin-bottom: 16px;
-}
-
-.news-ticker {
-    background-color: #2279BD;
-    color: white;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: 600;
-}
-
 /* ==================== Tabs ==================== */
 .blugoon-tabs .tabs {
     display: flex;
@@ -173,6 +170,11 @@ main {
     font-weight: 600;
     text-align: center;
     border-radius: 8px;
+    cursor: pointer;
+}
+
+.blugoon-tabs .tab a {
+    color: white;
 }
 
 /* ==================== Pill Links ==================== */
@@ -184,6 +186,7 @@ main {
     border-radius: 20px;
     font-weight: 600;
     transition: background 0.3s ease;
+    margin: 4px 0;
 }
 
 .pill:hover {
