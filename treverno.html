@@ -1,76 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Treverno Meadows — Meadow Pathways</title>
-  <meta name="description" content="Treverno Meadows — Meadow Pathways Wellbeing and Education Cornwall." />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <a href="#main" class="skip-link">Skip to content</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treverno Meadows — Meadow Pathways Wellbeing and Education Cornwall</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="fontawesome.css" />
+  </head>
 
-  <div class="site-wrapper">
+  <body>
+    <!-- Sidebar Navigation -->
     <aside class="sidebar">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo-small" />
-      <div class="brand">Meadow Pathways</div>
-      <div class="tag">Wellbeing & Education Cornwall</div>
-
-      <nav class="side-nav">
+      <div class="logo">
+        <img src="Logo.png" alt="Meadow Pathways Logo" />
+      </div>
+      <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="eotas.html">EOTAS</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="staff.html">Staff</a></li>
+          <li class="active"><a href="treverno.html">Treverno</a></li>
+          <li><a href="policies.html">Policies</a></li>
           <li><a href="referral.html">Referral</a></li>
+          <li><a href="staff.html">Staff</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="treverno.html" class="active">Treverno Meadows</a></li>
         </ul>
       </nav>
-
-      <div class="social">
-        <img src="FacebookQR.jpg" alt="Facebook QR" class="qr">
-        <img src="crowdfunderQR.png" alt="Crowdfunder QR" class="qr">
-      </div>
-      <div class="sidebar-foot">© 2025 Meadow Pathways</div>
     </aside>
 
-    <main id="main" class="main-content">
-      <section class="container content">
-        <h1>Welcome to Treverno Meadows</h1>
-        <p class="meta">A Meadow Pathways Wellbeing & Education Cornwall Project</p>
-
-        <div class="treverno-hero">
-          <h2>🌿 Our Vision</h2>
-          <p>Treverno Meadows is a place for learners to reconnect with nature, wellbeing and learning. Our therapeutic, curriculum-linked activities help young people build confidence, skills and wellbeing.</p>
-
-          <h3>📄 Treverno Meadows (Overview PDF)</h3>
-          <div class="card" style="padding:0;overflow:hidden;border-radius:10px;">
-            <iframe src="TM.pdf" title="Treverno Meadows PDF" width="100%" height="480px" style="border:0;"></iframe>
-          </div>
-
-          <h3 style="margin-top:20px;">🎥 Welcome video</h3>
-          <p class="hint">Watch our short welcome reel from Instagram:</p>
-          <div class="video-embed">
-            <iframe src="https://www.instagram.com/reel/DQ15xpMDQdJ/embed" frameborder="0" allowfullscreen title="Treverno reel" loading="lazy"></iframe>
-          </div>
-
+    <!-- Main Content -->
+    <main class="content-area">
+      <!-- Hero Section -->
+      <section class="hero" style="background-image:url('BG.png');">
+        <div class="overlay">
+          <h1>Treverno Meadows</h1>
+          <p>Michelle & Zoe welcome you to Treverno Meadows</p>
         </div>
-
       </section>
 
-      <footer class="footer-visual">
-        <div class="footer-inner">
-          <h3>Treverno Meadows — Growing Together</h3>
-          <p>For visits or more details contact Michelle or Zoe via the Contact page.</p>
+      <!-- Welcome Section -->
+      <section class="container py-5">
+        <h2>Welcome to Treverno Meadows</h2>
+        <p>
+          Treverno Meadows provides a nurturing, trauma-informed environment designed to support
+          children and young people who may struggle to engage in mainstream education.
+          Our approach combines therapeutic practice, creative learning, and nature-based
+          experiences to promote wellbeing and personal growth.
+        </p>
+
+        <p>
+          The Treverno provision is part of Meadow Pathways Wellbeing and Education Cornwall,
+          offering bespoke, person-centred support to meet individual needs.
+          We work closely with families, schools, and local authorities to ensure that every
+          young person has the opportunity to re-engage with learning in a safe, supportive,
+          and inspiring environment.
+        </p>
+      </section>
+
+      <!-- Video Section -->
+      <section class="container py-5">
+        <h2>Watch Our Welcome Video</h2>
+        <div class="video-container">
+          <video controls poster="treverno-thumb.jpg" width="100%">
+            <source src="treverno-welcome.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
-      </footer>
+      </section>
 
-      <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
+      <!-- Flyer / Visual Section -->
+      <section class="container py-5 text-center">
+        <h2>Treverno Meadows Overview</h2>
+        <img src="TrevernoFlyer.png" alt="Treverno Meadows Flyer" class="img-fluid rounded shadow" />
+        <p class="mt-3">
+          Michelle & Zoe welcome you to Treverno Meadows — where wellbeing, creativity and
+          connection come together to inspire confidence and resilience.
+        </p>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="container py-5">
+        <h2>Contact Us About Treverno Meadows</h2>
+        <ul>
+          <li><strong>Michelle Pascoe:</strong> <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
+          <li><strong>Zoe Waitz:</strong> <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
+        </ul>
+      </section>
     </main>
-  </div>
 
-  <script src="script.js"></script>
-</body>
+    <!-- Footer -->
+    <footer class="footer" style="background-image:url('BG.png'); background-size:cover;">
+      <div class="footer-content">
+        <p>&copy; 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
+        <p>Supporting inclusive education and emotional wellbeing across Cornwall.</p>
+      </div>
+    </footer>
+
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
