@@ -23,7 +23,7 @@ a {
     left: 0;
     width: 220px;
     height: 100%;
-    background-color: #1e90ff; /* Default sidebar color */
+    background-color: #1e90ff; /* Default fallback color */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,6 +41,9 @@ a {
     margin: 0 auto 16px auto;
 }
 
+/* ===========================
+   Sidebar Navigation Tabs with Different Colors
+=========================== */
 .side-nav ul {
     list-style: none;
     padding: 0;
@@ -51,18 +54,42 @@ a {
     width: 100%;
 }
 
-/* Coloured tabs for sidebar */
-.side-nav li a {
-    display: block;
-    padding: 12px 16px;
+.side-nav li a.home {
+    background-color: #1e90ff; /* Blue */
     color: #fff;
-    font-weight: 600;
-    border-radius: 8px;
-    margin: 4px 8px;
-    transition: 0.3s;
-    background: linear-gradient(90deg, #4da6ff, #1e90ff);
 }
 
+.side-nav li a.about {
+    background-color: #4da6ff; /* Lighter Blue */
+    color: #fff;
+}
+
+.side-nav li a.eotas {
+    background-color: #339966; /* Green */
+    color: #fff;
+}
+
+.side-nav li a.policies {
+    background-color: #ff9933; /* Orange */
+    color: #fff;
+}
+
+.side-nav li a.contact {
+    background-color: #cc3366; /* Pink */
+    color: #fff;
+}
+
+.side-nav li a.staff {
+    background-color: #9933cc; /* Purple */
+    color: #fff;
+}
+
+.side-nav li a.treverno {
+    background-color: #ff6666; /* Red */
+    color: #fff;
+}
+
+/* Hover / Active effect for all tabs */
 .side-nav li a:hover,
 .side-nav li a.active {
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -77,11 +104,11 @@ a {
     padding: 24px;
 }
 
-.wrap {
+.wrap, .card {
     max-width: 900px;
     margin: 16px auto;
     padding: 16px;
-    background-color: #e6f0fa; /* Light blue background for text boxes */
+    background-color: #e6f2ff; /* Light blue background */
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
@@ -176,7 +203,7 @@ a {
 =========================== */
 .site-footer {
     background: url('BG.png') no-repeat center/cover;
-    color: #222; /* Darker footer text for readability */
+    color: #222; /* Darker text for readability */
     font-size: 1.1rem;
     text-align: center;
     padding: 24px 16px;
@@ -210,7 +237,7 @@ a {
 
 .staff-member {
     text-align: center;
-    background-color: #f0f8ff;
+    background-color: #e6f2ff; /* Light blue background */
     padding: 12px;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
@@ -238,4 +265,3 @@ a {
         position: relative;
     }
 }
-
