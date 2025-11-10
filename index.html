@@ -3,208 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meadow Pathways — Wellbeing & Education Cornwall</title>
+  <title>Meadow Pathways Wellbeing and Education Cornwall</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Blugoon Theme Base */
-    :root {
-      --primary-color: #2f8f4a;
-      --secondary-color: #4aa1c1;
-      --muted: #667788;
-      --card-bg: #f7fbfd;
-      --soft-border: #e6eef3;
-      --accent-gradient: linear-gradient(135deg, #2f8f4a, #4aa1c1);
-      --pill-bg: #2f8f4a;
-      --pill-hover: #256c39;
-      --footer-bg: #3b4d2c;
-      --footer-gold: #d4af37;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background: #f0f6f8;
-      color: #1e2f2d;
-    }
-
-    a { text-decoration: none; color: var(--primary-color); }
-    a:hover { text-decoration: underline; }
-
-    /* Header */
-    header.site-header {
-      background: var(--primary-color);
-      color: white;
-      padding: 16px 10px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .logo { height: 60px; }
-    .nav-tabs {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin: 0;
-      padding: 0;
-    }
-    .nav-tabs li a {
-      padding: 8px 12px;
-      border-radius: 8px;
-      color: white;
-      font-weight: 600;
-    }
-    .nav-tabs li a.active, .nav-tabs li a:hover {
-      background: var(--secondary-color);
-    }
-
-    /* Hero Section */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 400px;
-      background: var(--accent-gradient);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin: 0 0 20px;
-    }
-    .hero p {
-      font-size: 1.25rem;
-      max-width: 800px;
-    }
-    .hero .cta-btn {
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: white;
-      color: var(--primary-color);
-      border-radius: 12px;
-      font-weight: bold;
-    }
-    .hero .cta-btn:hover {
-      background: #e6f2f1;
-    }
-
-    /* Carousel */
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      gap: 16px;
-      padding: 20px;
-      scroll-behavior: smooth;
-    }
-    .carousel::-webkit-scrollbar { display: none; }
-    .carousel img {
-      border-radius: 16px;
-      min-width: 300px;
-      max-width: 400px;
-      object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .carousel img:hover { transform: scale(1.05); }
-
-    /* Cards Section */
-    .card-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 6px 18px rgba(15,40,50,0.08);
-      transition: transform 0.3s;
-    }
-    .card:hover { transform: translateY(-4px); }
-    .card h2 {
-      color: var(--primary-color);
-      margin-top: 0;
-    }
-
-    /* Footer */
-    footer.site-footer {
-      background: var(--footer-bg);
-      color: white;
-      text-align: center;
-      padding: 25px 10px;
-      border-top: 3px solid var(--footer-gold);
-    }
-    .footer-logo { width: 70px; height: auto; margin-bottom: 5px; }
-  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-inner container">
-      <div class="logo-wrap">
-        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo"></a>
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="logo.png" alt="Meadow Pathways Logo">
+      <h1>Meadow Pathways</h1>
+    </div>
+    <nav>
+      <ul class="nav-tabs">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html">Staff</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="hero">
+      <h2>Guiding Individual Journeys with Care and Purpose</h2>
+      <p>Meadow Pathways provides trauma-informed, person-centred education and wellbeing support for children and young people across Cornwall. We specialise in SEND, SEMH, Emotionally Based School Non-Attendance, bereavement, and the effects of educational trauma.</p>
+      <p>Our ethos is rooted in safety, trust, creativity, and belonging.</p>
+    </section>
+
+    <!-- Carousel Section -->
+    <section class="carousel-section">
+      <h3>Our Work in Action</h3>
+      <div class="carousel" id="carousel">
+        <img src="images/Bake.jpg" alt="Baking activity" class="slide active">
+        <img src="images/Cooking.jpg" alt="Cooking session" class="slide">
+        <img src="images/MM.jpg" alt="Multimedia activity" class="slide">
       </div>
-      <nav>
-        <ul class="nav-tabs">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="eotas.html">EOTAS</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="staff.html">Staff</a></li>
-          <li><a href="referral.html">Referral</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+      <button class="carousel-btn prev" id="prev">&#10094;</button>
+      <button class="carousel-btn next" id="next">&#10095;</button>
+    </section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Welcome to Meadow Pathways</h1>
-    <p>Trauma-informed, person-centred education and wellbeing support for children and young people across Cornwall. Helping learners rediscover their strengths, confidence, and joy in learning.</p>
-    <a href="about.html" class="cta-btn">Learn More</a>
-  </section>
+    <!-- Quick Links Section -->
+    <section class="quick-links">
+      <h3>Quick Links</h3>
+      <div class="pills-container">
+        <a class="pill" href="https://www.nspcc.org.uk/advice-for-families/" target="_blank" rel="noopener">NSPCC Advice for Families</a>
+        <a class="pill" href="https://www.ceop.police.uk/Safety-Centre/" target="_blank" rel="noopener">CEOP Safety Centre</a>
+        <a class="pill" href="https://ciossafeguarding.org.uk/scp/p/parents-and-carers/information-for-parents-and-carers" target="_blank" rel="noopener">Cios Safeguarding</a>
+        <a class="pill" href="https://www.childnet.com/help-and-advice/parents-and-carers" target="_blank" rel="noopener">Childnet Advice</a>
+      </div>
+    </section>
 
-  <!-- Carousel -->
-  <section class="carousel">
-    <img src="Bake.jpg" alt="Baking activity">
-    <img src="Cooking.jpg" alt="Cooking session">
-    <img src="MM.jpg" alt="Multimedia activity">
-    <img src="Outdoor.jpg" alt="Outdoor exploration">
-    <img src="Therapy.jpg" alt="Therapy session">
-  </section>
+    <!-- Contact Info -->
+    <section class="contact-info">
+      <h3>Contact Meadow Pathways</h3>
+      <p><strong>Michelle Pascoe – Director & Lead Therapist (DSL)</strong><br>
+      Email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
+      Tel: 07932 243358</p>
 
-  <!-- Services / Features -->
-  <section class="card-section">
-    <div class="card">
-      <h2>Tailored Learning</h2>
-      <p>Individualised academic and wellbeing pathways designed to meet each child’s unique needs.</p>
-    </div>
-    <div class="card">
-      <h2>Therapeutic Support</h2>
-      <p>Play therapy, counselling, and trauma-informed interventions that rebuild confidence and trust.</p>
-    </div>
-    <div class="card">
-      <h2>Creative Activities</h2>
-      <p>Outdoor exploration, arts, and skills-based learning to nurture growth and independence.</p>
-    </div>
-    <div class="card">
-      <h2>Family Partnership</h2>
-      <p>Working closely with families and schools to create consistent and supportive environments for learners.</p>
-    </div>
-  </section>
+      <p><strong>Zoe Waitz – Director & DDSL</strong><br>
+      Email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
+      Tel: 07775 733587</p>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-    <p>Guiding Individual Journeys with Care and Purpose</p>
-  </footer>
+      <p>General enquiries: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
