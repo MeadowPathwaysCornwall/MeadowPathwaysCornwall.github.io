@@ -1,116 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Meadow Pathways — Home</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meadow Pathways — Home</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="blugoon.css"> <!-- your Blugoon CSS -->
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<header>
+  <nav class="blugoon-nav">
+    <div class="logo">
+      <img src="Logo.png" alt="Meadow Pathways Logo">
+    </div>
+    <ul class="nav-tabs">
+      <li><a href="index.html" class="active-tab">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="eotas.html">EOTAS</a></li>
+      <li><a href="safeguarding.html">Safeguarding</a></li>
+      <li><a href="staff.html">Staff</a></li>
+      <li><a href="referral.html">Referral</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="treverno.html">Treverno Meadows</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <div class="site-wrapper">
-    <!-- Sidebar -->
-    <aside class="sidebar" role="complementary" aria-label="Main navigation">
-      <img src="Logo.png" alt="Meadow Pathways logo" class="logo-small">
-      <div class="brand">Meadow Pathways</div>
-      <div class="tag">Wellbeing &amp; Education Cornwall</div>
-
-      <nav class="side-nav" aria-label="Primary">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="eotas.html">EOTAS</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="staff.html">Staff</a></li>
-          <li><a href="referral.html">Referral</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="treverno.html">Treverno Meadows</a></li>
-        </ul>
-      </nav>
-
-      <div class="social">
-        <img src="FacebookQR.jpg" alt="Facebook QR" class="qr">
-        <img src="crowdfunderQR.png" alt="Crowdfunder QR" class="qr">
+<main id="main">
+  <!-- Carousel -->
+  <section class="blugoon-carousel">
+    <div class="carousel-container">
+      <div class="slides" id="slides">
+        <img src="Bake.jpg" alt="Baking activity" class="slide">
+        <img src="Cooking.jpg" alt="Cooking session" class="slide">
+        <img src="MM.jpg" alt="Multimedia activity" class="slide">
+        <img src="Paint.jpg" alt="Painting session" class="slide">
+        <img src="cook.jpg" alt="Cooking practical" class="slide">
+        <img src="den.jpg" alt="Den building" class="slide">
+        <img src="hand.jpg" alt="Hands in meadow activity" class="slide">
+        <img src="paths.jpg" alt="Exploring paths" class="slide">
+        <img src="plant.jpg" alt="Planting activity" class="slide">
+        <img src="wood.jpg" alt="Woodland activity" class="slide">
       </div>
-
-      <div class="sidebar-foot">
-        © 2025 Meadow Pathways<br>
-        <small>Guiding Individual Journeys with Care and Purpose</small>
+      <div class="carousel-controls">
+        <button id="prev" class="carousel-btn">‹</button>
+        <div id="dots" class="carousel-dots"></div>
+        <button id="next" class="carousel-btn">›</button>
       </div>
-    </aside>
+    </div>
+  </section>
 
-    <main id="main" class="main-content" role="main">
-      <!-- HERO: Carousel -->
-      <header class="hero-frame">
-        <div class="carousel-frame" aria-roledescription="carousel" aria-label="Activity gallery">
-          <div class="slides" id="slides" role="list">
-            <img src="Bake.jpg" alt="Baking activity" class="slide" role="listitem" />
-            <img src="Cooking.jpg" alt="Cooking session" class="slide" role="listitem" />
-            <img src="MM.jpg" alt="Multimedia activity" class="slide" role="listitem" />
-            <img src="Paint.jpg" alt="Painting session" class="slide" role="listitem" />
-            <img src="cook.jpg" alt="Cooking practical" class="slide" role="listitem" />
-            <img src="den.jpg" alt="Den building" class="slide" role="listitem" />
-            <img src="hand.jpg" alt="Hands in meadow activity" class="slide" role="listitem" />
-            <img src="paths.jpg" alt="Exploring paths" class="slide" role="listitem" />
-            <img src="plant.jpg" alt="Planting activity" class="slide" role="listitem" />
-            <img src="wood.jpg" alt="Woodland activity" class="slide" role="listitem" />
-          </div>
+  <!-- Intro & Content Sections -->
+  <section class="container content">
+    <h2>Meadow Pathways reconnects children with learning through trauma-informed, bespoke education and wellbeing support across Cornwall.</h2>
+    <p>Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma-informed educational approaches. 🌿✨</p>
+    <p>At Meadow Pathways, we recognise every young person is unique. We commit to working collaboratively with families, schools and partners to find meaningful, sustainable routes to success for each learner.</p>
+    <p><strong>Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities.</strong> 🎨🍳🌲</p>
+  </section>
 
-          <div class="carousel-controls" aria-hidden="false">
-            <div class="left"><button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button></div>
-            <div class="dots" id="dots" role="tablist" aria-label="Carousel pagination"></div>
-            <div class="right"><button id="next" class="carousel-btn" aria-label="Next slide">›</button></div>
-          </div>
-        </div>
-      </header>
+  <section class="container content">
+    <h2>Welcome to Meadow Pathways Cornwall</h2>
+    <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community-based activities to build confidence, skills, and a sense of belonging. 🌱</p>
+  </section>
 
-      <!-- Full text sections -->
-      <section class="container content">
-        <h2>Meadow Pathways reconnects children with learning through trauma-informed, bespoke education and wellbeing support across Cornwall.</h2>
-        <p>Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma-informed educational approaches. 🌿✨</p>
-        <p>At Meadow Pathways, we recognise every young person is unique. We commit to working collaboratively with families, schools and partners to find meaningful, sustainable routes to success for each learner.</p>
-        <p><strong>Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities.</strong> 🎨🍳🌲</p>
-      </section>
+  <section class="container content">
+    <h3>Our Approach</h3>
+    <p>We work relationally, using trauma-informed practice and creative, curriculum-linked activities. Our work is guided by <strong>Safety, Playfulness, Acceptance, Curiosity and Empathy</strong>. 🌟 Meeting learners where they are.</p>
+  </section>
 
-      <section class="container content">
-        <h2>Welcome to Meadow Pathways Cornwall</h2>
-        <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community-based activities to build confidence, skills, and a sense of belonging. 🌱</p>
-      </section>
+  <section class="container content blugoon-tabs">
+    <h3>Our Values</h3>
+    <div class="tabs">
+      <div class="tab" style="background-color:#2279BD;">Resilience &amp; Independence 💪</div>
+      <div class="tab" style="background-color:#4AA0DD;">Health &amp; Wellbeing 💛</div>
+      <div class="tab" style="background-color:#65C2EB;">Honesty &amp; Integrity 🔎</div>
+      <div class="tab" style="background-color:#2279BD;">Friendship &amp; Kindness 🤗</div>
+    </div>
+    <p><a class="pill" href="values.pdf" download>Download our Values (PDF)</a></p>
+  </section>
 
-      <section class="container content">
-        <h3>Our Approach</h3>
-        <p>We work relationally, using trauma-informed practice and creative, curriculum-linked activities. Our work is guided by <strong>Safety, Playfulness, Acceptance, Curiosity and Empathy</strong>. 🌟 Meeting learners where they are.</p>
-      </section>
+  <section class="container content">
+    <p class="news-ticker">🤩 Planning submitted for our first site 'Treverno Meadows' — check our Treverno page for the introduction and updates!</p>
+  </section>
 
-      <section class="container content">
-        <h3>Our Values</h3>
-        <ul>
-          <li>💪 Resilience &amp; Independence</li>
-          <li>💛 Health &amp; Wellbeing</li>
-          <li>🔎 Honesty &amp; Integrity</li>
-          <li>🤗 Friendship &amp; Kindness</li>
-        </ul>
-        <p><a class="pill" href="values.pdf" download>Download our Values (PDF)</a></p>
-      </section>
+  <!-- Footer -->
+  <footer class="footer-visual" style="background-image: url('BG.png');">
+    <div class="footer-inner">
+      <h3>Guiding Individual Journeys with Care and Purpose</h3>
+      <p>Meadow Pathways — wellbeing-led education across Cornwall.</p>
+    </div>
+  </footer>
+</main>
 
-      <section class="container content">
-        <p class="news-ticker">🤩 Planning submitted for our first site 'Treverno Meadows' — check our Treverno page for the introduction and updates!</p>
-      </section>
-
-      <!-- Footer -->
-      <footer class="footer-visual">
-        <div class="footer-inner">
-          <h3>Guiding Individual Journeys with Care and Purpose</h3>
-          <p>Meadow Pathways — wellbeing-led education across Cornwall.</p>
-        </div>
-      </footer>
-
-      <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
-    </main>
-  </div>
-
-  <script src="script.js"></script>
+<button id="backToTop" class="back-to-top">↑</button>
+<script src="script.js"></script>
 </body>
 </html>
