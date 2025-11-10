@@ -1,208 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Meadow Pathways Wellbeing and Education Cornwall</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Blugoon Theme Enhancements */
-    :root {
-      --primary-color: #2f8f4a;
-      --secondary-color: #4aa1c1;
-      --muted: #667788;
-      --card-bg: #f7fbfd;
-      --soft-border: #e6eef3;
-      --accent-gradient: linear-gradient(135deg, #2f8f4a, #4aa1c1);
-      --pill-bg: #2f8f4a;
-      --pill-hover: #256c39;
-      --footer-bg: #3b4d2c;
-      --footer-gold: #d4af37;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Meadow Pathways Wellbeing & Education Cornwall</title>
+<link rel="stylesheet" href="style.css">
+<style>
+:root {
+  --primary-color: #2f8f4a;
+  --secondary-color: #4aa1c1;
+  --muted: #667788;
+  --card-bg: #f7fbfd;
+  --soft-border: #e6eef3;
+  --accent-gradient: linear-gradient(135deg, #2f8f4a, #4aa1c1);
+  --pill-bg: #2f8f4a;
+  --pill-hover: #256c39;
+  --text-soft: #556677;
+}
 
-    body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      margin: 0;
-      background: url('BG.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #1e2f2d;
-    }
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #f0f6f8;
+  color: #1e2f2d;
+}
 
-    a { text-decoration: none; color: var(--primary-color); }
-    a:hover { text-decoration: underline; }
+header.site-header {
+  background: var(--primary-color);
+  color: white;
+  padding: 16px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 
-    header.site-header {
-      background: var(--primary-color);
-      color: white;
-      padding: 16px 10px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .logo { height: 60px; }
-    .nav-tabs {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .nav-tabs li a {
-      padding: 8px 12px;
-      border-radius: 8px;
-      color: white;
-      font-weight: 600;
-    }
-    .nav-tabs li a.active, .nav-tabs li a:hover {
-      background: var(--secondary-color);
-    }
+.logo { height: 60px; }
 
-    main.container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 16px;
-    }
+.nav-tabs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+.nav-tabs li a {
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+}
+.nav-tabs li a.active, .nav-tabs li a:hover { background: var(--secondary-color); }
 
-    h1,h2,h3 {
-      color: var(--primary-color);
-    }
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  background: var(--accent-gradient);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+.hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
+.hero p { font-size: 1.1rem; max-width: 800px; }
 
-    section.card {
-      background: var(--card-bg);
-      padding: 24px;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(15,40,50,0.08);
-      margin-bottom: 32px;
-    }
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: var(--pill-bg);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.tab-btn:hover { background: var(--pill-hover); }
+.tab-btn.active { box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
 
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
-    }
+.tab-content {
+  display: none;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  margin: 0 20px 20px 20px;
+  box-shadow: 0 6px 18px rgba(15,40,50,0.08);
+}
 
-    .team-member img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+.tab-content.active { display: block; }
 
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-    .pill {
-      background: var(--pill-bg);
-      color: white;
-      padding: 10px 16px;
-      border-radius: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      text-align: center;
-    }
-    .pill:hover { background: var(--pill-hover); }
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(15,40,50,0.08);
+  margin-bottom: 20px;
+}
 
-    footer.site-footer {
-      background: var(--footer-bg);
-      color: white;
-      text-align: center;
-      padding: 25px 10px;
-      border-top: 3px solid var(--footer-gold);
-    }
-    .footer-logo { width: 70px; height: auto; margin-bottom: 5px; }
+.card img {
+  max-width: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
 
-  </style>
+.card-body { display: flex; flex-direction: row; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+
+.pill {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  margin: 4px 4px 4px 0;
+  transition: 0.2s;
+}
+.pill:hover { background: var(--secondary-color); }
+
+section h3 { margin-top: 0; margin-bottom: 12px; }
+
+</style>
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="header-inner container">
-      <div class="logo-wrap">
-        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
-          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
-        </a>
-      </div>
-      <nav aria-label="Primary" class="primary-nav">
-        <ul class="nav-tabs">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="eotas.html">EOTAS</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="staff.html">Staff</a></li>
-          <li><a href="referral.html">Referral</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+
+<header class="site-header">
+  <div class="header-inner container">
+    <div class="logo-wrap">
+      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo"></a>
     </div>
-  </header>
-
-  <main id="main" class="container" role="main">
-
-    <section class="card">
-      <h1>About Meadow Pathways</h1>
-      <h2>Guiding Individual Journeys with Care and Purpose</h2>
-      <p>Meadow Pathways provides trauma-informed, person-centred education and wellbeing support for children and young people across Cornwall. We specialise in supporting those with SEND, SEMH, Emotionally Based School Non-Attendance (EBSNA), bereavement, and the effects of educational trauma. Our ethos is rooted in safety, trust, creativity, and belonging.</p>
-      <p>We believe that every child deserves the opportunity to thrive, no matter their background or previous experiences. Our holistic approach blends therapeutic practice with flexible, creative education that meets learners where they are emotionally, socially, and academically.</p>
-      <p>Working in partnership with families, schools, and local authorities, we design individualised programmes that nurture confidence, rebuild relationships with learning, and promote emotional resilience. Whether through outdoor exploration, creative arts, or one-to-one mentoring, our work empowers children and young people to rediscover their strengths and find joy in learning.</p>
-      <p>At Meadow Pathways, we recognise that healing and education go hand in hand. By fostering an environment where every voice is valued and every journey respected, we help our learners grow not only in knowledge but in wellbeing, independence, and self-belief.</p>
-    </section>
-
-    <section class="card">
-      <h2>What We Offer</h2>
-      <ul>
-        <li>🧑‍🤝‍🧑 Mentoring and Advocacy: Consistent relational support</li>
-        <li>📚 Tailored Learning Packages: Flexible academic pathways</li>
-        <li>🛠 Life Skills and Independence: Functional skills and community engagement</li>
-        <li>🧮 Diagnostic Assessments: Literacy and numeracy profiling</li>
-        <li>💛 SEMH Interventions: Trauma-informed strategies</li>
-        <li>🎨 Wellbeing and PSHE: Creative therapeutic sessions</li>
-        <li>🔄 Transitional Services: Reintegration and onward pathways</li>
-        <li>🌲🍳 Therapeutic & Curriculum Linked Activities: Bush craft, walking, fitness, water activities, fishing, climbing, cooking, play, biking, and more linked to ASDAN & AQA Unit Awards</li>
+    <nav>
+      <ul class="nav-tabs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html">Staff</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-    </section>
+    </nav>
+  </div>
+</header>
 
-    <section class="card">
-      <h2>Our Approach</h2>
-      <p>We build trusting relationships through warmth, empathy, and consistency. Guided by the SPACE model; Safety, Playfulness, Acceptance, Curiosity, and Empathy. To support each individual child’s needs we adapt our approach, which can include play therapy, creative activities, and community-based learning to help children re-engage, feel safe, and grow in confidence.</p>
-    </section>
+<section class="hero">
+  <h1>About Meadow Pathways</h1>
+  <p>Guiding Individual Journeys with Care and Purpose</p>
+</section>
 
-    <section class="card">
-      <h2>Meet the Team</h2>
-      <div class="team-grid">
-        <div class="team-member">
-          <img src="MP.jpeg" alt="Michelle Pascoe" />
-          <h3>Michelle Pascoe 🌿</h3>
-          <p>Founding director and Lead Therapist. Michelle supports children and young people with SEN, SEMH, educational trauma, bereavement, and EBSNA. With over 20 years of experience, she is a qualified counsellor and play therapist and focuses on building trust and emotional safety.</p>
-        </div>
-        <div class="team-member">
-          <img src="Zoe.jpeg" alt="Zoe Waitz" />
-          <h3>Zoe Waitz 🌸</h3>
-          <p>Founding director. Zoe’s leadership is rooted in genuine care, providing inclusive, therapeutic education for children with SEND and SEMH needs. She integrates wellbeing at the centre of everything and brings deep insight into the emotional and practical realities of learners and staff.</p>
-        </div>
-      </div>
-    </section>
+<div class="tabs">
+  <div class="tab-btn active" data-tab="who-we-are">Who We Are</div>
+  <div class="tab-btn" data-tab="what-we-offer">What We Offer</div>
+  <div class="tab-btn" data-tab="our-approach">Our Approach</div>
+  <div class="tab-btn" data-tab="meet-team">Meet the Team</div>
+  <div class="tab-btn" data-tab="downloads">Downloads</div>
+</div>
 
-    <section class="card">
-      <h2>Resources & Policies</h2>
-      <div class="tabs">
-        <a class="pill" href="EBSNA.docx" download>EBSNA.docx</a>
-        <a class="pill" href="RSHE 2025.pdf" download>RSHE 2025.pdf</a>
-        <a class="pill" href="values.pdf" download>Values.pdf</a>
-      </div>
-    </section>
+<div id="who-we-are" class="tab-content active">
+  <div class="card">
+    <h3>Who We Are</h3>
+    <p>Meadow Pathways provides trauma informed, person-centred education and wellbeing support for children and young people across Cornwall. We specialise in supporting those with SEND, SEMH, Emotionally Based School Non-Attendance (EBSNA), bereavement, and the effects of educational trauma. Our ethos is rooted in safety, trust, creativity, and belonging.</p>
+    <p>We believe every child deserves the opportunity to thrive, no matter their background or previous experiences. Our holistic approach blends therapeutic practice with flexible, creative education that meets learners where they are emotionally, socially, and academically.</p>
+    <p>Working in partnership with families, schools, and local authorities, we design individualised programmes that nurture confidence, rebuild relationships with learning, and promote emotional resilience. Whether through outdoor exploration, creative arts, or one-to-one mentoring, our work empowers children and young people to rediscover their strengths and find joy in learning.</p>
+    <p>At Meadow Pathways, we recognise that healing and education go hand in hand. By fostering an environment where every voice is valued and every journey respected, we help our learners grow not only in knowledge but in wellbeing, independence, and self-belief.</p>
+  </div>
+</div>
 
-  </main>
+<div id="what-we-offer" class="tab-content">
+  <div class="card">
+    <h3>What We Offer</h3>
+    <ul>
+      <li>🧑‍🤝‍🧑 Mentoring and Advocacy – Consistent relational support</li>
+      <li>📚 Tailored Learning Packages – Flexible academic pathways</li>
+      <li>🛠️ Life Skills and Independence</li>
+      <li>🧠 Functional skills and community engagement</li>
+      <li>🧮 Diagnostic Assessments – Literacy and numeracy profiling</li>
+      <li>💛 SEMH Interventions – Trauma informed interventions</li>
+      <li>🎨 Wellbeing and PSHE – Creative therapeutic sessions</li>
+      <li>🔄 Transitional Services – Reintegration and onward pathways</li>
+      <li>🌲🍳 Therapeutic and Curriculum Linked Activities – Nature-based, bushcraft, cooking, fitness, play, ASDAN/AQA linked</li>
+    </ul>
+  </div>
+</div>
 
-  <footer class="site-footer">
-    <div class="footer-content">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-      <p>Guiding Individual Journeys with Care and Purpose</p>
+<div id="our-approach" class="tab-content">
+  <div class="card">
+    <h3>Our Approach</h3>
+    <p>We build trusting relationships through warmth, empathy, and consistency. Guided by the SPACE model: Safety, Playfulness, Acceptance, Curiosity, and Empathy. Approaches can include play therapy, creative activities, and community-based learning to help children re-engage, feel safe, and grow in confidence.</p>
+  </div>
+</div>
+
+<div id="meet-team" class="tab-content">
+  <h3>Meet the Team</h3>
+  
+  <div class="card card-body">
+    <img src="MP.jpeg" alt="Michelle Pascoe">
+    <div>
+      <h4>🌿 Michelle Pascoe</h4>
+      <p>Founding director and Lead Therapist. Michelle supports children and young people across Cornwall with SEND, SEMH, educational trauma, bereavement, and EBSNA. With 20+ years experience as a counsellor and play therapist, she brings creativity, warmth, and trauma-informed expertise to every child’s journey. Outside work, she enjoys Cornwall’s coastal paths with her dogs Pixie and Ivey 🐾🌊🌲.</p>
+      <p>Contact: <a href="tel:07932243358">07932 243358</a> | <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></p>
     </div>
-  </footer>
+  </div>
+
+  <div class="card card-body">
+    <img src="Zoe.jpeg" alt="Zoe Waitz">
+    <div>
+      <h4>🌸 Zoe Waitz</h4>
+      <p>Founding director. Zoe leads Meadow Pathways with care, ensuring all learners feel safe, seen, and supported. Her experience spans outdoor education, PE teaching, pastoral leadership, and inclusive wellbeing-focused practice. Zoe integrates nature-based approaches to support regulation, joy, and connection for young people and staff 🌊🌲🍳.</p>
+      <p>Contact: <a href="tel:07775733587">07775 733587</a> | <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
+    </div>
+  </div>
+</div>
+
+<div id="downloads" class="tab-content">
+  <h3>Downloads & Policies</h3>
+  <a class="pill" href="EBSNA.docx" download>EBSNA Policy</a>
+  <a class="pill" href="RSHE 2025.pdf" download>RSHE 2025</a>
+  <a class="pill" href="values.pdf" download>Our Values</a>
+  <a class="pill" href="staff.html">Go to Staff Page</a>
+</div>
+
+<footer class="site-footer">
+  <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
+  <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+  <p>Health & Wellbeing | Honesty & Integrity | Friendship & Kindness</p>
+</footer>
+
+<script>
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    tabContents.forEach(c => c.classList.remove('active'));
+    document.getElementById(tab).classList.add('active');
+  });
+});
+</script>
+
 </body>
 </html>
