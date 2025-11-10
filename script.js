@@ -1,135 +1,150 @@
 /* ===========================
-   Meadow Pathways Website — Safe Universal Script
-   Supports carousel, Netlify forms, and staff password access
+   Global JS for Meadow Pathways
 =========================== */
 
-// === Carousel Functionality ===
+/* ===========================
+   Carousel Functionality
+=========================== */
 const carouselContainer = document.querySelector('.carousel-container');
 if (carouselContainer) {
-    const slides = carouselContainer.querySelector('.carousel-slides');
-    const prevBtn = carouselContainer.querySelector('.prev');
-    const nextBtn = carouselContainer.querySelector('.next');
-    const dots = carouselContainer.querySelectorAll('.dots button');
-    let index = 0;
+  const slides = carouselContainer.querySelectorAll('.slide');
+  const prevBtn = carouselContainer.querySelector('#prev');
+  const nextBtn = carouselContainer.querySelector('#next');
+  const dotsContainer = carouselContainer.querySelector('#dots');
+  let currentIndex = 0;
 
-    function showSlide(i) {
-        slides.style.transform = `translateX(-${i * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        if (dots[i]) dots[i].classList.add('active');
-    }
+  // Create dots
+  slides.forEach((slide, index) => {
+    const dot = document.createElement('button');
+    dot.classList.add(index === 0 ? 'active' : '');
+    dot.setAttribute('aria-label', `Slide ${index + 1}`);
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+  });
 
-    if (prevBtn && nextBtn && dots.length) {
-        prevBtn.addEventListener('click', () => {
-            index = (index > 0) ? index - 1 : dots.length - 1;
-            showSlide(index);
-        });
+  const dots = dotsContainer.querySelectorAll('button');
 
-        nextBtn.addEventListener('click', () => {
-            index = (index < dots.length - 1) ? index + 1 : 0;
-            showSlide(index);
-        });
+  function goToSlide(index) {
+    currentIndex = index;
+    const offset = -index * 100;
+    carouselContainer.querySelector('.carousel-slides').style.transform = `translateX(${offset}%)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
 
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                index = i;
-                showSlide(index);
-            });
-        });
-    }
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      goToSlide(currentIndex);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      goToSlide(currentIndex);
+    });
+  }
 }
 
-// === Staff Page Password Lock ===
+/* ===========================
+   Staff Page Password Unlock
+=========================== */
 const pwdInput = document.getElementById('staffPassword');
 const unlockBtn = document.getElementById('unlockBtn');
-const lockedEl = document.getElementById('locked');
 const staffPanel = document.getElementById('staffPanel');
+const lockedEl = document.getElementById('locked');
 
-if (unlockBtn && pwdInput && lockedEl && staffPanel) {
-    const PASSWORD = 'MPWEC!';
-    function unlock() {
-        const val = (pwdInput.value || '').trim();
-        if (val === PASSWORD) {
-            lockedEl.style.display = 'none';
-            staffPanel.style.display = 'block';
-            staffPanel.setAttribute('aria-hidden', 'false');
-        } else {
-            alert('Incorrect password. Please contact Michelle or Zoe for access.');
-            pwdInput.value = '';
-        }
+if (pwdInput && unlockBtn && staffPanel && lockedEl) {
+  const PASSWORD = 'MPWEC!';
+  function unlock() {
+    const val = (pwdInput.value || '').trim();
+    if (val === PASSWORD) {
+      lockedEl.style.display = 'none';
+      staffPanel.style.display = 'block';
+      lockedEl.setAttribute('aria-hidden', 'true');
+      staffPanel.setAttribute('aria-hidden', 'false');
+      const firstInput = staffPanel.querySelector('input, textarea');
+      if (firstInput) firstInput.focus();
+    } else {
+      pwdInput.value = '';
+      pwdInput.focus();
+      alert('Incorrect password. Contact Michelle or Zoe if you need access.');
     }
-
-    unlockBtn.addEventListener('click', unlock);
-    pwdInput.addEventListener('keyup', e => {
-        if (e.key === 'Enter') unlock();
-    });
+  }
+  unlockBtn.addEventListener('click', unlock);
+  pwdInput.addEventListener('keyup', e => { if (e.key === 'Enter') unlock(); });
 }
 
-// === Staff Forms (Hours / Expenses Log) ===
+/* ===========================
+   Staff Hours & Expenses Form
+=========================== */
 const staffForm = document.getElementById('hoursForm');
 if (staffForm) {
-    staffForm.addEventListener('submit', async e => {
-        e.preventDefault();
-        const status = document.getElementById('hoursStatus');
-        status.textContent = 'Submitting...';
-        const data = new FormData(staffForm);
-
-        try {
-            // Netlify form submission
-            const res = await fetch('/', {
-                method: 'POST',
-                body: data
-            });
-            if (res.ok) {
-                staffForm.reset();
-                status.textContent = 'Submitted successfully. Thank you.';
-            } else {
-                status.textContent = 'Submission failed. Please try again later.';
-            }
-        } catch {
-            status.textContent = 'Network error. Please check your connection.';
-        }
-    });
+  const staffStatus = document.getElementById('hoursStatus');
+  staffForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!staffStatus) return;
+    staffStatus.textContent = 'Submitting...';
+    const formData = new FormData(staffForm);
+    try {
+      const response = await fetch('https://formspree.io/f/movnvzqp', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+      if (response.ok) {
+        staffForm.reset();
+        staffStatus.textContent = 'Hours/Expenses submitted successfully!';
+        setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
+      } else {
+        const result = await response.json();
+        staffStatus.textContent = (result && result.errors) ? result.errors.map(err => err.message).join('; ') : 'Submission error, try again later.';
+      }
+    } catch (err) {
+      staffStatus.textContent = 'Network error — please check connection.';
+    }
+  });
 }
 
-// === Contact Form (Netlify Protected) ===
+/* ===========================
+   Contact Form (Netlify)
+=========================== */
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', async e => {
-        e.preventDefault();
-        const status = document.getElementById('contactStatus');
-        status.textContent = 'Sending...';
-        const data = new FormData(contactForm);
-
-        try {
-            // Netlify automatically handles forms with data-netlify="true"
-            const res = await fetch('/', {
-                method: 'POST',
-                body: data
-            });
-
-            if (res.ok) {
-                contactForm.reset();
-                status.textContent = 'Thank you for your message — we will respond soon.';
-            } else {
-                status.textContent = 'Submission failed. Please try again.';
-            }
-        } catch {
-            status.textContent = 'Network error. Please check your connection.';
-        }
-    });
+  const contactStatus = document.getElementById('contactStatus');
+  contactForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!contactStatus) return;
+    contactStatus.textContent = 'Submitting...';
+    const formData = new FormData(contactForm);
+    try {
+      const response = await fetch('https://formspree.io/f/movnvzqp', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+      if (response.ok) {
+        contactForm.reset();
+        contactStatus.textContent = 'Message sent! Thank you.';
+        setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
+      } else {
+        const result = await response.json();
+        contactStatus.textContent = (result && result.errors) ? result.errors.map(err => err.message).join('; ') : 'Submission error, try again later.';
+      }
+    } catch (err) {
+      contactStatus.textContent = 'Network error — please check connection.';
+    }
+  });
 }
 
-// === Smooth Scroll for Internal Links ===
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            window.scrollTo({
-                top: target.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
-    });
+/* ===========================
+   Optional QR Code Click Handling
+=========================== */
+const qrCodes = document.querySelectorAll('.qr');
+qrCodes.forEach(qr => {
+  qr.addEventListener('click', () => {
+    const link = qr.getAttribute('data-link');
+    if (link) window.open(link, '_blank');
+  });
 });
-
