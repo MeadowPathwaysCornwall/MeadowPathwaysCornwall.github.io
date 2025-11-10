@@ -1,158 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Referral — Meadow Pathways Wellbeing and Education Cornwall</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="bootstrap.min.css" />
-    <link rel="stylesheet" href="fontawesome.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Policies — Meadow Pathways</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="blugoon-body">
 
-  <body>
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-      <div class="logo">
-        <img src="Logo.png" alt="Meadow Pathways Logo" />
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="logo-wrap">
+        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
       </div>
-      <nav>
+      <nav class="side-nav">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="eotas.html">EOTAS</a></li>
-          <li><a href="treverno.html">Treverno</a></li>
-          <li><a href="policies.html">Policies</a></li>
-          <li class="active"><a href="referral.html">Referral</a></li>
-          <li><a href="staff.html">Staff</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">🏠 Home</a></li>
+          <li><a href="about.html">ℹ️ About Us</a></li>
+          <li><a href="referral.html">📝 Referral</a></li>
+          <li><a href="contact.html">☎️ Contact</a></li>
+          <li><a href="eotas.html">🔍 EOTAS</a></li>
+          <li><a href="policies.html" class="active">📄 Policies</a></li>
         </ul>
       </nav>
-    </aside>
+    </div>
+  </aside>
 
-    <!-- Main Content -->
-    <main class="content-area">
-      <section class="hero" style="background-image:url('BG.png');">
-        <div class="overlay">
-          <h1>Referral Form</h1>
-          <p>
-            Meadow Pathways accepts referrals from Local Authorities, schools, and parent/carers for
-            children and young people in need of wellbeing and educational support.
-            Please use the form below or download a copy to complete offline.
-          </p>
-        </div>
-      </section>
+  <!-- Main content -->
+  <main class="main-content">
+    <section class="wrap card">
+      <h1>Policies 📄</h1>
+      <p>
+        These are the public versions of our key policies. Meadow Pathways is committed to transparency and safe, effective practices.
+      </p>
 
-      <!-- Downloadable form -->
-      <section class="download-section container">
-        <h2>Download Referral Form</h2>
-        <p>You can download the referral form to complete manually and return by email:</p>
-        <a href="EBSNA.docx" class="btn btn-primary" download>Download Referral Form (.docx)</a>
-      </section>
+      <ul class="policy-list">
+        <li><a href="MPWEC Behaviour Policy.docx" target="_blank">Behaviour Policy</a></li>
+        <li><a href="MPWEC Curriculum Policy EOTAS September 2025.docx" target="_blank">Curriculum Policy EOTAS</a></li>
+        <li><a href="MPWEC H&S Policy Sep 25.docx" target="_blank">Health & Safety Policy</a></li>
+        <li><a href="MPWEC Lone Working Policy Sep25.docx" target="_blank">Lone Working Policy</a></li>
+        <li><a href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" target="_blank">Safeguarding & Child Protection Policy</a></li>
+        <li><a href="MPWEC Staff Conduct Policy.docx" target="_blank">Staff Conduct Policy</a></li>
+        <li><a href="MPWEC Whistleblowing Policy.docx" target="_blank">Whistleblowing Policy</a></li>
+      </ul>
 
-      <!-- Referral Form -->
-      <section class="form-section container">
-        <h2>Submit a Referral Online</h2>
-        <form
-          name="referral-form"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          action="/Thankyou.html"
-        >
-          <input type="hidden" name="form-name" value="referral-form" />
-          <p class="hidden">
-            <label>Don’t fill this out: <input name="bot-field" /></label>
-          </p>
+      <p>
+        For staff-only protected resources, please access the <a href="protected-resources.html">Protected Resources</a> area.
+      </p>
+    </section>
 
-          <h3>Referrer Information</h3>
-          <div class="form-group">
-            <label for="referrer-name">Name of Referrer *</label>
-            <input type="text" id="referrer-name" name="referrer-name" required />
-          </div>
-          <div class="form-group">
-            <label for="referrer-role">Role / Relationship to Child *</label>
-            <input type="text" id="referrer-role" name="referrer-role" required />
-          </div>
-          <div class="form-group">
-            <label for="referrer-organisation">Organisation (if applicable)</label>
-            <input type="text" id="referrer-organisation" name="referrer-organisation" />
-          </div>
-          <div class="form-group">
-            <label for="referrer-email">Email *</label>
-            <input type="email" id="referrer-email" name="referrer-email" required />
-          </div>
-          <div class="form-group">
-            <label for="referrer-phone">Contact Number *</label>
-            <input type="tel" id="referrer-phone" name="referrer-phone" required />
-          </div>
-
-          <h3>Child / Young Person Information</h3>
-          <div class="form-group">
-            <label for="child-name">Full Name *</label>
-            <input type="text" id="child-name" name="child-name" required />
-          </div>
-          <div class="form-group">
-            <label for="child-dob">Date of Birth *</label>
-            <input type="date" id="child-dob" name="child-dob" required />
-          </div>
-          <div class="form-group">
-            <label for="school">Current School / Setting (if any)</label>
-            <input type="text" id="school" name="school" />
-          </div>
-          <div class="form-group">
-            <label for="needs">Summary of Needs *</label>
-            <textarea
-              id="needs"
-              name="needs"
-              rows="4"
-              placeholder="Please include SEND, SEMH, EBSNA or other relevant details"
-              required
-            ></textarea>
-          </div>
-          <div class="form-group">
-            <label for="support">Support Sought from Meadow Pathways *</label>
-            <textarea
-              id="support"
-              name="support"
-              rows="4"
-              placeholder="Describe the type of wellbeing or educational support being requested"
-              required
-            ></textarea>
-          </div>
-
-          <h3>Consent</h3>
-          <p>
-            Please confirm that you have consent from the parent/carer (and young person where
-            appropriate) to share this information with Meadow Pathways.
-          </p>
-          <label>
-            <input type="checkbox" name="consent" required />
-            I confirm consent has been obtained.
-          </label>
-
-          <button type="submit" class="btn btn-success">Submit Referral</button>
-        </form>
-      </section>
-
-      <!-- Contact -->
-      <section class="contact-section">
-        <h3>Contact for Referral Enquiries</h3>
-        <ul>
-          <li><strong>Michelle Pascoe:</strong> <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-          <li><strong>Zoe Waitz:</strong> <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-        </ul>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" style="background-image:url('BG.png'); background-size:cover;">
-      <div class="footer-content">
-        <p>&copy; 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-        <p>Working collaboratively to support emotional wellbeing and inclusive learning.</p>
-      </div>
+    <footer class="site-footer">
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
     </footer>
+  </main>
 
-    <script src="bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+</body>
 </html>
