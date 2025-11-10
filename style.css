@@ -5,7 +5,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #003366; /* darker Blugoon background behind light blue boxes */
+    background-color: #0a2a4e; /* darker blue behind light blue text boxes */
     color: #333;
 }
 
@@ -31,13 +31,16 @@ a {
     overflow-y: auto;
 }
 
+.sidebar-inner {
+    width: 100%;
+}
+
 .sidebar-logo {
     width: 160px;
     display: block;
     margin: 0 auto 16px auto;
 }
 
-/* Navigation Tabs */
 .side-nav ul {
     list-style: none;
     padding: 0;
@@ -48,29 +51,29 @@ a {
     width: 100%;
 }
 
-.nav-tab {
+.side-nav li a {
     display: block;
     padding: 12px 16px;
+    color: #fff;
     font-weight: 600;
     border-radius: 8px;
     margin: 4px 8px;
-    text-align: left;
     transition: 0.3s;
-    color: #fff;
 }
 
-/* Colored tabs for each page */
-.nav-tab.home { background-color:#1e90ff; }
-.nav-tab.eotas { background-color:#4682b4; }
-.nav-tab.about { background-color:#5f9ea0; }
-.nav-tab.policies { background-color:#6495ed; }
-.nav-tab.referral { background-color:#4169e1; }
-.nav-tab.contact { background-color:#1c86ee; }
-.nav-tab.staff { background-color:#00bfff; }
-.nav-tab.treverno { background-color:#87cefa; }
-.nav-tab.safeguarding { background-color:#5dade2; }
+/* Navigation tab colors for individual pages */
+.side-nav li a.home { background-color: #1e90ff; }
+.side-nav li a.eotas { background-color: #32cd32; }
+.side-nav li a.about { background-color: #ff8c00; }
+.side-nav li a.policies { background-color: #8a2be2; }
+.side-nav li a.referral { background-color: #ff1493; }
+.side-nav li a.contact { background-color: #20b2aa; }
+.side-nav li a.staff { background-color: #ff4500; }
+.side-nav li a.treverno { background-color: #6a5acd; }
+.side-nav li a.safeguarding { background-color: #daa520; }
 
-.nav-tab:hover, .nav-tab.active {
+.side-nav li a:hover,
+.side-nav li a.active {
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     transform: scale(1.02);
 }
@@ -83,25 +86,23 @@ a {
     padding: 24px;
 }
 
-/* Light blue content boxes */
-.wrap {
+.wrap, .card {
     max-width: 900px;
     margin: 16px auto;
     padding: 16px;
-    background-color: #cce0ff; /* light blue */
+    background-color: #b0d4f1; /* light blue for all text boxes */
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
 
-/* ===========================
-   Page Header Section
-=========================== */
-.page-header {
+/* Header Boxes with BG.png */
+.header-box {
     background: url('BG.png') no-repeat center/cover;
-    color: #001f4d; /* dark blue text */
-    padding: 30px;
+    color: #0a2a4e;
+    padding: 24px;
     border-radius: 12px;
     text-align: center;
+    margin-bottom: 24px;
 }
 
 /* ===========================
@@ -173,7 +174,51 @@ a {
 }
 
 /* ===========================
-   Staff Page
+   QR Codes
+=========================== */
+.qr-codes {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.qr-codes .qr {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+/* ===========================
+   Footer
+=========================== */
+.site-footer {
+    background: url('BG.png') no-repeat center/cover;
+    color: #0a2a4e; /* dark text for contrast */
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 24px 16px;
+    margin-top: 24px;
+}
+
+.site-footer p {
+    margin: 4px 0;
+}
+
+/* ===========================
+   Cards / Highlighted sections
+=========================== */
+.card h1, .card h2, .card h3 {
+    margin-top: 0;
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+/* ===========================
+   Staff page specific
 =========================== */
 .staff-container {
     display: grid;
@@ -184,7 +229,7 @@ a {
 
 .staff-member {
     text-align: center;
-    background-color: #cce0ff;
+    background-color: #b0d4f1;
     padding: 12px;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
@@ -198,20 +243,34 @@ a {
 }
 
 /* ===========================
-   Footer
+   Pill/Tab Links for Quick Links & Policies
 =========================== */
-.site-footer {
-    background: url('BG.png') no-repeat center/cover;
-    color: #001f4d; /* darker text for visibility */
-    font-size: 1.1rem;
-    text-align: center;
-    padding: 24px 16px;
-    margin-top: 24px;
+.tab-links, .pill-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
 }
 
-.site-footer p {
-    margin: 4px 0;
+.tab, .pill {
+    padding: 10px 16px;
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s;
 }
+
+.tab:hover, .pill:hover {
+    transform: scale(1.05);
+}
+
+/* Example colours for pills */
+.pill.referral, .tab.referral { background-color: #ff1493; }
+.pill.contact, .tab.contact { background-color: #20b2aa; }
+.pill.ebsna, .tab.ebsna { background-color: #ff8c00; }
+.pill.about, .tab.about { background-color: #1e90ff; }
+.pill.eotas, .tab.eotas { background-color: #32cd32; }
 
 /* ===========================
    Responsive
@@ -228,3 +287,4 @@ a {
         position: relative;
     }
 }
+
