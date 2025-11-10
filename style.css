@@ -1,213 +1,87 @@
 /* ============================================================
-   MEADOW PATHWAYS - BLUGOON THEME (FULL STYLE.CSS)
+   Meadow Pathways Script
+   - Carousel
+   - Active Navigation Highlight
+   - Netlify Form Confirmation
    ============================================================ */
 
-/* Base Styling */
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #e8f4fc;
-  color: #222;
+// ============ CAROUSEL / SLIDER FUNCTIONALITY ============
+const slides = document.querySelectorAll('.carousel-slides img');
+const dots = document.querySelectorAll('.dots button');
+let currentSlide = 0;
+
+function showSlide(index) {
+  if (slides.length === 0) return;
+  slides.forEach((slide, i) => {
+    slide.style.display = i === index ? 'block' : 'none';
+  });
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+  currentSlide = index;
 }
 
-/* Global Text and Headings */
-h1, h2, h3, h4 {
-  color: #004f8c;
-  margin-top: 0;
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
 }
 
-p {
-  line-height: 1.6;
-  font-size: 1rem;
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
 }
 
-/* Layout Wrappers */
-main {
-  margin-left: 250px;
-  padding: 20px;
+// Auto-slide every 5 seconds
+if (slides.length > 0) {
+  showSlide(currentSlide);
+  setInterval(nextSlide, 5000);
 }
 
-/* ============================================================
-   SIDEBAR NAVIGATION
-   ============================================================ */
-.sidebar {
-  background-color: #004f8c;
-  color: white;
-  width: 250px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.sidebar h2 {
-  text-align: center;
-  padding: 20px;
-  margin: 0;
-  background-color: #00335f;
-  font-size: 1.4rem;
-  letter-spacing: 0.5px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  flex-grow: 1;
-}
-
-.sidebar ul li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.sidebar ul li a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 15px 20px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-/* ============================================================
-   COLOURED NAVIGATION TABS
-   ============================================================ */
-
-.sidebar ul li a[href*="index.html"] {
-  background-color: #3db0ef; /* Sky Blue */
-}
-
-.sidebar ul li a[href*="eotas.html"] {
-  background-color: #5ecf6e; /* Green */
-}
-
-.sidebar ul li a[href*="about.html"] {
-  background-color: #f4b23a; /* Yellow */
-}
-
-.sidebar ul li a[href*="policies.html"] {
-  background-color: #e87461; /* Coral */
-}
-
-.sidebar ul li a[href*="safeguarding.html"] {
-  background-color: #a768dd; /* Purple */
-}
-
-.sidebar ul li a[href*="contact.html"] {
-  background-color: #4aa0ff; /* Light Blue */
-}
-
-.sidebar ul li a[href*="staff.html"] {
-  background-color: #6dc1b3; /* Teal */
-}
-
-.sidebar ul li a[href*="treverno.html"] {
-  background-color: #f27b9b; /* Pink */
-}
-
-/* Hover & Active Effects */
-.sidebar ul li a:hover,
-.sidebar ul li a.active {
-  transform: scale(1.05);
-  background-color: #002f57;
-}
-
-/* ============================================================
-   MAIN CONTENT BOXES (Light Blue)
-   ============================================================ */
-section,
-.content-box,
-.text-container,
-.article,
-.main-content,
-.info-box,
-.form-container {
-  background-color: #d9efff; /* Light BluGoon Blue */
-  border-radius: 12px;
-  padding: 25px;
-  margin: 20px auto;
-  max-width: 1000px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* ============================================================
-   FORMS
-   ============================================================ */
-form {
-  background-color: #d9efff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-input, textarea, select {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-button, input[type="submit"] {
-  background-color: #004f8c;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-button:hover, input[type="submit"]:hover {
-  background-color: #003c6d;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-footer {
-  background-color: #003f6b;
-  color: white;
-  text-align: center;
-  padding: 25px 15px;
-  font-size: 0.9rem;
-  margin-top: 40px;
-}
-
-footer a {
-  color: #d9efff;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-footer a:hover {
-  color: white;
-}
-
-/* ============================================================
-   MEDIA QUERIES (Responsive)
-   ============================================================ */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
+// ============ ACTIVE NAVIGATION HIGHLIGHT ============
+const navLinks = document.querySelectorAll('.sidebar ul li a');
+navLinks.forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add('active');
   }
+});
 
-  main {
-    margin-left: 0;
-  }
+// ============ SMOOTH SCROLL FOR INTERNAL LINKS ============
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
 
-  .sidebar ul li a {
-    text-align: center;
-  }
-}
+// ============ NETLIFY FORM CONFIRMATION ============
+const forms = document.querySelectorAll('form');
+forms.forEach(form => {
+  form.addEventListener('submit', function (e) {
+    const action = form.getAttribute('action');
+    const isNetlify = action && (action.includes('netlify') || form.hasAttribute('data-netlify'));
+
+    if (isNetlify) {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(response => {
+          if (response.ok) {
+            form.reset();
+            alert("✅ Thank you! Your form has been successfully submitted.");
+          } else {
+            alert("⚠️ There was an error submitting your form. Please try again.");
+          }
+        })
+        .catch(() => {
+          alert("⚠️ Network error — please check your connection.");
+        });
+    }
+  });
+});
