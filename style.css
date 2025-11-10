@@ -1,278 +1,100 @@
 /* ===========================
-   Global Body & Reset
-=========================== */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0d3b66; /* Darker blue background behind all text boxes */
-    color: #333;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* ===========================
-   Sidebar
-=========================== */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 220px;
-    height: 100%;
-    background-color: #1e90ff; /* Default sidebar color */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 16px;
-    overflow-y: auto;
-}
-
-.sidebar-inner {
-    width: 100%;
-}
-
-.sidebar-logo {
-    width: 160px;
-    display: block;
-    margin: 0 auto 16px auto;
-}
-
-.side-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.side-nav li {
-    width: 100%;
-}
-
-.side-nav li a {
-    display: block;
-    padding: 12px 16px;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 8px;
-    margin: 4px 8px;
-    transition: 0.3s;
-}
-
-.side-nav li a:hover,
-.side-nav li a.active {
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    transform: scale(1.02);
-}
-
-/* ===========================
-   Main Content
-=========================== */
-.main-content {
-    margin-left: 240px;
-    padding: 24px;
-}
-
-/* Text boxes / wraps */
-.wrap, .card {
-    max-width: 900px;
-    margin: 16px auto;
-    padding: 16px;
-    background-color: #add8e6; /* Light blue text boxes */
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-}
-
-/* ===========================
    Carousel
 =========================== */
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
+const slides = document.querySelectorAll(".carousel-slides img");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+const dotsContainer = document.getElementById("dots");
+
+let currentIndex = 0;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.display = i === index ? "block" : "none";
+    });
+    updateDots(index);
 }
 
-.carousel-slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+function updateDots(index) {
+    const dots = dotsContainer.querySelectorAll("button");
+    dots.forEach(dot => dot.classList.remove("active"));
+    if (dots[index]) dots[index].classList.add("active");
 }
 
-.carousel-slides img {
-    width: 100%;
-    height: 250px; /* Fixed height for uniform display */
-    object-fit: cover;
-    border-radius: 12px;
-}
+prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+});
 
-.carousel-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transform: translateY(-50%);
-}
+nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+});
 
-.carousel-btn {
-    background-color: rgba(0,0,0,0.3);
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
+// Generate dots
+slides.forEach((_, idx) => {
+    const btn = document.createElement("button");
+    btn.addEventListener("click", () => {
+        currentIndex = idx;
+        showSlide(currentIndex);
+    });
+    dotsContainer.appendChild(btn);
+});
 
-.carousel-btn:hover {
-    background-color: rgba(0,0,0,0.6);
-}
-
-.dots {
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-}
-
-.dots button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: none;
-    background-color: #ccc;
-    cursor: pointer;
-}
-
-.dots button.active {
-    background-color: #1e90ff;
-}
+// Initialize carousel
+showSlide(currentIndex);
 
 /* ===========================
-   QR Codes
+   Staff password protection
 =========================== */
-.qr-codes {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 12px;
-}
+const PASSWORD = 'MPWEC!';
+const lockedEl = document.getElementById('locked');
+const staffPanel = document.getElementById('staffPanel');
+const unlockBtn = document.getElementById('unlockBtn');
+const pwdInput = document.getElementById('staffPassword');
 
-.qr-codes .qr {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-}
-
-/* ===========================
-   Footer
-=========================== */
-.site-footer {
-    background: url('BG.png') no-repeat center/cover;
-    color: #111; /* Dark text for readability */
-    font-size: 1.1rem;
-    text-align: center;
-    padding: 24px 16px;
-    margin-top: 24px;
-}
-
-.site-footer p {
-    margin: 4px 0;
-}
-
-/* ===========================
-   Cards / Highlighted sections
-=========================== */
-.card h1, .card h2 {
-    margin-top: 0;
-}
-
-.card ul {
-    padding-left: 20px;
-}
-
-/* ===========================
-   Staff page specific
-=========================== */
-.staff-container, .bio-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 24px;
-    margin-top: 16px;
-}
-
-.staff-member, .bio {
-    text-align: center;
-    background-color: #add8e6; /* Light blue box */
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-
-.staff-member img, .bio img {
-    width: 100%;
-    max-width: 150px;
-    border-radius: 50%;
-    margin-bottom: 12px;
-}
-
-/* ===========================
-   Navigation Tabs / Colored Links
-=========================== */
-.tab-links {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin: 12px 0;
-}
-
-.tab-links .tab {
-    padding: 10px 16px;
-    border-radius: 8px;
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.tab-links .tab:hover {
-    transform: scale(1.05);
-}
-
-/* Individual tab colors */
-.tab.referral { background-color: #1e90ff; }
-.tab.about { background-color: #4b9cd3; }
-.tab.contact { background-color: #32cd32; }
-.tab.eotas { background-color: #37b3a9; }
-.tab.ebsna { background-color: #f59c1a; }
-.tab.policy { background-color: #ff6347; }
-.tab.hours { background-color: #8a2be2; }
-.tab.expenses { background-color: #ff1493; }
-.tab.sharepoint { background-color: #ffa500; }
-
-/* ===========================
-   Responsive
-=========================== */
-@media screen and (max-width: 900px) {
-    .main-content {
-        margin-left: 0;
-        padding: 16px;
+if (unlockBtn && pwdInput) {
+    function unlock() {
+        const val = (pwdInput.value || '').trim();
+        if (val === PASSWORD) {
+            lockedEl.style.display = 'none';
+            staffPanel.style.display = 'block';
+            lockedEl.setAttribute('aria-hidden', 'true');
+            staffPanel.setAttribute('aria-hidden', 'false');
+            document.getElementById('staff-name').focus();
+        } else {
+            pwdInput.value = '';
+            pwdInput.focus();
+            alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+        }
     }
+    unlockBtn.addEventListener('click', unlock);
+    pwdInput.addEventListener('keyup', function (e) { if (e.key === 'Enter') unlock(); });
+}
 
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
+/* ===========================
+   Hours/Expenses form submission (Netlify)
+=========================== */
+const hoursForm = document.getElementById('hoursForm');
+const hoursStatus = document.getElementById('hoursStatus');
 
-    .tab-links {
-        justify-content: center;
-    }
+if (hoursForm) {
+    hoursForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        hoursStatus.textContent = 'Submitting...';
+        const data = new FormData(hoursForm);
+        try {
+            const res = await fetch('/', { method: 'POST', body: data });
+            if (res.ok) {
+                hoursForm.reset();
+                hoursStatus.textContent = 'Hours submitted. Thank you.';
+                setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
+            } else {
+                hoursStatus.textContent = 'Submission error — please try again later.';
+            }
+        } catch (err) {
+            hoursStatus.textContent = 'Network error — check connection and try again.';
+        }
+    });
 }
 
