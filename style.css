@@ -75,11 +75,12 @@ a {
     padding: 24px;
 }
 
-.wrap {
+/* Updated background for text boxes */
+.wrap, .card {
     max-width: 900px;
     margin: 16px auto;
     padding: 16px;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Matches home page text boxes */
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
@@ -174,15 +175,22 @@ a {
 =========================== */
 .site-footer {
     background: url('BG.png') no-repeat center/cover;
-    color: #fff;
+    color: #222222; /* Darker text for readability */
     font-size: 1.1rem;
     text-align: center;
     padding: 24px 16px;
     margin-top: 24px;
 }
 
-.site-footer p {
+.site-footer p, .site-footer a {
     margin: 4px 0;
+    color: #222222;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
 }
 
 /* ===========================
