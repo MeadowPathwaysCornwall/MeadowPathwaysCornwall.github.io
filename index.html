@@ -1,98 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Meadow Pathways — Home</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="blugoon.css"> <!-- your Blugoon CSS -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meadow Pathways — Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Blugoon Theme Colors */
+    :root {
+      --primary-blue: #1e3a8a;
+      --secondary-blue: #3b82f6;
+      --light-blue: #eff6ff;
+      --card-bg: #ffffff;
+      --accent: #3b82f6;
+      --text-dark: #111827;
+      --text-soft: #374151;
+      --pill-bg: #3b82f6;
+      --pill-color: #fff;
+      --footer-bg: url('BG.png') no-repeat center/cover;
+      --shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--light-blue);
+      color: var(--text-dark);
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .site-header {
+      background: var(--primary-blue);
+      color: #fff;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-frame {
+      padding: 4px;
+      background: var(--light-blue);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .logo-frame img {
+      height: 64px;
+      width: auto;
+      display: block;
+    }
+
+    .primary-nav ul {
+      display: flex;
+      gap: 14px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .primary-nav li a {
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .primary-nav li a:hover,
+    .primary-nav li a.active {
+      background: var(--secondary-blue);
+    }
+
+    .page-wrap {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 32px;
+    }
+
+    /* Sidebar logo card */
+    .sidebar-logo-card {
+      background: var(--card-bg);
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .intro, .approach, .offer, .next-steps {
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    h1,h2,h3 { color: var(--primary-blue); }
+
+    /* Carousel */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      max-width: 100%;
+      margin: auto;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      width: 100%;
+      bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 12px;
+    }
+
+    .carousel-btn {
+      background: rgba(59,130,246,0.8);
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      padding: 4px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .dot.active { background: var(--secondary-blue); }
+
+    /* Pills / tabs */
+    .pill {
+      display: inline-block;
+      background: var(--pill-bg);
+      color: var(--pill-color);
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      margin: 4px 4px 0 0;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      background: var(--footer-bg);
+      color: #fff;
+      padding: 24px 16px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer .footer-content img {
+      height: 50px;
+      margin-bottom: 8px;
+    }
+
+    @media(max-width:768px){
+      .primary-nav ul { flex-direction: column; gap: 8px; }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <nav class="blugoon-nav">
-    <div class="logo">
-      <img src="Logo.png" alt="Meadow Pathways Logo">
-    </div>
-    <ul class="nav-tabs">
-      <li><a href="index.html" class="active-tab">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="eotas.html">EOTAS</a></li>
-      <li><a href="safeguarding.html">Safeguarding</a></li>
-      <li><a href="staff.html">Staff</a></li>
-      <li><a href="referral.html">Referral</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="treverno.html">Treverno Meadows</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main id="main">
-  <!-- Carousel -->
-  <section class="blugoon-carousel">
-    <div class="carousel-container">
-      <div class="slides" id="slides">
-        <img src="Bake.jpg" alt="Baking activity" class="slide">
-        <img src="Cooking.jpg" alt="Cooking session" class="slide">
-        <img src="MM.jpg" alt="Multimedia activity" class="slide">
-        <img src="Paint.jpg" alt="Painting session" class="slide">
-        <img src="cook.jpg" alt="Cooking practical" class="slide">
-        <img src="den.jpg" alt="Den building" class="slide">
-        <img src="hand.jpg" alt="Hands in meadow activity" class="slide">
-        <img src="paths.jpg" alt="Exploring paths" class="slide">
-        <img src="plant.jpg" alt="Planting activity" class="slide">
-        <img src="wood.jpg" alt="Woodland activity" class="slide">
+  <header class="site-header">
+    <div class="logo-wrap">
+      <div class="logo-frame">
+        <img src="Logo.png" alt="Meadow Pathways Logo" />
       </div>
-      <div class="carousel-controls">
-        <button id="prev" class="carousel-btn">‹</button>
-        <div id="dots" class="carousel-dots"></div>
-        <button id="next" class="carousel-btn">›</button>
-      </div>
+      <h1 class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</h1>
     </div>
-  </section>
+    <nav class="primary-nav" aria-label="Primary Navigation">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html">Staff</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Intro & Content Sections -->
-  <section class="container content">
-    <h2>Meadow Pathways reconnects children with learning through trauma-informed, bespoke education and wellbeing support across Cornwall.</h2>
-    <p>Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma-informed educational approaches. 🌿✨</p>
-    <p>At Meadow Pathways, we recognise every young person is unique. We commit to working collaboratively with families, schools and partners to find meaningful, sustainable routes to success for each learner.</p>
-    <p><strong>Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities.</strong> 🎨🍳🌲</p>
-  </section>
+  <div class="page-wrap">
 
-  <section class="container content">
-    <h2>Welcome to Meadow Pathways Cornwall</h2>
-    <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community-based activities to build confidence, skills, and a sense of belonging. 🌱</p>
-  </section>
+    <main>
+      <section class="intro">
+        <h1>Welcome to Meadow Pathways Cornwall</h1>
+        <p>Meadow Pathways reconnects children with learning through trauma-informed, bespoke education and wellbeing support across Cornwall.</p>
+        <p>Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma-informed educational approaches. 🌿✨</p>
+      </section>
 
-  <section class="container content">
-    <h3>Our Approach</h3>
-    <p>We work relationally, using trauma-informed practice and creative, curriculum-linked activities. Our work is guided by <strong>Safety, Playfulness, Acceptance, Curiosity and Empathy</strong>. 🌟 Meeting learners where they are.</p>
-  </section>
+      <!-- Carousel Section -->
+      <section class="carousel-container" aria-label="Activities Carousel">
+        <div class="slides" id="slides">
+          <img src="Bake.jpg" alt="Baking activity" class="slide" />
+          <img src="Cooking.jpg" alt="Cooking session" class="slide" />
+          <img src="MM.jpg" alt="Multimedia activity" class="slide" />
+          <img src="Paint.jpg" alt="Painting session" class="slide" />
+          <img src="cook.jpg" alt="Cooking practical" class="slide" />
+          <img src="den.jpg" alt="Den building" class="slide" />
+          <img src="hand.jpg" alt="Hands in meadow activity" class="slide" />
+          <img src="paths.jpg" alt="Exploring paths" class="slide" />
+          <img src="plant.jpg" alt="Planting activity" class="slide" />
+          <img src="wood.jpg" alt="Woodland activity" class="slide" />
+        </div>
 
-  <section class="container content blugoon-tabs">
-    <h3>Our Values</h3>
-    <div class="tabs">
-      <div class="tab" style="background-color:#2279BD;">Resilience &amp; Independence 💪</div>
-      <div class="tab" style="background-color:#4AA0DD;">Health &amp; Wellbeing 💛</div>
-      <div class="tab" style="background-color:#65C2EB;">Honesty &amp; Integrity 🔎</div>
-      <div class="tab" style="background-color:#2279BD;">Friendship &amp; Kindness 🤗</div>
-    </div>
-    <p><a class="pill" href="values.pdf" download>Download our Values (PDF)</a></p>
-  </section>
+        <div class="carousel-controls">
+          <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
+          <div class="dots" id="dots" role="tablist"></div>
+          <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
+        </div>
+      </section>
 
-  <section class="container content">
-    <p class="news-ticker">🤩 Planning submitted for our first site 'Treverno Meadows' — check our Treverno page for the introduction and updates!</p>
-  </section>
+      <section class="approach">
+        <h2>Our Approach</h2>
+        <p>Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities. 🎨🍳🌲</p>
+        <p>We work relationally, using trauma-informed practice and creative, curriculum-linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy. 🌟</p>
+      </section>
 
-  <!-- Footer -->
-  <footer class="footer-visual" style="background-image: url('BG.png');">
-    <div class="footer-inner">
-      <h3>Guiding Individual Journeys with Care and Purpose</h3>
-      <p>Meadow Pathways — wellbeing-led education across Cornwall.</p>
+      <section class="offer">
+        <h2>What We Offer</h2>
+        <p>Mentoring and Advocacy 🧑‍🤝‍🧑, Tailored Learning Packages 📚, Life Skills 🛠, Diagnostic Assessments 🧮, SEMH Interventions 💛, Wellbeing & PSHE 🎨, Transitional Services 🔄, Therapeutic & Curriculum Activities 🧠.</p>
+      </section>
+
+      <section class="next-steps">
+        <h2>Next Steps</h2>
+        <p>If you’d like to explore Meadow Pathways for a child or young person:</p>
+        <span class="pill">📝 Referral Form</span>
+        <span class="pill">ℹ️ About Us</span>
+        <span class="pill">☎️ Contact</span>
+        <span class="pill">🔍 EOTAS Provision</span>
+        <p>If your enquiry is urgent or a safeguarding concern, contact statutory services: ☎️ 01872 324605 - earlyhelphub@cornwall.gov.uk. Then call the Meadow Pathways team directly.</p>
+      </section>
+
+    </main>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <img src="Logo.png" alt="Meadow Pathways Logo" />
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+      <p>Guiding Individual Journeys with Care and Purpose</p>
     </div>
   </footer>
-</main>
 
-<button id="backToTop" class="back-to-top">↑</button>
-<script src="script.js"></script>
+  <script>
+    // Carousel JS
+    const slides = document.getElementById('slides');
+    const slideElements = slides.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const dotsContainer = document.getElementById('dots');
+    let index = 0;
+
+    // Create dots
+    slideElements.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+    const dots = dotsContainer.querySelectorAll('.dot');
+
+    function showSlide(i){
+      slides.style.transform = `translateX(-${i*100}%)`;
+      dots.forEach(d => d.classList.remove('active'));
+      dots[i].classList.add('active');
+    }
+
+    function nextSlide(){
+      index = (index +1) % slideElements.length;
+      showSlide(index);
+    }
+
+    function prevSlide(){
+      index = (index -1 + slideElements.length) % slideElements.length;
+      showSlide(index);
+    }
+
+    function goToSlide(i){
+      index = i;
+      showSlide(index);
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Autoplay
+    setInterval(nextSlide, 4000);
+  </script>
 </body>
 </html>
