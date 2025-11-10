@@ -1,87 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Safeguarding — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Blugoon-inspired tab/pill styles */
+    .nav-tabs { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
+    .nav-tabs li { list-style:none; }
+    .nav-tabs li a { text-decoration:none; padding:8px 16px; border-radius:8px; background:#3a7ca5; color:white; font-weight:600; }
+    .nav-tabs li a.active { background:#ffb347; color:#000; }
+    .pill { padding:6px 12px; background:#ffb347; border-radius:12px; text-decoration:none; color:#000; font-weight:600; display:inline-block; margin:4px 0; }
+    .card { background:#f4f9fc; padding:16px; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.1); margin-top:12px; }
+    #staffPanel { display:none; }
+    #locked { text-align:center; padding:40px; background:#e1f0ff; border-radius:12px; margin-top:20px; }
+    input, textarea, button { display:block; width:100%; margin-top:6px; margin-bottom:12px; padding:8px; border-radius:6px; border:1px solid #ccc; font-size:1rem; }
+    button { background:#3a7ca5; color:white; border:none; cursor:pointer; }
+    button:hover { background:#ffb347; color:#000; }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="blugoon-header">
-    <div class="logo">
-      <img src="logo.png" alt="Meadow Pathways logo">
+
+  <!-- Navigation -->
+  <ul id="primaryNav" class="nav-tabs">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="eotas.html">EOTAS</a></li>
+    <li><a href="safeguarding.html">Safeguarding</a></li>
+    <li><a href="staff.html" class="active">Staff</a></li>
+    <li><a href="referral.html">Referral</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <!-- Password lock -->
+  <div id="locked">
+    <h2>Staff Access Only</h2>
+    <p>Please enter the password to access internal resources.</p>
+    <input type="password" id="staffPassword" placeholder="Enter password">
+    <button id="unlockBtn">Unlock</button>
+  </div>
+
+  <!-- Staff content panel -->
+  <div id="staffPanel" aria-hidden="true">
+    <h1>Welcome to the Staff Page</h1>
+    <p>Meadow Pathways Wellbeing and Education Cornwall</p>
+    <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
+
+    <!-- Contact info -->
+    <ul>
+      <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
+      <li>Michelle: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
+      <li>Zoe: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
+    </ul>
+
+    <!-- Statutory and partner resources -->
+    <h3>Statutory and Partner Resources</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">Keeping children safe in education (Sep 2025)</a>
+      <a class="pill" href="https://www.patreon.com/cw/pookyh/home" target="_blank">PookyH resources on Patreon</a>
+      <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House resources</a>
+      <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC learning & research</a>
+      <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank">Cios safeguarding partnership</a>
     </div>
-    <nav class="blugoon-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html" class="active">Safeguarding</a></li>
-        <li><a href="staff.html">Staff</a></li>
-        <li><a href="referral.html">Referral</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="blugoon-hero">
-    <h1>Safeguarding and Child Protection</h1>
-    <p>Protecting children and young people with clarity, care and professional responsibility.</p>
-    <img src="sg.jpg" alt="Safeguarding image" class="hero-img">
-  </section>
-
-  <!-- Introduction -->
-  <section class="blugoon-content">
-    <p>Safeguarding is central to Meadow Pathways. It means protecting children and young people from harm, promoting their welfare, and ensuring they grow up in safe, supportive environments. This includes preventing abuse, recognising signs of concern early, responding promptly and appropriately, and working together with families and statutory agencies to keep children safe.</p>
-    
-    <img src="sg1.png" alt="Safeguarding teamwork" class="content-img">
-    
-    <h2>Why safeguarding matters</h2>
-    <p>Every child has the right to feel safe and to be protected from neglect, abuse and exploitation. Safeguarding helps children thrive, supports families, reduces long-term harm, and builds trusting relationships between professionals and communities.</p>
-  </section>
-
-  <!-- Quick Links -->
-  <section class="blugoon-pills">
-    <h3>Quick Links for Families</h3>
-    <div class="pill-container">
-      <a class="pill" href="https://www.nspcc.org.uk/advice-for-families/?gclid" target="_blank" rel="noopener">NSPCC Advice for Families</a>
-      <a class="pill" href="https://www.ceop.police.uk/Safety-Centre/" target="_blank" rel="noopener">CEOP Safety Centre</a>
-      <a class="pill" href="https://ciossafeguarding.org.uk/scp/p/parents-and-carers/information-for-parents-and-carers" target="_blank" rel="noopener">Cios Safeguarding for Parents</a>
-      <a class="pill" href="https://www.childnet.com/help-and-advice/parents-and-carers" target="_blank" rel="noopener">Childnet Advice for Parents</a>
-    </div>
-  </section>
-
-  <!-- Policies -->
-  <section class="blugoon-pills">
-    <h3>Policies (Downloads)</h3>
-    <div class="pill-container">
-      <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding and Child Protection Policy</a>
-      <a class="pill" href="MPWEC Behaviour Policy.docx" download>Behaviour Policy</a>
-      <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+    <!-- Internal policy documents -->
+    <h3 style="margin-top:12px;">Internal Policy Documents (Downloads)</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy EOTAS Sep 2025</a>
+      <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>H&S Policy Sep 25</a>
+      <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+      <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
       <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
+      <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+      <a class="pill" href="https://yoursharepointlink.com" target="_blank">SharePoint Risk Assessments</a>
+      <a class="pill" href="https://calendar.google.com" target="_blank">Staff Calendar</a>
     </div>
-  </section>
 
-  <!-- Reporting Concerns -->
-  <section class="blugoon-content">
-    <h3>Reporting Concerns</h3>
-    <p>If you are concerned that a child is being harmed or is at risk, contact local statutory services immediately. For concerns about Meadow Pathways practice or staff conduct, please contact senior staff directly using the contact details below.</p>
+   <!-- Hours and Expenses Logged Section -->
+<section class="card">
+  <h3>Hours Logged</h3>
+  <form id="hoursForm" name="hoursForm" method="POST" data-netlify="true" netlify>
+    <input type="hidden" name="form-name" value="hoursForm">
+    
+    <label for="staff-name">Staff member name</label>
+    <input id="staff-name" name="staff_name" type="text" required>
+    
+    <label for="date-worked">Date</label>
+    <input id="date-worked" name="date_worked" type="date" required>
+    
+    <label for="duration">Duration (hours)</label>
+    <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required>
+    
+    <label for="client">Client / session with</label>
+    <input id="client" name="client_name" type="text">
+    
+    <label for="notes">Brief notes</label>
+    <textarea id="notes" name="notes" rows="4"></textarea>
+    
+    <label for="email-staff">Staff email</label>
+    <input id="email-staff" name="staff_email" type="email" value="meadowpathwayscornwall@outlook.com" required>
+    
+    <button type="submit">Submit Hours</button>
+  </form>
 
-    <section aria-label="Contact details" class="blugoon-contact">
-      <h4>Contact</h4>
-      <p>
-        <strong>Michelle DSL</strong> — <a href="tel:07932243358">07932 243358</a> — <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a><br>
-        <strong>Zoe DDSL</strong> — <a href="tel:07775733587">07775 733587</a> — <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a><br>
-        <strong>General</strong> — <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>
-      </p>
-    </section>
-  </section>
+  <h3 style="margin-top:24px;">Expenses Logged</h3>
+  <form id="expensesForm" name="expensesForm" method="POST" data-netlify="true" netlify>
+    <input type="hidden" name="form-name" value="expensesForm">
+    
+    <label for="expense-staff-name">Staff member name</label>
+    <input id="expense-staff-name" name="staff_name" type="text" required>
+    
+    <label for="expense-date">Date</label>
+    <input id="expense-date" name="expense_date" type="date" required>
+    
+    <label for="expense-type">Expense Type</label>
+    <input id="expense-type" name="expense_type" type="text" placeholder="Travel, Materials, etc." required>
+    
+    <label for="amount">Amount (£)</label>
+    <input id="amount" name="amount" type="number" step="0.01" min="0" required>
+    
+    <label for="receipt">Receipt / Notes</label>
+    <textarea id="receipt" name="receipt_notes" rows="4" placeholder="Add details or attach receipt link"></textarea>
+    
+    <button type="submit">Submit Expense</button>
+  </form>
 
-  <!-- Footer -->
-  <footer class="blugoon-footer">
-    <p>&copy; 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-  </footer>
+  <p style="margin-top:12px; color:var(--text-soft)">
+    Remember to log hours and expenses promptly. Ensure all client notes comply with Meadow Pathways record-keeping guidance.
+  </p>
+</section>
+
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const PASSWORD = 'MPWEC!';
+    const lockedEl = document.getElementById('locked');
+    const staffPanel = document.getElementById('staffPanel');
+    const unlockBtn = document.getElementById('unlockBtn');
+    const pwdInput = document.getElementById('staffPassword');
+
+    function unlock() {
+      const val = (pwdInput.value || '').trim();
+      if (val === PASSWORD) {
+        lockedEl.style.display = 'none';
+        staffPanel.style.display = 'block';
+        lockedEl.setAttribute('aria-hidden', 'true');
+        staffPanel.setAttribute('aria-hidden', 'false');
+        document.getElementById('staff-name').focus();
+      } else {
+        pwdInput.value = '';
+        pwdInput.focus();
+        alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+      }
+    }
+
+    unlockBtn.addEventListener('click', unlock);
+    pwdInput.addEventListener('keyup', function(e) { if(e.key === 'Enter') unlock(); });
+  </script>
+
 </body>
 </html>
