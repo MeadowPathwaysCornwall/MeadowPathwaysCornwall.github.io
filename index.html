@@ -1,333 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meadow Pathways — Home</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meadow Pathways — Wellbeing & Education Cornwall</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    /* Blugoon Theme Colors */
+    /* Blugoon Theme Base */
     :root {
-      --primary-blue: #1e3a8a;
-      --secondary-blue: #3b82f6;
-      --light-blue: #eff6ff;
-      --card-bg: #ffffff;
-      --accent: #3b82f6;
-      --text-dark: #111827;
-      --text-soft: #374151;
-      --pill-bg: #3b82f6;
-      --pill-color: #fff;
-      --footer-bg: url('BG.png') no-repeat center/cover;
-      --shadow: 0 4px 16px rgba(0,0,0,0.08);
+      --primary-color: #2f8f4a;
+      --secondary-color: #4aa1c1;
+      --muted: #667788;
+      --card-bg: #f7fbfd;
+      --soft-border: #e6eef3;
+      --accent-gradient: linear-gradient(135deg, #2f8f4a, #4aa1c1);
+      --pill-bg: #2f8f4a;
+      --pill-hover: #256c39;
+      --footer-bg: #3b4d2c;
+      --footer-gold: #d4af37;
     }
 
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--light-blue);
-      color: var(--text-dark);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: #f0f6f8;
+      color: #1e2f2d;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a { text-decoration: none; color: var(--primary-color); }
+    a:hover { text-decoration: underline; }
 
-    .site-header {
-      background: var(--primary-blue);
-      color: #fff;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    /* Header */
+    header.site-header {
+      background: var(--primary-color);
+      color: white;
+      padding: 16px 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-frame {
-      padding: 4px;
-      background: var(--light-blue);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .logo-frame img {
-      height: 64px;
-      width: auto;
-      display: block;
-    }
-
-    .primary-nav ul {
-      display: flex;
-      gap: 14px;
+    .logo { height: 60px; }
+    .nav-tabs {
       list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
       margin: 0;
       padding: 0;
     }
-
-    .primary-nav li a {
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: background 0.3s;
+    .nav-tabs li a {
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+    }
+    .nav-tabs li a.active, .nav-tabs li a:hover {
+      background: var(--secondary-color);
     }
 
-    .primary-nav li a:hover,
-    .primary-nav li a.active {
-      background: var(--secondary-blue);
-    }
-
-    .page-wrap {
+    /* Hero Section */
+    .hero {
       display: flex;
       flex-direction: column;
-      padding: 20px;
-      gap: 32px;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      background: var(--accent-gradient);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
     }
-
-    /* Sidebar logo card */
-    .sidebar-logo-card {
-      background: var(--card-bg);
-      padding: 16px;
+    .hero h1 {
+      font-size: 3rem;
+      margin: 0 0 20px;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 800px;
+    }
+    .hero .cta-btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: white;
+      color: var(--primary-color);
       border-radius: 12px;
-      box-shadow: var(--shadow);
-      max-width: 200px;
-      margin-bottom: 20px;
+      font-weight: bold;
     }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+    .hero .cta-btn:hover {
+      background: #e6f2f1;
     }
-
-    .intro, .approach, .offer, .next-steps {
-      background: var(--card-bg);
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-    }
-
-    h1,h2,h3 { color: var(--primary-blue); }
 
     /* Carousel */
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      max-width: 100%;
-      margin: auto;
-    }
-
-    .slides {
+    .carousel {
       display: flex;
-      transition: transform 0.8s ease-in-out;
+      overflow-x: auto;
+      gap: 16px;
+      padding: 20px;
+      scroll-behavior: smooth;
     }
-
-    .slide {
-      min-width: 100%;
-      user-select: none;
-      pointer-events: none;
+    .carousel::-webkit-scrollbar { display: none; }
+    .carousel img {
+      border-radius: 16px;
+      min-width: 300px;
+      max-width: 400px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
     }
+    .carousel img:hover { transform: scale(1.05); }
 
-    .carousel-controls {
-      position: absolute;
-      width: 100%;
-      bottom: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 12px;
+    /* Cards Section */
+    .card-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
-    .carousel-btn {
-      background: rgba(59,130,246,0.8);
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      padding: 4px 12px;
-      border-radius: 6px;
-      cursor: pointer;
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15,40,50,0.08);
+      transition: transform 0.3s;
     }
-
-    .dots {
-      display: flex;
-      gap: 6px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      background: rgba(255,255,255,0.6);
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .dot.active { background: var(--secondary-blue); }
-
-    /* Pills / tabs */
-    .pill {
-      display: inline-block;
-      background: var(--pill-bg);
-      color: var(--pill-color);
-      padding: 6px 14px;
-      border-radius: 12px;
-      font-weight: 600;
-      margin: 4px 4px 0 0;
+    .card:hover { transform: translateY(-4px); }
+    .card h2 {
+      color: var(--primary-color);
+      margin-top: 0;
     }
 
     /* Footer */
     footer.site-footer {
       background: var(--footer-bg);
-      color: #fff;
-      padding: 24px 16px;
+      color: white;
       text-align: center;
-      font-size: 0.95rem;
+      padding: 25px 10px;
+      border-top: 3px solid var(--footer-gold);
     }
-
-    footer .footer-content img {
-      height: 50px;
-      margin-bottom: 8px;
-    }
-
-    @media(max-width:768px){
-      .primary-nav ul { flex-direction: column; gap: 8px; }
-    }
+    .footer-logo { width: 70px; height: auto; margin-bottom: 5px; }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header class="site-header">
-    <div class="logo-wrap">
-      <div class="logo-frame">
-        <img src="Logo.png" alt="Meadow Pathways Logo" />
+    <div class="header-inner container">
+      <div class="logo-wrap">
+        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo"></a>
       </div>
-      <h1 class="sr-only">Meadow Pathways Wellbeing and Education Cornwall</h1>
+      <nav>
+        <ul class="nav-tabs">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="staff.html">Staff</a></li>
+          <li><a href="referral.html">Referral</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav class="primary-nav" aria-label="Primary Navigation">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="staff.html">Staff</a></li>
-        <li><a href="referral.html">Referral</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <div class="page-wrap">
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Meadow Pathways</h1>
+    <p>Trauma-informed, person-centred education and wellbeing support for children and young people across Cornwall. Helping learners rediscover their strengths, confidence, and joy in learning.</p>
+    <a href="about.html" class="cta-btn">Learn More</a>
+  </section>
 
-    <main>
-      <section class="intro">
-        <h1>Welcome to Meadow Pathways Cornwall</h1>
-        <p>Meadow Pathways reconnects children with learning through trauma-informed, bespoke education and wellbeing support across Cornwall.</p>
-        <p>Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma-informed educational approaches. 🌿✨</p>
-      </section>
+  <!-- Carousel -->
+  <section class="carousel">
+    <img src="Bake.jpg" alt="Baking activity">
+    <img src="Cooking.jpg" alt="Cooking session">
+    <img src="MM.jpg" alt="Multimedia activity">
+    <img src="Outdoor.jpg" alt="Outdoor exploration">
+    <img src="Therapy.jpg" alt="Therapy session">
+  </section>
 
-      <!-- Carousel Section -->
-      <section class="carousel-container" aria-label="Activities Carousel">
-        <div class="slides" id="slides">
-          <img src="Bake.jpg" alt="Baking activity" class="slide" />
-          <img src="Cooking.jpg" alt="Cooking session" class="slide" />
-          <img src="MM.jpg" alt="Multimedia activity" class="slide" />
-          <img src="Paint.jpg" alt="Painting session" class="slide" />
-          <img src="cook.jpg" alt="Cooking practical" class="slide" />
-          <img src="den.jpg" alt="Den building" class="slide" />
-          <img src="hand.jpg" alt="Hands in meadow activity" class="slide" />
-          <img src="paths.jpg" alt="Exploring paths" class="slide" />
-          <img src="plant.jpg" alt="Planting activity" class="slide" />
-          <img src="wood.jpg" alt="Woodland activity" class="slide" />
-        </div>
-
-        <div class="carousel-controls">
-          <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
-          <div class="dots" id="dots" role="tablist"></div>
-          <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
-        </div>
-      </section>
-
-      <section class="approach">
-        <h2>Our Approach</h2>
-        <p>Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities. 🎨🍳🌲</p>
-        <p>We work relationally, using trauma-informed practice and creative, curriculum-linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy. 🌟</p>
-      </section>
-
-      <section class="offer">
-        <h2>What We Offer</h2>
-        <p>Mentoring and Advocacy 🧑‍🤝‍🧑, Tailored Learning Packages 📚, Life Skills 🛠, Diagnostic Assessments 🧮, SEMH Interventions 💛, Wellbeing & PSHE 🎨, Transitional Services 🔄, Therapeutic & Curriculum Activities 🧠.</p>
-      </section>
-
-      <section class="next-steps">
-        <h2>Next Steps</h2>
-        <p>If you’d like to explore Meadow Pathways for a child or young person:</p>
-        <span class="pill">📝 Referral Form</span>
-        <span class="pill">ℹ️ About Us</span>
-        <span class="pill">☎️ Contact</span>
-        <span class="pill">🔍 EOTAS Provision</span>
-        <p>If your enquiry is urgent or a safeguarding concern, contact statutory services: ☎️ 01872 324605 - earlyhelphub@cornwall.gov.uk. Then call the Meadow Pathways team directly.</p>
-      </section>
-
-    </main>
-
-  </div>
-
-  <footer class="site-footer">
-    <div class="footer-content">
-      <img src="Logo.png" alt="Meadow Pathways Logo" />
-      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-      <p>Guiding Individual Journeys with Care and Purpose</p>
+  <!-- Services / Features -->
+  <section class="card-section">
+    <div class="card">
+      <h2>Tailored Learning</h2>
+      <p>Individualised academic and wellbeing pathways designed to meet each child’s unique needs.</p>
     </div>
+    <div class="card">
+      <h2>Therapeutic Support</h2>
+      <p>Play therapy, counselling, and trauma-informed interventions that rebuild confidence and trust.</p>
+    </div>
+    <div class="card">
+      <h2>Creative Activities</h2>
+      <p>Outdoor exploration, arts, and skills-based learning to nurture growth and independence.</p>
+    </div>
+    <div class="card">
+      <h2>Family Partnership</h2>
+      <p>Working closely with families and schools to create consistent and supportive environments for learners.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
+    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+    <p>Guiding Individual Journeys with Care and Purpose</p>
   </footer>
-
-  <script>
-    // Carousel JS
-    const slides = document.getElementById('slides');
-    const slideElements = slides.querySelectorAll('.slide');
-    const prevBtn = document.getElementById('prev');
-    const nextBtn = document.getElementById('next');
-    const dotsContainer = document.getElementById('dots');
-    let index = 0;
-
-    // Create dots
-    slideElements.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(i));
-      dotsContainer.appendChild(dot);
-    });
-    const dots = dotsContainer.querySelectorAll('.dot');
-
-    function showSlide(i){
-      slides.style.transform = `translateX(-${i*100}%)`;
-      dots.forEach(d => d.classList.remove('active'));
-      dots[i].classList.add('active');
-    }
-
-    function nextSlide(){
-      index = (index +1) % slideElements.length;
-      showSlide(index);
-    }
-
-    function prevSlide(){
-      index = (index -1 + slideElements.length) % slideElements.length;
-      showSlide(index);
-    }
-
-    function goToSlide(i){
-      index = i;
-      showSlide(index);
-    }
-
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-
-    // Autoplay
-    setInterval(nextSlide, 4000);
-  </script>
 </body>
 </html>
