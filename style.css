@@ -197,7 +197,7 @@ main {
 
 /* --- Footer --- */
 footer {
-  background: var(--sidebar-bg);
+  background: var(--BG.png);
   color: white;
   text-align: center;
   padding: 10px 0;
@@ -223,3 +223,4 @@ footer {
     height: 200px;
   }
 }
+
