@@ -1,90 +1,110 @@
 /* ===========================
-   Carousel
+   Safe Universal Script.js
+   For Meadow Pathways Website
 =========================== */
-const slides = document.querySelectorAll('.carousel-slides img');
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
-const dotsContainer = document.getElementById('dots');
 
-let currentIndex = 0;
+// --- Carousel functionality ---
+const carouselContainer = document.querySelector('.carousel-container');
+if (carouselContainer) {
+    const slides = carouselContainer.querySelector('.carousel-slides');
+    const prevBtn = carouselContainer.querySelector('.prev');
+    const nextBtn = carouselContainer.querySelector('.next');
+    const dots = carouselContainer.querySelectorAll('.dots button');
+    let index = 0;
 
-function showSlide(index) {
-    const total = slides.length;
-    if(index < 0) currentIndex = total - 1;
-    else if(index >= total) currentIndex = 0;
-    else currentIndex = index;
+    function showSlide(i) {
+        slides.style.transform = `translateX(-${i * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[i].classList.add('active');
+    }
 
-    const offset = -currentIndex * 100;
-    document.querySelector('.carousel-slides').style.transform = `translateX(${offset}%)`;
+    if (prevBtn && nextBtn && dots.length) {
+        prevBtn.addEventListener('click', () => {
+            index = (index > 0) ? index - 1 : dots.length - 1;
+            showSlide(index);
+        });
 
-    // Update dots
-    dotsContainer.querySelectorAll('button').forEach((btn, i) => {
-        btn.classList.toggle('active', i === currentIndex);
+        nextBtn.addEventListener('click', () => {
+            index = (index < dots.length - 1) ? index + 1 : 0;
+            showSlide(index);
+        });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                index = i;
+                showSlide(index);
+            });
+        });
+    }
+}
+
+// --- Staff Page Password Lock ---
+const pwdInput = document.getElementById('staffPassword');
+const unlockBtn = document.getElementById('unlockBtn');
+const lockedEl = document.getElementById('locked');
+const staffPanel = document.getElementById('staffPanel');
+
+if (unlockBtn && pwdInput && lockedEl && staffPanel) {
+    const PASSWORD = 'MPWEC!';
+    function unlock() {
+        const val = (pwdInput.value || '').trim();
+        if (val === PASSWORD) {
+            lockedEl.style.display = 'none';
+            staffPanel.style.display = 'block';
+            staffPanel.setAttribute('aria-hidden', 'false');
+        } else {
+            alert('Incorrect password. Please contact Michelle or Zoe for access.');
+            pwdInput.value = '';
+        }
+    }
+
+    unlockBtn.addEventListener('click', unlock);
+    pwdInput.addEventListener('keyup', e => {
+        if (e.key === 'Enter') unlock();
     });
 }
 
-prevBtn.addEventListener('click', () => showSlide(currentIndex - 1));
-nextBtn.addEventListener('click', () => showSlide(currentIndex + 1));
-
-// Auto-slide
-setInterval(() => showSlide(currentIndex + 1), 5000);
-
-// Initialize dots
-slides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.addEventListener('click', () => showSlide(i));
-    if(i===0) dot.classList.add('active');
-    dotsContainer.appendChild(dot);
-});
-
-/* ===========================
-   Staff Password & Hours Form
-=========================== */
-const PASSWORD = 'MPWEC!';
-const lockedEl = document.getElementById('locked');
-const staffPanel = document.getElementById('staffPanel');
-const unlockBtn = document.getElementById('unlockBtn');
-const pwdInput = document.getElementById('staffPassword');
-
-function unlock() {
-    const val = (pwdInput.value || '').trim();
-    if(val === PASSWORD){
-        lockedEl.style.display = 'none';
-        staffPanel.style.display = 'block';
-        lockedEl.setAttribute('aria-hidden', 'true');
-        staffPanel.setAttribute('aria-hidden', 'false');
-        document.getElementById('staff-name').focus();
-    } else {
-        pwdInput.value = '';
-        pwdInput.focus();
-        alert('Incorrect password. Contact Michelle or Zoe.');
-    }
+// --- Staff Page Forms (Hours / Expenses) ---
+const staffForm = document.getElementById('hoursForm');
+if (staffForm) {
+    staffForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        const status = document.getElementById('hoursStatus');
+        status.textContent = 'Submitting...';
+        const formData = new FormData(staffForm);
+        try {
+            const res = await fetch('/', { method: 'POST', body: formData });
+            if (res.ok) {
+                staffForm.reset();
+                status.textContent = 'Submitted successfully. Thank you.';
+            } else {
+                status.textContent = 'Submission failed. Please try again.';
+            }
+        } catch {
+            status.textContent = 'Network error. Please check your connection.';
+        }
+    });
 }
 
-unlockBtn.addEventListener('click', unlock);
-pwdInput.addEventListener('keyup', e => { if(e.key==='Enter') unlock(); });
-
-// Hours Form submission
-const hoursForm = document.getElementById('hoursForm');
-const hoursStatus = document.getElementById('hoursStatus');
-
-hoursForm.addEventListener('submit', async function(e){
-    e.preventDefault();
-    hoursStatus.textContent = 'Submitting...';
-    const data = new FormData(hoursForm);
-    try {
-        const res = await fetch('https://meadowpathwayscornwall@outlook.com', {
-            method: 'POST',
-            headers: {'Accept':'application/json'},
-            body: data
-        });
-        if(res.ok){
-            hoursForm.reset();
-            hoursStatus.textContent = 'Hours submitted. Thank you.';
-        } else {
-            hoursStatus.textContent = 'Submission error. Try again later.';
+// --- Contact Form (Netlify or direct) ---
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        const status = document.getElementById('contactStatus');
+        status.textContent = 'Sending...';
+        const data = new FormData(contactForm);
+        try {
+            const res = await fetch(contactForm.action, { method: 'POST', body: data });
+            if (res.ok) {
+                contactForm.reset();
+                status.textContent = 'Thank you for your message. We will respond soon.';
+            } else {
+                status.textContent = 'Submission failed. Please try again.';
+            }
+        } catch {
+            status.textContent = 'Network error. Please check your connection.';
         }
-    } catch(err){
-        hoursStatus.textContent = 'Network error. Check connection.';
-    }
-});
+    });
+}
+
