@@ -1,98 +1,99 @@
-// Navigation toggle
-const navToggle = document.getElementById('navToggle');
-const primaryNav = document.getElementById('primaryNav');
+// Wrap everything in an IIFE to avoid global variable conflicts
+(function() {
+  "use strict";
 
-navToggle.addEventListener('click', () => {
-  const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-  navToggle.setAttribute('aria-expanded', !expanded);
-  primaryNav.classList.toggle('show');
-});
+  // ----------- CAROUSEL SETUP -----------
+  const carouselContainer = document.querySelector('.carousel');
+  if (carouselContainer) {
+    const slides = carouselContainer.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const dotsContainer = document.getElementById('dots');
 
-// Back to top button
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) backToTop.style.display = 'block';
-  else backToTop.style.display = 'none';
-});
-backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let autoSlideInterval;
 
-// Carousel
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const dotsContainer = document.getElementById('dots');
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
-
-function showSlide(index) {
-  slides.forEach((s, i) => { s.style.display = i === index ? 'block' : 'none'; });
-  const dots = document.querySelectorAll('.dot');
-  if(dots.length){
-    dots.forEach((d, i) => d.classList.toggle('active', i === index));
-  }
-  slideIndex = index;
-}
-
-function nextSlide(n) { showSlide((slideIndex + n + slides.length) % slides.length); }
-
-if(prevBtn) prevBtn.addEventListener('click', () => nextSlide(-1));
-if(nextBtn) nextBtn.addEventListener('click', () => nextSlide(1));
-
-// Initialize dots
-if(dotsContainer && slides.length){
-  slides.forEach((_, i) => {
-    const dot = document.createElement('span');
-    dot.classList.add('dot');
-    dot.addEventListener('click', () => showSlide(i));
-    dotsContainer.appendChild(dot);
-  });
-}
-showSlide(0);
-
-// Staff page password
-const PASSWORD = 'MPWEC!';
-const lockedEl = document.getElementById('locked');
-const staffPanel = document.getElementById('staffPanel');
-const unlockBtn = document.getElementById('unlockBtn');
-const pwdInput = document.getElementById('staffPassword');
-
-if(unlockBtn) unlockBtn.addEventListener('click', unlock);
-if(pwdInput) pwdInput.addEventListener('keyup', e => { if(e.key === 'Enter') unlock(); });
-
-function unlock() {
-  if(!pwdInput) return;
-  const val = pwdInput.value.trim();
-  if(val === PASSWORD){
-    lockedEl.style.display = 'none';
-    staffPanel.style.display = 'block';
-  } else {
-    pwdInput.value = '';
-    pwdInput.focus();
-    alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
-  }
-}
-
-// Staff hours form
-const hoursForm = document.getElementById('hoursForm');
-const hoursStatus = document.getElementById('hoursStatus');
-const FORMSPREE = 'https://formspree.io/f/movnvzqp';
-
-if(hoursForm){
-  hoursForm.addEventListener('submit', async function(e){
-    e.preventDefault();
-    if(hoursStatus) hoursStatus.textContent = 'Submitting...';
-    const data = new FormData(hoursForm);
-    try{
-      const res = await fetch(FORMSPREE, { method:'POST', headers:{ 'Accept':'application/json' }, body: data });
-      if(res.ok){
-        hoursForm.reset();
-        if(hoursStatus) hoursStatus.textContent = 'Hours submitted. Thank you.';
-        setTimeout(()=>{ window.location.href='thankyou.html'; }, 900);
-      } else {
-        const result = await res.json();
-        if(hoursStatus) hoursStatus.textContent = (result && result.errors) ? result.errors.map(err=>err.message).join('; ') : 'Submission error — please try again later.';
-      }
-    } catch(err){
-      if(hoursStatus) hoursStatus.textContent = 'Network error — check connection and try again.';
+    // Initialize carousel
+    function initCarousel() {
+      showSlide(currentSlide);
+      createDots();
+      autoSlideInterval = setInterval(() => {
+        nextSlide();
+      }, 5000); // Change slide every 5 seconds
     }
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
+      });
+      updateDots(index);
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      showSlide(currentSlide);
+    }
+
+    function createDots() {
+      if (!dotsContainer) return;
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.classList.add('dot');
+        dot.setAttribute('aria-label', `Slide ${i + 1}`);
+        dot.addEventListener('click', () => {
+          currentSlide = i;
+          showSlide(currentSlide);
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateDots(index) {
+      if (!dotsContainer) return;
+      const dots = dotsContainer.querySelectorAll('.dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoSlide(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoSlide(); });
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+
+    initCarousel();
+  }
+
+  // ----------- SIDEBAR TOGGLE (if needed) -----------
+  const menuTrigger = document.querySelector('.menu-trigger');
+  const sidebar = document.querySelector('.sidebar');
+  if (menuTrigger && sidebar) {
+    menuTrigger.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
+  }
+
+  // ----------- ADDITIONAL SITE INTERACTIONS (Optional) -----------
+  // Example: Smooth scrolling for internal links
+  const internalLinks = document.querySelectorAll('a[href^="#"]');
+  internalLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   });
-}
+
+})();
