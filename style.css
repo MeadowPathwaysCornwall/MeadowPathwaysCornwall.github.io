@@ -5,7 +5,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0b3d91; /* Darker blue behind text boxes */
+    background-color: #0d3b66; /* Darker blue background behind all text boxes */
     color: #333;
 }
 
@@ -51,27 +51,15 @@ a {
     width: 100%;
 }
 
-/* ===========================
-   Navigation Tabs with colors
-=========================== */
 .side-nav li a {
     display: block;
     padding: 12px 16px;
+    color: #fff;
     font-weight: 600;
     border-radius: 8px;
     margin: 4px 8px;
     transition: 0.3s;
-    color: #fff;
 }
-
-.side-nav li a.home { background-color: #1e90ff; }
-.side-nav li a.about { background-color: #4b9cd3; }
-.side-nav li a.eotas { background-color: #37b3a9; }
-.side-nav li a.safeguarding { background-color: #f59c1a; }
-.side-nav li a.staff { background-color: #8a2be2; }
-.side-nav li a.policies { background-color: #ff6347; }
-.side-nav li a.contact { background-color: #32cd32; }
-.side-nav li a.treverno { background-color: #ff1493; }
 
 .side-nav li a:hover,
 .side-nav li a.active {
@@ -87,13 +75,12 @@ a {
     padding: 24px;
 }
 
-/* Text box wrappers and cards */
+/* Text boxes / wraps */
 .wrap, .card {
     max-width: 900px;
     margin: 16px auto;
     padding: 16px;
-    background-color: #add8e6; /* Light blue text box */
-    color: #000; /* Text color for readability */
+    background-color: #add8e6; /* Light blue text boxes */
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
@@ -114,7 +101,7 @@ a {
 
 .carousel-slides img {
     width: 100%;
-    height: 250px;
+    height: 250px; /* Fixed height for uniform display */
     object-fit: cover;
     border-radius: 12px;
 }
@@ -188,7 +175,7 @@ a {
 =========================== */
 .site-footer {
     background: url('BG.png') no-repeat center/cover;
-    color: #111; /* Darker text for visibility */
+    color: #111; /* Dark text for readability */
     font-size: 1.1rem;
     text-align: center;
     padding: 24px 16px;
@@ -213,27 +200,61 @@ a {
 /* ===========================
    Staff page specific
 =========================== */
-.staff-container {
+.staff-container, .bio-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 24px;
     margin-top: 16px;
 }
 
-.staff-member {
+.staff-member, .bio {
     text-align: center;
-    background-color: #f0f8ff;
+    background-color: #add8e6; /* Light blue box */
     padding: 12px;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
-.staff-member img {
+.staff-member img, .bio img {
     width: 100%;
     max-width: 150px;
     border-radius: 50%;
     margin-bottom: 12px;
 }
+
+/* ===========================
+   Navigation Tabs / Colored Links
+=========================== */
+.tab-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+}
+
+.tab-links .tab {
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.tab-links .tab:hover {
+    transform: scale(1.05);
+}
+
+/* Individual tab colors */
+.tab.referral { background-color: #1e90ff; }
+.tab.about { background-color: #4b9cd3; }
+.tab.contact { background-color: #32cd32; }
+.tab.eotas { background-color: #37b3a9; }
+.tab.ebsna { background-color: #f59c1a; }
+.tab.policy { background-color: #ff6347; }
+.tab.hours { background-color: #8a2be2; }
+.tab.expenses { background-color: #ff1493; }
+.tab.sharepoint { background-color: #ffa500; }
 
 /* ===========================
    Responsive
@@ -249,4 +270,9 @@ a {
         height: auto;
         position: relative;
     }
+
+    .tab-links {
+        justify-content: center;
+    }
 }
+
