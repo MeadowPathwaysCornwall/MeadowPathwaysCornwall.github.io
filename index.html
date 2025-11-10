@@ -1,164 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meadow Pathways — Home</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meadow Pathways Wellbeing and Education Cornwall</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="blugoon.css">
+  <script src="script.js" defer></script>
   <style>
-    /* Homepage specific styling */
-    .carousel { position: relative; overflow: hidden; max-width: 100%; margin-bottom: 2rem; }
-    .carousel img.slide { width: 100%; display: none; object-fit: cover; border-radius: 12px; }
-    .carousel img.slide.active { display: block; }
-    .carousel-controls { display:flex; justify-content:center; gap:10px; margin-top:8px; }
-    .carousel-btn { background:#2f8f4a; color:#fff; border:none; padding:6px 12px; cursor:pointer; font-size:1.2rem; border-radius:6px; }
-    .dots { display:flex; gap:6px; justify-content:center; margin-top:6px; }
-    .dot { width:10px; height:10px; border-radius:50%; background:#ccc; cursor:pointer; }
-    .dot.active { background:#2f8f4a; }
-    footer { background: url('BG.png') no-repeat center/cover; }
+    /* Carousel styling */
+    .carousel { position: relative; overflow: hidden; border-radius: 12px; margin: 16px 0; }
+    .slides { display: flex; transition: transform 0.5s ease-in-out; }
+    .slide { min-width: 100%; object-fit: cover; border-radius: 12px; }
+    .carousel-controls { display: flex; justify-content: center; align-items: center; margin-top: 8px; }
+    .carousel-btn { background:#2e82b0;color:#fff;border:none;padding:8px 12px;margin:0 6px;border-radius:8px;cursor:pointer;font-size:1.2rem; }
+    .dots { display:flex; justify-content:center; margin: 0 8px; }
+    .dot { width:10px; height:10px; border-radius:50%; background:#ccc;margin:0 4px; cursor:pointer; }
+    .dot.active { background:#2e82b0; }
+    .news-ticker { background:#e1f0fb;color:#0b233f;padding:8px 12px;border-radius:8px;margin:16px 0; font-weight:600; overflow:hidden; }
+    .qr-section img { width:140px; margin:8px; border-radius:8px; }
+    .content-section { margin-bottom:24px; }
+    .content-section h2 { color:#2e82b0; margin-bottom:8px; }
   </style>
 </head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="container header-inner">
-    <div class="logo-wrap">
-      <a href="index.html" aria-label="Meadow Pathways home">
-        <img src="Logo.png" alt="Meadow Pathways Logo" class="logo">
-      </a>
+
+<body class="blugoon-body">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="logo-wrap">
+        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
+      </div>
+      <nav class="side-nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="policies.html">Policies</a></li>
+          <li><a href="referral.html">Referral Form</a></li>
+          <li><a href="treverno.html">Treverno Provision</a></li>
+          <li><a href="eotas.html">EOTAS</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="staff.html">Staff Area</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav aria-label="Primary">
-      <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="primaryNav">☰</button>
-      <ul id="primaryNav" class="nav-tabs">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="staff.html">Staff</a></li>
-        <li><a href="referral.html">Referral</a></li>
-        <li><a href="contact.html">Contact</a></li>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main-content wrap">
+
+    <section class="card content-section">
+      <h1>Meadow Pathways reconnects children with learning</h1>
+      <p>Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿✨</p>
+      <p>At Meadow Pathways, we recognise every young person is unique. We commit to working collaboratively with families, schools and partners to find meaningful, sustainable routes to success for each learner.</p>
+    </section>
+
+    <!-- Carousel -->
+    <section class="card carousel">
+      <div class="slides" id="carouselSlides">
+        <img src="Bake.jpg" alt="Baking activity" class="slide">
+        <img src="Cooking.jpg" alt="Cooking session" class="slide">
+        <img src="MM.jpg" alt="Multimedia activity" class="slide">
+        <img src="Paint.jpg" alt="Painting session" class="slide">
+        <img src="cook.jpg" alt="Cooking practical" class="slide">
+        <img src="den.jpg" alt="Den building" class="slide">
+        <img src="hand.jpg" alt="Hands in meadow activity" class="slide">
+        <img src="paths.jpg" alt="Exploring paths" class="slide">
+        <img src="plant.jpg" alt="Planting activity" class="slide">
+        <img src="wood.jpg" alt="Woodland activity" class="slide">
+      </div>
+      <div class="carousel-controls">
+        <button id="prev" class="carousel-btn">‹</button>
+        <div class="dots" id="carouselDots"></div>
+        <button id="next" class="carousel-btn">›</button>
+      </div>
+    </section>
+
+    <!-- News ticker -->
+    <section class="card news-ticker">
+      🤩 Planning Submitted for our first site 'Treverno Meadows'. Check out our page introducing Treverno Meadows above.
+    </section>
+
+    <!-- Our Approach -->
+    <section class="card content-section">
+      <h2>Our Approach</h2>
+      <p>We work relationally, using trauma informed practice and creative, curriculum linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy. 🌟 Meeting learners where they are.</p>
+      <p>At Meadow Pathways we recognise every young person is unique. We collaborate with families, schools, and partner organisations to find meaningful and sustainable routes to success.</p>
+    </section>
+
+    <!-- Person-Centred -->
+    <section class="card content-section">
+      <h2>Person-Centred Commitment</h2>
+      <p>We work closely with families, schools and partners to create meaningful, sustainable routes to success tailored to each learner’s needs and strengths.</p>
+      <p>🌟 Practical Learning in Community Settings: curriculum-linked hands-on activities including bush craft, cooking, outdoor fitness, gardening, and project work, supporting skills, resilience and accredited outcomes. 🧠🌲🍳</p>
+    </section>
+
+    <!-- Values -->
+    <section class="card content-section">
+      <h2>Our Values</h2>
+      <ul>
+        <li>💪🌱 Resilience & Independence: nurturing confidence, self-belief, and growth through challenge</li>
+        <li>💪🧘‍♀️ Health & Wellbeing: emotional safety, regulation, holistic care</li>
+        <li>🔎 Honesty & Integrity: trust through transparency, consistency, and ethics</li>
+        <li>🤗 Friendship & Kindness: fostering connection, empathy, and belonging</li>
       </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="main" class="container">
-  <section class="hero">
-    <p>Meadow Pathways reconnects children with learning through trauma informed, bespoke education and wellbeing support across Cornwall.</p>
-    <p>Reconnecting children with learning and life. Supporting individual growth through nurturing and understanding practices. We help children thrive through tailored trauma informed educational approaches. 🌿✨</p>
-    <p>At Meadow Pathways, we recognise every young person is unique. We commit to working collaboratively with families, schools and partners to find meaningful, sustainable routes to success for each learner.</p>
-  </section>
-
-  <section class="carousel" aria-label="Activities carousel">
-    <img src="Bake.jpg" alt="Baking activity" class="slide active">
-    <img src="Cooking.jpg" alt="Cooking session" class="slide">
-    <img src="MM.jpg" alt="Multimedia activity" class="slide">
-    <img src="Paint.jpg" alt="Painting session" class="slide">
-    <img src="cook.jpg" alt="Cooking practical" class="slide">
-    <img src="den.jpg" alt="Den building" class="slide">
-    <img src="hand.jpg" alt="Hands in meadow activity" class="slide">
-    <img src="paths.jpg" alt="Exploring paths" class="slide">
-    <img src="plant.jpg" alt="Planting activity" class="slide">
-    <img src="wood.jpg" alt="Woodland activity" class="slide">
-
-    <div class="carousel-controls">
-      <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
-      <div class="dots" id="dots"></div>
-      <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
-    </div>
-  </section>
-
-  <section>
-    <h2>Welcome to Meadow Pathways Cornwall</h2>
-    <p>Meadow Pathways provides inclusive therapeutic education and wellbeing support for children and young people with SEND and SEMH needs. We combine tailored learning, therapeutic practice, and community-based activities to build confidence, skills, and a sense of belonging. 🌱</p>
-
-    <h3>Our approach</h3>
-    <p>We work relationally, using trauma informed practice and creative, curriculum linked activities. Our work is guided by Safety, Playfulness, Acceptance, Curiosity, and Empathy. 🌟 Meeting learners where they are.</p>
-    <p>At Meadow Pathways we recognise that every young person is unique. We are committed to working collaboratively with families, schools, and partner organisations to find the most meaningful and sustainable route to success for each learner...</p>
-
-    <h3>Person-centred Commitment</h3>
-    <p>We work closely with families, schools and partners to create meaningful, sustainable routes to success tailored to each learner’s needs and strengths.</p>
-
-    <h3>Practical Learning in Community Settings</h3>
-    <p>We deliver curriculum linked, hands‑on activities, bush craft, cooking, outdoor fitness, gardening and project work, so learners build skills, resilience and positive relationships while working towards accredited outcomes. 🧠🌲🍳</p>
-
-    <h3>Our Values</h3>
-    <p>At Meadow Pathways, our values shape everything we do. 🌿✨</p>
-    <ul>
-      <li>💪🌱 Resilience & Independence</li>
-      <li>💪🧘‍♀️ Health & Wellbeing</li>
-      <li>🔎 Honesty & Integrity</li>
-      <li>🤗 Friendship & Kindness</li>
-    </ul>
-
-    <h3>What we offer</h3>
-    <ul>
-      <li>🧑‍🤝‍🧑 Mentoring and Advocacy</li>
-      <li>📚 Tailored Learning Packages</li>
-      <li>🛠 Life Skills</li>
-      <li>🧮 Diagnostic Assessments</li>
-      <li>🧠 SEMH Interventions</li>
-      <li>🎨 Wellbeing & PSHE</li>
-      <li>🔄 Transitional Services</li>
-      <li>🧠 Therapeutic & Curriculum Activities</li>
-    </ul>
-
-    <h3>Next steps</h3>
-    <p>If you’d like to explore Meadow Pathways for a child or young person, check:</p>
-    <ul>
-      <li>📝 Referral form</li>
-      <li>ℹ️ About us</li>
-      <li>☎️ Contact</li>
-      <li>🔍 EOTAS provision</li>
-    </ul>
-    <p>If your enquiry is urgent or a safeguarding concern, contact statutory services: ☎️ 01872 324605 - earlyhelphub@cornwall.gov.uk</p>
-
-    <section class="news-ticker">
-      <p>🤩 Planning Submitted for our first site 'Treverno Meadows' 🤩 Check out our page introducing Treverno Meadows.</p>
+      <p>These values guide our team and partnerships with families, schools, and professionals. 🌼</p>
     </section>
 
-    <section class="qr-codes">
-      <img src="FacebookQR.jpg" alt="Facebook QR code">
-      <img src="crowdfunderQR.png" alt="Crowdfunder QR code">
+    <!-- What we offer -->
+    <section class="card content-section">
+      <h2>What We Offer</h2>
+      <ul>
+        <li>🧑‍🤝‍🧑 Mentoring & Advocacy: building trust and self-belief</li>
+        <li>📚 Tailored Learning Packages: flexible academic pathways</li>
+        <li>🛠 Life Skills: practical preparation for adulthood</li>
+        <li>🧮 Diagnostic Assessments: literacy and numeracy profiling</li>
+        <li>🧠 SEMH Interventions: trauma-informed emotional regulation</li>
+        <li>🎨 Wellbeing & PSHE: creative therapeutic sessions</li>
+        <li>🔄 Transitional Services: planned reintegration with multi-agency support</li>
+        <li>🧠 Therapeutic & Curriculum Activities: bush craft, cooking, water activities, climbing, play, biking linked to ASDAN & AQA Unit Awards</li>
+      </ul>
     </section>
-  </section>
-</main>
 
-<footer>
-  <div class="footer-content">
-    <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
-    <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
-    <p>Guiding Individual Journeys with Care and Purpose</p>
-  </div>
-</footer>
+    <!-- Next steps -->
+    <section class="card content-section">
+      <h2>Next Steps</h2>
+      <p>If you’d like to explore Meadow Pathways for a child or young person, you can check out our tabs:</p>
+      <ul>
+        <li>📝 <a href="referral.html">Referral Form</a></li>
+        <li>ℹ️ <a href="index.html">About Us</a></li>
+        <li>☎️ <a href="contact.html">Contact</a></li>
+        <li>🔍 <a href="eotas.html">EOTAS Provision</a></li>
+      </ul>
+      <p>If your enquiry is urgent or a safeguarding concern, please contact statutory services: ☎️ 01872 324605 - earlyhelphub@cornwall.gov.uk. Then call the Meadow Pathways team directly via the <a href="contact.html">Contact tab</a>.</p>
+    </section>
 
-<script src="script.js"></script>
-<script>
-  const slides = document.querySelectorAll('.carousel img.slide');
-  const dotsContainer = document.getElementById('dots');
-  let currentSlide = 0;
+    <!-- QR Codes -->
+    <section class="card content-section qr-section">
+      <h2>Quick Access</h2>
+      <p>Scan to connect with our Facebook page and Crowdfunder:</p>
+      <img src="FacebookQR.jpg" alt="Facebook QR Code">
+      <img src="crowdfunderQR.png" alt="Crowdfunder QR Code">
+      <p><a href="values.pdf" target="_blank">Download our Values PDF</a></p>
+    </section>
 
-  slides.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if(i===0) dot.classList.add('active');
-    dot.addEventListener('click', () => showSlide(i));
-    dotsContainer.appendChild(dot);
-  });
+    <footer class="wrap site-foot">
+      <p>© Meadow Pathways Wellbeing and Education Cornwall 2025</p>
+    </footer>
 
-  const dots = document.querySelectorAll('.dot');
+  </main>
 
-  function showSlide(n){
-    slides[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
-    currentSlide = n;
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
-  }
+  <!-- Carousel Script -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('carouselDots');
+    let currentIndex = 0;
 
-  document.getElementById('next').addEventListener('click', () => showSlide((currentSlide+1)%slides.length));
-  document.getElementById('prev').addEventListener('click', () => showSlide((currentSlide-1+slides.length)%slides.length));
-</script>
+    function showSlide(index){
+      const slidesContainer = document.getElementById('carouselSlides');
+      if(index < 0) index = slides.length - 1;
+      if(index >= slides.length) index = 0;
+      currentIndex = index;
+      slidesContainer.style.transform = `translateX(-${index*100}%)`;
+      updateDots();
+    }
+
+    function updateDots(){
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'dot'+(i===currentIndex?' active':'');
+        dot.addEventListener('click', ()=> showSlide(i));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    document.getElementById('prev').addEventListener('click', ()=> showSlide(currentIndex-1));
+    document.getElementById('next').addEventListener('click', ()=> showSlide(currentIndex+1));
+
+    // Auto-slide every 4s
+    setInterval(()=> showSlide(currentIndex+1), 4000);
+    showSlide(0);
+  </script>
+
 </body>
 </html>
