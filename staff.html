@@ -109,11 +109,151 @@
     </section>
   </main>
 
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff — Meadow Pathways Wellbeing & Education Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Blugoon sidebar navigation -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="Logo.png" alt="Meadow Pathways Logo" />
+    </div>
+    <nav>
+      <ul id="primaryNav" class="nav-tabs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html" class="active">Staff</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <main class="content">
+    <section id="locked" class="card">
+      <h2>Welcome to the Staff Page</h2>
+      <p>Meadow Pathways Wellbeing & Education Cornwall</p>
+      <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
+      <label for="staffPassword">Enter Password:</label>
+      <input id="staffPassword" type="password" />
+      <button id="unlockBtn">Unlock</button>
+    </section>
+
+    <section id="staffPanel" class="card" style="display:none;">
+      <h2>Staff Internal Resources</h2>
+      <p>Internal links and information for Meadow Pathways staff</p>
+
+      <!-- Staff contacts -->
+      <ul>
+        <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
+        <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
+        <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
+      </ul>
+
+      <!-- Statutory and partner resources -->
+      <h3>Statutory and partner resources</h3>
+      <div class="pill-container">
+        <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">Keeping children safe in education (Sep 2025) - GOV.UK</a>
+        <a class="pill" href="https://www.patreon.com/cw/pookyh/home" target="_blank">PookyH resources on Patreon</a>
+        <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House resources</a>
+        <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC learning & research</a>
+        <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank">Cios safeguarding partnership</a>
+      </div>
+
+      <!-- Internal policy documents -->
+      <h3>Internal policy documents (downloads)</h3>
+      <div class="pill-container">
+        <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy EOTAS Sep 2025</a>
+        <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>H&S Policy Sep 25</a>
+        <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+        <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
+        <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
+        <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+      </div>
+
+      <!-- Hours Form -->
+      <h3>Hours Logged</h3>
+      <form id="hoursForm" method="POST" action="mailto:meadowpathwayscornwall@outlook.com" enctype="text/plain" novalidate>
+        <label for="staff-name">Staff member name</label>
+        <input id="staff-name" name="staff_name" type="text" required />
+        <label for="date-worked">Date</label>
+        <input id="date-worked" name="date_worked" type="date" required />
+        <label for="duration">Duration (hours)</label>
+        <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required />
+        <label for="client">Client / session with</label>
+        <input id="client" name="client_name" type="text" />
+        <label for="notes">Brief notes</label>
+        <textarea id="notes" name="notes" rows="4"></textarea>
+        <label for="email-staff">Staff email</label>
+        <input id="email-staff" name="staff_email" type="email" required />
+        <button type="submit">Submit hours</button>
+      </form>
+
+      <!-- Expenses Form -->
+      <h3>Submit Expenses</h3>
+      <form id="expensesForm" method="POST" action="mailto:meadowpathwayscornwall@outlook.com" enctype="text/plain" novalidate>
+        <label for="staff-name-exp">Staff member name</label>
+        <input id="staff-name-exp" name="staff_name" type="text" required />
+        <label for="expense-date">Date</label>
+        <input id="expense-date" name="expense_date" type="date" required />
+        <label for="description">Expense description</label>
+        <input id="description" name="expense_description" type="text" required />
+        <label for="amount">Amount (£)</label>
+        <input id="amount" name="amount" type="number" step="0.01" required />
+        <button type="submit">Submit expense</button>
+      </form>
+
+      <!-- SharePoint & Calendar -->
+      <h3>Additional Staff Resources</h3>
+      <ul>
+        <li><a href="https://meadowpathwayscornwall.sharepoint.com/:u:/s/meadowpathways/IQAQhQyq-4EBS7K7Y-Fwsk3HAQJUqP7ZOgT9Wuy9FFBZyYM?e=J4dkgU" target="_blank">SharePoint Resources</a></li>
+        <li><a href="https://outlook.office.com/calendar/view/month" target="_blank">Staff Calendar</a></li>
+      </ul>
+    </section>
+  </main>
+
   <!-- Footer -->
   <footer class="footer" style="background-image:url('BG.png');">
     <p>Meadow Pathways Wellbeing & Education Cornwall Ltd © 2025</p>
     <p>Michelle: 07932 243358 | Zoe: 07775 733587</p>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    const PASSWORD = 'MPWEC!';
+    const lockedEl = document.getElementById('locked');
+    const staffPanel = document.getElementById('staffPanel');
+    const unlockBtn = document.getElementById('unlockBtn');
+    const pwdInput = document.getElementById('staffPassword');
+
+    function unlock() {
+      const val = (pwdInput.value || '').trim();
+      if (val === PASSWORD) {
+        lockedEl.style.display = 'none';
+        staffPanel.style.display = 'block';
+        lockedEl.setAttribute('aria-hidden', 'true');
+        staffPanel.setAttribute('aria-hidden', 'false');
+        document.getElementById('staff-name').focus();
+      } else {
+        pwdInput.value = '';
+        pwdInput.focus();
+        alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+      }
+    }
+    unlockBtn.addEventListener('click', unlock);
+    pwdInput.addEventListener('keyup', function(e){ if(e.key==='Enter') unlock(); });
+  </script>
+</body>
+</html>
+
 
   <!-- Scripts -->
   <script>
