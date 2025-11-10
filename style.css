@@ -1,290 +1,88 @@
-/* ===========================
-   Global Body & Reset
-=========================== */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0a2a4e; /* darker blue behind light blue text boxes */
-    color: #333;
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+/* Pill buttons (for Policies/Guidance section) */
+.pill {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* ===========================
-   Sidebar
-=========================== */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 220px;
-    height: 100%;
-    background-color: #1e90ff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 16px;
-    overflow-y: auto;
+/* Pill Colors */
+.blue { background-color: #1E90FF; }
+.green { background-color: #28A745; }
+.orange { background-color: #FF7F50; }
+.purple { background-color: #6F42C1; }
+.red { background-color: #DC3545; }
+.teal { background-color: #20C997; }
+.yellow { background-color: #FFC107; color: #000; }
+.pink { background-color: #E83E8C; }
+
+/* Common Page Header Styles */
+.page-header {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  padding: 120px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.sidebar-inner {
-    width: 100%;
+/* Overlay for readability */
+.page-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.4); /* semi-transparent overlay */
+  z-index: 0;
 }
 
-.sidebar-logo {
-    width: 160px;
-    display: block;
-    margin: 0 auto 16px auto;
+.page-header h1,
+.page-header h2,
+.page-header p {
+  position: relative; /* above overlay */
+  z-index: 1;
+  margin: 0;
 }
 
-.side-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* H1, H2, P Styles */
+.page-header h1 { font-size: 3rem; margin-bottom: 20px; }
+.page-header h2 { font-size: 1.8rem; font-weight: 400; margin-bottom: 15px; }
+.page-header p { font-size: 1.2rem; }
+
+/* Individual Page Header Backgrounds */
+.page-header.main-header       { background-image: url('BG.png'); }
+.page-header.eotas-header      { background-image: url('EOTAS_BG.png'); }
+.page-header.about-header      { background-image: url('BG.png'); }
+.page-header.staff-header      { background-image: url('STAFF_BG.png'); }
+.page-header.contact-header    { background-image: url('CONTACT_BG.png'); }
+.page-header.policies-header   { background-image: url('POLICIES_BG.png'); }
+.page-header.referral-header   { background-image: url('REFERRAL_BG.png'); }
+
+/* Responsive Text Sizes */
+@media (max-width: 768px) {
+  .page-header h1 { font-size: 2.2rem; }
+  .page-header h2 { font-size: 1.4rem; }
+  .page-header p  { font-size: 1rem; }
+  .page-header { padding: 80px 15px; }
 }
-
-.side-nav li {
-    width: 100%;
-}
-
-.side-nav li a {
-    display: block;
-    padding: 12px 16px;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 8px;
-    margin: 4px 8px;
-    transition: 0.3s;
-}
-
-/* Navigation tab colors for individual pages */
-.side-nav li a.home { background-color: #1e90ff; }
-.side-nav li a.eotas { background-color: #32cd32; }
-.side-nav li a.about { background-color: #ff8c00; }
-.side-nav li a.policies { background-color: #8a2be2; }
-.side-nav li a.referral { background-color: #ff1493; }
-.side-nav li a.contact { background-color: #20b2aa; }
-.side-nav li a.staff { background-color: #ff4500; }
-.side-nav li a.treverno { background-color: #6a5acd; }
-.side-nav li a.safeguarding { background-color: #daa520; }
-
-.side-nav li a:hover,
-.side-nav li a.active {
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    transform: scale(1.02);
-}
-
-/* ===========================
-   Main Content
-=========================== */
-.main-content {
-    margin-left: 240px;
-    padding: 24px;
-}
-
-.wrap, .card {
-    max-width: 900px;
-    margin: 16px auto;
-    padding: 16px;
-    background-color: #b0d4f1; /* light blue for all text boxes */
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-}
-
-/* Header Boxes with BG.png */
-.header-box {
-    background: url('BG.png') no-repeat center/cover;
-    color: #0a2a4e;
-    padding: 24px;
-    border-radius: 12px;
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-/* ===========================
-   Carousel
-=========================== */
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-.carousel-slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slides img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-.carousel-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transform: translateY(-50%);
-}
-
-.carousel-btn {
-    background-color: rgba(0,0,0,0.3);
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.carousel-btn:hover {
-    background-color: rgba(0,0,0,0.6);
-}
-
-.dots {
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-}
-
-.dots button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: none;
-    background-color: #ccc;
-    cursor: pointer;
-}
-
-.dots button.active {
-    background-color: #1e90ff;
-}
-
-/* ===========================
-   QR Codes
-=========================== */
-.qr-codes {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 12px;
-}
-
-.qr-codes .qr {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-}
-
-/* ===========================
-   Footer
-=========================== */
-.site-footer {
-    background: url('BG.png') no-repeat center/cover;
-    color: #0a2a4e; /* dark text for contrast */
-    font-size: 1.1rem;
-    text-align: center;
-    padding: 24px 16px;
-    margin-top: 24px;
-}
-
-.site-footer p {
-    margin: 4px 0;
-}
-
-/* ===========================
-   Cards / Highlighted sections
-=========================== */
-.card h1, .card h2, .card h3 {
-    margin-top: 0;
-}
-
-.card ul {
-    padding-left: 20px;
-}
-
-/* ===========================
-   Staff page specific
-=========================== */
-.staff-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 24px;
-    margin-top: 16px;
-}
-
-.staff-member {
-    text-align: center;
-    background-color: #b0d4f1;
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-
-.staff-member img {
-    width: 100%;
-    max-width: 150px;
-    border-radius: 50%;
-    margin-bottom: 12px;
-}
-
-/* ===========================
-   Pill/Tab Links for Quick Links & Policies
-=========================== */
-.tab-links, .pill-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 16px;
-}
-
-.tab, .pill {
-    padding: 10px 16px;
-    border-radius: 12px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.2s;
-}
-
-.tab:hover, .pill:hover {
-    transform: scale(1.05);
-}
-
-/* Example colours for pills */
-.pill.referral, .tab.referral { background-color: #ff1493; }
-.pill.contact, .tab.contact { background-color: #20b2aa; }
-.pill.ebsna, .tab.ebsna { background-color: #ff8c00; }
-.pill.about, .tab.about { background-color: #1e90ff; }
-.pill.eotas, .tab.eotas { background-color: #32cd32; }
-
-/* ===========================
-   Responsive
-=========================== */
-@media screen and (max-width: 900px) {
-    .main-content {
-        margin-left: 0;
-        padding: 16px;
-    }
-
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-}
-
