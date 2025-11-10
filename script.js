@@ -1,9 +1,9 @@
 /* ===========================
-   Safe Universal Script.js
-   For Meadow Pathways Website
+   Meadow Pathways Website — Safe Universal Script
+   Supports carousel, Netlify forms, and staff password access
 =========================== */
 
-// --- Carousel functionality ---
+// === Carousel Functionality ===
 const carouselContainer = document.querySelector('.carousel-container');
 if (carouselContainer) {
     const slides = carouselContainer.querySelector('.carousel-slides');
@@ -15,7 +15,7 @@ if (carouselContainer) {
     function showSlide(i) {
         slides.style.transform = `translateX(-${i * 100}%)`;
         dots.forEach(dot => dot.classList.remove('active'));
-        dots[i].classList.add('active');
+        if (dots[i]) dots[i].classList.add('active');
     }
 
     if (prevBtn && nextBtn && dots.length) {
@@ -38,7 +38,7 @@ if (carouselContainer) {
     }
 }
 
-// --- Staff Page Password Lock ---
+// === Staff Page Password Lock ===
 const pwdInput = document.getElementById('staffPassword');
 const unlockBtn = document.getElementById('unlockBtn');
 const lockedEl = document.getElementById('locked');
@@ -64,21 +64,26 @@ if (unlockBtn && pwdInput && lockedEl && staffPanel) {
     });
 }
 
-// --- Staff Page Forms (Hours / Expenses) ---
+// === Staff Forms (Hours / Expenses Log) ===
 const staffForm = document.getElementById('hoursForm');
 if (staffForm) {
     staffForm.addEventListener('submit', async e => {
         e.preventDefault();
         const status = document.getElementById('hoursStatus');
         status.textContent = 'Submitting...';
-        const formData = new FormData(staffForm);
+        const data = new FormData(staffForm);
+
         try {
-            const res = await fetch('/', { method: 'POST', body: formData });
+            // Netlify form submission
+            const res = await fetch('/', {
+                method: 'POST',
+                body: data
+            });
             if (res.ok) {
                 staffForm.reset();
                 status.textContent = 'Submitted successfully. Thank you.';
             } else {
-                status.textContent = 'Submission failed. Please try again.';
+                status.textContent = 'Submission failed. Please try again later.';
             }
         } catch {
             status.textContent = 'Network error. Please check your connection.';
@@ -86,7 +91,7 @@ if (staffForm) {
     });
 }
 
-// --- Contact Form (Netlify or direct) ---
+// === Contact Form (Netlify Protected) ===
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', async e => {
@@ -94,11 +99,17 @@ if (contactForm) {
         const status = document.getElementById('contactStatus');
         status.textContent = 'Sending...';
         const data = new FormData(contactForm);
+
         try {
-            const res = await fetch(contactForm.action, { method: 'POST', body: data });
+            // Netlify automatically handles forms with data-netlify="true"
+            const res = await fetch('/', {
+                method: 'POST',
+                body: data
+            });
+
             if (res.ok) {
                 contactForm.reset();
-                status.textContent = 'Thank you for your message. We will respond soon.';
+                status.textContent = 'Thank you for your message — we will respond soon.';
             } else {
                 status.textContent = 'Submission failed. Please try again.';
             }
@@ -108,3 +119,16 @@ if (contactForm) {
     });
 }
 
+// === Smooth Scroll for Internal Links ===
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            window.scrollTo({
+                top: target.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
