@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Policies — Meadow Pathways</title>
+  <title>Referral Form — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="blugoon-body">
@@ -18,10 +18,11 @@
         <ul>
           <li><a href="index.html">🏠 Home</a></li>
           <li><a href="about.html">ℹ️ About Us</a></li>
-          <li><a href="referral.html">📝 Referral</a></li>
+          <li><a href="referral.html" class="active">📝 Referral</a></li>
           <li><a href="contact.html">☎️ Contact</a></li>
           <li><a href="eotas.html">🔍 EOTAS</a></li>
-          <li><a href="policies.html" class="active">📄 Policies</a></li>
+          <li><a href="policies.html">📄 Policies</a></li>
+          <li><a href="treverno.html">🌿 Treverno</a></li>
         </ul>
       </nav>
     </div>
@@ -30,24 +31,43 @@
   <!-- Main content -->
   <main class="main-content">
     <section class="wrap card">
-      <h1>Policies 📄</h1>
-      <p>
-        These are the public versions of our key policies. Meadow Pathways is committed to transparency and safe, effective practices.
-      </p>
+      <h1>Referral Form 📝</h1>
+      <p>Please complete the form below for a referral to Meadow Pathways. This form can be submitted by local authorities or parent/carers. All information is treated confidentially.</p>
 
-      <ul class="policy-list">
-        <li><a href="MPWEC Behaviour Policy.docx" target="_blank">Behaviour Policy</a></li>
-        <li><a href="MPWEC Curriculum Policy EOTAS September 2025.docx" target="_blank">Curriculum Policy EOTAS</a></li>
-        <li><a href="MPWEC H&S Policy Sep 25.docx" target="_blank">Health & Safety Policy</a></li>
-        <li><a href="MPWEC Lone Working Policy Sep25.docx" target="_blank">Lone Working Policy</a></li>
-        <li><a href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" target="_blank">Safeguarding & Child Protection Policy</a></li>
-        <li><a href="MPWEC Staff Conduct Policy.docx" target="_blank">Staff Conduct Policy</a></li>
-        <li><a href="MPWEC Whistleblowing Policy.docx" target="_blank">Whistleblowing Policy</a></li>
-      </ul>
+      <form name="referral" method="POST" data-netlify="true" action="thankyou.html" class="styled-form">
+        <input type="hidden" name="form-name" value="referral" />
 
-      <p>
-        For staff-only protected resources, please access the <a href="protected-resources.html">Protected Resources</a> area.
-      </p>
+        <!-- Child/Young Person Details -->
+        <h2>Child/Young Person Details</h2>
+        <label>Full Name<br><input type="text" name="child_name" required></label>
+        <label>Date of Birth<br><input type="date" name="dob" required></label>
+        <label>Address<br><input type="text" name="address" required></label>
+        <label>Current School<br><input type="text" name="current_school"></label>
+        <label>EHCP Status<br>
+          <select name="ehcp_status">
+            <option value="none">None</option>
+            <option value="in_progress">In Progress</option>
+            <option value="active">Active</option>
+          </select>
+        </label>
+
+        <!-- Referral Details -->
+        <h2>Referral Information</h2>
+        <label>Reason for Referral<br><textarea name="referral_reason" rows="4" required></textarea></label>
+        <label>Current Challenges / Needs<br><textarea name="current_needs" rows="4"></textarea></label>
+        <label>Desired Outcomes<br><textarea name="desired_outcomes" rows="4"></textarea></label>
+
+        <!-- Referrer Details -->
+        <h2>Referrer Details</h2>
+        <label>Name<br><input type="text" name="referrer_name" required></label>
+        <label>Role / Relationship<br><input type="text" name="referrer_role" required></label>
+        <label>Email<br><input type="email" name="referrer_email" required></label>
+        <label>Phone<br><input type="tel" name="referrer_phone"></label>
+
+        <button type="submit" class="submit-btn">Submit Referral</button>
+      </form>
+
+      <p class="note">For urgent cases or safeguarding concerns, please contact statutory services: ☎️ 01872 324605, or email earlyhelphub@cornwall.gov.uk, then contact the Meadow Pathways team directly.</p>
     </section>
 
     <footer class="site-footer">
