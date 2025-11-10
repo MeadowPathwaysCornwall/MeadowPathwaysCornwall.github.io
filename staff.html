@@ -1,235 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Staff — Meadow Pathways Wellbeing & Education Cornwall</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Only — Meadow Pathways</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Blugoon sidebar navigation -->
+
+  <!-- Sidebar Navigation -->
   <aside class="sidebar">
-    <div class="logo">
-      <img src="Logo.png" alt="Meadow Pathways Logo" />
-    </div>
-    <nav>
-      <ul class="nav-tabs">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="eotas.html">EOTAS</a></li>
-    <li><a href="safeguarding.html" class="active">Safeguarding Page</a></li> <!-- Active page -->
-    <li><a href="policies.html">Policies</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="staff.html">Staff Only</a></li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="treverno.html">Treverno Meadows</a></li>
-  </ul>
-</aside>
-  
-  <!-- Main content -->
-  <main class="content">
-    <section id="locked" class="card">
-      <h2>Welcome to the Staff Page</h2>
-      <p>Meadow Pathways Wellbeing & Education Cornwall</p>
-      <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
-      <label for="staffPassword">Enter Password:</label>
-      <input id="staffPassword" type="password" />
-      <button id="unlockBtn">Unlock</button>
-    </section>
-
-    <section id="staffPanel" class="card" style="display:none;">
-      <h2>Staff Internal Resources</h2>
-      <p>Internal links and information for Meadow Pathways staff</p>
-
-      <!-- Staff contacts -->
+    <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo">
+    <nav class="side-nav">
       <ul>
-        <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
-        <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-        <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-      </ul>
-
-      <!-- Statutory and partner resources -->
-      <h3>Statutory and partner resources</h3>
-      <div class="pill-container">
-        <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">Keeping children safe in education (Sep 2025) - GOV.UK</a>
-        <a class="pill" href="https://www.patreon.com/cw/pookyh/home" target="_blank">PookyH resources on Patreon</a>
-        <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House resources</a>
-        <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC learning & research</a>
-        <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank">Cios safeguarding partnership</a>
-      </div>
-
-      <!-- Internal policy documents -->
-      <h3>Internal policy documents (downloads)</h3>
-      <div class="pill-container">
-        <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy EOTAS Sep 2025</a>
-        <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>H&S Policy Sep 25</a>
-        <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
-        <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
-        <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
-        <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
-      </div>
-
-      <!-- Hours Form -->
-      <h3>Hours Logged</h3>
-      <form id="hoursForm" method="POST" action="mailto:meadowpathwayscornwall@outlook.com" enctype="text/plain" novalidate>
-        <label for="staff-name">Staff member name</label>
-        <input id="staff-name" name="staff_name" type="text" required />
-        <label for="date-worked">Date</label>
-        <input id="date-worked" name="date_worked" type="date" required />
-        <label for="duration">Duration (hours)</label>
-        <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required />
-        <label for="client">Client / session with</label>
-        <input id="client" name="client_name" type="text" />
-        <label for="notes">Brief notes</label>
-        <textarea id="notes" name="notes" rows="4"></textarea>
-        <label for="email-staff">Staff email</label>
-        <input id="email-staff" name="staff_email" type="email" required />
-        <button type="submit">Submit hours</button>
-      </form>
-
-      <!-- Expenses Form -->
-      <h3>Submit Expenses</h3>
-      <form id="expensesForm" method="POST" action="mailto:meadowpathwayscornwall@outlook.com" enctype="text/plain" novalidate>
-        <label for="staff-name-exp">Staff member name</label>
-        <input id="staff-name-exp" name="staff_name" type="text" required />
-        <label for="expense-date">Date</label>
-        <input id="expense-date" name="expense_date" type="date" required />
-        <label for="description">Expense description</label>
-        <input id="description" name="expense_description" type="text" required />
-        <label for="amount">Amount (£)</label>
-        <input id="amount" name="amount" type="number" step="0.01" required />
-        <button type="submit">Submit expense</button>
-      </form>
-
-      <!-- SharePoint & Calendar -->
-      <h3>Additional Staff Resources</h3>
-      <ul>
-        <li><a href="https://meadowpathwayscornwall.sharepoint.com/:u:/s/meadowpathways/IQAQhQyq-4EBS7K7Y-Fwsk3HAQJUqP7ZOgT9Wuy9FFBZyYM?e=J4dkgU" target="_blank">SharePoint Resources</a></li>
-        <li><a href="https://outlook.office.com/calendar/view/month" target="_blank">Staff Calendar</a></li>
-      </ul>
-    </section>
-  </main>
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Staff — Meadow Pathways Wellbeing & Education Cornwall</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- Blugoon sidebar navigation -->
-  <aside class="sidebar">
-    <div class="logo">
-      <img src="Logo.png" alt="Meadow Pathways Logo" />
-    </div>
-    <nav>
-      <ul id="primaryNav" class="nav-tabs">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html">About Us</a></li>
         <li><a href="eotas.html">EOTAS</a></li>
-        <li><a href="safeguarding.html">Safeguarding</a></li>
-        <li><a href="staff.html" class="active">Staff</a></li>
-        <li><a href="referral.html">Referral</a></li>
+        <li><a href="policies.html">Policies</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="staff.html" class="active">Staff Only</a></li>
+        <li><a href="treverno.html">Treverno Meadows</a></li>
       </ul>
     </nav>
   </aside>
 
-  <!-- Main content -->
-  <main class="content">
-    <section id="locked" class="card">
-      <h2>Welcome to the Staff Page</h2>
-      <p>Meadow Pathways Wellbeing & Education Cornwall</p>
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <div class="wrap">
+      <h1>Welcome to the Staff Page</h1>
       <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
-      <label for="staffPassword">Enter Password:</label>
-      <input id="staffPassword" type="password" />
-      <button id="unlockBtn">Unlock</button>
-    </section>
 
-    <section id="staffPanel" class="card" style="display:none;">
-      <h2>Staff Internal Resources</h2>
-      <p>Internal links and information for Meadow Pathways staff</p>
-
-      <!-- Staff contacts -->
-      <ul>
-        <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
-        <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-        <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-      </ul>
-
-      <!-- Statutory and partner resources -->
-      <h3>Statutory and partner resources</h3>
-      <div class="pill-container">
-        <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">Keeping children safe in education (Sep 2025) - GOV.UK</a>
-        <a class="pill" href="https://www.patreon.com/cw/pookyh/home" target="_blank">PookyH resources on Patreon</a>
-        <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House resources</a>
-        <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC learning & research</a>
-        <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank">Cios safeguarding partnership</a>
+      <!-- Password Lock -->
+      <div id="locked">
+        <label for="staffPassword">Enter Password to Access:</label>
+        <input type="password" id="staffPassword" placeholder="Password">
+        <button id="unlockBtn">Unlock</button>
       </div>
 
-      <!-- Internal policy documents -->
-      <h3>Internal policy documents (downloads)</h3>
-      <div class="pill-container">
-        <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy EOTAS Sep 2025</a>
-        <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>H&S Policy Sep 25</a>
-        <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
-        <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
-        <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
-        <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+      <div id="staffPanel" style="display:none;">
+        
+        <h2>Staff Resources & Links</h2>
+        <ul>
+          <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
+          <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
+          <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
+        </ul>
+
+        <h3>SharePoint & Calendar</h3>
+        <ul>
+          <li><a href="https://meadowpathwayscornwall.sharepoint.com/:u:/s/meadowpathways/IQAQhQyq-4EBS7K7Y-Fwsk3HAQJUqP7ZOgT9Wuy9FFBZyYM?e=J4dkgU" target="_blank" rel="noopener">SharePoint – Risk Assessments, Policies etc.</a></li>
+          <li><a href="https://outlook.office.com/calendar/view/month" target="_blank" rel="noopener">Meadow Pathways Staff Calendar</a></li>
+        </ul>
+
+        <h3>Hours Log</h3>
+        <form name="hours" method="POST" data-netlify="true" id="hoursForm">
+          <input type="hidden" name="form-name" value="hours">
+          <!-- Honeypot for spam -->
+          <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+          <label for="staff-name">Staff member name</label>
+          <input id="staff-name" name="staff_name" type="text" required>
+
+          <label for="date-worked">Date</label>
+          <input id="date-worked" name="date_worked" type="date" required>
+
+          <label for="duration">Duration (hours)</label>
+          <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required>
+
+          <label for="client">Client / session with</label>
+          <input id="client" name="client_name" type="text">
+
+          <label for="notes">Brief notes</label>
+          <textarea id="notes" name="notes" rows="4"></textarea>
+
+          <label for="email-staff">Staff email</label>
+          <input id="email-staff" name="staff_email" type="email" required>
+
+          <button type="submit">Submit Hours</button>
+          <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
+        </form>
+
+        <h3>Expenses Log</h3>
+        <form name="expenses" method="POST" data-netlify="true" id="expensesForm">
+          <input type="hidden" name="form-name" value="expenses">
+          <!-- Honeypot for spam -->
+          <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+          <label for="staff-name-exp">Staff member name</label>
+          <input id="staff-name-exp" name="staff_name" type="text" required>
+
+          <label for="date-exp">Date</label>
+          <input id="date-exp" name="date_exp" type="date" required>
+
+          <label for="amount">Amount (£)</label>
+          <input id="amount" name="amount" type="number" step="0.01" min="0" required>
+
+          <label for="reason">Reason / Details</label>
+          <textarea id="reason" name="reason" rows="4" required></textarea>
+
+          <button type="submit">Submit Expenses</button>
+          <div id="expensesStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
+        </form>
+
       </div>
+    </div>
 
-      <!-- Hours Form -->
-      <h3>Hours Logged</h3>
-      <form id="hoursForm" method="POST" action="mailto:meadowpathwayscornwall@outlook.com" enctype="text/plain" novalidate>
-        <label for="staff-name">Staff member name</label>
-        <input id="staff-name" name="staff_name" type="text" required />
-        <label for="date-worked">Date</label>
-        <input id="date-worked" name="date_worked" type="date" required />
-        <label for="duration">Duration (hours)</label>
-        <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required />
-        <label for="client">Client / session with</label>
-        <input id="client" name="client_name" type="text" />
-        <label for="notes">Brief notes</label>
-        <textarea id="notes" name="notes" rows="4"></textarea>
-        <label for="email-staff">Staff email</label>
-        <input id="email-staff" name="staff_email" type="email" required />
-        <button type="submit">Submit hours</button>
-      </form>
-
-      <!-- Expenses Form -->
-      <h3>Submit Expenses</h3>
-      <form id="expensesForm" method="POST" action="mailto:meadowpathwayscornwall@outlook.com" enctype="text/plain" novalidate>
-        <label for="staff-name-exp">Staff member name</label>
-        <input id="staff-name-exp" name="staff_name" type="text" required />
-        <label for="expense-date">Date</label>
-        <input id="expense-date" name="expense_date" type="date" required />
-        <label for="description">Expense description</label>
-        <input id="description" name="expense_description" type="text" required />
-        <label for="amount">Amount (£)</label>
-        <input id="amount" name="amount" type="number" step="0.01" required />
-        <button type="submit">Submit expense</button>
-      </form>
-
-      <!-- SharePoint & Calendar -->
-      <h3>Additional Staff Resources</h3>
-      <ul>
-        <li><a href="https://meadowpathwayscornwall.sharepoint.com/:u:/s/meadowpathways/IQAQhQyq-4EBS7K7Y-Fwsk3HAQJUqP7ZOgT9Wuy9FFBZyYM?e=J4dkgU" target="_blank">SharePoint Resources</a></li>
-        <li><a href="https://outlook.office.com/calendar/view/month" target="_blank">Staff Calendar</a></li>
-      </ul>
-    </section>
   </main>
 
   <!-- Footer -->
-<footer class="footer" style="background-image: url('BG.png'); background-size: cover; background-position: center; padding: 20px; color: #ffffff; text-align: center; font-size: 1rem;">
-  <p>Meadow Pathways Wellbeing & Education Cornwall Ltd © 2025</p>
-  <p>Michelle: 07932 243358 | Zoe: 07775 733587</p>
-  <p>If your enquiry is urgent or a safeguarding concern, please contact statutory services: ☎️ 01872 324605 - earlyhelphub@cornwall.gov.uk</p>
-</footer>
+  <footer class="site-footer">
+    <p>Meadow Pathways Wellbeing & Education Cornwall Ltd © 2025</p>
+    <p>Michelle: 07932 243358 | Zoe: 07775 733587</p>
+  </footer>
 
-
-  <!-- Scripts -->
   <script>
+    // Password protection
     const PASSWORD = 'MPWEC!';
     const lockedEl = document.getElementById('locked');
     const staffPanel = document.getElementById('staffPanel');
@@ -251,36 +137,48 @@
       }
     }
     unlockBtn.addEventListener('click', unlock);
-    pwdInput.addEventListener('keyup', function(e){ if(e.key==='Enter') unlock(); });
-  </script>
-</body>
-</html>
+    pwdInput.addEventListener('keyup', function (e) { if (e.key === 'Enter') unlock(); });
 
-
-  <!-- Scripts -->
-  <script>
-    const PASSWORD = 'MPWEC!';
-    const lockedEl = document.getElementById('locked');
-    const staffPanel = document.getElementById('staffPanel');
-    const unlockBtn = document.getElementById('unlockBtn');
-    const pwdInput = document.getElementById('staffPassword');
-
-    function unlock() {
-      const val = (pwdInput.value || '').trim();
-      if (val === PASSWORD) {
-        lockedEl.style.display = 'none';
-        staffPanel.style.display = 'block';
-        lockedEl.setAttribute('aria-hidden', 'true');
-        staffPanel.setAttribute('aria-hidden', 'false');
-        document.getElementById('staff-name').focus();
-      } else {
-        pwdInput.value = '';
-        pwdInput.focus();
-        alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+    // Hours form submission
+    const hoursForm = document.getElementById('hoursForm');
+    const hoursStatus = document.getElementById('hoursStatus');
+    hoursForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      hoursStatus.textContent = 'Submitting...';
+      const data = new FormData(hoursForm);
+      try {
+        const res = await fetch('/', { method:'POST', body:data });
+        if(res.ok){
+          hoursForm.reset();
+          hoursStatus.textContent = 'Hours submitted. Thank you.';
+        } else {
+          hoursStatus.textContent = 'Submission error — please try again later.';
+        }
+      } catch(err){
+        hoursStatus.textContent = 'Network error — check connection and try again.';
       }
-    }
-    unlockBtn.addEventListener('click', unlock);
-    pwdInput.addEventListener('keyup', function(e){ if(e.key==='Enter') unlock(); });
+    });
+
+    // Expenses form submission
+    const expensesForm = document.getElementById('expensesForm');
+    const expensesStatus = document.getElementById('expensesStatus');
+    expensesForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      expensesStatus.textContent = 'Submitting...';
+      const data = new FormData(expensesForm);
+      try {
+        const res = await fetch('/', { method:'POST', body:data });
+        if(res.ok){
+          expensesForm.reset();
+          expensesStatus.textContent = 'Expenses submitted. Thank you.';
+        } else {
+          expensesStatus.textContent = 'Submission error — please try again later.';
+        }
+      } catch(err){
+        expensesStatus.textContent = 'Network error — check connection and try again.';
+      }
+    });
   </script>
+
 </body>
 </html>
