@@ -1,98 +1,140 @@
-/* --- General --- */
-:root {
-  --primary-color: #3A86FF;
-  --secondary-color: #FFBE0B;
-  --accent-color: #FB5607;
-  --bg-color: #f5f5f5;
-  --text-color: #333;
-  --text-soft: #555;
-  --pill-bg: #e0f2ff;
-  --pill-color: #034078;
-}
-
-* { box-sizing: border-box; margin:0; padding:0; font-family: 'Arial', sans-serif; }
-
+/* Global Styles */
 body {
-  display: flex;
-  background: var(--bg-color);
-  color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+    color: #333;
 }
 
-/* --- Sidebar --- */
-.sidebar {
-  width: 260px;
-  background: var(--primary-color);
-  color: #fff;
-  height: 100vh;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
+a {
+    text-decoration: none;
+    color: #0056b3;
 }
 
-.sidebar .logo img { width: 80px; margin-bottom: 12px; }
-.sidebar .logo h1 { font-size: 20px; }
-
-.nav-tabs { list-style: none; margin-top: 20px; }
-.nav-tabs li { margin-bottom: 12px; }
-.nav-tabs a {
-  color: #fff;
-  text-decoration: none;
-  display: block;
-  padding: 8px 12px;
-  border-radius: 6px;
-}
-.nav-tabs a.active, .nav-tabs a:hover {
-  background: var(--secondary-color);
-  color: #000;
+header {
+    background: linear-gradient(to right, #4CAF50, #2196F3);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* --- Main Content --- */
-.main-content {
-  margin-left: 280px;
-  padding: 20px;
-  flex: 1;
+header img {
+    height: 60px;
 }
 
-/* --- Hero Section --- */
-.hero { margin-bottom: 24px; }
-.hero h2 { font-size: 28px; margin-bottom: 12px; }
-.hero p { margin-bottom: 10px; }
-
-/* --- Carousel --- */
-.carousel-section { position: relative; margin-bottom: 24px; }
-.carousel { position: relative; overflow: hidden; height: 250px; }
-.carousel img { width: 100%; height: 250px; object-fit: cover; display: none; }
-.carousel img.active { display: block; }
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--accent-color);
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 50%;
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
 }
-.carousel-btn.prev { left: 10px; }
-.carousel-btn.next { right: 10px; }
 
-/* --- Pills --- */
-.pills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-.pill {
-  background: var(--pill-bg);
-  color: var(--pill-color);
-  padding: 8px 12px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: 600;
+nav ul li {
+    padding: 5px 10px;
 }
-.pill:hover { background: var(--accent-color); color: #fff; }
 
-/* --- Contact Info --- */
-.contact-info { margin-top: 24px; }
-.contact-info h3 { margin-bottom: 12px; }
-.contact-info a { color: var(--primary-color); text-decoration: underline; }
+main {
+    padding: 20px;
+}
 
+h1, h2, h3 {
+    color: #333;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel img {
+    width: 100%;
+    display: none;
+}
+
+.carousel img.active {
+    display: block;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea, select, button {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 600px;
+}
+
+button {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0b7dda;
+}
+
+/* Back to top */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background: #2196F3;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Downloadable links */
+.download-link {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.download-link:hover {
+    background: #388E3C;
+}
+
+/* Staff password */
+#staff-content {
+    display: none;
+}
