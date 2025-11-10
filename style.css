@@ -5,7 +5,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #003566; /* Dark blue behind text boxes */
+    background-color: #0f1f4d; /* Dark blue behind text boxes */
     color: #333;
 }
 
@@ -15,7 +15,7 @@ a {
 }
 
 /* ===========================
-   Sidebar
+   Sidebar Navigation
 =========================== */
 .sidebar {
     position: fixed;
@@ -23,7 +23,7 @@ a {
     left: 0;
     width: 220px;
     height: 100%;
-    background-color: #1e90ff; /* Default sidebar color */
+    background-color: #1e90ff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,30 +51,31 @@ a {
     width: 100%;
 }
 
-.side-nav li a {
+/* Navigation Colored Tabs */
+.nav-tab {
     display: block;
     padding: 12px 16px;
-    color: #fff;
-    font-weight: 600;
+    margin: 6px 8px;
     border-radius: 8px;
-    margin: 4px 8px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
     transition: 0.3s;
-    text-align: center;
 }
 
-/* Colored tabs */
-.side-nav li a.tab-home { background-color: #0077b6; }
-.side-nav li a.tab-about { background-color: #0096c7; }
-.side-nav li a.tab-eotas { background-color: #00b4d8; }
-.side-nav li a.tab-policies { background-color: #48cae4; }
-.side-nav li a.tab-contact { background-color: #90e0ef; color: #003566; }
-.side-nav li a.tab-staff { background-color: #ade8f4; color: #003566; }
-.side-nav li a.tab-tm { background-color: #caf0f8; color: #003566; }
-.side-nav li a.tab-sg { background-color: #0077b6; }
+/* Individual tab colors */
+.nav-tab.home { background-color: #1e90ff; }
+.nav-tab.eotas { background-color: #2e8b57; }
+.nav-tab.about { background-color: #ff8c00; }
+.nav-tab.policies { background-color: #8a2be2; }
+.nav-tab.referral { background-color: #ff1493; }
+.nav-tab.contact { background-color: #20b2aa; }
+.nav-tab.staff { background-color: #ff4500; }
+.nav-tab.treverno { background-color: #4682b4; }
+.nav-tab.safeguarding { background-color: #6a5acd; }
 
-/* Hover & active */
-.side-nav li a:hover,
-.side-nav li a.active {
+.nav-tab:hover,
+.nav-tab[aria-current="page"] {
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     transform: scale(1.02);
 }
@@ -87,24 +88,24 @@ a {
     padding: 24px;
 }
 
-/* Wrap text boxes with light blue background */
-.wrap {
+/* Text boxes - light blue background */
+.wrap, .card {
     max-width: 900px;
     margin: 16px auto;
     padding: 16px;
-    background-color: #cde7f0; /* Light blue background for text boxes */
+    background-color: #cce0ff; /* Light blue */
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
 
-/* Header sections using BG.png */
-.page-header {
+/* Headers Section - BG.png background like footer */
+.header-section {
     background: url('BG.png') no-repeat center/cover;
+    color: #0f1f4d; /* Dark blue text */
     padding: 24px 16px;
     border-radius: 12px;
-    color: #003566;
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 /* ===========================
@@ -197,7 +198,7 @@ a {
 =========================== */
 .site-footer {
     background: url('BG.png') no-repeat center/cover;
-    color: #003566; /* Dark text */
+    color: #0f1f4d; /* Darker text */
     font-size: 1.1rem;
     text-align: center;
     padding: 24px 16px;
@@ -231,7 +232,7 @@ a {
 
 .staff-member {
     text-align: center;
-    background-color: #cde7f0; /* Match text boxes */
+    background-color: #f0f8ff;
     padding: 12px;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
@@ -242,6 +243,26 @@ a {
     max-width: 150px;
     border-radius: 50%;
     margin-bottom: 12px;
+}
+
+/* ===========================
+   Pill Tabs for PDFs / Policies / Links
+=========================== */
+.pill {
+    display: inline-block;
+    padding: 10px 16px;
+    margin: 4px 8px;
+    border-radius: 8px;
+    background-color: #1e90ff;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.pill:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 /* ===========================
