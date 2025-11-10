@@ -5,7 +5,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f9;
+    background-color: #0b3d91; /* Darker blue behind text boxes */
     color: #333;
 }
 
@@ -23,7 +23,7 @@ a {
     left: 0;
     width: 220px;
     height: 100%;
-    background-color: #1e90ff;
+    background-color: #1e90ff; /* Default sidebar color */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,24 +51,27 @@ a {
     width: 100%;
 }
 
+/* ===========================
+   Navigation Tabs with colors
+=========================== */
 .side-nav li a {
     display: block;
     padding: 12px 16px;
-    color: #fff;
     font-weight: 600;
     border-radius: 8px;
     margin: 4px 8px;
     transition: 0.3s;
+    color: #fff;
 }
 
-/* Coloured tabs for navigation */
-.side-nav li a:nth-child(1) { background-color: #007acc; }
-.side-nav li a:nth-child(2) { background-color: #00a651; }
-.side-nav li a:nth-child(3) { background-color: #ff9800; }
-.side-nav li a:nth-child(4) { background-color: #9c27b0; }
-.side-nav li a:nth-child(5) { background-color: #e91e63; }
-.side-nav li a:nth-child(6) { background-color: #3f51b5; }
-.side-nav li a:nth-child(7) { background-color: #ff5722; }
+.side-nav li a.home { background-color: #1e90ff; }
+.side-nav li a.about { background-color: #4b9cd3; }
+.side-nav li a.eotas { background-color: #37b3a9; }
+.side-nav li a.safeguarding { background-color: #f59c1a; }
+.side-nav li a.staff { background-color: #8a2be2; }
+.side-nav li a.policies { background-color: #ff6347; }
+.side-nav li a.contact { background-color: #32cd32; }
+.side-nav li a.treverno { background-color: #ff1493; }
 
 .side-nav li a:hover,
 .side-nav li a.active {
@@ -84,11 +87,13 @@ a {
     padding: 24px;
 }
 
+/* Text box wrappers and cards */
 .wrap, .card {
     max-width: 900px;
     margin: 16px auto;
     padding: 16px;
-    background-color: #cce5ff; /* Light blue background for all text boxes */
+    background-color: #add8e6; /* Light blue text box */
+    color: #000; /* Text color for readability */
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
@@ -183,7 +188,7 @@ a {
 =========================== */
 .site-footer {
     background: url('BG.png') no-repeat center/cover;
-    color: #222; /* Darker text for visibility */
+    color: #111; /* Darker text for visibility */
     font-size: 1.1rem;
     text-align: center;
     padding: 24px 16px;
