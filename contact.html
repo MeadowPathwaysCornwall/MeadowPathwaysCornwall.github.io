@@ -1,93 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="bootstrap.min.css" />
-    <link rel="stylesheet" href="fontawesome.css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Meadow Pathways</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="blugoon-body">
 
-  <body>
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-      <div class="logo">
-        <img src="Logo.png" alt="Meadow Pathways Logo" />
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+      <div class="logo-wrap">
+        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
       </div>
-      <nav>
+      <nav class="side-nav">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="eotas.html">EOTAS</a></li>
-          <li><a href="treverno.html">Treverno</a></li>
-          <li><a href="policies.html">Policies</a></li>
-          <li><a href="referral.html">Referral</a></li>
-          <li><a href="staff.html">Staff</a></li>
-          <li class="active"><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">🏠 Home</a></li>
+          <li><a href="about.html">ℹ️ About Us</a></li>
+          <li><a href="referral.html">📝 Referral</a></li>
+          <li><a href="contact.html" class="active">☎️ Contact</a></li>
+          <li><a href="eotas.html">🔍 EOTAS</a></li>
+          <li><a href="policies.html">📄 Policies</a></li>
+          <li><a href="treverno.html">🌿 Treverno</a></li>
         </ul>
       </nav>
-    </aside>
+    </div>
+  </aside>
 
-    <!-- Main Content -->
-    <main class="content-area">
-      <!-- Hero Section -->
-      <section class="hero" style="background-image:url('BG.png');">
-        <div class="overlay">
-          <h1>Contact Us</h1>
-          <p>We are here to answer your questions and support your needs</p>
-        </div>
-      </section>
+  <!-- Main content -->
+  <main class="main-content">
+    <section class="wrap card">
+      <h1>Contact Meadow Pathways</h1>
+      <p>We are here to support children, families, schools, and partner agencies. Please reach out using the details below or complete the secure contact form.</p>
 
-      <!-- Contact Details Section -->
-      <section class="container py-5">
-        <h2>Our Contact Details</h2>
-        <ul>
-          <li><strong>Michelle Pascoe:</strong> <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-          <li><strong>Zoe Waitz:</strong> <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-          <li><strong>Phone:</strong> 01234 567890</li>
-          <li><strong>Address:</strong> Meadow Pathways, Cornwall, UK</li>
-        </ul>
-      </section>
+      <h2>Our Contact Details</h2>
+      <ul>
+        <li><strong>Michelle Pascoe:</strong> <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a> | 07932 243358</li>
+        <li><strong>Zoe Waitz:</strong> <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a> | 07775 733587</li>
+      </ul>
 
-      <!-- Contact Form Section -->
-      <section class="container py-5">
-        <h2>Send Us a Message</h2>
-        <form action="https://formspree.io/f/movnvzqp" method="POST">
-          <div class="mb-3">
-            <label for="name" class="form-label">Your Name</label>
-            <input type="text" class="form-control" id="name" name="name" required />
-          </div>
+      <h2>Contact Form</h2>
+      <form name="contact" method="POST" data-netlify="true" action="thankyou.html" class="styled-form">
+        <input type="hidden" name="form-name" value="contact" />
 
-          <div class="mb-3">
-            <label for="email" class="form-label">Your Email</label>
-            <input type="email" class="form-control" id="email" name="_replyto" required />
-          </div>
+        <label>Name<br><input type="text" name="name" required></label>
+        <label>Email<br><input type="email" name="email" required></label>
+        <label>Phone (optional)<br><input type="tel" name="phone"></label>
+        <label>Subject<br><input type="text" name="subject" required></label>
+        <label>Message<br><textarea name="message" rows="6" required></textarea></label>
 
-          <div class="mb-3">
-            <label for="subject" class="form-label">Subject</label>
-            <input type="text" class="form-control" id="subject" name="subject" required />
-          </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
 
-          <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
-            <textarea class="form-control" id="message" name="message" rows="6" required></textarea>
-          </div>
+      <h2>Urgent or Safeguarding Concerns</h2>
+      <p>If your enquiry is urgent or relates to a safeguarding concern, please contact statutory services immediately:</p>
+      <ul>
+        <li>☎️ Early Help Hub: 01872 324605</li>
+        <li>Email: <a href="mailto:earlyhelphub@cornwall.gov.uk">earlyhelphub@cornwall.gov.uk</a></li>
+      </ul>
+      <p>Then contact the Meadow Pathways team directly via the emails or phone numbers above.</p>
+    </section>
 
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" style="background-image:url('BG.png'); background-size:cover;">
-      <div class="footer-content">
-        <p>&copy; 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
-        <p>Supporting inclusive education and emotional wellbeing across Cornwall.</p>
-      </div>
+    <footer class="site-footer">
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
     </footer>
+  </main>
 
-    <script src="bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+</body>
 </html>
