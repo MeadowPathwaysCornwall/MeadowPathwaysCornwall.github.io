@@ -5,7 +5,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0f1f4d; /* Dark blue behind text boxes */
+    background-color: #003366; /* darker Blugoon background behind light blue boxes */
     color: #333;
 }
 
@@ -15,7 +15,7 @@ a {
 }
 
 /* ===========================
-   Sidebar Navigation
+   Sidebar
 =========================== */
 .sidebar {
     position: fixed;
@@ -31,16 +31,13 @@ a {
     overflow-y: auto;
 }
 
-.sidebar-inner {
-    width: 100%;
-}
-
 .sidebar-logo {
     width: 160px;
     display: block;
     margin: 0 auto 16px auto;
 }
 
+/* Navigation Tabs */
 .side-nav ul {
     list-style: none;
     padding: 0;
@@ -51,31 +48,29 @@ a {
     width: 100%;
 }
 
-/* Navigation Colored Tabs */
 .nav-tab {
     display: block;
     padding: 12px 16px;
-    margin: 6px 8px;
-    border-radius: 8px;
     font-weight: 600;
-    text-decoration: none;
-    color: #fff;
+    border-radius: 8px;
+    margin: 4px 8px;
+    text-align: left;
     transition: 0.3s;
+    color: #fff;
 }
 
-/* Individual tab colors */
-.nav-tab.home { background-color: #1e90ff; }
-.nav-tab.eotas { background-color: #2e8b57; }
-.nav-tab.about { background-color: #ff8c00; }
-.nav-tab.policies { background-color: #8a2be2; }
-.nav-tab.referral { background-color: #ff1493; }
-.nav-tab.contact { background-color: #20b2aa; }
-.nav-tab.staff { background-color: #ff4500; }
-.nav-tab.treverno { background-color: #4682b4; }
-.nav-tab.safeguarding { background-color: #6a5acd; }
+/* Colored tabs for each page */
+.nav-tab.home { background-color:#1e90ff; }
+.nav-tab.eotas { background-color:#4682b4; }
+.nav-tab.about { background-color:#5f9ea0; }
+.nav-tab.policies { background-color:#6495ed; }
+.nav-tab.referral { background-color:#4169e1; }
+.nav-tab.contact { background-color:#1c86ee; }
+.nav-tab.staff { background-color:#00bfff; }
+.nav-tab.treverno { background-color:#87cefa; }
+.nav-tab.safeguarding { background-color:#5dade2; }
 
-.nav-tab:hover,
-.nav-tab[aria-current="page"] {
+.nav-tab:hover, .nav-tab.active {
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     transform: scale(1.02);
 }
@@ -88,24 +83,25 @@ a {
     padding: 24px;
 }
 
-/* Text boxes - light blue background */
-.wrap, .card {
+/* Light blue content boxes */
+.wrap {
     max-width: 900px;
     margin: 16px auto;
     padding: 16px;
-    background-color: #cce0ff; /* Light blue */
+    background-color: #cce0ff; /* light blue */
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
 
-/* Headers Section - BG.png background like footer */
-.header-section {
+/* ===========================
+   Page Header Section
+=========================== */
+.page-header {
     background: url('BG.png') no-repeat center/cover;
-    color: #0f1f4d; /* Dark blue text */
-    padding: 24px 16px;
+    color: #001f4d; /* dark blue text */
+    padding: 30px;
     border-radius: 12px;
     text-align: center;
-    margin-bottom: 16px;
 }
 
 /* ===========================
@@ -177,51 +173,7 @@ a {
 }
 
 /* ===========================
-   QR Codes
-=========================== */
-.qr-codes {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 12px;
-}
-
-.qr-codes .qr {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-}
-
-/* ===========================
-   Footer
-=========================== */
-.site-footer {
-    background: url('BG.png') no-repeat center/cover;
-    color: #0f1f4d; /* Darker text */
-    font-size: 1.1rem;
-    text-align: center;
-    padding: 24px 16px;
-    margin-top: 24px;
-}
-
-.site-footer p {
-    margin: 4px 0;
-}
-
-/* ===========================
-   Cards / Highlighted sections
-=========================== */
-.card h1, .card h2 {
-    margin-top: 0;
-}
-
-.card ul {
-    padding-left: 20px;
-}
-
-/* ===========================
-   Staff page specific
+   Staff Page
 =========================== */
 .staff-container {
     display: grid;
@@ -232,7 +184,7 @@ a {
 
 .staff-member {
     text-align: center;
-    background-color: #f0f8ff;
+    background-color: #cce0ff;
     padding: 12px;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
@@ -246,23 +198,19 @@ a {
 }
 
 /* ===========================
-   Pill Tabs for PDFs / Policies / Links
+   Footer
 =========================== */
-.pill {
-    display: inline-block;
-    padding: 10px 16px;
-    margin: 4px 8px;
-    border-radius: 8px;
-    background-color: #1e90ff;
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
+.site-footer {
+    background: url('BG.png') no-repeat center/cover;
+    color: #001f4d; /* darker text for visibility */
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 24px 16px;
+    margin-top: 24px;
 }
 
-.pill:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+.site-footer p {
+    margin: 4px 0;
 }
 
 /* ===========================
@@ -280,4 +228,3 @@ a {
         position: relative;
     }
 }
-
