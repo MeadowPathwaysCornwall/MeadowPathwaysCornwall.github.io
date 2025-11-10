@@ -1,87 +1,247 @@
-/* ============================================================
-   Meadow Pathways Script
-   - Carousel
-   - Active Navigation Highlight
-   - Netlify Form Confirmation
-   ============================================================ */
-
-// ============ CAROUSEL / SLIDER FUNCTIONALITY ============
-const slides = document.querySelectorAll('.carousel-slides img');
-const dots = document.querySelectorAll('.dots button');
-let currentSlide = 0;
-
-function showSlide(index) {
-  if (slides.length === 0) return;
-  slides.forEach((slide, i) => {
-    slide.style.display = i === index ? 'block' : 'none';
-  });
-  dots.forEach((dot, i) => {
-    dot.classList.toggle('active', i === index);
-  });
-  currentSlide = index;
+/* ===========================
+   Global Body & Reset
+=========================== */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
 }
 
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-function prevSlide() {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
+/* ===========================
+   Sidebar
+=========================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #1e90ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 16px;
+    overflow-y: auto;
 }
 
-// Auto-slide every 5 seconds
-if (slides.length > 0) {
-  showSlide(currentSlide);
-  setInterval(nextSlide, 5000);
+.sidebar-inner {
+    width: 100%;
 }
 
-// ============ ACTIVE NAVIGATION HIGHLIGHT ============
-const navLinks = document.querySelectorAll('.sidebar ul li a');
-navLinks.forEach(link => {
-  if (link.href === window.location.href) {
-    link.classList.add('active');
-  }
-});
+.sidebar-logo {
+    width: 160px;
+    display: block;
+    margin: 0 auto 16px auto;
+}
 
-// ============ SMOOTH SCROLL FOR INTERNAL LINKS ============
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-// ============ NETLIFY FORM CONFIRMATION ============
-const forms = document.querySelectorAll('form');
-forms.forEach(form => {
-  form.addEventListener('submit', function (e) {
-    const action = form.getAttribute('action');
-    const isNetlify = action && (action.includes('netlify') || form.hasAttribute('data-netlify'));
+.side-nav li {
+    width: 100%;
+}
 
-    if (isNetlify) {
-      e.preventDefault();
-      const formData = new FormData(form);
+.side-nav li a {
+    display: block;
+    padding: 12px 16px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    margin: 4px 8px;
+    transition: 0.3s;
+}
 
-      fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      })
-        .then(response => {
-          if (response.ok) {
-            form.reset();
-            alert("✅ Thank you! Your form has been successfully submitted.");
-          } else {
-            alert("⚠️ There was an error submitting your form. Please try again.");
-          }
-        })
-        .catch(() => {
-          alert("⚠️ Network error — please check your connection.");
-        });
+/* Coloured tabs for navigation */
+.side-nav li a:nth-child(1) { background-color: #007acc; }
+.side-nav li a:nth-child(2) { background-color: #00a651; }
+.side-nav li a:nth-child(3) { background-color: #ff9800; }
+.side-nav li a:nth-child(4) { background-color: #9c27b0; }
+.side-nav li a:nth-child(5) { background-color: #e91e63; }
+.side-nav li a:nth-child(6) { background-color: #3f51b5; }
+.side-nav li a:nth-child(7) { background-color: #ff5722; }
+
+.side-nav li a:hover,
+.side-nav li a.active {
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transform: scale(1.02);
+}
+
+/* ===========================
+   Main Content
+=========================== */
+.main-content {
+    margin-left: 240px;
+    padding: 24px;
+}
+
+.wrap, .card {
+    max-width: 900px;
+    margin: 16px auto;
+    padding: 16px;
+    background-color: #cce5ff; /* Light blue background for all text boxes */
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+/* ===========================
+   Carousel
+=========================== */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slides img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+}
+
+.carousel-btn {
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0,0,0,0.6);
+}
+
+.dots {
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.dots button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.dots button.active {
+    background-color: #1e90ff;
+}
+
+/* ===========================
+   QR Codes
+=========================== */
+.qr-codes {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.qr-codes .qr {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+/* ===========================
+   Footer
+=========================== */
+.site-footer {
+    background: url('BG.png') no-repeat center/cover;
+    color: #222; /* Darker text for visibility */
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 24px 16px;
+    margin-top: 24px;
+}
+
+.site-footer p {
+    margin: 4px 0;
+}
+
+/* ===========================
+   Cards / Highlighted sections
+=========================== */
+.card h1, .card h2 {
+    margin-top: 0;
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+/* ===========================
+   Staff page specific
+=========================== */
+.staff-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    margin-top: 16px;
+}
+
+.staff-member {
+    text-align: center;
+    background-color: #f0f8ff;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.staff-member img {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media screen and (max-width: 900px) {
+    .main-content {
+        margin-left: 0;
+        padding: 16px;
     }
-  });
-});
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+}
