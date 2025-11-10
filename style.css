@@ -81,13 +81,14 @@ body {
 /* =======================
    INDIVIDUAL PAGE HEADERS
 ======================= */
+/* All headers now use BG.png */
 .page-header.main-header       { background-image: url('BG.png'); }
-.page-header.eotas-header      { background-image: url('EOTAS_BG.png'); }
+.page-header.eotas-header      { background-image: url('BG.png'); }
 .page-header.about-header      { background-image: url('BG.png'); }
-.page-header.staff-header      { background-image: url('STAFF_BG.png'); }
-.page-header.contact-header    { background-image: url('CONTACT_BG.png'); }
-.page-header.policies-header   { background-image: url('POLICIES_BG.png'); }
-.page-header.referral-header   { background-image: url('REFERRAL_BG.png'); }
+.page-header.staff-header      { background-image: url('BG.png'); }
+.page-header.contact-header    { background-image: url('BG.png'); }
+.page-header.policies-header   { background-image: url('BG.png'); }
+.page-header.referral-header   { background-image: url('BG.png'); }
 
 /* =======================
    RESPONSIVE HEADER STYLING
@@ -113,3 +114,4 @@ body {
 .pill-container li {
   margin: 0;
 }
+
