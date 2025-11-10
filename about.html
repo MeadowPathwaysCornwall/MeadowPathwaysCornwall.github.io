@@ -1,152 +1,208 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>About — Meadow Pathways</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Meadow Pathways Wellbeing and Education Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Blugoon Theme Enhancements */
+    :root {
+      --primary-color: #2f8f4a;
+      --secondary-color: #4aa1c1;
+      --muted: #667788;
+      --card-bg: #f7fbfd;
+      --soft-border: #e6eef3;
+      --accent-gradient: linear-gradient(135deg, #2f8f4a, #4aa1c1);
+      --pill-bg: #2f8f4a;
+      --pill-hover: #256c39;
+      --footer-bg: #3b4d2c;
+      --footer-gold: #d4af37;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      background: url('BG.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #1e2f2d;
+    }
+
+    a { text-decoration: none; color: var(--primary-color); }
+    a:hover { text-decoration: underline; }
+
+    header.site-header {
+      background: var(--primary-color);
+      color: white;
+      padding: 16px 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .logo { height: 60px; }
+    .nav-tabs {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .nav-tabs li a {
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+    }
+    .nav-tabs li a.active, .nav-tabs li a:hover {
+      background: var(--secondary-color);
+    }
+
+    main.container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    h1,h2,h3 {
+      color: var(--primary-color);
+    }
+
+    section.card {
+      background: var(--card-bg);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(15,40,50,0.08);
+      margin-bottom: 32px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .team-member img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .pill {
+      background: var(--pill-bg);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+    }
+    .pill:hover { background: var(--pill-hover); }
+
+    footer.site-footer {
+      background: var(--footer-bg);
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      border-top: 3px solid var(--footer-gold);
+    }
+    .footer-logo { width: 70px; height: auto; margin-bottom: 5px; }
+
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <div class="site-wrapper">
-    <!-- SIDEBAR -->
-    <aside class="sidebar" role="complementary" aria-label="Main navigation">
-      <div class="sidebar-top">
-        <img src="Logo.png" alt="Meadow Pathways logo" class="logo-small">
-        <h1 class="brand">Meadow Pathways</h1>
-        <p class="tag">Wellbeing &amp; Education Cornwall</p>
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <div class="logo-wrap">
+        <a href="index.html" class="brand" aria-label="Meadow Pathways home">
+          <img src="Logo.png" alt="Meadow Pathways Logo" class="logo" />
+        </a>
       </div>
-
-      <nav class="side-nav" aria-label="Primary">
-        <ul>
+      <nav aria-label="Primary" class="primary-nav">
+        <ul class="nav-tabs">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" class="active">About</a></li>
           <li><a href="eotas.html">EOTAS</a></li>
           <li><a href="safeguarding.html">Safeguarding</a></li>
+          <li><a href="staff.html">Staff</a></li>
           <li><a href="referral.html">Referral</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="staff.html">Staff</a></li>
-          <li><a href="policies.html">Policies</a></li>
         </ul>
       </nav>
+    </div>
+  </header>
 
-      <div class="social">
-        <img src="FacebookQR.jpg" alt="Facebook QR" class="qr">
-        <img src="crowdfunderQR.png" alt="Crowdfunder QR" class="qr">
+  <main id="main" class="container" role="main">
+
+    <section class="card">
+      <h1>About Meadow Pathways</h1>
+      <h2>Guiding Individual Journeys with Care and Purpose</h2>
+      <p>Meadow Pathways provides trauma-informed, person-centred education and wellbeing support for children and young people across Cornwall. We specialise in supporting those with SEND, SEMH, Emotionally Based School Non-Attendance (EBSNA), bereavement, and the effects of educational trauma. Our ethos is rooted in safety, trust, creativity, and belonging.</p>
+      <p>We believe that every child deserves the opportunity to thrive, no matter their background or previous experiences. Our holistic approach blends therapeutic practice with flexible, creative education that meets learners where they are emotionally, socially, and academically.</p>
+      <p>Working in partnership with families, schools, and local authorities, we design individualised programmes that nurture confidence, rebuild relationships with learning, and promote emotional resilience. Whether through outdoor exploration, creative arts, or one-to-one mentoring, our work empowers children and young people to rediscover their strengths and find joy in learning.</p>
+      <p>At Meadow Pathways, we recognise that healing and education go hand in hand. By fostering an environment where every voice is valued and every journey respected, we help our learners grow not only in knowledge but in wellbeing, independence, and self-belief.</p>
+    </section>
+
+    <section class="card">
+      <h2>What We Offer</h2>
+      <ul>
+        <li>🧑‍🤝‍🧑 Mentoring and Advocacy: Consistent relational support</li>
+        <li>📚 Tailored Learning Packages: Flexible academic pathways</li>
+        <li>🛠 Life Skills and Independence: Functional skills and community engagement</li>
+        <li>🧮 Diagnostic Assessments: Literacy and numeracy profiling</li>
+        <li>💛 SEMH Interventions: Trauma-informed strategies</li>
+        <li>🎨 Wellbeing and PSHE: Creative therapeutic sessions</li>
+        <li>🔄 Transitional Services: Reintegration and onward pathways</li>
+        <li>🌲🍳 Therapeutic & Curriculum Linked Activities: Bush craft, walking, fitness, water activities, fishing, climbing, cooking, play, biking, and more linked to ASDAN & AQA Unit Awards</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Our Approach</h2>
+      <p>We build trusting relationships through warmth, empathy, and consistency. Guided by the SPACE model; Safety, Playfulness, Acceptance, Curiosity, and Empathy. To support each individual child’s needs we adapt our approach, which can include play therapy, creative activities, and community-based learning to help children re-engage, feel safe, and grow in confidence.</p>
+    </section>
+
+    <section class="card">
+      <h2>Meet the Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="MP.jpeg" alt="Michelle Pascoe" />
+          <h3>Michelle Pascoe 🌿</h3>
+          <p>Founding director and Lead Therapist. Michelle supports children and young people with SEN, SEMH, educational trauma, bereavement, and EBSNA. With over 20 years of experience, she is a qualified counsellor and play therapist and focuses on building trust and emotional safety.</p>
+        </div>
+        <div class="team-member">
+          <img src="Zoe.jpeg" alt="Zoe Waitz" />
+          <h3>Zoe Waitz 🌸</h3>
+          <p>Founding director. Zoe’s leadership is rooted in genuine care, providing inclusive, therapeutic education for children with SEND and SEMH needs. She integrates wellbeing at the centre of everything and brings deep insight into the emotional and practical realities of learners and staff.</p>
+        </div>
       </div>
+    </section>
 
-      <footer class="sidebar-foot">
-        <small>© 2025 Meadow Pathways</small>
-      </footer>
-    </aside>
+    <section class="card">
+      <h2>Resources & Policies</h2>
+      <div class="tabs">
+        <a class="pill" href="EBSNA.docx" download>EBSNA.docx</a>
+        <a class="pill" href="RSHE 2025.pdf" download>RSHE 2025.pdf</a>
+        <a class="pill" href="values.pdf" download>Values.pdf</a>
+      </div>
+    </section>
 
-    <!-- MAIN CONTENT -->
-    <main id="main" class="main-content" role="main">
-      <section class="container content">
-        <h1>About Meadow Pathways</h1>
-        <h2>Guiding Individual Journeys with Care and Purpose</h2>
+  </main>
 
-        <h3>Who We Are</h3>
-        <p>Meadow Pathways provides trauma-informed, person-centred education and wellbeing support for children and young people across Cornwall. We specialise in supporting those with SEND, SEMH, Emotionally Based School Non-Attendance (EBSNA), bereavement, and the effects of educational trauma. Our ethos is rooted in <strong>safety, trust, creativity, and belonging.</strong></p>
-
-        <p>We believe that every child deserves the opportunity to thrive, no matter their background or previous experiences. Our holistic approach blends therapeutic practice with flexible, creative education that meets learners where they are emotionally, socially, and academically.</p>
-
-        <p>Working in partnership with families, schools, and local authorities, we design individualised programmes that nurture confidence, rebuild relationships with learning, and promote emotional resilience. Whether through outdoor exploration, creative arts, or one-to-one mentoring, our work empowers children and young people to rediscover their strengths and find joy in learning.</p>
-
-        <p>At Meadow Pathways, we recognise that healing and education go hand in hand. By fostering an environment where every voice is valued and every journey respected, we help our learners grow not only in knowledge but in wellbeing, independence, and self-belief.</p>
-
-        <h3>What We Offer</h3>
-        <ul>
-          <li>🧑‍🤝‍🧑 <strong>Mentoring and Advocacy</strong> — Consistent relational support.</li>
-          <li>📚 <strong>Tailored Learning Packages</strong> — Flexible academic pathways.</li>
-          <li>🛠️ <strong>Life Skills and Independence</strong> — Functional skills and community engagement.</li>
-          <li>🧮 <strong>Diagnostic Assessments</strong> — Literacy and numeracy profiling.</li>
-          <li>💛 <strong>SEMH Interventions</strong> — Trauma-informed interventions.</li>
-          <li>🎨 <strong>Wellbeing and PSHE</strong> — Creative therapeutic sessions.</li>
-          <li>🔄 <strong>Transitional Services</strong> — Reintegration and onward pathways.</li>
-          <li>🌲🍳 <strong>Therapeutic &amp; Curriculum Linked Activities</strong> — Nature-based bush craft, walking, fitness, water-based activities, fishing, climbing, cooking, play, biking, and more. Activities are linked to the curriculum and supported by ASDAN and AQA Unit Awards.</li>
-        </ul>
-
-        <h3>Our Approach</h3>
-        <p>We build trusting relationships through warmth, empathy, and consistency. Guided by the <strong>SPACE model:</strong> Safety, Playfulness, Acceptance, Curiosity, and Empathy.  
-        To support each individual child’s needs we adapt our approach — this may include play therapy, creative activities, and community-based learning to help children re-engage, feel safe, and grow in confidence.</p>
-      </section>
-
-      <!-- TEAM -->
-      <section class="container content">
-        <h2>Meet the Team</h2>
-
-        <div class="team-grid">
-          <!-- Michelle -->
-          <div class="team-card">
-            <img src="MP.jpeg" alt="Michelle Pascoe" class="team-photo">
-            <h3>🌿 Michelle Pascoe</h3>
-            <p><strong>Founding Director &amp; Lead Therapist</strong></p>
-            <p>Michelle supports children and young people who experience Special Educational Needs (SEN), Social, Emotional and Mental Health (SEMH) needs, educational trauma, bereavement, and Emotionally Based School Non-Attendance (EBSNA).  
-            With over 20 years of experience, Michelle is a qualified counsellor and play therapist. She spent more than a decade in an independent SEN school, beginning as a HLTA and progressing to senior leadership, serving as Designated Safeguarding Lead for over seven years.  
-            She also dedicated 10 years to one of Cornwall’s only accredited Nurture Groups, embedding a trauma-informed approach into every aspect of her practice.</p>
-
-            <p>Michelle works in a trauma-informed, person-centred way, focusing on building trust and emotional safety with families, schools, and professionals. Her approach combines therapeutic insight with creativity and compassion, helping children rediscover their confidence, curiosity, and sense of belonging.</p>
-
-            <p>Beyond her professional role, Michelle enjoys exploring Cornwall’s coastal paths and woodlands with her two dogs, Pixie and Ivey 🐾🌊🌲. She brings warmth, creativity, and a deep commitment to fostering relationships that support both healing and learning — ensuring that every child feels seen, heard, and valued. ✨</p>
-          </div>
-
-          <!-- Zoe -->
-          <div class="team-card">
-            <img src="Zoe.jpeg" alt="Zoe Waitz" class="team-photo">
-            <h3>🌸 Zoe Waitz</h3>
-            <p><strong>Founding Director</strong></p>
-            <p>Zoe is a founding director of <strong>Meadow Pathways Wellbeing and Education Cornwall</strong> — an organisation built on the belief that every child deserves to feel safe, seen, and supported. Meadow Pathways offers inclusive, therapeutic education for children and young people with SEND and SEMH needs, placing wellbeing at the centre of everything it does.</p>
-
-            <p>Zoe’s leadership is rooted in genuine care. She understands that meaningful change happens not just through policies and plans, but through everyday moments of connection with learners, families, and the dedicated staff who walk alongside them. Her approach weaves compassion into strategic decisions, ensuring that every layer of the organisation reflects the values it stands for.</p>
-
-            <p>Zoe began her career as a teaching assistant, driven by a passion for outdoor learning and physical education. She qualified as a PE teacher and quickly recognised the value of working closely with families and other specialists to support each young person. This led to pastoral and senior leadership in specialist education, deepening her commitment to inclusive, wellbeing-focused practice.</p>
-
-            <p>Nature is a constant thread in Zoe’s work. As a former outdoor education instructor, she sees the outdoors not just as a backdrop, but as a space that offers something different to everyone. Whether it’s a walk along the Cornish coast, a forest school session, or cooking with foraged ingredients, Zoe believes that nature offers regulation, joy, and connection for young people, staff, and the wider community. 🌊🌲🍳</p>
-
-            <p>It’s this blend of care, creativity, and purpose that makes Meadow Pathways feel not just like a service, but a place to belong.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="container content">
-        <h3>Contact</h3>
-        <p><strong>Michelle Pascoe</strong><br>
-        Tel: <a href="tel:07932243358">07932 243358</a><br>
-        Email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></p>
-
-        <p><strong>Zoe Waitz</strong><br>
-        Tel: <a href="tel:07775733587">07775 733587</a><br>
-        Email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></p>
-      </section>
-
-      <!-- VALUES -->
-      <section class="container content">
-        <h3>Our Values</h3>
-        <ul>
-          <li>💪 Health &amp; Wellbeing</li>
-          <li>🔎 Honesty &amp; Integrity</li>
-          <li>🤗 Friendship &amp; Kindness</li>
-        </ul>
-      </section>
-
-      <!-- DOWNLOADS -->
-      <section class="container content">
-        <h3>Key Documents</h3>
-        <div class="policy-links">
-          <a class="pill" href="EBSNA.docx" download>EBSNA Guidance</a>
-          <a class="pill" href="RSHE 2025.pdf" download>RSHE 2025 Overview</a>
-          <a class="pill" href="values.pdf" download>Values &amp; Ethos (PDF)</a>
-          <a class="pill" href="policies.html">View All Policies</a>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <script src="jquery.min.js"></script>
-  <script src="script.js"></script>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
+      <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+      <p>Guiding Individual Journeys with Care and Purpose</p>
+    </div>
+  </footer>
 </body>
 </html>
