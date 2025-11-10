@@ -1,5 +1,5 @@
 /* Meadow Pathways - script.js
-   Carousel (compact), news ticker, staff unlock inject, form UX helpers
+   Carousel, news ticker, staff unlock, form UX, back-to-top
 */
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // touch/swipe
     let startX = 0, moving = false;
     slidesEl.addEventListener('touchstart', (e) => { moving = true; startX = e.touches[0].clientX; stopTimer(); }, {passive:true});
-    slidesEl.addEventListener('touchmove', (e) => { if (!moving) return; startX = startX; }, {passive:true});
+    slidesEl.addEventListener('touchmove', (e) => { if (!moving) return; }, {passive:true});
     slidesEl.addEventListener('touchend', (e) => {
       moving = false;
       const endX = e.changedTouches[0].clientX;
@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function () {
     slidesEl.addEventListener('focusin', stopTimer);
     slidesEl.addEventListener('focusout', startTimer);
 
-    // wait images loaded
     let loaded = 0;
     slides.forEach(img => {
       if (img.complete) loaded++;
@@ -90,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     startTimer();
   })();
 
-  /* NEWS TICKER: wrap content in ticker-wrap */
+  /* NEWS TICKER */
   (function () {
     const ticker = document.querySelector('.news-ticker');
     if (!ticker) return;
@@ -121,10 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   })();
 
-  /* STAFF PAGE: inject protected content only after correct password
-     Protected content is stored in the script (not visible until injected).
-     NOTE: client-side protection is not bulletproof; for higher security use Netlify Identity or server-protected area.
-  */
+  /* STAFF PAGE - password unlock & Netlify hours form */
   (function () {
     const unlockBtn = document.getElementById('unlockBtn');
     const pwdInput = document.getElementById('staffPassword');
@@ -133,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!unlockBtn || !pwdInput || !staffPanel || !lockedArea) return;
     const PASSWORD = 'MPWEC!';
 
-    // protected HTML to inject (keeps it out of immediate page HTML)
     const protectedHTML = `
       <h2>Welcome to the Staff Area</h2>
       <p>Protected resources and links for staff are shown here.</p>
@@ -157,20 +152,31 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
 
       <h3 style="margin-top:14px">Hours logged</h3>
-      <form id="hoursForm" method="POST" action="https://formspree.io/f/movnvzqp">
-        <input type="hidden" name="_subject" value="Hours logged - Meadow Pathways Staff" />
+      <form id="hoursForm" name="hours-log" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="hours-log" />
+        <p class="hidden"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+
         <label for="staff-name">Staff member name</label>
         <input id="staff-name" name="staff_name" type="text" required />
+
         <label for="date-worked">Date</label>
         <input id="date-worked" name="date_worked" type="date" required />
+
         <label for="duration">Duration (hours)</label>
         <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required />
+
         <label for="client">Client / session with</label>
         <input id="client" name="client_name" type="text" />
+
+        <label for="expenses">Expenses (£)</label>
+        <input id="expenses" name="expenses" type="number" step="0.01" min="0" placeholder="Optional" />
+
         <label for="notes">Brief notes</label>
         <textarea id="notes" name="notes" rows="4"></textarea>
+
         <label for="email-staff">Staff email</label>
         <input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
+
         <div class="actions"><button type="submit" class="pill">Submit hours</button></div>
         <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--txt-dark);font-weight:600"></div>
       </form>
@@ -178,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function injectProtected() {
       staffPanel.innerHTML = protectedHTML;
-      // attach hours form handler
+
       const hoursForm = document.getElementById('hoursForm');
       const hoursStatus = document.getElementById('hoursStatus');
       if (hoursForm) {
@@ -187,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
           hoursStatus.textContent = 'Submitting...';
           try {
             const res = await fetch(hoursForm.action, { method: 'POST', body: new FormData(hoursForm), headers: { 'Accept': 'application/json' } });
-            if (res.ok) { hoursForm.reset(); hoursStatus.textContent = 'Hours submitted. Thank you.'; setTimeout(() => { window.location.href = 'thankyou.html'; }, 800); }
+            if (res.ok) { hoursForm.reset(); hoursStatus.textContent = 'Hours submitted. Thank you.'; setTimeout(()=>{ window.location.href='thankyou.html'; }, 900); }
             else { const json = await res.json(); hoursStatus.textContent = json && json.errors ? json.errors.map(x=>x.message).join('; ') : 'Submission error'; }
           } catch (err) { hoursStatus.textContent = 'Network error — check connection and try again.'; }
         });
@@ -216,8 +222,8 @@ document.addEventListener('DOMContentLoaded', function () {
   (function () {
     const btn = document.getElementById('backToTop') || document.querySelector('.back-to-top');
     if (!btn) return;
-    function toggle() { btn.style.display = window.scrollY > 300 ? 'block' : 'none'; }
-    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    function toggle() { btn.style.display = window.scrollY > 300 ? 'flex' : 'none'; }
+    btn.addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
     window.addEventListener('scroll', toggle);
     toggle();
   })();
