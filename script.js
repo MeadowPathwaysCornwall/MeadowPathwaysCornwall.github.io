@@ -1,150 +1,117 @@
 /* ===========================
-   Global JS for Meadow Pathways
-=========================== */
-
-/* ===========================
    Carousel Functionality
 =========================== */
-const carouselContainer = document.querySelector('.carousel-container');
-if (carouselContainer) {
-  const slides = carouselContainer.querySelectorAll('.slide');
-  const prevBtn = carouselContainer.querySelector('#prev');
-  const nextBtn = carouselContainer.querySelector('#next');
-  const dotsContainer = carouselContainer.querySelector('#dots');
-  let currentIndex = 0;
+const slidesContainer = document.querySelector('.carousel-slides');
+if (slidesContainer) {
+    const slides = slidesContainer.querySelectorAll('img');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const dotsContainer = document.getElementById('dots');
+    let currentIndex = 0;
+    let interval;
 
-  // Create dots
-  slides.forEach((slide, index) => {
-    const dot = document.createElement('button');
-    dot.classList.add(index === 0 ? 'active' : '');
-    dot.setAttribute('aria-label', `Slide ${index + 1}`);
-    dot.addEventListener('click', () => goToSlide(index));
-    dotsContainer.appendChild(dot);
-  });
+    function showSlide(index) {
+        if (!slidesContainer) return;
+        slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+        if (dotsContainer) {
+            const dots = dotsContainer.querySelectorAll('button');
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[index]) dots[index].classList.add('active');
+        }
+    }
 
-  const dots = dotsContainer.querySelectorAll('button');
+    function createDots() {
+        if (!dotsContainer) return;
+        slides.forEach((_, idx) => {
+            const btn = document.createElement('button');
+            btn.addEventListener('click', () => {
+                currentIndex = idx;
+                showSlide(currentIndex);
+            });
+            dotsContainer.appendChild(btn);
+        });
+    }
 
-  function goToSlide(index) {
-    currentIndex = index;
-    const offset = -index * 100;
-    carouselContainer.querySelector('.carousel-slides').style.transform = `translateX(${offset}%)`;
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
-  }
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
 
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      goToSlide(currentIndex);
-    });
-  }
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+    }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      goToSlide(currentIndex);
-    });
-  }
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+    createDots();
+    showSlide(currentIndex);
+    interval = setInterval(nextSlide, 5000);
 }
 
 /* ===========================
-   Staff Page Password Unlock
+   Staff Page Password Protection
 =========================== */
-const pwdInput = document.getElementById('staffPassword');
-const unlockBtn = document.getElementById('unlockBtn');
-const staffPanel = document.getElementById('staffPanel');
 const lockedEl = document.getElementById('locked');
+const staffPanel = document.getElementById('staffPanel');
+const unlockBtn = document.getElementById('unlockBtn');
+const pwdInput = document.getElementById('staffPassword');
 
-if (pwdInput && unlockBtn && staffPanel && lockedEl) {
-  const PASSWORD = 'MPWEC!';
-  function unlock() {
-    const val = (pwdInput.value || '').trim();
-    if (val === PASSWORD) {
-      lockedEl.style.display = 'none';
-      staffPanel.style.display = 'block';
-      lockedEl.setAttribute('aria-hidden', 'true');
-      staffPanel.setAttribute('aria-hidden', 'false');
-      const firstInput = staffPanel.querySelector('input, textarea');
-      if (firstInput) firstInput.focus();
-    } else {
-      pwdInput.value = '';
-      pwdInput.focus();
-      alert('Incorrect password. Contact Michelle or Zoe if you need access.');
+if (unlockBtn && pwdInput && lockedEl && staffPanel) {
+    const PASSWORD = 'MPWEC!';
+
+    function unlock() {
+        const val = (pwdInput.value || '').trim();
+        if (val === PASSWORD) {
+            lockedEl.style.display = 'none';
+            staffPanel.style.display = 'block';
+            lockedEl.setAttribute('aria-hidden', 'true');
+            staffPanel.setAttribute('aria-hidden', 'false');
+            document.getElementById('staff-name')?.focus();
+        } else {
+            pwdInput.value = '';
+            pwdInput.focus();
+            alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+        }
     }
-  }
-  unlockBtn.addEventListener('click', unlock);
-  pwdInput.addEventListener('keyup', e => { if (e.key === 'Enter') unlock(); });
+
+    unlockBtn.addEventListener('click', unlock);
+    pwdInput.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') unlock();
+    });
 }
 
 /* ===========================
-   Staff Hours & Expenses Form
+   Staff Forms (Hours & Expenses)
 =========================== */
-const staffForm = document.getElementById('hoursForm');
-if (staffForm) {
-  const staffStatus = document.getElementById('hoursStatus');
-  staffForm.addEventListener('submit', async e => {
-    e.preventDefault();
-    if (!staffStatus) return;
-    staffStatus.textContent = 'Submitting...';
-    const formData = new FormData(staffForm);
-    try {
-      const response = await fetch('https://formspree.io/f/movnvzqp', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: formData
-      });
-      if (response.ok) {
-        staffForm.reset();
-        staffStatus.textContent = 'Hours/Expenses submitted successfully!';
-        setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
-      } else {
-        const result = await response.json();
-        staffStatus.textContent = (result && result.errors) ? result.errors.map(err => err.message).join('; ') : 'Submission error, try again later.';
-      }
-    } catch (err) {
-      staffStatus.textContent = 'Network error — please check connection.';
-    }
-  });
+const hoursForm = document.getElementById('hoursForm');
+const expensesForm = document.getElementById('expensesForm'); // for expenses if exists
+const statusHours = document.getElementById('hoursStatus');
+const statusExpenses = document.getElementById('expensesStatus');
+const EMAIL_ENDPOINT = 'https://formspree.io/f/movnvzqp'; // replace if needed
+
+async function submitForm(form, statusEl) {
+    if (!form || !statusEl) return;
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        statusEl.textContent = 'Submitting...';
+        const data = new FormData(form);
+        try {
+            const res = await fetch(EMAIL_ENDPOINT, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
+            if (res.ok) {
+                form.reset();
+                statusEl.textContent = 'Form submitted. Thank you.';
+                setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
+            } else {
+                const result = await res.json();
+                statusEl.textContent = (result && result.errors) ? result.errors.map(err => err.message).join('; ') : 'Submission error — please try again later.';
+            }
+        } catch (err) {
+            statusEl.textContent = 'Network error — check connection and try again.';
+        }
+    });
 }
 
-/* ===========================
-   Contact Form (Netlify)
-=========================== */
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  const contactStatus = document.getElementById('contactStatus');
-  contactForm.addEventListener('submit', async e => {
-    e.preventDefault();
-    if (!contactStatus) return;
-    contactStatus.textContent = 'Submitting...';
-    const formData = new FormData(contactForm);
-    try {
-      const response = await fetch('https://formspree.io/f/movnvzqp', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: formData
-      });
-      if (response.ok) {
-        contactForm.reset();
-        contactStatus.textContent = 'Message sent! Thank you.';
-        setTimeout(() => { window.location.href = 'thankyou.html'; }, 900);
-      } else {
-        const result = await response.json();
-        contactStatus.textContent = (result && result.errors) ? result.errors.map(err => err.message).join('; ') : 'Submission error, try again later.';
-      }
-    } catch (err) {
-      contactStatus.textContent = 'Network error — please check connection.';
-    }
-  });
-}
-
-/* ===========================
-   Optional QR Code Click Handling
-=========================== */
-const qrCodes = document.querySelectorAll('.qr');
-qrCodes.forEach(qr => {
-  qr.addEventListener('click', () => {
-    const link = qr.getAttribute('data-link');
-    if (link) window.open(link, '_blank');
-  });
-});
+submitForm(hoursForm, statusHours);
+submitForm(expensesForm, statusExpenses);
