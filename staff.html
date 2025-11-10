@@ -1,217 +1,299 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff — Meadow Pathways Wellbeing and Education Cornwall</title>
-  <link rel="stylesheet" href="bootstrap.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <meta name="robots" content="noindex" />
-  <style>
-    .locked-overlay {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 28px 12px;
-    }
-    .lock-box {
-      max-width: 760px;
-      background: #fff;
-      border-radius: 12px;
-      padding: 22px;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-      text-align: center;
-    }
-    .lock-box input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: 1px solid rgba(0,0,0,0.08);
-    }
-    .lock-box button {
-      margin-top: 12px;
-      padding: 10px 14px;
-      border-radius: 8px;
-      background: var(--brand-sky);
-      color: #fff;
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .hidden { display: none; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff — Meadow Pathways Wellbeing & Education Cornwall</title>
+<link rel="stylesheet" href="style.css">
+<style>
+:root {
+  --primary-color: #2f8f4a;
+  --secondary-color: #4aa1c1;
+  --muted: #667788;
+  --card-bg: #f7fbfd;
+  --soft-border: #e6eef3;
+  --accent-gradient: linear-gradient(135deg, #2f8f4a, #4aa1c1);
+  --pill-bg: #2f8f4a;
+  --pill-hover: #256c39;
+  --text-soft: #556677;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #f0f6f8;
+  color: #1e2f2d;
+}
+
+header.site-header {
+  background: var(--primary-color);
+  color: white;
+  padding: 16px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.logo { height: 60px; }
+
+.nav-tabs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+.nav-tabs li a {
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+}
+.nav-tabs li a.active, .nav-tabs li a:hover { background: var(--secondary-color); }
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  background: var(--accent-gradient);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+.hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
+.hero p { font-size: 1.1rem; max-width: 800px; }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: var(--pill-bg);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.tab-btn:hover { background: var(--pill-hover); }
+.tab-btn.active { box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  margin: 0 20px 20px 20px;
+  box-shadow: 0 6px 18px rgba(15,40,50,0.08);
+}
+
+.tab-content.active { display: block; }
+
+.pill {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  margin: 4px 4px 4px 0;
+  transition: 0.2s;
+}
+.pill:hover { background: var(--secondary-color); }
+
+/* Password Lock */
+#locked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#locked input { padding: 10px; font-size: 1rem; margin-top: 10px; }
+#locked button { margin-top: 10px; padding: 10px 20px; font-weight: 600; cursor: pointer; }
+
+/* Footer */
+footer.site-footer {
+  background: #3b4d2c;
+  color: white;
+  text-align: center;
+  padding: 25px 10px;
+  border-top: 3px solid #d4af37;
+}
+.footer-logo { width: 70px; height: auto; margin-bottom: 5px; }
+
+form label { display: block; margin-top: 10px; font-weight: 600; }
+form input, form textarea { width: 100%; padding: 8px; margin-top: 4px; border: 1px solid var(--soft-border); border-radius: 8px; }
+form button { margin-top: 12px; padding: 10px 20px; background: var(--primary-color); color: white; border: none; border-radius: 12px; cursor: pointer; }
+form button:hover { background: var(--secondary-color); }
+
+</style>
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="site-wrapper">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="logo-small" />
-      <div class="brand">Meadow Pathways</div>
-      <div class="tag">Wellbeing &amp; Education Cornwall</div>
+<header class="site-header">
+  <div class="header-inner container">
+    <div class="logo-wrap">
+      <a href="index.html"><img src="Logo.png" alt="Meadow Pathways Logo" class="logo"></a>
+    </div>
+    <nav>
+      <ul class="nav-tabs">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="eotas.html">EOTAS</a></li>
+        <li><a href="safeguarding.html">Safeguarding</a></li>
+        <li><a href="staff.html" class="active">Staff</a></li>
+        <li><a href="referral.html">Referral</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-      <nav class="side-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="eotas.html">EOTAS</a></li>
-          <li><a href="safeguarding.html">Safeguarding</a></li>
-          <li><a href="staff.html" class="active">Staff</a></li>
-          <li><a href="referral.html">Referral</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="treverno.html">Treverno Meadows</a></li>
-        </ul>
-      </nav>
+<section class="hero">
+  <h1>Welcome to the Staff Page</h1>
+  <p>Internal links and information for Meadow Pathways staff. This page contains protected resources and notes for staff use only. Please do not share externally.</p>
+</section>
 
-      <div class="social">
-        <img src="FacebookQR.jpg" alt="Facebook QR" class="qr">
-        <img src="crowdfunderQR.png" alt="Crowdfunder QR" class="qr">
-      </div>
+<div id="locked" aria-hidden="false">
+  <p>Please enter the password to access staff resources:</p>
+  <input type="password" id="staffPassword" placeholder="Password">
+  <button id="unlockBtn">Unlock</button>
+</div>
 
-      <div class="sidebar-foot">© 2025 Meadow Pathways</div>
-    </aside>
+<div id="staffPanel" style="display:none;" aria-hidden="true">
 
-    <!-- Main Content -->
-    <main id="main" class="main-content">
-      <section class="container content">
-        <h1>Staff Area</h1>
-        <p>Internal links and information for Meadow Pathways staff.</p>
-
-        <!-- Locked area -->
-        <div id="locked" class="locked-overlay" aria-hidden="false">
-          <div class="lock-box" role="dialog" aria-labelledby="lock-title">
-            <h3 id="lock-title">Staff Access Required</h3>
-            <p>Enter the staff password to access hours logging, internal policies, and safeguarding resources.</p>
-            <input id="staffPassword" type="password" aria-label="Staff password" placeholder="Enter staff password" />
-            <button id="unlockBtn" type="button">Unlock</button>
-            <p style="margin-top:10px;font-size:0.95rem;color:var(--muted)">If you have trouble accessing this area, contact Michelle or Zoe.</p>
-          </div>
-        </div>
-
-        <!-- Hidden staff panel -->
-        <div id="staffPanel" style="display:none" aria-hidden="true">
-          <section class="card">
-            <h2>Internal Information</h2>
-            <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
-            <ul>
-              <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
-              <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-              <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-            </ul>
-
-            <h3>Statutory and Partner Resources</h3>
-            <div class="policy-links">
-              <a class="pill p-3" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">KCSIE (Sept 2025)</a>
-              <a class="pill p-4" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH Resources</a>
-              <a class="pill p-2" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House</a>
-              <a class="pill p-3" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC Learning</a>
-              <a class="pill p-1" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">CIOS Safeguarding Partnership</a>
-            </div>
-
-            <h3 style="margin-top:14px;">Internal Policy Documents (Downloads)</h3>
-            <div class="policy-links">
-              <a class="pill p-1" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum (EOTAS)</a>
-              <a class="pill p-2" href="MPWEC H&S Policy Sep 25.docx" download>Health & Safety</a>
-              <a class="pill p-4" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working</a>
-              <a class="pill p-3" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding</a>
-              <a class="pill p-2" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct</a>
-              <a class="pill p-4" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing</a>
-            </div>
-          </section>
-
-          <section class="card" style="margin-top:12px;">
-            <h3>Hours Logged</h3>
-            <form id="hoursForm" name="hours-log" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-              <!-- Netlify required hidden fields -->
-              <input type="hidden" name="form-name" value="hours-log" />
-              <p class="hidden">
-                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-              </p>
-
-              <label for="staff-name">Staff member name</label>
-              <input id="staff-name" name="staff_name" type="text" required />
-
-              <label for="date-worked">Date</label>
-              <input id="date-worked" name="date_worked" type="date" required />
-
-              <label for="duration">Duration (hours)</label>
-              <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required />
-
-              <label for="client">Client / session with</label>
-              <input id="client" name="client_name" type="text" />
-
-              <label for="expenses">Expenses (£)</label>
-              <input id="expenses" name="expenses" type="number" step="0.01" min="0" placeholder="Optional" />
-
-              <label for="notes">Brief notes</label>
-              <textarea id="notes" name="notes" rows="4"></textarea>
-
-              <label for="email-staff">Staff email</label>
-              <input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
-
-              <div class="actions">
-                <button type="submit" class="pill">Submit hours</button>
-              </div>
-
-              <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--txt-dark);font-weight:600"></div>
-            </form>
-            <p style="margin-top:8px;color:var(--muted)">
-              Remember to log hours promptly and ensure notes comply with Meadow Pathways record-keeping guidance.
-            </p>
-          </section>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer class="footer-visual">
-        <div class="footer-inner">
-          <h3>Staff Area — Meadow Pathways</h3>
-          <p>Guiding Individual Journeys with Care and Purpose.</p>
-        </div>
-      </footer>
-
-      <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">↑</button>
-    </main>
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab-btn active" data-tab="resources">Resources</div>
+    <div class="tab-btn" data-tab="policies">Policies</div>
+    <div class="tab-btn" data-tab="sharepoint">SharePoint</div>
+    <div class="tab-btn" data-tab="calendar">Calendar</div>
   </div>
 
-  <script>
-    (function () {
-      const PASSWORD = 'MPWEC!';
-      const lockedEl = document.getElementById('locked');
-      const staffPanel = document.getElementById('staffPanel');
-      const unlockBtn = document.getElementById('unlockBtn');
-      const pwdInput = document.getElementById('staffPassword');
+  <!-- Tab Contents -->
+  <div id="resources" class="tab-content active">
+    <h3>Contact & General Information</h3>
+    <ul>
+      <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
+      <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
+      <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
+    </ul>
 
-      function unlock() {
-        const val = (pwdInput.value || '').trim();
-        if (val === PASSWORD) {
-          lockedEl.style.display = 'none';
-          staffPanel.style.display = 'block';
-          lockedEl.setAttribute('aria-hidden', 'true');
-          staffPanel.setAttribute('aria-hidden', 'false');
-          document.getElementById('staff-name').focus();
-        } else {
-          pwdInput.value = '';
-          pwdInput.focus();
-          alert('Incorrect password. Contact Michelle or Zoe for access.');
-        }
-      }
-      unlockBtn.addEventListener('click', unlock);
-      pwdInput.addEventListener('keyup', function (e) { if (e.key === 'Enter') unlock(); });
+    <h3>Statutory and partner resources</h3>
+    <div>
+      <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025)</a>
+      <a class="pill" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources on Patreon</a>
+      <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
+      <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research</a>
+      <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
+    </div>
+  </div>
 
-      // Client-side form status for Netlify
-      const hoursForm = document.getElementById('hoursForm');
-      const hoursStatus = document.getElementById('hoursStatus');
+  <div id="policies" class="tab-content">
+    <h3>Internal policy documents (downloads)</h3>
+    <div>
+      <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>MPWEC Curriculum Policy EOTAS Sep 2025</a>
+      <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>MPWEC H&S Policy Sep 25</a>
+      <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>MPWEC Lone Working Policy Sep25</a>
+      <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>MPWEC Safeguarding Policy Sep 2025</a>
+      <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>MPWEC Staff Conduct Policy</a>
+      <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>MPWEC Whistleblowing Policy</a>
+    </div>
+  </div>
 
-      hoursForm.addEventListener('submit', function () {
-        hoursStatus.textContent = 'Submitting...';
-      });
-    })();
-  </script>
+  <div id="sharepoint" class="tab-content">
+    <h3>SharePoint Resources</h3>
+    <p>Access risk assessments, templates, and other internal documents here:</p>
+    <a class="pill" href="https://YOUR_SHAREPOINT_LINK_HERE" target="_blank" rel="noopener">Go to SharePoint</a>
+  </div>
 
-  <script src="script.js"></script>
+  <div id="calendar" class="tab-content">
+    <h3>Staff Calendar</h3>
+    <p>View upcoming sessions, meetings, and training.</p>
+    <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_LINK_HERE&ctz=Europe/London" style="border:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+  </div>
+
+  <!-- Hours Form -->
+  <section style="margin-top:20px;">
+    <h3>Hours logged</h3>
+    <form name="hoursForm" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="hoursForm">
+      <label for="staff-name">Staff member name</label>
+      <input id="staff-name" name="staff_name" type="text" required>
+      <label for="date-worked">Date</label>
+      <input id="date-worked" name="date_worked" type="date" required>
+      <label for="duration">Duration (hours)</label>
+      <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required>
+      <label for="client">Client / session with</label>
+      <input id="client" name="client_name" type="text">
+      <label for="notes">Brief notes</label>
+      <textarea id="notes" name="notes" rows="4"></textarea>
+      <label for="email-staff">Staff email</label>
+      <input id="email-staff" name="staff_email" type="email" value="meadowpathwayscornwall@outlook.com" required>
+      <button type="submit">Submit hours</button>
+    </form>
+  </section>
+
+</div>
+
+<footer class="site-footer">
+  <img src="Logo.png" alt="Meadow Pathways Logo" class="footer-logo">
+  <p>© 2025 Meadow Pathways Wellbeing and Education Cornwall Ltd</p>
+  <p>Guiding Individual Journeys with Care and Purpose</p>
+</footer>
+
+<script>
+// Password unlock
+const PASSWORD = 'MPWEC!';
+const lockedEl = document.getElementById('locked');
+const staffPanel = document.getElementById('staffPanel');
+const unlockBtn = document.getElementById('unlockBtn');
+const pwdInput = document.getElementById('staffPassword');
+
+unlockBtn.addEventListener('click', unlock);
+pwdInput.addEventListener('keyup', e => { if (e.key === 'Enter') unlock(); });
+
+function unlock() {
+  if (pwdInput.value.trim() === PASSWORD) {
+    lockedEl.style.display = 'none';
+    staffPanel.style.display = 'block';
+    lockedEl.setAttribute('aria-hidden', 'true');
+    staffPanel.setAttribute('aria-hidden', 'false');
+    document.getElementById('staff-name').focus();
+  } else {
+    pwdInput.value = '';
+    pwdInput.focus();
+    alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+  }
+}
+
+// Tabs functionality
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    tabContents.forEach(c => c.classList.remove('active'));
+    document.getElementById(tab).classList.add('active');
+  });
+});
+</script>
+
 </body>
 </html>
