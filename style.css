@@ -1,4 +1,6 @@
-/* General Styles */
+/* =======================
+   GENERAL BODY STYLES
+======================= */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -7,7 +9,9 @@ body {
   color: #333;
 }
 
-/* Pill buttons (for Policies/Guidance section) */
+/* =======================
+   PILL BUTTON STYLES
+======================= */
 .pill {
   display: inline-block;
   padding: 8px 14px;
@@ -17,22 +21,25 @@ body {
   font-weight: 500;
   transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .pill:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* Pill Colors */
-.blue { background-color: #1E90FF; }
-.green { background-color: #28A745; }
+/* PILL COLORS */
+.blue   { background-color: #1E90FF; }
+.green  { background-color: #28A745; }
 .orange { background-color: #FF7F50; }
 .purple { background-color: #6F42C1; }
-.red { background-color: #DC3545; }
-.teal { background-color: #20C997; }
+.red    { background-color: #DC3545; }
+.teal   { background-color: #20C997; }
 .yellow { background-color: #FFC107; color: #000; }
-.pink { background-color: #E83E8C; }
+.pink   { background-color: #E83E8C; }
 
-/* Common Page Header Styles */
+/* =======================
+   COMMON PAGE HEADER STYLES
+======================= */
 .page-header {
   position: relative;
   color: #fff;
@@ -47,7 +54,7 @@ body {
   background-repeat: no-repeat;
 }
 
-/* Overlay for readability */
+/* OVERLAY FOR BETTER TEXT VISIBILITY */
 .page-header::before {
   content: "";
   position: absolute;
@@ -57,20 +64,23 @@ body {
   z-index: 0;
 }
 
+/* HEADER TEXT ABOVE OVERLAY */
 .page-header h1,
 .page-header h2,
 .page-header p {
-  position: relative; /* above overlay */
+  position: relative;
   z-index: 1;
   margin: 0;
 }
 
-/* H1, H2, P Styles */
+/* H1, H2, P STYLING */
 .page-header h1 { font-size: 3rem; margin-bottom: 20px; }
 .page-header h2 { font-size: 1.8rem; font-weight: 400; margin-bottom: 15px; }
-.page-header p { font-size: 1.2rem; }
+.page-header p  { font-size: 1.2rem; }
 
-/* Individual Page Header Backgrounds */
+/* =======================
+   INDIVIDUAL PAGE HEADERS
+======================= */
 .page-header.main-header       { background-image: url('BG.png'); }
 .page-header.eotas-header      { background-image: url('EOTAS_BG.png'); }
 .page-header.about-header      { background-image: url('BG.png'); }
@@ -79,10 +89,27 @@ body {
 .page-header.policies-header   { background-image: url('POLICIES_BG.png'); }
 .page-header.referral-header   { background-image: url('REFERRAL_BG.png'); }
 
-/* Responsive Text Sizes */
+/* =======================
+   RESPONSIVE HEADER STYLING
+======================= */
 @media (max-width: 768px) {
   .page-header h1 { font-size: 2.2rem; }
   .page-header h2 { font-size: 1.4rem; }
   .page-header p  { font-size: 1rem; }
   .page-header { padding: 80px 15px; }
+}
+
+/* =======================
+   PILL CONTAINER FLEX STYLING
+======================= */
+.pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 0;
+  list-style: none;
+}
+
+.pill-container li {
+  margin: 0;
 }
