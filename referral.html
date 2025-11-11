@@ -42,8 +42,8 @@
       <h1>Referral Form 📝</h1>
       <p>Please complete the form below for a referral to Meadow Pathways. This form can be submitted by local authorities or parent/carers. All information is treated confidentially.</p>
 
-      <form name="referral" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thankyou.html" class="styled-form">
-        <!-- Hidden form name -->
+      <!-- Netlify form -->
+      <form name="referral" id="referralForm" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thankyou.html" class="styled-form">
         <input type="hidden" name="form-name" value="referral">
 
         <!-- Honeypot for spam -->
@@ -78,7 +78,10 @@
         <label>Email<br><input type="email" name="referrer_email" required></label>
         <label>Phone<br><input type="tel" name="referrer_phone"></label>
 
-        <button type="submit" class="submit-btn">Submit Referral</button>
+        <div class="form-buttons">
+          <button type="submit" class="submit-btn">Submit Referral</button>
+          <button type="button" id="downloadBtn" class="download-btn">Download Copy</button>
+        </div>
       </form>
 
       <p class="note">For urgent cases or safeguarding concerns, please contact statutory services: ☎️ 01872 324605, or email earlyhelphub@cornwall.gov.uk, then contact the Meadow Pathways team directly.</p>
@@ -90,7 +93,36 @@
       <p>Michelle: 07932 243358 | Zoe: 07775 733587</p>
       <p>If your enquiry is urgent or a safeguarding concern, please contact statutory services: ☎️ 01872 324605 - earlyhelphub@cornwall.gov.uk</p>
     </footer>
-
   </main>
+
+  <!-- JS: download and clear form -->
+  <script>
+    const form = document.getElementById('referralForm');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    downloadBtn.addEventListener('click', () => {
+      const data = new FormData(form);
+      let text = "Referral Form — Meadow Pathways\n\n";
+      for (const [key, value] of data.entries()) {
+        if (key !== 'form-name' && key !== 'bot-field') {
+          const label = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+          text += `${label}: ${value}\n`;
+        }
+      }
+      const blob = new Blob([text], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'MeadowPathways_Referral.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // Clear form after successful submission
+    form.addEventListener('submit', (e) => {
+      setTimeout(() => form.reset(), 2000);
+    });
+  </script>
+
 </body>
 </html>
