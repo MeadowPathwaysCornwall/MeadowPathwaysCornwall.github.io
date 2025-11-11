@@ -1,5 +1,5 @@
 // =========================
-// Smooth Auto Scrolling
+// Smooth Scroll for in-page links
 // =========================
 document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('a[href^="#"]');
@@ -21,24 +21,26 @@ const staffPanel = document.getElementById('staffPanel');
 const unlockBtn = document.getElementById('unlockBtn');
 const pwdInput = document.getElementById('staffPassword');
 
-function unlock() {
-    const val = (pwdInput.value || '').trim();
-    if (val === PASSWORD) {
-        lockedEl.style.display = 'none';
-        staffPanel.style.display = 'block';
-        lockedEl.setAttribute('aria-hidden', 'true');
-        staffPanel.setAttribute('aria-hidden', 'false');
-        const firstInput = staffPanel.querySelector('input,textarea,select');
-        if(firstInput) firstInput.focus();
-    } else {
-        pwdInput.value = '';
-        pwdInput.focus();
-        alert('Incorrect password. Contact Michelle or Zoe for access.');
-    }
+if(unlockBtn) {
+    unlockBtn.addEventListener('click', () => {
+        const val = (pwdInput.value || '').trim();
+        if (val === PASSWORD) {
+            lockedEl.style.display = 'none';
+            staffPanel.style.display = 'block';
+            lockedEl.setAttribute('aria-hidden', 'true');
+            staffPanel.setAttribute('aria-hidden', 'false');
+            const firstInput = staffPanel.querySelector('input,textarea,select');
+            if(firstInput) firstInput.focus();
+        } else {
+            pwdInput.value = '';
+            pwdInput.focus();
+            alert('Incorrect password. Contact Michelle or Zoe for access.');
+        }
+    });
 }
 
 // =========================
-// Form Submission Feedback
+// Netlify Form Submission
 // =========================
 document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('form[data-netlify]');
