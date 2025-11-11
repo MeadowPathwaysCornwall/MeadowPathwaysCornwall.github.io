@@ -1,242 +1,241 @@
-/* ===========================
-   Global Body & Reset
-=========================== */
-body, html {
+/* =========================
+   Blugoon Theme - Global
+========================= */
+:root {
+    --primary-color: #001f4d;
+    --secondary-color: #00aaff;
+    --accent-color: #ffaa00;
+    --background-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #001f4d;
+    --text-soft: #555555;
+    --pill-bg: #e6f0ff;
+    --pill-hover: #cce0ff;
+    --header-overlay: rgba(255, 255, 255, 0.85);
+}
+
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #00264d; /* Darker blue behind text boxes */
-    color: #333;
+    font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+body, html {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
 }
 
-/* ===========================
+/* =========================
    Sidebar
-=========================== */
+========================= */
 .sidebar {
+    width: 220px;
+    background-color: var(--primary-color);
+    color: #ffffff;
     position: fixed;
     top: 0;
     left: 0;
-    width: 220px;
-    height: 100%;
-    background-color: #1e90ff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 16px;
+    bottom: 0;
     overflow-y: auto;
+    padding: 20px 0;
+    z-index: 1000;
 }
 
 .sidebar-logo {
-    width: 160px;
     display: block;
-    margin: 0 auto 16px auto;
+    width: 150px;
+    margin: 0 auto 20px auto;
 }
 
 .side-nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .side-nav li {
-    width: 100%;
+    margin: 10px 0;
 }
 
-.side-nav li a {
+.nav-tab {
     display: block;
-    padding: 12px 16px;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 8px;
-    margin: 4px 8px;
-    transition: 0.3s;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* Colored navigation tabs */
-.nav-tab.home { background-color: #1abc9c; }
-.nav-tab.eotas { background-color: #3498db; }
-.nav-tab.about { background-color: #9b59b6; }
-.nav-tab.policies { background-color: #e67e22; }
-.nav-tab.referral { background-color: #e74c3c; }
-.nav-tab.contact { background-color: #f1c40f; }
-.nav-tab.staff { background-color: #2ecc71; }
-.nav-tab.treverno { background-color: #34495e; }
-.nav-tab.safeguarding { background-color: #16a085; }
-
-.side-nav li a:hover,
-.side-nav li a.active {
-    transform: scale(1.02);
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+.nav-tab:hover,
+.nav-tab[aria-current="page"] {
+    background-color: var(--secondary-color);
+    color: #ffffff;
 }
 
-/* ===========================
+/* =========================
    Main Content
-=========================== */
+========================= */
 .main-content {
     margin-left: 240px;
-    padding: 24px;
+    padding: 20px;
+    min-height: 100vh;
 }
 
-.wrap {
-    max-width: 900px;
-    margin: 16px auto;
-    padding: 16px;
-    background-color: #cce0ff; /* Light blue boxes */
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-}
-
-/* ===========================
-   Page Header
-=========================== */
 .page-header {
-    text-align: center;
-    color: #00264d; /* Dark text over BG.png */
-    padding: 60px 20px;
-    background: url('BG.png') no-repeat center/cover;
     border-radius: 12px;
-    margin: 16px;
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--primary-color);
 }
 
-/* ===========================
-   Pill boxes / Tabs
-=========================== */
-.pill-links, .tab-links {
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-soft);
+}
+
+.page-header p {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* =========================
+   Cards / Sections
+========================= */
+.card, .wrap {
+    background-color: var(--card-bg);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* =========================
+   Pills
+========================= */
+.pill-container {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin: 16px 0;
-}
-
-.pill, .tab {
-    padding: 10px 16px;
-    border-radius: 20px;
-    font-weight: 600;
-    color: #fff;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-/* Assign different colors to pills */
-.pill.kcsie { background-color: #1abc9c; }
-.pill.cios { background-color: #3498db; }
-.pill.nspcc { background-color: #e74c3c; }
-.pill.beacon { background-color: #f39c12; }
-.pill.referral { background-color: #e74c3c; }
-.pill.about { background-color: #9b59b6; }
-.pill.contact { background-color: #f1c40f; }
-.pill.eotas { background-color: #3498db; }
-.pill.ebsna { background-color: #e67e22; }
-
-/* Hover effect */
-.pill:hover, .tab:hover {
-    transform: scale(1.05);
-}
-
-/* ===========================
-   Carousel
-=========================== */
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-.carousel-slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slides img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 12px;
-}
-
-.carousel-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transform: translateY(-50%);
-}
-
-.carousel-btn {
-    background-color: rgba(0,0,0,0.3);
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.carousel-btn:hover {
-    background-color: rgba(0,0,0,0.6);
-}
-
-/* ===========================
-   Footer
-=========================== */
-.site-footer {
-    background: url('BG.png') no-repeat center/cover;
-    color: #00264d; /* Dark text on footer */
-    font-size: 1.1rem;
-    text-align: center;
-    padding: 24px 16px;
-    margin-top: 24px;
-}
-
-.site-footer p {
-    margin: 4px 0;
-}
-
-/* ===========================
-   Staff
-=========================== */
-.staff-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 24px;
-    margin-top: 16px;
-}
-
-.staff-member {
-    text-align: center;
-    background-color: #cce0ff;
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-
-.staff-member img {
-    width: 100%;
-    max-width: 150px;
-    border-radius: 50%;
     margin-bottom: 12px;
 }
 
-/* ===========================
-   Responsive
-=========================== */
-@media screen and (max-width: 900px) {
-    .main-content {
-        margin-left: 0;
-        padding: 16px;
-    }
+.pill {
+    display: inline-block;
+    background-color: var(--pill-bg);
+    color: var(--primary-color);
+    padding: 8px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
 
+.pill:hover {
+    background-color: var(--pill-hover);
+}
+
+/* =========================
+   Forms
+========================= */
+.styled-form label {
+    display: block;
+    margin: 12px 0 4px 0;
+    font-weight: 600;
+}
+
+.styled-form input[type="text"],
+.styled-form input[type="email"],
+.styled-form input[type="tel"],
+.styled-form input[type="date"],
+.styled-form input[type="number"],
+.styled-form input[type="password"],
+.styled-form textarea,
+.styled-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    transition: border-color 0.3s;
+}
+
+.styled-form input:focus,
+.styled-form textarea:focus,
+.styled-form select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.styled-form button.submit-btn,
+.styled-form button {
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.styled-form button.submit-btn:hover,
+.styled-form button:hover {
+    background-color: var(--accent-color);
+}
+
+/* =========================
+   Footer
+========================= */
+.site-footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 0;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 768px) {
     .sidebar {
         width: 100%;
         height: auto;
         position: relative;
     }
+    .main-content {
+        margin-left: 0;
+    }
+    .page-header h1 {
+        font-size: 2rem;
+    }
 }
 
+/* =========================
+   Calendar iframe
+========================= */
+iframe {
+    border-radius: 12px;
+}
+
+/* =========================
+   Misc
+========================= */
+.text-soft {
+    color: var(--text-soft);
+}
+
+.hidden {
+    display: none;
+}
