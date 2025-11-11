@@ -1,126 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <section class="page-header">
-  <h1>Welcome to Meadow Pathways Contact Us Page</h1>
-  <h2>Get in Touch with Meadow Pathways</h2>
-  <p>We’re here to support children, families, and professionals with care, clarity, and compassion 🌿</p>
-</section>
+<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <!-- Hidden input required by Netlify -->
+  <input type="hidden" name="form-name" value="contact">
+  
+  <!-- Honeypot field -->
+  <p style="display:none;">
+    Don’t fill this out if you’re human: <input name="bot-field">
+  </p>
+  
+  <!-- Actual form fields -->
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" required>
 
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email" required>
 
+  <label for="subject">Subject</label>
+  <input type="text" name="subject" id="subject">
 
-<body>
-  <!-- Sidebar Navigation -->
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo" />
-     <nav class="side-nav" aria-label="Primary site navigation">
-  <ul class="nav-tabs" role="menubar">
-    <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
-    <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
-    <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
-    <li><a href="policies.html" class="nav-tab policies">📘 Policies</a></li>
-    <li><a href="referral.html" class="nav-tab referral">📝 Referral</a></li>
-    <li><a href="contact.html" class="nav-tab contact" aria-current="page">☎️ Contact</a></li>
-    <li><a href="staff.html" class="nav-tab staff">👩‍🏫 Staff Only</a></li>
-    <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
-    <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
-    </ul>
-</nav>
+  <label for="message">Message / Referral Details</label>
+  <textarea name="message" id="message" required></textarea>
 
-    </div>
-  </aside>
-
-  <!-- Main Content -->
-  <main class="main-content">
-    <div class="wrap">
-      <h1>Contact Us</h1>
-      <p>If you would like to get in touch with Meadow Pathways for general enquiries, referrals, or support, please complete the form below or use the contact details provided.</p>
-
-      <!-- Contact Form -->
-      <section class="card" style="margin-top:16px;">
-        <h2>General Contact / Referral Form</h2>
-        <form name="contact" method="POST" data-netlify="true" id="contactForm" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact">
-          <p class="hidden">
-            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-          </p>
-
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Full name" required />
-
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="your@email.com" required />
-
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" placeholder="Subject of your message" required />
-
-          <label for="message">Message / Referral Details</label>
-          <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
-
-          <button type="submit">Submit</button>
-          <div id="formStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
-        </form>
-      </section>
-
-      <!-- Direct Contact Info -->
-      <section class="card" style="margin-top:16px;">
-        <h2>Direct Contact</h2>
-        <p>Email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
-        <p>Michelle: 07932 243358</p>
-        <p>Zoe: 07775 733587</p>
-        <p>Phone: 01872 324605 (Statutory services / Early Help Hub)</p>
-      </section>
-
-    <!-- Quick Links Section -->
-<section class="card" style="margin-top:16px;">
-  <h2>Quick Links</h2>
-  <div class="pill-container" style="display:flex; flex-wrap:wrap; gap:12px;">
-    <a class="pill referral" href="referral.html" style="background-color:#1e90ff
-
-        </div>
-      </section>
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>Meadow Pathways Wellbeing & Education Cornwall Ltd © 2025</p>
-    <p>Michelle: 07932 243358 | Zoe: 07775 733587</p>
-  </footer>
-
-  <!-- Netlify Form Submission Script -->
-  <script>
-    const form = document.getElementById('contactForm');
-    const status = document.getElementById('formStatus');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      status.textContent = 'Submitting...';
-
-      const formData = new FormData(form);
-      fetch('/', {
-        method: 'POST',
-        body: formData,
-      })
-      .then(response => {
-        if (response.ok) {
-          status.textContent = 'Thank you! Your message has been sent.';
-          form.reset();
-        } else {
-          response.text().then(text => status.textContent = 'Submission failed: ' + text);
-        }
-      })
-      .catch(err => {
-        status.textContent = 'Network error — please try again later.';
-      });
-    });
-  </script>
-</body>
-</html>
+  <button type="submit">Submit</button>
+</form>
