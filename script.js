@@ -1,17 +1,61 @@
-document.addEventListener("DOMContentLoaded", () => {
-    /* =========================
-       Sidebar Navigation Active Highlight
-    ======================== */
-    const navTabs = document.querySelectorAll(".nav-tab");
-    navTabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-            navTabs.forEach(t => t.classList.remove("active"));
-            tab.classList.add("active");
+// =========================
+// Smooth Auto Scrolling
+// =========================
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
         });
     });
+});
 
-    /* =========================
-       Carousel Auto Scroll
-    ======================== */
-    const carousels = document.querySelectorAll(".carousel-container");
+// =========================
+// Staff Password Unlock
+// =========================
+const PASSWORD = 'MPWEC!';
+const lockedEl = document.getElementById('locked');
+const staffPanel = document.getElementById('staffPanel');
+const unlockBtn = document.getElementById('unlockBtn');
+const pwdInput = document.getElementById('staffPassword');
 
+function unlock() {
+    const val = (pwdInput.value || '').trim();
+    if (val === PASSWORD) {
+        lockedEl.style.display = 'none';
+        staffPanel.style.display = 'block';
+        lockedEl.setAttribute('aria-hidden', 'true');
+        staffPanel.setAttribute('aria-hidden', 'false');
+        const firstInput = staffPanel.querySelector('input,textarea,select');
+        if(firstInput) firstInput.focus();
+    } else {
+        pwdInput.value = '';
+        pwdInput.focus();
+        alert('Incorrect password. Contact Michelle or Zoe for access.');
+    }
+}
+
+// =========================
+// Form Submission Feedback
+// =========================
+document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('form[data-netlify]');
+    forms.forEach(form => {
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const statusEl = form.querySelector('[role="status"]');
+            fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(new FormData(form)).toString()
+            }).then(() => {
+                if(statusEl) statusEl.textContent = "Form submitted successfully!";
+                form.reset();
+            }).catch(() => {
+                if(statusEl) statusEl.textContent = "Form submission failed. Please try again.";
+            });
+        });
+    });
+});
