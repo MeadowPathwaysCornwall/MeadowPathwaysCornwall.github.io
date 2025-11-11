@@ -1,76 +1,62 @@
 /* =========================
-   Blugoon Theme - Global
+   Global Styles
 ========================= */
-:root {
-    --primary-color: #001f4d;
-    --secondary-color: #00aaff;
-    --accent-color: #ffaa00;
-    --background-color: #f5f7fa;
-    --card-bg: #ffffff;
-    --text-color: #001f4d;
-    --text-soft: #555555;
-    --pill-bg: #e6f0ff;
-    --pill-hover: #cce0ff;
-    --header-overlay: rgba(255, 255, 255, 0.85);
-}
-
-* {
-    box-sizing: border-box;
+body, html {
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #001f4d;
+    line-height: 1.6;
 }
 
-body, html {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    font-size: 16px;
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0 0 10px 0;
 }
 
 /* =========================
    Sidebar
 ========================= */
 .sidebar {
-    width: 220px;
-    background-color: var(--primary-color);
-    color: #ffffff;
     position: fixed;
-    top: 0;
     left: 0;
-    bottom: 0;
+    top: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #001f4d;
+    color: white;
     overflow-y: auto;
-    padding: 20px 0;
+    padding-top: 20px;
     z-index: 1000;
 }
 
 .sidebar-logo {
     display: block;
-    width: 150px;
     margin: 0 auto 20px auto;
+    max-width: 150px;
 }
 
 .side-nav ul {
     list-style: none;
-}
-
-.side-nav li {
-    margin: 10px 0;
+    padding-left: 0;
 }
 
 .nav-tab {
     display: block;
-    color: #ffffff;
-    text-decoration: none;
     padding: 10px 20px;
+    color: white;
     border-radius: 6px;
-    transition: background 0.3s, color 0.3s;
+    margin-bottom: 6px;
+    transition: 0.3s;
 }
 
 .nav-tab:hover,
 .nav-tab[aria-current="page"] {
-    background-color: var(--secondary-color);
-    color: #ffffff;
+    background-color: #00aaff;
 }
 
 /* =========================
@@ -79,15 +65,14 @@ body, html {
 .main-content {
     margin-left: 240px;
     padding: 20px;
-    min-height: 100vh;
 }
 
 .page-header {
-    border-radius: 12px;
     padding: 30px 20px;
-    margin-bottom: 20px;
+    border-radius: 12px;
     text-align: center;
-    color: var(--primary-color);
+    margin-bottom: 20px;
+    color: #001f4d;
 }
 
 .page-header h1 {
@@ -97,20 +82,19 @@ body, html {
 
 .page-header h2 {
     font-size: 1.5rem;
+    color: #555555;
     margin-bottom: 0.5rem;
-    color: var(--text-soft);
 }
 
 .page-header p {
     font-size: 1rem;
-    margin-top: 0.5rem;
 }
 
 /* =========================
-   Cards / Sections
+   Card Sections
 ========================= */
 .card, .wrap {
-    background-color: var(--card-bg);
+    background-color: #ffffff;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 12px;
@@ -120,89 +104,62 @@ body, html {
 /* =========================
    Pills
 ========================= */
-.pill-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 12px;
-}
-
 .pill {
     display: inline-block;
-    background-color: var(--pill-bg);
-    color: var(--primary-color);
+    background-color: #e6f0ff;
+    color: #001f4d;
     padding: 8px 12px;
     border-radius: 20px;
-    text-decoration: none;
     font-weight: 600;
-    transition: background 0.3s;
+    margin: 4px;
+    transition: 0.3s;
 }
 
 .pill:hover {
-    background-color: var(--pill-hover);
+    background-color: #cce0ff;
 }
 
 /* =========================
    Forms
 ========================= */
-.styled-form label {
-    display: block;
-    margin: 12px 0 4px 0;
-    font-weight: 600;
-}
-
-.styled-form input[type="text"],
-.styled-form input[type="email"],
-.styled-form input[type="tel"],
-.styled-form input[type="date"],
-.styled-form input[type="number"],
-.styled-form input[type="password"],
-.styled-form textarea,
-.styled-form select {
+input, textarea, select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #cccccc;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
-    margin-bottom: 12px;
-    transition: border-color 0.3s;
 }
 
-.styled-form input:focus,
-.styled-form textarea:focus,
-.styled-form select:focus {
+input:focus, textarea:focus, select:focus {
     outline: none;
-    border-color: var(--secondary-color);
+    border-color: #00aaff;
 }
 
-.styled-form button.submit-btn,
-.styled-form button {
-    background-color: var(--secondary-color);
-    color: #ffffff;
+button {
+    background-color: #00aaff;
+    color: white;
     padding: 12px 24px;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    font-size: 1rem;
     font-weight: 600;
-    transition: background 0.3s;
+    transition: 0.3s;
 }
 
-.styled-form button.submit-btn:hover,
-.styled-form button:hover {
-    background-color: var(--accent-color);
+button:hover {
+    background-color: #ffaa00;
 }
 
 /* =========================
    Footer
 ========================= */
-.site-footer {
-    background-color: var(--primary-color);
-    color: #ffffff;
+footer {
+    background-color: #001f4d;
+    color: white;
     text-align: center;
     padding: 20px;
-    margin-top: 20px;
-    border-radius: 0;
+    font-size: 0.95rem;
 }
 
 /* =========================
@@ -210,9 +167,9 @@ body, html {
 ========================= */
 @media (max-width: 768px) {
     .sidebar {
+        position: relative;
         width: 100%;
         height: auto;
-        position: relative;
     }
     .main-content {
         margin-left: 0;
@@ -222,20 +179,3 @@ body, html {
     }
 }
 
-/* =========================
-   Calendar iframe
-========================= */
-iframe {
-    border-radius: 12px;
-}
-
-/* =========================
-   Misc
-========================= */
-.text-soft {
-    color: var(--text-soft);
-}
-
-.hidden {
-    display: none;
-}
