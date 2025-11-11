@@ -6,25 +6,13 @@
   <title>Referral Form — Meadow Pathways</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-<section class="page-header">
-  <h1>Referral Form — Meadow Pathways</h1>
-  <h2>Submit referrals for children and young people with care and clarity 🌿✨</h2>
-</section>
-
-  <section class="page-header">
-    <h1>Welcome to Meadow Pathways Referral Page</h1>
-    <section class="page-header">
-    <h1>Welcome to Meadow Pathways</h1>
-    <section class="page-header">
-  <h1>Referral to Meadow Pathways</h1>
-  <h2>Supporting children through trauma-informed, person-centred care</h2>
-  <p>We welcome referrals from families and professionals across Cornwall 🌿</p>
-</section>
-
-</section>
-
 <body class="blugoon-body">
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>Referral Form — Meadow Pathways</h1>
+    <h2>Submit referrals for children and young people with care and clarity 🌿✨</h2>
+  </section>
 
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -32,21 +20,19 @@
       <div class="logo-wrap">
         <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
       </div>
-      <nav class="side-nav">
-       <nav class="side-nav" aria-label="Primary site navigation">
-  <ul class="nav-tabs" role="menubar">
-    <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
-    <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
-    <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
-    <li><a href="policies.html" class="nav-tab policies">📘 Policies</a></li>
-    <li><a href="referral.html" class="nav-tab referral" aria-current="page">📝 Referral</a></li>
-    <li><a href="contact.html" class="nav-tab contact">☎️ Contact</a></li>
-    <li><a href="staff.html" class="nav-tab staff">👩‍🏫 Staff Only</a></li>
-    <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
-    <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
- </ul>
-</nav>
- 
+      <nav class="side-nav" aria-label="Primary site navigation">
+        <ul class="nav-tabs" role="menubar">
+          <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
+          <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
+          <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
+          <li><a href="policies.html" class="nav-tab policies">📘 Policies</a></li>
+          <li><a href="referral.html" class="nav-tab referral" aria-current="page">📝 Referral</a></li>
+          <li><a href="contact.html" class="nav-tab contact">☎️ Contact</a></li>
+          <li><a href="staff.html" class="nav-tab staff">👩‍🏫 Staff Only</a></li>
+          <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
+          <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
+        </ul>
+      </nav>
     </div>
   </aside>
 
@@ -56,8 +42,14 @@
       <h1>Referral Form 📝</h1>
       <p>Please complete the form below for a referral to Meadow Pathways. This form can be submitted by local authorities or parent/carers. All information is treated confidentially.</p>
 
-      <form name="referral" method="POST" data-netlify="true" action="thankyou.html" class="styled-form">
-        <input type="hidden" name="form-name" value="referral" />
+      <form name="referral" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thankyou.html" class="styled-form">
+        <!-- Hidden form name -->
+        <input type="hidden" name="form-name" value="referral">
+
+        <!-- Honeypot for spam -->
+        <p style="display:none;">
+          <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+        </p>
 
         <!-- Child/Young Person Details -->
         <h2>Child/Young Person Details</h2>
@@ -93,13 +85,12 @@
     </section>
 
     <!-- Footer -->
-<footer class="footer" style="background-image: url('BG.png'); background-size: cover; background-position: center; padding: 20px; color: #ffffff; text-align: center; font-size: 1rem;">
-  <p>Meadow Pathways Wellbeing & Education Cornwall Ltd © 2025</p>
-  <p>Michelle: 07932 243358 | Zoe: 07775 733587</p>
-  <p>If your enquiry is urgent or a safeguarding concern, please contact statutory services: ☎️ 01872 324605 - earlyhelphub@cornwall.gov.uk</p>
-</footer>
+    <footer class="footer" style="background-image: url('BG.png'); background-size: cover; background-position: center; padding: 20px; color: #ffffff; text-align: center; font-size: 1rem;">
+      <p>Meadow Pathways Wellbeing & Education Cornwall Ltd © 2025</p>
+      <p>Michelle: 07932 243358 | Zoe: 07775 733587</p>
+      <p>If your enquiry is urgent or a safeguarding concern, please contact statutory services: ☎️ 01872 324605 - earlyhelphub@cornwall.gov.uk</p>
+    </footer>
 
   </main>
-
 </body>
 </html>
