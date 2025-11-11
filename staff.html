@@ -1,134 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Staff Only — Meadow Pathways</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Staff — Meadow Pathways Wellbeing & Education Cornwall</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
+  <meta name="robots" content="noindex,nofollow">
 </head>
-<body>
+<body class="blugoon-body">
 
   <!-- Sidebar -->
-  <aside class="sidebar">
+  <aside class="sidebar" aria-label="Primary site navigation">
     <div class="sidebar-inner">
-      <div class="logo-wrap">
-        <a href="index.html"><img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo"></a>
-      </div>
-      <nav class="side-nav" aria-label="Primary site navigation">
+      <a href="index.html" class="logo-wrap" aria-label="Meadow Pathways home">
+        <img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo" />
+      </a>
+
+      <nav class="side-nav" aria-label="Main">
         <ul class="nav-tabs" role="menubar">
-          <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
-          <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
-          <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
-          <li><a href="policies.html" class="nav-tab policies">📘 Policies</a></li>
-          <li><a href="referral.html" class="nav-tab referral">📝 Referral</a></li>
-          <li><a href="contact.html" class="nav-tab contact">☎️ Contact</a></li>
-          <li><a href="staff.html" class="nav-tab staff" aria-current="page">👩‍🏫 Staff Only</a></li>
-          <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
-          <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
+          <li role="none"><a role="menuitem" href="index.html" class="nav-tab home">🏠 Home</a></li>
+          <li role="none"><a role="menuitem" href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
+          <li role="none"><a role="menuitem" href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
+          <li role="none"><a role="menuitem" href="policies.html" class="nav-tab policies">📘 Policies</a></li>
+          <li role="none"><a role="menuitem" href="referral.html" class="nav-tab referral">📝 Referral</a></li>
+          <li role="none"><a role="menuitem" href="contact.html" class="nav-tab contact">☎️ Contact</a></li>
+          <li role="none"><a role="menuitem" href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
+          <li role="none"><a role="menuitem" href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
+          <li role="none"><a role="menuitem" href="staff.html" class="nav-tab staff active" aria-current="page">👩‍🏫 Staff Only</a></li>
         </ul>
       </nav>
     </div>
   </aside>
 
   <!-- Main content -->
-  <main class="main-content">
-    <!-- Page Header -->
-    <section class="page-header" style="background: url('BG.png') no-repeat center/cover; color:#001f4d; padding:30px; border-radius:12px; text-align:center;">
-      <h1>Staff Resources — Meadow Pathways</h1>
-      <p>Access internal policies, logs, and resources 🌿✨</p>
+  <main class="main-content" id="main-content">
+    <!-- Page header with BG.png background -->
+    <section class="page-header staff-header" role="region" aria-label="Staff header">
+      <div class="page-header-inner">
+        <h1>Staff Area — Meadow Pathways</h1>
+        <p class="lead">Internal resources, policies, forms and secure staff tools.</p>
+      </div>
     </section>
 
-    <!-- Staff Password Unlock -->
-    <section class="wrap card" id="locked">
-      <h2>Staff Access 🔒</h2>
-      <label for="staffPassword">Enter password to access staff resources:</label>
-      <input type="password" id="staffPassword" placeholder="Password">
-      <button id="unlockBtn" onclick="unlock()">Unlock</button>
-    </section>
+    <!-- Locked / unlock area -->
+    <section class="wrap card" id="locked" aria-hidden="false">
+      <h2>Staff access</h2>
+      <p>This area contains protected Meadow Pathways staff resources. To view, enter the staff passcode below. <strong>Note:</strong> this is a client-side gate for convenience — for sensitive documents use SharePoint and secure channels.</p>
 
-    <section class="wrap card" id="staffPanel" style="display:none;" aria-hidden="true">
-      <!-- External Resources -->
-      <h2>External Resources</h2>
-      <div class="pill-container">
-        <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025) - GOV.UK</a>
-        <a class="pill" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources on Patreon</a>
-        <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
-        <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research</a>
-        <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
+      <div class="unlock-row">
+        <label for="staffPassword" class="sr-only">Staff password</label>
+        <input id="staffPassword" type="password" placeholder="Enter staff password" aria-label="Staff password">
+        <button id="unlockBtn" class="pill small">Unlock</button>
       </div>
 
-      <!-- Internal Policy Documents -->
-      <h3 style="margin-top:12px">Internal Policy Documents</h3>
-      <div class="pill-container">
-        <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy EOTAS Sep 2025</a>
-        <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>Health & Safety Policy Sep 2025</a>
-        <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy Sep 2025</a>
-        <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding & Child Protection Policy</a>
-        <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
-        <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+      <p class="hint">If you need access, email <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a>.</p>
+    </section>
+
+    <!-- Staff panel (hidden by default) -->
+    <section class="wrap card" id="staffPanel" aria-hidden="true" style="display:none;">
+      <h2>Staff resources</h2>
+
+      <div class="card-grid">
+        <!-- Quick links (coloured pills) -->
+        <div>
+          <h3>Quick links</h3>
+          <div class="pill-row">
+            <a class="pill referral" href="referral.html">📝 Referral Form</a>
+            <a class="pill eotas" href="eotas.html">🔍 EOTAS Provision</a>
+            <a class="pill contact" href="contact.html">☎️ Contact</a>
+            <a class="pill ebsna" href="EBSNA.docx" download>📄 EBSNA Document</a>
+            <a class="pill sharepoint" href="https://meadowpathwayscornwall.sharepoint.com/:u:/s/meadowpathways/IQAQhQyq-4EBS7K7Y-Fwsk3HAQJUqP7ZOgT9Wuy9FFBZyYM?e=J4dkgU" target="_blank" rel="noopener">📁 SharePoint</a>
+          </div>
+        </div>
+
+        <!-- Statutory / partner links -->
+        <div>
+          <h3>Statutory & partner resources</h3>
+          <div class="pill-row">
+            <a class="pill gov" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">KCSIE 2025 (GOV.UK)</a>
+            <a class="pill cios" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios Safeguarding Partnership</a>
+            <a class="pill nspcc" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC Learning & Research</a>
+            <a class="pill beacon" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
+            <a class="pill pooky" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources</a>
+          </div>
+        </div>
+
+        <!-- Internal policy (downloads) -->
+        <div>
+          <h3>Internal policy documents (downloads)</h3>
+          <div class="pill-row">
+            <a class="pill doc" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy EOTAS Sep 2025</a>
+            <a class="pill doc" href="MPWEC H&amp;S Policy Sep 25.docx" download>Health & Safety Policy Sep 2025</a>
+            <a class="pill doc" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+            <a class="pill doc" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding & Child Protection</a>
+            <a class="pill doc" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
+            <a class="pill doc" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+          </div>
+        </div>
+
+        <!-- Calendar embed (placeholder) -->
+        <div>
+          <h3>Team calendar</h3>
+          <p>Public calendar embed (if you publish your Outlook/Google calendar, paste the embed link here). Example: add the Outlook publish URL or Google Calendar iframe.</p>
+          <!-- Example placeholder iframe; replace src with your published calendar link -->
+          <div class="calendar-embed">
+            <iframe src="about:blank" title="Team calendar (placeholder)" style="width:100%;min-height:260px;border:1px solid var(--muted);border-radius:8px;"></iframe>
+            <p class="hint">To embed your Outlook/Office 365 calendar make it shareable and paste the publish URL here.</p>
+          </div>
+        </div>
+
+        <!-- Protected downloads & resources -->
+        <div>
+          <h3>Protected resources</h3>
+          <p>For secure sharing, use our SharePoint link above. Do not upload/attach sensitive personal data via public forms.</p>
+          <div class="pill-row">
+            <a class="pill" href="protected-resources.html">Protected resources (internal)</a>
+          </div>
+        </div>
       </div>
 
-      <!-- SharePoint Link -->
-      <h3>SharePoint Access</h3>
-      <p><a class="pill sharepoint" href="https://yoursharepointlink.com" target="_blank">View Risk Assessments & Documents</a></p>
+      <!-- Hours & Expenses form (Netlify) -->
+      <section style="margin-top:18px;">
+        <h3>Log hours & expenses</h3>
+        <p>Use this secure form to log hours and submit small expenses. Submissions are processed via Netlify forms. Do not include sensitive personal data in the notes — use secure SharePoint/email for protected records.</p>
 
-      <!-- Staff Hours Form -->
-      <h3>Log Your Hours</h3>
-      <form id="hoursForm" method="POST" data-netlify="true" class="styled-form">
-        <input type="hidden" name="form-name" value="hours-log">
-        <label for="staff-name">Staff member name</label>
-        <input id="staff-name" name="staff_name" type="text" required>
-        <label for="date-worked">Date</label>
-        <input id="date-worked" name="date_worked" type="date" required>
-        <label for="duration">Duration (hours)</label>
-        <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required>
-        <label for="client">Client / session with</label>
-        <input id="client" name="client_name" type="text">
-        <label for="notes">Brief notes</label>
-        <textarea id="notes" name="notes" rows="4"></textarea>
-        <label for="email-staff">Staff email</label>
-        <input id="email-staff" name="staff_email" type="email" value="meadowpathwayscornwall@outlook.com" required>
-        <button type="submit">Submit Hours</button>
-        <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
-      </form>
+        <form name="staff-hours" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="thankyou.html" class="styled-form">
+          <input type="hidden" name="form-name" value="staff-hours" />
+          <!-- honeypot -->
+          <div class="sr-only"><label>Don't fill this out if you're human: <input name="bot-field"></label></div>
 
-      <!-- Staff Calendar -->
-      <h3>Staff Calendar</h3>
-      <iframe src="https://outlook.office365.com/owa/calendar/yourcalendarid" style="border:0" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+          <label for="staff-name">Name</label>
+          <input id="staff-name" name="staff_name" type="text" required>
+
+          <label for="date-worked">Date</label>
+          <input id="date-worked" name="date_worked" type="date" required>
+
+          <label for="duration">Duration (hours)</label>
+          <input id="duration" name="duration_hours" type="number" min="0" step="0.25" required>
+
+          <label for="client">Client / session with</label>
+          <input id="client" name="client_name" type="text">
+
+          <label for="notes">Brief notes</label>
+          <textarea id="notes" name="notes" rows="4"></textarea>
+
+          <label for="email-staff">Staff email</label>
+          <input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required>
+
+          <label for="expense-desc">Expense description (optional)</label>
+          <textarea id="expense-desc" name="expense_description" rows="3"></textarea>
+
+          <label for="expense-amount">Expense amount (£)</label>
+          <input id="expense-amount" name="expense_amount" type="number" min="0" step="0.01">
+
+          <!-- Add a reply-to so Netlify can use it as reply address if configured -->
+          <input type="hidden" name="reply-to" id="reply-to">
+
+          <div style="display:flex;gap:12px;align-items:center;margin-top:12px;">
+            <button type="submit" class="pill">Submit hours & expenses</button>
+            <div id="hoursStatus" role="status" aria-live="polite" class="form-status" style="margin-left:8px;"></div>
+          </div>
+        </form>
+
+        <p class="note">Submissions will redirect to the Thank you page. If you need the submission sent to a specific mailbox, setup is managed in Netlify form notifications (meadowpathwayscornwall@outlook.com).</p>
+      </section>
 
     </section>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <p>Meadow Pathways Wellbeing & Education Cornwall Ltd © 2025</p>
+        <p>Michelle: 07932 243358 | Zoe: 07775 733587</p>
+        <p><a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
+      </div>
+    </footer>
+
   </main>
-
-  <!-- Footer -->
-  <footer class="site-footer" style="background-image:url('BG.png');background-size:cover;text-align:center;color:#001f4d;padding:20px;">
-    <p>Meadow Pathways Wellbeing & Education Cornwall Ltd © 2025</p>
-    <p>Michelle: 07932 243358 | Zoe: 07775 733587</p>
-    <p>Email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></p>
-  </footer>
-
-  <script>
-    const PASSWORD = 'MPWEC!';
-    const lockedEl = document.getElementById('locked');
-    const staffPanel = document.getElementById('staffPanel');
-    const unlockBtn = document.getElementById('unlockBtn');
-    const pwdInput = document.getElementById('staffPassword');
-
-    function unlock() {
-      const val = (pwdInput.value || '').trim();
-      if (val === PASSWORD) {
-        lockedEl.style.display = 'none';
-        staffPanel.style.display = 'block';
-        lockedEl.setAttribute('aria-hidden', 'true');
-        staffPanel.setAttribute('aria-hidden', 'false');
-        document.getElementById('staff-name').focus();
-      } else {
-        pwdInput.value = '';
-        pwdInput.focus();
-        alert('Incorrect password. Contact Michelle or Zoe for access.');
-      }
-    }
-  </script>
 
 </body>
 </html>
