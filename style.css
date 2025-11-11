@@ -1,49 +1,197 @@
-/* ---------------------------
-   Smooth Scroll for internal links
---------------------------- */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
-
-/* ---------------------------
-   Staff Page Password Unlock
---------------------------- */
-const PASSWORD = 'MPWEC!';
-const lockedEl = document.getElementById('locked');
-const staffPanel = document.getElementById('staffPanel');
-const unlockBtn = document.getElementById('unlockBtn');
-const pwdInput = document.getElementById('staffPassword');
-
-if (unlockBtn) {
-  unlockBtn.addEventListener('click', unlock);
+/* --- Reset & Base Styles --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-function unlock() {
-  if (!pwdInput) return;
-  const val = (pwdInput.value || '').trim();
-  if (val === PASSWORD) {
-    if (lockedEl) lockedEl.style.display = 'none';
-    if (staffPanel) staffPanel.style.display = 'block';
-    if (lockedEl) lockedEl.setAttribute('aria-hidden', 'true');
-    if (staffPanel) staffPanel.setAttribute('aria-hidden', 'false');
-    const firstInput = document.querySelector('#staff-name');
-    if (firstInput) firstInput.focus();
-  } else {
-    pwdInput.value = '';
-    pwdInput.focus();
-    alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+body, html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #001f4d;
+  background-color: #f5f5f5;
+  scroll-behavior: smooth;
+}
+
+/* --- Header Section --- */
+.page-header {
+  background: url('BG.png') no-repeat center center;
+  background-size: cover;
+  color: #001f4d;
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 12px;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.page-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.page-header p {
+  font-size: 1rem;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: #001f4d;
+  color: #ffffff;
+  overflow-y: auto;
+  padding-top: 20px;
+}
+
+.sidebar-logo {
+  display: block;
+  margin: 0 auto 20px auto;
+  max-width: 180px;
+  border-radius: 8px;
+}
+
+.side-nav ul {
+  list-style: none;
+}
+
+.side-nav li {
+  margin-bottom: 8px;
+}
+
+.nav-tab {
+  display: block;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-tab:hover {
+  background-color: #00aaff;
+  color: #fff;
+}
+
+.nav-tab.home { background-color: #4caf50; }
+.nav-tab.eotas { background-color: #ff9800; }
+.nav-tab.about { background-color: #2196f3; }
+.nav-tab.policies { background-color: #9c27b0; }
+.nav-tab.referral { background-color: #ff5722; }
+.nav-tab.contact { background-color: #607d8b; }
+.nav-tab.staff { background-color: #795548; }
+.nav-tab.treverno { background-color: #3f51b5; }
+.nav-tab.safeguarding { background-color: #f44336; }
+
+/* --- Main Content --- */
+.main-content {
+  margin-left: 240px;
+  padding: 20px;
+}
+
+/* --- Cards / Sections --- */
+.card, .wrap {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Pill Links --- */
+.pill {
+  display: inline-block;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 600;
+  margin: 4px 4px 4px 0;
+  transition: all 0.3s ease;
+}
+
+.pill:hover {
+  opacity: 0.85;
+}
+
+.pill-referral { background-color: #ff5722; }
+.pill-eotas { background-color: #ff9800; }
+.pill-policy { background-color: #9c27b0; }
+.pill-contact { background-color: #607d8b; }
+.pill-internal { background-color: #4caf50; }
+.pill-resource { background-color: #3f51b5; }
+
+/* --- Forms --- */
+.styled-form input, 
+.styled-form select, 
+.styled-form textarea, 
+.styled-form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.styled-form button {
+  background-color: #001f4d;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.styled-form button:hover {
+  background-color: #004080;
+}
+
+/* --- Footer --- */
+footer.site-footer {
+  background: url('BG.png') no-repeat center center;
+  background-size: cover;
+  color: #001f4d;
+  text-align: center;
+  padding: 20px;
+  border-top: 4px solid #001f4d;
+}
+
+footer.site-footer a {
+  color: #001f4d;
+  text-decoration: underline;
+}
+
+/* --- Staff / Locked Panels --- */
+#locked {
+  display: block;
+  text-align: center;
+  padding: 20px;
+  background-color: #f44336;
+  color: #fff;
+  border-radius: 12px;
+}
+
+#staffPanel {
+  display: none;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .main-content {
+    margin-left: 0;
   }
 }
-
-/* ---------------------------
-   Auto Focus First Input in Forms
---------------------------- */
-document.addEventListener('DOMContentLoaded', () => {
-  const firstInput = document.querySelector('form input, form textarea, form select');
-  if (firstInput) firstInput.focus();
-});
