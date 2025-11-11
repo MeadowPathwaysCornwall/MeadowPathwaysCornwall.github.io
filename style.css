@@ -5,7 +5,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0c2e5e; /* Darker Blugoon background behind text boxes */
+    background-color: #00264d; /* Darker blue behind text boxes */
     color: #333;
 }
 
@@ -23,24 +23,20 @@ a {
     left: 0;
     width: 220px;
     height: 100%;
-    background-color: #1e90ff; /* Sidebar Blugoon blue */
+    background-color: #1e90ff;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 16px;
     overflow-y: auto;
-    z-index: 1000;
 }
 
 .sidebar-logo {
     width: 160px;
     display: block;
     margin: 0 auto 16px auto;
-    position: sticky;
-    top: 16px;
 }
 
-/* Sidebar Navigation Tabs */
 .side-nav ul {
     list-style: none;
     padding: 0;
@@ -54,28 +50,28 @@ a {
 .side-nav li a {
     display: block;
     padding: 12px 16px;
+    color: #fff;
     font-weight: 600;
     border-radius: 8px;
     margin: 4px 8px;
     transition: 0.3s;
-    color: #fff;
 }
 
-/* Individual tab colours */
+/* Colored navigation tabs */
 .nav-tab.home { background-color: #1abc9c; }
 .nav-tab.eotas { background-color: #3498db; }
 .nav-tab.about { background-color: #9b59b6; }
 .nav-tab.policies { background-color: #e67e22; }
-.nav-tab.referral { background-color: #f1c40f; color: #000; }
-.nav-tab.contact { background-color: #e74c3c; }
+.nav-tab.referral { background-color: #e74c3c; }
+.nav-tab.contact { background-color: #f1c40f; }
 .nav-tab.staff { background-color: #2ecc71; }
-.nav-tab.treverno { background-color: #16a085; }
-.nav-tab.safeguarding { background-color: #c0392b; }
+.nav-tab.treverno { background-color: #34495e; }
+.nav-tab.safeguarding { background-color: #16a085; }
 
 .side-nav li a:hover,
 .side-nav li a.active {
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
     transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 /* ===========================
@@ -90,21 +86,56 @@ a {
     max-width: 900px;
     margin: 16px auto;
     padding: 16px;
-    background-color: #d4e6f1; /* Light blue for text boxes */
+    background-color: #cce0ff; /* Light blue boxes */
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
 
 /* ===========================
-   Header Section
+   Page Header
 =========================== */
-.header-section {
-    background: url('BG.png') no-repeat center/cover;
-    color: #0c2e5e; /* Dark blue text */
-    padding: 40px 24px;
+.page-header {
     text-align: center;
+    color: #00264d; /* Dark text over BG.png */
+    padding: 60px 20px;
+    background: url('BG.png') no-repeat center/cover;
     border-radius: 12px;
-    margin-bottom: 16px;
+    margin: 16px;
+}
+
+/* ===========================
+   Pill boxes / Tabs
+=========================== */
+.pill-links, .tab-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.pill, .tab {
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #fff;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+/* Assign different colors to pills */
+.pill.kcsie { background-color: #1abc9c; }
+.pill.cios { background-color: #3498db; }
+.pill.nspcc { background-color: #e74c3c; }
+.pill.beacon { background-color: #f39c12; }
+.pill.referral { background-color: #e74c3c; }
+.pill.about { background-color: #9b59b6; }
+.pill.contact { background-color: #f1c40f; }
+.pill.eotas { background-color: #3498db; }
+.pill.ebsna { background-color: #e67e22; }
+
+/* Hover effect */
+.pill:hover, .tab:hover {
+    transform: scale(1.05);
 }
 
 /* ===========================
@@ -118,7 +149,7 @@ a {
 
 .carousel-slides {
     display: flex;
-    transition: transform 0.8s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slides img {
@@ -152,98 +183,35 @@ a {
     background-color: rgba(0,0,0,0.6);
 }
 
-.dots {
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-}
-
-.dots button {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: none;
-    background-color: #ccc;
-    cursor: pointer;
-}
-
-.dots button.active {
-    background-color: #1e90ff;
-}
-
-/* ===========================
-   QR Codes
-=========================== */
-.qr-codes {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 12px;
-}
-
-.qr-codes img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-}
-
 /* ===========================
    Footer
 =========================== */
 .site-footer {
     background: url('BG.png') no-repeat center/cover;
-    color: #0c2e5e; /* Dark text */
+    color: #00264d; /* Dark text on footer */
     font-size: 1.1rem;
     text-align: center;
     padding: 24px 16px;
     margin-top: 24px;
 }
 
-/* ===========================
-   Cards / Pill Boxes
-=========================== */
-.card h1, .card h2 {
-    margin-top: 0;
+.site-footer p {
+    margin: 4px 0;
 }
-
-.card ul {
-    padding-left: 20px;
-}
-
-.pill, .tab {
-    padding: 8px 14px;
-    border-radius: 12px;
-    color: #fff;
-    font-weight: 600;
-    text-align: center;
-    display: inline-block;
-    margin: 4px;
-    transition: 0.3s;
-}
-
-/* Example pill colours (custom for each type) */
-.pill.referral { background-color: #f1c40f; color: #000; }
-.pill.about { background-color: #9b59b6; }
-.pill.contact { background-color: #e74c3c; }
-.pill.eotas { background-color: #3498db; }
-.pill.ebsna { background-color: #1abc9c; }
-.pill.policy1 { background-color: #16a085; }
-.pill.policy2 { background-color: #e67e22; }
-.pill.policy3 { background-color: #2980b9; }
-.pill.policy4 { background-color: #8e44ad; }
-.pill.policy5 { background-color: #c0392b; }
-.pill.policy6 { background-color: #f39c12; }
 
 /* ===========================
-   Staff page
+   Staff
 =========================== */
+.staff-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 24px;
+    margin-top: 16px;
+}
+
 .staff-member {
     text-align: center;
-    background-color: #d4e6f1;
+    background-color: #cce0ff;
     padding: 12px;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
@@ -271,3 +239,4 @@ a {
         position: relative;
     }
 }
+
