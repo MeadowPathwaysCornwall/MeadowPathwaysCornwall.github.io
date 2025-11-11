@@ -1,57 +1,49 @@
-// Smooth scroll
-document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.querySelector(link.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
-        });
+/* ---------------------------
+   Smooth Scroll for internal links
+--------------------------- */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e){
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
     });
+  });
 });
 
-// Staff password unlock
+/* ---------------------------
+   Staff Page Password Unlock
+--------------------------- */
 const PASSWORD = 'MPWEC!';
 const lockedEl = document.getElementById('locked');
 const staffPanel = document.getElementById('staffPanel');
 const unlockBtn = document.getElementById('unlockBtn');
 const pwdInput = document.getElementById('staffPassword');
 
-if(unlockBtn){
-    unlockBtn.addEventListener('click', () => {
-        const val = (pwdInput.value || '').trim();
-        if(val === PASSWORD){
-            lockedEl.style.display = 'none';
-            staffPanel.style.display = 'block';
-            lockedEl.setAttribute('aria-hidden','true');
-            staffPanel.setAttribute('aria-hidden','false');
-            const firstInput = staffPanel.querySelector('input,textarea,select');
-            if(firstInput) firstInput.focus();
-        } else {
-            pwdInput.value = '';
-            pwdInput.focus();
-            alert('Incorrect password. Contact Michelle or Zoe for access.');
-        }
-    });
+if (unlockBtn) {
+  unlockBtn.addEventListener('click', unlock);
 }
 
-// Netlify form submissions
+function unlock() {
+  if (!pwdInput) return;
+  const val = (pwdInput.value || '').trim();
+  if (val === PASSWORD) {
+    if (lockedEl) lockedEl.style.display = 'none';
+    if (staffPanel) staffPanel.style.display = 'block';
+    if (lockedEl) lockedEl.setAttribute('aria-hidden', 'true');
+    if (staffPanel) staffPanel.setAttribute('aria-hidden', 'false');
+    const firstInput = document.querySelector('#staff-name');
+    if (firstInput) firstInput.focus();
+  } else {
+    pwdInput.value = '';
+    pwdInput.focus();
+    alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+  }
+}
+
+/* ---------------------------
+   Auto Focus First Input in Forms
+--------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
-    const forms = document.querySelectorAll('form[data-netlify]');
-    forms.forEach(form => {
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            const statusEl = form.querySelector('[role="status"]');
-            fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(new FormData(form)).toString()
-            }).then(() => {
-                if(statusEl) statusEl.textContent = "Form submitted successfully!";
-                form.reset();
-            }).catch(() => {
-                if(statusEl) statusEl.textContent = "Form submission failed. Please try again.";
-            });
-        });
-    });
+  const firstInput = document.querySelector('form input, form textarea, form select');
+  if (firstInput) firstInput.focus();
 });
