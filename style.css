@@ -1,246 +1,273 @@
-/* ===============================
-   Meadow Pathways — Full Layout
-   =============================== */
-
-/* Root variables */
-:root {
-  --sidebar-width: 240px;
-  --sidebar-bg: #1c5d99;
-  --sidebar-text: #fff;
-  --main-bg: #f8fafc;
-  --accent-blue: #3b82f6;
-  --accent-green: #10b981;
-  --accent-orange: #f59e0b;
-  --accent-purple: #8b5cf6;
-  --accent-pink: #ec4899;
-  --accent-teal: #14b8a6;
-  --accent-yellow: #facc15;
-  --text-color: #1e293b;
-  --card-bg: #fff;
-  --border-radius: 12px;
-  --shadow: 0 2px 8px rgba(0,0,0,0.1);
-  --transition: all 0.3s ease-in-out;
-  --header-height: 260px;
+/* ===========================
+   Global Body & Reset
+=========================== */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0c2e5e; /* Darker Blugoon background behind text boxes */
+    color: #333;
 }
 
-/* Reset & Base */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-body {
-  display: flex;
-  min-height: 100vh;
-  font-family: 'Poppins', Arial, sans-serif;
-  background: var(--main-bg);
-  color: var(--text-color);
-}
-
-/* Sidebar */
+/* ===========================
+   Sidebar
+=========================== */
 .sidebar {
-  width: var(--sidebar-width);
-  background: var(--sidebar-bg);
-  color: var(--sidebar-text);
-  padding: 20px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    background-color: #1e90ff; /* Sidebar Blugoon blue */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 16px;
+    overflow-y: auto;
+    z-index: 1000;
 }
 
 .sidebar-logo {
-  display: block;
-  width: 160px;
-  margin: 0 auto 20px;
+    width: 160px;
+    display: block;
+    margin: 0 auto 16px auto;
+    position: sticky;
+    top: 16px;
 }
 
-/* Navigation tabs */
+/* Sidebar Navigation Tabs */
 .side-nav ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .side-nav li {
-  margin-bottom: 10px;
+    width: 100%;
 }
 
-.side-nav a {
-  display: block;
-  padding: 10px 15px;
-  border-radius: var(--border-radius);
-  color: var(--sidebar-text);
-  text-decoration: none;
-  transition: var(--transition);
-  background: rgba(255,255,255,0.05);
+.side-nav li a {
+    display: block;
+    padding: 12px 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    margin: 4px 8px;
+    transition: 0.3s;
+    color: #fff;
 }
 
-.side-nav a:hover,
-.side-nav a[aria-current="page"] {
-  background: rgba(255,255,255,0.25);
-  transform: translateX(4px);
+/* Individual tab colours */
+.nav-tab.home { background-color: #1abc9c; }
+.nav-tab.eotas { background-color: #3498db; }
+.nav-tab.about { background-color: #9b59b6; }
+.nav-tab.policies { background-color: #e67e22; }
+.nav-tab.referral { background-color: #f1c40f; color: #000; }
+.nav-tab.contact { background-color: #e74c3c; }
+.nav-tab.staff { background-color: #2ecc71; }
+.nav-tab.treverno { background-color: #16a085; }
+.nav-tab.safeguarding { background-color: #c0392b; }
+
+.side-nav li a:hover,
+.side-nav li a.active {
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transform: scale(1.02);
 }
 
-/* Main content */
-main {
-  margin-left: var(--sidebar-width); /* ensures sidebar space */
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-  padding: 0 20px;
+/* ===========================
+   Main Content
+=========================== */
+.main-content {
+    margin-left: 240px;
+    padding: 24px;
 }
 
-/* Page header */
-.page-header {
-  background: url('BG.png') no-repeat center center/cover;
-  height: var(--header-height);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  margin: 20px 0;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
+.wrap {
+    max-width: 900px;
+    margin: 16px auto;
+    padding: 16px;
+    background-color: #d4e6f1; /* Light blue for text boxes */
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
 }
 
-.page-header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+/* ===========================
+   Header Section
+=========================== */
+.header-section {
+    background: url('BG.png') no-repeat center/cover;
+    color: #0c2e5e; /* Dark blue text */
+    padding: 40px 24px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 16px;
 }
 
-.page-header h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-}
-
-.page-header p {
-  font-size: 1rem;
-}
-
-/* Pill Boxes */
-.pill {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 25px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: var(--transition);
-  box-shadow: var(--shadow);
-  margin: 5px 5px 5px 0;
-}
-
-.pill:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-
-/* Colour variants */
-.pill-blue { background: var(--accent-blue); }
-.pill-green { background: var(--accent-green); }
-.pill-orange { background: var(--accent-orange); }
-.pill-purple { background: var(--accent-purple); }
-.pill-pink { background: var(--accent-pink); }
-.pill-teal { background: var(--accent-teal); }
-.pill-yellow { background: var(--accent-yellow); color: #000; }
-
-/* Staff/About images */
-.staff-photo,
-.about-photo {
-  display: block;
-  width: 160px;       /* smaller than before */
-  height: 160px;
-  object-fit: cover;
-  border-radius: 12px;    
-  border: 4px solid #eaf4fc;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  margin: 20px auto;
-  background-color: #fff;
-}
-
-@media (max-width: 600px) {
-  .staff-photo,
-  .about-photo {
-    width: 120px;
-    height: 120px;
-    border: 3px solid #eaf4fc;
-  }
-}
-
-/* Carousel */
+/* ===========================
+   Carousel
+=========================== */
 .carousel-container {
-  max-width: 900px;
-  margin: 40px auto;
-  overflow: hidden;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
 }
 
 .carousel-slides img {
-  width: 100%;
-  display: none;
-  transition: opacity 1s ease;
-}
-
-.carousel-slides img.active {
-  display: block;
-  opacity: 1;
-}
-
-.carousel-controls button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.carousel-controls button:hover {
-  background: rgba(0,0,0,0.7);
-}
-
-/* Footer */
-footer {
-  background: url('BG.png') no-repeat center center/cover;
-  color: #fff;
-  text-align: center;
-  padding: 15px 10px;
-  font-size: 0.9rem;
-  margin-top: 30px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
-  .sidebar {
-    position: relative;
     width: 100%;
-    height: auto;
-    flex-direction: row;
-    overflow-x: auto;
-  }
-  main {
-    margin-left: 0;
-    padding: 0 10px;
-  }
-  .page-header {
-    height: 200px;
-  }
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+}
+
+.carousel-btn {
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0,0,0,0.6);
+}
+
+.dots {
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.dots button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.dots button.active {
+    background-color: #1e90ff;
+}
+
+/* ===========================
+   QR Codes
+=========================== */
+.qr-codes {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.qr-codes img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+/* ===========================
+   Footer
+=========================== */
+.site-footer {
+    background: url('BG.png') no-repeat center/cover;
+    color: #0c2e5e; /* Dark text */
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 24px 16px;
+    margin-top: 24px;
+}
+
+/* ===========================
+   Cards / Pill Boxes
+=========================== */
+.card h1, .card h2 {
+    margin-top: 0;
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+.pill, .tab {
+    padding: 8px 14px;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    margin: 4px;
+    transition: 0.3s;
+}
+
+/* Example pill colours (custom for each type) */
+.pill.referral { background-color: #f1c40f; color: #000; }
+.pill.about { background-color: #9b59b6; }
+.pill.contact { background-color: #e74c3c; }
+.pill.eotas { background-color: #3498db; }
+.pill.ebsna { background-color: #1abc9c; }
+.pill.policy1 { background-color: #16a085; }
+.pill.policy2 { background-color: #e67e22; }
+.pill.policy3 { background-color: #2980b9; }
+.pill.policy4 { background-color: #8e44ad; }
+.pill.policy5 { background-color: #c0392b; }
+.pill.policy6 { background-color: #f39c12; }
+
+/* ===========================
+   Staff page
+=========================== */
+.staff-member {
+    text-align: center;
+    background-color: #d4e6f1;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.staff-member img {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media screen and (max-width: 900px) {
+    .main-content {
+        margin-left: 0;
+        padding: 16px;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+}
