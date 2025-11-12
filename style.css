@@ -137,3 +137,30 @@ img[alt="Crowdfunder QR"], .qr-small { width: 140px; height: auto; border-radius
   .mp-carousel-img { max-height: 240px; }
   .news-inner { animation-duration: 36s; }
 }
+/* Values pills grid and colours (append to style.css) */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+.value-pill {
+  padding: 14px;
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  min-height: 88px;
+}
+.value-pill h3 { margin: 0 0 6px 0; font-size: 1.05rem; color: #ffffff; }
+.value-pill p { margin: 0; color: rgba(255,255,255,0.95); font-size: 0.95rem; }
+
+/* individual brand-tinted colours matching pill/tab style */
+.value-resilience { background: linear-gradient(90deg,#4caf50,#3e8e3b); }   /* green */
+.value-health { background: linear-gradient(90deg,#ff9800,#db7a00); }       /* orange */
+.value-honesty { background: linear-gradient(90deg,#9c27b0,#7a1893); }      /* purple */
+.value-friendship { background: linear-gradient(90deg,#3f51b5,#33408f); }   /* indigo */
+
+/* Responsive: single column on narrow screens */
+@media (max-width: 640px) {
+  .values-grid { grid-template-columns: 1fr; }
+}
