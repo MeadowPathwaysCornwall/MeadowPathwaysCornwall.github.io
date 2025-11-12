@@ -112,7 +112,7 @@ html, body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   position: relative;
   z-index: 1;
-  color: #001f4d;
+  color: #96C2DB, #E5EDF1;
 }
 
 /* Safety: ensure text elements in .wrap are visible and not clipped */
@@ -127,7 +127,7 @@ html, body {
   border-radius: 10px;
   padding: 10px 14px;
   overflow: hidden;
-  color: #001f4d;
+  color: #96C2DB, #E5EDF1;
 }
 .news-inner {
   display: inline-block;
@@ -258,5 +258,6 @@ html { text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
 .wrap p, .wrap h1, .wrap h2, .wrap h3, .wrap h4, .wrap ul, .wrap li { display: block; color: #001f4d; }
 
 /* End of stylesheet */
+
 
 
