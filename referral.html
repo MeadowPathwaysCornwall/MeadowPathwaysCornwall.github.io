@@ -1,113 +1,209 @@
-<!-- Referral form -->
-<form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-  <!-- Referrer details -->
-  <fieldset>
-    <legend>Referrer details</legend>
-    <div class="form-group">
-      <label for="refName">Your name</label>
-      <input id="refName" name="referrer_name" type="text" class="form-control" required />
-    </div>
-    <div class="form-group">
-      <label for="refOrg">Organisation</label>
-      <input id="refOrg" name="referrer_org" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="refEmail">Email</label>
-      <input id="refEmail" name="referrer_email" type="email" class="form-control" required />
-    </div>
-    <div class="form-group">
-      <label for="refPhone">Phone</label>
-      <input id="refPhone" name="referrer_phone" type="tel" class="form-control" />
-    </div>
-  </fieldset>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Referral | Meadow Pathways Cornwall</title>
 
-  <!-- Learner details -->
-  <fieldset>
-    <legend>Learner details</legend>
-    <div class="form-group">
-      <label for="learnerName">Child/young person’s name</label>
-      <input id="learnerName" name="learner_name" type="text" class="form-control" required />
-    </div>
-    <div class="form-group">
-      <label for="dob">Date of birth</label>
-      <input id="dob" name="learner_dob" type="date" class="form-control" required />
-    </div>
-    <div class="form-group">
-      <label for="currentProvision">Current provision</label>
-      <input id="currentProvision" name="current_provision" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="senNeeds">Primary needs</label>
-      <select id="senNeeds" name="primary_needs" class="form-control">
-        <option value="">Select…</option>
-        <option>SEN</option>
-        <option>SEMH</option>
-        <option>EBSNA</option>
-        <option>Bereavement</option>
-        <option>Educational trauma</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="needsSummary">Summary of needs and goals</label>
-      <textarea id="needsSummary" name="needs_summary" rows="5" class="form-control" required></textarea>
-    </div>
-  </fieldset>
+  <!-- Styles -->
+  <link rel="stylesheet" href="bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-  <!-- EBSNA & risk -->
-  <fieldset>
-    <legend>EBSNA and risk information</legend>
-    <div class="form-group">
-      <label for="attendance">Attendance context</label>
-      <textarea id="attendance" name="attendance_context" rows="4" class="form-control"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="riskFactors">Known risks and strategies</label>
-      <textarea id="riskFactors" name="risk_factors" rows="4" class="form-control"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="docsLinks">Key documents (paste links or list filenames)</label>
-      <textarea id="docsLinks" name="documents_links" rows="3" class="form-control" placeholder="EHCP, reports, plans…"></textarea>
-    </div>
-  </fieldset>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo" />
+    <nav class="side-nav">
+      <ul class="nav-tabs">
+        <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
+        <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
+        <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
+        <li><a href="policies.html" class="nav-tab policies">📘 Policies</a></li>
+        <li><a href="referral.html" class="nav-tab referral" aria-current="page">📝 Referral</a></li>
+        <li><a href="contact.html" class="nav-tab contact">☎️ Contact</a></li>
+        <li><a href="staff.html" class="nav-tab staff">👩‍🏫 Staff Only</a></li>
+        <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
+        <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
+      </ul>
 
-  <!-- Contact & consent -->
-  <fieldset>
-    <legend>Contact & consent</legend>
-    <div class="form-group">
-      <label for="parentCarer">Parent/carer name</label>
-      <input id="parentCarer" name="parent_carer_name" type="text" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="parentEmail">Parent/carer email</label>
-      <input id="parentEmail" name="parent_carer_email" type="email" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="parentPhone">Parent/carer phone</label>
-      <input id="parentPhone" name="parent_carer_phone" type="tel" class="form-control" />
-    </div>
-    <div class="form-group">
-      <label for="preferredContact">Preferred contact method</label>
-      <select id="preferredContact" name="preferred_contact" class="form-control">
-        <option>Email</option>
-        <option>Phone</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="additionalInfo">Additional information</label>
-      <textarea id="additionalInfo" name="additional_info" rows="4" class="form-control"></textarea>
-    </div>
-    <div class="form-group">
-      <label>
-        <input type="checkbox" name="consent" value="yes" required />
-        I confirm consent to share the provided information with Meadow Pathways.
-      </label>
-    </div>
-  </fieldset>
+      <div class="pill-area">
+        <a class="pill pill-referral" href="referral.html">Referral</a>
+        <a class="pill pill-contact" href="contact.html">Contact</a>
+        <a class="pill pill-policy" href="EBSNA.pdf" target="_blank" rel="noopener">EBSNA Document</a>
+      </div>
+    </nav>
+  </aside>
 
-  <div class="pill-area" style="margin-top:10px;">
-    <button type="submit" class="pill pill-referral">Submit referral</button>
-    <a class="pill pill-contact" href="contact.html">Contact us</a>
-    <a class="pill pill-policy" href="EBSNA.pdf" target="_blank" rel="noopener">EBSNA document</a>
-  </div>
-</form>
+  <!-- Main content -->
+  <main class="main-content">
+
+    <!-- Header (BG.png background via CSS .page-header) -->
+    <section class="page-header">
+      <h1>Referral to Meadow Pathways</h1>
+      <p>Please complete the form to start a referral. We’ll respond promptly and collaborate on the right support.</p>
+    </section>
+
+    <!-- Guidance -->
+    <section class="wrap">
+      <h2>Before you begin</h2>
+      <ul>
+        <li><strong>Information:</strong> Learner details (name, DOB, needs, current provision).</li>
+        <li><strong>Consent:</strong> Confirm parental/carer consent to share information.</li>
+        <li><strong>Documents:</strong> Link or list EHCP, reports, risk assessments within the form.</li>
+      </ul>
+      <p>If your enquiry is urgent or a safeguarding concern, contact statutory services first, then notify our team via the Contact page.</p>
+    </section>
+
+    <!-- Quick actions -->
+    <section class="wrap">
+      <h2>Key links</h2>
+      <div class="pill-area">
+        <a class="pill pill-policy" href="EBSNA.pdf" target="_blank" rel="noopener">📄 EBSNA Document</a>
+        <a class="pill pill-safeguarding" href="KCSIE.pdf" target="_blank" rel="noopener">🛡 KCSIE Guidance</a>
+        <a class="pill pill-contact" href="contact.html">☎️ Contact Us</a>
+      </div>
+    </section>
+
+    <!-- Referral form -->
+    <section class="wrap">
+      <h2>Referral form</h2>
+
+      <!-- Formspree endpoint -->
+      <form action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
+        <!-- Referrer details -->
+        <fieldset>
+          <legend>Referrer details</legend>
+          <div class="form-group">
+            <label for="refName">Your name</label>
+            <input id="refName" name="referrer_name" type="text" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="refOrg">Organisation</label>
+            <input id="refOrg" name="referrer_org" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="refEmail">Email</label>
+            <input id="refEmail" name="referrer_email" type="email" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="refPhone">Phone</label>
+            <input id="refPhone" name="referrer_phone" type="tel" class="form-control" />
+          </div>
+        </fieldset>
+
+        <!-- Learner details -->
+        <fieldset>
+          <legend>Learner details</legend>
+          <div class="form-group">
+            <label for="learnerName">Child/young person’s name</label>
+            <input id="learnerName" name="learner_name" type="text" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of birth</label>
+            <input id="dob" name="learner_dob" type="date" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="currentProvision">Current provision</label>
+            <input id="currentProvision" name="current_provision" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="senNeeds">Primary needs</label>
+            <select id="senNeeds" name="primary_needs" class="form-control">
+              <option value="">Select…</option>
+              <option>SEN</option>
+              <option>SEMH</option>
+              <option>EBSNA</option>
+              <option>Bereavement</option>
+              <option>Educational trauma</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="needsSummary">Summary of needs and goals</label>
+            <textarea id="needsSummary" name="needs_summary" rows="5" class="form-control" required></textarea>
+          </div>
+        </fieldset>
+
+        <!-- EBSNA & risk -->
+        <fieldset>
+          <legend>EBSNA and risk information</legend>
+          <div class="form-group">
+            <label for="attendance">Attendance context</label>
+            <textarea id="attendance" name="attendance_context" rows="4" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="riskFactors">Known risks and strategies</label>
+            <textarea id="riskFactors" name="risk_factors" rows="4" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="docsLinks">Key documents (paste links or list filenames)</label>
+            <textarea id="docsLinks" name="documents_links" rows="3" class="form-control" placeholder="EHCP, reports, plans…"></textarea>
+          </div>
+        </fieldset>
+
+        <!-- Contact & consent -->
+        <fieldset>
+          <legend>Contact & consent</legend>
+          <div class="form-group">
+            <label for="parentCarer">Parent/carer name</label>
+            <input id="parentCarer" name="parent_carer_name" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="parentEmail">Parent/carer email</label>
+            <input id="parentEmail" name="parent_carer_email" type="email" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="parentPhone">Parent/carer phone</label>
+            <input id="parentPhone" name="parent_carer_phone" type="tel" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="preferredContact">Preferred contact method</label>
+            <select id="preferredContact" name="preferred_contact" class="form-control">
+              <option>Email</option>
+              <option>Phone</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="additionalInfo">Additional information</label>
+            <textarea id="additionalInfo" name="additional_info" rows="4" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" name="consent" value="yes" required />
+              I confirm consent to share the provided information with Meadow Pathways.
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Actions -->
+        <div class="pill-area" style="margin-top:10px;">
+          <button type="submit" class="pill pill-referral">Submit referral</button>
+          <a class="pill pill-contact" href="contact.html">Contact us</a>
+          <a class="pill pill-policy" href="EBSNA.pdf" target="_blank" rel="noopener">EBSNA document</a>
+        </div>
+      </form>
+    </section>
+
+    <!-- Support Treverno Meadows -->
+    <section class="wrap" style="text-align:center;">
+      <h2>Support Treverno Meadows</h2>
+      <img src="crowdfunderQR.png" alt="Crowdfunder QR" class="qr-small" />
+      <p style="margin-top:10px;">
+        <a class="pill pill-resource" href="values.pdf" target="_blank" rel="noopener">Values (PDF)</a>
+        <a class="pill pill-policy" href="policies.html">Policies</a>
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
+    <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
+</body>
+</html>
