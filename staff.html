@@ -112,7 +112,7 @@
     <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Unlock Script -->
   <script>
     const PASSWORD = 'MPWEC!';
     const lockedEl = document.getElementById('locked');
@@ -127,7 +127,8 @@
         staffPanel.style.display = 'block';
         lockedEl.setAttribute('aria-hidden', 'true');
         staffPanel.setAttribute('aria-hidden', 'false');
-        document.getElementById('staff-name').focus();
+        const staffNameInput = document.getElementById('staff-name');
+        if (staffNameInput) staffNameInput.focus();
       } else {
         pwdInput.value = '';
         pwdInput.focus();
@@ -141,4 +142,3 @@
     });
 
     // Hours form submit
-    const hoursForm =
