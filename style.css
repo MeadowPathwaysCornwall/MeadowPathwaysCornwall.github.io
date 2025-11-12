@@ -128,6 +128,7 @@ html, body {
 .value-pill {
   padding:14px; border-radius:12px;
   color:#001f4d; min-height:88px;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
 .value-pill h4 { margin:0 0 8px 0; font-size:1.05rem; }
 .value-pill p { margin:0; font-size:.95rem; }
@@ -138,8 +139,11 @@ html, body {
 .value-honesty { background-color: #bbdefb; }    /* light blue */
 .value-friendship { background-color: #f8bbd0; } /* gentle pink */
 
-/* Ensure text remains readable */
-.value-pill h4, .value-pill p { color: #001f4d; }
+/* Hover effect for value pills */
+.value-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
 
 /* Footer */
 footer.site-footer {
