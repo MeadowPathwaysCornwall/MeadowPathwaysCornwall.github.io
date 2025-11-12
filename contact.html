@@ -3,69 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Meadow Pathways</title>
-  <style>
-    /* Example styling – keep or replace with your own CSS */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2rem;
-      background-color: #f9f9f9;
-    }
-    form {
-      max-width: 600px;
-      margin: auto;
-      padding: 1.5rem;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-    }
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+  <title>Contact — Meadow Pathways Wellbeing & Education Cornwall</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="blugoon-body">
 
-  <h1>Contact Meadow Pathways</h1>
-  <p>If you’d like to reach us, please fill out the form below:</p>
+  <!-- Sidebar -->
+  <aside class="sidebar" aria-label="Primary site navigation">
+    <div class="sidebar-inner">
+      <a href="index.html" class="logo-wrap" aria-label="Meadow Pathways home">
+        <img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo" />
+      </a>
 
-  <form action="https://formspree.io/f/movnvzqp" method="POST">
-    <!-- Actual form fields -->
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" required>
+      <nav class="side-nav" aria-label="Main">
+        <ul class="nav-tabs" role="menubar">
+          <li role="none"><a role="menuitem" href="index.html" class="nav-tab home">🏠 Home</a></li>
+          <li role="none"><a role="menuitem" href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
+          <li role="none"><a role="menuitem" href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
+          <li role="none"><a role="menuitem" href="policies.html" class="nav-tab policies">📘 Policies</a></li>
+          <li role="none"><a role="menuitem" href="referral.html" class="nav-tab referral">📝 Referral</a></li>
+          <li role="none"><a role="menuitem" href="contact.html" class="nav-tab contact active" aria-current="page">☎️ Contact</a></li>
+          <li role="none"><a role="menuitem" href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
+          <li role="none"><a role="menuitem" href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
+          <li role="none"><a role="menuitem" href="staff.html" class="nav-tab staff">👩‍🏫 Staff Only</a></li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
 
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" required>
+  <!-- Main content -->
+  <main class="main-content" id="main-content">
+    <section class="page-header contact-header">
+      <div class="page-header-inner">
+        <h1>Contact Meadow Pathways</h1>
+        <p class="lead">Guiding Individual Journeys with Care and Purpose</p>
+      </div>
+    </section>
 
-    <label for="subject">Subject</label>
-    <input type="text" name="subject" id="subject">
+    <section class="wrap card">
+      <h2>Get in touch</h2>
+      <p>Please use the form below to contact us. Your message will be delivered securely to our team.</p>
 
-    <label for="message">Message / Referral Details</label>
-    <textarea name="message" id="message" required></textarea>
+      <form action="https://formspree.io/f/movnvzqp" method="POST" class="styled-form">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
 
-    <button type="submit">Submit</button>
-  </form>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject">
+
+        <label for="message">Message / Referral Details</label>
+        <textarea name="message" id="message" required></textarea>
+
+        <!-- Redirect to Thank You page -->
+        <input type="hidden" name="_redirect" value="https://yourusername.github.io/YourRepoName/Thankyou.html">
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; Meadow Pathways Wellbeing & Education Cornwall</p>
+  </footer>
 
 </body>
 </html>
