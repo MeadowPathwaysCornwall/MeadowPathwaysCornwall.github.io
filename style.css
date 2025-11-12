@@ -1,4 +1,12 @@
-/* --- Reset & Base Styles --- */
+/* Full style.css for Meadow Pathways
+   - Compatible with existing Blugoon template files in the repo
+   - Keeps sidebar, coloured nav pills, header/footer, and Bootstrap carousel intact
+   - Adds safe defaults so all text is visible, values show as coloured panels,
+     news reel is slowed and coloured, and carousel height is capped
+   - Designed to avoid changing other pages layout; selectors are conservative
+*/
+
+/* --- Reset & Base --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -6,10 +14,12 @@ html, body {
   line-height: 1.6;
   color: #001f4d;
   background-color: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
 }
 
-/* --- Header Section --- */
+/* --- Page header / hero --- */
 .page-header {
   background: url('BG.png') no-repeat center center;
   background-size: cover;
@@ -18,10 +28,10 @@ html, body {
   padding: 48px 20px;
   border-radius: 12px;
 }
-.page-header h1 { font-size: 2.2rem; margin-bottom: 6px; }
-.page-header h2 { font-size: 1.2rem; margin-bottom: 8px; }
+.page-header h1 { font-size: 2.2rem; margin-bottom: 8px; line-height: 1.15; }
+.page-header p { margin-top: 8px; font-size: 1rem; color: #073155; }
 
-/* --- Sidebar --- */
+/* --- Sidebar (Blugoon look preserved) --- */
 .sidebar {
   position: fixed;
   top: 0;
@@ -29,115 +39,122 @@ html, body {
   width: 220px;
   height: 100%;
   background-color: #001f4d;
-  color: #ffffff;
+  color: #fff;
   overflow-y: auto;
   padding-top: 20px;
 }
-.sidebar-logo { display: block; margin: 0 auto 16px; max-width: 180px; border-radius: 8px; }
+.sidebar-logo { display:block; margin: 0 auto 16px; max-width:180px; border-radius:8px; }
 
-/* --- Nav tabs styled as coloured pills --- */
+/* --- Navigation pill tabs (colours preserved) --- */
 .side-nav ul { list-style: none; padding: 0 12px; }
 .side-nav li { margin-bottom: 10px; }
 .nav-tab {
-  display: block;
-  text-decoration: none;
-  padding: 10px 14px;
-  border-radius: 999px;
-  color: #ffffff;
-  font-weight: 700;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  display:block;
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:999px;
+  color:#fff;
+  font-weight:700;
+  transition: transform .12s, box-shadow .12s, opacity .12s;
   box-shadow: none;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
-.nav-tab.home { background-color: #4caf50; }
-.nav-tab.eotas { background-color: #ff9800; }
-.nav-tab.about { background-color: #2196f3; }
-.nav-tab.policies { background-color: #9c27b0; }
-.nav-tab.referral { background-color: #ff5722; }
-.nav-tab.contact { background-color: #607d8b; }
-.nav-tab.staff { background-color: #795548; }
-.nav-tab.treverno { background-color: #3f51b5; }
-.nav-tab.safeguarding { background-color: #f44336; }
-.nav-tab:hover, .nav-tab[aria-current="page"] { opacity: 0.95; box-shadow: 0 2px 8px rgba(0,0,0,0.12); transform: translateY(-1px); }
+.nav-tab.home { background:#4caf50; }
+.nav-tab.eotas { background:#ff9800; }
+.nav-tab.about { background:#2196f3; }
+.nav-tab.policies { background:#9c27b0; }
+.nav-tab.referral { background:#ff5722; }
+.nav-tab.contact { background:#607d8b; }
+.nav-tab.staff { background:#795548; }
+.nav-tab.treverno { background:#3f51b5; }
+.nav-tab.safeguarding { background:#f44336; }
 
-/* --- Pill links area --- */
-.pill-area { padding: 12px; }
-.pill { display: inline-block; text-decoration: none; padding: 8px 14px; border-radius: 999px; color: #fff; font-weight: 600; margin: 6px 6px 0 0; }
-.pill-referral { background-color: #ff5722; }
-.pill-eotas { background-color: #ff9800; }
-.pill-policy { background-color: #9c27b0; }
-.pill-contact { background-color: #607d8b; }
-.pill-resource { background-color: #3f51b5; }
+.nav-tab:hover,
+.nav-tab[aria-current="page"] {
+  opacity: 0.95;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
 
-/* --- Main Content --- */
-.main-content { margin-left: 240px; padding: 20px; }
+/* --- Pill area (quick links under nav) --- */
+.pill-area { padding:12px; }
+.pill {
+  display:inline-block;
+  text-decoration:none;
+  padding:8px 14px;
+  border-radius:999px;
+  color:#fff;
+  font-weight:600;
+  margin:6px 6px 0 0;
+  font-size:0.95rem;
+}
+.pill-referral { background:#ff5722; }
+.pill-eotas { background:#ff9800; }
+.pill-policy { background:#9c27b0; }
+.pill-contact { background:#607d8b; }
+.pill-resource { background:#3f51b5; }
 
-/* --- Card / Wrap sections --- */
-.wrap {
-  background-color: #ffffff;
+/* --- Main content area --- */
+.main-content {
+  margin-left: 240px;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* --- Wrap / card blocks used across the site --- */
+.wrap, .card {
+  background: #fff;
   padding: 18px;
   margin-bottom: 18px;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   position: relative;
   z-index: 1;
+  color: #001f4d;
 }
 
-/* --- News reel --- */
+/* Safety: ensure text elements in .wrap are visible and not clipped */
+.wrap h1, .wrap h2, .wrap h3, .wrap p, .wrap ul, .wrap li {
+  color: #001f4d;
+  display: block;
+}
+
+/* --- News reel (slower + coloured background) --- */
 .news-reel {
-  background: linear-gradient(90deg, #e6f3ff 0%, #d8ecff 100%);
+  background: linear-gradient(90deg,#e6f3ff 0%,#d8ecff 100%);
   border-radius: 10px;
   padding: 10px 14px;
-  color: #001f4d;
   overflow: hidden;
+  color: #001f4d;
 }
 .news-inner {
   display: inline-block;
   white-space: nowrap;
   animation: news-scroll 28s linear infinite;
+  will-change: transform;
 }
-@keyframes news-scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+@keyframes news-scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
 
-/* --- Bootstrap Carousel sizing tweaks --- */
+/* --- Bootstrap carousel tweaks (caps height, rounded corners) --- */
+.carousel-container { padding: 8px 0; margin-top: 12px; margin-bottom: 12px; }
+.carousel-inner { border-radius: 12px; overflow: hidden; }
 .mp-carousel-img {
+  width: 100%;
+  height: auto;
   max-height: 360px;
   object-fit: cover;
-  border-radius: 12px;
-}
-.carousel-inner { border-radius: 12px; overflow: hidden; }
-
-/* --- Carousel wrapper spacing --- */
-.carousel-container { padding: 8px 0; margin-top: 12px; margin-bottom: 12px; }
-
-/* --- Other content styles --- */
-h1, h2, h3 { color: #001f4d; }
-p, li { color: #001f4d; }
-
-/* --- Forms, footer --- */
-footer.site-footer {
-  background: url('BG.png') no-repeat center center;
-  background-size: cover;
-  color: #001f4d;
-  text-align: center;
-  padding: 20px;
-  border-top: 4px solid #001f4d;
+  display: block;
 }
 
-/* --- QR small --- */
-img[alt="Crowdfunder QR"], .qr-small { width: 140px; height: auto; border-radius: 12px; display: block; margin: 0.5rem auto; }
+/* Ensure carousel wrapper doesn't push other content off-screen */
+.carousel-viewport, .carousel-container { max-width: 100%; }
 
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .sidebar { width: 100%; height: auto; position: relative; }
-  .main-content { margin-left: 0; padding: 14px; }
-  .page-header { padding: 30px 16px; }
-  .mp-carousel-img { max-height: 300px; }
-}
-@media (max-width: 480px) {
-  .nav-tab { padding: 8px 12px; font-size: 0.95rem; }
-  .mp-carousel-img { max-height: 240px; }
-  .news-inner { animation-duration: 36s; }
-}
-/* Values pills grid and colours (append to style.css) */
+/* --- Values grid (coloured panels) --- */
 .values-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -151,16 +168,87 @@ img[alt="Crowdfunder QR"], .qr-small { width: 140px; height: auto; border-radius
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
   min-height: 88px;
 }
-.value-pill h3 { margin: 0 0 6px 0; font-size: 1.05rem; color: #ffffff; }
+.value-pill h3, .value-pill h4 { margin: 0 0 8px 0; font-size: 1.05rem; color: #fff; }
 .value-pill p { margin: 0; color: rgba(255,255,255,0.95); font-size: 0.95rem; }
 
-/* individual brand-tinted colours matching pill/tab style */
-.value-resilience { background: linear-gradient(90deg,#4caf50,#3e8e3b); }   /* green */
-.value-health { background: linear-gradient(90deg,#ff9800,#db7a00); }       /* orange */
-.value-honesty { background: linear-gradient(90deg,#9c27b0,#7a1893); }      /* purple */
-.value-friendship { background: linear-gradient(90deg,#3f51b5,#33408f); }   /* indigo */
+/* Brand tint colours for individual value pills */
+.value-resilience { background: linear-gradient(90deg,#4caf50,#3e8e3b); }
+.value-health { background: linear-gradient(90deg,#ff9800,#db7a00); }
+.value-honesty { background: linear-gradient(90deg,#9c27b0,#7a1893); }
+.value-friendship { background: linear-gradient(90deg,#3f51b5,#33408f); }
 
-/* Responsive: single column on narrow screens */
-@media (max-width: 640px) {
-  .values-grid { grid-template-columns: 1fr; }
+/* --- Content typography and small components --- */
+h1, h2, h3 { color: #001f4d; margin-bottom: 8px; }
+p { margin-bottom: 10px; color: #073155; }
+ul { margin-left: 1.15rem; margin-bottom: 10px; }
+li { margin-bottom: 6px; }
+
+/* --- Buttons and small controls --- */
+.carousel-controls { display:flex; justify-content:center; align-items:center; gap:8px; margin-top:8px; }
+.carousel-btn {
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.08);
+  padding:6px 8px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:1.1rem;
 }
+
+/* Dots (if used elsewhere) */
+.dots button { width:10px; height:10px; border-radius:50%; background:#001f4d; border:none; margin:0 4px; opacity:0.45; padding:0; }
+
+/* --- Footer --- */
+footer.site-footer {
+  background: url('BG.png') no-repeat center center;
+  background-size: cover;
+  color: #001f4d;
+  text-align: center;
+  padding: 20px;
+  border-top: 4px solid #001f4d;
+}
+
+/* --- QR small helper (used on index) --- */
+.qr-small, img[alt="Crowdfunder QR"] { width: 140px; height: auto; border-radius: 12px; display:block; margin: 0.5rem auto; }
+
+/* --- Forms (generic styles for any page) --- */
+.styled-form input, .styled-form select, .styled-form textarea, .styled-form button {
+  display:block; width:100%; margin-bottom:12px; padding:10px; border-radius:6px; border:1px solid #ccc;
+}
+.styled-form button { background:#001f4d; color:#fff; border:none; cursor:pointer; font-weight:600; }
+.styled-form button:hover { background:#004080; }
+
+/* --- Accessibility helpers --- */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* --- Small safety rules to avoid hidden text and stacking issues --- */
+.wrap { position: relative; z-index: 1; }
+.main-content * { word-wrap: break-word; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto; }
+
+/* --- Responsive rules --- */
+@media (max-width: 1024px) {
+  .carousel-inner .mp-carousel-img { max-height: 320px; }
+  .carousel-item img { object-fit: cover; }
+}
+
+@media (max-width: 768px) {
+  .sidebar { width: 100%; position: relative; height: auto; }
+  .main-content { margin-left: 0; padding: 14px; }
+  .mp-carousel-img { max-height: 300px; }
+  .values-grid { grid-template-columns: 1fr; }
+  .page-header { padding: 30px 16px; }
+}
+
+@media (max-width: 480px) {
+  .nav-tab { padding: 8px 12px; font-size: 0.95rem; }
+  .mp-carousel-img { max-height: 240px; }
+  .news-inner { animation-duration: 36s; }
+  .page-header h1 { font-size: 1.5rem; }
+}
+
+/* --- Non-invasive utility classes --- */
+.text-center { text-align: center; }
+.mt-12 { margin-top: 12px; }
+.mb-12 { margin-bottom: 12px; }
+.hidden { display: none !important; }
+
+/* End of stylesheet */
