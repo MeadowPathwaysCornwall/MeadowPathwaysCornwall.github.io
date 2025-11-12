@@ -1,73 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Meadow Pathways Wellbeing & Education Cornwall</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact | Meadow Pathways Cornwall</title>
+  <link rel="stylesheet" href="bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="blugoon-body">
+<body>
 
   <!-- Sidebar -->
-  <aside class="sidebar" aria-label="Primary site navigation">
-    <div class="sidebar-inner">
-      <a href="index.html" class="logo-wrap" aria-label="Meadow Pathways home">
-        <img src="Logo.png" alt="Meadow Pathways logo" class="sidebar-logo" />
-      </a>
-
-      <nav class="side-nav" aria-label="Main">
-        <ul class="nav-tabs" role="menubar">
-          <li role="none"><a role="menuitem" href="index.html" class="nav-tab home">🏠 Home</a></li>
-          <li role="none"><a role="menuitem" href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
-          <li role="none"><a role="menuitem" href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
-          <li role="none"><a role="menuitem" href="policies.html" class="nav-tab policies">📘 Policies</a></li>
-          <li role="none"><a role="menuitem" href="referral.html" class="nav-tab referral">📝 Referral</a></li>
-          <li role="none"><a role="menuitem" href="contact.html" class="nav-tab contact active" aria-current="page">☎️ Contact</a></li>
-          <li role="none"><a role="menuitem" href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
-          <li role="none"><a role="menuitem" href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
-          <li role="none"><a role="menuitem" href="staff.html" class="nav-tab staff">👩‍🏫 Staff Only</a></li>
-        </ul>
-      </nav>
-    </div>
+  <aside class="sidebar">
+    <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo" />
+    <nav class="side-nav">
+      <ul class="nav-tabs">
+        <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
+        <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
+        <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
+        <li><a href="policies.html" class="nav-tab policies">📘 Policies</a></li>
+        <li><a href="referral.html" class="nav-tab referral">📝 Referral</a></li>
+        <li><a href="contact.html" class="nav-tab contact" aria-current="page">☎️ Contact</a></li>
+        <li><a href="staff.html" class="nav-tab staff">👩‍🏫 Staff Only</a></li>
+        <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
+        <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
+      </ul>
+      <div class="pill-area">
+        <a class="pill pill-contact" href="contact.html">Contact us</a>
+        <a class="pill pill-referral" href="referral.html">Referral</a>
+        <a class="pill pill-policy" href="EBSNA.pdf" target="_blank" rel="noopener">EBSNA Document</a>
+      </div>
+    </nav>
   </aside>
 
-  <!-- Main content -->
-  <main class="main-content" id="main-content">
-    <section class="page-header contact-header">
-      <div class="page-header-inner">
-        <h1>Contact Meadow Pathways</h1>
-        <p class="lead">Guiding Individual Journeys with Care and Purpose</p>
-      </div>
+  <!-- Main -->
+  <main class="main-content">
+
+    <!-- Header -->
+    <section class="page-header">
+      <h1>Contact Meadow Pathways</h1>
+      <p>We’re here to listen. Send us a message and we’ll get back to you as soon as possible.</p>
     </section>
 
-    <section class="wrap card">
-      <h2>Get in touch</h2>
-      <p>Please use the form below to contact us. Your message will be delivered securely to our team.</p>
+    <!-- Intro -->
+    <section class="wrap">
+      <h2>How we can help</h2>
+      <p>Whether you’re a family, school, or professional, we’ll work with you to understand needs and create a safe, practical plan. Share as much or as little as you’re comfortable with — we’ll follow up with care.</p>
+      <ul>
+        <li><strong>For referrals:</strong> Use the Referral form for full details and consent.</li>
+        <li><strong>For general enquiries:</strong> Use the contact form below.</li>
+        <li><strong>Urgent safeguarding:</strong> Contact statutory services first, then inform us.</li>
+      </ul>
+    </section>
 
-      <form action="https://formspree.io/f/movnvzqp" method="POST" class="styled-form">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" required>
+    <!-- Contact details -->
+    <section class="wrap">
+      <h2>Contact details</h2>
+      <p><strong>Phone:</strong> Michelle 07932 243358 | Zoe 07775 733587</p>
+      <p><strong>Email:</strong> hello@meadowpathways.org (or use the form below)</p>
+      <p><strong>Location:</strong> Cornwall, working across community settings</p>
+    </section>
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" required>
+    <!-- Contact form -->
+    <section class="wrap">
+      <h2>Contact us form</h2>
 
-        <label for="subject">Subject</label>
-        <input type="text" name="subject" id="subject">
+      <!-- Replace the action URL with your Formspree endpoint -->
+      <form action="https://formspree.io/f/your_contact_form_id" method="POST" novalidate>
+        <fieldset>
+          <legend>Your details</legend>
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="role">I am a…</label>
+            <select id="role" name="role" class="form-control">
+              <option value="">Select…</option>
+              <option>Parent/Carer</option>
+              <option>School</option>
+              <option>Professional</option>
+              <option>Young person</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </fieldset>
 
-        <label for="message">Message / Referral Details</label>
-        <textarea name="message" id="message" required></textarea>
+        <fieldset>
+          <legend>Your message</legend>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" class="form-control" required></textarea>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" name="agree_contact" value="yes" required />
+              I consent to Meadow Pathways contacting me about this enquiry.
+            </label>
+          </div>
+        </fieldset>
 
-        <!-- Redirect to Thank You page -->
-        <input type="hidden" name="_redirect" value="https://yourusername.github.io/YourRepoName/Thankyou.html">
-
-        <button type="submit">Submit</button>
+        <div class="pill-area" style="margin-top:10px;">
+          <button type="submit" class="pill pill-contact">Send message</button>
+          <a class="pill pill-referral" href="referral.html">Make a referral</a>
+          <a class="pill pill-policy" href="EBSNA.pdf" target="_blank" rel="noopener">EBSNA guidance</a>
+        </div>
       </form>
+    </section>
+
+    <!-- Values & support -->
+    <section class="wrap" style="text-align:center;">
+      <h2>Support Treverno Meadows</h2>
+      <img src="crowdfunderQR.png" alt="Crowdfunder QR" class="qr-small" />
+      <p style="margin-top:10px;">
+        <a class="pill pill-resource" href="values.pdf" target="_blank" rel="noopener">Values (PDF)</a>
+        <a class="pill pill-policy" href="policies.html">Policies</a>
+      </p>
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <p>&copy; Meadow Pathways Wellbeing & Education Cornwall</p>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
+    <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
   </footer>
 
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>
