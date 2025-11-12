@@ -1,7 +1,7 @@
-// script.js - active tab, staff unlock, smooth anchors, single-slide auto carousel
+// Active tab, staff unlock, smooth anchors, and reliable transform-based auto-carousel
 document.addEventListener('DOMContentLoaded', function () {
 
-  // Active Tab Highlight
+  // Active tab highlight
   const tabs = document.querySelectorAll('.nav-tab');
   tabs.forEach(tab => {
     const href = tab.getAttribute('href') || '';
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Staff Panel Unlock
+  // Staff unlock
   const PASSWORD = 'MPWEC!';
   const lockedEl = document.getElementById('locked');
   const staffPanel = document.getElementById('staffPanel');
@@ -49,52 +49,61 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Carousel
+  // Carousel (transform-based)
   (function initCarousel() {
-    const carousel = document.querySelector('.carousel-slides');
-    if (!carousel) return;
-    const slides = Array.from(carousel.querySelectorAll('li'));
-    if (!slides.length) return;
+    const slidesContainer = document.querySelector('.carousel-slides');
+    if (!slidesContainer) return;
+    const items = Array.from(slidesContainer.querySelectorAll('.carousel-item'));
+    if (items.length === 0) return;
 
-    const nextBtn = document.getElementById('next');
     const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
     const dotsEl = document.getElementById('dots');
 
     let current = 0;
-    const total = slides.length;
-    const intervalMs = 3000;
+    const total = items.length;
+    const intervalMs = 3500;
     let timer = null;
     let autoplay = true;
 
-    function sizeSlides() {
-      const viewport = carousel.parentElement || carousel;
+    // set sizes so items fill viewport
+    function size() {
+      const viewport = slidesContainer.parentElement || slidesContainer;
       const w = Math.floor(viewport.clientWidth);
-      slides.forEach(li => { li.style.minWidth = w + 'px'; });
-      scrollTo(current, false);
+      items.forEach(it => { it.style.minWidth = w + 'px'; });
+      // reposition without animation
+      goTo(current, false);
     }
 
-    function scrollTo(index, smooth = true) {
+    // transform to slide index
+    function goTo(index, smooth = true) {
       current = ((index % total) + total) % total;
-      const slideWidth = slides[0].clientWidth || carousel.clientWidth;
-      const left = current * slideWidth;
-      if (smooth) carousel.scrollTo({ left, behavior: 'smooth' });
-      else carousel.scrollTo({ left });
+      const w = items[0].clientWidth || slidesContainer.clientWidth;
+      const x = -current * w;
+      if (smooth) {
+        slidesContainer.style.transition = 'transform .45s ease';
+      } else {
+        slidesContainer.style.transition = 'none';
+      }
+      slidesContainer.style.transform = 'translateX(' + x + 'px)';
       updateDots();
     }
 
-    function next() { scrollTo(current + 1, true); }
-    function prev() { scrollTo(current - 1, true); }
+    function next() { goTo(current + 1, true); }
+    function prev() { goTo(current - 1, true); }
 
     if (nextBtn) nextBtn.addEventListener('click', () => { next(); resetTimer(); });
     if (prevBtn) prevBtn.addEventListener('click', () => { prev(); resetTimer(); });
 
+    // build dots
     if (dotsEl) {
       dotsEl.innerHTML = '';
       for (let i = 0; i < total; i++) {
         const b = document.createElement('button');
         b.type = 'button';
+        b.className = 'dot';
         b.setAttribute('aria-label', 'Slide ' + (i + 1));
-        b.addEventListener('click', () => { scrollTo(i, true); resetTimer(); });
+        b.addEventListener('click', () => { goTo(i, true); resetTimer(); });
         dotsEl.appendChild(b);
       }
     }
@@ -107,19 +116,34 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    function startTimer() { stopTimer(); if (!autoplay) return; timer = setInterval(() => next(), intervalMs); }
-    function stopTimer() { if (timer) { clearInterval(timer); timer = null; } }
-    function resetTimer() { stopTimer(); startTimer(); }
+    function start() { stop(); if (!autoplay) return; timer = setInterval(next, intervalMs); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function resetTimer() { stop(); start(); }
 
-    carousel.addEventListener('mouseenter', stopTimer);
-    carousel.addEventListener('mouseleave', () => { if (autoplay) startTimer(); });
+    // pause on hover/focus
+    const parent = slidesContainer.parentElement;
+    if (parent) {
+      parent.addEventListener('mouseenter', stop);
+      parent.addEventListener('mouseleave', () => { if (autoplay) start(); });
+    }
 
-    window.addEventListener('resize', debounce(sizeSlides, 120));
-    function debounce(fn, t) { let x; return function () { clearTimeout(x); x = setTimeout(fn, t); }; }
+    [prevBtn, nextBtn, dotsEl].forEach(el => {
+      if (!el) return;
+      el.addEventListener('focusin', stop);
+      el.addEventListener('focusout', () => { if (autoplay) start(); });
+    });
 
-    sizeSlides();
+    window.addEventListener('resize', debounce(size, 120));
+
+    // init
+    size();
     updateDots();
-    if (autoplay) startTimer();
+    if (autoplay) start();
+
+    function debounce(fn, wait) { let t; return function () { clearTimeout(t); t = setTimeout(() => fn.apply(this, arguments), wait); }; }
+
+    // expose for debugging
+    slidesContainer.__carousel = { goTo, next, prev, start, stop };
   })();
 
 });
