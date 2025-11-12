@@ -67,8 +67,7 @@ html, body {
 }
 
 /* Wrap sections (blue background) */
-.wrap,
-.values-grid .value-pill {
+.wrap {
   background-color:#ADD8E6;
   color:#001f4d;
   border-radius:12px;
@@ -132,27 +131,15 @@ html, body {
 }
 .value-pill h4 { margin:0 0 8px 0; font-size:1.05rem; }
 .value-pill p { margin:0; font-size:.95rem; }
+
 /* Distinct colours for each value-pill */
-.value-resilience {
-  background-color: #c8e6c9; /* soft green */
-}
-
-.value-health {
-  background-color: #ffe0b2; /* warm peach/orange */
-}
-
-.value-honesty {
-  background-color: #bbdefb; /* light blue */
-}
-
-.value-friendship {
-  background-color: #f8bbd0; /* gentle pink */
-}
+.value-resilience { background-color: #c8e6c9; } /* soft green */
+.value-health { background-color: #ffe0b2; }     /* warm peach/orange */
+.value-honesty { background-color: #bbdefb; }    /* light blue */
+.value-friendship { background-color: #f8bbd0; } /* gentle pink */
 
 /* Ensure text remains readable */
-.value-pill h4, .value-pill p {
-  color: #001f4d;
-}
+.value-pill h4, .value-pill p { color: #001f4d; }
 
 /* Footer */
 footer.site-footer {
@@ -179,5 +166,3 @@ footer.site-footer {
   .news-inner { animation-duration:36s; }
   .page-header h1 { font-size:1.5rem; }
 }
-
-
