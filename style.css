@@ -195,20 +195,32 @@ footer.site-footer a {
     margin-left: 0;
   }
 }
-/* --- Carousel Fix --- */
-.carousel-slides {
-  display: flex;
+/* --- Carousel Section --- */
+.carousel-container {
+  text-align: center;
   overflow: hidden;
+}
+
+.carousel-slides {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.carousel-slides li {
+  flex: 0 0 auto;
+  margin: 0 10px;
+}
+
 .carousel-slides img {
-  max-width: 600px;   /* cap the width */
-  width: 100%;        /* responsive scaling */
+  max-width: 300px;   /* cap image width */
   height: auto;       /* keep aspect ratio */
   border-radius: 12px;
-  margin: 0 auto;
+  display: block;
 }
+
 
 
