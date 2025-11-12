@@ -48,36 +48,36 @@
     <section id="staffPanel" class="wrap" style="display:none;" aria-hidden="true">
       <h2>Internal links and information</h2>
       <ul>
-        <li>Formspree endpoint for all forms: <code>https://formspree.io/f/movnvzqp</code></li>
-        <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
-        <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-        <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
+        <li>Formspree endpoint: <code>https://formspree.io/f/movnvzqp</code></li>
+        <li>General contact: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
+        <li>Michelle: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
+        <li>Zoe: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
       </ul>
 
       <h3>Statutory and partner resources</h3>
       <div class="pill-area">
-        <a class="pill pill-policy" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025) - GOV.UK</a>
-        <a class="pill pill-resource" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources on Patreon</a>
-        <a class="pill pill-resource" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
-        <a class="pill pill-resource" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research</a>
-        <a class="pill pill-safeguarding" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
+        <a class="pill pill-policy" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">Keeping children safe in education (Sep 2025)</a>
+        <a class="pill pill-resource" href="https://www.patreon.com/cw/pookyh/home" target="_blank">PookyH resources</a>
+        <a class="pill pill-resource" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House</a>
+        <a class="pill pill-resource" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC learning</a>
+        <a class="pill pill-safeguarding" href="https://ciossafeguarding.org.uk/scp" target="_blank">Cios safeguarding partnership</a>
       </div>
 
-      <h3 style="margin-top:12px">Internal policy documents (downloads)</h3>
+      <h3>Internal policy documents</h3>
       <div class="pill-area">
-        <a class="pill pill-policy" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy EOTAS Sep 2025</a>
-        <a class="pill pill-policy" href="MPWEC H&S Policy Sep 25.docx" download>Health & Safety Policy Sep 2025</a>
-        <a class="pill pill-policy" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy Sep 2025</a>
-        <a class="pill pill-policy" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding & Child Protection Policy Sep 2025</a>
+        <a class="pill pill-policy" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy</a>
+        <a class="pill pill-policy" href="MPWEC H&S Policy Sep 25.docx" download>Health & Safety Policy</a>
+        <a class="pill pill-policy" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+        <a class="pill pill-policy" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
         <a class="pill pill-policy" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
         <a class="pill pill-policy" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
       </div>
 
-      <h3 style="margin-top:12px">SharePoint</h3>
-      <p>Access risk assessments and internal documents via our SharePoint:</p>
-      <a class="pill pill-resource" href="https://sharepoint.com/path-to-your-page" target="_blank" rel="noopener">Meadow Pathways SharePoint</a>
+      <h3>SharePoint</h3>
+      <p>Access risk assessments and internal documents:</p>
+      <a class="pill pill-resource" href="https://sharepoint.com/path-to-your-page" target="_blank">Meadow Pathways SharePoint</a>
 
-      <h3 style="margin-top:12px">Hours logged</h3>
+      <h3>Hours logged</h3>
       <form id="hoursForm" method="POST" novalidate>
         <input type="hidden" name="_subject" value="Hours logged - Meadow Pathways Staff" />
         <input type="hidden" name="_redirect" value="Thankyou.html" />
@@ -103,7 +103,6 @@
         <button type="submit" class="pill pill-contact">Submit hours</button>
         <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
       </form>
-      <p style="margin-top:8px;color:var(--text-soft)">Remember to log hours promptly and ensure client notes comply with Meadow Pathways record-keeping guidance.</p>
     </section>
   </main>
 
@@ -132,3 +131,14 @@
       } else {
         pwdInput.value = '';
         pwdInput.focus();
+        alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
+      }
+    }
+
+    unlockBtn.addEventListener('click', unlock);
+    pwdInput.addEventListener('keyup', function (e) {
+      if (e.key === 'Enter') unlock();
+    });
+
+    // Hours form submit
+    const hoursForm =
