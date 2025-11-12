@@ -183,7 +183,6 @@ footer.site-footer a {
 #staffPanel {
   display: none;
 }
-
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .sidebar {
@@ -195,6 +194,7 @@ footer.site-footer a {
     margin-left: 0;
   }
 }
+
 /* --- Carousel Section --- */
 .carousel-container {
   text-align: center;
@@ -221,6 +221,3 @@ footer.site-footer a {
   border-radius: 12px;
   display: block;
 }
-
-
-
