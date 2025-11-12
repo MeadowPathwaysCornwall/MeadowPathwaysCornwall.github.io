@@ -58,29 +58,28 @@ body, html {
   border-radius: 8px;
 }
 
+/* Nav tabs styled as coloured pills */
 .side-nav ul {
   list-style: none;
+  padding: 0 12px;
 }
 
 .side-nav li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .nav-tab {
   display: block;
   text-decoration: none;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
   color: #ffffff;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  box-shadow: none;
 }
 
-.nav-tab:hover {
-  background-color: #00aaff;
-  color: #fff;
-}
-
+/* individual colours preserved */
 .nav-tab.home { background-color: #4caf50; }
 .nav-tab.eotas { background-color: #ff9800; }
 .nav-tab.about { background-color: #2196f3; }
@@ -90,6 +89,12 @@ body, html {
 .nav-tab.staff { background-color: #795548; }
 .nav-tab.treverno { background-color: #3f51b5; }
 .nav-tab.safeguarding { background-color: #f44336; }
+
+.nav-tab:hover, .nav-tab[aria-current="page"] {
+  opacity: 0.95;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transform: translateY(-1px);
+}
 
 /* --- Main Content --- */
 .main-content {
@@ -103,7 +108,7 @@ body, html {
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 /* --- Pill Links --- */
@@ -111,15 +116,10 @@ body, html {
   display: inline-block;
   text-decoration: none;
   padding: 8px 14px;
-  border-radius: 30px;
+  border-radius: 999px;
   color: #fff;
   font-weight: 600;
-  margin: 4px 4px 4px 0;
-  transition: all 0.3s ease;
-}
-
-.pill:hover {
-  opacity: 0.85;
+  margin: 6px 6px 0 0;
 }
 
 .pill-referral { background-color: #ff5722; }
@@ -130,9 +130,9 @@ body, html {
 .pill-resource { background-color: #3f51b5; }
 
 /* --- Forms --- */
-.styled-form input, 
-.styled-form select, 
-.styled-form textarea, 
+.styled-form input,
+.styled-form select,
+.styled-form textarea,
 .styled-form button {
   display: block;
   width: 100%;
@@ -156,18 +156,13 @@ body, html {
 }
 
 /* --- Footer --- */
-footer.site-footer {
+footer.site-footer, footer {
   background: url('BG.png') no-repeat center center;
   background-size: cover;
   color: #001f4d;
   text-align: center;
   padding: 20px;
   border-top: 4px solid #001f4d;
-}
-
-footer.site-footer a {
-  color: #001f4d;
-  text-decoration: underline;
 }
 
 /* --- Staff / Locked Panels --- */
@@ -207,18 +202,47 @@ footer.site-footer a {
   padding: 0;
   margin: 0;
   display: flex;
+  gap: 16px;
   justify-content: center;
   align-items: center;
+  flex-wrap: nowrap;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .carousel-slides li {
   flex: 0 0 auto;
-  margin: 0 10px;
 }
 
 .carousel-slides img {
-  max-width: 300px;   /* cap image width */
-  height: auto;       /* keep aspect ratio */
+  max-width: 300px;
+  width: 100%;
+  height: auto;
   border-radius: 12px;
   display: block;
+}
+
+/* carousel controls (visual only) */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.carousel-btn {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+/* ensure pills and nav are accessible on narrow screens */
+@media (max-width: 480px) {
+  .nav-tab { padding: 8px 12px; font-size: 0.95rem; }
+  .carousel-slides img { max-width: 220px; }
 }
