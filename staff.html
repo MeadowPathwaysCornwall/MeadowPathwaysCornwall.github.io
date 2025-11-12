@@ -40,7 +40,7 @@
       <h2>Staff access</h2>
       <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
       <label for="staffPassword">Enter password to unlock:</label>
-      <input id="staffPassword" type="Password" />
+      <input id="staffPassword" type="password" />
       <button id="unlockBtn" class="pill pill-contact">Unlock</button>
     </section>
 
@@ -128,4 +128,7 @@
         staffPanel.style.display = 'block';
         lockedEl.setAttribute('aria-hidden', 'true');
         staffPanel.setAttribute('aria-hidden', 'false');
-        document.getElementById('staff-name
+        document.getElementById('staff-name').focus();
+      } else {
+        pwdInput.value = '';
+        pwdInput.focus();
