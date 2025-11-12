@@ -183,6 +183,7 @@ footer.site-footer a {
 #staffPanel {
   display: none;
 }
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .sidebar {
