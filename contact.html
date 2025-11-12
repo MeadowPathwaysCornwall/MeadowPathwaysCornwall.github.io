@@ -1,24 +1,71 @@
-<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <!-- Hidden input required by Netlify -->
-  <input type="hidden" name="form-name" value="contact">
-  
-  <!-- Honeypot field -->
-  <p style="display:none;">
-    Don’t fill this out if you’re human: <input name="bot-field">
-  </p>
-  
-  <!-- Actual form fields -->
-  <label for="name">Name</label>
-  <input type="text" name="name" id="name" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Meadow Pathways</title>
+  <style>
+    /* Example styling – keep or replace with your own CSS */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f9f9f9;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      padding: 1.5rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
 
-  <label for="email">Email</label>
-  <input type="email" name="email" id="email" required>
+  <h1>Contact Meadow Pathways</h1>
+  <p>If you’d like to reach us, please fill out the form below:</p>
 
-  <label for="subject">Subject</label>
-  <input type="text" name="subject" id="subject">
+  <form action="https://formspree.io/f/movnvzqp" method="POST">
+    <!-- Actual form fields -->
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required>
 
-  <label for="message">Message / Referral Details</label>
-  <textarea name="message" id="message" required></textarea>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required>
 
-  <button type="submit">Submit</button>
-</form>
+    <label for="subject">Subject</label>
+    <input type="text" name="subject" id="subject">
+
+    <label for="message">Message / Referral Details</label>
+    <textarea name="message" id="message" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
