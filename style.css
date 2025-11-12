@@ -195,3 +195,12 @@ footer.site-footer a {
     margin-left: 0;
   }
 }
+
+/* --- Carousel Fix --- */
+.carousel-slides img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
