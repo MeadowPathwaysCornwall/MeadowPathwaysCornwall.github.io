@@ -35,17 +35,18 @@
       <p>Meadow Pathways Wellbeing and Education Cornwall</p>
     </section>
 
-    <!-- Password lock -->
+    <!-- Locked section -->
     <section id="locked" class="wrap">
       <h2>Staff access</h2>
       <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
-      <label for="staffPassword">Enter password to unlock:</label>
+      <label for="staffPassword">Enter password:</label>
       <input id="staffPassword" type="password" />
       <button id="unlockBtn" class="pill pill-contact">Unlock</button>
     </section>
 
     <!-- Staff panel (hidden until unlocked) -->
     <section id="staffPanel" class="wrap" style="display:none;" aria-hidden="true">
+
       <h2>Internal links and information</h2>
       <ul>
         <li>Formspree endpoint: <code>https://formspree.io/f/movnvzqp</code></li>
@@ -103,6 +104,7 @@
         <button type="submit" class="pill pill-contact">Submit hours</button>
         <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
       </form>
+      <p style="margin-top:8px;color:var(--text-soft)">Remember to log hours promptly and ensure client notes comply with Meadow Pathways record-keeping guidance.</p>
     </section>
   </main>
 
@@ -112,7 +114,7 @@
     <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
   </footer>
 
-  <!-- Unlock Script -->
+  <!-- Unlock + Form Script -->
   <script>
     const PASSWORD = 'MPWEC!';
     const lockedEl = document.getElementById('locked');
@@ -128,17 +130,4 @@
         lockedEl.setAttribute('aria-hidden', 'true');
         staffPanel.setAttribute('aria-hidden', 'false');
         const staffNameInput = document.getElementById('staff-name');
-        if (staffNameInput) staffNameInput.focus();
-      } else {
-        pwdInput.value = '';
-        pwdInput.focus();
-        alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
-      }
-    }
-
-    unlockBtn.addEventListener('click', unlock);
-    pwdInput.addEventListener('keyup', function (e) {
-      if (e.key === 'Enter') unlock();
-    });
-
-    // Hours form submit
+        if (staff
