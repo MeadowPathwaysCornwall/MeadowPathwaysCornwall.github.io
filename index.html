@@ -4,7 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Meadow Pathways Cornwall</title>
+
+  <!-- Use local Bootstrap CSS already in your repo -->
+  <link rel="stylesheet" href="bootstrap.min.css" />
+  <!-- Your main stylesheet -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Defer local script.js (keeps only non-carousel behaviour) -->
   <script defer src="script.js"></script>
 </head>
 <body>
@@ -63,29 +69,65 @@
       <p>At Meadow Pathways, we recognise every young person is unique. We commit to working collaboratively with families, schools and partners to find meaningful, sustainable routes to success for each learner.</p>
     </section>
 
-    <!-- Carousel Section -->
+    <!-- Bootstrap Carousel Section (uses local bootstrap JS + jQuery) -->
     <section class="wrap carousel-container">
       <h2>Activities carousel</h2>
 
-      <div class="carousel-viewport">
-        <ul class="carousel-slides" role="list" aria-live="polite">
-          <li role="listitem" class="carousel-item"><img src="Bake.jpg" alt="Baking activity" /></li>
-          <li role="listitem" class="carousel-item"><img src="Cooking.jpg" alt="Cooking session" /></li>
-          <li role="listitem" class="carousel-item"><img src="MM.jpg" alt="Multimedia activity" /></li>
-          <li role="listitem" class="carousel-item"><img src="Paint.jpg" alt="Painting session" /></li>
-          <li role="listitem" class="carousel-item"><img src="cook.jpg" alt="Cooking practical" /></li>
-          <li role="listitem" class="carousel-item"><img src="den.jpg" alt="Den building" /></li>
-          <li role="listitem" class="carousel-item"><img src="hand.jpg" alt="Hands in meadow activity" /></li>
-          <li role="listitem" class="carousel-item"><img src="paths.jpg" alt="Exploring paths" /></li>
-          <li role="listitem" class="carousel-item"><img src="plant.jpg" alt="Planting activity" /></li>
-          <li role="listitem" class="carousel-item"><img src="wood.jpg" alt="Woodland activity" /></li>
-        </ul>
-      </div>
+      <div id="mpCarousel" class="carousel slide" data-ride="carousel" data-interval="3500" data-pause="hover" aria-label="Activities carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#mpCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#mpCarousel" data-slide-to="1"></li>
+          <li data-target="#mpCarousel" data-slide-to="2"></li>
+          <li data-target="#mpCarousel" data-slide-to="3"></li>
+          <li data-target="#mpCarousel" data-slide-to="4"></li>
+          <li data-target="#mpCarousel" data-slide-to="5"></li>
+          <li data-target="#mpCarousel" data-slide-to="6"></li>
+          <li data-target="#mpCarousel" data-slide-to="7"></li>
+          <li data-target="#mpCarousel" data-slide-to="8"></li>
+          <li data-target="#mpCarousel" data-slide-to="9"></li>
+        </ol>
 
-      <div class="carousel-controls" aria-hidden="false">
-        <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
-        <div class="dots" id="dots" role="tablist" aria-label="Carousel pagination"></div>
-        <button id="next" class="carousel-btn" aria-label="Next slide">›</button>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100 mp-carousel-img" src="Bake.jpg" alt="Baking activity">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 mp-carousel-img" src="Cooking.jpg" alt="Cooking session">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 mp-carousel-img" src="MM.jpg" alt="Multimedia activity">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 mp-carousel-img" src="Paint.jpg" alt="Painting session">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 mp-carousel-img" src="cook.jpg" alt="Cooking practical">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 mp-carousel-img" src="den.jpg" alt="Den building">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 mp-carousel-img" src="hand.jpg" alt="Hands in meadow activity">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 mp-carousel-img" src="paths.jpg" alt="Exploring paths">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 mp-carousel-img" src="plant.jpg" alt="Planting activity">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 mp-carousel-img" src="wood.jpg" alt="Woodland activity">
+          </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#mpCarousel" role="button" data-slide="prev" aria-label="Previous slide">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#mpCarousel" role="button" data-slide="next" aria-label="Next slide">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
     </section>
 
@@ -118,8 +160,8 @@
     <!-- QR Code and docs -->
     <section class="wrap" style="text-align:center;">
       <h2>Support Treverno Meadows</h2>
-      <img src="crowdfunderQR.png" alt="Crowdfunder QR" class="qr-small" />
-      <p><a class="pill pill-resource" href="values.pdf" target="_blank" rel="noopener">Values (PDF)</a> <a class="pill pill-policy" href="policies.html">Policies</a></p>
+      <img src="crowdfunderQR.png" alt="Crowdfunder QR" style="width:140px; height:auto; border-radius:12px; display:block; margin:0.5rem auto;">
+      <p style="margin-top:10px;"><a class="pill pill-resource" href="values.pdf" target="_blank" rel="noopener">Values (PDF)</a> <a class="pill pill-policy" href="policies.html">Policies</a></p>
     </section>
 
   </main>
@@ -129,6 +171,11 @@
     <p>Meadow Pathways Wellbeing & Education Cornwall Ltd © 2025</p>
     <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
   </footer>
+
+  <!-- Local JS dependencies (ensure this order) -->
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
+  <!-- no-carousel custom JS is deferred via <script defer src="script.js"> in <head> -->
 
 </body>
 </html>
