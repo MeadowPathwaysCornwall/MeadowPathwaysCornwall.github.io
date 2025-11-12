@@ -67,17 +67,35 @@ html, body {
 }
 
 /* Wrap sections (blue background) */
-.wrap, .page-header, .values-grid .value-pill {
-  background-color:#ADD8E6 !important;
+.wrap,
+.values-grid .value-pill {
+  background-color:#ADD8E6;
   color:#001f4d;
   border-radius:12px;
   box-shadow:0 2px 6px rgba(0,0,0,.08);
-  padding:18px; margin-bottom:18px;
+  padding:18px;
+  margin-bottom:18px;
 }
 
-/* Page header */
-.page-header h1 { font-size:2.2rem; margin-bottom:8px; line-height:1.15; }
-.page-header p { margin-top:8px; font-size:1rem; }
+/* Page header with BG.png background */
+.page-header {
+  background: url('BG.png') no-repeat center center;
+  background-size: cover;
+  color: #001f4d;
+  text-align: center;
+  padding: 48px 20px;
+  border-radius: 12px;
+}
+.page-header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+.page-header p {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #073155;
+}
 
 /* News reel */
 .news-reel {
@@ -140,3 +158,4 @@ footer.site-footer {
   .news-inner { animation-duration:36s; }
   .page-header h1 { font-size:1.5rem; }
 }
+
