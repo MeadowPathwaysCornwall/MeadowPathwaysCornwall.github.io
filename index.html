@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
@@ -10,7 +10,7 @@
 <body>
 
   <!-- Sidebar -->
-  <aside class="sidebar">
+  <aside class="sidebar" aria-label="Primary site sidebar">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo" />
     <nav class="side-nav" aria-label="Primary site navigation">
       <ul class="nav-tabs" role="menubar">
@@ -31,7 +31,7 @@
   <main class="main-content">
 
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="page-header" style="background: url('BG.png') no-repeat center/cover; color:#001f4d; padding:40px; border-radius:12px; text-align:center;">
       <h1>Welcome to Meadow Pathways Wellbeing & Education Cornwall</h1>
       <h2>Guiding Individual Journeys with Care & Purpose</h2>
       <p>Supporting individual growth and wellbeing across Cornwall 🌿✨</p>
@@ -45,9 +45,10 @@
       <p>At Meadow Pathways, we recognise every young person is unique. We commit to working collaboratively with families, schools and partners to find meaningful, sustainable routes to success for each learner.</p>
     </section>
 
-    <!-- Carousel Section -->
+    <!-- Carousel Section (auto) -->
     <section class="wrap carousel-container">
-      <ul class="carousel-slides" role="list">
+      <h2>Activities carousel</h2>
+      <ul class="carousel-slides" role="list" aria-live="polite">
         <li role="listitem"><img src="Bake.jpg" alt="Baking activity" class="slide" /></li>
         <li role="listitem"><img src="Cooking.jpg" alt="Cooking session" class="slide" /></li>
         <li role="listitem"><img src="MM.jpg" alt="Multimedia activity" class="slide" /></li>
@@ -59,6 +60,7 @@
         <li role="listitem"><img src="plant.jpg" alt="Planting activity" class="slide" /></li>
         <li role="listitem"><img src="wood.jpg" alt="Woodland activity" class="slide" /></li>
       </ul>
+
       <div class="carousel-controls" aria-hidden="false">
         <button id="prev" class="carousel-btn" aria-label="Previous slide">‹</button>
         <div class="dots" id="dots" role="tablist" aria-label="Carousel pagination"></div>
@@ -66,17 +68,31 @@
       </div>
     </section>
 
-    <!-- Main Content Sections -->
-    <section class="wrap">
-      <!-- unchanged text content -->
-      <h2>Our Approach</h2>
-      <p>Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities. 🎨🍳🌲</p>
-      <!-- … rest of your values, offers, next steps … -->
+    <!-- News reel (YouTube embed) -->
+    <section class="wrap" style="margin-top:20px;">
+      <h2>Project Video</h2>
+      <div class="video-frame">
+        <iframe width="100%" height="400"
+                src="https://www.youtube.com/embed/rdSfckEbqII"
+                title="Treverno Meadows Project Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
     </section>
 
-    <!-- QR Codes -->
-    <section class="wrap qr-codes">
-      <img src="crowdfunderQR.png" alt="Crowdfunder QR" class="qr" />
+    <!-- QR Code + Flyer -->
+    <section class="wrap" style="text-align:center; margin-top:20px;">
+      <h2>Support Treverno Meadows</h2>
+      <img src="crowdfunderQR.png" alt="Crowdfunder QR" style="width:150px; height:auto; border-radius:12px; display:block; margin:0.5rem auto;">
+      <p><img src="CF.png" alt="Crowd Fund Flyer" style="width:100%; max-width:600px; height:auto; border-radius:12px; display:block; margin:0.5rem auto;"></p>
+      <p><a class="pill pill-referral" href="CF.png">📝 View Crowd Fund Flyer</a></p>
+    </section>
+
+    <!-- Approach -->
+    <section class="wrap">
+      <h2>Our Approach</h2>
+      <p>Our approach blends therapeutic practice and curriculum-linked activities to create meaningful learning opportunities. 🎨🍳🌲</p>
     </section>
 
   </main>
