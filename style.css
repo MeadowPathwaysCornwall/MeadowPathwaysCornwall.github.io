@@ -195,12 +195,20 @@ footer.site-footer a {
     margin-left: 0;
   }
 }
-
 /* --- Carousel Fix --- */
+.carousel-slides {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
 .carousel-slides img {
-  max-width: 100%;
-  height: auto;
+  max-width: 600px;   /* cap the width */
+  width: 100%;        /* responsive scaling */
+  height: auto;       /* keep aspect ratio */
   border-radius: 12px;
-  display: block;
   margin: 0 auto;
 }
+
+
