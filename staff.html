@@ -114,12 +114,7 @@
         <h3>Log hours & expenses</h3>
         <p>Use this secure form to log hours and submit small expenses.</p>
 
-        <form name="staff-hours" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="styled-form">
-          <input type="hidden" name="form-name" value="staff-hours" />
-          <div class="sr-only">
-            <label>Don't fill this out if you're human: <input name="bot-field"></label>
-          </div>
-
+        <form action="https://formspree.io/f/movnvzqp" method="POST" class="styled-form">
           <label for="staff-name">Name</label>
           <input id="staff-name" name="staff_name" type="text" required>
 
@@ -135,24 +130,4 @@
           <label for="notes">Brief notes</label>
           <textarea id="notes" name="notes" rows="4"></textarea>
 
-          <label for="expense-desc">Expense description (optional)</label>
-          <textarea id="expense-desc" name="expense_description" rows="3"></textarea>
-
-          <label for="expense-amount">Expense amount (£)</label>
-          <input id="expense-amount" name="expense_amount" type="number" min="0" step="0.01">
-
-          <label for="email-staff">Staff email</label>
-          <input id="email-staff" name="staff_email" type="email" value="meadowpathwayscornwall@outlook.com" required>
-
-          <div style="display:flex;gap:12px;align-items:center;margin-top:12px;">
-            <button type="submit" class="pill">Submit hours & expenses</button>
-            <div id="hoursStatus" role="status" aria-live="polite" class="form-status" style="margin-left:8px;"></div>
-          </div>
-        </form>
-
-        <p class="note">After submission, the form will redirect to the Thank You page. All submissions go to meadowpathwayscornwall@outlook.com via Netlify.</p>
-      </section>
-
-    </section>
-
-    <footer class="site-footer" role="cont
+          <label for="expense-desc">Expense description (
