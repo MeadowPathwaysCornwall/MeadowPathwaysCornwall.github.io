@@ -251,5 +251,12 @@ footer.site-footer {
 .mb-12 { margin-bottom: 12px; }
 .hidden { display: none !important; }
 
+/* Text size adjust compatibility (Chrome/Edge/Safari) */
+html { text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+
+/* Ensure any stray Markdown-like content doesn’t affect flow in cards */
+.wrap p, .wrap h1, .wrap h2, .wrap h3, .wrap h4, .wrap ul, .wrap li { display: block; color: #001f4d; }
+
 /* End of stylesheet */
+
 
