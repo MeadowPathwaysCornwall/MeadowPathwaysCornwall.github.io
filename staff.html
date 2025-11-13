@@ -1,84 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Staff | Meadow Pathways Cornwall</title>
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Password Overlay */
-    #password-overlay {
-      position: fixed;
-      inset: 0;
-      background: linear-gradient(180deg, #bcd3c2 0%, #ffffff 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      text-align: center;
-      font-family: system-ui, sans-serif;
-    }
-    #password-overlay input, #password-overlay button {
-      padding: 10px;
-      font-size: 16px;
-      margin: 10px 0;
-      border-radius: 6px;
-    }
-    #password-overlay button {
-      background: #006644;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* Staff Panel hidden initially */
-    #staff-panel {
-      display: none;
-    }
-
-    /* Pill box styles for resources/policies */
-    .pill-area {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .pill {
-      padding: 8px 12px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      color: white;
-      transition: transform 0.15s;
-    }
-    .pill:hover { transform: scale(1.05); }
-
-    /* Specific colors */
-    .pill-resource { background: #4CAF50; }
-    .pill-policy { background: #2196F3; }
-    .pill-contact { background: #FF9800; }
-    .pill-referral { background: #9C27B0; }
-  </style>
+  <link rel="stylesheet" href="bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- Password Overlay -->
-<div id="password-overlay">
-  <h2>Staff Area — Meadow Pathways</h2>
-  <p>Please enter the staff password to continue:</p>
-  <input type="password" id="staff-password" placeholder="Password">
-  <button id="password-submit">Enter</button>
-  <p id="password-error" style="color:red;"></p>
-</div>
-
-<!-- Staff Panel -->
-<div id="staff-panel">
+  <!-- Password Overlay -->
+  <div id="password-overlay" style="
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, #bcd3c2 0%, #ffffff 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    font-family: system-ui, sans-serif;
+    text-align: center;
+  ">
+    <h2 style="margin-bottom:10px;">Staff Area — Meadow Pathways</h2>
+    <p>Please enter the staff password to continue:</p>
+    <input type="password" id="staff-password" placeholder="Password" style="padding:10px; font-size:16px; margin:10px 0; width:220px; border-radius:6px; border:1px solid #888;">
+    <button id="password-submit" style="padding:10px 20px; font-size:16px; background:#006644; color:white; border:none; border-radius:6px; cursor:pointer;">Enter</button>
+    <p id="password-error" style="color:red; margin-top:10px;"></p>
+  </div>
 
   <!-- Sidebar -->
   <aside class="sidebar">
-    <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo">
+    <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo" />
     <nav class="side-nav">
       <ul class="nav-tabs">
         <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
@@ -100,52 +53,52 @@
   </aside>
 
   <!-- Main Content -->
-  <main class="main-content">
+  <main class="main-content" id="staff-panel" style="display:none;">
     <section class="page-header">
       <h1>Staff Area</h1>
-      <p>Authorized staff only. All submissions are securely recorded.</p>
+      <p>Internal resources and forms for Meadow Pathways staff. All submissions are recorded securely.</p>
     </section>
 
-    <!-- Internal Resources -->
+    <!-- Resources Pill Boxes -->
     <section class="wrap">
-      <h2>Staff Resources</h2>
-      <div class="pill-area">
+      <h2>Statutory & Partner Resources</h2>
+      <div class="pill-area" style="gap:8px;">
         <a class="pill pill-resource" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025)</a>
         <a class="pill pill-resource" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources</a>
         <a class="pill pill-resource" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
         <a class="pill pill-resource" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research</a>
         <a class="pill pill-resource" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
-        <a class="pill pill-resource" href="YOUR_SHAREPOINT_LINK_HERE" target="_blank" rel="noopener">SharePoint - Risk Assessments</a>
       </div>
+    </section>
 
-      <h3>Internal Policies</h3>
-      <div class="pill-area">
+    <section class="wrap">
+      <h2>Internal Policy Documents</h2>
+      <div class="pill-area" style="gap:8px;">
         <a class="pill pill-policy" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy</a>
         <a class="pill pill-policy" href="MPWEC H&S Policy Sep 25.docx" download>H&S Policy</a>
         <a class="pill pill-policy" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
-        <a class="pill pill-policy" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding & CP Policy</a>
+        <a class="pill pill-policy" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
         <a class="pill pill-policy" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
         <a class="pill pill-policy" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
       </div>
     </section>
 
-    <!-- Log Hours Form -->
     <section class="wrap">
-      <h2>Log Hours</h2>
+      <h2>Log Hours Form</h2>
       <form id="staff-hours-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-        <input type="hidden" name="_redirect" value="Thankyou.html">
+        <input type="hidden" name="_redirect" value="Thankyou.html" />
         <fieldset>
-          <legend>Staff Hours</legend>
+          <legend>Staff Details</legend>
           <label for="staff-name">Name</label>
-          <input id="staff-name" name="staff_name" type="text" required>
+          <input id="staff-name" name="staff_name" type="text" class="form-control" required />
           <label for="staff-date">Date</label>
-          <input id="staff-date" name="date" type="date" required>
+          <input id="staff-date" name="date" type="date" class="form-control" required />
           <label for="staff-hours">Hours Worked</label>
-          <input id="staff-hours" name="hours" type="number" step="0.25" required>
+          <input id="staff-hours" name="hours" type="number" step="0.25" class="form-control" required />
           <label for="staff-project">Project / Task</label>
-          <input id="staff-project" name="project" type="text">
-          <label for="staff-email">Staff Email</label>
-          <input id="staff-email" name="email" type="email" value="meadowpathwayscornwall@outlook.com" required>
+          <input id="staff-project" name="project" type="text" class="form-control" />
+          <label for="staff-email">Email</label>
+          <input id="staff-email" name="email" type="email" class="form-control" required />
         </fieldset>
         <div class="pill-area" style="margin-top:10px;">
           <button type="submit" class="pill pill-contact">Submit Hours</button>
@@ -154,23 +107,22 @@
       </form>
     </section>
 
-    <!-- Session Log Form -->
     <section class="wrap">
-      <h2>Session Log</h2>
+      <h2>Session Log Form</h2>
       <form id="session-log-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-        <input type="hidden" name="_redirect" value="Thankyou.html">
+        <input type="hidden" name="_redirect" value="Thankyou.html" />
         <fieldset>
           <legend>Session Details</legend>
           <label for="session-date">Date</label>
-          <input id="session-date" name="session_date" type="date" required>
+          <input id="session-date" name="session_date" type="date" class="form-control" required />
           <label for="session-student">Student / Client</label>
-          <input id="session-student" name="student" type="text" required>
+          <input id="session-student" name="student" type="text" class="form-control" required />
           <label for="session-duration">Duration (hours)</label>
-          <input id="session-duration" name="duration" type="number" step="0.25" required>
+          <input id="session-duration" name="duration" type="number" step="0.25" class="form-control" required />
           <label for="session-notes">Notes</label>
-          <textarea id="session-notes" name="notes" rows="4" required></textarea>
-          <label for="session-email">Staff Email</label>
-          <input id="session-email" name="email" type="email" value="meadowpathwayscornwall@outlook.com" required>
+          <textarea id="session-notes" name="notes" rows="4" class="form-control" required></textarea>
+          <label for="session-email">Email</label>
+          <input id="session-email" name="email" type="email" class="form-control" required />
         </fieldset>
         <div class="pill-area" style="margin-top:10px;">
           <button type="submit" class="pill pill-contact">Submit Session</button>
@@ -186,45 +138,43 @@
     <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
   </footer>
 
-</div>
+  <!-- Scripts -->
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const PASSWORD = 'MPWEC!';
+      const overlay = document.getElementById('password-overlay');
+      const staffPanel = document.getElementById('staff-panel');
+      const submitBtn = document.getElementById('password-submit');
+      const pwdInput = document.getElementById('staff-password');
+      const error = document.getElementById('password-error');
 
-<!-- Scripts -->
-<script src="jquery.min.js"></script>
-<script src="bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
-<script>
-  // Password Protection
-  document.addEventListener('DOMContentLoaded', function () {
-    const overlay = document.getElementById('password-overlay');
-    const staffPanel = document.getElementById('staff-panel');
-    const input = document.getElementById('staff-password');
-    const btn = document.getElementById('password-submit');
-    const error = document.getElementById('password-error');
-    const PASSWORD = 'MPWEC!';
-
-    if (localStorage.getItem('staff_access_granted') === 'true') {
-      overlay.style.display = 'none';
-      staffPanel.style.display = 'block';
-    } else {
-      staffPanel.style.display = 'none';
-    }
-
-    btn.addEventListener('click', () => {
-      if (input.value.trim() === PASSWORD) {
-        overlay.style.display = 'none';
-        staffPanel.style.display = 'block';
-        localStorage.setItem('staff_access_granted','true');
-      } else {
-        error.textContent = 'Incorrect password. Please try again.';
-        input.value = '';
-        input.focus();
+      function unlock() {
+        if ((pwdInput.value || '').trim() === PASSWORD) {
+          overlay.style.display = 'none';
+          staffPanel.style.display = 'block';
+        } else {
+          error.textContent = 'Incorrect password. Please try again.';
+          pwdInput.value = '';
+          pwdInput.focus();
+        }
       }
-    });
 
-    input.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter') btn.click();
+      submitBtn.addEventListener('click', unlock);
+      pwdInput.addEventListener('keydown', function(e){ if(e.key==='Enter') unlock(); });
+
+      // Initialize forms only after password accepted
+      const initForms = () => {
+        handleFormSubmission('staff-hours-form', 'staff-hours-status');
+        handleFormSubmission('session-log-form', 'session-log-status');
+      };
+
+      submitBtn.addEventListener('click', initForms);
+      pwdInput.addEventListener('keydown', function(e){ if(e.key==='Enter') initForms(); });
     });
-  });
-</script>
+  </script>
+
 </body>
 </html>
