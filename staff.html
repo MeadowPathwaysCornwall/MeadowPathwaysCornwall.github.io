@@ -9,6 +9,26 @@
 </head>
 <body>
 
+  <!-- Password Gate Overlay -->
+  <div id="password-overlay" style="
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, #bcd3c2 0%, #ffffff 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    font-family: system-ui, sans-serif;
+    text-align: center;
+  ">
+    <h2 style="margin-bottom: 10px;">Staff Area — Meadow Pathways</h2>
+    <p>Please enter the staff password to continue:</p>
+    <input type="password" id="staff-password" placeholder="Password" style="padding: 10px; font-size: 16px; margin: 10px 0; width: 220px; border-radius: 6px; border: 1px solid #888;">
+    <button id="password-submit" style="padding: 10px 20px; font-size: 16px; background: #006644; color: white; border: none; border-radius: 6px; cursor: pointer;">Enter</button>
+    <p id="password-error" style="color: red; margin-top: 10px;"></p>
+  </div>
+
   <!-- Sidebar -->
   <aside class="sidebar">
     <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo" />
@@ -32,129 +52,70 @@
     </nav>
   </aside>
 
-  <!-- Main -->
+  <!-- Main Content -->
   <main class="main-content">
 
-    <!-- Header -->
     <section class="page-header">
-      <h1>Staff Submissions</h1>
-      <p>For Meadow Pathways staff use only — log hours or submit session notes below.</p>
+      <h1>Staff Area</h1>
+      <p>Only authorised staff can access this page. All submissions are recorded securely.</p>
     </section>
 
-    <!-- Guidance -->
+    <!-- Log Hours Form -->
     <section class="wrap">
-      <h2>Staff guidance</h2>
-      <div class="pill-area">
-        <div class="pill pill-staff">
-          🧭 Internal forms are for staff use only. Keep content factual and confidential.
-        </div>
-        <div class="pill pill-policy">
-          🔒 Submissions go to our secure inbox and follow GDPR and safeguarding procedures.
-        </div>
-      </div>
-    </section>
-
-    <!-- Staff Hours form (XERO-friendly fields) -->
-    <section class="wrap">
-      <h2>Log hours (timesheet)</h2>
-
-      <form id="staff-hours-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-        <!-- Formspree redirect page -->
+      <h2>Log Hours</h2>
+      <form id="log-hours-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
         <input type="hidden" name="_redirect" value="Thankyou.html" />
-        <!-- Set subject so you can filter in the inbox -->
-        <input type="hidden" name="_subject" value="Staff Hours Log - Meadow Pathways" />
-
         <fieldset>
-          <legend>Staff details</legend>
-          <label for="hours_staff_name">Name</label>
-          <input id="hours_staff_name" name="staff_name" type="text" class="form-control" required />
+          <legend>Staff Details</legend>
+          <label for="staff-name">Name</label>
+          <input id="staff-name" name="staff_name" type="text" class="form-control" required />
 
-          <label for="hours_staff_email">Email</label>
-          <input id="hours_staff_email" name="staff_email" type="email" class="form-control" required />
+          <label for="staff-date">Date</label>
+          <input id="staff-date" name="date" type="date" class="form-control" required />
 
-          <label for="hours_date">Date (YYYY-MM-DD)</label>
-          <input id="hours_date" name="date" type="date" class="form-control" required />
+          <label for="staff-hours">Hours Worked</label>
+          <input id="staff-hours" name="hours" type="number" step="0.25" class="form-control" required />
+
+          <label for="staff-project">Project / Task</label>
+          <input id="staff-project" name="project" type="text" class="form-control" />
         </fieldset>
-
-        <fieldset>
-          <legend>Hours details (Xero-friendly)</legend>
-          <label for="hours_project">Project / Client</label>
-          <input id="hours_project" name="project" type="text" class="form-control" />
-
-          <label for="hours_task">Task</label>
-          <input id="hours_task" name="task" type="text" class="form-control" />
-
-          <label for="hours_duration">Duration (hours, e.g. 1.25)</label>
-          <input id="hours_duration" name="hours" type="number" step="0.01" class="form-control" required />
-
-          <label for="hours_notes">Notes (optional)</label>
-          <textarea id="hours_notes" name="notes" rows="4" class="form-control"></textarea>
-        </fieldset>
-
-        <!-- Add reply-to helper field that will be populated by JS if empty -->
-        <input type="hidden" name="_replyto" id="hours__replyto" value="" />
 
         <div class="pill-area" style="margin-top:10px;">
-          <button type="submit" class="pill pill-staff">Submit hours</button>
-          <a class="pill pill-policy" href="policies.html">Policies</a>
+          <button type="submit" class="pill pill-contact">Submit Hours</button>
         </div>
-
-        <p id="staff-hours-status" class="form-status" aria-live="polite"></p>
+        <p id="log-hours-status" style="margin-top:10px;"></p>
       </form>
     </section>
 
-    <!-- Session Log form -->
+    <!-- Session Log Form -->
     <section class="wrap">
-      <h2>Session log</h2>
-
+      <h2>Session Log</h2>
       <form id="session-log-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
         <input type="hidden" name="_redirect" value="Thankyou.html" />
-        <input type="hidden" name="_subject" value="Session Log - Meadow Pathways" />
-
         <fieldset>
-          <legend>Staff & session details</legend>
-          <label for="session_staff_name">Staff name</label>
-          <input id="session_staff_name" name="staff_name" type="text" class="form-control" required />
+          <legend>Session Details</legend>
+          <label for="session-date">Date</label>
+          <input id="session-date" name="session_date" type="date" class="form-control" required />
 
-          <label for="session_staff_email">Email</label>
-          <input id="session_staff_email" name="staff_email" type="email" class="form-control" required />
+          <label for="session-student">Student / Client</label>
+          <input id="session-student" name="student" type="text" class="form-control" required />
 
-          <label for="session_date">Date</label>
-          <input id="session_date" name="date" type="date" class="form-control" required />
+          <label for="session-duration">Duration (hours)</label>
+          <input id="session-duration" name="duration" type="number" step="0.25" class="form-control" required />
+
+          <label for="session-notes">Notes</label>
+          <textarea id="session-notes" name="notes" rows="4" class="form-control" required></textarea>
         </fieldset>
-
-        <fieldset>
-          <legend>Session details</legend>
-          <label for="session_client">Client / pupil</label>
-          <input id="session_client" name="client" type="text" class="form-control" />
-
-          <label for="session_length">Length (minutes)</label>
-          <input id="session_length" name="length_minutes" type="number" class="form-control" />
-
-          <label for="session_notes">Session notes</label>
-          <textarea id="session_notes" name="notes" rows="6" class="form-control" required></textarea>
-        </fieldset>
-
-        <input type="hidden" name="_replyto" id="session__replyto" value="" />
 
         <div class="pill-area" style="margin-top:10px;">
-          <button type="submit" class="pill pill-staff">Submit session log</button>
-          <a class="pill pill-resource" href="values.pdf" target="_blank" rel="noopener">Values (PDF)</a>
+          <button type="submit" class="pill pill-contact">Submit Session</button>
         </div>
-
-        <p id="session-log-status" class="form-status" aria-live="polite"></p>
+        <p id="session-log-status" style="margin-top:10px;"></p>
       </form>
     </section>
 
-    <!-- Staff support links -->
-    <section class="wrap" style="text-align:center;">
-      <h2>Staff Support</h2>
-      <a class="pill pill-resource" href="values.pdf" target="_blank" rel="noopener">Values (PDF)</a>
-      <a class="pill pill-policy" href="safeguarding.html">Safeguarding</a>
-    </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
     <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
@@ -164,5 +125,43 @@
   <script src="jquery.min.js"></script>
   <script src="bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
+
+  <script>
+    // --- Password Protection ---
+    document.addEventListener('DOMContentLoaded', function () {
+      const overlay = document.getElementById('password-overlay');
+      if (!overlay) return;
+
+      const PASSWORD = 'MeadowStaff2025'; // set your staff password
+      const stored = localStorage.getItem('staff_access_granted');
+
+      if (stored === 'true') {
+        overlay.style.display = 'none';
+        return;
+      }
+
+      const submitBtn = document.getElementById('password-submit');
+      const input = document.getElementById('staff-password');
+      const error = document.getElementById('password-error');
+
+      submitBtn.addEventListener('click', () => {
+        if (input.value.trim() === PASSWORD) {
+          localStorage.setItem('staff_access_granted', 'true');
+          overlay.style.display = 'none';
+        } else {
+          error.textContent = 'Incorrect password. Please try again.';
+        }
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') submitBtn.click();
+      });
+    });
+
+    // --- Form Submissions using script.js helper ---
+    handleFormSubmission('log-hours-form', 'log-hours-status');
+    handleFormSubmission('session-log-form', 'session-log-status');
+  </script>
+
 </body>
 </html>
