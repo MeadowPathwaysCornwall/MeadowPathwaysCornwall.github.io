@@ -49,7 +49,6 @@
 
       <h2>Internal links and information</h2>
       <ul>
-        <!-- Formspree endpoint line removed -->
         <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
         <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
         <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
@@ -57,7 +56,7 @@
 
       <h3>Statutory and partner resources</h3>
       <div class="pill-area">
-        <a class="pill pill-safeguarding" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">Keeping children safe in education (Sep 2025)</a>
+        <a class="pill pill-safeguarding" href="KCSIE 2025.pdf" target="_blank">Keeping children safe in education (Sep 2025)</a>
         <a class="pill pill-resource" href="https://www.patreon.com/cw/pookyh/home" target="_blank">PookyH resources</a>
         <a class="pill pill-beacon" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House</a>
         <a class="pill pill-nspcc" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC learning</a>
@@ -78,6 +77,7 @@
       <p>Access risk assessments and internal documents:</p>
       <a class="pill pill-resource" href="https://sharepoint.com/path-to-your-page" target="_blank">Meadow Pathways SharePoint</a>
 
+      <!-- Hours logged form -->
       <h3>Hours logged</h3>
       <form id="hoursForm" method="POST" action="https://formspree.io/f/movnvzqp" novalidate>
         <input type="hidden" name="_subject" value="Hours logged - Meadow Pathways Staff" />
@@ -105,84 +105,32 @@
         <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
       </form>
       <p style="margin-top:8px;color:var(--text-soft)">Remember to log hours promptly and ensure client notes comply with Meadow Pathways record-keeping guidance.</p>
+
+      <!-- Session log form -->
+      <h3>Session log</h3>
+      <form id="sessionForm" method="POST" action="https://formspree.io/f/movnvzqp" novalidate>
+        <input type="hidden" name="_subject" value="Session log - Meadow Pathways Staff" />
+        <input type="hidden" name="_redirect" value="Thankyou.html" />
+
+        <label for="session-date">Date</label>
+        <input id="session-date" name="session_date" type="date" required />
+
+        <label for="session-client">Client / session with</label>
+        <input id="session-client" name="session_client" type="text" required />
+
+        <label for="session-notes">Notes</label>
+        <textarea id="session-notes" name="session_notes" rows="4"></textarea>
+
+        <label for="session-email">Staff email</label>
+        <input id="session-email" name="session_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
+
+        <button type="submit" class="pill pill-contact">Submit session</button>
+        <div id="sessionStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
+      </form>
     </section>
   </main>
 
-  <!-- Footer (single, correct footer including ICO line) -->
+  <!-- Footer -->
   <footer class="site-footer">
     <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
-    <p style="margin-top:6px;font-size:.95rem;color:#073155">We are registered with the Information Commissioner’s Office (ICO) and handle personal data in line with UK data protection laws.</p>
-    <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
-  </footer>
-
-  <!-- Unlock Script -->
-  <script>
-    const PASSWORD = 'MPWEC!';
-    const lockedEl = document.getElementById('locked');
-    const staffPanel = document.getElementById('staffPanel');
-    const unlockBtn = document.getElementById('unlockBtn');
-    const pwdInput = document.getElementById('staffPassword');
-
-    function unlock() {
-      const val = (pwdInput.value || '').trim();
-      if (val === PASSWORD) {
-        lockedEl.style.display = 'none';
-        staffPanel.style.display = 'block';
-        lockedEl.setAttribute('aria-hidden', 'true');
-        staffPanel.setAttribute('aria-hidden', 'false');
-        const staffNameInput = document.getElementById('staff-name');
-        if (staffNameInput) staffNameInput.focus();
-      } else {
-        pwdInput.value = '';
-        pwdInput.focus();
-        alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
-      }
-    }
-
-    if (unlockBtn) {
-      unlockBtn.addEventListener('click', unlock);
-    }
-    if (pwdInput) {
-      pwdInput.addEventListener('keyup', function (e) {
-        if (e.key === 'Enter') unlock();
-      });
-    }
-
-    // Hours form submit handler (keeps existing behaviour)
-    const hoursForm = document.getElementById('hoursForm');
-    const hoursStatus = document.getElementById('hoursStatus');
-    const FORMSPREE = 'https://formspree.io/f/movnvzqp';
-
-    if (hoursForm && hoursStatus) {
-      hoursForm.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        hoursStatus.textContent = 'Submitting...';
-        const data = new FormData(hoursForm);
-        try {
-          const res = await fetch(FORMSPREE, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
-          if (res.ok) {
-            hoursForm.reset();
-            hoursStatus.textContent = 'Hours submitted. Thank you.';
-            setTimeout(() => { window.location.href = 'Thankyou.html'; }, 900);
-          } else {
-            const result = await res.json().catch(() => null);
-            hoursStatus.textContent = (result && result.errors) ? result.errors.map(err => err.message).join('; ') : 'Submission error — please try again later.';
-          }
-        } catch (err) {
-          hoursStatus.textContent = 'Network error — check connection and try again.';
-        }
-      });
-    }
-
-    // Add rel="noopener noreferrer" to external links opening in new tab
-    document.querySelectorAll('a[target="_blank"]').forEach(a => {
-      try {
-        const rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
-        if (!rel.includes('noopener')) rel.push('noopener');
-        if (!rel.includes('noreferrer')) rel.push('noreferrer');
-        a.setAttribute('rel', rel.join(' ').trim());
-      } catch (e) { /* safe-fail */ }
-    });
-  </script>
-</body>
-</html>
+    <p style="margin-top:6px;font-size:.95rem;color:#073155">We are registered with the Information Commissioner
