@@ -63,7 +63,7 @@
     <!-- Log Hours Form -->
     <section class="wrap">
       <h2>Log Hours</h2>
-      <form id="log-hours-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
+      <form id="staff-hours-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
         <input type="hidden" name="_redirect" value="Thankyou.html" />
         <fieldset>
           <legend>Staff Details</legend>
@@ -83,7 +83,7 @@
         <div class="pill-area" style="margin-top:10px;">
           <button type="submit" class="pill pill-contact">Submit Hours</button>
         </div>
-        <p id="log-hours-status" style="margin-top:10px;"></p>
+        <p id="staff-hours-status" style="margin-top:10px;"></p>
       </form>
     </section>
 
@@ -116,6 +116,7 @@
 
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
     <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
@@ -132,7 +133,7 @@
       const overlay = document.getElementById('password-overlay');
       if (!overlay) return;
 
-      const PASSWORD = 'MeadowStaff2025'; // set your staff password
+      const PASSWORD = 'MeadowStaff2025';
       const stored = localStorage.getItem('staff_access_granted');
 
       if (stored === 'true') {
@@ -158,9 +159,11 @@
       });
     });
 
-    // --- Form Submissions using script.js helper ---
-    handleFormSubmission('log-hours-form', 'log-hours-status');
-    handleFormSubmission('session-log-form', 'session-log-status');
+    // --- Initialize Form Submissions ---
+    document.addEventListener('DOMContentLoaded', () => {
+      handleFormSubmission('staff-hours-form', 'staff-hours-status');
+      handleFormSubmission('session-log-form', 'session-log-status');
+    });
   </script>
 
 </body>
