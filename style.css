@@ -54,33 +54,34 @@ html, body {
   color:#fff; font-weight:600;
   margin:6px 6px 0 0; font-size:.95rem;
 }
-.pill-referral { background:#ff5722; }
-.pill-eotas { background:#ff9800; }
-.pill-policy { background:#9c27b0; }
-.pill-contact { background:#607d8b; }
-.pill-resource { background:#3f51b5; }
+.pill-referral    { background:#ff5722; }  /* deep orange */
+.pill-eotas       { background:#ff9800; }  /* orange */
+.pill-policy      { background:#9c27b0; }  /* purple */
+.pill-contact     { background:#607d8b; }  /* blue-grey */
+.pill-resource    { background:#3f51b5; }  /* indigo */
+.pill-safeguarding{ background:#f44336; }  /* red */
+.pill-rshe        { background:#4caf50; }  /* green */
+
 /* Custom coloured pills for external safeguarding links */
 .pill.kcsie {
   background-color: #f44336; /* red */
   color: #fff;
 }
-
 .pill.cios {
   background-color: #3f51b5; /* indigo/blue */
   color: #fff;
 }
-
 .pill.nspcc {
   background-color: #4caf50; /* green */
   color: #fff;
 }
-
 .pill.beacon {
   background-color: #ff9800; /* orange */
   color: #fff;
 }
 
-/* Hover effect for these pills */
+/* Hover effect for all pills */
+.pill:hover,
 .pill.kcsie:hover,
 .pill.cios:hover,
 .pill.nspcc:hover,
@@ -165,8 +166,8 @@ html, body {
 
 /* Distinct colours for each value-pill */
 .value-resilience { background-color: #c8e6c9; } /* soft green */
-.value-health { background-color: #ffe0b2; }     /* warm peach/orange */
-.value-honesty { background-color: #bbdefb; }    /* light blue */
+.value-health     { background-color: #ffe0b2; } /* warm peach/orange */
+.value-honesty    { background-color: #bbdefb; } /* light blue */
 .value-friendship { background-color: #f8bbd0; } /* gentle pink */
 
 /* Hover effect for value pills */
@@ -200,4 +201,3 @@ footer.site-footer {
   .news-inner { animation-duration:36s; }
   .page-header h1 { font-size:1.5rem; }
 }
-
