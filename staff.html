@@ -6,6 +6,57 @@
   <title>Staff | Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="bootstrap.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Navigation tab colours to match site palette */
+    .nav-tab.home { background-color: #a7d7c5; }
+    .nav-tab.about { background-color: #bfe3f2; }
+    .nav-tab.eotas { background-color: #f2d1b3; }
+    .nav-tab.safeguarding { background-color: #f9caca; }
+    .nav-tab.staff { background-color: #e3d1f2; }
+    .nav-tab.referral { background-color: #f2f1b3; }
+    .nav-tab.contact { background-color: #d3f2b3; }
+    .nav-tab.treverno { background-color: #c2d6eb; }
+
+    .nav-tab {
+      display: block;
+      color: #073155;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      transition: all 0.3s ease;
+    }
+    .nav-tab:hover { opacity: 0.8; transform: translateX(4px); }
+
+    .wrap {
+      background: #ffffffd8;
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+    input, textarea, select {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      padding: 8px;
+      font-size: 1rem;
+    }
+    button.pill {
+      background-color: #4a7c59;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    button.pill:hover { background-color: #3c684a; }
+  </style>
 </head>
 <body>
 
@@ -42,16 +93,17 @@
       <label for="staffPassword">Enter password:</label>
       <input id="staffPassword" type="password" />
       <button id="unlockBtn" class="pill pill-contact">Unlock</button>
+      <p id="errorMsg" style="color:red;display:none;">Incorrect password. Please try again.</p>
     </section>
 
-    <!-- Staff panel (hidden until unlocked) -->
+    <!-- Staff panel -->
     <section id="staffPanel" class="wrap" style="display:none;" aria-hidden="true">
 
       <h2>Internal links and information</h2>
       <ul>
-        <li>General contact email: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
-        <li>Michelle’s email: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-        <li>Zoe’s email: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
+        <li>General contact: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
+        <li>Michelle: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
+        <li>Zoe: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
       </ul>
 
       <h3>Statutory and partner resources</h3>
@@ -77,10 +129,10 @@
       <p>Access risk assessments and internal documents:</p>
       <a class="pill pill-resource" href="https://sharepoint.com/path-to-your-page" target="_blank">Meadow Pathways SharePoint</a>
 
-      <!-- Hours logged form -->
-      <h3>Hours logged</h3>
+      <!-- Log hours & expenses -->
+      <h3>Log Hours & Expenses</h3>
       <form id="hoursForm" method="POST" action="https://formspree.io/f/movnvzqp" novalidate>
-        <input type="hidden" name="_subject" value="Hours logged - Meadow Pathways Staff" />
+        <input type="hidden" name="_subject" value="Hours and Expenses - Meadow Pathways Staff" />
         <input type="hidden" name="_redirect" value="Thankyou.html" />
 
         <label for="staff-name">Staff member name</label>
@@ -95,42 +147,72 @@
         <label for="client">Client / session with</label>
         <input id="client" name="client_name" type="text" />
 
+        <label for="expenses">Expenses (£)</label>
+        <input id="expenses" name="expenses_amount" type="number" step="0.01" min="0" placeholder="Enter total expenses" />
+
         <label for="notes">Brief notes</label>
         <textarea id="notes" name="notes" rows="4"></textarea>
 
         <label for="email-staff">Staff email</label>
         <input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
 
-        <button type="submit" class="pill pill-contact">Submit hours</button>
-        <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
+        <button type="submit" class="pill pill-contact">Submit hours & expenses</button>
       </form>
-      <p style="margin-top:8px;color:var(--text-soft)">Remember to log hours promptly and ensure client notes comply with Meadow Pathways record-keeping guidance.</p>
 
-      <!-- Session log form -->
-      <h3>Session log</h3>
-      <form id="sessionForm" method="POST" action="https://formspree.io/f/movnvzqp" novalidate>
-        <input type="hidden" name="_subject" value="Session log - Meadow Pathways Staff" />
+      <!-- Case notes form -->
+      <h3>Case Notes</h3>
+      <form id="caseForm" method="POST" action="https://formspree.io/f/movnvzqp" novalidate>
+        <input type="hidden" name="_subject" value="Case Notes - Meadow Pathways Staff" />
         <input type="hidden" name="_redirect" value="Thankyou.html" />
 
-        <label for="session-date">Date</label>
-        <input id="session-date" name="session_date" type="date" required />
+        <label for="case-date">Date</label>
+        <input id="case-date" name="case_date" type="date" required />
 
-        <label for="session-client">Client / session with</label>
-        <input id="session-client" name="session_client" type="text" required />
+        <label for="case-client">Client / session with</label>
+        <input id="case-client" name="case_client" type="text" required />
 
-        <label for="session-notes">Notes</label>
-        <textarea id="session-notes" name="session_notes" rows="4"></textarea>
+        <label for="case-summary">Session summary / key points</label>
+        <textarea id="case-summary" name="case_summary" rows="5" required></textarea>
 
-        <label for="session-email">Staff email</label>
-        <input id="session-email" name="session_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
+        <label for="case-email">Staff email</label>
+        <input id="case-email" name="case_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
 
-        <button type="submit" class="pill pill-contact">Submit session</button>
-        <div id="sessionStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
+        <button type="submit" class="pill pill-contact">Submit Case Notes</button>
       </form>
+
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="site-footer">
     <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
-    <p style="margin-top:6px;font-size:.95rem;color:#073155">We are registered with the Information Commissioner
+    <p style="margin-top:6px;font-size:.95rem;color:#073155">We are registered with the Information Commissioner’s Office and comply with GDPR regulations.</p>
+  </footer>
+
+  <!-- Password unlock script -->
+  <script>
+    const PASSWORD = 'MPWEC!';
+    const lockedEl = document.getElementById('locked');
+    const staffPanel = document.getElementById('staffPanel');
+    const unlockBtn = document.getElementById('unlockBtn');
+    const pwdInput = document.getElementById('staffPassword');
+    const errorMsg = document.getElementById('errorMsg');
+
+    function unlock() {
+      const val = pwdInput.value.trim();
+      if (val === PASSWORD) {
+        lockedEl.style.display = 'none';
+        staffPanel.style.display = 'block';
+        staffPanel.setAttribute('aria-hidden', 'false');
+        errorMsg.style.display = 'none';
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    }
+
+    unlockBtn.addEventListener('click', unlock);
+    pwdInput.addEventListener('keypress', e => { if (e.key === 'Enter') unlock(); });
+  </script>
+
+</body>
+</html>
