@@ -108,9 +108,10 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (single, correct footer including ICO line) -->
   <footer class="site-footer">
     <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
+    <p style="margin-top:6px;font-size:.95rem;color:#073155">We are registered with the Information Commissioner’s Office (ICO) and handle personal data in line with UK data protection laws.</p>
     <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
   </footer>
 
@@ -138,15 +139,50 @@
       }
     }
 
-    unlockBtn.addEventListener('click', unlock);
-    pwdInput.addEventListener('keyup', function (e) {
-      if (e.key === 'Enter') unlock();
+    if (unlockBtn) {
+      unlockBtn.addEventListener('click', unlock);
+    }
+    if (pwdInput) {
+      pwdInput.addEventListener('keyup', function (e) {
+        if (e.key === 'Enter') unlock();
+      });
+    }
+
+    // Hours form submit handler (keeps existing behaviour)
+    const hoursForm = document.getElementById('hoursForm');
+    const hoursStatus = document.getElementById('hoursStatus');
+    const FORMSPREE = 'https://formspree.io/f/movnvzqp';
+
+    if (hoursForm && hoursStatus) {
+      hoursForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        hoursStatus.textContent = 'Submitting...';
+        const data = new FormData(hoursForm);
+        try {
+          const res = await fetch(FORMSPREE, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data });
+          if (res.ok) {
+            hoursForm.reset();
+            hoursStatus.textContent = 'Hours submitted. Thank you.';
+            setTimeout(() => { window.location.href = 'Thankyou.html'; }, 900);
+          } else {
+            const result = await res.json().catch(() => null);
+            hoursStatus.textContent = (result && result.errors) ? result.errors.map(err => err.message).join('; ') : 'Submission error — please try again later.';
+          }
+        } catch (err) {
+          hoursStatus.textContent = 'Network error — check connection and try again.';
+        }
+      });
+    }
+
+    // Add rel="noopener noreferrer" to external links opening in new tab
+    document.querySelectorAll('a[target="_blank"]').forEach(a => {
+      try {
+        const rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+        if (!rel.includes('noopener')) rel.push('noopener');
+        if (!rel.includes('noreferrer')) rel.push('noreferrer');
+        a.setAttribute('rel', rel.join(' ').trim());
+      } catch (e) { /* safe-fail */ }
     });
   </script>
 </body>
- <footer class="site-footer">
-  <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
-  <p style="margin-top:6px;font-size:.95rem;color:#073155">We are registered with the Information Commissioner’s Office (ICO) and handle personal data in line with UK data protection laws.</p>
-  <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
-</footer>
 </html>
