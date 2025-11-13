@@ -48,27 +48,49 @@
         <a class="pill pill-contact" href="contact.html">Contact us</a>
         <a class="pill pill-referral" href="referral.html">Referral</a>
         <a class="pill pill-policy" href="EBSNA.pdf" target="_blank" rel="noopener">EBSNA Document</a>
-        <a class="pill pill-safeguarding" href="policies.html">Policies</a>
-        <a class="pill pill-resource" href="values.pdf" target="_blank" rel="noopener">Values (PDF)</a>
+        <a class="pill pill-resource" href="https://sharepoint.com/path-to-your-resources" target="_blank" rel="noopener">Staff Resources (SharePoint)</a>
       </div>
     </nav>
   </aside>
 
   <!-- Main Content -->
-  <main class="main-content">
+  <main class="main-content" id="staffPanel" style="display:none;">
 
     <section class="page-header">
       <h1>Staff Area</h1>
-      <p>Only authorised staff can access this page. All submissions are recorded securely.</p>
+      <p>Internal resources, forms, and policies for Meadow Pathways staff only.</p>
+    </section>
+
+    <!-- Statutory and partner resources -->
+    <section class="wrap">
+      <h2>Statutory & Partner Resources</h2>
+      <div class="pill-area">
+        <a class="pill pill-safeguarding" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025)</a>
+        <a class="pill pill-resource" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources</a>
+        <a class="pill pill-beacon" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House</a>
+        <a class="pill pill-nspcc" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC research</a>
+        <a class="pill pill-cios" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios Safeguarding Partnership</a>
+      </div>
+    </section>
+
+    <!-- Internal policy documents -->
+    <section class="wrap">
+      <h2>Internal Policies (Downloads)</h2>
+      <div class="pill-area">
+        <a class="pill pill-policy" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy</a>
+        <a class="pill pill-policy" href="MPWEC H&S Policy Sep 25.docx" download>H&S Policy</a>
+        <a class="pill pill-policy" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+        <a class="pill pill-policy" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
+        <a class="pill pill-policy" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
+        <a class="pill pill-policy" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+      </div>
     </section>
 
     <!-- Log Hours Form -->
     <section class="wrap">
-      <h2>Log Hours</h2>
+      <h2>Log Hours (XERO)</h2>
       <form id="staff-hours-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
         <input type="hidden" name="_redirect" value="Thankyou.html" />
-        <input type="hidden" name="_replyto" value="meadowpathwayscornwall@outlook.com" />
-
         <fieldset>
           <legend>Staff Details</legend>
           <label for="staff-name">Name</label>
@@ -82,6 +104,9 @@
 
           <label for="staff-project">Project / Task</label>
           <input id="staff-project" name="project" type="text" class="form-control" />
+
+          <label for="staff-email">Email</label>
+          <input id="staff-email" name="email" type="email" class="form-control" required />
         </fieldset>
 
         <div class="pill-area" style="margin-top:10px;">
@@ -96,8 +121,6 @@
       <h2>Session Log</h2>
       <form id="session-log-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
         <input type="hidden" name="_redirect" value="Thankyou.html" />
-        <input type="hidden" name="_replyto" value="meadowpathwayscornwall@outlook.com" />
-
         <fieldset>
           <legend>Session Details</legend>
           <label for="session-date">Date</label>
@@ -111,6 +134,9 @@
 
           <label for="session-notes">Notes</label>
           <textarea id="session-notes" name="notes" rows="4" class="form-control" required></textarea>
+
+          <label for="session-email">Email</label>
+          <input id="session-email" name="email" type="email" class="form-control" required />
         </fieldset>
 
         <div class="pill-area" style="margin-top:10px;">
@@ -131,38 +157,34 @@
   <script src="jquery.min.js"></script>
   <script src="bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
-
   <script>
-    // --- Password Protection ---
+    // Password protection
     document.addEventListener('DOMContentLoaded', function () {
       const overlay = document.getElementById('password-overlay');
-      if (!overlay) return;
-
-      const PASSWORD = 'MPWEC!'; // Staff password
-      const stored = localStorage.getItem('staff_access_granted');
-
-      if (stored === 'true') {
-        overlay.style.display = 'none';
-        return;
-      }
-
-      const submitBtn = document.getElementById('password-submit');
+      const staffPanel = document.getElementById('staffPanel');
       const input = document.getElementById('staff-password');
+      const submitBtn = document.getElementById('password-submit');
       const error = document.getElementById('password-error');
+      const PASSWORD = 'MPWEC!';
 
       submitBtn.addEventListener('click', () => {
         if (input.value.trim() === PASSWORD) {
           localStorage.setItem('staff_access_granted', 'true');
           overlay.style.display = 'none';
+          staffPanel.style.display = 'block';
         } else {
-          error.textContent = 'Incorrect password. Please try again.';
+          error.textContent = 'Incorrect password. Please contact Michelle or Zoe.';
         }
       });
 
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') submitBtn.click();
-      });
+      input.addEventListener('keydown', (e) => { if (e.key === 'Enter') submitBtn.click(); });
+
+      if (localStorage.getItem('staff_access_granted') === 'true') {
+        overlay.style.display = 'none';
+        staffPanel.style.display = 'block';
+      }
     });
   </script>
+
 </body>
 </html>
