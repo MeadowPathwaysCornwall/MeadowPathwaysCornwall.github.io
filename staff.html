@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Staff | Meadow Pathways Cornwall</title>
-  <link rel="stylesheet" href="bootstrap.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
   <style>
-    /* Overlay for password protection */
+    /* Password Overlay */
     #password-overlay {
       position: fixed;
       inset: 0;
@@ -17,8 +17,8 @@
       align-items: center;
       justify-content: center;
       z-index: 9999;
-      font-family: system-ui, sans-serif;
       text-align: center;
+      font-family: system-ui, sans-serif;
     }
     #password-overlay input, #password-overlay button {
       padding: 10px;
@@ -32,173 +32,199 @@
       border: none;
       cursor: pointer;
     }
-    /* Hide staff panel initially */
+
+    /* Staff Panel hidden initially */
     #staff-panel {
       display: none;
     }
+
+    /* Pill box styles for resources/policies */
+    .pill-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .pill {
+      padding: 8px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      color: white;
+      transition: transform 0.15s;
+    }
+    .pill:hover { transform: scale(1.05); }
+
+    /* Specific colors */
+    .pill-resource { background: #4CAF50; }
+    .pill-policy { background: #2196F3; }
+    .pill-contact { background: #FF9800; }
+    .pill-referral { background: #9C27B0; }
   </style>
 </head>
 <body>
 
-  <!-- Password Overlay -->
-  <div id="password-overlay">
-    <h2>Staff Area — Meadow Pathways</h2>
-    <p>Please enter the staff password to continue:</p>
-    <input type="password" id="staff-password" placeholder="Password">
-    <button id="password-submit">Enter</button>
-    <p id="password-error" style="color:red;"></p>
-  </div>
+<!-- Password Overlay -->
+<div id="password-overlay">
+  <h2>Staff Area — Meadow Pathways</h2>
+  <p>Please enter the staff password to continue:</p>
+  <input type="password" id="staff-password" placeholder="Password">
+  <button id="password-submit">Enter</button>
+  <p id="password-error" style="color:red;"></p>
+</div>
 
-  <!-- Staff Panel -->
-  <div id="staff-panel">
+<!-- Staff Panel -->
+<div id="staff-panel">
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo" />
-      <nav class="side-nav">
-        <ul class="nav-tabs">
-          <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
-          <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
-          <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
-          <li><a href="policies.html" class="nav-tab policies">📘 Policies</a></li>
-          <li><a href="referral.html" class="nav-tab referral">📝 Referral</a></li>
-          <li><a href="contact.html" class="nav-tab contact">☎️ Contact</a></li>
-          <li><a href="staff.html" class="nav-tab staff" aria-current="page">👩‍🏫 Staff Only</a></li>
-          <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
-          <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
-        </ul>
-        <div class="pill-area">
-          <a class="pill pill-contact" href="contact.html">Contact us</a>
-          <a class="pill pill-referral" href="referral.html">Referral</a>
-          <a class="pill pill-policy" href="EBSNA.pdf" target="_blank" rel="noopener">EBSNA Document</a>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo">
+    <nav class="side-nav">
+      <ul class="nav-tabs">
+        <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
+        <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
+        <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
+        <li><a href="policies.html" class="nav-tab policies">📘 Policies</a></li>
+        <li><a href="referral.html" class="nav-tab referral">📝 Referral</a></li>
+        <li><a href="contact.html" class="nav-tab contact">☎️ Contact</a></li>
+        <li><a href="staff.html" class="nav-tab staff" aria-current="page">👩‍🏫 Staff Only</a></li>
+        <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
+        <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
+      </ul>
+      <div class="pill-area">
+        <a class="pill pill-contact" href="contact.html">Contact us</a>
+        <a class="pill pill-referral" href="referral.html">Referral</a>
+        <a class="pill pill-policy" href="EBSNA.pdf" target="_blank" rel="noopener">EBSNA Document</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <section class="page-header">
+      <h1>Staff Area</h1>
+      <p>Authorized staff only. All submissions are securely recorded.</p>
+    </section>
+
+    <!-- Internal Resources -->
+    <section class="wrap">
+      <h2>Staff Resources</h2>
+      <div class="pill-area">
+        <a class="pill pill-resource" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025)</a>
+        <a class="pill pill-resource" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources</a>
+        <a class="pill pill-resource" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
+        <a class="pill pill-resource" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research</a>
+        <a class="pill pill-resource" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
+        <a class="pill pill-resource" href="YOUR_SHAREPOINT_LINK_HERE" target="_blank" rel="noopener">SharePoint - Risk Assessments</a>
+      </div>
+
+      <h3>Internal Policies</h3>
+      <div class="pill-area">
+        <a class="pill pill-policy" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy</a>
+        <a class="pill pill-policy" href="MPWEC H&S Policy Sep 25.docx" download>H&S Policy</a>
+        <a class="pill pill-policy" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
+        <a class="pill pill-policy" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding & CP Policy</a>
+        <a class="pill pill-policy" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
+        <a class="pill pill-policy" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
+      </div>
+    </section>
+
+    <!-- Log Hours Form -->
+    <section class="wrap">
+      <h2>Log Hours</h2>
+      <form id="staff-hours-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
+        <input type="hidden" name="_redirect" value="Thankyou.html">
+        <fieldset>
+          <legend>Staff Hours</legend>
+          <label for="staff-name">Name</label>
+          <input id="staff-name" name="staff_name" type="text" required>
+          <label for="staff-date">Date</label>
+          <input id="staff-date" name="date" type="date" required>
+          <label for="staff-hours">Hours Worked</label>
+          <input id="staff-hours" name="hours" type="number" step="0.25" required>
+          <label for="staff-project">Project / Task</label>
+          <input id="staff-project" name="project" type="text">
+          <label for="staff-email">Staff Email</label>
+          <input id="staff-email" name="email" type="email" value="meadowpathwayscornwall@outlook.com" required>
+        </fieldset>
+        <div class="pill-area" style="margin-top:10px;">
+          <button type="submit" class="pill pill-contact">Submit Hours</button>
         </div>
-      </nav>
-    </aside>
+        <p id="staff-hours-status" style="margin-top:10px;"></p>
+      </form>
+    </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <section class="page-header">
-        <h1>Staff Area</h1>
-        <p>Only authorised staff can access this page. All submissions are recorded securely.</p>
-      </section>
-
-      <!-- Internal Resources Pills -->
-      <section class="wrap">
-        <h2>Staff Resources & Policies</h2>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;">
-          <a class="pill" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank" rel="noopener">Keeping children safe in education (Sep 2025)</a>
-          <a class="pill" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener">PookyH resources</a>
-          <a class="pill" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener">Beacon House resources</a>
-          <a class="pill" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener">NSPCC learning & research</a>
-          <a class="pill" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener">Cios safeguarding partnership</a>
-          <a class="pill" href="YOUR_SHAREPOINT_LINK_HERE" target="_blank" rel="noopener">SharePoint - Risk Assessments</a>
+    <!-- Session Log Form -->
+    <section class="wrap">
+      <h2>Session Log</h2>
+      <form id="session-log-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
+        <input type="hidden" name="_redirect" value="Thankyou.html">
+        <fieldset>
+          <legend>Session Details</legend>
+          <label for="session-date">Date</label>
+          <input id="session-date" name="session_date" type="date" required>
+          <label for="session-student">Student / Client</label>
+          <input id="session-student" name="student" type="text" required>
+          <label for="session-duration">Duration (hours)</label>
+          <input id="session-duration" name="duration" type="number" step="0.25" required>
+          <label for="session-notes">Notes</label>
+          <textarea id="session-notes" name="notes" rows="4" required></textarea>
+          <label for="session-email">Staff Email</label>
+          <input id="session-email" name="email" type="email" value="meadowpathwayscornwall@outlook.com" required>
+        </fieldset>
+        <div class="pill-area" style="margin-top:10px;">
+          <button type="submit" class="pill pill-contact">Submit Session</button>
         </div>
-        <h3 style="margin-top:12px">Internal Policy Documents</h3>
-        <div style="display:flex;flex-wrap:wrap;gap:8px;">
-          <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy</a>
-          <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download>H&S Policy</a>
-          <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
-          <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding & CP Policy</a>
-          <a class="pill" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
-          <a class="pill" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
-        </div>
-      </section>
+        <p id="session-log-status" style="margin-top:10px;"></p>
+      </form>
+    </section>
 
-      <!-- Log Hours Form -->
-      <section class="wrap">
-        <h2>Log Hours</h2>
-        <form id="staff-hours-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-          <input type="hidden" name="_redirect" value="Thankyou.html">
-          <fieldset>
-            <legend>Staff Hours</legend>
-            <label for="staff-name">Name</label>
-            <input id="staff-name" name="staff_name" type="text" required />
-            <label for="staff-date">Date</label>
-            <input id="staff-date" name="date" type="date" required />
-            <label for="staff-hours">Hours Worked</label>
-            <input id="staff-hours" name="hours" type="number" step="0.25" required />
-            <label for="staff-project">Project / Task</label>
-            <input id="staff-project" name="project" type="text" />
-            <label for="staff-email">Staff Email</label>
-            <input id="staff-email" name="email" type="email" value="meadowpathwayscornwall@outlook.com" required />
-          </fieldset>
-          <div class="pill-area" style="margin-top:10px;">
-            <button type="submit" class="pill pill-contact">Submit Hours</button>
-          </div>
-          <p id="staff-hours-status" style="margin-top:10px;"></p>
-        </form>
-      </section>
+  </main>
 
-      <!-- Session Log Form -->
-      <section class="wrap">
-        <h2>Session Log</h2>
-        <form id="session-log-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
-          <input type="hidden" name="_redirect" value="Thankyou.html">
-          <fieldset>
-            <legend>Session Details</legend>
-            <label for="session-date">Date</label>
-            <input id="session-date" name="session_date" type="date" required />
-            <label for="session-student">Student / Client</label>
-            <input id="session-student" name="student" type="text" required />
-            <label for="session-duration">Duration (hours)</label>
-            <input id="session-duration" name="duration" type="number" step="0.25" required />
-            <label for="session-notes">Notes</label>
-            <textarea id="session-notes" name="notes" rows="4" required></textarea>
-            <label for="session-email">Staff Email</label>
-            <input id="session-email" name="email" type="email" value="meadowpathwayscornwall@outlook.com" required />
-          </fieldset>
-          <div class="pill-area" style="margin-top:10px;">
-            <button type="submit" class="pill pill-contact">Submit Session</button>
-          </div>
-          <p id="session-log-status" style="margin-top:10px;"></p>
-        </form>
-      </section>
-    </main>
+  <footer class="site-footer">
+    <p>Meadow Pathways Wellbeing & Education Cornwall Ltd © 2025</p>
+    <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
+  </footer>
 
-    <footer class="site-footer">
-      <p>Meadow Pathways Wellbeing & Education Cornwall Ltd © 2025</p>
-      <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
-    </footer>
-  </div>
+</div>
 
-  <!-- Scripts -->
-  <script src="jquery.min.js"></script>
-  <script src="bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+<!-- Scripts -->
+<script src="jquery.min.js"></script>
+<script src="bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script>
+  // Password Protection
+  document.addEventListener('DOMContentLoaded', function () {
+    const overlay = document.getElementById('password-overlay');
+    const staffPanel = document.getElementById('staff-panel');
+    const input = document.getElementById('staff-password');
+    const btn = document.getElementById('password-submit');
+    const error = document.getElementById('password-error');
+    const PASSWORD = 'MPWEC!';
 
-  <script>
-    // Password Protection
-    document.addEventListener('DOMContentLoaded', function () {
-      const overlay = document.getElementById('password-overlay');
-      const staffPanel = document.getElementById('staff-panel');
-      const input = document.getElementById('staff-password');
-      const btn = document.getElementById('password-submit');
-      const error = document.getElementById('password-error');
-      const PASSWORD = 'MPWEC!';
+    if (localStorage.getItem('staff_access_granted') === 'true') {
+      overlay.style.display = 'none';
+      staffPanel.style.display = 'block';
+    } else {
+      staffPanel.style.display = 'none';
+    }
 
-      if (localStorage.getItem('staff_access_granted') === 'true') {
+    btn.addEventListener('click', () => {
+      if (input.value.trim() === PASSWORD) {
         overlay.style.display = 'none';
         staffPanel.style.display = 'block';
+        localStorage.setItem('staff_access_granted','true');
       } else {
-        staffPanel.style.display = 'none';
+        error.textContent = 'Incorrect password. Please try again.';
+        input.value = '';
+        input.focus();
       }
-
-      btn.addEventListener('click', () => {
-        if (input.value.trim() === PASSWORD) {
-          overlay.style.display = 'none';
-          staffPanel.style.display = 'block';
-          localStorage.setItem('staff_access_granted','true');
-        } else {
-          error.textContent = 'Incorrect password. Please try again.';
-          input.value = '';
-          input.focus();
-        }
-      });
-
-      input.addEventListener('keydown', (e) => {
-        if(e.key === 'Enter') btn.click();
-      });
     });
-  </script>
+
+    input.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') btn.click();
+    });
+  });
+</script>
 </body>
 </html>
