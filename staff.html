@@ -126,17 +126,17 @@
 
       <h3>Internal policy documents</h3>
       <section class="card" style="margin-top:16px;">
-  <h2>Staff Policies & Documents</h2>
-  <div class="pill-container" style="display:flex; flex-wrap:wrap; gap:12px;">
-    <a class="pill curriculum" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download style="background-color:#1e90ff; color:#fff;">Curriculum Policy EOTAS Sep 2025</a>
-    <a class="pill hs" href="MPWEC H&S Policy Sep 25.docx" download style="background-color:#32cd32; color:#fff;">Health & Safety Policy Sep 2025</a>
-    <a class="pill lone" href="MPWEC Lone Working Policy Sep25.docx" download style="background-color:#ff8c00; color:#fff;">Lone Working Policy Sep 2025</a>
-    <a class="pill safeguarding" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download style="background-color:#dc143c; color:#fff;">Safeguarding & Child Protection Policy</a>
-    <a class="pill conduct" href="MPWEC Staff Conduct Policy.docx" download style="background-color:#9370db; color:#fff;">Staff Conduct Policy</a>
-    <a class="pill whistleblowing" href="MPWEC Whistleblowing Policy.docx" download style="background-color:#ff1493; color:#fff;">Whistleblowing Policy</a>
-    <a class="pill data-protection" href="MPWEC Data Protection Policy Sep 2025.docx" download style="background-color:#FF7F50; color:#fff;">Data Protection Policy
-</a>
-</section>
+        <h2>Staff Policies & Documents</h2>
+        <div class="pill-container" style="display:flex; flex-wrap:wrap; gap:12px;">
+          <a class="pill curriculum" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download style="background-color:#1e90ff; color:#fff;">Curriculum Policy EOTAS Sep 2025</a>
+          <a class="pill hs" href="MPWEC H&S Policy Sep 25.docx" download style="background-color:#32cd32; color:#fff;">Health & Safety Policy Sep 2025</a>
+          <a class="pill lone" href="MPWEC Lone Working Policy Sep25.docx" download style="background-color:#ff8c00; color:#fff;">Lone Working Policy Sep 2025</a>
+          <a class="pill safeguarding" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download style="background-color:#dc143c; color:#fff;">Safeguarding & Child Protection Policy</a>
+          <a class="pill conduct" href="MPWEC Staff Conduct Policy.docx" download style="background-color:#9370db; color:#fff;">Staff Conduct Policy</a>
+          <a class="pill whistleblowing" href="MPWEC Whistleblowing Policy.docx" download style="background-color:#ff1493; color:#fff;">Whistleblowing Policy</a>
+          <a class="pill data-protection" href="MPWEC Data Protection Policy Sep 2025.docx" download style="background-color:#FF7F50; color:#fff;">Data Protection Policy</a>
+        </div>
+      </section>
 
       <h3>SharePoint</h3>
       <p>Access risk assessments and internal documents:</p>
@@ -188,7 +188,7 @@
         <textarea id="case-summary" name="case_summary" rows="5" required></textarea>
 
         <label for="case-email">Staff email</label>
-        <input id="case-email" name="case_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
+        <input id="case-email" name="case_email" type="email" value="meadowpathwayscornwall@outlook.com" required />
 
         <button type="submit" class="pill pill-contact">Submit Case Notes</button>
       </form>
@@ -201,7 +201,9 @@
     <p style="margin-top:6px;font-size:.95rem;color:#073155">We are registered with the Information Commissioner’s Office and comply with GDPR regulations.</p>
   </footer>
 
+  <!-- Scripts -->
   <script>
+    // Password unlock
     const PASSWORD = 'MPWEC!';
     const lockedEl = document.getElementById('locked');
     const staffPanel = document.getElementById('staffPanel');
@@ -223,6 +225,32 @@
 
     unlockBtn.addEventListener('click', unlock);
     pwdInput.addEventListener('keypress', e => { if (e.key === 'Enter') unlock(); });
+
+    // Form submission and auto-clear
+    function handleFormClear(formId) {
+      const form = document.getElementById(formId);
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            alert('Form submitted successfully!');
+            form.reset();
+          } else {
+            alert('Oops! There was a problem submitting the form.');
+          }
+        })
+        .catch(() => { alert('Oops! There was a problem submitting the form.'); });
+      });
+    }
+
+    handleFormClear('hoursForm');
+    handleFormClear('caseForm');
   </script>
 
 </body>
