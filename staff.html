@@ -36,6 +36,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       margin-bottom: 24px;
     }
+
     input, textarea, select {
       display: block;
       width: 100%;
@@ -45,8 +46,8 @@
       padding: 8px;
       font-size: 1rem;
     }
+
     button.pill {
-      background-color: #4a7c59;
       color: white;
       border: none;
       border-radius: 25px;
@@ -55,7 +56,16 @@
       font-weight: 600;
       transition: background 0.3s ease;
     }
-    button.pill:hover { background-color: #3c684a; }
+    button.pill:hover { opacity: 0.8; }
+
+    /* Pill colours */
+    .pill-policy { background-color: #4a7c59; }          /* green */
+    .pill-resource { background-color: #7c4a7c; }        /* purple */
+    .pill-safeguarding { background-color: #c27c4a; }    /* orange */
+    .pill-beacon { background-color: #4a7c7c; }          /* teal */
+    .pill-nspcc { background-color: #7c4a4a; }           /* dark red */
+    .pill-cios { background-color: #4a4a7c; }            /* navy */
+    .pill-contact { background-color: #0768a0; }         /* blue */
   </style>
 </head>
 <body>
@@ -80,7 +90,6 @@
   <!-- Main -->
   <main class="main-content">
 
-    <!-- Header -->
     <section class="page-header">
       <h1>Welcome to the Staff Page</h1>
       <p>Meadow Pathways Wellbeing and Education Cornwall</p>
@@ -108,11 +117,11 @@
 
       <h3>Statutory and partner resources</h3>
       <div class="pill-area">
-        <a class="pill pill-policy" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">Keeping children safe in education (Sep 2025)</a>
+        <a class="pill pill-safeguarding" href="KCSIE 2025.pdf" target="_blank">Keeping children safe in education (Sep 2025)</a>
         <a class="pill pill-resource" href="https://www.patreon.com/cw/pookyh/home" target="_blank">PookyH resources</a>
-        <a class="pill pill-resource" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House</a>
-        <a class="pill pill-resource" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC learning</a>
-        <a class="pill pill-safeguarding" href="https://ciossafeguarding.org.uk/scp" target="_blank">Cios safeguarding partnership</a>
+        <a class="pill pill-beacon" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House</a>
+        <a class="pill pill-nspcc" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC learning</a>
+        <a class="pill pill-cios" href="https://ciossafeguarding.org.uk/scp" target="_blank">Cios safeguarding partnership</a>
       </div>
 
       <h3>Internal policy documents</h3>
@@ -123,7 +132,7 @@
         <a class="pill pill-policy" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
         <a class="pill pill-policy" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
         <a class="pill pill-policy" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
-        <a class="pill pill-policy" href="MPWEC Data Protection Policy.docx" download>Data Protection Policy</a>
+        <a class="pill pill-policy" href="MPWEC Data Protection Policy Sep 2025.docx" download>Data Protection Policy</a>
       </div>
 
       <h3>SharePoint</h3>
@@ -184,13 +193,11 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
     <p style="margin-top:6px;font-size:.95rem;color:#073155">We are registered with the Information Commissioner’s Office and comply with GDPR regulations.</p>
   </footer>
 
-  <!-- Password unlock script -->
   <script>
     const PASSWORD = 'MPWEC!';
     const lockedEl = document.getElementById('locked');
