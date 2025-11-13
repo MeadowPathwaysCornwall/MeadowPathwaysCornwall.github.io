@@ -6,407 +6,125 @@
   <title>Staff | Meadow Pathways Cornwall</title>
   <link rel="stylesheet" href="bootstrap.min.css" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Navigation tab colours */
-    .nav-tab.home { background-color: #a7d7c5; }
-    .nav-tab.about { background-color: #bfe3f2; }
-    .nav-tab.eotas { background-color: #f2d1b3; }
-    .nav-tab.safeguarding { background-color: #f9caca; }
-    .nav-tab.staff { background-color: #e3d1f2; }
-    .nav-tab.referral { background-color: #f2f1b3; }
-    .nav-tab.contact { background-color: #d3f2b3; }
-    .nav-tab.treverno { background-color: #c2d6eb; }
-
-    .nav-tab {
-      display: block;
-      color: #073155;
-      text-decoration: none;
-      padding: 8px 14px;
-      border-radius: 12px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      transition: all 0.3s ease;
-    }
-    .nav-tab:hover { opacity: 0.8; transform: translateX(4px); }
-
-    .wrap {
-      background: #ffffffd8;
-      padding: 20px;
-      border-radius: 18px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      margin-bottom: 24px;
-    }
-
-    input, textarea, select {
-      display: block;
-      width: 100%;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      padding: 8px;
-      font-size: 1rem;
-    }
-
-    button.pill {
-      color: white;
-      border: none;
-      border-radius: 25px;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    button.pill:hover { opacity: 0.8; }
-
-    /* Pill colours */
-    .pill-policy { background-color: #4a7c59; }          /* green */
-    .pill-resource { background-color: #7c4a7c; }        /* purple */
-    .pill-safeguarding { background-color: #c27c4a; }    /* orange */
-    .pill-beacon { background-color: #4a7c7c; }          /* teal */
-    .pill-nspcc { background-color: #7c4a4a; }           /* dark red */
-    .pill-cios { background-color: #4a4a7c; }            /* navy */
-    .pill-contact { background-color: #0768a0; }         /* blue */
-
-    /* Utility */
-    .pill-area a.pill { display:inline-block; margin:6px 6px 0 0; text-align:center; }
-    #hoursStatus, #caseStatus { margin-top:12px; font-weight:600; color:var(--text-soft, #073155); }
-  </style>
 </head>
 <body>
 
-<aside class="sidebar">
-  <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo" />
-  <nav class="side-nav">
-    <ul class="nav-tabs">
-      <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
-      <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
-      <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
-      <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
-      <li><a href="staff.html" class="nav-tab staff" aria-current="page">👩‍🏫 Staff</a></li>
-      <li><a href="referral.html" class="nav-tab referral">📝 Referral</a></li>
-      <li><a href="contact.html" class="nav-tab contact">☎️ Contact</a></li>
-      <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
-    </ul>
-  </nav>
-</aside>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo" />
+    <nav class="side-nav">
+      <ul class="nav-tabs">
+        <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
+        <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
+        <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
+        <li><a href="policies.html" class="nav-tab policies">📘 Policies</a></li>
+        <li><a href="referral.html" class="nav-tab referral">📝 Referral</a></li>
+        <li><a href="contact.html" class="nav-tab contact">☎️ Contact</a></li>
+        <li><a href="staff.html" class="nav-tab staff" aria-current="page">👩‍🏫 Staff Only</a></li>
+        <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
+        <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
+      </ul>
+      <div class="pill-area">
+        <a class="pill pill-contact" href="contact.html">Contact us</a>
+        <a class="pill pill-referral" href="referral.html">Referral</a>
+        <a class="pill pill-policy" href="EBSNA.pdf" target="_blank" rel="noopener">EBSNA Document</a>
+      </div>
+    </nav>
+  </aside>
 
-<main class="main-content">
+  <!-- Main -->
+  <main class="main-content">
 
-  <section class="page-header">
-    <h1>Welcome to the Staff Page</h1>
-    <p>Meadow Pathways Wellbeing and Education Cornwall</p>
-  </section>
+    <!-- Header -->
+    <section class="page-header">
+      <h1>Staff Submissions</h1>
+      <p>For Meadow Pathways staff use only. Submit internal updates, notes, or safeguarding alerts securely.</p>
+    </section>
 
-  <!-- Locked gate -->
-  <section id="locked" class="wrap">
-    <h2>Staff access</h2>
-    <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
-    <label for="staffPassword">Enter password:</label>
-    <input id="staffPassword" type="password" autocomplete="current-password" />
-    <button id="unlockBtn" type="button" class="pill pill-contact">Unlock</button>
-    <p id="errorMsg" style="color:red;display:none;">Incorrect password. Please try again.</p>
-  </section>
+    <!-- Staff info / guidance -->
+    <section class="wrap">
+      <h2>Internal Use</h2>
+      <div class="pill-area">
+        <div class="pill pill-staff">
+          🧭 This form is for internal staff communication only. Please ensure all details are clear, factual, and confidential.
+        </div>
+        <div class="pill pill-policy">
+          🔒 All submissions are sent securely to our internal inbox and handled according to GDPR and safeguarding policy.
+        </div>
+      </div>
+    </section>
 
-  <!-- Staff panel (hidden until unlocked) -->
-  <section id="staffPanel" class="wrap" style="display:none;" aria-hidden="true">
+    <!-- Staff form -->
+    <section class="wrap">
+      <h2>Staff submission form</h2>
 
-    <h2>Internal links and information</h2>
-    <ul>
-      <li>General contact: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
-      <li>Michelle: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-      <li>Zoe: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-    </ul>
+      <form id="staff-form" action="https://formspree.io/f/movnvzqp" method="POST" novalidate>
+        <!-- Redirect to Thankyou.html -->
+        <input type="hidden" name="_redirect" value="Thankyou.html" />
 
-    <h3>Statutory and partner resources</h3>
-    <div class="pill-area">
-      <a class="pill pill-safeguarding" href="KCSIE 2025.pdf" target="_blank" rel="noopener noreferrer">Keeping children safe in education (Sep 2025)</a>
-      <a class="pill pill-resource" href="https://www.patreon.com/cw/pookyh/home" target="_blank" rel="noopener noreferrer">PookyH resources</a>
-      <a class="pill pill-beacon" href="https://beaconhouse.org.uk/resources/" target="_blank" rel="noopener noreferrer">Beacon House</a>
-      <a class="pill pill-nspcc" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank" rel="noopener noreferrer">NSPCC learning</a>
-      <a class="pill pill-cios" href="https://ciossafeguarding.org.uk/scp" target="_blank" rel="noopener noreferrer">Cios safeguarding partnership</a>
-    </div>
+        <fieldset>
+          <legend>Staff details</legend>
+          <label for="staff_name">Your name</label>
+          <input id="staff_name" name="staff_name" type="text" class="form-control" required />
 
-    <h3>Internal policy documents</h3>
-    <div class="pill-area" style="display:flex; flex-wrap:wrap; gap:12px;">
-      <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download style="background-color:#1e90ff;">Curriculum Policy</a>
-      <a class="pill" href="MPWEC H&S Policy Sep 25.docx" download style="background-color:#32cd32;">Health & Safety Policy</a>
-      <a class="pill" href="MPWEC Lone Working Policy Sep25.docx" download style="background-color:#ff8c00;">Lone Working Policy</a>
-      <a class="pill" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download style="background-color:#dc143c;">Safeguarding Policy</a>
-      <a class="pill" href="MPWEC Staff Conduct Policy.docx" download style="background-color:#9370db;">Staff Conduct Policy</a>
-      <a class="pill" href="MPWEC Whistleblowing Policy.docx" download style="background-color:#ff1493;">Whistleblowing Policy</a>
-      <a class="pill" href="MPWEC Data Protection Policy Sep 2025.docx" download style="background-color:#FF7F50;">Data Protection Policy</a>
-    </div>
+          <label for="staff_email">Your Meadow Pathways email</label>
+          <input id="staff_email" name="staff_email" type="email" class="form-control" required />
 
-    <h3>SharePoint</h3>
-    <p>Access risk assessments and internal documents:</p>
-    <a class="pill pill-resource" href="https://sharepoint.com/path-to-your-page" target="_blank" rel="noopener noreferrer">Meadow Pathways SharePoint</a>
+          <label for="staff_role">Your role</label>
+          <input id="staff_role" name="staff_role" type="text" class="form-control" />
+        </fieldset>
 
-    <!-- Hours & Expenses Form -->
-    <h3>Log Hours & Expenses</h3>
-    <form id="hoursForm" method="POST"
-          action="https://formspree.io/f/movnvzqp"
-          enctype="multipart/form-data" novalidate>
-      <input type="hidden" name="_subject" value="Hours and Expenses - Meadow Pathways Staff" />
-      <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.com/Thankyou.html" />
+        <fieldset>
+          <legend>Submission details</legend>
+          <label for="category">Category</label>
+          <select id="category" name="category" class="form-control">
+            <option value="">Select…</option>
+            <option>Safeguarding</option>
+            <option>Attendance / EBSA</option>
+            <option>Wellbeing</option>
+            <option>Staff Update</option>
+            <option>Other</option>
+          </select>
 
-      <label for="staff-name">Staff member name</label>
-      <input id="staff-name" name="staff_name" type="text" required />
+          <label for="summary">Summary</label>
+          <input id="summary" name="summary" type="text" class="form-control" required />
 
-      <label for="date-worked">Date</label>
-      <input id="date-worked" name="date_worked" type="date" required />
+          <label for="details">Details</label>
+          <textarea id="details" name="details" rows="6" class="form-control" required></textarea>
 
-      <label for="duration">Duration (hours)</label>
-      <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required />
+          <label>
+            <input type="checkbox" name="staff_confirm" value="yes" required />
+            I confirm the information provided is accurate and appropriate for submission.
+          </label>
+        </fieldset>
 
-      <label for="client">Client / session with</label>
-      <input id="client" name="client_name" type="text" />
+        <div class="pill-area" style="margin-top:10px;">
+          <button type="submit" class="pill pill-staff">Submit form</button>
+          <a class="pill pill-policy" href="policies.html">Policies</a>
+          <a class="pill pill-resource" href="contact.html">Contact Admin</a>
+        </div>
 
-      <label for="expenses">Expenses (£)</label>
-      <input id="expenses" name="expenses_amount" type="number" step="0.01" min="0" />
+        <p id="staff-status" class="form-status"></p>
+      </form>
+    </section>
 
-      <label for="notes">Brief notes</label>
-      <textarea id="notes" name="notes" rows="4"></textarea>
+    <!-- Footer section -->
+    <section class="wrap" style="text-align:center;">
+      <h2>Staff Support Resources</h2>
+      <a class="pill pill-resource" href="values.pdf" target="_blank" rel="noopener">Values (PDF)</a>
+      <a class="pill pill-policy" href="safeguarding.html">Safeguarding</a>
+    </section>
+  </main>
 
-      <label for="email-staff">Staff email</label>
-      <input id="email-staff" name="staff_email" type="email" value="meadowpathwayscornwall@outlook.com" required />
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
+    <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
+  </footer>
 
-      <button type="submit" class="pill pill-contact">Submit hours & expenses</button>
-      <div id="hoursStatus" role="status" aria-live="polite"></div>
-    </form>
-
-    <!-- Case Notes Form -->
-    <h3>Case Notes</h3>
-    <form id="caseForm" method="POST"
-          action="https://formspree.io/f/movnvzqp"
-          enctype="multipart/form-data" novalidate>
-      <input type="hidden" name="_subject" value="Case Notes - Meadow Pathways Staff" />
-      <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.com/Thankyou.html" />
-
-      <label for="case-date">Date</label>
-      <input id="case-date" name="case_date" type="date" required />
-
-      <label for="case-client">Client / session with</label>
-      <input id="case-client" name="case_client" type="text" required />
-
-      <label for="case-summary">Session summary / key points</label>
-      <textarea id="case-summary" name="case_summary" rows="5" required></textarea>
-
-      <label for="case-email">Staff email</label>
-      <input id="case-email" name="case_email" type="email" value="meadowpathwayscornwall@outlook.com" required />
-
-      <button type="submit" class="pill pill-contact">Submit Case Notes</button>
-      <div id="caseStatus" role="status" aria-live="polite"></div>
-    </form>
-
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
-  <p style="margin-top:6px;font-size:.95rem;color:#073155">We are registered with the Information Commissioner’s Office and comply with GDPR regulations.</p>
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-  // -------------------------
-  // Sidebar Active Tab Highlight
-  // -------------------------
-  const tabs = document.querySelectorAll('.nav-tab');
-  tabs.forEach(tab => {
-    try {
-      const href = tab.getAttribute('href') || '';
-      if (href && (window.location.pathname.endsWith('/' + href) || window.location.pathname === href)) {
-        tab.style.opacity = '0.95';
-        tab.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
-        tab.setAttribute('aria-current', 'page');
-      }
-    } catch (e) { /* ignore */ }
-  });
-
-  // -------------------------
-  // Staff Panel Unlock (robust)
-  // -------------------------
-  const PASSWORD = 'MPWEC!';
-  const lockedEl = document.getElementById('locked');
-  const staffPanel = document.getElementById('staffPanel');
-  const unlockBtn = document.getElementById('unlockBtn');
-  const pwdInput = document.getElementById('staffPassword');
-  const errorMsg = document.getElementById('errorMsg');
-
-  function showError(msg) {
-    if (errorMsg) {
-      errorMsg.textContent = msg || 'Incorrect password. Please try again.';
-      errorMsg.style.display = 'block';
-    }
-  }
-  function hideError() { if (errorMsg) errorMsg.style.display = 'none'; }
-
-  function unlockPanel() {
-    if (!pwdInput) { console.warn('Password input not found'); return; }
-    const val = (pwdInput.value || '').trim();
-    if (val === PASSWORD) {
-      if (lockedEl) {
-        lockedEl.style.display = 'none';
-        lockedEl.setAttribute('aria-hidden', 'true');
-      }
-      if (staffPanel) {
-        staffPanel.style.display = 'block';
-        staffPanel.setAttribute('aria-hidden', 'false');
-        const firstInput = staffPanel.querySelector('input,textarea,select,button');
-        if (firstInput) firstInput.focus();
-      }
-      hideError();
-      pwdInput.value = '';
-    } else {
-      showError('Incorrect password. Please try again.');
-      pwdInput.value = '';
-      pwdInput.focus();
-    }
-  }
-
-  try {
-    if (unlockBtn && lockedEl && staffPanel && pwdInput) {
-      unlockBtn.setAttribute('type', 'button');
-      unlockBtn.addEventListener('click', unlockPanel);
-      pwdInput.addEventListener('keyup', function (e) {
-        if (e.key === 'Enter') unlockPanel();
-      });
-      pwdInput.addEventListener('input', hideError);
-    } else {
-      console.warn('Unlock setup missing elements', { unlockBtn, lockedEl, staffPanel, pwdInput });
-    }
-  } catch (e) {
-    console.error('Unlock setup error:', e);
-  }
-
-  // -------------------------
-  // Smooth Scroll for Anchors
-  // -------------------------
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  // -------------------------
-  // Enhanced Form Submission via Formspree (with diagnostics & fallback)
-  // -------------------------
-  async function handleFormSubmission(formId, statusId) {
-    const form = document.getElementById(formId);
-    const status = document.getElementById(statusId);
-    if (!form || !status) return;
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      status.style.color = '';
-      status.textContent = 'Submitting...';
-      const data = new FormData(form);
-
-      function show(msg, color = 'black') {
-        status.style.color = color;
-        status.textContent = msg;
-      }
-
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: data
-        });
-
-        console.log(`[${formId}] fetch response:`, res, 'status:', res.status);
-
-        if (res.ok) {
-          form.reset();
-          show('Submission successful. Redirecting...', 'green');
-          const redirectInput = form.querySelector('input[name="_redirect"]');
-          const to = redirectInput ? redirectInput.value : '';
-          if (to) setTimeout(() => { window.location.href = to; }, 900);
-          return;
-        }
-
-        // parse JSON if present (Formspree returns JSON validation errors)
-        let json = null;
-        let textBody = '';
-        try {
-          json = await res.json();
-          console.log(`[${formId}] response json:`, json);
-        } catch (err) {
-          textBody = await res.text().catch(() => '');
-          console.log(`[${formId}] non-json response text:`, textBody);
-        }
-
-        if (json && json.errors && Array.isArray(json.errors)) {
-          const msg = json.errors.map(err => err.message || JSON.stringify(err)).join('; ');
-          show(`Submission failed: ${msg}`, 'red');
-        } else if (json && json.message) {
-          show(`Submission failed: ${json.message}`, 'red');
-        } else if (textBody) {
-          show(`Submission failed: ${textBody}`, 'red');
-        } else {
-          show(`Submission failed (status ${res.status}). See console for details.`, 'red');
-        }
-
-      } catch (err) {
-        console.error(`[${formId}] fetch error:`, err);
-        show('Network error — attempting fallback POST...', 'orange');
-
-        // Fallback: URL-encoded POST (skips file inputs)
-        try {
-          const params = new URLSearchParams();
-          for (const [k, v] of new FormData(form)) {
-            if (v instanceof File) continue;
-            params.append(k, v);
-          }
-          const res2 = await fetch(form.action, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-            body: params.toString()
-          });
-          console.log(`[${formId}] fallback response:`, res2);
-          if (res2.ok) {
-            form.reset();
-            show('Submission successful (fallback). Redirecting...', 'green');
-            const redirectInput = form.querySelector('input[name="_redirect"]');
-            const to = redirectInput ? redirectInput.value : '';
-            if (to) setTimeout(() => { window.location.href = to; }, 900);
-            return;
-          }
-          const txt = await res2.text().catch(() => '');
-          console.warn(`[${formId}] fallback failed:`, res2.status, txt);
-          show(`Submission failed (fallback). Status ${res2.status}. See console for details.`, 'red');
-        } catch (err2) {
-          console.error(`[${formId}] fallback fetch error:`, err2);
-          show('Submission failed — network or server error. See console for details.', 'red');
-        }
-      }
-    });
-  }
-
-  // Attach handlers
-  handleFormSubmission('hoursForm', 'hoursStatus');
-  handleFormSubmission('caseForm', 'caseStatus');
-
-  // -------------------------
-  // External links safety
-  // -------------------------
-  document.querySelectorAll('a[target="_blank"]').forEach(a => {
-    try {
-      const rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
-      if (!rel.includes('noopener')) rel.push('noopener');
-      if (!rel.includes('noreferrer')) rel.push('noreferrer');
-      a.setAttribute('rel', rel.join(' ').trim());
-    } catch (e) { /* ignore */ }
-  });
-
-});
-</script>
-
+  <!-- Scripts -->
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
