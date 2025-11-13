@@ -69,6 +69,7 @@
 
     /* Utility */
     .pill-area a.pill { display:inline-block; margin:6px 6px 0 0; text-align:center; }
+    #hoursStatus, #caseStatus { margin-top:12px; font-weight:600; color:var(--text-soft, #073155); }
   </style>
 </head>
 <body>
@@ -142,7 +143,9 @@
 
     <!-- Hours & Expenses Form -->
     <h3>Log Hours & Expenses</h3>
-    <form id="hoursForm" method="POST" action="https://formspree.io/f/movnvzqp" enctype="multipart/form-data" novalidate>
+    <form id="hoursForm" method="POST"
+          action="https://formspree.io/f/movnvzqp"
+          enctype="multipart/form-data" novalidate>
       <input type="hidden" name="_subject" value="Hours and Expenses - Meadow Pathways Staff" />
       <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.com/Thankyou.html" />
 
@@ -168,12 +171,14 @@
       <input id="email-staff" name="staff_email" type="email" value="meadowpathwayscornwall@outlook.com" required />
 
       <button type="submit" class="pill pill-contact">Submit hours & expenses</button>
-      <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
+      <div id="hoursStatus" role="status" aria-live="polite"></div>
     </form>
 
     <!-- Case Notes Form -->
     <h3>Case Notes</h3>
-    <form id="caseForm" method="POST" action="https://formspree.io/f/movnvzqp" enctype="multipart/form-data" novalidate>
+    <form id="caseForm" method="POST"
+          action="https://formspree.io/f/movnvzqp"
+          enctype="multipart/form-data" novalidate>
       <input type="hidden" name="_subject" value="Case Notes - Meadow Pathways Staff" />
       <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.com/Thankyou.html" />
 
@@ -190,7 +195,7 @@
       <input id="case-email" name="case_email" type="email" value="meadowpathwayscornwall@outlook.com" required />
 
       <button type="submit" class="pill pill-contact">Submit Case Notes</button>
-      <div id="caseStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
+      <div id="caseStatus" role="status" aria-live="polite"></div>
     </form>
 
   </section>
@@ -239,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function hideError() { if (errorMsg) errorMsg.style.display = 'none'; }
 
   function unlockPanel() {
-    if (!pwdInput) return console.warn('Password input not found');
+    if (!pwdInput) { console.warn('Password input not found'); return; }
     const val = (pwdInput.value || '').trim();
     if (val === PASSWORD) {
       if (lockedEl) {
@@ -290,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // -------------------------
-  // Form Submission via Formspree
+  // Enhanced Form Submission via Formspree (with diagnostics & fallback)
   // -------------------------
   async function handleFormSubmission(formId, statusId) {
     const form = document.getElementById(formId);
@@ -303,6 +308,11 @@ document.addEventListener('DOMContentLoaded', function () {
       status.textContent = 'Submitting...';
       const data = new FormData(form);
 
+      function show(msg, color = 'black') {
+        status.style.color = color;
+        status.textContent = msg;
+      }
+
       try {
         const res = await fetch(form.action, {
           method: 'POST',
@@ -310,28 +320,76 @@ document.addEventListener('DOMContentLoaded', function () {
           body: data
         });
 
+        console.log(`[${formId}] fetch response:`, res, 'status:', res.status);
+
         if (res.ok) {
           form.reset();
-          status.style.color = 'green';
-          status.textContent = 'Submission successful. Redirecting...';
+          show('Submission successful. Redirecting...', 'green');
           const redirectInput = form.querySelector('input[name="_redirect"]');
           const to = redirectInput ? redirectInput.value : '';
-          if (to) setTimeout(() => { window.location.href = to; }, 1000);
-        } else {
-          const result = await res.json().catch(() => null);
-          let msg = 'Submission failed. Please try again.';
-          if (result && result.errors) msg = result.errors.map(err => err.message).join('; ');
-          status.style.color = 'red';
-          status.textContent = msg;
+          if (to) setTimeout(() => { window.location.href = to; }, 900);
+          return;
         }
+
+        // parse JSON if present (Formspree returns JSON validation errors)
+        let json = null;
+        let textBody = '';
+        try {
+          json = await res.json();
+          console.log(`[${formId}] response json:`, json);
+        } catch (err) {
+          textBody = await res.text().catch(() => '');
+          console.log(`[${formId}] non-json response text:`, textBody);
+        }
+
+        if (json && json.errors && Array.isArray(json.errors)) {
+          const msg = json.errors.map(err => err.message || JSON.stringify(err)).join('; ');
+          show(`Submission failed: ${msg}`, 'red');
+        } else if (json && json.message) {
+          show(`Submission failed: ${json.message}`, 'red');
+        } else if (textBody) {
+          show(`Submission failed: ${textBody}`, 'red');
+        } else {
+          show(`Submission failed (status ${res.status}). See console for details.`, 'red');
+        }
+
       } catch (err) {
-        status.style.color = 'red';
-        status.textContent = 'Network error — check connection and try again.';
+        console.error(`[${formId}] fetch error:`, err);
+        show('Network error — attempting fallback POST...', 'orange');
+
+        // Fallback: URL-encoded POST (skips file inputs)
+        try {
+          const params = new URLSearchParams();
+          for (const [k, v] of new FormData(form)) {
+            if (v instanceof File) continue;
+            params.append(k, v);
+          }
+          const res2 = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+            body: params.toString()
+          });
+          console.log(`[${formId}] fallback response:`, res2);
+          if (res2.ok) {
+            form.reset();
+            show('Submission successful (fallback). Redirecting...', 'green');
+            const redirectInput = form.querySelector('input[name="_redirect"]');
+            const to = redirectInput ? redirectInput.value : '';
+            if (to) setTimeout(() => { window.location.href = to; }, 900);
+            return;
+          }
+          const txt = await res2.text().catch(() => '');
+          console.warn(`[${formId}] fallback failed:`, res2.status, txt);
+          show(`Submission failed (fallback). Status ${res2.status}. See console for details.`, 'red');
+        } catch (err2) {
+          console.error(`[${formId}] fallback fetch error:`, err2);
+          show('Submission failed — network or server error. See console for details.', 'red');
+        }
       }
     });
   }
 
-  // Apply to both forms
+  // Attach handlers
   handleFormSubmission('hoursForm', 'hoursStatus');
   handleFormSubmission('caseForm', 'caseStatus');
 
