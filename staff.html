@@ -1,12 +1,3 @@
-Thanks Michelle — I’ve compared your current `staff.html` with the earlier working version you shared and the Formspree example. The main differences that explain why it worked yesterday but not today are:
-
-- **Form attributes**: Formspree requires `enctype="multipart/form-data"`. Your current forms are missing this.  
-- **Redirects**: Formspree prefers absolute URLs for `_redirect`. Relative paths like `Thankyou.html` can fail.  
-- **Consistency**: Your script expects `_redirect` to exist. If it’s missing or invalid, the redirect breaks.  
-
-Here’s a corrected **full `staff.html`** with those fixes applied. You can paste this over your current file:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
