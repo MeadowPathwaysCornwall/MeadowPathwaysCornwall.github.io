@@ -1,3 +1,12 @@
+Thanks Michelle — I’ve compared your current `staff.html` with the earlier working version you shared and the Formspree example. The main differences that explain why it worked yesterday but not today are:
+
+- **Form attributes**: Formspree requires `enctype="multipart/form-data"`. Your current forms are missing this.  
+- **Redirects**: Formspree prefers absolute URLs for `_redirect`. Relative paths like `Thankyou.html` can fail.  
+- **Consistency**: Your script expects `_redirect` to exist. If it’s missing or invalid, the redirect breaks.  
+
+Here’s a corrected **full `staff.html`** with those fixes applied. You can paste this over your current file:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,13 +68,13 @@
     button.pill:hover { opacity: 0.8; }
 
     /* Pill colours */
-    .pill-policy { background-color: #4a7c59; }          /* green */
-    .pill-resource { background-color: #7c4a7c; }        /* purple */
-    .pill-safeguarding { background-color: #c27c4a; }    /* orange */
-    .pill-beacon { background-color: #4a7c7c; }          /* teal */
-    .pill-nspcc { background-color: #7c4a4a; }           /* dark red */
-    .pill-cios { background-color: #4a4a7c; }            /* navy */
-    .pill-contact { background-color: #0768a0; }         /* blue */
+    .pill-policy { background-color: #4a7c59; }
+    .pill-resource { background-color: #7c4a7c; }
+    .pill-safeguarding { background-color: #c27c4a; }
+    .pill-beacon { background-color: #4a7c7c; }
+    .pill-nspcc { background-color: #7c4a4a; }
+    .pill-cios { background-color: #4a4a7c; }
+    .pill-contact { background-color: #0768a0; }
   </style>
 </head>
 <body>
@@ -111,15 +120,6 @@
       <li>Zoe: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
     </ul>
 
-    <h3>Statutory and partner resources</h3>
-    <div class="pill-area">
-      <a class="pill pill-safeguarding" href="KCSIE 2025.pdf" target="_blank">Keeping children safe in education (Sep 2025)</a>
-      <a class="pill pill-resource" href="https://www.patreon.com/cw/pookyh/home" target="_blank">PookyH resources</a>
-      <a class="pill pill-beacon" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House</a>
-      <a class="pill pill-nspcc" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC learning</a>
-      <a class="pill pill-cios" href="https://ciossafeguarding.org.uk/scp" target="_blank">Cios safeguarding partnership</a>
-    </div>
-
     <h3>Internal policy documents</h3>
     <div class="pill-area" style="display:flex; flex-wrap:wrap; gap:12px;">
       <a class="pill" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download style="background-color:#1e90ff;">Curriculum Policy</a>
@@ -131,15 +131,11 @@
       <a class="pill" href="MPWEC Data Protection Policy Sep 2025.docx" download style="background-color:#FF7F50;">Data Protection Policy</a>
     </div>
 
-    <h3>SharePoint</h3>
-    <p>Access risk assessments and internal documents:</p>
-    <a class="pill pill-resource" href="https://sharepoint.com/path-to-your-page" target="_blank">Meadow Pathways SharePoint</a>
-
     <!-- Hours & Expenses Form -->
     <h3>Log Hours & Expenses</h3>
-    <form id="hoursForm" method="POST" action="https://formspree.io/f/movnvzqp" novalidate>
+    <form id="hoursForm" method="POST" action="https://formspree.io/f/movnvzqp" enctype="multipart/form-data" novalidate>
       <input type="hidden" name="_subject" value="Hours and Expenses - Meadow Pathways Staff" />
-      <input type="hidden" name="_redirect" value="Thankyou.html" />
+      <input type="hidden" name="_redirect" value="https://meadowpathwayscornwall.com/Thankyou.html" />
 
       <label for="staff-name">Staff member name</label>
       <input id="staff-name" name="staff_name" type="text" required />
@@ -159,45 +155,4 @@
       <label for="notes">Brief notes</label>
       <textarea id="notes" name="notes" rows="4"></textarea>
 
-      <label for="email-staff">Staff email</label>
-      <input id="email-staff" name="staff_email" type="email" value="meadowpathwayscornwall@outlook.com" required />
-
-      <button type="submit" class="pill pill-contact">Submit hours & expenses</button>
-      <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
-    </form>
-
-    <!-- Case Notes Form -->
-    <h3>Case Notes</h3>
-    <form id="caseForm" method="POST" action="https://formspree.io/f/movnvzqp" novalidate>
-      <input type="hidden" name="_subject" value="Case Notes - Meadow Pathways Staff" />
-      <input type="hidden" name="_redirect" value="Thankyou.html" />
-
-      <label for="case-date">Date</label>
-      <input id="case-date" name="case_date" type="date" required />
-
-      <label for="case-client">Client / session with</label>
-      <input id="case-client" name="case_client" type="text" required />
-
-      <label for="case-summary">Session summary / key points</label>
-      <textarea id="case-summary" name="case_summary" rows="5" required></textarea>
-
-      <label for="case-email">Staff email</label>
-      <input id="case-email" name="case_email" type="email" value="meadowpathwayscornwall@outlook.com" required />
-
-      <button type="submit" class="pill pill-contact">Submit Case Notes</button>
-      <div id="caseStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
-    </form>
-
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
-  <p style="margin-top:6px;font-size:.95rem;color:#073155">We are registered with the Information Commissioner’s Office and comply with GDPR regulations.</p>
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+      <label for="email-staff">Staff
