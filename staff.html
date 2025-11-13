@@ -1,133 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff | Meadow Pathways Cornwall</title>
-  <link rel="stylesheet" href="bootstrap.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Meadow Pathways Wellbeing and Education Cornwall</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <header class="header">
+    <h1>Contact Meadow Pathways</h1>
+  </header>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo" />
-    <nav class="side-nav">
-      <ul class="nav-tabs">
-        <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
-        <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
-        <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
-        <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
-        <li><a href="staff.html" class="nav-tab staff" aria-current="page">👩‍🏫 Staff</a></li>
-        <li><a href="referral.html" class="nav-tab referral">📝 Referral</a></li>
-        <li><a href="contact.html" class="nav-tab contact">☎️ Contact</a></li>
-        <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
-      </ul>
-    </nav>
-  </aside>
+  <main class="content">
+    <section class="contact-section">
+      <h2>Contact or Refer</h2>
+      <p>Please use this form to contact us or make a referral. All details are confidential and securely handled.</p>
 
-  <!-- Main -->
-  <main class="main-content">
+      <!-- Contact Form (Formspree secure endpoint) -->
+      <form 
+        id="contactForm" 
+        action="https://formspree.io/f/movnvzqp" 
+        method="POST"
+        enctype="multipart/form-data">
 
-    <!-- Header -->
-    <section class="page-header">
-      <h1>Welcome to the Staff Page</h1>
-      <p>Meadow Pathways Wellbeing and Education Cornwall</p>
-    </section>
+        <!-- Required hidden field for Formspree -->
+        <input type="hidden" name="_subject" value="New Contact / Referral Submission - Meadow Pathways">
+        <input type="hidden" name="_format" value="plain">
+        <input type="hidden" name="_replyto" id="replyto">
 
-    <!-- Locked section -->
-    <section id="locked" class="wrap">
-      <h2>Staff access</h2>
-      <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
-      <label for="staffPassword">Enter password:</label>
-      <input id="staffPassword" type="password" />
-      <button id="unlockBtn" class="pill pill-contact">Unlock</button>
-    </section>
+        <!-- Honeypot (spam protection) -->
+        <p style="display:none;">
+          Don’t fill this out if you’re human: <input name="bot-field">
+        </p>
 
-    <!-- Staff panel (hidden until unlocked) -->
-    <section id="staffPanel" class="wrap" style="display:none;" aria-hidden="true">
+        <!-- User fields -->
+        <label for="name">Full Name</label>
+        <input type="text" name="name" id="name" required>
 
-      <h2>Internal links and information</h2>
-      <ul>
-        <li>Formspree endpoint: <code>https://formspree.io/f/movnvzqp</code></li>
-        <li>General contact: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
-        <li>Michelle: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-        <li>Zoe: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-      </ul>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
 
-      <h3>Statutory and partner resources</h3>
-      <div class="pill-area">
-        <a class="pill pill-policy" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">Keeping children safe in education (Sep 2025)</a>
-        <a class="pill pill-resource" href="https://www.patreon.com/cw/pookyh/home" target="_blank">PookyH resources</a>
-        <a class="pill pill-resource" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House</a>
-        <a class="pill pill-resource" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC learning</a>
-        <a class="pill pill-safeguarding" href="https://ciossafeguarding.org.uk/scp" target="_blank">Cios safeguarding partnership</a>
-      </div>
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject" placeholder="e.g. Referral, Enquiry, Invoice" required>
 
-      <h3>Internal policy documents</h3>
-      <div class="pill-area">
-        <a class="pill pill-policy" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy</a>
-        <a class="pill pill-policy" href="MPWEC H&S Policy Sep 25.docx" download>Health & Safety Policy</a>
-        <a class="pill pill-policy" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
-        <a class="pill pill-policy" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
-        <a class="pill pill-policy" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
-        <a class="pill pill-policy" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
-      </div>
+        <label for="message">Message / Referral Details</label>
+        <textarea name="message" id="message" rows="6" required></textarea>
 
-      <h3>SharePoint</h3>
-      <p>Access risk assessments and internal documents:</p>
-      <a class="pill pill-resource" href="https://sharepoint.com/path-to-your-page" target="_blank">Meadow Pathways SharePoint</a>
+        <!-- Optional file upload (for Xero or attachments) -->
+        <label for="file">Attach file (optional, e.g. referral form or invoice)</label>
+        <input type="file" name="file" id="file" accept=".pdf,.doc,.docx,.jpg,.png">
 
-      <h3>Hours logged</h3>
-      <form id="hoursForm" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="Hours logged - Meadow Pathways Staff" />
-        <input type="hidden" name="_redirect" value="Thankyou.html" />
-
-        <label for="staff-name">Staff member name</label>
-        <input id="staff-name" name="staff_name" type="text" required />
-
-        <label for="date-worked">Date</label>
-        <input id="date-worked" name="date_worked" type="date" required />
-
-        <label for="duration">Duration (hours)</label>
-        <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required />
-
-        <label for="client">Client / session with</label>
-        <input id="client" name="client_name" type="text" />
-
-        <label for="notes">Brief notes</label>
-        <textarea id="notes" name="notes" rows="4"></textarea>
-
-        <label for="email-staff">Staff email</label>
-        <input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
-
-        <button type="submit" class="pill pill-contact">Submit hours</button>
-        <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
+        <!-- Submission -->
+        <button type="submit">Submit</button>
       </form>
-      <p style="margin-top:8px;color:var(--text-soft)">Remember to log hours promptly and ensure client notes comply with Meadow Pathways record-keeping guidance.</p>
+
+      <!-- Confirmation message placeholder -->
+      <p id="formResponse" class="form-response"></p>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
-    <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
+  <footer class="footer">
+    <p>&copy; 2025 Meadow Pathways Wellbeing and Education Cornwall</p>
   </footer>
 
-  <!-- Unlock + Form Script -->
   <script>
-    const PASSWORD = 'MPWEC!';
-    const lockedEl = document.getElementById('locked');
-    const staffPanel = document.getElementById('staffPanel');
-    const unlockBtn = document.getElementById('unlockBtn');
-    const pwdInput = document.getElementById('staffPassword');
+    // Xero-friendly and user confirmation
+    document.getElementById("contactForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
 
-    function unlock() {
-      const val = (pwdInput.value || '').trim();
-      if (val === PASSWORD) {
-        lockedEl.style.display = 'none';
-        staffPanel.style.display = 'block';
-        lockedEl.setAttribute('aria-hidden', 'true');
-        staffPanel.setAttribute('aria-hidden', 'false');
-        const staffNameInput = document.getElementById('staff-name');
-        if (staff
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" }
+        });
+
+        const messageEl = document.getElementById("formResponse");
+        if (response.ok) {
+          messageEl.textContent = "✅ Thank you — your form has been sent securely and a copy will be shared with our accounts team.";
+          messageEl.style.color = "green";
+          form.reset();
+        } else {
+          messageEl.textContent = "⚠️ There was a problem sending your message. Please try again or email us directly.";
+          messageEl.style.color = "red";
+        }
+      } catch (error) {
+        document.getElementById("formResponse").textContent = "⚠️ Network error. Please try again later.";
+      }
+    });
+  </script>
+</body>
+</html>
