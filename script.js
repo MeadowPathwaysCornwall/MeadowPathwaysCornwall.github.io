@@ -1,126 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Staff | Meadow Pathways Cornwall</title>
-  <link rel="stylesheet" href="bootstrap.min.css" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+// script.js - keep active-tab highlight, staff unlock, smooth anchors, hours submit, add noopener to external links
+document.addEventListener('DOMContentLoaded', function () {
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <img src="Logo.png" alt="Meadow Pathways Logo" class="sidebar-logo" />
-    <nav class="side-nav">
-      <ul class="nav-tabs">
-        <li><a href="index.html" class="nav-tab home">🏠 Home</a></li>
-        <li><a href="about.html" class="nav-tab about">ℹ️ About Us</a></li>
-        <li><a href="eotas.html" class="nav-tab eotas">🔍 EOTAS</a></li>
-        <li><a href="safeguarding.html" class="nav-tab safeguarding">🛡 Safeguarding</a></li>
-        <li><a href="staff.html" class="nav-tab staff" aria-current="page">👩‍🏫 Staff</a></li>
-        <li><a href="referral.html" class="nav-tab referral">📝 Referral</a></li>
-        <li><a href="contact.html" class="nav-tab contact">☎️ Contact</a></li>
-        <li><a href="treverno.html" class="nav-tab treverno">🏡 Treverno Meadows</a></li>
-      </ul>
-    </nav>
-  </aside>
+  // --- Sidebar Active Tab Highlight ---
+  const tabs = document.querySelectorAll('.nav-tab');
+  tabs.forEach(tab => {
+    try {
+      const href = tab.getAttribute('href') || '';
+      if (href && (window.location.pathname === href || window.location.pathname.endsWith('/' + href))) {
+        tab.style.opacity = '0.95';
+        tab.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
+        tab.setAttribute('aria-current', 'page');
+      }
+    } catch (e) {}
+  });
 
-  <!-- Main -->
-  <main class="main-content">
+  // --- Staff Panel Unlock ---
+  const PASSWORD = 'MPWEC!';
+  const lockedEl = document.getElementById('locked');
+  const staffPanel = document.getElementById('staffPanel');
+  const unlockBtn = document.getElementById('unlockBtn');
+  const pwdInput = document.getElementById('staffPassword');
 
-    <!-- Header -->
-    <section class="page-header">
-      <h1>Welcome to the Staff Page</h1>
-      <p>Meadow Pathways Wellbeing and Education Cornwall</p>
-    </section>
-
-    <!-- Password lock -->
-    <section id="locked" class="wrap">
-      <h2>Staff access</h2>
-      <p>This page contains protected resources and notes for staff use only. Please do not share externally.</p>
-      <label for="staffPassword">Enter password to unlock:</label>
-      <input id="staffPassword" type="password" />
-      <button id="unlockBtn" class="pill pill-contact">Unlock</button>
-    </section>
-
-    <!-- Staff panel (hidden until unlocked) -->
-    <section id="staffPanel" class="wrap" style="display:none;" aria-hidden="true">
-      <h2>Internal links and information</h2>
-      <ul>
-        <li>Formspree endpoint: <code>https://formspree.io/f/movnvzqp</code></li>
-        <li>General contact: <a href="mailto:meadowpathwayscornwall@outlook.com">meadowpathwayscornwall@outlook.com</a></li>
-        <li>Michelle: <a href="mailto:Michelle.Pascoe@meadowpathwayscornwall.com">Michelle.Pascoe@meadowpathwayscornwall.com</a></li>
-        <li>Zoe: <a href="mailto:Zoe.Waitz@meadowpathwayscornwall.com">Zoe.Waitz@meadowpathwayscornwall.com</a></li>
-      </ul>
-
-      <h3>Statutory and partner resources</h3>
-      <div class="pill-area">
-        <a class="pill pill-policy" href="https://assets.publishing.service.gov.uk/media/68add931969253904d155860/Keeping_children_safe_in_education_from_1_September_2025.pdf" target="_blank">Keeping children safe in education (Sep 2025)</a>
-        <a class="pill pill-resource" href="https://www.patreon.com/cw/pookyh/home" target="_blank">PookyH resources</a>
-        <a class="pill pill-resource" href="https://beaconhouse.org.uk/resources/" target="_blank">Beacon House</a>
-        <a class="pill pill-resource" href="https://learning.nspcc.org.uk/research-resources/resources" target="_blank">NSPCC learning</a>
-        <a class="pill pill-safeguarding" href="https://ciossafeguarding.org.uk/scp" target="_blank">Cios safeguarding partnership</a>
-      </div>
-
-      <h3>Internal policy documents</h3>
-      <div class="pill-area">
-        <a class="pill pill-policy" href="MPWEC Curriculum Policy EOTAS September 2025.docx" download>Curriculum Policy</a>
-        <a class="pill pill-policy" href="MPWEC H&S Policy Sep 25.docx" download>Health & Safety Policy</a>
-        <a class="pill pill-policy" href="MPWEC Lone Working Policy Sep25.docx" download>Lone Working Policy</a>
-        <a class="pill pill-policy" href="MPWEC Safeguarding and Child Protection Policy Sep 2025.docx" download>Safeguarding Policy</a>
-        <a class="pill pill-policy" href="MPWEC Staff Conduct Policy.docx" download>Staff Conduct Policy</a>
-        <a class="pill pill-policy" href="MPWEC Whistleblowing Policy.docx" download>Whistleblowing Policy</a>
-      </div>
-
-      <h3>SharePoint</h3>
-      <p>Access risk assessments and internal documents:</p>
-      <a class="pill pill-resource" href="https://sharepoint.com/path-to-your-page" target="_blank">Meadow Pathways SharePoint</a>
-
-      <h3>Hours logged</h3>
-      <form id="hoursForm" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="Hours logged - Meadow Pathways Staff" />
-        <input type="hidden" name="_redirect" value="Thankyou.html" />
-
-        <label for="staff-name">Staff member name</label>
-        <input id="staff-name" name="staff_name" type="text" required />
-
-        <label for="date-worked">Date</label>
-        <input id="date-worked" name="date_worked" type="date" required />
-
-        <label for="duration">Duration (hours)</label>
-        <input id="duration" name="duration_hours" type="number" step="0.25" min="0" required />
-
-        <label for="client">Client / session with</label>
-        <input id="client" name="client_name" type="text" />
-
-        <label for="notes">Brief notes</label>
-        <textarea id="notes" name="notes" rows="4"></textarea>
-
-        <label for="email-staff">Staff email</label>
-        <input id="email-staff" name="staff_email" type="email" value="Michelle.Pascoe@meadowpathwayscornwall.com" required />
-
-        <button type="submit" class="pill pill-contact">Submit hours</button>
-        <div id="hoursStatus" role="status" aria-live="polite" style="margin-top:12px;color:var(--text-soft);font-weight:600"></div>
-      </form>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>Meadow Pathways Wellbeing &amp; Education Cornwall Ltd © 2025</p>
-    <address>Michelle: 07932 243358 | Zoe: 07775 733587</address>
-  </footer>
-
-  <!-- Scripts -->
-  <script>
-    const PASSWORD = 'MPWEC!';
-    const lockedEl = document.getElementById('locked');
-    const staffPanel = document.getElementById('staffPanel');
-    const unlockBtn = document.getElementById('unlockBtn');
-    const pwdInput = document.getElementById('staffPassword');
-
-    function unlock() {
+  if (unlockBtn && lockedEl && staffPanel && pwdInput) {
+    unlockBtn.addEventListener('click', function () {
       const val = (pwdInput.value || '').trim();
       if (val === PASSWORD) {
         lockedEl.style.display = 'none';
@@ -134,14 +36,71 @@
         pwdInput.focus();
         alert('Incorrect password. If you need access, please contact Michelle or Zoe.');
       }
-    }
-
-    unlockBtn.addEventListener('click', unlock);
-    pwdInput.addEventListener('keyup', function (e) {
-      if (e.key === 'Enter') unlock();
     });
 
-    // Hours form submit
-    const hoursForm = document.getElementById('hoursForm');
-    const hoursStatus = document.getElementById('hoursStatus');
-    const FORMSPREE = 'https://formspree.io/f/m
+    pwdInput.addEventListener('keyup', function (e) {
+      if (e.key === 'Enter') {
+        unlockBtn.click();
+      }
+    });
+  }
+
+  // --- Auto-scroll Smooth for Anchors ---
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const sel = this.getAttribute('href');
+      const target = document.querySelector(sel);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // --- Hours form submit (Formspree) ---
+  const hoursForm = document.getElementById('hoursForm');
+  const hoursStatus = document.getElementById('hoursStatus');
+  const FORMSPREE = 'https://formspree.io/f/movnvzqp';
+
+  if (hoursForm && hoursStatus) {
+    hoursForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      hoursStatus.textContent = 'Submitting...';
+      const data = new FormData(hoursForm);
+      try {
+        const res = await fetch(FORMSPREE, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+        if (res.ok) {
+          hoursForm.reset();
+          hoursStatus.textContent = 'Hours submitted. Thank you.';
+          setTimeout(() => { window.location.href = 'Thankyou.html'; }, 900);
+        } else {
+          let msg = 'Submission error — please try again later.';
+          try {
+            const result = await res.json();
+            if (result && result.errors) {
+              msg = result.errors.map(err => err.message).join('; ');
+            }
+          } catch (err) { /* ignore JSON parse errors */ }
+          hoursStatus.textContent = msg;
+        }
+      } catch (err) {
+        hoursStatus.textContent = 'Network error — check connection and try again.';
+      }
+    });
+  }
+
+  // --- Ensure external links use rel="noopener noreferrer" when opening in a new tab ---
+  document.querySelectorAll('a[target="_blank"]').forEach(a => {
+    try {
+      const rel = (a.getAttribute('rel') || '').split(/\s+/).filter(Boolean);
+      if (!rel.includes('noopener')) rel.push('noopener');
+      if (!rel.includes('noreferrer')) rel.push('noreferrer');
+      a.setAttribute('rel', rel.join(' ').trim());
+    } catch (e) { /* safe-fail */ }
+  });
+
+});
