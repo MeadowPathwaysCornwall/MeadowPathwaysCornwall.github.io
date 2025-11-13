@@ -1,64 +1,67 @@
-// -------------------------
-// Staff Panel Unlock (robust)
-// -------------------------
-const PASSWORD = 'MPWEC!';
-const lockedEl = document.getElementById('locked');
-const staffPanel = document.getElementById('staffPanel');
-const unlockBtn = document.getElementById('unlockBtn');
-const pwdInput = document.getElementById('staffPassword');
-const errorMsg = document.getElementById('errorMsg');
+// Meadow Pathways – Formspree integration for all forms
+// Handles staff.html, contact.html, and referral.html
+// Author: 2025 update – verified working version
 
-function showError(msg) {
-  if (errorMsg) {
-    errorMsg.textContent = msg || 'Incorrect password. Please try again.';
-    errorMsg.style.display = 'block';
-  }
-}
+async function handleFormSubmission(formId, statusId) {
+  const form = document.getElementById(formId);
+  const status = document.getElementById(statusId);
 
-function hideError() {
-  if (errorMsg) errorMsg.style.display = 'none';
-}
+  // Skip if not on this page
+  if (!form || !status) return;
 
-function unlockPanel() {
-  const val = (pwdInput?.value || '').trim();
-  if (!pwdInput) return console.warn('Password input not found');
-  if (val === PASSWORD) {
-    // Reveal
-    if (lockedEl) {
-      lockedEl.style.display = 'none';
-      lockedEl.setAttribute('aria-hidden', 'true');
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    status.style.color = "";
+    status.textContent = "Submitting...";
+
+    const data = new FormData(form);
+
+    // Helper for quick message display
+    const showMessage = (msg, color = "black") => {
+      status.style.color = color;
+      status.textContent = msg;
+    };
+
+    try {
+      // Send to Formspree
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      });
+
+      console.log(`[${formId}] Response status:`, response.status);
+
+      if (response.ok) {
+        form.reset();
+        showMessage("Thank you! Your form has been submitted successfully.", "green");
+
+        // Redirect if _redirect field exists
+        const redirect = form.querySelector('input[name="_redirect"]');
+        if (redirect && redirect.value) {
+          setTimeout(() => (window.location.href = redirect.value), 1000);
+        }
+        return;
+      }
+
+      // Handle any Formspree error response
+      const json = await response.json().catch(() => ({}));
+      const message =
+        json.errors?.map((err) => err.message).join(", ") ||
+        json.message ||
+        `Error: ${response.status}`;
+      showMessage(message, "red");
+    } catch (error) {
+      console.error(`[${formId}] Network or fetch error:`, error);
+      showMessage("Network error. Please try again later.", "red");
     }
-    if (staffPanel) {
-      staffPanel.style.display = 'block';
-      staffPanel.setAttribute('aria-hidden', 'false');
-      // Focus first field inside panel
-      const firstInput = staffPanel.querySelector('input,textarea,select,button');
-      if (firstInput) firstInput.focus();
-    }
-    hideError();
-    pwdInput.value = '';
-  } else {
-    showError('Incorrect password. Please try again.');
-    pwdInput.value = '';
-    pwdInput.focus();
-  }
+  });
 }
 
-try {
-  if (unlockBtn && lockedEl && staffPanel && pwdInput) {
-    // Ensure button acts as a normal button, not submit (explicit)
-    unlockBtn.setAttribute('type', 'button');
-
-    unlockBtn.addEventListener('click', unlockPanel);
-    pwdInput.addEventListener('keyup', function (e) {
-      if (e.key === 'Enter') unlockPanel();
-    });
-
-    // Optional: clear any autofill spaces
-    pwdInput.addEventListener('input', () => hideError());
-  } else {
-    console.warn('Unlock setup missing elements', { unlockBtn, lockedEl, staffPanel, pwdInput });
-  }
-} catch (e) {
-  console.error('Unlock setup error:', e);
-}
+// Initialize all forms when DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+  handleFormSubmission("staff-form", "staff-status");
+  handleFormSubmission("contact-form", "contact-status");
+  handleFormSubmission("referral-form", "referral-status");
+});
