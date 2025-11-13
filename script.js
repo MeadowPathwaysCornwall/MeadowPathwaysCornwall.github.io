@@ -1,5 +1,4 @@
-// Meadow Pathways – handles all form submissions
-
+// Meadow Pathways – form handler
 async function handleFormSubmission(formId, statusId) {
   const form = document.getElementById(formId);
   const status = document.getElementById(statusId);
@@ -10,9 +9,20 @@ async function handleFormSubmission(formId, statusId) {
     status.style.color = '';
     status.textContent = 'Submitting...';
 
+    // Ensure _replyto is set
+    const emailField = form.querySelector('input[type="email"]');
+    const hiddenReply = form.querySelector('input[name="_replyto"]');
+    if (emailField && !hiddenReply) {
+      const hidden = document.createElement('input');
+      hidden.type = 'hidden';
+      hidden.name = '_replyto';
+      hidden.value = emailField.value || '';
+      form.appendChild(hidden);
+    }
+
     const data = new FormData(form);
 
-    function show(msg, color = 'black') {
+    function show(msg, color='black') {
       status.style.color = color;
       status.textContent = msg;
     }
@@ -20,50 +30,30 @@ async function handleFormSubmission(formId, statusId) {
     try {
       const res = await fetch(form.action, {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
+        headers: { 'Accept':'application/json' },
         body: data
       });
-
-      console.log(`[${formId}] fetch response`, res, 'status:', res.status);
-
       if (res.ok) {
         form.reset();
         show('Submission successful. Redirecting...', 'green');
-
         const redirectInput = form.querySelector('input[name="_redirect"]');
-        const to = redirectInput ? redirectInput.value : '';
-        if (to) setTimeout(() => { window.location.href = to; }, 900);
+        if (redirectInput && redirectInput.value) {
+          setTimeout(()=>{window.location.href=redirectInput.value;},900);
+        }
         return;
       }
-
-      // Try JSON error
-      let bodyText = '';
-      let json = null;
-      try {
-        json = await res.json();
-      } catch {
-        bodyText = await res.text().catch(() => '');
-      }
-
-      if (json && json.errors && Array.isArray(json.errors)) {
-        const msg = json.errors.map(err => err.message || JSON.stringify(err)).join('; ');
-        show(`Submission failed: ${msg}`, 'red');
-      } else if (json && json.message) {
-        show(`Submission failed: ${json.message}`, 'red');
-      } else if (bodyText) {
-        show(`Submission failed: ${bodyText}`, 'red');
-      } else {
-        show(`Submission failed (status ${res.status}). See console for details.`, 'red');
-      }
-    } catch (err) {
-      console.error(`[${formId}] fetch error:`, err);
-      show('Network error — see console for details.', 'orange');
+      let json=null;
+      try { json = await res.json(); } catch {}
+      if (json && json.errors) show('Submission failed: ' + json.errors.map(e=>e.message).join('; '),'red');
+      else show(`Submission failed (status ${res.status}). See console.`,'red');
+    } catch(err){
+      console.error(err);
+      show('Network error — check connection.','red');
     }
   });
 }
 
-// Init forms
-document.addEventListener('DOMContentLoaded', () => {
-  handleFormSubmission('staff-hours-form', 'staff-hours-status');
-  handleFormSubmission('session-log-form', 'session-log-status');
+document.addEventListener('DOMContentLoaded', ()=>{
+  handleFormSubmission('staff-hours-form','staff-hours-status');
+  handleFormSubmission('session-log-form','session-log-status');
 });
